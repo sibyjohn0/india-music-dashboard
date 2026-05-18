@@ -59,12 +59,13 @@ function renderStats(data) {
   const trending = videos.filter(v => v.source === "trending_chart").length;
   const newest = videos.reduce((a, b) => a.published_at > b.published_at ? a : b, videos[0]);
 
+  const indie = videos.filter(v => v.category === "indie").length;
   const stats = [
     { label: "Total Videos", value: videos.length, sub: `${trending} from trending chart` },
+    { label: "Indie / Independent", value: indie, sub: `${videos.length - indie} mainstream` },
     { label: "Combined Views", value: fmt(totalViews), sub: "across all tracked videos" },
     { label: "Avg Engagement", value: avgEng.toFixed(2) + "%", sub: "(likes + comments) / views" },
     { label: "Most Recent Upload", value: newest ? daysAgo(newest.published_at) : "—", sub: newest ? fmtDate(newest.published_at) : "" },
-    { label: "Top Views", value: fmt(videos[0]?.views || 0), sub: videos[0]?.title?.slice(0, 30) + "…" || "" },
   ];
 
   document.getElementById("stats-row").innerHTML = stats.map(s => `
@@ -157,9 +158,9 @@ function renderTable(videos) {
       <td class="num">${fmt(v.likes)}</td>
       <td class="num">${fmt(v.comments)}</td>
       <td class="num eng-rate">${v.engagement_rate}%</td>
-      <td><span class="source-pill ${v.source === "trending_chart" ? "source-trend" : "source-kw"}">
-        ${v.source === "trending_chart" ? "Trending" : "Keyword"}
-      </span></td>
+      <td>
+        <span class="source-pill ${v.category === "indie" ? "source-indie" : "source-main"}">${v.category === "indie" ? "Indie" : "Mainstream"}</span>
+      </td>
     </tr>`).join("");
 }
 
@@ -168,11 +169,13 @@ function bindControls() {
     const q = document.getElementById("search").value.toLowerCase();
     const sortBy = document.getElementById("sort-by").value;
     const src = document.getElementById("filter-source").value;
+    const cat = document.getElementById("filter-category").value;
 
     let videos = allVideos.filter(v => {
       const matchQ = !q || v.title.toLowerCase().includes(q) || v.channel.toLowerCase().includes(q);
       const matchSrc = src === "all" || v.source === src;
-      return matchQ && matchSrc;
+      const matchCat = cat === "all" || v.category === cat;
+      return matchQ && matchSrc && matchCat;
     });
 
     videos = [...videos].sort((a, b) => {
@@ -186,6 +189,7 @@ function bindControls() {
   document.getElementById("search").addEventListener("input", applyFilters);
   document.getElementById("sort-by").addEventListener("change", applyFilters);
   document.getElementById("filter-source").addEventListener("change", applyFilters);
+  document.getElementById("filter-category").addEventListener("change", applyFilters);
 }
 
 init();

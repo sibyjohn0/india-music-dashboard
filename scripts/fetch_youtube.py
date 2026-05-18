@@ -15,7 +15,7 @@ REGION = "IN"
 MUSIC_CATEGORY = "10"
 MAX_RESULTS = 50
 
-KEYWORD_SEARCHES = [
+MAINSTREAM_SEARCHES = [
     "new hindi song 2026",
     "trending punjabi song 2026",
     "new tamil song 2026",
@@ -23,6 +23,24 @@ KEYWORD_SEARCHES = [
     "bollywood hits 2026",
     "new kannada song 2026",
     "new malayalam song 2026",
+]
+
+INDIE_SEARCHES = [
+    "indie india music 2026",
+    "independent artist india music",
+    "indie hindi music 2026",
+    "Indian bedroom pop",
+    "Indian lo-fi music 2026",
+    "underground hip hop india 2026",
+    "Indian indie pop 2026",
+    "Indian producer beats 2026",
+    "Indian folk fusion 2026",
+    "Indian electronic music 2026",
+    "Indian jazz 2026",
+    "Indian rapper underground 2026",
+    "indie tamil music 2026",
+    "indie bengali music 2026",
+    "independent musician india",
 ]
 
 
@@ -48,7 +66,7 @@ def fetch_trending():
     return data.get("items", [])
 
 
-def fetch_search_ids(query):
+def fetch_search_ids(query, max_results=10):
     data = get("search", {
         "part": "id",
         "q": query,
@@ -56,7 +74,7 @@ def fetch_search_ids(query):
         "videoCategoryId": MUSIC_CATEGORY,
         "regionCode": REGION,
         "order": "viewCount",
-        "maxResults": 10,
+        "maxResults": max_results,
         "publishedAfter": "2026-01-01T00:00:00Z",
     })
     return [i["id"]["videoId"] for i in data.get("items", []) if "videoId" in i.get("id", {})]
@@ -65,11 +83,15 @@ def fetch_search_ids(query):
 def fetch_video_details(ids):
     if not ids:
         return []
-    data = get("videos", {
-        "part": "snippet,statistics,contentDetails",
-        "id": ",".join(ids),
-    })
-    return data.get("items", [])
+    items = []
+    for i in range(0, len(ids), 50):
+        batch = ids[i:i+50]
+        data = get("videos", {
+            "part": "snippet,statistics,contentDetails",
+            "id": ",".join(batch),
+        })
+        items += data.get("items", [])
+    return items
 
 
 def parse_video(item):
@@ -97,6 +119,26 @@ def parse_video(item):
     }
 
 
+INDIE_LABELS = {
+    "small ugly", "xtatic music", "azadi records", "mass appeal india",
+    "almost music", "def jam india", "naya records", "think music",
+    "still listening", "black box", "shankar tucker", "the local train",
+}
+
+def is_indie(video):
+    channel = video["channel"].lower()
+    tags = " ".join(video["tags"]).lower()
+    desc = video["description"].lower()
+    indie_signals = ["indie", "independent", "bedroom", "lo-fi", "lofi", "underground",
+                     "self-released", "unsigned", "original artist", "producer"]
+    big_labels = ["t-series", "saregama", "sony music", "zee music", "tips music",
+                  "eros now", "yrf music", "dharma", "jiocinema"]
+    if any(l in channel for l in big_labels):
+        return False
+    return any(s in channel + tags + desc for s in indie_signals) or \
+           any(l in channel for l in INDIE_LABELS)
+
+
 def main():
     seen = set()
     videos = []
@@ -107,20 +149,39 @@ def main():
         if v["id"] not in seen:
             seen.add(v["id"])
             v["source"] = "trending_chart"
+            v["category"] = "mainstream"
             videos.append(v)
 
-    # Keyword searches
-    extra_ids = []
-    for q in KEYWORD_SEARCHES:
-        extra_ids += fetch_search_ids(q)
+    # Mainstream keyword searches
+    mainstream_ids = []
+    for q in MAINSTREAM_SEARCHES:
+        mainstream_ids += fetch_search_ids(q, max_results=10)
 
-    new_ids = [i for i in dict.fromkeys(extra_ids) if i not in seen]
-    for item in fetch_video_details(new_ids):
+    for item in fetch_video_details([i for i in dict.fromkeys(mainstream_ids) if i not in seen]):
         v = parse_video(item)
         if v["id"] not in seen:
             seen.add(v["id"])
             v["source"] = "keyword_search"
+            v["category"] = "mainstream"
             videos.append(v)
+
+    # Indie searches
+    indie_ids = []
+    for q in INDIE_SEARCHES:
+        indie_ids += fetch_search_ids(q, max_results=10)
+
+    for item in fetch_video_details([i for i in dict.fromkeys(indie_ids) if i not in seen]):
+        v = parse_video(item)
+        if v["id"] not in seen:
+            seen.add(v["id"])
+            v["source"] = "indie_search"
+            v["category"] = "indie"
+            videos.append(v)
+
+    # Re-tag any trending/mainstream video that looks indie
+    for v in videos:
+        if v["category"] == "mainstream" and is_indie(v):
+            v["category"] = "indie"
 
     # Keyword frequency
     kw_count = {}
@@ -131,9 +192,12 @@ def main():
 
     top_keywords = sorted(kw_count.items(), key=lambda x: -x[1])[:60]
 
+    indie_count = sum(1 for v in videos if v["category"] == "indie")
     output = {
         "fetched_at": datetime.now(timezone.utc).isoformat(),
         "total": len(videos),
+        "indie_count": indie_count,
+        "mainstream_count": len(videos) - indie_count,
         "videos": sorted(videos, key=lambda x: -x["views"]),
         "top_keywords": [{"tag": k, "count": c} for k, c in top_keywords],
     }
