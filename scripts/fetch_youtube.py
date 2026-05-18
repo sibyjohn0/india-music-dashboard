@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os, json, sys
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from urllib.request import urlopen
 from urllib.parse import urlencode
 from urllib.error import HTTPError
@@ -14,6 +14,7 @@ BASE = "https://www.googleapis.com/youtube/v3"
 REGION = "IN"
 MUSIC_CATEGORY = "10"
 MAX_RESULTS = 50
+INDIA_MUSIC_CPM_INR = 80  # ₹80 per 1K views (mid-range estimate for India music)
 
 MAINSTREAM_SEARCHES = [
     "new hindi song 2026",
@@ -97,22 +98,29 @@ def fetch_video_details(ids):
 def parse_video(item):
     snip = item.get("snippet", {})
     stats = item.get("statistics", {})
+    now = datetime.now(timezone.utc)
     views = int(stats.get("viewCount", 0))
     likes = int(stats.get("likeCount", 0))
     comments = int(stats.get("commentCount", 0))
     engagement = round((likes + comments) / views * 100, 2) if views > 0 else 0
     tags = snip.get("tags", [])
+    published_at = snip.get("publishedAt", "")
+    days_live = max((now - datetime.fromisoformat(published_at.replace("Z", "+00:00"))).days, 1) if published_at else 1
+    velocity = round(views / days_live)
+    earnings_est_inr = round(views * INDIA_MUSIC_CPM_INR / 1000)
     return {
         "id": item["id"],
         "title": snip.get("title", ""),
         "channel": snip.get("channelTitle", ""),
         "channel_id": snip.get("channelId", ""),
-        "published_at": snip.get("publishedAt", ""),
+        "published_at": published_at,
         "thumbnail": snip.get("thumbnails", {}).get("medium", {}).get("url", ""),
         "views": views,
         "likes": likes,
         "comments": comments,
         "engagement_rate": engagement,
+        "velocity": velocity,
+        "earnings_est_inr": earnings_est_inr,
         "tags": tags[:20],
         "description": snip.get("description", "")[:300],
         "url": f"https://youtube.com/watch?v={item['id']}",
@@ -139,9 +147,20 @@ def is_indie(video):
            any(l in channel for l in INDIE_LABELS)
 
 
+def load_prev_views():
+    yesterday = (datetime.now(timezone.utc) - timedelta(days=1)).strftime("%Y-%m-%d")
+    path = f"data/history/{yesterday}.json"
+    if not os.path.exists(path):
+        return {}
+    with open(path) as f:
+        prev = json.load(f)
+    return {v["id"]: v["views"] for v in prev.get("videos", [])}
+
+
 def main():
     seen = set()
     videos = []
+    prev_views = load_prev_views()
 
     # Trending chart
     for item in fetch_trending():
@@ -178,10 +197,16 @@ def main():
             v["category"] = "indie"
             videos.append(v)
 
-    # Re-tag any trending/mainstream video that looks indie
+    # Re-tag trending/mainstream videos that look indie
     for v in videos:
         if v["category"] == "mainstream" and is_indie(v):
             v["category"] = "indie"
+
+    # Day-over-day delta
+    for v in videos:
+        prev = prev_views.get(v["id"])
+        v["views_delta"] = v["views"] - prev if prev is not None else None
+        v["is_new"] = prev is None
 
     # Keyword frequency
     kw_count = {}
@@ -209,7 +234,7 @@ def main():
     with open(f"data/history/{date_str}.json", "w") as f:
         json.dump(output, f, indent=2)
 
-    print(f"Saved {len(videos)} videos — {date_str}")
+    print(f"Saved {len(videos)} videos — {date_str} | indie: {indie_count} | prev_views loaded: {len(prev_views)}")
 
 
 if __name__ == "__main__":

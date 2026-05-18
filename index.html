@@ -12,56 +12,99 @@
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo">
-        <span class="logo-icon">▶</span>
-        <span>India Music Trending</span>
-      </div>
+      <div class="logo"><span class="logo-icon">▶</span> India Music Trending</div>
       <div class="meta">
         <span id="last-updated">—</span>
         <span class="badge" id="total-badge">—</span>
       </div>
     </div>
+    <div class="tab-bar">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="channels">Channels</button>
+      <button class="tab" data-tab="videos">All Videos</button>
+    </div>
   </header>
 
   <main>
-    <!-- Stats row -->
-    <section class="stats-row" id="stats-row"></section>
 
-    <!-- Top 3 cards -->
-    <section class="section">
-      <h2 class="section-title">Top Trending</h2>
-      <div class="top-cards" id="top-cards"></div>
-    </section>
+    <!-- ── OVERVIEW TAB ── -->
+    <div id="tab-overview" class="tab-content active">
+      <section class="stats-row" id="stats-row"></section>
 
-    <!-- Views chart -->
-    <section class="section two-col">
-      <div class="chart-box">
-        <h2 class="section-title">Views — Top 15</h2>
-        <canvas id="views-chart" height="260"></canvas>
+      <section class="section">
+        <h2 class="section-title">Top Trending</h2>
+        <div class="top-cards" id="top-cards"></div>
+      </section>
+
+      <section class="section two-col">
+        <div class="chart-box">
+          <h2 class="section-title">Views — Top 15</h2>
+          <canvas id="views-chart" height="260"></canvas>
+        </div>
+        <div class="chart-box">
+          <h2 class="section-title">View Velocity — Top 15 <span class="hint">(views/day)</span></h2>
+          <canvas id="velocity-chart" height="260"></canvas>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Top Keywords & Tags</h2>
+        <div class="tag-cloud" id="tag-cloud"></div>
+      </section>
+    </div>
+
+    <!-- ── CHANNELS TAB ── -->
+    <div id="tab-channels" class="tab-content">
+      <div class="table-header">
+        <h2 class="section-title">Artists & Channels</h2>
+        <div class="controls">
+          <input type="text" id="ch-search" placeholder="Search channel…" />
+          <select id="ch-sort">
+            <option value="total_views">Sort: Total Views</option>
+            <option value="avg_velocity">Sort: Avg Velocity</option>
+            <option value="total_earnings">Sort: Est. Earnings</option>
+            <option value="avg_engagement">Sort: Engagement</option>
+            <option value="video_count">Sort: Videos Tracked</option>
+          </select>
+          <select id="ch-filter">
+            <option value="all">All Artists</option>
+            <option value="indie">Indie / Independent</option>
+            <option value="mainstream">Mainstream</option>
+          </select>
+        </div>
       </div>
-      <div class="chart-box">
-        <h2 class="section-title">Engagement Rate — Top 15</h2>
-        <canvas id="eng-chart" height="260"></canvas>
+      <div class="table-wrap">
+        <table id="channel-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Channel / Artist</th>
+              <th>Videos</th>
+              <th>Total Views</th>
+              <th>Avg Velocity</th>
+              <th>Est. Earnings</th>
+              <th>Avg Engagement</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody id="channel-body"></tbody>
+        </table>
       </div>
-    </section>
+    </div>
 
-    <!-- Keyword cloud -->
-    <section class="section">
-      <h2 class="section-title">Top Keywords & Tags</h2>
-      <div class="tag-cloud" id="tag-cloud"></div>
-    </section>
-
-    <!-- Full table -->
-    <section class="section">
+    <!-- ── VIDEOS TAB ── -->
+    <div id="tab-videos" class="tab-content">
       <div class="table-header">
         <h2 class="section-title">All Videos</h2>
         <div class="controls">
           <input type="text" id="search" placeholder="Search title / channel…" />
           <select id="sort-by">
             <option value="views">Sort: Views</option>
+            <option value="velocity">Sort: Velocity</option>
+            <option value="views_delta">Sort: 24h Growth</option>
             <option value="engagement_rate">Sort: Engagement</option>
+            <option value="earnings_est_inr">Sort: Est. Earnings</option>
             <option value="published_at">Sort: Newest</option>
-            <option value="likes">Sort: Likes</option>
           </select>
           <select id="filter-category">
             <option value="all">All Artists</option>
@@ -84,18 +127,19 @@
               <th>Video</th>
               <th>Uploaded</th>
               <th>Views</th>
-              <th>Likes</th>
-              <th>Comments</th>
+              <th>24h Δ</th>
+              <th>Velocity</th>
+              <th>Est. ₹</th>
               <th>Engagement</th>
-              <th>Source</th>
+              <th>Type</th>
             </tr>
           </thead>
           <tbody id="table-body"></tbody>
         </table>
       </div>
-    </section>
-  </main>
+    </div>
 
+  </main>
   <script src="app.js"></script>
 </body>
 </html>
