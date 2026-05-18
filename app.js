@@ -1,45 +1,44 @@
 const DATA_URL = "data/latest.json";
 
-// ── Formatters ───────────────────────────────────────────────
+// ── Formatters ────────────────────────────────────────────────
 function fmt(n) {
   if (n >= 1e9) return (n / 1e9).toFixed(1) + "B";
   if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
   if (n >= 1e3) return (n / 1e3).toFixed(1) + "K";
   return String(n);
 }
-
 function fmtInr(n) {
   if (n >= 1e7) return "₹" + (n / 1e7).toFixed(1) + "Cr";
   if (n >= 1e5) return "₹" + (n / 1e5).toFixed(1) + "L";
   if (n >= 1e3) return "₹" + (n / 1e3).toFixed(1) + "K";
   return "₹" + n;
 }
-
 function daysAgo(iso) {
-  const diff = (Date.now() - new Date(iso)) / 864e5;
-  if (diff < 1) return "Today";
-  if (diff < 2) return "Yesterday";
-  if (diff < 30) return Math.floor(diff) + "d ago";
-  if (diff < 365) return Math.floor(diff / 30) + "mo ago";
-  return Math.floor(diff / 365) + "y ago";
+  const d = (Date.now() - new Date(iso)) / 864e5;
+  if (d < 1) return "Today";
+  if (d < 2) return "Yesterday";
+  if (d < 30) return Math.floor(d) + "d ago";
+  if (d < 365) return Math.floor(d / 30) + "mo ago";
+  return Math.floor(d / 365) + "y ago";
 }
-
 function fmtDate(iso) {
   return new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
 }
-
 function fmtDelta(delta, isNew) {
   if (isNew) return `<span class="delta-new">NEW</span>`;
-  if (delta === null || delta === undefined) return `<span style="color:#555">—</span>`;
-  if (delta === 0) return `<span style="color:#555">—</span>`;
+  if (!delta) return `<span style="color:#444">—</span>`;
   return `<span class="delta-pos">+${fmt(delta)}</span>`;
 }
 
-// ── State ────────────────────────────────────────────────────
-let allVideos = [];
-let allChannels = [];
+// ── State ─────────────────────────────────────────────────────
+let allVideos = [], allChannels = [];
 
-// ── Init ─────────────────────────────────────────────────────
+// ── Chart palette ─────────────────────────────────────────────
+const PAL = ["#a78bfa","#60a5fa","#34d399","#facc15","#f87171",
+             "#fb923c","#e879f9","#38bdf8","#4ade80","#fbbf24",
+             "#c084fc","#67e8f9","#86efac","#fca5a5","#fdba74"];
+
+// ── Init ──────────────────────────────────────────────────────
 async function init() {
   let data;
   try {
@@ -50,7 +49,7 @@ async function init() {
       <div style="text-align:center;padding:80px 0;color:#888">
         <div style="font-size:40px;margin-bottom:16px">📡</div>
         <div style="font-size:18px;font-weight:600;margin-bottom:8px">No data yet</div>
-        <div>Run the GitHub Action or <code>YOUTUBE_API_KEY=... python3 scripts/fetch_youtube.py</code></div>
+        <div>Run: <code>YOUTUBE_API_KEY=... python3 scripts/fetch_youtube.py</code></div>
       </div>`;
     return;
   }
@@ -60,12 +59,13 @@ async function init() {
 
   const fetched = new Date(data.fetched_at);
   document.getElementById("last-updated").textContent =
-    "Updated " + fetched.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
-  document.getElementById("total-badge").textContent = allVideos.length + " videos";
+    "Updated " + fetched.toLocaleDateString("en-IN", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
+  document.getElementById("total-badge").textContent = allVideos.length + " indie videos";
 
+  populateFilters(data);
   renderStats(data);
-  renderTopCards(allVideos.slice(0, 3));
-  renderCharts(allVideos);
+  renderTopCards([...allVideos].sort((a, b) => (b.velocity || 0) - (a.velocity || 0)).slice(0, 3));
+  renderCharts(data);
   renderTagCloud(data.top_keywords || []);
   renderChannelTable(allChannels);
   renderVideoTable(allVideos);
@@ -74,61 +74,76 @@ async function init() {
   bindChannelControls();
 }
 
-// ── Channel aggregation ──────────────────────────────────────
+// ── Populate filter dropdowns ─────────────────────────────────
+function populateFilters(data) {
+  const genres = [...new Set(allVideos.map(v => v.genre).filter(Boolean))].sort();
+  const langs  = [...new Set(allVideos.map(v => v.language).filter(Boolean))].sort();
+
+  [["filter-genre", genres], ["ch-genre", genres]].forEach(([id, opts]) => {
+    const sel = document.getElementById(id);
+    opts.forEach(g => sel.add(new Option(g, g)));
+  });
+  [["filter-lang", langs], ["ch-lang", langs]].forEach(([id, opts]) => {
+    const sel = document.getElementById(id);
+    opts.forEach(l => sel.add(new Option(l, l)));
+  });
+}
+
+// ── Channel aggregation ───────────────────────────────────────
 function buildChannels(videos) {
   const map = {};
   for (const v of videos) {
     const cid = v.channel_id || v.channel;
     if (!map[cid]) {
       map[cid] = {
-        id: cid,
-        name: v.channel,
-        thumbnail: v.thumbnail,
-        category: v.category,
-        video_count: 0,
-        total_views: 0,
-        total_velocity: 0,
-        total_earnings: 0,
-        total_engagement: 0,
-        views_delta: 0,
-        top_video: v,
+        id: cid, name: v.channel,
+        video_count: 0, total_views: 0,
+        total_velocity: 0, total_earnings: 0, total_engagement: 0,
+        views_delta: 0, top_video: v,
+        genres: {}, languages: {},
       };
     }
     const c = map[cid];
     c.video_count++;
-    c.total_views += v.views;
-    c.total_velocity += v.velocity || 0;
-    c.total_earnings += v.earnings_est_inr || 0;
+    c.total_views   += v.views;
+    c.total_velocity+= v.velocity || 0;
+    c.total_earnings+= v.earnings_est_inr || 0;
     c.total_engagement += v.engagement_rate || 0;
-    c.views_delta += v.views_delta || 0;
+    c.views_delta   += v.views_delta || 0;
     if (v.views > c.top_video.views) c.top_video = v;
-    if (v.category === "indie") c.category = "indie"; // any indie video = indie channel
+    if (v.genre)    c.genres[v.genre]       = (c.genres[v.genre] || 0) + 1;
+    if (v.language) c.languages[v.language] = (c.languages[v.language] || 0) + 1;
   }
   return Object.values(map).map(c => ({
     ...c,
-    avg_velocity: Math.round(c.total_velocity / c.video_count),
+    avg_velocity:   Math.round(c.total_velocity / c.video_count),
     avg_engagement: Math.round((c.total_engagement / c.video_count) * 100) / 100,
-  })).sort((a, b) => b.total_views - a.total_views);
+    top_genre: Object.entries(c.genres).sort((a,b)=>b[1]-a[1])[0]?.[0] || "Indie",
+    top_lang:  Object.entries(c.languages).sort((a,b)=>b[1]-a[1])[0]?.[0] || "Hindi",
+  })).sort((a, b) => (b.avg_velocity - a.avg_velocity));
 }
 
-// ── Stats row ────────────────────────────────────────────────
+// ── Stats row ─────────────────────────────────────────────────
 function renderStats(data) {
-  const videos = data.videos;
-  const totalViews = videos.reduce((s, v) => s + v.views, 0);
-  const totalEarnings = videos.reduce((s, v) => s + (v.earnings_est_inr || 0), 0);
-  const avgEng = videos.reduce((s, v) => s + v.engagement_rate, 0) / (videos.length || 1);
-  const trending = videos.filter(v => v.source === "trending_chart").length;
-  const newToday = videos.filter(v => v.is_new).length;
-  const topVelocity = [...videos].sort((a, b) => (b.velocity || 0) - (a.velocity || 0))[0];
+  const vs = data.videos;
+  const totalViews    = vs.reduce((s, v) => s + v.views, 0);
+  const totalEarnings = vs.reduce((s, v) => s + (v.earnings_est_inr || 0), 0);
+  const avgEng        = vs.reduce((s, v) => s + v.engagement_rate, 0) / (vs.length || 1);
+  const topVelocity   = [...vs].sort((a, b) => (b.velocity||0) - (a.velocity||0))[0];
+  const newToday      = vs.filter(v => v.is_new).length;
+  const topGenre      = (data.genre_breakdown || [])[0];
+  const topLang       = (data.language_breakdown || [])[0];
 
   const stats = [
-    { label: "Total Videos", value: videos.length, sub: `${trending} from trending chart` },
-    { label: "Indie / Independent", value: data.indie_count, sub: `${data.mainstream_count} mainstream` },
-    { label: "Combined Views", value: fmt(totalViews), sub: "across all tracked videos" },
-    { label: "Est. Total Earnings", value: fmtInr(totalEarnings), sub: "~₹80/1K views (India CPM)" },
-    { label: "Avg Engagement", value: avgEng.toFixed(2) + "%", sub: "(likes + comments) ÷ views" },
-    { label: "Fastest Rising", value: topVelocity ? fmt(topVelocity.velocity) + "/day" : "—", sub: topVelocity?.title?.slice(0, 28) + "…" || "" },
-    { label: "New Today", value: newToday, sub: "not seen yesterday" },
+    { label: "Indie Videos",     value: vs.length,                       sub: "no major label content" },
+    { label: "Independent Artists", value: allChannels.length,           sub: "unique channels" },
+    { label: "Combined Views",   value: fmt(totalViews),                  sub: "across all tracked videos" },
+    { label: "Est. Total Earnings", value: fmtInr(totalEarnings),        sub: "~₹80/1K views India CPM" },
+    { label: "Avg Engagement",   value: avgEng.toFixed(2) + "%",          sub: "(likes+comments)÷views" },
+    { label: "Fastest Rising",   value: topVelocity ? fmt(topVelocity.velocity)+"/d" : "—", sub: topVelocity?.title?.slice(0,28)+"…" || "" },
+    { label: "New Today",        value: newToday,                         sub: "first seen today" },
+    { label: "Top Genre",        value: topGenre?.[0] || "—",             sub: `${topGenre?.[1] || 0} videos` },
+    { label: "Top Language",     value: topLang?.[0] || "—",              sub: `${topLang?.[1] || 0} videos` },
   ];
 
   document.getElementById("stats-row").innerHTML = stats.map(s => `
@@ -139,46 +154,63 @@ function renderStats(data) {
     </div>`).join("");
 }
 
-// ── Top 3 cards ──────────────────────────────────────────────
+// ── Top cards (by velocity) ───────────────────────────────────
 function renderTopCards(videos) {
-  const labels = ["🥇 #1 Trending", "🥈 #2 Trending", "🥉 #3 Trending"];
+  const labels = ["🚀 Fastest Rising", "⚡ #2 Velocity", "🔥 #3 Velocity"];
   document.getElementById("top-cards").innerHTML = videos.map((v, i) => `
-    <a href="${v.url}" target="_blank" rel="noopener" class="top-card ${i === 0 ? "rank-1" : ""}">
+    <a href="${v.url}" target="_blank" rel="noopener" class="top-card ${i===0?"rank-1":""}">
       <img src="${v.thumbnail}" alt="" loading="lazy" />
       <div class="top-card-body">
         <div class="top-card-rank">${labels[i]}</div>
         <div class="top-card-title">${v.title}</div>
         <div class="top-card-channel">${v.channel} · ${daysAgo(v.published_at)}</div>
+        <div class="top-card-tags">
+          <span class="pill pill-genre">${v.genre}</span>
+          <span class="pill pill-lang">${v.language}</span>
+        </div>
         <div class="top-card-stats">
-          <div class="top-card-stat"><span>Views </span>${fmt(v.views)}</div>
           <div class="top-card-stat"><span>Velocity </span>${fmt(v.velocity)}/d</div>
+          <div class="top-card-stat"><span>Views </span>${fmt(v.views)}</div>
           <div class="top-card-stat"><span>Est. </span>${fmtInr(v.earnings_est_inr)}</div>
         </div>
       </div>
     </a>`).join("");
 }
 
-// ── Charts ───────────────────────────────────────────────────
-const palette = ["#ff3b3b","#ff5252","#ff7043","#ff8a65","#ffa07a",
-                 "#3b82f6","#60a5fa","#93c5fd","#22c55e","#4ade80",
-                 "#facc15","#fb923c","#e879f9","#a78bfa","#34d399"];
+// ── Charts ────────────────────────────────────────────────────
+function renderCharts(data) {
+  const vs = data.videos;
 
-function renderCharts(videos) {
-  const top15 = videos.slice(0, 15);
-  const topVel = [...videos].sort((a, b) => (b.velocity || 0) - (a.velocity || 0)).slice(0, 15);
-  const labels15 = top15.map(v => v.title.length > 20 ? v.title.slice(0, 20) + "…" : v.title);
-  const labelsVel = topVel.map(v => v.title.length > 20 ? v.title.slice(0, 20) + "…" : v.title);
-
-  new Chart(document.getElementById("views-chart"), {
-    type: "bar",
-    data: { labels: labels15, datasets: [{ data: top15.map(v => v.views), backgroundColor: palette, borderRadius: 4 }] },
-    options: chartOpts(v => fmt(v)),
-  });
-
+  // Velocity top 15
+  const topVel = [...vs].sort((a,b)=>(b.velocity||0)-(a.velocity||0)).slice(0,15);
   new Chart(document.getElementById("velocity-chart"), {
     type: "bar",
-    data: { labels: labelsVel, datasets: [{ data: topVel.map(v => v.velocity || 0), backgroundColor: palette, borderRadius: 4 }] },
-    options: chartOpts(v => fmt(v) + "/d"),
+    data: { labels: topVel.map(v => v.title.slice(0,20)+"…"), datasets: [{ data: topVel.map(v=>v.velocity||0), backgroundColor: PAL, borderRadius: 4 }] },
+    options: chartOpts(v => fmt(v)+"/d"),
+  });
+
+  // Genre doughnut
+  const genres = data.genre_breakdown || [];
+  new Chart(document.getElementById("genre-chart"), {
+    type: "doughnut",
+    data: { labels: genres.map(g=>g[0]), datasets: [{ data: genres.map(g=>g[1]), backgroundColor: PAL, borderWidth: 0 }] },
+    options: { plugins: { legend: { position: "right", labels: { color: "#aaa", font: { size: 11 } } } } },
+  });
+
+  // Language doughnut
+  const langs = data.language_breakdown || [];
+  new Chart(document.getElementById("lang-chart"), {
+    type: "doughnut",
+    data: { labels: langs.map(l=>l[0]), datasets: [{ data: langs.map(l=>l[1]), backgroundColor: PAL.slice(5), borderWidth: 0 }] },
+    options: { plugins: { legend: { position: "right", labels: { color: "#aaa", font: { size: 11 } } } } },
+  });
+
+  // Views top 15
+  const top15 = vs.slice(0,15);
+  new Chart(document.getElementById("views-chart"), {
+    type: "bar",
+    data: { labels: top15.map(v=>v.title.slice(0,20)+"…"), datasets: [{ data: top15.map(v=>v.views), backgroundColor: PAL, borderRadius: 4 }] },
+    options: chartOpts(v => fmt(v)),
   });
 }
 
@@ -186,19 +218,19 @@ function chartOpts(tickFmt) {
   return {
     plugins: { legend: { display: false } },
     scales: {
-      x: { ticks: { color: "#888", font: { size: 10 } }, grid: { color: "#222" } },
-      y: { ticks: { color: "#888", callback: tickFmt }, grid: { color: "#222" } },
+      x: { ticks: { color: "#888", font: { size: 10 } }, grid: { color: "#1a1a1a" } },
+      y: { ticks: { color: "#888", callback: tickFmt }, grid: { color: "#1a1a1a" } },
     },
   };
 }
 
-// ── Tag cloud ────────────────────────────────────────────────
+// ── Tag cloud ─────────────────────────────────────────────────
 function renderTagCloud(keywords) {
   const max = keywords[0]?.count || 1;
   document.getElementById("tag-cloud").innerHTML = keywords.map(({ tag, count }) => {
     const r = count / max;
     const cls = r > 0.6 ? "tag-lg" : r > 0.3 ? "tag-md" : "tag-sm";
-    return `<span class="tag ${cls}" title="${count} videos">${tag} <span style="opacity:.5">${count}</span></span>`;
+    return `<span class="tag ${cls}">${tag} <span style="opacity:.4">${count}</span></span>`;
   }).join("");
 }
 
@@ -206,22 +238,22 @@ function renderTagCloud(keywords) {
 function renderChannelTable(channels) {
   document.getElementById("channel-body").innerHTML = channels.map((c, i) => `
     <tr>
-      <td style="color:#555;font-size:12px">${i + 1}</td>
+      <td style="color:#444;font-size:12px">${i+1}</td>
       <td>
         <div class="video-cell">
           <img class="video-thumb" src="${c.top_video.thumbnail}" alt="" loading="lazy" />
           <div class="video-info">
             <a href="https://youtube.com/channel/${c.id}" target="_blank" rel="noopener">${c.name}</a>
-            <div class="video-channel">${c.video_count} video${c.video_count > 1 ? "s" : ""} tracked · top: <a href="${c.top_video.url}" target="_blank" rel="noopener" style="color:#888">${c.top_video.title.slice(0, 35)}…</a></div>
+            <div class="video-channel">${c.video_count} video${c.video_count>1?"s":""} · <a href="${c.top_video.url}" target="_blank" rel="noopener" style="color:#666">${c.top_video.title.slice(0,38)}…</a></div>
           </div>
         </div>
       </td>
       <td class="num">${c.video_count}</td>
       <td class="num">${fmt(c.total_views)}</td>
-      <td class="num">${fmt(c.avg_velocity)}<span style="color:#555;font-size:11px">/d</span></td>
-      <td class="num">${fmtInr(c.total_earnings)}</td>
+      <td class="num velocity">${fmt(c.avg_velocity)}<span style="color:#555;font-size:11px">/d</span></td>
+      <td class="num earnings">${fmtInr(c.total_earnings)}</td>
       <td class="num eng-rate">${c.avg_engagement}%</td>
-      <td><span class="source-pill ${c.category === "indie" ? "source-indie" : "source-main"}">${c.category === "indie" ? "Indie" : "Mainstream"}</span></td>
+      <td><span class="pill pill-genre">${c.top_genre}</span></td>
     </tr>`).join("");
 }
 
@@ -229,7 +261,7 @@ function renderChannelTable(channels) {
 function renderVideoTable(videos) {
   document.getElementById("table-body").innerHTML = videos.map((v, i) => `
     <tr>
-      <td style="color:#555;font-size:12px">${i + 1}</td>
+      <td style="color:#444;font-size:12px">${i+1}</td>
       <td>
         <div class="video-cell">
           <img class="video-thumb" src="${v.thumbnail}" alt="" loading="lazy" />
@@ -242,73 +274,190 @@ function renderVideoTable(videos) {
       <td class="num" title="${fmtDate(v.published_at)}">${daysAgo(v.published_at)}</td>
       <td class="num">${fmt(v.views)}</td>
       <td class="num">${fmtDelta(v.views_delta, v.is_new)}</td>
-      <td class="num velocity">${fmt(v.velocity || 0)}<span style="color:#555;font-size:11px">/d</span></td>
-      <td class="num earnings">${fmtInr(v.earnings_est_inr || 0)}</td>
+      <td class="num velocity">${fmt(v.velocity||0)}<span style="color:#555;font-size:11px">/d</span></td>
+      <td class="num earnings">${fmtInr(v.earnings_est_inr||0)}</td>
       <td class="num eng-rate">${v.engagement_rate}%</td>
-      <td><span class="source-pill ${v.category === "indie" ? "source-indie" : "source-main"}">${v.category === "indie" ? "Indie" : "Mainstream"}</span></td>
+      <td><span class="pill pill-genre">${v.genre}</span></td>
+      <td><span class="pill pill-lang">${v.language}</span></td>
     </tr>`).join("");
 }
 
-// ── Controls ──────────────────────────────────────────────────
+// ── Video controls ────────────────────────────────────────────
 function bindVideoControls() {
   function apply() {
-    const q = document.getElementById("search").value.toLowerCase();
-    const sortBy = document.getElementById("sort-by").value;
-    const cat = document.getElementById("filter-category").value;
-    const src = document.getElementById("filter-source").value;
+    const q   = document.getElementById("search").value.toLowerCase();
+    const srt = document.getElementById("sort-by").value;
+    const gen = document.getElementById("filter-genre").value;
+    const lng = document.getElementById("filter-lang").value;
 
-    let videos = allVideos.filter(v => {
-      const mq = !q || v.title.toLowerCase().includes(q) || v.channel.toLowerCase().includes(q);
-      const mc = cat === "all" || v.category === cat;
-      const ms = src === "all" || v.source === src;
-      return mq && mc && ms;
-    });
-
-    videos = [...videos].sort((a, b) => {
-      if (sortBy === "published_at") return b.published_at.localeCompare(a.published_at);
-      if (sortBy === "views_delta") return (b.views_delta || 0) - (a.views_delta || 0);
-      return (b[sortBy] || 0) - (a[sortBy] || 0);
-    });
-
-    renderVideoTable(videos);
+    let vs = allVideos.filter(v =>
+      (!q   || v.title.toLowerCase().includes(q) || v.channel.toLowerCase().includes(q)) &&
+      (gen === "all" || v.genre    === gen) &&
+      (lng === "all" || v.language === lng)
+    );
+    vs = [...vs].sort((a, b) =>
+      srt === "published_at" ? b.published_at.localeCompare(a.published_at) :
+      (b[srt]||0) - (a[srt]||0)
+    );
+    renderVideoTable(vs);
   }
-
-  ["search", "sort-by", "filter-category", "filter-source"].forEach(id =>
-    document.getElementById(id).addEventListener(id === "search" ? "input" : "change", apply)
+  ["search","sort-by","filter-genre","filter-lang"].forEach(id =>
+    document.getElementById(id).addEventListener(id==="search"?"input":"change", apply)
   );
 }
 
+// ── Channel controls ──────────────────────────────────────────
 function bindChannelControls() {
   function apply() {
-    const q = document.getElementById("ch-search").value.toLowerCase();
-    const sortBy = document.getElementById("ch-sort").value;
-    const cat = document.getElementById("ch-filter").value;
+    const q   = document.getElementById("ch-search").value.toLowerCase();
+    const srt = document.getElementById("ch-sort").value;
+    const gen = document.getElementById("ch-genre").value;
+    const lng = document.getElementById("ch-lang").value;
 
-    let channels = allChannels.filter(c => {
-      const mq = !q || c.name.toLowerCase().includes(q);
-      const mc = cat === "all" || c.category === cat;
-      return mq && mc;
-    });
+    let cs = allChannels.filter(c =>
+      (!q   || c.name.toLowerCase().includes(q)) &&
+      (gen === "all" || c.top_genre === gen) &&
+      (lng === "all" || c.top_lang  === lng)
+    );
+    cs = [...cs].sort((a, b) => (b[srt]||0) - (a[srt]||0));
+    renderChannelTable(cs);
+  }
+  ["ch-search","ch-sort","ch-genre","ch-lang"].forEach(id =>
+    document.getElementById(id).addEventListener(id==="ch-search"?"input":"change", apply)
+  );
+}
 
-    channels = [...channels].sort((a, b) => (b[sortBy] || 0) - (a[sortBy] || 0));
-    renderChannelTable(channels);
+// ── Trends ────────────────────────────────────────────────────
+async function loadTrends() {
+  // Try to load up to 6 monthly files
+  const now = new Date();
+  const months = [];
+  for (let i = 0; i < 6; i++) {
+    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    months.unshift(`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`);
   }
 
-  ["ch-search", "ch-sort", "ch-filter"].forEach(id =>
-    document.getElementById(id).addEventListener(id === "ch-search" ? "input" : "change", apply)
-  );
+  const results = await Promise.all(months.map(m =>
+    fetch(`data/monthly/${m}.json`).then(r => r.ok ? r.json() : null).catch(() => null)
+  ));
+  const monthly = results.filter(Boolean);
+
+  document.getElementById("trends-loading").style.display = "none";
+
+  if (monthly.length === 0) {
+    document.getElementById("trends-loading").style.display = "block";
+    document.getElementById("trends-loading").textContent = "No monthly data yet — check back after the first daily run.";
+    return;
+  }
+
+  document.getElementById("trends-charts").style.display  = "grid";
+  document.getElementById("trends-charts2").style.display = "grid";
+  document.getElementById("trends-table-wrap").style.display = "block";
+
+  const labels = monthly.map(m => m.month);
+
+  // All genres/langs seen across months
+  const allGenres = [...new Set(monthly.flatMap(m => (m.genre_breakdown||[]).map(g=>g[0])))];
+  const allLangs  = [...new Set(monthly.flatMap(m => (m.language_breakdown||[]).map(l=>l[0])))];
+
+  function getCount(month, breakdown, key) {
+    const entry = (month[breakdown]||[]).find(x => x[0] === key);
+    return entry ? entry[1] : 0;
+  }
+
+  // Genre line chart
+  new Chart(document.getElementById("trend-genre-chart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: allGenres.map((g, i) => ({
+        label: g,
+        data: monthly.map(m => getCount(m, "genre_breakdown", g)),
+        borderColor: PAL[i % PAL.length],
+        backgroundColor: "transparent",
+        tension: 0.3, pointRadius: 4,
+      })),
+    },
+    options: trendOpts(),
+  });
+
+  // Language line chart
+  new Chart(document.getElementById("trend-lang-chart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: allLangs.map((l, i) => ({
+        label: l,
+        data: monthly.map(m => getCount(m, "language_breakdown", l)),
+        borderColor: PAL[(i + 5) % PAL.length],
+        backgroundColor: "transparent",
+        tension: 0.3, pointRadius: 4,
+      })),
+    },
+    options: trendOpts(),
+  });
+
+  // Total views bar
+  new Chart(document.getElementById("trend-views-chart"), {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [{ label: "Total Views", data: monthly.map(m => m.total_views||0), backgroundColor: PAL[0], borderRadius: 4 }],
+    },
+    options: chartOpts(v => fmt(v)),
+  });
+
+  // Video count bar
+  new Chart(document.getElementById("trend-count-chart"), {
+    type: "bar",
+    data: {
+      labels,
+      datasets: [{ label: "Videos", data: monthly.map(m => m.total_videos||0), backgroundColor: PAL[2], borderRadius: 4 }],
+    },
+    options: chartOpts(v => v),
+  });
+
+  // Monthly table
+  document.getElementById("trends-table-body").innerHTML = [...monthly].reverse().map(m => {
+    const topGenre = (m.genre_breakdown||[])[0]?.[0] || "—";
+    const topLang  = (m.language_breakdown||[])[0]?.[0] || "—";
+    const topArtist= (m.top_channels||[])[0]?.[0] || "—";
+    return `<tr>
+      <td><strong>${m.month}</strong></td>
+      <td class="num">${m.total_videos||0}</td>
+      <td class="num">${fmt(m.total_views||0)}</td>
+      <td><span class="pill pill-genre">${topGenre}</span></td>
+      <td><span class="pill pill-lang">${topLang}</span></td>
+      <td style="color:var(--muted);font-size:12px">${topArtist}</td>
+    </tr>`;
+  }).join("");
+}
+
+function trendOpts() {
+  return {
+    plugins: { legend: { position: "bottom", labels: { color: "#888", font: { size: 10 }, boxWidth: 10 } } },
+    scales: {
+      x: { ticks: { color: "#888", font: { size: 10 } }, grid: { color: "#1a1a1a" } },
+      y: { ticks: { color: "#888" }, grid: { color: "#1a1a1a" } },
+    },
+  };
 }
 
 // ── Tabs ──────────────────────────────────────────────────────
 function bindTabs() {
-  document.querySelectorAll(".tab").forEach(btn => {
+  let trendsLoaded = false;
+  document.querySelectorAll(".tab").forEach(btn =>
     btn.addEventListener("click", () => {
       document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
       document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById("tab-" + btn.dataset.tab).classList.add("active");
-    });
-  });
+      if (btn.dataset.tab === "trends" && !trendsLoaded) {
+        trendsLoaded = true;
+        loadTrends();
+      }
+    })
+  );
 }
 
 init();

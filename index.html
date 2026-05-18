@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>India Music Trending</title>
+  <title>India Indie Music Radar</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -12,7 +12,7 @@
 <body>
   <header>
     <div class="header-inner">
-      <div class="logo"><span class="logo-icon">▶</span> India Music Trending</div>
+      <div class="logo"><span class="logo-icon">◉</span> India Indie Music Radar</div>
       <div class="meta">
         <span id="last-updated">—</span>
         <span class="badge" id="total-badge">—</span>
@@ -20,30 +20,42 @@
     </div>
     <div class="tab-bar">
       <button class="tab active" data-tab="overview">Overview</button>
-      <button class="tab" data-tab="channels">Channels</button>
+      <button class="tab" data-tab="channels">Artists</button>
       <button class="tab" data-tab="videos">All Videos</button>
+      <button class="tab" data-tab="trends">Trends</button>
     </div>
   </header>
 
   <main>
 
-    <!-- ── OVERVIEW TAB ── -->
+    <!-- ── OVERVIEW ── -->
     <div id="tab-overview" class="tab-content active">
       <section class="stats-row" id="stats-row"></section>
 
       <section class="section">
-        <h2 class="section-title">Top Trending</h2>
+        <h2 class="section-title">Fastest Rising <span class="hint">— sorted by views/day</span></h2>
         <div class="top-cards" id="top-cards"></div>
       </section>
 
       <section class="section two-col">
         <div class="chart-box">
-          <h2 class="section-title">Views — Top 15</h2>
-          <canvas id="views-chart" height="260"></canvas>
+          <h2 class="section-title">View Velocity — Top 15 <span class="hint">views/day</span></h2>
+          <canvas id="velocity-chart" height="260"></canvas>
         </div>
         <div class="chart-box">
-          <h2 class="section-title">View Velocity — Top 15 <span class="hint">(views/day)</span></h2>
-          <canvas id="velocity-chart" height="260"></canvas>
+          <h2 class="section-title">Genre Breakdown</h2>
+          <canvas id="genre-chart" height="260"></canvas>
+        </div>
+      </section>
+
+      <section class="section two-col">
+        <div class="chart-box">
+          <h2 class="section-title">Language Breakdown</h2>
+          <canvas id="lang-chart" height="220"></canvas>
+        </div>
+        <div class="chart-box">
+          <h2 class="section-title">Top Views — Top 15</h2>
+          <canvas id="views-chart" height="220"></canvas>
         </div>
       </section>
 
@@ -53,23 +65,24 @@
       </section>
     </div>
 
-    <!-- ── CHANNELS TAB ── -->
+    <!-- ── ARTISTS ── -->
     <div id="tab-channels" class="tab-content">
       <div class="table-header">
-        <h2 class="section-title">Artists & Channels</h2>
+        <h2 class="section-title">Independent Artists & Producers</h2>
         <div class="controls">
-          <input type="text" id="ch-search" placeholder="Search channel…" />
+          <input type="text" id="ch-search" placeholder="Search artist…" />
           <select id="ch-sort">
+            <option value="avg_velocity">Sort: Velocity</option>
             <option value="total_views">Sort: Total Views</option>
-            <option value="avg_velocity">Sort: Avg Velocity</option>
             <option value="total_earnings">Sort: Est. Earnings</option>
             <option value="avg_engagement">Sort: Engagement</option>
-            <option value="video_count">Sort: Videos Tracked</option>
+            <option value="video_count">Sort: Videos</option>
           </select>
-          <select id="ch-filter">
-            <option value="all">All Artists</option>
-            <option value="indie">Indie / Independent</option>
-            <option value="mainstream">Mainstream</option>
+          <select id="ch-genre">
+            <option value="all">All Genres</option>
+          </select>
+          <select id="ch-lang">
+            <option value="all">All Languages</option>
           </select>
         </div>
       </div>
@@ -78,13 +91,13 @@
           <thead>
             <tr>
               <th>#</th>
-              <th>Channel / Artist</th>
+              <th>Artist / Channel</th>
               <th>Videos</th>
               <th>Total Views</th>
               <th>Avg Velocity</th>
               <th>Est. Earnings</th>
               <th>Avg Engagement</th>
-              <th>Type</th>
+              <th>Genre</th>
             </tr>
           </thead>
           <tbody id="channel-body"></tbody>
@@ -92,30 +105,25 @@
       </div>
     </div>
 
-    <!-- ── VIDEOS TAB ── -->
+    <!-- ── ALL VIDEOS ── -->
     <div id="tab-videos" class="tab-content">
       <div class="table-header">
         <h2 class="section-title">All Videos</h2>
         <div class="controls">
-          <input type="text" id="search" placeholder="Search title / channel…" />
+          <input type="text" id="search" placeholder="Search title / artist…" />
           <select id="sort-by">
-            <option value="views">Sort: Views</option>
             <option value="velocity">Sort: Velocity</option>
+            <option value="views">Sort: Views</option>
             <option value="views_delta">Sort: 24h Growth</option>
             <option value="engagement_rate">Sort: Engagement</option>
             <option value="earnings_est_inr">Sort: Est. Earnings</option>
             <option value="published_at">Sort: Newest</option>
           </select>
-          <select id="filter-category">
-            <option value="all">All Artists</option>
-            <option value="indie">Indie / Independent</option>
-            <option value="mainstream">Mainstream</option>
+          <select id="filter-genre">
+            <option value="all">All Genres</option>
           </select>
-          <select id="filter-source">
-            <option value="all">All Sources</option>
-            <option value="trending_chart">Trending Chart</option>
-            <option value="keyword_search">Keyword Search</option>
-            <option value="indie_search">Indie Search</option>
+          <select id="filter-lang">
+            <option value="all">All Languages</option>
           </select>
         </div>
       </div>
@@ -131,12 +139,50 @@
               <th>Velocity</th>
               <th>Est. ₹</th>
               <th>Engagement</th>
-              <th>Type</th>
+              <th>Genre</th>
+              <th>Lang</th>
             </tr>
           </thead>
           <tbody id="table-body"></tbody>
         </table>
       </div>
+    </div>
+
+    <!-- ── TRENDS ── -->
+    <div id="tab-trends" class="tab-content">
+      <div class="section">
+        <h2 class="section-title">Month-on-Month Trends <span class="hint">— updated daily, builds over time</span></h2>
+        <div id="trends-loading" style="color:var(--muted);padding:20px 0">Loading monthly data…</div>
+      </div>
+      <section class="section two-col" id="trends-charts" style="display:none">
+        <div class="chart-box">
+          <h2 class="section-title">Genre — Videos per Month</h2>
+          <canvas id="trend-genre-chart" height="280"></canvas>
+        </div>
+        <div class="chart-box">
+          <h2 class="section-title">Language — Videos per Month</h2>
+          <canvas id="trend-lang-chart" height="280"></canvas>
+        </div>
+      </section>
+      <section class="section two-col" id="trends-charts2" style="display:none">
+        <div class="chart-box">
+          <h2 class="section-title">Total Views per Month</h2>
+          <canvas id="trend-views-chart" height="220"></canvas>
+        </div>
+        <div class="chart-box">
+          <h2 class="section-title">Videos Tracked per Month</h2>
+          <canvas id="trend-count-chart" height="220"></canvas>
+        </div>
+      </section>
+      <section class="section" id="trends-table-wrap" style="display:none">
+        <h2 class="section-title">Monthly Snapshot</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Month</th><th>Videos</th><th>Total Views</th><th>Top Genre</th><th>Top Language</th><th>Top Artist</th></tr></thead>
+            <tbody id="trends-table-body"></tbody>
+          </table>
+        </div>
+      </section>
     </div>
 
   </main>
