@@ -30,3 +30,4 @@ jobs:
           git add data/
           git diff --cached --quiet || git commit -m "data: daily refresh $(date -u '+%Y-%m-%d')"
           git push
+        if: success()

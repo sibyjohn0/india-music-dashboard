@@ -314,6 +314,10 @@ def main():
         "top_keywords": [{"tag": k, "count": c} for k, c in top_keywords],
     }
 
+    if len(videos) == 0:
+        print("ERROR: 0 videos fetched — refusing to overwrite existing data (likely quota exhausted)", file=sys.stderr)
+        sys.exit(1)
+
     os.makedirs("data/history", exist_ok=True)
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     with open("data/latest.json", "w") as f:
