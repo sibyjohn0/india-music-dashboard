@@ -54,7 +54,7 @@ async function init() {
     return;
   }
 
-  allVideos = data.videos || [];
+  allVideos = (data.videos || []).sort((a,b) => b.discovery_score - a.discovery_score);
   allChannels = buildChannels(allVideos);
 
   const fetched = new Date(data.fetched_at);
@@ -64,7 +64,7 @@ async function init() {
 
   populateFilters(data);
   renderStats(data);
-  renderTopCards([...allVideos].sort((a, b) => (b.velocity || 0) - (a.velocity || 0)).slice(0, 3));
+  renderTopCards(allVideos.slice(0, 3));
   renderCharts(data);
   renderTagCloud(data.top_keywords || []);
   renderChannelTable(allChannels);
@@ -98,7 +98,7 @@ function buildChannels(videos) {
       map[cid] = {
         id: cid, name: v.channel,
         video_count: 0, total_views: 0,
-        total_velocity: 0, total_earnings: 0, total_engagement: 0,
+        total_velocity: 0, total_earnings: 0, total_engagement: 0, total_discovery: 0,
         views_delta: 0, top_video: v,
         genres: {}, languages: {},
       };
@@ -109,8 +109,9 @@ function buildChannels(videos) {
     c.total_velocity+= v.velocity || 0;
     c.total_earnings+= v.earnings_est_inr || 0;
     c.total_engagement += v.engagement_rate || 0;
-    c.views_delta   += v.views_delta || 0;
-    if (v.views > c.top_video.views) c.top_video = v;
+    c.views_delta    += v.views_delta || 0;
+    c.total_discovery+= v.discovery_score || 0;
+    if (v.discovery_score > (c.top_video.discovery_score||0)) c.top_video = v;
     if (v.genre)    c.genres[v.genre]       = (c.genres[v.genre] || 0) + 1;
     if (v.language) c.languages[v.language] = (c.languages[v.language] || 0) + 1;
   }
@@ -118,9 +119,10 @@ function buildChannels(videos) {
     ...c,
     avg_velocity:   Math.round(c.total_velocity / c.video_count),
     avg_engagement: Math.round((c.total_engagement / c.video_count) * 100) / 100,
+    avg_discovery:  Math.round((c.total_discovery / c.video_count) * 10) / 10,
     top_genre: Object.entries(c.genres).sort((a,b)=>b[1]-a[1])[0]?.[0] || "Indie",
     top_lang:  Object.entries(c.languages).sort((a,b)=>b[1]-a[1])[0]?.[0] || "Hindi",
-  })).sort((a, b) => (b.avg_velocity - a.avg_velocity));
+  })).sort((a, b) => b.avg_discovery - a.avg_discovery);
 }
 
 // ── Stats row ─────────────────────────────────────────────────
@@ -134,16 +136,15 @@ function renderStats(data) {
   const topGenre      = (data.genre_breakdown || [])[0];
   const topLang       = (data.language_breakdown || [])[0];
 
+  const topDisc = allVideos[0];
   const stats = [
-    { label: "Indie Videos",     value: vs.length,                       sub: "no major label content" },
-    { label: "Independent Artists", value: allChannels.length,           sub: "unique channels" },
-    { label: "Combined Views",   value: fmt(totalViews),                  sub: "across all tracked videos" },
-    { label: "Est. Total Earnings", value: fmtInr(totalEarnings),        sub: "~₹80/1K views India CPM" },
-    { label: "Avg Engagement",   value: avgEng.toFixed(2) + "%",          sub: "(likes+comments)÷views" },
-    { label: "Fastest Rising",   value: topVelocity ? fmt(topVelocity.velocity)+"/d" : "—", sub: topVelocity?.title?.slice(0,28)+"…" || "" },
-    { label: "New Today",        value: newToday,                         sub: "first seen today" },
-    { label: "Top Genre",        value: topGenre?.[0] || "—",             sub: `${topGenre?.[1] || 0} videos` },
-    { label: "Top Language",     value: topLang?.[0] || "—",              sub: `${topLang?.[1] || 0} videos` },
+    { label: "Artists Found",       value: allChannels.length,             sub: "independent channels" },
+    { label: "Videos Tracked",      value: vs.length,                      sub: "last 90 days, no major labels" },
+    { label: "Top Discovery",       value: topDisc ? topDisc.discovery_score : "—", sub: topDisc?.channel || "" },
+    { label: "Avg Engagement",      value: avgEng.toFixed(2) + "%",         sub: "above 2% = highly engaged audience" },
+    { label: "New Today",           value: newToday,                        sub: "not seen in previous run" },
+    { label: "Top Genre",           value: topGenre?.[0] || "—",            sub: `${topGenre?.[1] || 0} videos` },
+    { label: "Top Language",        value: topLang?.[0] || "—",             sub: `${topLang?.[1] || 0} videos` },
   ];
 
   document.getElementById("stats-row").innerHTML = stats.map(s => `
@@ -156,7 +157,7 @@ function renderStats(data) {
 
 // ── Top cards (by velocity) ───────────────────────────────────
 function renderTopCards(videos) {
-  const labels = ["🚀 Fastest Rising", "⚡ #2 Velocity", "🔥 #3 Velocity"];
+  const labels = ["🔭 Top Discovery", "✨ #2 Discovery", "⚡ #3 Discovery"];
   document.getElementById("top-cards").innerHTML = videos.map((v, i) => `
     <a href="${v.url}" target="_blank" rel="noopener" class="top-card ${i===0?"rank-1":""}">
       <img src="${v.thumbnail}" alt="" loading="lazy" />
@@ -169,9 +170,9 @@ function renderTopCards(videos) {
           <span class="pill pill-lang">${v.language}</span>
         </div>
         <div class="top-card-stats">
-          <div class="top-card-stat"><span>Velocity </span>${fmt(v.velocity)}/d</div>
+          <div class="top-card-stat"><span>Score </span><strong>${v.discovery_score}</strong></div>
+          <div class="top-card-stat"><span>Engagement </span>${v.engagement_rate}%</div>
           <div class="top-card-stat"><span>Views </span>${fmt(v.views)}</div>
-          <div class="top-card-stat"><span>Est. </span>${fmtInr(v.earnings_est_inr)}</div>
         </div>
       </div>
     </a>`).join("");
@@ -253,6 +254,7 @@ function renderChannelTable(channels) {
       <td class="num velocity">${fmt(c.avg_velocity)}<span style="color:#555;font-size:11px">/d</span></td>
       <td class="num earnings">${fmtInr(c.total_earnings)}</td>
       <td class="num eng-rate">${c.avg_engagement}%</td>
+      <td class="num disc-score">${c.avg_discovery}</td>
       <td><span class="pill pill-genre">${c.top_genre}</span></td>
     </tr>`).join("");
 }
@@ -271,12 +273,12 @@ function renderVideoTable(videos) {
           </div>
         </div>
       </td>
-      <td class="num" title="${fmtDate(v.published_at)}">${daysAgo(v.published_at)}</td>
+      <td class="num disc-score">${v.discovery_score}</td>
       <td class="num">${fmt(v.views)}</td>
       <td class="num">${fmtDelta(v.views_delta, v.is_new)}</td>
-      <td class="num velocity">${fmt(v.velocity||0)}<span style="color:#555;font-size:11px">/d</span></td>
-      <td class="num earnings">${fmtInr(v.earnings_est_inr||0)}</td>
       <td class="num eng-rate">${v.engagement_rate}%</td>
+      <td class="num velocity">${fmt(v.velocity||0)}<span style="color:#555;font-size:11px">/d</span></td>
+      <td class="num" title="${fmtDate(v.published_at)}">${daysAgo(v.published_at)}</td>
       <td><span class="pill pill-genre">${v.genre}</span></td>
       <td><span class="pill pill-lang">${v.language}</span></td>
     </tr>`).join("");

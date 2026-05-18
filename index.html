@@ -33,7 +33,7 @@
       <section class="stats-row" id="stats-row"></section>
 
       <section class="section">
-        <h2 class="section-title">Fastest Rising <span class="hint">— sorted by views/day</span></h2>
+        <h2 class="section-title">Top Discoveries <span class="hint">— ranked by discovery score (engagement × velocity × recency)</span></h2>
         <div class="top-cards" id="top-cards"></div>
       </section>
 
@@ -72,10 +72,10 @@
         <div class="controls">
           <input type="text" id="ch-search" placeholder="Search artist…" />
           <select id="ch-sort">
+            <option value="avg_discovery">Sort: Discovery Score</option>
+            <option value="avg_engagement">Sort: Engagement</option>
             <option value="avg_velocity">Sort: Velocity</option>
             <option value="total_views">Sort: Total Views</option>
-            <option value="total_earnings">Sort: Est. Earnings</option>
-            <option value="avg_engagement">Sort: Engagement</option>
             <option value="video_count">Sort: Videos</option>
           </select>
           <select id="ch-genre">
@@ -112,12 +112,12 @@
         <div class="controls">
           <input type="text" id="search" placeholder="Search title / artist…" />
           <select id="sort-by">
-            <option value="velocity">Sort: Velocity</option>
-            <option value="views">Sort: Views</option>
-            <option value="views_delta">Sort: 24h Growth</option>
+            <option value="discovery_score">Sort: Discovery Score</option>
             <option value="engagement_rate">Sort: Engagement</option>
-            <option value="earnings_est_inr">Sort: Est. Earnings</option>
-            <option value="published_at">Sort: Newest</option>
+            <option value="velocity">Sort: Velocity</option>
+            <option value="published_at">Sort: Newest Upload</option>
+            <option value="views_delta">Sort: 24h Growth</option>
+            <option value="views">Sort: Views</option>
           </select>
           <select id="filter-genre">
             <option value="all">All Genres</option>
@@ -134,11 +134,12 @@
               <th>#</th>
               <th>Video</th>
               <th>Uploaded</th>
+              <th>Score</th>
               <th>Views</th>
               <th>24h Δ</th>
-              <th>Velocity</th>
-              <th>Est. ₹</th>
               <th>Engagement</th>
+              <th>Velocity</th>
+              <th>Uploaded</th>
               <th>Genre</th>
               <th>Lang</th>
             </tr>
