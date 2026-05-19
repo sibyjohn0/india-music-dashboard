@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>India Indie Music Radar</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
@@ -22,6 +23,7 @@
     <button class="tab active" data-tab="discover">Discover</button>
     <button class="tab" data-tab="artists">Artists</button>
     <button class="tab" data-tab="browse">Browse</button>
+    <button class="tab" data-tab="radar">Radar</button>
     <button class="tab" data-tab="trends">Trends</button>
   </nav>
 
@@ -29,15 +31,25 @@
 
     <!-- ── DISCOVER ── -->
     <div id="tab-discover" class="tab-pane active">
+      <div class="filter-bar">
+        <select id="d-lang"><option value="all">All Languages</option></select>
+        <select id="d-genre"><option value="all">All Genres</option></select>
+        <select id="d-sort">
+          <option value="discovery_score">Sort: Score</option>
+          <option value="engagement_rate">Sort: Engagement</option>
+          <option value="velocity">Sort: Velocity</option>
+          <option value="views">Sort: Views</option>
+        </select>
+        <button class="toggle-btn" id="d-new-only" data-on="false">New Only</button>
+      </div>
 
       <div class="discover-hero">
-        <div class="discover-hero-label">Today's Top Finds</div>
+        <div class="discover-hero-label" id="d-hero-label">Today's Top Finds</div>
         <div class="hero-cards" id="hero-cards"></div>
       </div>
 
       <div class="discover-body">
         <div class="pulse-row" id="pulse-list"></div>
-
         <div class="breakdown-col">
           <div class="breakdown-box">
             <div class="breakdown-title">By Genre</div>
@@ -49,7 +61,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <!-- ── ARTISTS ── -->
@@ -59,11 +70,25 @@
         <select id="a-genre"><option value="all">All Genres</option></select>
         <select id="a-lang"><option value="all">All Languages</option></select>
         <select id="a-sort">
-          <option value="avg_discovery">Discovery Score</option>
-          <option value="avg_engagement">Engagement</option>
-          <option value="avg_velocity">Velocity</option>
-          <option value="total_views">Total Views</option>
+          <option value="avg_discovery">Sort: Discovery Score</option>
+          <option value="avg_engagement">Sort: Engagement</option>
+          <option value="avg_velocity">Sort: Velocity</option>
+          <option value="total_views">Sort: Total Views</option>
+          <option value="video_count">Sort: Videos</option>
         </select>
+        <select id="a-min-eng">
+          <option value="0">Any Engagement</option>
+          <option value="1">1%+ Engagement</option>
+          <option value="2">2%+ Engagement</option>
+          <option value="5">5%+ Engagement</option>
+        </select>
+        <select id="a-min-videos">
+          <option value="1">Any Video Count</option>
+          <option value="2">2+ Videos</option>
+          <option value="3">3+ Videos</option>
+          <option value="5">5+ Videos</option>
+        </select>
+        <button class="toggle-btn" id="a-multiplatform" data-on="false">Multi-platform Only</button>
       </div>
       <div class="artist-grid" id="artist-grid"></div>
     </div>
@@ -73,21 +98,79 @@
       <div class="filter-bar">
         <input type="text" id="v-search" placeholder="Search title or artist…" />
         <select id="v-sort">
-          <option value="discovery_score">Discovery Score</option>
-          <option value="engagement_rate">Engagement</option>
-          <option value="velocity">Velocity</option>
-          <option value="published_at">Newest</option>
-          <option value="views">Views</option>
+          <option value="discovery_score">Sort: Discovery Score</option>
+          <option value="engagement_rate">Sort: Engagement</option>
+          <option value="velocity">Sort: Velocity</option>
+          <option value="published_at">Sort: Newest</option>
+          <option value="views_delta">Sort: 24h Growth</option>
+          <option value="views">Sort: Views</option>
         </select>
         <select id="v-genre"><option value="all">All Genres</option></select>
         <select id="v-lang"><option value="all">All Languages</option></select>
+        <select id="v-window">
+          <option value="0">All Time</option>
+          <option value="7">Last 7 Days</option>
+          <option value="30">Last 30 Days</option>
+          <option value="14">Last 14 Days</option>
+        </select>
+        <select id="v-min-eng">
+          <option value="0">Any Engagement</option>
+          <option value="1">1%+ Engagement</option>
+          <option value="2">2%+ Engagement</option>
+          <option value="5">5%+ Engagement</option>
+        </select>
+        <button class="toggle-btn" id="v-new-only" data-on="false">New Only</button>
       </div>
       <div class="video-list" id="video-list"></div>
     </div>
 
+    <!-- ── RADAR ── -->
+    <div id="tab-radar" class="tab-pane">
+      <div class="filter-bar">
+        <input type="text" id="r-search" placeholder="Search artist…" />
+        <select id="r-lang"><option value="all">All Languages</option></select>
+        <select id="r-genre"><option value="all">All Genres</option></select>
+        <select id="r-sort">
+          <option value="latest_global_listeners">Sort: Global Listeners</option>
+          <option value="latest_india_listeners">Sort: India Listeners</option>
+          <option value="latest_india_rank">Sort: India Rank</option>
+          <option value="growth_pct">Sort: Growth %</option>
+        </select>
+        <select id="r-trend">
+          <option value="all">All Trends</option>
+          <option value="new">New</option>
+          <option value="rising">Rising</option>
+          <option value="stable">Stable</option>
+          <option value="falling">Falling</option>
+        </select>
+        <button class="toggle-btn" id="r-chart-only" data-on="false">India Chart Only</button>
+      </div>
+      <div class="radar-body">
+        <div class="radar-grid" id="radar-grid"></div>
+        <div class="breakdown-col">
+          <div class="breakdown-box">
+            <div class="breakdown-title">By Language</div>
+            <div id="radar-lang-bars"></div>
+          </div>
+          <div class="breakdown-box">
+            <div class="breakdown-title">Trend Status</div>
+            <div id="radar-trend-bars"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ── TRENDS ── -->
     <div id="tab-trends" class="tab-pane">
-      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+      <div class="filter-bar">
+        <select id="t-months">
+          <option value="6">Last 6 Months</option>
+          <option value="3">Last 3 Months</option>
+          <option value="12">Last 12 Months</option>
+        </select>
+        <div class="toggle-group" id="t-genre-toggles"></div>
+        <div class="toggle-group" id="t-lang-toggles"></div>
+      </div>
       <div class="trends-empty" id="trends-loading">Loading monthly data…</div>
       <div class="trends-grid" id="trends-grid" style="display:none">
         <div class="chart-card">
@@ -116,7 +199,6 @@
     </div>
 
   </main>
-
   <script src="app.js"></script>
 </body>
 </html>
