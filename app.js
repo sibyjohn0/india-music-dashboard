@@ -22,10 +22,11 @@ let allVideos=[], allChannels=[], lfmData={}, trackerData=null;
 async function init() {
   let data;
   try {
+    const NC = {cache:"no-cache"};
     const [ytRes, lfmRes, trackerRes] = await Promise.allSettled([
-      fetch(DATA_URL).then(r=>r.json()),
-      fetch(LFM_URL).then(r=>r.json()).catch(()=>null),
-      fetch(TRACKER_URL).then(r=>r.json()).catch(()=>null),
+      fetch(DATA_URL, NC).then(r=>r.json()),
+      fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
+      fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
     data = ytRes.value;
     if (lfmRes.status==="fulfilled" && lfmRes.value) lfmData = lfmRes.value.artists||{};
@@ -461,7 +462,7 @@ async function loadTrends() {
   }).reverse();
 
   const results = await Promise.all(months.map(m=>
-    fetch(`data/monthly/${m}.json`).then(r=>r.ok?r.json():null).catch(()=>null)
+    fetch(`data/monthly/${m}.json`,{cache:"no-cache"}).then(r=>r.ok?r.json():null).catch(()=>null)
   ));
   monthlyData = results.filter(Boolean);
   document.getElementById("trends-loading").style.display="none";
