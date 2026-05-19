@@ -209,7 +209,7 @@ function renderArtistGrid(channels) {
   }
   document.getElementById("artist-grid").innerHTML = channels.map(c=>`
     <a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" class="artist-card">
-      <img class="artist-card-thumb" src="${esc(c.top_video.thumbnail)}" alt="" loading="lazy" />
+      <img class="artist-card-thumb" src="${esc(c.top_video.thumbnail||'')}" alt="" loading="lazy" />
       <div class="artist-card-body">
         <div class="artist-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
         <div class="artist-card-pills">
