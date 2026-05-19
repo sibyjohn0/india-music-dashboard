@@ -16,61 +16,126 @@ MUSIC_CATEGORY = "10"
 INDIA_MUSIC_CPM_INR = 80
 LOOKBACK_DAYS = 90
 SEARCH_MAX_RESULTS = 15
-# Discovery filter: ignore videos already at scale (they don't need discovering)
-MAX_VIEWS_FOR_DISCOVERY = 5_000_000
+MAX_VIEWS_FOR_DISCOVERY = 3_000_000  # lower cap — truly indie artists
+TARGET_PER_LANGUAGE = 12             # hard cap per language in final output
 
-# ── Major label blocklist ─────────────────────────────────────
+# ── Label / distribution company blocklist ────────────────────
+# Checked against CHANNEL NAME and TAGS only (not description, to avoid
+# blocking indie artists who merely mention a label in their description).
 MAJOR_LABELS = [
+    # Pan-India majors
     "t-series", "tseries", "saregama", "sony music", "zee music",
-    "tips music", "eros now", "yrf", "dharma", "jiocinema",
-    "warner music india", "universal music india", "emi music",
-    "aditya music", "lahari music", "speed records",
-    "desi music factory", "white hill music", "shemaroo",
-    "venus music", "magnasound", "viacom18", "star vijay",
-    "sun music", "etv music", "raj music", "think music india",
+    "tips music", "eros now", "eros music", "yrf", "junglee music",
+    "dharma", "jiocinema", "jiosaavn", "hungama", "gaana",
+    "warner music india", "universal music india", "emi music india",
+    "times music", "ultra music", "vee music",
+    "reliance entertainment", "maddock music", "excel music",
+    "balaji music", "goldmines",
+    # Hindi / Bollywood
+    "shemaroo", "venus music", "magnasound", "viacom18",
+    "zee studios", "tips official",
+    # Punjabi
+    "speed records", "desi music factory", "white hill music",
+    "saga music", "a series", "anand music", "punjabi hits",
+    # Tamil
+    "think music india", "think music", "sun music", "star vijay",
+    "agi music", "amigo films", "kalaignar tv",
+    # Telugu
+    "aditya music", "lahari music", "etv music", "manomayee",
+    "gemini music", "svr music",
+    # Malayalam
+    "muzik247", "nu motion", "central pictures",
+    # Kannada
+    "raj music", "raj digital", "kannada filmy",
+    # Bengali
+    "eskay music", "shree venkatesh", "sv films",
 ]
 
-# ── Search queries — ordered by date to surface new talent ────
-# Mix of: newest uploads (order=date) + high engagement (order=rating)
-# Niche enough that major labels won't dominate results
-DISCOVERY_SEARCHES = [
-    # Genre + independent signals
-    ("Indian bedroom pop", "date"),
-    ("Indian lo-fi original song", "date"),
-    ("Indian indie singer songwriter", "date"),
-    ("Indian underground rap original", "date"),
-    ("Indian jazz original music", "date"),
-    ("Indian folk fusion original", "date"),
-    ("Indian indie pop original song", "date"),
-    ("Indian R&B original 2026", "date"),
+# ── Known mainstream artists — blocked regardless of views ────
+MAINSTREAM_ARTISTS = [
+    # Hindi mainstream
+    "arijit singh", "atif aslam", "shreya ghoshal", "sonu nigam",
+    "jubin nautiyal", "armaan malik", "neha kakkar", "tony kakkar",
+    "darshan raval", "guru randhawa", "b praak", "asees kaur",
+    "palak muchhal", "udit narayan", "kumar sanu", "alka yagnik",
+    # Rap / hip-hop mainstream
+    "badshah", "honey singh", "yo yo honey singh", "raftaar",
+    "divine", "naezy", "mc stan", "ikka", "emiway bantai",
+    # Punjabi mainstream
+    "diljit dosanjh", "hardy sandhu", "jassi gill", "mankirt aulakh",
+    "jassie gill", "g khan", "surjit bindrakhia",
+    # Tamil / Telugu mainstream (film composers)
+    "anirudh ravichander", "harris jayaraj", "a.r. rahman", "ar rahman",
+    "devi sri prasad", "s. thaman", "s thaman", "vishal-shekhar",
+    "pritam", "shankar ehsaan loy", "amit trivedi",
+    # Bollywood compilation / soundtrack channels
+    "bollywood", "filmi", "film songs",
+]
+
+# ── Compilation / fan channel patterns ────────────────────────
+COMPILATION_PATTERNS = [
+    "jukebox", "24x7", "all songs", "best of", "top songs",
+    "hit songs", "old songs", "love songs", "sad songs",
+    "nonstop", "mashup", "remix collection", "audio jukebox",
+    "love junction", "filmi gaane",
+]
+
+# ── Language-first search structure ──────────────────────────
+# Each language gets dedicated searches so no language is starved.
+# Generic "Indian X" searches are removed — they overwhelmingly return Hindi.
+LANGUAGE_SEARCHES = {
+    "Tamil":     [
+        ("tamil indie original song 2025", "date"),
+        ("independent tamil artist music", "date"),
+        ("new tamil singer songwriter", "rating"),
+    ],
+    "Telugu":    [
+        ("telugu indie original song 2025", "date"),
+        ("independent telugu music artist", "date"),
+        ("new telugu singer songwriter", "rating"),
+    ],
+    "Kannada":   [
+        ("kannada indie music original 2025", "date"),
+        ("new independent kannada artist", "rating"),
+    ],
+    "Malayalam": [
+        ("malayalam indie original music 2025", "date"),
+        ("new independent malayalam artist", "rating"),
+    ],
+    "Bengali":   [
+        ("bengali indie original song 2025", "date"),
+        ("bangla independent music artist", "date"),
+        ("new bengali singer songwriter", "rating"),
+    ],
+    "Punjabi":   [
+        ("punjabi indie original song 2025", "date"),
+        ("independent punjabi artist music", "rating"),
+    ],
+    "Marathi":   [
+        ("marathi indie original song 2025", "date"),
+        ("new independent marathi artist", "rating"),
+    ],
+    "Hindi":     [
+        ("hindi indie original song 2025", "date"),
+        ("hindi underground rap original", "date"),
+        ("hindi bedroom pop singer songwriter", "date"),
+        ("hindi indie artist unsigned 2025", "rating"),
+    ],
+    "English":   [
+        ("indian english indie band original", "date"),
+        ("india english singer songwriter original", "date"),
+        ("indian indie rock original 2025", "rating"),
+    ],
+}
+
+# ── Cross-genre searches (language-agnostic, capped separately) ──
+GENRE_SEARCHES = [
+    ("Indian jazz original music 2025", "date"),
     ("Indian electronic original music", "date"),
-    ("Indian ambient original", "date"),
-    ("desi hip hop new artist", "date"),
-    ("Indian trap original beat", "date"),
-    # Language-specific indie
-    ("hindi indie original song", "date"),
-    ("punjabi indie artist original", "date"),
-    ("tamil indie original music", "date"),
-    ("telugu indie original song", "date"),
-    ("bengali indie original", "date"),
-    ("kannada indie original music", "date"),
-    ("malayalam indie original", "date"),
-    ("marathi indie original song", "date"),
-    # City scenes
-    ("Mumbai underground music", "date"),
-    ("Bangalore indie artist", "date"),
-    ("Delhi underground hip hop", "date"),
-    ("Kolkata indie music", "date"),
-    # High-engagement discovery
-    ("new Indian independent artist music", "rating"),
-    ("Indian music producer original beat", "rating"),
-    ("indie india new song", "rating"),
-    ("unsigned indian artist music", "rating"),
-    # Label/collective specific
+    ("desi hip hop new artist 2025", "date"),
+    ("Indian folk fusion original 2025", "date"),
     ("Azadi Records", "date"),
-    ("Gully Gang new", "date"),
     ("CARCOSA music india", "date"),
-    ("Indian music independent release", "rating"),
 ]
 
 
@@ -114,7 +179,10 @@ def fetch_video_details(ids):
     return items
 
 
-def detect_language(title, tags, description):
+def detect_language(title, tags, description, hint=None):
+    """hint is the LANGUAGE_SEARCHES key that produced this video."""
+    if hint and hint in LANGUAGE_SEARCHES:
+        return hint  # trust the search bucket
     text = (title + " " + " ".join(tags) + " " + description).lower()
     checks = [
         ("Tamil",     ["tamil", "thamizh", "kollywood"]),
@@ -124,6 +192,7 @@ def detect_language(title, tags, description):
         ("Kannada",   ["kannada", "sandalwood"]),
         ("Malayalam", ["malayalam", "mollywood"]),
         ("Marathi",   ["marathi"]),
+        ("English",   ["indie rock", "indie pop", "alternative rock", "english indie"]),
     ]
     for lang, keywords in checks:
         if any(k in text for k in keywords):
@@ -163,12 +232,25 @@ def discovery_score(views, engagement_rate, velocity, days_live):
     return round(eng + vel + recency, 1)
 
 
-def is_major_label(channel, tags, desc):
-    text = (channel + " " + " ".join(tags) + " " + desc).lower()
-    return any(label in text for label in MAJOR_LABELS)
+def is_blocked(channel, tags, desc):
+    channel_lower = channel.lower()
+    tags_lower    = " ".join(tags).lower()
+    # Labels: check channel name and tags only — descriptions often mention
+    # labels legitimately (e.g. "Not affiliated with Sony") and would false-positive
+    if any(label in channel_lower for label in MAJOR_LABELS):
+        return True
+    if any(label in tags_lower for label in MAJOR_LABELS):
+        return True
+    # Mainstream artists: channel name only
+    if any(artist in channel_lower for artist in MAINSTREAM_ARTISTS):
+        return True
+    # Compilation / fan channels: channel name only
+    if any(pat in channel_lower for pat in COMPILATION_PATTERNS):
+        return True
+    return False
 
 
-def parse_video(item):
+def parse_video(item, lang_hint=None):
     snip  = item.get("snippet", {})
     stats = item.get("statistics", {})
     now   = datetime.now(timezone.utc)
@@ -200,7 +282,7 @@ def parse_video(item):
         "days_live":        days_live,
         "earnings_est_inr": round(views * INDIA_MUSIC_CPM_INR / 1000),
         "discovery_score":  discovery_score(views, engagement, velocity, days_live),
-        "language":         detect_language(snip.get("title",""), tags, description),
+        "language":         detect_language(snip.get("title",""), tags, description, lang_hint),
         "genre":            detect_genre(snip.get("title",""), tags, description),
         "tags":             tags[:20],
         "description":      description,
@@ -255,51 +337,89 @@ def update_monthly_summary(videos, date_str):
 
 def main():
     prev_views = load_prev_views()
-    seen, all_ids, quota_used = set(), [], 0
+    quota_used = 0
 
-    for query, order in DISCOVERY_SEARCHES:
+    # ── Phase 1: language-first searches ─────────────────────────────────────
+    # Each language gets its own search bucket so no language is starved.
+    # Videos are tagged with their source language at fetch time.
+    id_to_lang = {}   # video_id → language hint
+    for lang, queries in LANGUAGE_SEARCHES.items():
+        for query, order in queries:
+            if quota_used + 100 > 8500:
+                print(f"Quota cap at {quota_used} — stopping early")
+                break
+            for vid_id in fetch_search_ids(query, order):
+                if vid_id not in id_to_lang:
+                    id_to_lang[vid_id] = lang
+            quota_used += 100
+
+    # ── Phase 2: genre / cross-language searches ──────────────────────────────
+    genre_ids = []
+    for query, order in GENRE_SEARCHES:
         if quota_used + 100 > 9000:
-            print(f"Quota cap at {quota_used} — stopping")
             break
-        all_ids += fetch_search_ids(query, order)
+        genre_ids += fetch_search_ids(query, order)
         quota_used += 100
+    for vid_id in genre_ids:
+        id_to_lang.setdefault(vid_id, None)   # no language hint
 
-    unique_ids = list(dict.fromkeys(all_ids))
-    print(f"{len(unique_ids)} unique IDs from {len(DISCOVERY_SEARCHES)} searches | quota ~{quota_used}")
+    unique_ids = list(id_to_lang.keys())
+    total_searches = sum(len(v) for v in LANGUAGE_SEARCHES.values()) + len(GENRE_SEARCHES)
+    print(f"{len(unique_ids)} unique IDs from {total_searches} searches | quota ~{quota_used}")
 
-    videos = []
+    # ── Phase 3: enrich + filter ──────────────────────────────────────────────
+    seen = set()
+    lang_buckets = {lang: [] for lang in LANGUAGE_SEARCHES}
+    lang_buckets["Other"] = []
+
     for item in fetch_video_details(unique_ids):
-        v = parse_video(item)
-        if v["id"] in seen:
+        vid_id = item["id"]
+        if vid_id in seen:
             continue
-        if is_major_label(v["channel"], v["tags"], v["description"]):
+        lang_hint = id_to_lang.get(vid_id)
+        v = parse_video(item, lang_hint)
+
+        if is_blocked(v["channel"], v["tags"], v["description"]):
             continue
         if v["views"] > MAX_VIEWS_FOR_DISCOVERY:
-            continue                     # already established — skip
-        seen.add(v["id"])
-        prev = prev_views.get(v["id"])
+            continue
+        seen.add(vid_id)
+
+        prev = prev_views.get(vid_id)
         v["views_delta"] = v["views"] - prev if prev is not None else None
         v["is_new"] = prev is None
-        videos.append(v)
 
-    if len(videos) == 0:
-        print("ERROR: 0 videos — refusing to overwrite (quota exhausted?)", file=sys.stderr)
+        bucket = v["language"] if v["language"] in lang_buckets else "Other"
+        lang_buckets[bucket].append(v)
+
+    # ── Phase 4: per-language balancing ──────────────────────────────────────
+    # Take top TARGET_PER_LANGUAGE by discovery score per language.
+    # This guarantees no single language floods the results.
+    balanced = []
+    for lang, vids in lang_buckets.items():
+        vids.sort(key=lambda x: -x["discovery_score"])
+        cap = TARGET_PER_LANGUAGE if lang != "Other" else TARGET_PER_LANGUAGE // 2
+        balanced.extend(vids[:cap])
+        if vids:
+            print(f"  {lang}: {min(len(vids), cap)}/{len(vids)} selected")
+
+    if not balanced:
+        print("ERROR: 0 videos after balancing — refusing to overwrite", file=sys.stderr)
         sys.exit(1)
 
-    # Primary sort: discovery score
-    videos.sort(key=lambda x: -x["discovery_score"])
+    balanced.sort(key=lambda x: -x["discovery_score"])
 
-    genre_b, lang_b, top_kw = build_breakdowns(videos)
+    genre_b, lang_b, top_kw = build_breakdowns(balanced)
 
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     output = {
         "fetched_at":         datetime.now(timezone.utc).isoformat(),
-        "total":              len(videos),
+        "total":              len(balanced),
         "quota_used_est":     quota_used,
         "lookback_days":      LOOKBACK_DAYS,
         "genre_breakdown":    genre_b,
         "language_breakdown": lang_b,
-        "videos":             videos,
+        "videos":             balanced,
         "top_keywords":       [{"tag": k, "count": c} for k, c in top_kw],
     }
 
@@ -309,13 +429,14 @@ def main():
     with open(f"data/history/{date_str}.json", "w") as f:
         json.dump(output, f, indent=2)
 
-    update_monthly_summary(videos, date_str)
+    update_monthly_summary(balanced, date_str)
 
-    print(f"Saved {len(videos)} artists — {date_str} | quota ~{quota_used}/10000")
-    print("Genres: " + ", ".join(f"{g}:{c}" for g,c in genre_b))
+    print(f"\nSaved {len(balanced)} videos — {date_str} | quota ~{quota_used}/10000")
+    print("Genres:    " + ", ".join(f"{g}:{c}" for g,c in genre_b))
+    print("Languages: " + ", ".join(f"{l}:{c}" for l,c in lang_b))
     print("Top 5 by discovery score:")
-    for v in videos[:5]:
-        print(f"  [{v['discovery_score']}] {v['channel']} — {v['title'][:50]} ({v['views']:,} views, {v['engagement_rate']}% eng)")
+    for v in balanced[:5]:
+        print(f"  [{v['discovery_score']}] {v['channel']} — {v['title'][:50]} ({v['views']:,} views)")
 
 
 if __name__ == "__main__":
