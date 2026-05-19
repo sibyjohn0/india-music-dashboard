@@ -1,4 +1,5 @@
-const DATA_URL = "data/latest.json";
+const DATA_URL  = "data/latest.json";
+const LFM_URL   = "data/lastfm_enrichment.json";
 
 // ── Formatters ────────────────────────────────────────────────
 function fmt(n) {
@@ -31,7 +32,7 @@ function fmtDelta(delta, isNew) {
 }
 
 // ── State ─────────────────────────────────────────────────────
-let allVideos = [], allChannels = [];
+let allVideos = [], allChannels = [], lfmData = {};
 
 // ── Chart palette ─────────────────────────────────────────────
 const PAL = ["#a78bfa","#60a5fa","#34d399","#facc15","#f87171",
@@ -42,8 +43,12 @@ const PAL = ["#a78bfa","#60a5fa","#34d399","#facc15","#f87171",
 async function init() {
   let data;
   try {
-    const res = await fetch(DATA_URL);
-    data = await res.json();
+    const [ytRes, lfmRes] = await Promise.allSettled([fetch(DATA_URL), fetch(LFM_URL)]);
+    data = await ytRes.value.json();
+    if (lfmRes.status === "fulfilled") {
+      const lfm = await lfmRes.value.json();
+      lfmData = lfm.artists || {};
+    }
   } catch {
     document.querySelector("main").innerHTML = `
       <div style="text-align:center;padding:80px 0;color:#888">
@@ -115,14 +120,20 @@ function buildChannels(videos) {
     if (v.genre)    c.genres[v.genre]       = (c.genres[v.genre] || 0) + 1;
     if (v.language) c.languages[v.language] = (c.languages[v.language] || 0) + 1;
   }
-  return Object.values(map).map(c => ({
-    ...c,
-    avg_velocity:   Math.round(c.total_velocity / c.video_count),
-    avg_engagement: Math.round((c.total_engagement / c.video_count) * 100) / 100,
-    avg_discovery:  Math.round((c.total_discovery / c.video_count) * 10) / 10,
-    top_genre: Object.entries(c.genres).sort((a,b)=>b[1]-a[1])[0]?.[0] || "Indie",
-    top_lang:  Object.entries(c.languages).sort((a,b)=>b[1]-a[1])[0]?.[0] || "Hindi",
-  })).sort((a, b) => b.avg_discovery - a.avg_discovery);
+  return Object.values(map).map(c => {
+    const lfm = lfmData[c.name] || {};
+    return {
+      ...c,
+      avg_velocity:       Math.round(c.total_velocity / c.video_count),
+      avg_engagement:     Math.round((c.total_engagement / c.video_count) * 100) / 100,
+      avg_discovery:      Math.round((c.total_discovery / c.video_count) * 10) / 10,
+      top_genre:          Object.entries(c.genres).sort((a,b)=>b[1]-a[1])[0]?.[0] || "Indie",
+      top_lang:           Object.entries(c.languages).sort((a,b)=>b[1]-a[1])[0]?.[0] || "Hindi",
+      lfm_listeners:      lfm.global_listeners || 0,
+      lfm_india_listeners:lfm.india_listeners  || 0,
+      lfm_india_rank:     lfm.india_rank        || null,
+    };
+  }).sort((a, b) => b.avg_discovery - a.avg_discovery);
 }
 
 // ── Stats row ─────────────────────────────────────────────────
@@ -255,6 +266,8 @@ function renderChannelTable(channels) {
       <td class="num earnings">${fmtInr(c.total_earnings)}</td>
       <td class="num eng-rate">${c.avg_engagement}%</td>
       <td class="num disc-score">${c.avg_discovery}</td>
+      <td class="num">${c.lfm_listeners ? fmt(c.lfm_listeners) : '<span style="color:#444">—</span>'}</td>
+      <td class="num">${c.lfm_india_rank ? `<span class="india-rank">#${c.lfm_india_rank}</span>` : '<span style="color:#444">—</span>'}</td>
       <td><span class="pill pill-genre">${c.top_genre}</span></td>
     </tr>`).join("");
 }
