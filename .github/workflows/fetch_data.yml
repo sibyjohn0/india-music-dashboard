@@ -18,10 +18,15 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Fetch data
+      - name: Fetch YouTube data
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python scripts/fetch_youtube.py
+
+      - name: Enrich with Last.fm
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+        run: python scripts/enrich_lastfm.py
 
       - name: Commit data
         run: |
