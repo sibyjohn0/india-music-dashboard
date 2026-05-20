@@ -25,6 +25,7 @@
     <button class="tab" data-tab="browse">Browse</button>
     <button class="tab" data-tab="radar">Radar</button>
     <button class="tab" data-tab="trends">Trends</button>
+    <button class="tab" data-tab="buzz">Buzz</button>
   </nav>
 
   <main>
@@ -204,6 +205,30 @@
           <div class="insights-meta" id="insights-meta"></div>
         </div>
         <div class="insights-grid" id="insights-grid"></div>
+      </div>
+    </div>
+
+    <!-- ── BUZZ ── -->
+    <div id="tab-buzz" class="tab-pane">
+      <div class="filter-bar">
+        <select id="b-lang"><option value="all">All Languages</option></select>
+        <select id="b-platform">
+          <option value="all">All Platforms</option>
+          <option value="reddit">Reddit</option>
+          <option value="twitter">Twitter / X</option>
+        </select>
+        <button class="toggle-btn" id="b-artist-only" data-on="false">Artist Mentions Only</button>
+      </div>
+      <div class="buzz-empty" id="buzz-loading">Loading community conversations…</div>
+      <div id="buzz-content" style="display:none">
+        <div class="buzz-section-hd" id="buzz-artist-hd" style="display:none">
+          <span>Artists in Conversation</span><span class="buzz-count" id="buzz-artist-count"></span>
+        </div>
+        <div class="buzz-artist-blocks" id="buzz-artist-blocks"></div>
+        <div class="buzz-section-hd" id="buzz-feed-hd">
+          <span>Community Feed</span><span class="buzz-count" id="buzz-feed-count"></span>
+        </div>
+        <div class="buzz-feed" id="buzz-feed"></div>
       </div>
     </div>
 

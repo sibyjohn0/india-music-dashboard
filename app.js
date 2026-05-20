@@ -2,6 +2,7 @@ const DATA_URL      = "data/latest.json";
 const LFM_URL       = "data/lastfm_enrichment.json";
 const TRACKER_URL   = "data/tracked_artists.json";
 const INSIGHTS_URL  = "data/insights.json";
+const SOCIAL_URL    = "data/social.json";
 
 // ── Formatters ────────────────────────────────────────────────────────────────
 const fmt    = n => n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"K":String(n);
@@ -21,19 +22,21 @@ let allVideos=[], allChannels=[], lfmData={}, trackerData=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
-  let data, insightsData = null;
+  let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(SOCIAL_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
     data = ytRes.value;
     if (lfmRes.status==="fulfilled" && lfmRes.value) lfmData = lfmRes.value.artists||{};
     if (trackerRes.status==="fulfilled") trackerData = trackerRes.value;
     insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
+    socialData   = (socialRes.status==="fulfilled"   && socialRes.value)   ? socialRes.value   : null;
   } catch {
     document.querySelector("main").innerHTML =
       `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet — run the fetch script.</div>`;
@@ -53,7 +56,7 @@ async function init() {
   renderArtistGrid(allChannels);
   renderVideoList(allVideos);
   if (trackerData) renderRadar(trackerData.artists||[]);
-  bindTabs(insightsData);
+  bindTabs(insightsData, socialData);
   bindDiscoverControls();
   bindArtistControls();
   bindVideoControls();
@@ -445,8 +448,8 @@ function applyRadar() {
 }
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
-function bindTabs(insightsData) {
-  let trendsLoaded = false;
+function bindTabs(insightsData, socialData) {
+  let trendsLoaded = false, buzzLoaded = false;
   document.querySelectorAll(".tab").forEach(btn=>
     btn.addEventListener("click",()=>{
       document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
@@ -457,6 +460,10 @@ function bindTabs(insightsData) {
         trendsLoaded=true;
         loadTrends();
         if (insightsData) renderInsights(insightsData);
+      }
+      if (btn.dataset.tab==="buzz"&&!buzzLoaded){
+        buzzLoaded=true;
+        renderBuzz(socialData);
       }
     })
   );
@@ -606,6 +613,121 @@ function renderInsights(data) {
   }).join("");
 
   wrap.style.display = "block";
+}
+
+// ── Buzz / Social ─────────────────────────────────────────────────────────────
+let buzzData = null;
+
+function renderBuzz(data) {
+  buzzData = data;
+  const loading = document.getElementById("buzz-loading");
+  const content = document.getElementById("buzz-content");
+
+  if (!data || (!data.artist_posts?.length && !data.feed?.length)) {
+    loading.textContent = "No social data yet — run scripts/fetch_social.py to populate.";
+    return;
+  }
+
+  loading.style.display = "none";
+  content.style.display  = "block";
+
+  // Populate language filter
+  const bLang = document.getElementById("b-lang");
+  const langs = [...new Set([
+    ...(data.artist_posts||[]).map(p=>p.language),
+    ...(data.feed||[]).map(p=>p.language),
+  ])].filter(Boolean).sort();
+  langs.forEach(l => {
+    const o = document.createElement("option"); o.value = l; o.textContent = l;
+    bLang.appendChild(o);
+  });
+
+  applyBuzzFilters(data);
+
+  document.getElementById("b-lang").addEventListener("change", ()=>applyBuzzFilters(buzzData));
+  document.getElementById("b-platform").addEventListener("change", ()=>applyBuzzFilters(buzzData));
+  document.getElementById("b-artist-only").addEventListener("click", function(){
+    this.dataset.on = this.dataset.on==="true" ? "false" : "true";
+    this.classList.toggle("active", this.dataset.on==="true");
+    applyBuzzFilters(buzzData);
+  });
+}
+
+function applyBuzzFilters(data) {
+  if (!data) return;
+  const lang       = document.getElementById("b-lang").value;
+  const platform   = document.getElementById("b-platform").value;
+  const artistOnly = document.getElementById("b-artist-only").dataset.on === "true";
+
+  const filter = p =>
+    (lang==="all" || p.language===lang) &&
+    (platform==="all" || p.platform===platform);
+
+  const artistPosts = (data.artist_posts||[]).filter(filter);
+  const feedPosts   = artistOnly ? [] : (data.feed||[]).filter(filter);
+
+  renderBuzzArtistSection(artistPosts);
+  renderBuzzFeed(feedPosts);
+}
+
+function renderBuzzArtistSection(posts) {
+  const hd     = document.getElementById("buzz-artist-hd");
+  const blocks = document.getElementById("buzz-artist-blocks");
+  const count  = document.getElementById("buzz-artist-count");
+
+  if (!posts.length) {
+    hd.style.display = "none";
+    blocks.innerHTML = "";
+    return;
+  }
+  hd.style.display = "flex";
+  count.textContent = posts.length;
+
+  // Group by artist
+  const byArtist = {};
+  for (const p of posts) {
+    if (!byArtist[p.artist]) byArtist[p.artist] = [];
+    byArtist[p.artist].push(p);
+  }
+
+  blocks.innerHTML = Object.entries(byArtist).map(([artist, ps]) => `
+    <div class="buzz-artist-block">
+      <div class="buzz-artist-chip">${esc(artist)}<span class="buzz-chip-count">${ps.length}</span></div>
+      <div class="buzz-posts">
+        ${ps.map(p => buzzCardHTML(p)).join("")}
+      </div>
+    </div>`).join("");
+}
+
+function renderBuzzFeed(posts) {
+  const hd    = document.getElementById("buzz-feed-hd");
+  const feed  = document.getElementById("buzz-feed");
+  const count = document.getElementById("buzz-feed-count");
+
+  hd.style.display = posts.length ? "flex" : "none";
+  count.textContent = posts.length;
+  feed.innerHTML = posts.map(p => buzzCardHTML(p)).join("");
+}
+
+function buzzCardHTML(p) {
+  const platformLabel = p.platform === "reddit"
+    ? `r/${esc(p.subreddit||"reddit")}`
+    : `twitter.com`;
+  const platformClass = p.platform === "reddit" ? "buzz-platform-reddit" : "buzz-platform-twitter";
+  const score = p.score > 0
+    ? `<span class="buzz-score">▲ ${p.score}</span>` : "";
+  const langColor = LANG_COLORS[p.language] || "#666";
+
+  return `<a class="buzz-card" href="${esc(p.url)}" target="_blank" rel="noopener">
+    <div class="buzz-card-header">
+      <span class="buzz-platform ${platformClass}">${platformLabel}</span>
+      ${score}
+      <span class="buzz-lang-pill" style="--lc:${langColor}">${esc(p.language||"")}</span>
+      <span class="buzz-date">${esc(p.date||"")}</span>
+    </div>
+    <div class="buzz-title">${esc(p.title)}</div>
+    ${p.snippet ? `<div class="buzz-snippet">${esc(p.snippet)}</div>` : ""}
+  </a>`;
 }
 
 init();

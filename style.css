@@ -227,3 +227,126 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   .video-row { grid-template-columns: 24px 64px 1fr auto; gap: 10px; }
   .radar-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Buzz / Social tab ──────────────────────────────────────────────────────── */
+.buzz-empty {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.buzz-section-hd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin: 28px 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.buzz-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface2);
+  border-radius: 10px;
+  padding: 1px 7px;
+}
+
+/* Artist blocks */
+.buzz-artist-blocks { display: flex; flex-direction: column; gap: 20px; }
+.buzz-artist-block {}
+.buzz-artist-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--fg);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 12px;
+  margin-bottom: 10px;
+}
+.buzz-chip-count {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 1px 6px;
+}
+.buzz-posts { display: flex; flex-direction: column; gap: 8px; }
+
+/* Feed */
+.buzz-feed { display: flex; flex-direction: column; gap: 8px; }
+
+/* Card */
+.buzz-card {
+  display: block;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  text-decoration: none;
+  transition: border-color .15s, background .15s;
+}
+.buzz-card:hover {
+  border-color: #a78bfa55;
+  background: #1c1040;
+}
+.buzz-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.buzz-platform {
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 2px 7px;
+}
+.buzz-platform-reddit  { background: #ff4500; color: #fff; }
+.buzz-platform-twitter { background: #1d9bf0; color: #fff; }
+
+.buzz-score {
+  font-size: 11px;
+  color: var(--muted);
+}
+.buzz-lang-pill {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--lc, #888);
+  border: 1px solid var(--lc, #888);
+  border-radius: 4px;
+  padding: 1px 5px;
+  opacity: .85;
+}
+.buzz-date {
+  font-size: 11px;
+  color: var(--muted);
+  margin-left: auto;
+}
+.buzz-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg);
+  line-height: 1.4;
+}
+.buzz-snippet {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
