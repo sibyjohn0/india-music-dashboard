@@ -15,11 +15,11 @@ REGION             = "IN"
 MUSIC_CATEGORY     = "10"
 INDIA_MUSIC_CPM_INR = 80
 LOOKBACK_DAYS      = 90
-SEARCH_MAX_RESULTS = 25                 # up from 15 — more candidates per query
-MAX_VIEWS          = 3_000_000          # ignore already-established artists
-MIN_VIEWS          = 1_000              # ignore brand-new / zero-traction uploads
-TARGET_PER_LANGUAGE = 12               # max videos per language in final output
-MAX_PER_CHANNEL    = 3                 # max videos from one channel per language bucket
+SEARCH_MAX_RESULTS  = 25               # candidates per query
+MAX_VIEWS           = 3_000_000        # ignore already-established artists
+MIN_VIEWS           = 1_000            # ignore brand-new / zero-traction uploads
+TARGET_PER_LANGUAGE = 20              # raised: more genre diversity per language
+MAX_PER_CHANNEL     = 2               # tighter cap: 2 videos max per channel per language
 
 # ── Label / distribution company blocklist ────────────────────
 # Checked against CHANNEL NAME and TAGS only (not description).
@@ -134,81 +134,144 @@ AGGREGATOR_PATTERNS = [
 # Under-represented languages get more varied queries to find more candidates.
 LANGUAGE_SEARCHES = {
     "Tamil": [
+        # General indie
         ("tamil indie original song", "date"),
         ("independent tamil artist music", "date"),
-        ("new tamil singer songwriter", "rating"),
-        ("tamil underground music original", "date"),
         ("chennai indie music", "rating"),
+        # Folk / Acoustic
+        ("tamil folk singer original", "date"),
+        ("carnatic fusion indie original", "rating"),
+        ("tamil acoustic singer songwriter", "date"),
+        # Hip Hop / Rap
+        ("tamil rap artist original", "date"),
+        ("tamil underground hip hop", "date"),
+        # Indie Pop / Alt
+        ("tamil indie pop original song", "date"),
+        ("tamil alternative music artist", "rating"),
     ],
     "Telugu": [
+        # General indie
         ("telugu indie original song", "date"),
         ("independent telugu music artist", "date"),
-        ("new telugu singer songwriter", "rating"),
         ("hyderabad indie music", "date"),
+        # Folk / Acoustic
+        ("telugu folk singer original", "date"),
+        ("telugu acoustic singer songwriter", "date"),
+        # Hip Hop / Rap
+        ("telugu rap artist original", "date"),
+        ("telugu underground hip hop", "date"),
+        # Indie Pop / Alt
+        ("telugu indie pop original", "date"),
         ("telugu alternative music original", "rating"),
     ],
     "Kannada": [
+        # General indie
         ("kannada indie music original", "date"),
-        ("new independent kannada artist", "rating"),
         ("bangalore indie music kannada", "date"),
-        ("karnataka indie singer original", "rating"),
-        ("kannada folk indie song", "date"),
+        ("new independent kannada artist", "rating"),
+        # Folk / Acoustic
+        ("kannada folk singer original", "date"),
+        ("kannada acoustic singer original", "date"),
+        # Hip Hop / Rap
+        ("kannada rap artist original", "date"),
+        # Indie Pop / Alt
+        ("kannada indie pop original", "date"),
+        ("karnataka indie rock original", "rating"),
     ],
     "Malayalam": [
+        # General indie
         ("malayalam indie original music", "date"),
-        ("new independent malayalam artist", "rating"),
         ("kerala indie music original", "date"),
-        ("malayalam alternative song independent", "rating"),
-        ("malayalam singer songwriter", "date"),
+        ("new independent malayalam artist", "rating"),
+        # Folk / Acoustic
+        ("malayalam folk singer original", "date"),
+        ("kerala acoustic singer songwriter", "date"),
+        # Hip Hop / Rap
+        ("malayalam rap artist original", "date"),
+        ("kerala hip hop underground", "date"),
+        # Indie Pop / Alt
+        ("malayalam indie pop original", "date"),
+        ("malayalam singer songwriter original", "rating"),
     ],
     "Bengali": [
+        # General indie
         ("bengali indie original song", "date"),
         ("bangla independent music artist", "date"),
-        ("new bengali singer songwriter", "rating"),
         ("kolkata indie music original", "date"),
-        ("bangladeshi indie song original", "rating"),
+        # Folk / Acoustic
+        ("bangla folk singer original", "date"),
+        ("bengali baul folk fusion original", "date"),
+        ("bangla acoustic singer songwriter", "date"),
+        # Hip Hop / Rap
+        ("bengali rap artist original", "date"),
+        ("kolkata hip hop underground", "date"),
+        # Indie Pop / Alt
+        ("bangla indie pop original", "date"),
+        ("bengali alternative music original", "rating"),
     ],
     "Punjabi": [
+        # General indie
         ("punjabi indie original song", "date"),
         ("independent punjabi artist music", "rating"),
         ("new punjabi singer independent", "date"),
-        ("punjabi underground music original", "date"),
+        # Folk / Acoustic
+        ("punjabi folk singer original", "date"),
+        ("punjabi acoustic sufi original", "date"),
+        # Hip Hop / Rap
+        ("punjabi underground rap original", "date"),
+        ("punjabi hip hop artist original", "date"),
+        # Indie Pop / Alt
+        ("punjabi indie pop original song", "date"),
+        ("punjabi alternative music original", "rating"),
     ],
     "Marathi": [
+        # General indie
         ("marathi indie original song", "date"),
         ("new independent marathi artist", "rating"),
         ("pune indie music marathi", "date"),
-        ("maharashtra indie singer original", "rating"),
-        ("marathi singer songwriter", "date"),
+        # Folk / Acoustic
+        ("marathi folk singer original", "date"),
+        ("marathi acoustic singer songwriter", "date"),
+        # Hip Hop / Rap
+        ("marathi rap artist original", "date"),
+        ("mumbai marathi hip hop", "date"),
+        # Indie Pop / Alt
+        ("marathi indie pop original", "date"),
+        ("maharashtra indie rock original", "rating"),
     ],
     "Hindi": [
+        # General indie
         ("hindi indie original song", "date"),
-        ("hindi underground rap original", "date"),
-        ("hindi bedroom pop singer songwriter", "date"),
         ("hindi indie artist unsigned", "rating"),
-        ("delhi indie music original", "date"),
         ("mumbai indie music original", "date"),
+        # Folk / Acoustic
+        ("hindi folk singer songwriter original", "date"),
+        ("hindi sufi indie original", "date"),
+        # Hip Hop / Rap
+        ("hindi underground rap original", "date"),
+        ("desi rap artist original", "date"),
+        ("delhi hip hop underground", "date"),
+        # Indie Pop / Alt
+        ("hindi bedroom pop singer songwriter", "date"),
+        ("hindi indie pop original", "date"),
+        # Electronic / Lo-Fi
+        ("hindi lofi indie original", "date"),
     ],
     "English": [
+        # General indie
         ("indian english indie band original", "date"),
         ("india english singer songwriter original", "date"),
-        ("indian indie rock original", "rating"),
-        ("indian english alternative music", "date"),
+        # Folk / Acoustic
+        ("indian english acoustic folk original", "date"),
+        # Hip Hop / Rap
+        ("indian english rap artist original", "date"),
+        # Indie Pop / Rock
+        ("indian indie rock band original", "rating"),
+        ("indian indie pop english original", "date"),
+        # Electronic
+        ("india electronic music artist original", "date"),
     ],
 }
-
-# ── Cross-genre / collective searches ────────────────────────
-GENRE_SEARCHES = [
-    ("Azadi Records", "date"),
-    ("CARCOSA music india", "date"),
-    ("when chai met toast", "date"),
-    ("Indian jazz original music", "date"),
-    ("Indian electronic original music", "date"),
-    ("desi hip hop new artist", "date"),
-    ("Indian folk fusion original", "date"),
-    ("Indian lo-fi original", "date"),
-    ("Indian bedroom pop original", "date"),
-]
 
 
 def get(endpoint, params):
@@ -271,15 +334,27 @@ def detect_language(title, tags, description, hint=None):
 def detect_genre(title, tags, description):
     text = (title + " " + " ".join(tags) + " " + description).lower()
     checks = [
-        ("Lo-Fi",             ["lo-fi", "lofi", "lo fi", "chill beats", "study beats"]),
-        ("Hip Hop / Rap",     ["hip hop", "hip-hop", "rap", "rapper", "trap", "drill", "freestyle"]),
-        ("Jazz / Blues",      ["jazz", "blues", "fusion jazz", "swing"]),
-        ("Folk / Acoustic",   ["folk", "acoustic", "unplugged", "sufi", "baul"]),
-        ("Electronic",        ["electronic", "edm", "techno", "house", "ambient", "synthwave", "downtempo"]),
-        ("R&B / Soul",        ["r&b", "rnb", "soul", "neo soul", "rhythm and blues"]),
-        ("Indie Pop",         ["indie pop", "bedroom pop", "dream pop", "shoegaze"]),
-        ("Rock / Alt",        ["rock", "metal", "punk", "alternative", "grunge", "post-rock"]),
-        ("Classical/Fusion",  ["classical", "carnatic", "hindustani", "raag", "fusion classical"]),
+        # Most specific first to avoid false-positives on shorter keywords
+        ("Lo-Fi",            ["lo-fi", "lofi", "lo fi", "chill beats", "study beats", "chill hop"]),
+        ("Hip Hop / Rap",    ["hip hop", "hip-hop", "rap", "rapper", "trap", "drill", "freestyle",
+                               "cypher", "bars", "mc ", "desi rap", "desi hip hop", "gully"]),
+        ("Jazz / Blues",     ["jazz", "blues", "fusion jazz", "swing", "bossa nova", "soul jazz"]),
+        ("Classical/Fusion", ["classical", "carnatic", "hindustani", "raag", "raga", "thumri",
+                               "khayal", "baithak", "fusion classical", "semi classical"]),
+        ("Folk / Acoustic",  ["folk", "acoustic", "unplugged", "sufi", "baul", "lavani",
+                               "folk fusion", "roots", "village", "janapad", "nattu",
+                               "singer songwriter", "singer-songwriter", "fingerpicking",
+                               "gaana", "kolatam", "bihu"]),
+        ("Electronic",       ["electronic", "edm", "techno", "house music", "ambient",
+                               "synthwave", "downtempo", "chillwave", "synth pop",
+                               "electro", "psytrance", "psy trance", "bass music"]),
+        ("R&B / Soul",       ["r&b", "rnb", "soul", "neo soul", "rhythm and blues",
+                               "funk", "groove", "smooth"]),
+        ("Indie Pop",        ["indie pop", "bedroom pop", "dream pop", "shoegaze",
+                               "power pop", "jangle pop", "twee", "synth pop"]),
+        ("Rock / Alt",       ["rock", "metal", "punk", "alternative", "grunge",
+                               "post-rock", "post rock", "math rock", "indie rock",
+                               "hard rock", "heavy", "guitar"]),
     ]
     for genre, keywords in checks:
         if any(k in text for k in keywords):
@@ -418,16 +493,23 @@ def main():
                 id_to_lang.setdefault(vid_id, lang)  # first language wins
             quota_used += 100
 
-    # ── Phase 2: genre / collective searches ────────────────────────────────
-    for query, order in GENRE_SEARCHES:
+    # ── Phase 2: indie label / collective searches ──────────────────────────
+    LABEL_SEARCHES = [
+        ("Azadi Records", "date"),
+        ("CARCOSA music india", "date"),
+        ("when chai met toast", "date"),
+        ("Indian jazz fusion original", "date"),
+        ("Indian lofi chill original", "date"),
+    ]
+    for query, order in LABEL_SEARCHES:
         if quota_used + 100 > 9000:
             break
         for vid_id in fetch_search_ids(query, order):
-            id_to_lang.setdefault(vid_id, None)     # no language hint
+            id_to_lang.setdefault(vid_id, None)
         quota_used += 100
 
     unique_ids    = list(id_to_lang.keys())
-    total_queries = sum(len(v) for v in LANGUAGE_SEARCHES.values()) + len(GENRE_SEARCHES)
+    total_queries = sum(len(v) for v in LANGUAGE_SEARCHES.values()) + len(LABEL_SEARCHES)
     print(f"{len(unique_ids)} unique IDs from {total_queries} searches | quota ~{quota_used}")
 
     # ── Phase 3: enrich + filter ─────────────────────────────────────────────
@@ -456,23 +538,29 @@ def main():
         bucket = v["language"] if v["language"] in lang_buckets else "Other"
         lang_buckets[bucket].append(v)
 
-    # ── Phase 4: per-language balancing with per-channel cap ────────────────
+    # ── Phase 4: per-language balancing with per-channel + per-genre caps ──────
+    MAX_PER_GENRE_PER_LANG = 6   # no genre takes more than 6 slots per language
     balanced = []
     for lang, vids in lang_buckets.items():
         vids.sort(key=lambda x: -x["discovery_score"])
-        selected, ch_counts = [], {}
+        selected, ch_counts, genre_counts = [], {}, {}
         for v in vids:
-            ch = v.get("channel_id") or v["channel"]
+            ch    = v.get("channel_id") or v["channel"]
+            genre = v.get("genre", "Indie")
             if ch_counts.get(ch, 0) >= MAX_PER_CHANNEL:
                 continue
-            ch_counts[ch] = ch_counts.get(ch, 0) + 1
+            if genre_counts.get(genre, 0) >= MAX_PER_GENRE_PER_LANG:
+                continue
+            ch_counts[ch]       = ch_counts.get(ch, 0) + 1
+            genre_counts[genre] = genre_counts.get(genre, 0) + 1
             selected.append(v)
             cap = TARGET_PER_LANGUAGE if lang != "Other" else TARGET_PER_LANGUAGE // 2
             if len(selected) >= cap:
                 break
         balanced.extend(selected)
         if vids:
-            print(f"  {lang}: {len(selected)}/{len(vids)} selected")
+            genre_summary = ", ".join(f"{g}:{c}" for g,c in sorted(genre_counts.items(), key=lambda x:-x[1]))
+            print(f"  {lang}: {len(selected)}/{len(vids)} selected [{genre_summary}]")
 
     if not balanced:
         print("ERROR: 0 videos — refusing to overwrite", file=sys.stderr)
