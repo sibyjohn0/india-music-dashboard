@@ -31,6 +31,12 @@ jobs:
       - name: Generate language insights
         run: python scripts/generate_insights.py
 
+      - name: Enrich with Spotify
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+        run: python scripts/fetch_spotify.py
+
       - name: Fetch social conversations
         run: python scripts/fetch_social.py
 
