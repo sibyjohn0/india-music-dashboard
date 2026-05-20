@@ -3,6 +3,7 @@ const LFM_URL       = "data/lastfm_enrichment.json";
 const TRACKER_URL   = "data/tracked_artists.json";
 const INSIGHTS_URL  = "data/insights.json";
 const SOCIAL_URL    = "data/social.json";
+const SPOTIFY_URL   = "data/spotify_enrichment.json";
 
 // ── Formatters ────────────────────────────────────────────────────────────────
 const fmt    = n => n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"K":String(n);
@@ -18,25 +19,27 @@ const LANG_COLORS = {
 };
 
 // ── State ─────────────────────────────────────────────────────────────────────
-let allVideos=[], allChannels=[], lfmData={}, trackerData=null;
+let allVideos=[], allChannels=[], lfmData={}, trackerData=null, spotifyData={};
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
-      fetch(SOCIAL_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(SOCIAL_URL,  NC).then(r=>r.json()).catch(()=>null),
+      fetch(SPOTIFY_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
     data = ytRes.value;
     if (lfmRes.status==="fulfilled" && lfmRes.value) lfmData = lfmRes.value.artists||{};
     if (trackerRes.status==="fulfilled") trackerData = trackerRes.value;
     insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
     socialData   = (socialRes.status==="fulfilled"   && socialRes.value)   ? socialRes.value   : null;
+    if (spotifyRes?.status==="fulfilled" && spotifyRes.value) spotifyData = spotifyRes.value.enrichment||{};
   } catch {
     document.querySelector("main").innerHTML =
       `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet — run the fetch script.</div>`;
@@ -221,7 +224,14 @@ function renderArtistGrid(channels) {
       `<div class="empty-state">No artists match your filters.</div>`;
     return;
   }
-  document.getElementById("artist-grid").innerHTML = channels.map(c=>`
+  document.getElementById("artist-grid").innerHTML = channels.map(c=>{
+    const sp = spotifyData[c.name] || {};
+    const spLink = sp.spotify_url
+      ? `<a class="spotify-badge" href="${esc(sp.spotify_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">♫ Spotify</a>`
+      : "";
+    const spFollowers = sp.followers > 0
+      ? `<div>${fmt(sp.followers)} sp. followers</div>` : "";
+    return `
     <a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" class="artist-card">
       <img class="artist-card-thumb" src="${esc(c.top_video.thumbnail||'')}" alt="" loading="lazy" />
       <div class="artist-card-body">
@@ -230,6 +240,7 @@ function renderArtistGrid(channels) {
           <span class="pill pill-genre">${esc(c.top_genre)}</span>
           <span class="pill pill-lang">${esc(c.top_lang)}</span>
           ${c.multiplatform?'<span class="pill pill-new">LFM</span>':''}
+          ${spLink}
         </div>
         <div class="artist-card-stats">
           <div>
@@ -240,11 +251,13 @@ function renderArtistGrid(channels) {
             <div>${c.avg_engagement}% eng</div>
             <div>${fmt(c.total_views)} views</div>
             <div>${c.video_count} video${c.video_count>1?"s":""}</div>
+            ${spFollowers}
             ${c.lfm_india_rank?`<div class="india-rank-sm">#${c.lfm_india_rank} India</div>`:''}
           </div>
         </div>
       </div>
-    </a>`).join("");
+    </a>`;
+  }).join("");
 }
 
 function bindArtistControls() {
