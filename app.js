@@ -217,6 +217,21 @@ function renderBreakdowns(genres, langs) {
   document.getElementById("lang-bars").innerHTML  = barHtml(langs,"green");
 }
 
+// ── Collab scoring ────────────────────────────────────────────────────────────
+function collabFit(c) {
+  const myGenre = document.getElementById("c-my-genre")?.value || "";
+  const myLang  = document.getElementById("c-my-lang")?.value  || "";
+  if (!myGenre && !myLang) return { type: "none", score: c.avg_discovery };
+  const sameGenre = myGenre && c.top_genre === myGenre;
+  const sameLang  = myLang  && c.top_lang  === myLang;
+  let type  = "none";
+  let bonus = 0;
+  if (sameGenre && sameLang) { type = "both";  bonus = 30; }
+  else if (sameGenre)        { type = "genre"; bonus = 20; }
+  else if (sameLang)         { type = "lang";  bonus = 15; }
+  return { type, score: c.avg_discovery + bonus };
+}
+
 // ── Artist grid ───────────────────────────────────────────────────────────────
 function renderArtistGrid(channels) {
   if (!channels.length) {
@@ -225,38 +240,54 @@ function renderArtistGrid(channels) {
     return;
   }
   document.getElementById("artist-grid").innerHTML = channels.map(c=>{
-    const sp = spotifyData[c.name] || {};
+    const sp  = spotifyData[c.name] || {};
+    const fit = collabFit(c);
     const spLink = sp.spotify_url
       ? `<a class="spotify-badge" href="${esc(sp.spotify_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">♫ Spotify</a>`
       : "";
     const spFollowers = sp.followers > 0
       ? `<div>${fmt(sp.followers)} sp. followers</div>` : "";
+    const fitBadge = fit.type !== "none"
+      ? `<span class="collab-fit-badge collab-${fit.type}">${fit.type==="both"?"Strong fit":fit.type==="genre"?"Genre match":"Language match"}</span>`
+      : "";
+    // Signals row: what makes them worth reaching out to
+    const signals = [];
+    if (c.video_count >= 2)    signals.push(`${c.video_count} videos`);
+    if (c.avg_engagement >= 3) signals.push(`${c.avg_engagement}% eng`);
+    if (c.multiplatform)       signals.push("Last.fm");
+    if (sp.spotify_url)        signals.push("Spotify");
+    if (c.lfm_india_rank)      signals.push(`#${c.lfm_india_rank} India`);
+
     return `
-    <a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" class="artist-card">
-      <img class="artist-card-thumb" src="${esc(c.top_video.thumbnail||'')}" alt="" loading="lazy" />
-      <div class="artist-card-body">
-        <div class="artist-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
-        <div class="artist-card-pills">
-          <span class="pill pill-genre">${esc(c.top_genre)}</span>
-          <span class="pill pill-lang">${esc(c.top_lang)}</span>
-          ${c.multiplatform?'<span class="pill pill-new">LFM</span>':''}
-          ${spLink}
-        </div>
-        <div class="artist-card-stats">
-          <div>
-            <div class="artist-stat-score">${c.avg_discovery}</div>
-            <div class="artist-stat-label">discovery</div>
+    <div class="artist-card ${fit.type!=="none"?"artist-card-fit artist-card-"+fit.type:""}">
+      <a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" class="artist-card-inner">
+        <img class="artist-card-thumb" src="${esc(c.top_video.thumbnail||'')}" alt="" loading="lazy" />
+        <div class="artist-card-body">
+          <div class="artist-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
+          <div class="artist-card-pills">
+            <span class="pill pill-genre">${esc(c.top_genre)}</span>
+            <span class="pill pill-lang">${esc(c.top_lang)}</span>
+            ${fitBadge}
           </div>
-          <div class="artist-meta">
-            <div>${c.avg_engagement}% eng</div>
-            <div>${fmt(c.total_views)} views</div>
-            <div>${c.video_count} video${c.video_count>1?"s":""}</div>
-            ${spFollowers}
-            ${c.lfm_india_rank?`<div class="india-rank-sm">#${c.lfm_india_rank} India</div>`:''}
+          <div class="artist-card-stats">
+            <div>
+              <div class="artist-stat-score">${c.avg_discovery}</div>
+              <div class="artist-stat-label">discovery</div>
+            </div>
+            <div class="artist-meta">
+              <div>${fmt(c.total_views)} views · ${fmt(c.avg_velocity)}/day</div>
+              ${spFollowers}
+              ${c.lfm_india_rank?`<div class="india-rank-sm">#${c.lfm_india_rank} India</div>`:''}
+            </div>
           </div>
+          ${signals.length ? `<div class="artist-signals">${signals.map(s=>`<span class="signal-tag">${esc(s)}</span>`).join("")}</div>` : ""}
         </div>
+      </a>
+      <div class="artist-card-actions">
+        <a class="action-btn" href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener">YouTube</a>
+        ${sp.spotify_url ? `<a class="action-btn action-btn-spotify" href="${esc(sp.spotify_url)}" target="_blank" rel="noopener">Spotify</a>` : ""}
       </div>
-    </a>`;
+    </div>`;
   }).join("");
 }
 
@@ -277,7 +308,11 @@ function bindArtistControls() {
       c.video_count    >= minVid &&
       (!mpOnly || c.multiplatform)
     );
-    cs = [...cs].sort((a,b)=>(b[srt]||0)-(a[srt]||0));
+    if (srt === "collab_score") {
+      cs = [...cs].sort((a,b) => collabFit(b).score - collabFit(a).score);
+    } else {
+      cs = [...cs].sort((a,b)=>(b[srt]||0)-(a[srt]||0));
+    }
     renderArtistGrid(cs);
   }
   const mpBtn = document.getElementById("a-multiplatform");
@@ -287,6 +322,8 @@ function bindArtistControls() {
     mpBtn.classList.toggle("active",!on);
     apply();
   });
+  ["c-my-genre","c-my-lang"].forEach(id=>
+    document.getElementById(id)?.addEventListener("change", apply));
   ["a-search","a-sort","a-genre","a-lang","a-min-eng","a-min-videos"].forEach(id=>
     document.getElementById(id).addEventListener(id==="a-search"?"input":"change", apply));
 }

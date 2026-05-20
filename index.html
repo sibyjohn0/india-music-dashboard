@@ -66,11 +66,48 @@
 
     <!-- ── ARTISTS ── -->
     <div id="tab-artists" class="tab-pane">
+
+      <!-- Collab Finder bar -->
+      <div class="collab-bar" id="collab-bar">
+        <div class="collab-bar-label">Find collaborators for</div>
+        <select id="c-my-genre">
+          <option value="">My genre…</option>
+          <option>Indie</option>
+          <option>Folk / Acoustic</option>
+          <option>Hip Hop / Rap</option>
+          <option>Indie Pop</option>
+          <option>Rock / Alt</option>
+          <option>Electronic</option>
+          <option>R&amp;B / Soul</option>
+          <option>Jazz / Blues</option>
+          <option>Lo-Fi</option>
+          <option>Classical/Fusion</option>
+        </select>
+        <select id="c-my-lang">
+          <option value="">My language…</option>
+          <option>Tamil</option>
+          <option>Telugu</option>
+          <option>Kannada</option>
+          <option>Malayalam</option>
+          <option>Bengali</option>
+          <option>Punjabi</option>
+          <option>Marathi</option>
+          <option>Hindi</option>
+          <option>English</option>
+        </select>
+        <div class="collab-legend">
+          <span class="collab-dot collab-both"></span>Strong fit
+          <span class="collab-dot collab-genre"></span>Genre match
+          <span class="collab-dot collab-lang"></span>Language match
+        </div>
+      </div>
+
       <div class="filter-bar">
         <input type="text" id="a-search" placeholder="Search artist…" />
         <select id="a-genre"><option value="all">All Genres</option></select>
         <select id="a-lang"><option value="all">All Languages</option></select>
         <select id="a-sort">
+          <option value="collab_score">Sort: Collab Fit</option>
           <option value="avg_discovery">Sort: Discovery Score</option>
           <option value="avg_engagement">Sort: Engagement</option>
           <option value="avg_velocity">Sort: Velocity</option>
