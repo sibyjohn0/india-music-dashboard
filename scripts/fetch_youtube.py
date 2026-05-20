@@ -235,11 +235,11 @@ def discovery_score(views, engagement_rate, velocity, days_live):
         return 0
     # Engagement: rewards videos where a high % of viewers interact
     eng = min(engagement_rate / 5.0, 1.0) * 40
-    # Velocity ratio: daily views as % of total — catches fast-rising unknown tracks
-    vel_ratio = (velocity / max(views, 1)) * 100
-    vel = min(vel_ratio * 8, 40)
-    # Recency bonus: very new uploads get a boost
-    recency = max(0, (45 - days_live) / 45) * 20 if days_live <= 45 else 0
+    # Absolute velocity: views/day vs indie benchmark (500 v/day = max points)
+    # Ratio-based velocity was broken — day-1 videos always scored 100% regardless of size
+    vel = min(velocity / 500, 1.0) * 40
+    # Recency bonus: smaller boost for newness, so velocity+engagement carry the weight
+    recency = max(0, (30 - days_live) / 30) * 20 if days_live <= 30 else 0
     return round(eng + vel + recency, 1)
 
 
