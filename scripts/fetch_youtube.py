@@ -17,6 +17,7 @@ INDIA_MUSIC_CPM_INR = 80
 LOOKBACK_DAYS = 90
 SEARCH_MAX_RESULTS = 15
 MAX_VIEWS_FOR_DISCOVERY = 3_000_000  # lower cap — truly indie artists
+MIN_VIEWS_FOR_DISCOVERY = 300        # floor — ignore brand-new uploads with <300 views
 TARGET_PER_LANGUAGE = 12             # hard cap per language in final output
 
 # ── Label / distribution company blocklist ────────────────────
@@ -78,6 +79,16 @@ COMPILATION_PATTERNS = [
     "hit songs", "old songs", "love songs", "sad songs",
     "nonstop", "mashup", "remix collection", "audio jukebox",
     "love junction", "filmi gaane",
+]
+
+# ── Title-level spam / non-artist content signals ─────────────
+# Checked against video TITLE only. Blocks beats, promos, ads.
+TITLE_SPAM = [
+    "type beat", "free beat", "instrumental beat", "rap beat", "trap beat",
+    "hip hop beat", "drill beat", "beats free", "prod by",
+    "distribution", "artist management", "music promotion", "submit your",
+    "how to get", "music business", "grow your channel",
+    "reaction video", "react to", "interview with",
 ]
 
 # ── Language-first search structure ──────────────────────────
@@ -232,11 +243,11 @@ def discovery_score(views, engagement_rate, velocity, days_live):
     return round(eng + vel + recency, 1)
 
 
-def is_blocked(channel, tags, desc):
+def is_blocked(channel, tags, desc, title=""):
     channel_lower = channel.lower()
     tags_lower    = " ".join(tags).lower()
-    # Labels: check channel name and tags only — descriptions often mention
-    # labels legitimately (e.g. "Not affiliated with Sony") and would false-positive
+    title_lower   = title.lower()
+    # Labels: channel name and tags only
     if any(label in channel_lower for label in MAJOR_LABELS):
         return True
     if any(label in tags_lower for label in MAJOR_LABELS):
@@ -246,6 +257,9 @@ def is_blocked(channel, tags, desc):
         return True
     # Compilation / fan channels: channel name only
     if any(pat in channel_lower for pat in COMPILATION_PATTERNS):
+        return True
+    # Beat / promo / non-artist content: video title
+    if any(spam in title_lower for spam in TITLE_SPAM):
         return True
     return False
 
@@ -379,7 +393,9 @@ def main():
         lang_hint = id_to_lang.get(vid_id)
         v = parse_video(item, lang_hint)
 
-        if is_blocked(v["channel"], v["tags"], v["description"]):
+        if is_blocked(v["channel"], v["tags"], v["description"], v["title"]):
+            continue
+        if v["views"] < MIN_VIEWS_FOR_DISCOVERY:
             continue
         if v["views"] > MAX_VIEWS_FOR_DISCOVERY:
             continue
