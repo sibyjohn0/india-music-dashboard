@@ -119,14 +119,16 @@ TITLE_SPAM = [
 ]
 
 # ── Channel name patterns that signal an aggregator (not an artist) ──
+# Be conservative -- "songs" alone blocks real artist channels like "Rajesh Elappara Songs"
 AGGREGATOR_PATTERNS = [
-    " songs",        # "Tamil Christian Songs", "Malayalam Songs"
-    " music studio", # "Chengalpattu Music Studio"
+    "devotional songs",   # "Tamil Christian Devotional Songs"
+    "christian songs",    # "Malayalam Christian Songs"
+    " music studio",      # "Chengalpattu Music Studio Johnson"
     "lyrics channel",
-    "fact ", "facts ",
     "song lyrics",
-    "music zone", "music world", "music hub", "music factory",
-    "hits official", "audio official",
+    "music zone", "music world", "music hub",
+    "all songs channel",
+    "jukebox official",
 ]
 
 # ── Language-first search structure ──────────────────────────
@@ -134,141 +136,67 @@ AGGREGATOR_PATTERNS = [
 # Under-represented languages get more varied queries to find more candidates.
 LANGUAGE_SEARCHES = {
     "Tamil": [
-        # General indie
         ("tamil indie original song", "date"),
-        ("independent tamil artist music", "date"),
-        ("chennai indie music", "rating"),
-        # Folk / Acoustic
         ("tamil folk singer original", "date"),
-        ("carnatic fusion indie original", "rating"),
-        ("tamil acoustic singer songwriter", "date"),
-        # Hip Hop / Rap
         ("tamil rap artist original", "date"),
-        ("tamil underground hip hop", "date"),
-        # Indie Pop / Alt
         ("tamil indie pop original song", "date"),
-        ("tamil alternative music artist", "rating"),
+        ("carnatic fusion indie original", "rating"),
     ],
     "Telugu": [
-        # General indie
         ("telugu indie original song", "date"),
-        ("independent telugu music artist", "date"),
-        ("hyderabad indie music", "date"),
-        # Folk / Acoustic
         ("telugu folk singer original", "date"),
-        ("telugu acoustic singer songwriter", "date"),
-        # Hip Hop / Rap
         ("telugu rap artist original", "date"),
-        ("telugu underground hip hop", "date"),
-        # Indie Pop / Alt
         ("telugu indie pop original", "date"),
-        ("telugu alternative music original", "rating"),
+        ("hyderabad indie music original", "date"),
     ],
     "Kannada": [
-        # General indie
         ("kannada indie music original", "date"),
-        ("bangalore indie music kannada", "date"),
-        ("new independent kannada artist", "rating"),
-        # Folk / Acoustic
         ("kannada folk singer original", "date"),
-        ("kannada acoustic singer original", "date"),
-        # Hip Hop / Rap
         ("kannada rap artist original", "date"),
-        # Indie Pop / Alt
         ("kannada indie pop original", "date"),
-        ("karnataka indie rock original", "rating"),
+        ("bangalore indie music original", "date"),
     ],
     "Malayalam": [
-        # General indie
         ("malayalam indie original music", "date"),
-        ("kerala indie music original", "date"),
-        ("new independent malayalam artist", "rating"),
-        # Folk / Acoustic
         ("malayalam folk singer original", "date"),
-        ("kerala acoustic singer songwriter", "date"),
-        # Hip Hop / Rap
         ("malayalam rap artist original", "date"),
-        ("kerala hip hop underground", "date"),
-        # Indie Pop / Alt
-        ("malayalam indie pop original", "date"),
-        ("malayalam singer songwriter original", "rating"),
+        ("malayalam singer songwriter original", "date"),
+        ("kerala indie music original", "date"),
     ],
     "Bengali": [
-        # General indie
         ("bengali indie original song", "date"),
-        ("bangla independent music artist", "date"),
-        ("kolkata indie music original", "date"),
-        # Folk / Acoustic
         ("bangla folk singer original", "date"),
-        ("bengali baul folk fusion original", "date"),
-        ("bangla acoustic singer songwriter", "date"),
-        # Hip Hop / Rap
         ("bengali rap artist original", "date"),
-        ("kolkata hip hop underground", "date"),
-        # Indie Pop / Alt
         ("bangla indie pop original", "date"),
-        ("bengali alternative music original", "rating"),
+        ("kolkata indie music original", "date"),
     ],
     "Punjabi": [
-        # General indie
         ("punjabi indie original song", "date"),
-        ("independent punjabi artist music", "rating"),
-        ("new punjabi singer independent", "date"),
-        # Folk / Acoustic
         ("punjabi folk singer original", "date"),
-        ("punjabi acoustic sufi original", "date"),
-        # Hip Hop / Rap
         ("punjabi underground rap original", "date"),
-        ("punjabi hip hop artist original", "date"),
-        # Indie Pop / Alt
         ("punjabi indie pop original song", "date"),
-        ("punjabi alternative music original", "rating"),
+        ("punjabi acoustic sufi original", "date"),
     ],
     "Marathi": [
-        # General indie
         ("marathi indie original song", "date"),
-        ("new independent marathi artist", "rating"),
-        ("pune indie music marathi", "date"),
-        # Folk / Acoustic
         ("marathi folk singer original", "date"),
-        ("marathi acoustic singer songwriter", "date"),
-        # Hip Hop / Rap
         ("marathi rap artist original", "date"),
-        ("mumbai marathi hip hop", "date"),
-        # Indie Pop / Alt
         ("marathi indie pop original", "date"),
-        ("maharashtra indie rock original", "rating"),
+        ("pune indie music marathi", "date"),
     ],
     "Hindi": [
-        # General indie
         ("hindi indie original song", "date"),
-        ("hindi indie artist unsigned", "rating"),
-        ("mumbai indie music original", "date"),
-        # Folk / Acoustic
         ("hindi folk singer songwriter original", "date"),
-        ("hindi sufi indie original", "date"),
-        # Hip Hop / Rap
         ("hindi underground rap original", "date"),
-        ("desi rap artist original", "date"),
-        ("delhi hip hop underground", "date"),
-        # Indie Pop / Alt
         ("hindi bedroom pop singer songwriter", "date"),
-        ("hindi indie pop original", "date"),
-        # Electronic / Lo-Fi
-        ("hindi lofi indie original", "date"),
+        ("hindi sufi indie original", "date"),
+        ("desi rap artist original", "date"),
     ],
     "English": [
-        # General indie
         ("indian english indie band original", "date"),
-        ("india english singer songwriter original", "date"),
-        # Folk / Acoustic
-        ("indian english acoustic folk original", "date"),
-        # Hip Hop / Rap
-        ("indian english rap artist original", "date"),
-        # Indie Pop / Rock
+        ("indian acoustic folk singer songwriter", "date"),
         ("indian indie rock band original", "rating"),
-        ("indian indie pop english original", "date"),
-        # Electronic
+        ("indian english rap artist original", "date"),
         ("india electronic music artist original", "date"),
     ],
 }
