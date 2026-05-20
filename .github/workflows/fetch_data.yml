@@ -31,6 +31,9 @@ jobs:
       - name: Generate language insights
         run: python scripts/generate_insights.py
 
+      - name: Fetch social conversations
+        run: python scripts/fetch_social.py
+
       - name: Commit data
         run: |
           git config user.name "github-actions[bot]"
