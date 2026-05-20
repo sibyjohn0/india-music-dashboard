@@ -26,7 +26,6 @@ SUBREDDITS = [
     "kollywood",
     "Kerala",
     "IndianPop",
-    "india",
 ]
 
 # Broad cross-Reddit searches to catch regional + under-represented language content
@@ -66,6 +65,14 @@ MUSIC_RE = re.compile(
     re.IGNORECASE,
 )
 
+# Required for cross-Reddit search results: must mention India/Indian context
+INDIA_RE = re.compile(
+    r"\b(india|indian|hindi|tamil|telugu|kannada|malayalam|bengali|punjabi|"
+    r"marathi|bollywood|kollywood|tollywood|desi|carnatic|hindustani|"
+    r"bangalore|mumbai|chennai|kolkata|hyderabad|delhi|kerala|pune)\b",
+    re.IGNORECASE,
+)
+
 SPAM_RE = re.compile(
     r"\b(royalty.?free|stock music|piracy|torrent|crack|free download)\b",
     re.IGNORECASE,
@@ -77,6 +84,13 @@ MAINSTREAM_RE = re.compile(
     r"ar rahman|arijit singh|badshah|diljit|shreya ghoshal|atif aslam)\b",
     re.IGNORECASE,
 )
+
+# Subreddits that are clearly not India music -- block cross-search results from them
+BLOCKED_SUBREDDITS = {
+    "FinalFantasy", "DisneyMovies", "ToddintheShadow", "worldnews", "AskReddit",
+    "Music_Anniversary", "primaverasound", "DesiFragranceAddicts", "videos",
+    "gaming", "movies", "television", "sports", "politics", "news",
+}
 
 
 def _get(url, headers=None):
@@ -99,13 +113,17 @@ def detect_language(text, subreddit=""):
     return "Hindi"
 
 
-def is_music_post(title, body=""):
+def is_music_post(title, body="", require_india=False):
     text = f"{title} {body}"
     if SPAM_RE.search(text):
         return False
     if MAINSTREAM_RE.search(text):
         return False
-    return bool(MUSIC_RE.search(text))
+    if not MUSIC_RE.search(text):
+        return False
+    if require_india and not INDIA_RE.search(text):
+        return False
+    return True
 
 
 def load_artists():
@@ -144,7 +162,11 @@ def parse_reddit_child(child, subreddit="", artists=None):
     if body in ("[removed]", "[deleted]"):
         body = ""
 
-    if not is_music_post(title, body):
+    # For cross-Reddit results (not our curated subreddits), require India context
+    from_curated = sub in set(SUBREDDITS) or subreddit in set(SUBREDDITS)
+    if sub in BLOCKED_SUBREDDITS:
+        return None
+    if not is_music_post(title, body, require_india=not from_curated):
         return None
 
     lang   = detect_language(f"{title} {body}", sub)
