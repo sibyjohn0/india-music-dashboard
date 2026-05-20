@@ -93,6 +93,17 @@ COMPILATION_PATTERNS = [
     "hit songs", "old songs", "love songs", "sad songs",
     "nonstop", "mashup", "remix collection", "audio jukebox",
     "love junction", "filmi gaane", "status video", "whatsapp status",
+    "devotional songs", "christian songs", "bible songs",
+]
+
+# ── Devotional / religious channel blocklist ──────────────────
+# Checked against channel name. These are not indie artists.
+DEVOTIONAL_PATTERNS = [
+    "church", "ministry", "worship", "devotional", "christian songs",
+    "bible", "gospel", "jesus", "praise and", "prayer", "holy spirit",
+    "lord songs", "god songs", "spiritual songs", "hymn",
+    "islamic", "quran", "namaz", "bhajan", "aarti", "mandir",
+    "temple songs", "pooja songs", "satsang",
 ]
 
 # ── Title-level spam filter ───────────────────────────────────
@@ -103,6 +114,19 @@ TITLE_SPAM = [
     "how to get", "music business", "grow your channel",
     "reaction video", "react to", "interview with",
     "whatsapp status", "status song", "ringtone",
+    "christian devotional", "worship song", "devotional song",
+    "praise and worship", "church live",
+]
+
+# ── Channel name patterns that signal an aggregator (not an artist) ──
+AGGREGATOR_PATTERNS = [
+    " songs",        # "Tamil Christian Songs", "Malayalam Songs"
+    " music studio", # "Chengalpattu Music Studio"
+    "lyrics channel",
+    "fact ", "facts ",
+    "song lyrics",
+    "music zone", "music world", "music hub", "music factory",
+    "hits official", "audio official",
 ]
 
 # ── Language-first search structure ──────────────────────────
@@ -280,11 +304,13 @@ def is_blocked(channel, tags, title=""):
     ch  = channel.lower()
     tgs = " ".join(tags).lower()
     ttl = title.lower()
-    if any(label in ch  for label in MAJOR_LABELS):       return True
-    if any(label in tgs for label in MAJOR_LABELS):       return True
-    if any(a     in ch  for a in MAINSTREAM_ARTISTS):     return True
-    if any(pat   in ch  for pat in COMPILATION_PATTERNS): return True
-    if any(spam  in ttl for spam in TITLE_SPAM):          return True
+    if any(label in ch  for label in MAJOR_LABELS):           return True
+    if any(label in tgs for label in MAJOR_LABELS):           return True
+    if any(a     in ch  for a in MAINSTREAM_ARTISTS):         return True
+    if any(pat   in ch  for pat in COMPILATION_PATTERNS):     return True
+    if any(pat   in ch  for pat in DEVOTIONAL_PATTERNS):      return True
+    if any(pat   in ch  for pat in AGGREGATOR_PATTERNS):      return True
+    if any(spam  in ttl for spam in TITLE_SPAM):              return True
     return False
 
 
