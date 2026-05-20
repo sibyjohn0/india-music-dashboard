@@ -1,6 +1,7 @@
-const DATA_URL    = "data/latest.json";
-const LFM_URL     = "data/lastfm_enrichment.json";
-const TRACKER_URL = "data/tracked_artists.json";
+const DATA_URL      = "data/latest.json";
+const LFM_URL       = "data/lastfm_enrichment.json";
+const TRACKER_URL   = "data/tracked_artists.json";
+const INSIGHTS_URL  = "data/insights.json";
 
 // ── Formatters ────────────────────────────────────────────────────────────────
 const fmt    = n => n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"K":String(n);
@@ -23,14 +24,16 @@ async function init() {
   let data;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
     data = ytRes.value;
     if (lfmRes.status==="fulfilled" && lfmRes.value) lfmData = lfmRes.value.artists||{};
     if (trackerRes.status==="fulfilled") trackerData = trackerRes.value;
+    const insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
   } catch {
     document.querySelector("main").innerHTML =
       `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet — run the fetch script.</div>`;
@@ -50,7 +53,7 @@ async function init() {
   renderArtistGrid(allChannels);
   renderVideoList(allVideos);
   if (trackerData) renderRadar(trackerData.artists||[]);
-  bindTabs();
+  bindTabs(insightsData);
   bindDiscoverControls();
   bindArtistControls();
   bindVideoControls();
@@ -113,8 +116,16 @@ function populateDropdowns() {
 
 // ── Discover ──────────────────────────────────────────────────────────────────
 function renderDiscover(videos) {
-  const top = videos.slice(0,3);
-  const rest= videos.slice(3,18);
+  // De-duplicate by channel: max 2 per channel in the Discover view
+  // so one prolific uploader can't flood hero + pulse slots
+  const seen = {}; const deduped = [];
+  for (const v of videos) {
+    const key = v.channel_id || v.channel;
+    if ((seen[key] || 0) < 2) { deduped.push(v); seen[key] = (seen[key]||0)+1; }
+    if (deduped.length >= 21) break;
+  }
+  const top = deduped.slice(0,3);
+  const rest= deduped.slice(3,18);
   const ranks = ["#1 Discovery","#2 Discovery","#3 Discovery"];
   document.getElementById("hero-cards").innerHTML = top.map((v,i)=>`
     <a href="${esc(v.url)}" target="_blank" rel="noopener" class="hero-card">
@@ -434,7 +445,7 @@ function applyRadar() {
 }
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
-function bindTabs() {
+function bindTabs(insightsData) {
   let trendsLoaded = false;
   document.querySelectorAll(".tab").forEach(btn=>
     btn.addEventListener("click",()=>{
@@ -442,7 +453,11 @@ function bindTabs() {
       document.querySelectorAll(".tab-pane").forEach(t=>t.classList.remove("active"));
       btn.classList.add("active");
       document.getElementById("tab-"+btn.dataset.tab).classList.add("active");
-      if (btn.dataset.tab==="trends"&&!trendsLoaded){trendsLoaded=true;loadTrends();}
+      if (btn.dataset.tab==="trends"&&!trendsLoaded){
+        trendsLoaded=true;
+        loadTrends();
+        if (insightsData) renderInsights(insightsData);
+      }
     })
   );
 }
@@ -524,6 +539,73 @@ function drawTrendCharts() {
       <td><span class="pill pill-lang">${(m.language_breakdown||[])[0]?.[0]||"—"}</span></td>
       <td style="color:var(--muted)">${(m.top_channels||[])[0]?.[0]||"—"}</td>
     </tr>`).join("");
+}
+
+// ── Language Insights ─────────────────────────────────────────────────────────
+function renderInsights(data) {
+  const wrap = document.getElementById("insights-wrap");
+  const grid = document.getElementById("insights-grid");
+  const meta = document.getElementById("insights-meta");
+  if (!wrap || !grid) return;
+
+  const days = data.days_of_data || 0;
+  const from = data.date_range?.from || "";
+  const to   = data.date_range?.to   || "";
+  meta.textContent = `${days} day${days!==1?"s":""} of data · ${from}${from!==to?" → "+to:""}`;
+
+  const langs = data.languages || {};
+  const LANG_ORDER = ["Tamil","Telugu","Kannada","Malayalam","Bengali","Punjabi","Marathi","Hindi","English"];
+
+  grid.innerHTML = LANG_ORDER.map(lang => {
+    const ins = langs[lang];
+    if (!ins || ins.status === "no data yet") {
+      return `<div class="insight-card insight-empty">
+        <div class="insight-lang" style="--lc:${LANG_COLORS[lang]||'#666'}">${lang}</div>
+        <div class="insight-narrative">No data yet — will populate as daily runs accumulate.</div>
+      </div>`;
+    }
+    const col   = LANG_COLORS[lang] || "#666";
+    const topArtists = (ins.top_artists || []).slice(0, 4);
+    const genres = (ins.genre_breakdown || []).slice(0, 5);
+    const maxG   = genres[0]?.day_appearances || 1;
+
+    // Genre sub-insights: show top artist per genre
+    const genreCards = Object.entries(ins.genre_insights || {}).slice(0, 4).map(([g, gi]) => {
+      const top = gi.top_artists?.[0];
+      return `<div class="insight-genre-row">
+        <span class="pill pill-genre">${esc(g)}</span>
+        <span class="insight-genre-artist">${top ? esc(top.name) : "—"}</span>
+        <span class="insight-genre-days">${gi.day_appearances}d</span>
+      </div>`;
+    }).join("");
+
+    return `<div class="insight-card" style="--lc:${col}">
+      <div class="insight-card-top">
+        <div class="insight-lang" style="--lc:${col}">${lang}</div>
+        <span class="insight-dominant">${esc(ins.dominant_genre)}</span>
+      </div>
+      <p class="insight-narrative">${esc(ins.narrative)}</p>
+      <div class="insight-section-label">Top recurring artists</div>
+      <div class="insight-artists">
+        ${topArtists.map(a=>`
+          <div class="insight-artist-row">
+            <span class="insight-artist-name">${esc(a.name)}</span>
+            <span class="insight-artist-stat">${a.appearances}d · ${fmt(a.avg_views)} avg views · ${a.avg_eng}% eng</span>
+          </div>`).join("")}
+      </div>
+      ${genreCards ? `<div class="insight-section-label">By genre</div><div class="insight-genres">${genreCards}</div>` : ""}
+      <div class="insight-genre-bars">
+        ${genres.map(({genre:g, day_appearances:c})=>`
+          <div class="bar-item">
+            <div class="bar-label">${esc(g)}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:${Math.round(c/maxG*100)}%;background:${col}"></div></div>
+            <div class="bar-count">${c}d</div>
+          </div>`).join("")}
+      </div>
+    </div>`;
+  }).join("");
+
+  wrap.style.display = "block";
 }
 
 init();
