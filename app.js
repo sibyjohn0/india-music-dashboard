@@ -21,7 +21,7 @@ let allVideos=[], allChannels=[], lfmData={}, trackerData=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
-  let data;
+  let data, insightsData = null;
   try {
     const NC = {cache:"no-cache"};
     const [ytRes, lfmRes, trackerRes, insightsRes] = await Promise.allSettled([
@@ -33,7 +33,7 @@ async function init() {
     data = ytRes.value;
     if (lfmRes.status==="fulfilled" && lfmRes.value) lfmData = lfmRes.value.artists||{};
     if (trackerRes.status==="fulfilled") trackerData = trackerRes.value;
-    const insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
+    insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
   } catch {
     document.querySelector("main").innerHTML =
       `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet — run the fetch script.</div>`;
