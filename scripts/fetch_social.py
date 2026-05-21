@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
 """
 Fetches social conversations about Indian indie music.
-Reddit:  free public JSON API — runs in GitHub Actions.
+
+Reddit:  Uses OAuth client-credentials (works in GitHub Actions).
+         Requires REDDIT_CLIENT_ID + REDDIT_CLIENT_SECRET secrets.
+         Falls back to public JSON API (may be rate-limited in CI).
 Twitter: optional --twitter flag, uses Chrome profile via Playwright (local only).
+
 Outputs: data/social.json
 """
 
-import argparse, json, os, re, time
+import argparse, base64, json, os, re, time
 from datetime import datetime, timezone
 from urllib.request import urlopen, Request
 from urllib.parse import urlencode
-from urllib.error import URLError
+from urllib.error import URLError, HTTPError
 
 DATA_DIR    = os.path.join(os.path.dirname(__file__), "..", "data")
 OUTPUT_PATH = os.path.join(DATA_DIR, "social.json")
 LATEST_PATH = os.path.join(DATA_DIR, "latest.json")
 
-REDDIT_UA = "IndiaIndieMusicRadar/1.0 (automated; opensource)"
+REDDIT_UA        = "IndiaIndieMusicRadar/1.0 by /u/indiemusic_bot"
+REDDIT_CLIENT_ID = os.environ.get("REDDIT_CLIENT_ID", "")
+REDDIT_SECRET    = os.environ.get("REDDIT_CLIENT_SECRET", "")
 
-# --- Subreddits ---
 SUBREDDITS = [
     "IndieMusicIndia",
     "CarnaticMusic",
@@ -26,19 +31,24 @@ SUBREDDITS = [
     "kollywood",
     "Kerala",
     "IndianPop",
+    "indieheads",      # global indie but surfaces Indian artists
+    "LofiHipHop",      # lo-fi producers
 ]
 
-# Broad cross-Reddit searches to catch regional + under-represented language content
 CROSS_SEARCHES = [
     "india indie music",
-    "independent indian artist music",
+    "independent indian artist",
     "bengali indie music",
-    "marathi indie music",
+    "marathi indie singer",
     "kannada indie music",
-    "punjabi indie music",
+    "punjabi indie artist",
     "malayalam indie music",
-    "telugu indie music",
-    "indian singer songwriter original",
+    "telugu indie artist",
+    "tamil indie singer",
+    "indian hip hop underground",
+    "desi rapper original",
+    "indian folk singer original",
+    "collab india music",
 ]
 
 SUBREDDIT_LANG = {
@@ -56,52 +66,87 @@ LANG_KEYWORDS = {
     "Bengali":   ["bengali", "bangla", "kolkata", "bengal"],
     "Punjabi":   ["punjabi", "punjab", "chandigarh"],
     "Marathi":   ["marathi", "maharashtra", "pune"],
-    "Hindi":     ["hindi", "delhi", "bollywood", "hindustani"],
+    "Hindi":     ["hindi", "delhi", "hindustani", "desi"],
 }
 
 MUSIC_RE = re.compile(
     r"\b(music|song|track|album|artist|indie|band|singer|musician|original|"
-    r"release|playlist|listen|stream|youtube|spotify|ep|single|soundcloud)\b",
+    r"release|playlist|listen|stream|youtube|spotify|ep|single|soundcloud|"
+    r"collab|collaboration|feature|producer|rapper|folk|acoustic)\b",
     re.IGNORECASE,
 )
 
-# Required for cross-Reddit search results: must mention India/Indian context
 INDIA_RE = re.compile(
     r"\b(india|indian|hindi|tamil|telugu|kannada|malayalam|bengali|punjabi|"
-    r"marathi|bollywood|kollywood|tollywood|desi|carnatic|hindustani|"
-    r"bangalore|mumbai|chennai|kolkata|hyderabad|delhi|kerala|pune)\b",
+    r"marathi|desi|carnatic|hindustani|bangalore|mumbai|chennai|kolkata|"
+    r"hyderabad|delhi|kerala|pune|goa|assam)\b",
     re.IGNORECASE,
 )
 
 SPAM_RE = re.compile(
-    r"\b(royalty.?free|stock music|piracy|torrent|crack|free download)\b",
+    r"\b(royalty.?free|stock music|piracy|torrent|crack|free download|"
+    r"buy followers|promote your|get streams)\b",
     re.IGNORECASE,
 )
 
-# Mainstream/label terms to skip (mirrors fetch_youtube.py logic for consistency)
 MAINSTREAM_RE = re.compile(
     r"\b(t.?series|zee music|sony music|tips music|eros now|saregama|"
     r"ar rahman|arijit singh|badshah|diljit|shreya ghoshal|atif aslam)\b",
     re.IGNORECASE,
 )
 
-# Subreddits that are clearly not India music -- block cross-search results from them
 BLOCKED_SUBREDDITS = {
     "FinalFantasy", "DisneyMovies", "ToddintheShadow", "worldnews", "AskReddit",
     "Music_Anniversary", "primaverasound", "DesiFragranceAddicts", "videos",
     "gaming", "movies", "television", "sports", "politics", "news",
+    "mildlyinteresting", "funny", "aww", "pics", "gifs", "IRCTC",
 }
 
 
-def _get(url, headers=None):
-    req = Request(url, headers={"User-Agent": REDDIT_UA, **(headers or {})})
+# ── Reddit OAuth ──────────────────────────────────────────────────────────────
+
+_reddit_token = None
+_token_expiry = 0
+
+def get_reddit_token():
+    global _reddit_token, _token_expiry
+    if _reddit_token and time.time() < _token_expiry - 60:
+        return _reddit_token
+    if not REDDIT_CLIENT_ID or not REDDIT_SECRET:
+        return None
+    auth = base64.b64encode(f"{REDDIT_CLIENT_ID}:{REDDIT_SECRET}".encode()).decode()
+    req = Request(
+        "https://www.reddit.com/api/v1/access_token",
+        data=urlencode({"grant_type": "client_credentials"}).encode(),
+        headers={"Authorization": f"Basic {auth}", "User-Agent": REDDIT_UA},
+    )
     try:
-        with urlopen(req, timeout=10) as r:
-            return json.loads(r.read().decode())
+        res = json.loads(urlopen(req, timeout=10).read())
+        _reddit_token = res.get("access_token")
+        _token_expiry = time.time() + res.get("expires_in", 3600)
+        return _reddit_token
     except Exception as e:
-        print(f"  Fetch error {url[:80]}: {e}")
+        print(f"  Reddit token error: {e}")
         return None
 
+
+def _get(url):
+    """Try OAuth first, fall back to public JSON API."""
+    token = get_reddit_token()
+    if token:
+        req = Request(url.replace("www.reddit.com", "oauth.reddit.com"),
+                      headers={"Authorization": f"bearer {token}", "User-Agent": REDDIT_UA})
+    else:
+        req = Request(url, headers={"User-Agent": REDDIT_UA})
+    try:
+        with urlopen(req, timeout=12) as r:
+            return json.loads(r.read().decode())
+    except (HTTPError, URLError, Exception) as e:
+        print(f"  Fetch error {url[:70]}: {e}")
+        return None
+
+
+# ── Parsing ───────────────────────────────────────────────────────────────────
 
 def detect_language(text, subreddit=""):
     if subreddit in SUBREDDIT_LANG:
@@ -115,9 +160,7 @@ def detect_language(text, subreddit=""):
 
 def is_music_post(title, body="", require_india=False):
     text = f"{title} {body}"
-    if SPAM_RE.search(text):
-        return False
-    if MAINSTREAM_RE.search(text):
+    if SPAM_RE.search(text) or MAINSTREAM_RE.search(text):
         return False
     if not MUSIC_RE.search(text):
         return False
@@ -133,9 +176,8 @@ def load_artists():
         artists = {}
         for v in data.get("videos", []):
             ch = v.get("channel", "")
-            cid = v.get("channel_id") or ch
             if ch and len(ch) > 3:
-                artists[ch.lower()] = ch  # lower -> original case
+                artists[ch.lower()] = ch
         return artists
     except Exception:
         return {}
@@ -143,7 +185,6 @@ def load_artists():
 
 def find_artist(title, body, artists):
     text = f"{title} {body}".lower()
-    # longest match first to avoid partial-name false positives
     for key in sorted(artists, key=len, reverse=True):
         if key in text:
             return artists[key]
@@ -151,21 +192,20 @@ def find_artist(title, body, artists):
 
 
 def parse_reddit_child(child, subreddit="", artists=None):
-    d = child.get("data", {})
+    d     = child.get("data", {})
     title = d.get("title", "")
-    body  = d.get("selftext", "") or ""
+    body  = (d.get("selftext") or "")
     sub   = d.get("subreddit", subreddit)
     score = d.get("score", 0)
-    created = d.get("created_utc", 0)
+    created   = d.get("created_utc", 0)
     permalink = d.get("permalink", "")
 
     if body in ("[removed]", "[deleted]"):
         body = ""
-
-    # For cross-Reddit results (not our curated subreddits), require India context
-    from_curated = sub in set(SUBREDDITS) or subreddit in set(SUBREDDITS)
     if sub in BLOCKED_SUBREDDITS:
         return None
+
+    from_curated = sub in set(SUBREDDITS)
     if not is_music_post(title, body, require_india=not from_curated):
         return None
 
@@ -187,67 +227,61 @@ def parse_reddit_child(child, subreddit="", artists=None):
 
 
 def fetch_subreddit(sub, limit=30):
-    url = f"https://www.reddit.com/r/{sub}/new.json?{urlencode({'limit': limit})}"
+    url  = f"https://www.reddit.com/r/{sub}/new.json?{urlencode({'limit': limit})}"
     data = _get(url)
-    if not data:
-        return []
-    return data.get("data", {}).get("children", [])
+    return data.get("data", {}).get("children", []) if data else []
 
 
 def fetch_search(query, limit=25):
-    url = f"https://www.reddit.com/search.json?{urlencode({'q': query, 'sort': 'new', 'limit': limit})}"
+    url  = f"https://www.reddit.com/search.json?{urlencode({'q': query, 'sort': 'new', 'limit': limit})}"
     data = _get(url)
-    if not data:
-        return []
-    return data.get("data", {}).get("children", [])
+    return data.get("data", {}).get("children", []) if data else []
 
 
 def fetch_reddit(artists):
     posts, seen = [], set()
+    token = get_reddit_token()
+    if token:
+        print(f"  Using Reddit OAuth (authenticated)")
+    else:
+        print(f"  No Reddit credentials — using public API (may be rate-limited)")
 
     for sub in SUBREDDITS:
         print(f"  r/{sub}...")
         for child in fetch_subreddit(sub):
             pid = child.get("data", {}).get("id", "")
-            if pid in seen:
-                continue
-            seen.add(pid)
-            p = parse_reddit_child(child, sub, artists)
-            if p:
-                posts.append(p)
-        time.sleep(0.7)
+            if pid not in seen:
+                seen.add(pid)
+                p = parse_reddit_child(child, sub, artists)
+                if p:
+                    posts.append(p)
+        time.sleep(0.5)
 
     for query in CROSS_SEARCHES:
         print(f"  search: {query!r}...")
         for child in fetch_search(query):
             pid = child.get("data", {}).get("id", "")
-            if pid in seen:
-                continue
-            seen.add(pid)
-            sub = child.get("data", {}).get("subreddit", "")
-            p = parse_reddit_child(child, sub, artists)
-            if p:
-                posts.append(p)
-        time.sleep(0.7)
+            if pid not in seen:
+                seen.add(pid)
+                sub = child.get("data", {}).get("subreddit", "")
+                p = parse_reddit_child(child, sub, artists)
+                if p:
+                    posts.append(p)
+        time.sleep(0.5)
 
+    print(f"  {len(posts)} relevant posts from Reddit")
     return posts
 
 
 def fetch_twitter_playwright(artists):
-    """
-    Scrape Twitter search via Playwright + your Chrome profile.
-    Requires: pip install playwright && playwright install chromium
-    Only works locally — not in GitHub Actions.
-    """
+    """Local only -- requires Chrome profile and --twitter flag."""
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
-        print("  playwright not installed — pip install playwright && playwright install chromium")
+        print("  playwright not installed")
         return []
 
-    CHROME_PROFILE = os.path.expanduser(
-        "~/Library/Application Support/Google/Chrome"
-    )
+    CHROME_PROFILE = os.path.expanduser("~/Library/Application Support/Google/Chrome")
     if not os.path.isdir(CHROME_PROFILE):
         print(f"  Chrome profile not found at {CHROME_PROFILE}")
         return []
@@ -257,23 +291,17 @@ def fetch_twitter_playwright(artists):
         "indie music india original -filter:retweets",
         "new indian indie artist -filter:retweets",
         "independent indian music -filter:retweets",
-        "indian singer songwriter original -filter:retweets",
-        "bengali indie music -filter:retweets",
-        "marathi indie music -filter:retweets",
-        "kannada indie music -filter:retweets",
+        "desi rap original -filter:retweets",
+        "indian folk singer original -filter:retweets",
     ]
 
     tweets, seen = [], set()
-
     with sync_playwright() as p:
         ctx = p.chromium.launch_persistent_context(
-            user_data_dir=CHROME_PROFILE,
-            channel="chrome",
-            headless=True,
+            user_data_dir=CHROME_PROFILE, channel="chrome", headless=True,
             args=["--no-sandbox", "--disable-dev-shm-usage"],
         )
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
-
         for query in QUERIES:
             print(f"  Twitter: {query!r}...")
             encoded = query.replace(" ", "%20").replace("#", "%23").replace(":", "%3A")
@@ -283,9 +311,7 @@ def fetch_twitter_playwright(artists):
             except Exception as e:
                 print(f"    nav error: {e}")
                 continue
-
-            articles = page.query_selector_all("article[data-testid='tweet']")
-            for art in articles[:15]:
+            for art in page.query_selector_all("article[data-testid='tweet']")[:15]:
                 try:
                     text_el = art.query_selector("[data-testid='tweetText']")
                     text    = text_el.inner_text() if text_el else ""
@@ -299,33 +325,25 @@ def fetch_twitter_playwright(artists):
                     seen.add(tid)
                     if not is_music_post(text):
                         continue
-                    lang   = detect_language(text)
-                    artist = find_artist(text, "", artists)
                     tweets.append({
-                        "platform": "twitter",
-                        "subreddit": "",
-                        "title":    text[:140],
-                        "snippet":  "",
-                        "url":      link,
-                        "score":    0,
-                        "language": lang,
-                        "date":     datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-                        "artist":   artist,
+                        "platform": "twitter", "subreddit": "",
+                        "title": text[:140], "snippet": "",
+                        "url": link, "score": 0,
+                        "language": detect_language(text),
+                        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+                        "artist": find_artist(text, "", artists),
                     })
                 except Exception:
-                    continue
-
-            time.sleep(2)
-
+                    pass
         ctx.close()
-
     return tweets
 
 
+# ── Main ──────────────────────────────────────────────────────────────────────
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--twitter", action="store_true",
-                        help="Also scrape Twitter/X via Chrome profile (local only)")
+    parser.add_argument("--twitter", action="store_true")
     args = parser.parse_args()
 
     print("Loading artists from latest.json...")
@@ -333,26 +351,24 @@ def main():
     print(f"  {len(artists)} artists available for matching")
 
     print("Fetching Reddit...")
-    reddit_posts = fetch_reddit(artists)
-    print(f"  {len(reddit_posts)} relevant posts")
+    posts = fetch_reddit(artists)
 
-    twitter_posts = []
     if args.twitter:
-        print("Fetching Twitter via Chrome...")
-        twitter_posts = fetch_twitter_playwright(artists)
-        print(f"  {len(twitter_posts)} tweets")
+        print("Fetching Twitter...")
+        posts += fetch_twitter_playwright(artists)
 
-    all_posts = reddit_posts + twitter_posts
+    artist_posts = [p for p in posts if p.get("artist")]
+    feed_posts   = [p for p in posts if not p.get("artist")]
 
-    sort_key = lambda p: (-p["score"], p["date"])
-    artist_posts = sorted([p for p in all_posts if p.get("artist")], key=sort_key)
-    feed_posts   = sorted([p for p in all_posts if not p.get("artist")], key=sort_key)
+    # Sort by score
+    artist_posts.sort(key=lambda x: -x.get("score", 0))
+    feed_posts.sort(key=lambda x: -x.get("score", 0))
 
     output = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "total":         len(all_posts),
-        "artist_posts":  artist_posts[:40],
-        "feed":          feed_posts[:60],
+        "total":        len(posts),
+        "artist_posts": artist_posts,
+        "feed":         feed_posts,
     }
 
     with open(OUTPUT_PATH, "w") as f:

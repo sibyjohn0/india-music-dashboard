@@ -5,6 +5,10 @@ const INSIGHTS_URL  = "data/insights.json";
 const SOCIAL_URL    = "data/social.json";
 const SPOTIFY_URL   = "data/spotify_enrichment.json";
 
+const LS_MY_GENRE = "iir_my_genre";
+const LS_MY_LANG  = "iir_my_lang";
+const LS_SAVED    = "iir_saved_artists";
+
 // ── Formatters ────────────────────────────────────────────────────────────────
 const fmt    = n => n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"K":String(n);
 const fmtInr = n => n>=1e7?"₹"+(n/1e7).toFixed(1)+"Cr":n>=1e5?"₹"+(n/1e5).toFixed(1)+"L":n>=1e3?"₹"+(n/1e3).toFixed(1)+"K":"₹"+n;
@@ -54,6 +58,7 @@ async function init() {
   document.getElementById("total-badge").textContent = allVideos.length+" videos";
 
   populateDropdowns();
+  loadPreferences();
   renderDiscover(allVideos);
   renderBreakdowns(data.genre_breakdown||[], data.language_breakdown||[]);
   renderArtistGrid(allChannels);
@@ -64,6 +69,7 @@ async function init() {
   bindArtistControls();
   bindVideoControls();
   if (trackerData) bindRadarControls();
+  initArtistDrawer();
 }
 
 // ── Channel aggregation ───────────────────────────────────────────────────────
@@ -258,9 +264,11 @@ function renderArtistGrid(channels) {
     if (sp.spotify_url)        signals.push("Spotify");
     if (c.lfm_india_rank)      signals.push(`#${c.lfm_india_rank} India`);
 
+    const savedClass = getSavedArtists().includes(c.id) ? " saved-artist" : "";
     return `
-    <div class="artist-card ${fit.type!=="none"?"artist-card-fit artist-card-"+fit.type:""}">
-      <a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" class="artist-card-inner">
+    <div class="artist-card ${fit.type!=="none"?"artist-card-fit artist-card-"+fit.type:""}${savedClass}"
+         onclick="openArtistDrawer(allChannels.find(x=>x.id==='${esc(c.id)}'))">
+      <div class="artist-card-inner">
         <img class="artist-card-thumb" src="${esc(c.top_video.thumbnail||'')}" alt="" loading="lazy" />
         <div class="artist-card-body">
           <div class="artist-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
@@ -282,10 +290,10 @@ function renderArtistGrid(channels) {
           </div>
           ${signals.length ? `<div class="artist-signals">${signals.map(s=>`<span class="signal-tag">${esc(s)}</span>`).join("")}</div>` : ""}
         </div>
-      </a>
+      </div>
       <div class="artist-card-actions">
-        <a class="action-btn" href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener">YouTube</a>
-        ${sp.spotify_url ? `<a class="action-btn action-btn-spotify" href="${esc(sp.spotify_url)}" target="_blank" rel="noopener">Spotify</a>` : ""}
+        <a class="action-btn" href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube</a>
+        ${sp.spotify_url ? `<a class="action-btn action-btn-spotify" href="${esc(sp.spotify_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Spotify</a>` : ""}
       </div>
     </div>`;
   }).join("");
@@ -323,7 +331,10 @@ function bindArtistControls() {
     apply();
   });
   ["c-my-genre","c-my-lang"].forEach(id=>
-    document.getElementById(id)?.addEventListener("change", apply));
+    document.getElementById(id)?.addEventListener("change", e => {
+      savePreference(id === "c-my-genre" ? LS_MY_GENRE : LS_MY_LANG, e.target.value);
+      apply();
+    }));
   ["a-search","a-sort","a-genre","a-lang","a-min-eng","a-min-videos"].forEach(id=>
     document.getElementById(id).addEventListener(id==="a-search"?"input":"change", apply));
 }
@@ -781,3 +792,170 @@ function buzzCardHTML(p) {
 }
 
 init();
+
+// ── Personalization ───────────────────────────────────────────────────────────
+function loadPreferences() {
+  const g = localStorage.getItem(LS_MY_GENRE);
+  const l = localStorage.getItem(LS_MY_LANG);
+  if (g) {
+    const cg = document.getElementById("c-my-genre");
+    if (cg) cg.value = g;
+    const dg = document.getElementById("d-genre");
+    if (dg) dg.value = g;
+  }
+  if (l) {
+    const cl = document.getElementById("c-my-lang");
+    if (cl) cl.value = l;
+    const dl = document.getElementById("d-lang");
+    if (dl) dl.value = l;
+  }
+  if (g || l) applyDiscover();
+}
+
+function savePreference(key, val) {
+  if (val && val !== "all") localStorage.setItem(key, val);
+  else localStorage.removeItem(key);
+}
+
+function getSavedArtists() {
+  try { return JSON.parse(localStorage.getItem(LS_SAVED) || "[]"); } catch { return []; }
+}
+
+function toggleSaveArtist(channelId) {
+  const saved = getSavedArtists();
+  const idx = saved.indexOf(channelId);
+  if (idx === -1) saved.push(channelId);
+  else saved.splice(idx, 1);
+  localStorage.setItem(LS_SAVED, JSON.stringify(saved));
+  return idx === -1;
+}
+
+// ── Artist Drawer ─────────────────────────────────────────────────────────────
+function initArtistDrawer() {
+  const drawer  = document.getElementById("artist-drawer");
+  const overlay = document.getElementById("drawer-overlay");
+  const closeBtn= document.getElementById("drawer-close");
+  if (!drawer) return;
+
+  overlay.addEventListener("click", closeDrawer);
+  closeBtn.addEventListener("click", closeDrawer);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeDrawer(); });
+}
+
+function openArtistDrawer(channel) {
+  const drawer = document.getElementById("artist-drawer");
+  if (!drawer) return;
+
+  const sp      = spotifyData[channel.name] || {};
+  const saved   = getSavedArtists();
+  const isSaved = saved.includes(channel.id);
+  const videos  = allVideos.filter(v => (v.channel_id || v.channel) === channel.id)
+                           .sort((a, b) => (b.discovery_score||0) - (a.discovery_score||0));
+  const topVideo = videos[0] || channel.top_video;
+  const ytChLink = `https://youtube.com/channel/${esc(channel.id)}`;
+
+  // Header
+  document.getElementById("drawer-name").textContent = channel.name;
+  document.getElementById("drawer-pills").innerHTML = `
+    <span class="pill pill-genre">${esc(channel.top_genre)}</span>
+    <span class="pill pill-lang">${esc(channel.top_lang)}</span>
+    ${channel.multiplatform ? '<span class="pill" style="background:#a78bfa22;color:#a78bfa;border-color:#a78bfa44">Multi-platform</span>' : ""}
+  `;
+
+  // Save button
+  const saveBtn = document.getElementById("drawer-save");
+  saveBtn.textContent = isSaved ? "♥ Saved" : "♡ Save";
+  saveBtn.className = "drawer-save-btn" + (isSaved ? " saved" : "");
+  saveBtn.onclick = () => {
+    const nowSaved = toggleSaveArtist(channel.id);
+    saveBtn.textContent = nowSaved ? "♥ Saved" : "♡ Save";
+    saveBtn.className = "drawer-save-btn" + (nowSaved ? " saved" : "");
+  };
+
+  // Embed top video or thumbnail link
+  const embedWrap = document.getElementById("drawer-embed");
+  if (topVideo?.id) {
+    embedWrap.innerHTML = `<iframe
+      src="https://www.youtube.com/embed/${esc(topVideo.id)}?modestbranding=1&rel=0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen loading="lazy"></iframe>`;
+  } else if (topVideo?.thumbnail) {
+    embedWrap.innerHTML = `<a class="drawer-embed-placeholder" href="${esc(topVideo.url||ytChLink)}" target="_blank" rel="noopener">
+      <img src="${esc(topVideo.thumbnail)}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" alt="" />
+    </a>`;
+  } else {
+    embedWrap.innerHTML = `<a class="drawer-embed-placeholder" href="${esc(ytChLink)}" target="_blank" rel="noopener">
+      <span class="drawer-embed-play">▶</span>
+      <span>Open YouTube channel</span>
+    </a>`;
+  }
+
+  // Stats row
+  document.getElementById("drawer-stats").innerHTML = `
+    <div class="drawer-stat">
+      <div class="drawer-stat-val">${channel.avg_discovery}</div>
+      <div class="drawer-stat-lbl">Discovery</div>
+    </div>
+    <div class="drawer-stat">
+      <div class="drawer-stat-val">${channel.avg_engagement}%</div>
+      <div class="drawer-stat-lbl">Engagement</div>
+    </div>
+    <div class="drawer-stat">
+      <div class="drawer-stat-val">${fmt(channel.avg_velocity)}</div>
+      <div class="drawer-stat-lbl">Views/day</div>
+    </div>
+  `;
+
+  // Platform links
+  let platforms = `
+    <a class="drawer-platform-link drawer-platform-yt" href="${esc(ytChLink)}" target="_blank" rel="noopener">▶ YouTube</a>
+  `;
+  if (sp.spotify_url) {
+    platforms += `<a class="drawer-platform-link drawer-platform-sp" href="${esc(sp.spotify_url)}" target="_blank" rel="noopener">♫ Spotify</a>`;
+  }
+  if (sp.followers > 0) {
+    platforms += `<span class="drawer-platform-link" style="cursor:default;opacity:.7">${fmt(sp.followers)} Spotify followers</span>`;
+  }
+  platforms += `<button class="drawer-platform-link drawer-platform-copy" onclick="copyChannelLink('${esc(ytChLink)}', this)">⎘ Copy link</button>`;
+  document.getElementById("drawer-platforms").innerHTML = platforms;
+
+  // Video list
+  document.getElementById("drawer-videos").innerHTML = videos.map(v => `
+    <a class="drawer-video-row" href="${esc(v.url)}" target="_blank" rel="noopener">
+      <img class="drawer-video-thumb" src="${esc(v.thumbnail)}" alt="" loading="lazy" />
+      <div class="drawer-video-info">
+        <div class="drawer-video-title">${esc(v.title)}</div>
+        <div class="drawer-video-meta">
+          <span>${fmt(v.views)} views</span>
+          <span class="hi">${v.engagement_rate}% eng</span>
+          <span>${daysAgo(v.published_at)}</span>
+        </div>
+      </div>
+      <div class="drawer-video-score">${v.discovery_score}</div>
+    </a>`).join("") || `<div style="color:var(--muted);font-size:13px">No videos in current window</div>`;
+
+  drawer.classList.add("open");
+  drawer.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+function closeDrawer() {
+  const drawer = document.getElementById("artist-drawer");
+  if (!drawer) return;
+  // Clear iframe to stop video playback
+  const embed = document.getElementById("drawer-embed");
+  if (embed) embed.innerHTML = "";
+  drawer.classList.remove("open");
+  drawer.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+function copyChannelLink(url, btn) {
+  navigator.clipboard.writeText(url).then(() => {
+    btn.textContent = "✓ Copied";
+    btn.classList.add("copied");
+    setTimeout(() => { btn.textContent = "⎘ Copy link"; btn.classList.remove("copied"); }, 2000);
+  }).catch(() => {
+    btn.textContent = "⎘ " + url;
+  });
+}
