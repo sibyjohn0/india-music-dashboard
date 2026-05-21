@@ -764,6 +764,18 @@ function renderBuzzArtistSection(posts) {
     </div>`).join("");
 }
 
+function formatBuzzDateGroup(d) {
+  if (!d) return "Unknown";
+  const [y, m, day] = d.split("-").map(Number);
+  const today = new Date();
+  const dt    = new Date(y, m - 1, day);
+  const base  = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  const diff  = Math.round((base - dt) / 86400000);
+  if (diff === 0) return "Today";
+  if (diff === 1) return "Yesterday";
+  return dt.toLocaleDateString("en-IN", { month: "short", day: "numeric" });
+}
+
 function renderBuzzFeed(posts) {
   const hd    = document.getElementById("buzz-feed-hd");
   const feed  = document.getElementById("buzz-feed");
@@ -771,30 +783,42 @@ function renderBuzzFeed(posts) {
 
   hd.style.display = posts.length ? "flex" : "none";
   count.textContent = posts.length;
-  feed.innerHTML = posts.map(p => buzzCardHTML(p)).join("");
+
+  if (!posts.length) { feed.innerHTML = ""; return; }
+
+  const groups = [];
+  const groupMap = {};
+  for (const p of posts) {
+    const label = formatBuzzDateGroup(p.date);
+    if (!groupMap[label]) {
+      const g = { label, posts: [] };
+      groups.push(g);
+      groupMap[label] = g;
+    }
+    groupMap[label].posts.push(p);
+  }
+
+  feed.innerHTML = groups.map(g => `
+    <div class="buzz-date-group">
+      <div class="buzz-date-hd">${esc(g.label)}</div>
+      <div class="buzz-date-cards">${g.posts.map(p => buzzCardHTML(p)).join("")}</div>
+    </div>`).join("");
 }
 
 function buzzCardHTML(p) {
-  const platformLabel = p.platform === "news"
-    ? esc(p.subreddit || "News")
-    : p.platform === "reddit"
-    ? `r/${esc(p.subreddit||"reddit")}`
-    : `twitter.com`;
-  const platformClass = p.platform === "news" ? "buzz-platform-news"
-    : p.platform === "reddit" ? "buzz-platform-reddit" : "buzz-platform-twitter";
-  const score = p.score > 0
-    ? `<span class="buzz-score">▲ ${p.score}</span>` : "";
   const langColor = LANG_COLORS[p.language] || "#666";
+  const source = p.platform === "reddit"
+    ? `r/${esc(p.subreddit||"reddit")}`
+    : p.platform === "twitter" ? "Twitter"
+    : esc(p.subreddit || "News");
 
   return `<a class="buzz-card" href="${esc(p.url)}" target="_blank" rel="noopener">
-    <div class="buzz-card-header">
-      <span class="buzz-platform ${platformClass}">${platformLabel}</span>
-      ${score}
-      <span class="buzz-lang-pill" style="--lc:${langColor}">${esc(p.language||"")}</span>
-      <span class="buzz-date">${esc(p.date||"")}</span>
-    </div>
     <div class="buzz-title">${esc(p.title)}</div>
-    ${p.snippet ? `<div class="buzz-snippet">${esc(p.snippet)}</div>` : ""}
+    <div class="buzz-byline">
+      <span class="buzz-source">${source}</span>
+      <span class="buzz-dot">·</span>
+      <span class="buzz-lang-pill" style="--lc:${langColor}">${esc(p.language||"")}</span>
+    </div>
   </a>`;
 }
 
