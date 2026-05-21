@@ -141,6 +141,7 @@ LANGUAGE_SEARCHES = {
         ("tamil rap artist original", "date"),
         ("tamil indie pop original song", "date"),
         ("carnatic fusion indie original", "rating"),
+        ("tamil electronic producer original", "date"),
     ],
     "Telugu": [
         ("telugu indie original song", "date"),
@@ -148,6 +149,7 @@ LANGUAGE_SEARCHES = {
         ("telugu rap artist original", "date"),
         ("telugu indie pop original", "date"),
         ("hyderabad indie music original", "date"),
+        ("telugu lo-fi bedroom pop original", "date"),
     ],
     "Kannada": [
         ("kannada indie music original", "date"),
@@ -155,6 +157,7 @@ LANGUAGE_SEARCHES = {
         ("kannada rap artist original", "date"),
         ("kannada indie pop original", "date"),
         ("bangalore indie music original", "date"),
+        ("kannada carnatic fusion original", "rating"),
     ],
     "Malayalam": [
         ("malayalam indie original music", "date"),
@@ -162,6 +165,7 @@ LANGUAGE_SEARCHES = {
         ("malayalam rap artist original", "date"),
         ("malayalam singer songwriter original", "date"),
         ("kerala indie music original", "date"),
+        ("malayalam electronic indie original", "date"),
     ],
     "Bengali": [
         ("bengali indie original song", "date"),
@@ -169,6 +173,7 @@ LANGUAGE_SEARCHES = {
         ("bengali rap artist original", "date"),
         ("bangla indie pop original", "date"),
         ("kolkata indie music original", "date"),
+        ("baul fusion indie original", "rating"),
     ],
     "Punjabi": [
         ("punjabi indie original song", "date"),
@@ -176,6 +181,7 @@ LANGUAGE_SEARCHES = {
         ("punjabi underground rap original", "date"),
         ("punjabi indie pop original song", "date"),
         ("punjabi acoustic sufi original", "date"),
+        ("punjabi lo-fi indie original", "date"),
     ],
     "Marathi": [
         ("marathi indie original song", "date"),
@@ -183,6 +189,7 @@ LANGUAGE_SEARCHES = {
         ("marathi rap artist original", "date"),
         ("marathi indie pop original", "date"),
         ("pune indie music marathi", "date"),
+        ("lavani fusion indie original", "rating"),
     ],
     "Hindi": [
         ("hindi indie original song", "date"),
@@ -191,6 +198,7 @@ LANGUAGE_SEARCHES = {
         ("hindi bedroom pop singer songwriter", "date"),
         ("hindi sufi indie original", "date"),
         ("desi rap artist original", "date"),
+        ("hindi r&b soul indie original", "date"),
     ],
     "English": [
         ("indian english indie band original", "date"),
@@ -198,6 +206,7 @@ LANGUAGE_SEARCHES = {
         ("indian indie rock band original", "rating"),
         ("indian english rap artist original", "date"),
         ("india electronic music artist original", "date"),
+        ("indian jazz fusion indie original", "rating"),
     ],
 }
 
@@ -263,26 +272,78 @@ def detect_genre(title, tags, description):
     text = (title + " " + " ".join(tags) + " " + description).lower()
     checks = [
         # Most specific first to avoid false-positives on shorter keywords
-        ("Lo-Fi",            ["lo-fi", "lofi", "lo fi", "chill beats", "study beats", "chill hop"]),
-        ("Hip Hop / Rap",    ["hip hop", "hip-hop", "rap", "rapper", "trap", "drill", "freestyle",
-                               "cypher", "bars", "mc ", "desi rap", "desi hip hop", "gully"]),
-        ("Jazz / Blues",     ["jazz", "blues", "fusion jazz", "swing", "bossa nova", "soul jazz"]),
-        ("Classical/Fusion", ["classical", "carnatic", "hindustani", "raag", "raga", "thumri",
-                               "khayal", "baithak", "fusion classical", "semi classical"]),
-        ("Folk / Acoustic",  ["folk", "acoustic", "unplugged", "sufi", "baul", "lavani",
-                               "folk fusion", "roots", "village", "janapad", "nattu",
-                               "singer songwriter", "singer-songwriter", "fingerpicking",
-                               "gaana", "kolatam", "bihu"]),
-        ("Electronic",       ["electronic", "edm", "techno", "house music", "ambient",
-                               "synthwave", "downtempo", "chillwave", "synth pop",
-                               "electro", "psytrance", "psy trance", "bass music"]),
-        ("R&B / Soul",       ["r&b", "rnb", "soul", "neo soul", "rhythm and blues",
-                               "funk", "groove", "smooth"]),
-        ("Indie Pop",        ["indie pop", "bedroom pop", "dream pop", "shoegaze",
-                               "power pop", "jangle pop", "twee", "synth pop"]),
-        ("Rock / Alt",       ["rock", "metal", "punk", "alternative", "grunge",
-                               "post-rock", "post rock", "math rock", "indie rock",
-                               "hard rock", "heavy", "guitar"]),
+        ("Lo-Fi", [
+            "lo-fi", "lofi", "lo fi",
+            "chill beats", "study beats", "chill hop", "chillhop",
+            "beats to study", "study music", "coffee shop music",
+            "relaxing beats", "jazz hop", "lo fi hip hop",
+        ]),
+        ("Hip Hop / Rap", [
+            "hip hop", "hip-hop", "rap", "rapper", "trap", "drill",
+            "freestyle", "cypher", "bars", "mc ", "desi rap",
+            "desi hip hop", "gully", "gully rap", "gully boy",
+            "battle rap", "trap rap", "underground rap",
+            "desi trap", "boom bap", "conscious rap", "lyricism",
+            "spitting", "hindi rap", "tamil rap", "telugu rap",
+            "marathi rap", "punjabi rap", "bhojpuri rap",
+            "kannada rap", "malayalam rap", "bengali rap",
+            "street rap", "indian rap", "desi hip-hop",
+        ]),
+        ("Jazz / Blues", [
+            "jazz", "blues", "fusion jazz", "swing", "bossa nova",
+            "soul jazz", "bebop", "smooth jazz", "contemporary jazz",
+            "jazz fusion", "cool jazz", "jazz guitar", "jazz piano",
+            "saxophone", "trumpet jazz", "jazz vocalist", "blues rock",
+        ]),
+        ("Classical/Fusion", [
+            "classical", "carnatic", "hindustani", "raag", "raga",
+            "thumri", "khayal", "baithak", "fusion classical",
+            "semi classical", "semiclassical", "dhrupad", "ghazal",
+            "dadra", "tarana", "bandish", "classical fusion",
+            "raga fusion", "indian classical", "veena", "sitar",
+            "sarod", "sarangi", "tabla solo", "bansuri",
+            "hindusthani", "vocal classical",
+        ]),
+        ("Folk / Acoustic", [
+            "folk", "acoustic", "unplugged", "sufi", "baul", "lavani",
+            "folk fusion", "roots", "janapad", "nattu",
+            "singer songwriter", "singer-songwriter", "fingerpicking",
+            "gaana", "kolatam", "bihu", "dandiya", "garba",
+            "qawwali", "lok geet", "rajasthani folk", "manganiyar",
+            "kajri", "chaiti", "bhangra folk", "regional folk",
+            "folk singer", "acoustic guitar", "sufi rock", "sufi pop",
+            "sufiana", "village", "tribal music", "traditional folk",
+            "folk rock",
+        ]),
+        ("Electronic", [
+            "electronic", "edm", "techno", "house music", "ambient",
+            "synthwave", "downtempo", "chillwave",
+            "electro", "psytrance", "psy trance", "bass music",
+            "goa trance", "goa psy", "drum and bass", "dnb",
+            "future bass", "deep house", "progressive house",
+            "minimal techno", "glitch", "trip hop", "breakbeat",
+            "dubstep", "acid", "dark techno", "electronica",
+            "chillout", "electronic music", "beatmaker", "producer",
+        ]),
+        ("R&B / Soul", [
+            "r&b", "rnb", "soul", "neo soul", "rhythm and blues",
+            "funk", "groove", "contemporary r&b", "alternative r&b",
+            "soul singer", "soul music", "new jack swing", "indie r&b",
+        ]),
+        ("Indie Pop", [
+            "indie pop", "bedroom pop", "dream pop", "shoegaze",
+            "power pop", "jangle pop", "twee pop", "chamber pop",
+            "art pop", "noise pop", "synth pop", "lo-fi pop",
+        ]),
+        ("Rock / Alt", [
+            "rock", "metal", "punk", "alternative", "grunge",
+            "post-rock", "post rock", "math rock", "indie rock",
+            "hard rock", "heavy", "guitar", "alt rock", "post punk",
+            "psychedelic rock", "progressive rock", "prog rock",
+            "stoner rock", "doom metal", "death metal", "black metal",
+            "thrash metal", "heavy metal", "metalcore", "noise rock",
+            "garage rock", "surf rock", "experimental rock",
+        ]),
     ]
     for genre, keywords in checks:
         if any(k in text for k in keywords):
