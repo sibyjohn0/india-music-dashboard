@@ -108,27 +108,51 @@ DEVOTIONAL_PATTERNS = [
 
 # ── Title-level spam filter ───────────────────────────────────
 TITLE_SPAM = [
+    # Beat/pack content
     "type beat", "free beat", "instrumental beat", "rap beat", "trap beat",
     "hip hop beat", "drill beat", "beats free", "prod by",
+    # Meta / promotional
     "distribution", "artist management", "music promotion", "submit your",
     "how to get", "music business", "grow your channel",
     "reaction video", "react to", "interview with",
-    "whatsapp status", "status song", "ringtone",
+    # Status / ringtone filler
+    "whatsapp status", "status song", "ringtone", "#whatsappstatus", "#shorts",
+    # Devotional
     "christian devotional", "worship song", "devotional song",
     "praise and worship", "church live",
+    # Non-original / remix content (missing from before)
+    "dj remix", "dance remix", "remix version", "official remix",
+    "slowed reverb", "slowed + reverb", "slowed and reverb", "slowed reverb",
+    "mashup song", "songs mashup",
+    "nonstop songs", "non stop songs",
+    "audio jukebox", "video jukebox", "songs jukebox",
+    "dance mix", "dance version",
+    "promo video", "promo song", "item number", "item song",
+    "full video song", "video songs hd",
+    "evergreen hits", "best of songs", "top songs of",
+    "karaoke version", "karaoke track",
 ]
 
-# ── Channel name patterns that signal an aggregator (not an artist) ──
-# Be conservative -- "songs" alone blocks real artist channels like "Rajesh Elappara Songs"
+# ── Channel name patterns that signal an aggregator / non-artist ──
 AGGREGATOR_PATTERNS = [
-    "devotional songs",   # "Tamil Christian Devotional Songs"
-    "christian songs",    # "Malayalam Christian Songs"
-    " music studio",      # "Chengalpattu Music Studio Johnson"
+    "devotional songs",
+    "christian songs",
+    " music studio",
     "lyrics channel",
     "song lyrics",
     "music zone", "music world", "music hub",
     "all songs channel",
     "jukebox official",
+    # DJ / remix channels (added)
+    "dj creations", "dj beats", "dj records", "dj studio",
+    "remix zone", "remix world", "remix official",
+    "beats adda", "beats india", "beats official",
+    # Aggregator / compilation channels
+    "songs adda", "super songs", "song collection",
+    "all songs", "top songs", "best songs", "hits official",
+    "audio official",
+    # Fact / non-music channels
+    " facts", "fact channel",
 ]
 
 # ── Language-first search structure ──────────────────────────
@@ -211,6 +235,24 @@ LANGUAGE_SEARCHES = {
 }
 
 
+CHANNELS_FILE = os.path.join(os.path.dirname(__file__), "..", "data", "channels.json")
+
+def load_channel_registry():
+    if not os.path.exists(CHANNELS_FILE):
+        return []
+    with open(CHANNELS_FILE) as f:
+        return json.load(f).get("channels", [])
+
+def save_channel_registry(channels):
+    seen, unique = set(), []
+    for ch in channels:
+        if ch["channel_id"] not in seen:
+            seen.add(ch["channel_id"])
+            unique.append(ch)
+    with open(CHANNELS_FILE, "w") as f:
+        json.dump({"updated_at": datetime.now(timezone.utc).isoformat(), "channels": unique}, f, indent=2)
+
+
 def get(endpoint, params):
     params["key"] = API_KEY
     url = f"{BASE}/{endpoint}?{urlencode(params)}"
@@ -220,6 +262,18 @@ def get(endpoint, params):
     except HTTPError as e:
         print(f"HTTP {e.code} on {endpoint} q={params.get('q','?')[:40]}", file=sys.stderr)
         return {}
+
+
+def fetch_channel_recent_ids(uploads_playlist_id, max_results=8):
+    """Get recent video IDs from a channel's uploads playlist. Cost: 1 quota unit."""
+    data = get("playlistItems", {
+        "part":       "contentDetails",
+        "playlistId": uploads_playlist_id,
+        "maxResults": max_results,
+    })
+    return [i["contentDetails"]["videoId"]
+            for i in data.get("items", [])
+            if i.get("contentDetails", {}).get("videoId")]
 
 
 def fetch_search_ids(query, order="date"):
@@ -468,21 +522,35 @@ def main():
     quota_used = 0
     quota_ok   = True
 
-    # ── Phase 1: language-first searches ────────────────────────────────────
-    id_to_lang = {}
+    # ── Phase 0: Channel registry monitoring (1 unit/channel vs 100/search) ──
+    registry   = load_channel_registry()
+    id_to_lang = {}   # shared across all phases; registry takes priority
+    if registry:
+        print(f"Phase 0: polling {len(registry)} registered channels...")
+        for ch in registry:
+            if quota_used + 1 > 1500:           # reserve quota for discovery
+                break
+            pid = ch.get("uploads_playlist_id") or ("UU" + ch["channel_id"][2:])
+            for vid_id in fetch_channel_recent_ids(pid):
+                id_to_lang[vid_id] = ch.get("language")   # registry overrides
+            quota_used += 1
+        print(f"  {len(id_to_lang)} IDs from registry | quota {quota_used}")
+
+    # ── Phase 1: language-first discovery searches ───────────────────────────
+    discovery_ids = {}
     for lang, queries in LANGUAGE_SEARCHES.items():
         if not quota_ok:
-            break                                   # fixed: exits outer loop too
+            break
         for query, order in queries:
             if quota_used + 100 > 8500:
                 print(f"Quota cap at {quota_used} — stopping searches")
                 quota_ok = False
                 break
             for vid_id in fetch_search_ids(query, order):
-                id_to_lang.setdefault(vid_id, lang)  # first language wins
+                discovery_ids.setdefault(vid_id, lang)
             quota_used += 100
 
-    # ── Phase 2: indie label / collective searches ──────────────────────────
+    # ── Phase 2: indie label / collective searches ───────────────────────────
     LABEL_SEARCHES = [
         ("Azadi Records", "date"),
         ("CARCOSA music india", "date"),
@@ -494,19 +562,22 @@ def main():
         if quota_used + 100 > 9000:
             break
         for vid_id in fetch_search_ids(query, order):
-            id_to_lang.setdefault(vid_id, None)
+            discovery_ids.setdefault(vid_id, None)
         quota_used += 100
 
-    unique_ids    = list(id_to_lang.keys())
+    # Registry lang hints take priority over search hints
+    for vid_id, lang in discovery_ids.items():
+        id_to_lang.setdefault(vid_id, lang)
+
     total_queries = sum(len(v) for v in LANGUAGE_SEARCHES.values()) + len(LABEL_SEARCHES)
-    print(f"{len(unique_ids)} unique IDs from {total_queries} searches | quota ~{quota_used}")
+    print(f"{len(id_to_lang)} unique IDs ({len(discovery_ids)} from {total_queries} searches) | quota ~{quota_used}")
 
     # ── Phase 3: enrich + filter ─────────────────────────────────────────────
     seen         = set()
     lang_buckets = {lang: [] for lang in LANGUAGE_SEARCHES}
     lang_buckets["Other"] = []
 
-    for item in fetch_video_details(unique_ids):
+    for item in fetch_video_details(list(id_to_lang.keys())):
         vid_id = item["id"]
         if vid_id in seen:
             continue
@@ -577,6 +648,27 @@ def main():
         json.dump(output, f, indent=2)
 
     update_monthly_summary(balanced, date_str)
+
+    # ── Phase 5: grow the channel registry with new clean channels ───────────
+    existing_cids = {ch["channel_id"] for ch in registry}
+    new_chs = []
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    for v in balanced:
+        cid = v.get("channel_id", "")
+        if cid and cid not in existing_cids:
+            existing_cids.add(cid)
+            new_chs.append({
+                "channel_id":          cid,
+                "channel_name":        v["channel"],
+                "language":            v["language"],
+                "genre":               v["genre"],
+                "uploads_playlist_id": "UU" + cid[2:] if cid.startswith("UC") else "",
+                "added_at":            today,
+                "last_video_at":       v["published_at"][:10],
+            })
+    if new_chs:
+        save_channel_registry(registry + new_chs)
+        print(f"  Registry: +{len(new_chs)} new channels (total {len(registry)+len(new_chs)})")
 
     print(f"\nSaved {len(balanced)} videos — {date_str} | quota ~{quota_used}/10000")
     print("Genres:    " + ", ".join(f"{g}:{c}" for g, c in genre_b))
