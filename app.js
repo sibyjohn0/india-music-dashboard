@@ -775,10 +775,13 @@ function renderBuzzFeed(posts) {
 }
 
 function buzzCardHTML(p) {
-  const platformLabel = p.platform === "reddit"
+  const platformLabel = p.platform === "news"
+    ? esc(p.subreddit || "News")
+    : p.platform === "reddit"
     ? `r/${esc(p.subreddit||"reddit")}`
     : `twitter.com`;
-  const platformClass = p.platform === "reddit" ? "buzz-platform-reddit" : "buzz-platform-twitter";
+  const platformClass = p.platform === "news" ? "buzz-platform-news"
+    : p.platform === "reddit" ? "buzz-platform-reddit" : "buzz-platform-twitter";
   const score = p.score > 0
     ? `<span class="buzz-score">▲ ${p.score}</span>` : "";
   const langColor = LANG_COLORS[p.language] || "#666";
