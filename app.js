@@ -413,7 +413,7 @@ const TREND_CLS  = {new:"trend-new", rising:"trend-up", stable:"trend-flat", fal
 function renderRadar(artists) {
   if (!artists.length) {
     document.getElementById("radar-grid").innerHTML =
-      `<div class="empty-state">No tracked artists yet — run tracker.py discover + export.</div>`;
+      `<div class="empty-state">No artists tracked yet — check back after the next daily refresh.</div>`;
     return;
   }
   document.getElementById("radar-grid").innerHTML = artists.map(a=>{
@@ -423,10 +423,14 @@ function renderRadar(artists) {
       ? `<span class="radar-rank">#${a.latest_india_rank} India</span>` : "";
     const growthBadge = a.growth_pct!=null
       ? `<span class="radar-growth ${a.growth_pct>=0?"growth-pos":"growth-neg"}">${a.growth_pct>=0?"+":""}${a.growth_pct}%</span>` : "";
+    const ytLink = a.channel_id
+      ? `<a class="radar-yt-link" href="https://youtube.com/channel/${esc(a.channel_id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶</a>`
+      : "";
+    const noLfm = !a.latest_global_listeners;
     return `
     <div class="radar-card" style="--lang-col:${col}">
       <div class="radar-card-top">
-        <div class="radar-card-name">${esc(a.name)}</div>
+        <div class="radar-card-name">${esc(a.name)}${ytLink}</div>
         <span class="trend-badge ${TREND_CLS[trend]}">${TREND_ICON[trend]} ${trend}</span>
       </div>
       <div class="radar-pills">
@@ -439,7 +443,7 @@ function renderRadar(artists) {
           <div class="radar-stat-lbl">India listeners</div>
         </div>
         <div class="radar-stat">
-          <div class="radar-stat-val">${fmt(a.latest_global_listeners)}</div>
+          <div class="radar-stat-val${noLfm?" muted":""}">${noLfm?"not on Last.fm":fmt(a.latest_global_listeners)}</div>
           <div class="radar-stat-lbl">Global</div>
         </div>
       </div>

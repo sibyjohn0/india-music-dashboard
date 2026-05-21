@@ -150,6 +150,10 @@ AGGREGATOR_PATTERNS = [
     # Aggregator / compilation channels
     "songs adda", "super songs", "song collection",
     "all songs", "top songs", "best songs",
+    # Production companies / labels (not independent artists)
+    "recording company", "records company", "entertainment company",
+    "music bd", "music official bd",  # Bangladeshi label pattern
+    "films music", "productions music",
     # Fact / non-music channels
     " facts", "fact channel",
 ]
