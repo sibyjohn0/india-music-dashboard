@@ -28,6 +28,9 @@ jobs:
           LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
         run: python scripts/enrich_lastfm.py
 
+      - name: Build artist radar
+        run: python scripts/build_radar.py
+
       - name: Generate language insights
         run: python scripts/generate_insights.py
 
