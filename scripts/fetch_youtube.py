@@ -15,11 +15,11 @@ REGION             = "IN"
 MUSIC_CATEGORY     = "10"
 INDIA_MUSIC_CPM_INR = 80
 LOOKBACK_DAYS      = 90
-SEARCH_MAX_RESULTS  = 25               # candidates per query
-MAX_VIEWS           = 3_000_000        # ignore already-established artists
-MIN_VIEWS           = 1_000            # ignore brand-new / zero-traction uploads
-TARGET_PER_LANGUAGE = 20              # raised: more genre diversity per language
-MAX_PER_CHANNEL     = 2               # tighter cap: 2 videos max per channel per language
+SEARCH_MAX_RESULTS  = 50               # candidates per query (max allowed by API)
+MAX_VIEWS           = 5_000_000        # ignore already-established artists
+MIN_VIEWS           = 300              # low floor: indie acts in smaller markets debut under 1k
+TARGET_PER_LANGUAGE = 25              # target videos per language after balancing
+MAX_PER_CHANNEL     = 3               # allow 3 videos per channel per language
 
 # ── Label / distribution company blocklist ────────────────────
 # Checked against CHANNEL NAME and TAGS only (not description).
@@ -149,8 +149,7 @@ AGGREGATOR_PATTERNS = [
     "beats adda", "beats india", "beats official",
     # Aggregator / compilation channels
     "songs adda", "super songs", "song collection",
-    "all songs", "top songs", "best songs", "hits official",
-    "audio official",
+    "all songs", "top songs", "best songs",
     # Fact / non-music channels
     " facts", "fact channel",
 ]
@@ -576,6 +575,7 @@ def main():
     seen         = set()
     lang_buckets = {lang: [] for lang in LANGUAGE_SEARCHES}
     lang_buckets["Other"] = []
+    dbg = {"blocked": 0, "too_few_views": 0, "too_many_views": 0, "passed": 0}
 
     for item in fetch_video_details(list(id_to_lang.keys())):
         vid_id = item["id"]
@@ -587,16 +587,25 @@ def main():
         v = parse_video(item, lang_hint)
 
         if is_blocked(v["channel"], v["tags"], v["title"]):
+            dbg["blocked"] += 1
             continue
-        if not (MIN_VIEWS <= v["views"] <= MAX_VIEWS):
+        if v["views"] < MIN_VIEWS:
+            dbg["too_few_views"] += 1
+            continue
+        if v["views"] > MAX_VIEWS:
+            dbg["too_many_views"] += 1
             continue
 
+        dbg["passed"] += 1
         prev = prev_views.get(vid_id)
         v["views_delta"] = v["views"] - prev if prev is not None else None
         v["is_new"]      = prev is None
 
         bucket = v["language"] if v["language"] in lang_buckets else "Other"
         lang_buckets[bucket].append(v)
+
+    print(f"  Phase 3 filter results: {dbg['passed']} passed | {dbg['blocked']} blocked | "
+          f"{dbg['too_few_views']} too-few-views | {dbg['too_many_views']} too-many-views")
 
     # ── Phase 4: per-language balancing with per-channel + per-genre caps ──────
     MAX_PER_GENRE_PER_LANG = 6   # no genre takes more than 6 slots per language
