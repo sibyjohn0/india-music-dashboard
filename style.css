@@ -37,6 +37,16 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 .tab-pane { display: none; }
 .tab-pane.active { display: block; }
 
+.tab-intro {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  padding: 14px 0 18px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 22px;
+}
+.tab-intro strong { color: var(--text); font-weight: 600; }
+
 /* ── Discover hero ── */
 .discover-hero { margin-bottom: 40px; }
 .discover-hero-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 16px; }
