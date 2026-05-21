@@ -133,11 +133,15 @@ def parse_rss(xml_bytes, artists):
         return items
 
     for item in root.findall(".//item"):
-        title  = (item.findtext("title") or "").strip()
+        title  = re.sub(r"(\s*[-–|]\s*[^-–|]{3,50})+$", "", (item.findtext("title") or "").strip())
         link   = (item.findtext("link") or "").strip()
         pub    = (item.findtext("pubDate") or "").strip()
-        desc   = re.sub(r"<[^>]+>", "", item.findtext("description") or "").strip()
+        raw    = re.sub(r"<[^>]+>", "", item.findtext("description") or "")
+        desc   = raw.replace("\xa0", " ").strip()
         source = (item.findtext("source") or "").strip()
+        # Google News RSS description is just "Title  Source" — discard it
+        if desc.lower().startswith(title[:35].lower()):
+            desc = ""
 
         if not title or not link:
             continue
@@ -183,6 +187,27 @@ def main():
                 seen.add(key)
                 posts.append(item)
         time.sleep(0.3)
+
+    # Deduplicate by normalized title prefix (same story, multiple publications)
+    seen_titles = set()
+    deduped = []
+    for p in posts:
+        key = re.sub(r"[^a-z0-9]", "", p["title"][:50].lower())
+        if key not in seen_titles:
+            seen_titles.add(key)
+            deduped.append(p)
+    posts = deduped
+
+    # Cap per source so one outlet can't flood the feed
+    MAX_PER_SOURCE = 8
+    source_counts: dict = {}
+    capped = []
+    for p in sorted(deduped, key=lambda x: x["date"], reverse=True):
+        src = p["subreddit"]
+        if source_counts.get(src, 0) < MAX_PER_SOURCE:
+            source_counts[src] = source_counts.get(src, 0) + 1
+            capped.append(p)
+    posts = capped
 
     artist_posts = sorted([p for p in posts if p.get("artist")],
                           key=lambda x: x["date"], reverse=True)

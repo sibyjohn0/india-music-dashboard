@@ -335,8 +335,20 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 }
 .buzz-posts { display: flex; flex-direction: column; gap: 8px; }
 
-/* Feed */
-.buzz-feed { display: flex; flex-direction: column; gap: 8px; }
+/* Feed — date-grouped */
+.buzz-feed { display: flex; flex-direction: column; gap: 0; }
+.buzz-date-group { margin-bottom: 28px; }
+.buzz-date-hd {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.buzz-date-cards { display: flex; flex-direction: column; gap: 6px; }
 
 /* Card */
 .buzz-card {
@@ -352,26 +364,27 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   border-color: #a78bfa55;
   background: #1c1040;
 }
-.buzz-card-header {
+.buzz-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--fg);
+  line-height: 1.45;
+  margin-bottom: 7px;
+}
+.buzz-byline {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
+  gap: 6px;
   flex-wrap: wrap;
 }
-.buzz-platform {
+.buzz-source {
   font-size: 11px;
   font-weight: 600;
-  border-radius: 6px;
-  padding: 2px 7px;
-}
-.buzz-platform-reddit  { background: #ff4500; color: #fff; }
-.buzz-platform-twitter { background: #1d9bf0; color: #fff; }
-.buzz-platform-news    { background: #4285f4; color: #fff; }
-
-.buzz-score {
-  font-size: 11px;
   color: var(--muted);
+}
+.buzz-dot {
+  font-size: 10px;
+  color: var(--border);
 }
 .buzz-lang-pill {
   font-size: 10px;
@@ -381,27 +394,6 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   border-radius: 4px;
   padding: 1px 5px;
   opacity: .85;
-}
-.buzz-date {
-  font-size: 11px;
-  color: var(--muted);
-  margin-left: auto;
-}
-.buzz-title {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--fg);
-  line-height: 1.4;
-}
-.buzz-snippet {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 4px;
-  line-height: 1.45;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 /* ── Artist Profile Drawer ─────────────────────────────────── */
