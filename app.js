@@ -24,9 +24,11 @@ const LANG_COLORS = {
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let allVideos=[], allChannels=[], lfmData={}, trackerData=null, spotifyData={};
+let _trendsLoaded=false, _buzzLoaded=false, _insightsData=null, _socialData=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
+  initWelcome();
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
@@ -513,25 +515,56 @@ function applyRadar() {
 }
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
+function goTab(name) {
+  dismissWelcome();
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  document.querySelectorAll(".tab-pane").forEach(t=>t.classList.remove("active"));
+  const btn = document.querySelector(`.tab[data-tab="${name}"]`);
+  if (btn) btn.classList.add("active");
+  const pane = document.getElementById("tab-"+name);
+  if (pane) pane.classList.add("active");
+  if (name==="trends"&&!_trendsLoaded){
+    _trendsLoaded=true; loadTrends(); if (_insightsData) renderInsights(_insightsData);
+  }
+  if (name==="buzz"&&!_buzzLoaded){
+    _buzzLoaded=true; renderBuzz(_socialData);
+  }
+}
+
 function bindTabs(insightsData, socialData) {
-  let trendsLoaded = false, buzzLoaded = false;
+  _insightsData=insightsData; _socialData=socialData;
   document.querySelectorAll(".tab").forEach(btn=>
-    btn.addEventListener("click",()=>{
-      document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-      document.querySelectorAll(".tab-pane").forEach(t=>t.classList.remove("active"));
-      btn.classList.add("active");
-      document.getElementById("tab-"+btn.dataset.tab).classList.add("active");
-      if (btn.dataset.tab==="trends"&&!trendsLoaded){
-        trendsLoaded=true;
-        loadTrends();
-        if (insightsData) renderInsights(insightsData);
-      }
-      if (btn.dataset.tab==="buzz"&&!buzzLoaded){
-        buzzLoaded=true;
-        renderBuzz(socialData);
+    btn.addEventListener("click",()=>goTab(btn.dataset.tab))
+  );
+}
+
+function initWelcome() {
+  const el = document.getElementById("welcome");
+  if (!el) return;
+  if (localStorage.getItem("iimr_ob")) return;
+  el.classList.add("is-open");
+  el.querySelectorAll(".intent-tile").forEach(tile=>
+    tile.addEventListener("click",()=>{
+      dismissWelcome();
+      goTab(tile.dataset.tab);
+      if (tile.dataset.collab) {
+        setTimeout(()=>{
+          const cb=document.getElementById("collab-bar");
+          if(cb){cb.classList.add("collab-hl");setTimeout(()=>cb.classList.remove("collab-hl"),1800);}
+        },350);
       }
     })
   );
+  document.getElementById("welcome-skip")
+    .addEventListener("click",()=>{dismissWelcome();goTab("discover");});
+}
+
+function dismissWelcome() {
+  const el = document.getElementById("welcome");
+  if (!el||!el.classList.contains("is-open")) return;
+  el.style.opacity="0";
+  setTimeout(()=>{el.classList.remove("is-open");el.style.opacity="";},240);
+  localStorage.setItem("iimr_ob","1");
 }
 
 // ── Trends ────────────────────────────────────────────────────────────────────
