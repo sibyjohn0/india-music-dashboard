@@ -689,7 +689,7 @@ function renderBuzz(data) {
   const content = document.getElementById("buzz-content");
 
   if (!data || (!data.artist_posts?.length && !data.feed?.length)) {
-    loading.textContent = "No social data yet — run scripts/fetch_social.py to populate.";
+    loading.textContent = "Community conversations loading — check back after the next daily refresh.";
     return;
   }
 
