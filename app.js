@@ -69,7 +69,6 @@ async function init() {
   bindTabs(insightsData, socialData);
   bindDiscoverControls();
   bindArtistControls();
-  bindVideoControls();
   if (trackerData) bindRadarControls();
   initArtistDrawer();
 }
@@ -144,7 +143,7 @@ function renderDiscover(videos) {
       <img src="${esc(v.thumbnail)}" alt="" loading="lazy" />
       <div class="hero-card-overlay">
         <span class="hero-rank">${ranks[i]}</span>
-        <span class="hero-score">${v.discovery_score??'—'}</span>
+        <span class="hero-score">${v.discovery_score??'—'}<span class="hero-score-lbl">score</span></span>
         <div class="hero-pills">
           <span class="pill pill-genre">${esc(v.genre)}</span>
           <span class="pill pill-lang">${esc(v.language)}</span>
@@ -189,6 +188,10 @@ function bindDiscoverControls() {
   });
   ["d-lang","d-genre","d-sort"].forEach(id=>
     document.getElementById(id).addEventListener("change", applyDiscover));
+  document.getElementById("v-search").addEventListener("input", applyVideos);
+  ["v-sort","v-window","v-min-eng"].forEach(id=>
+    document.getElementById(id).addEventListener("change", applyVideos));
+  initMoreToggle("d-more-btn", "d-more");
 }
 
 function applyDiscover() {
@@ -206,6 +209,7 @@ function applyDiscover() {
   document.getElementById("d-hero-label").textContent =
     vs.length===allVideos.length ? "Today's Top Finds" : `Top Finds — ${vs.length} matching`;
   renderDiscover(vs);
+  applyVideos();
 }
 
 // ── Breakdown bars ────────────────────────────────────────────────────────────
@@ -406,22 +410,24 @@ function bindVideoControls() {
 function applyVideos() {
   const q      = document.getElementById("v-search").value.toLowerCase();
   const srt    = document.getElementById("v-sort").value;
-  const gen    = document.getElementById("v-genre").value;
-  const lng    = document.getElementById("v-lang").value;
+  const lang   = document.getElementById("d-lang").value;
+  const genre  = document.getElementById("d-genre").value;
   const win    = parseInt(document.getElementById("v-window").value)||0;
   const minEng = parseFloat(document.getElementById("v-min-eng").value)||0;
-  const newOnly= document.getElementById("v-new-only").dataset.on==="true";
+  const newOnly= document.getElementById("d-new-only").dataset.on==="true";
   const cutoff = win ? Date.now() - win*864e5 : 0;
   let vs = allVideos.filter(v=>
     (!q         || v.title.toLowerCase().includes(q)||v.channel.toLowerCase().includes(q)) &&
-    (gen==="all"|| v.genre===gen) &&
-    (lng==="all"|| v.language===lng) &&
+    (genre==="all"|| v.genre===genre) &&
+    (lang==="all" || v.language===lang) &&
     (!cutoff    || new Date(v.published_at)>=cutoff) &&
     v.engagement_rate >= minEng &&
     (!newOnly   || v.is_new)
   );
   vs = [...vs].sort((a,b)=>
     srt==="published_at"?b.published_at.localeCompare(a.published_at):(b[srt]||0)-(a[srt]||0));
+  document.getElementById("d-list-label").textContent =
+    vs.length === allVideos.length ? `All ${allVideos.length} videos` : `${vs.length} matching`;
   renderVideoList(vs);
 }
 
