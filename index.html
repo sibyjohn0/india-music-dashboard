@@ -20,12 +20,22 @@
   </header>
 
   <nav>
-    <button class="tab active" data-tab="discover">Discover</button>
-    <button class="tab" data-tab="artists">Artists</button>
-    <button class="tab" data-tab="browse">Browse</button>
-    <button class="tab" data-tab="radar">Radar</button>
-    <button class="tab" data-tab="trends">Trends</button>
-    <button class="tab" data-tab="buzz">Buzz</button>
+    <button class="tab active" data-tab="discover">
+      <span class="tab-label">Discover</span>
+      <span class="tab-sub">Top picks + full list</span>
+    </button>
+    <button class="tab" data-tab="artists">
+      <span class="tab-label">Artists</span>
+      <span class="tab-sub">Profiles + listener data</span>
+    </button>
+    <button class="tab" data-tab="trends">
+      <span class="tab-label">Trends</span>
+      <span class="tab-sub">Monthly charts + insights</span>
+    </button>
+    <button class="tab" data-tab="buzz">
+      <span class="tab-label">Buzz</span>
+      <span class="tab-sub">Reddit + news</span>
+    </button>
   </nav>
 
   <main>
@@ -182,73 +192,6 @@
         <button class="toggle-btn" id="a-multiplatform" data-on="false">Multi-platform Only</button>
       </div>
       <div class="artist-grid" id="artist-grid"></div>
-    </div>
-
-    <!-- ── BROWSE ── -->
-    <div id="tab-browse" class="tab-pane">
-      <div class="filter-bar">
-        <input type="text" id="v-search" placeholder="Search title or artist…" />
-        <select id="v-sort">
-          <option value="discovery_score">Sort: Discovery Score</option>
-          <option value="engagement_rate">Sort: Engagement</option>
-          <option value="velocity">Sort: Velocity</option>
-          <option value="published_at">Sort: Newest</option>
-          <option value="views_delta">Sort: 24h Growth</option>
-          <option value="views">Sort: Views</option>
-        </select>
-        <select id="v-genre"><option value="all">All Genres</option></select>
-        <select id="v-lang"><option value="all">All Languages</option></select>
-        <select id="v-window">
-          <option value="0">All Time</option>
-          <option value="7">Last 7 Days</option>
-          <option value="30">Last 30 Days</option>
-          <option value="14">Last 14 Days</option>
-        </select>
-        <select id="v-min-eng">
-          <option value="0">Any Engagement</option>
-          <option value="1">1%+ Engagement</option>
-          <option value="2">2%+ Engagement</option>
-          <option value="5">5%+ Engagement</option>
-        </select>
-        <button class="toggle-btn" id="v-new-only" data-on="false">New Only</button>
-      </div>
-      <div class="video-list" id="video-list"></div>
-    </div>
-
-    <!-- ── RADAR ── -->
-    <div id="tab-radar" class="tab-pane">
-      <div class="filter-bar">
-        <input type="text" id="r-search" placeholder="Search artist…" />
-        <select id="r-lang"><option value="all">All Languages</option></select>
-        <select id="r-genre"><option value="all">All Genres</option></select>
-        <select id="r-sort">
-          <option value="latest_global_listeners">Sort: Global Listeners</option>
-          <option value="latest_india_listeners">Sort: India Listeners</option>
-          <option value="latest_india_rank">Sort: India Rank</option>
-          <option value="growth_pct">Sort: Growth %</option>
-        </select>
-        <select id="r-trend">
-          <option value="all">All Trends</option>
-          <option value="new">New</option>
-          <option value="rising">Rising</option>
-          <option value="stable">Stable</option>
-          <option value="falling">Falling</option>
-        </select>
-        <button class="toggle-btn" id="r-chart-only" data-on="false">India Chart Only</button>
-      </div>
-      <div class="radar-body">
-        <div class="radar-grid" id="radar-grid"></div>
-        <div class="breakdown-col">
-          <div class="breakdown-box">
-            <div class="breakdown-title">By Language</div>
-            <div id="radar-lang-bars"></div>
-          </div>
-          <div class="breakdown-box">
-            <div class="breakdown-title">Trend Status</div>
-            <div id="radar-trend-bars"></div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- ── TRENDS ── -->
