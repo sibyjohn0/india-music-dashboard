@@ -97,6 +97,90 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 }
 .intent-skip:hover { color: var(--text); }
 
+/* ── Welcome step 2 elements ── */
+.welcome-step { width: 100%; }
+.welcome-back {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+  transition: color .15s;
+  display: block;
+}
+.welcome-back:hover { color: var(--text); }
+.welcome-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.w-chip {
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color .15s, background .15s, color .15s;
+  border-color: var(--lc, var(--border));
+}
+.w-chip:hover {
+  background: #1e1e1e;
+  border-color: var(--lc, var(--accent));
+}
+.w-chip.active {
+  background: color-mix(in srgb, var(--lc, var(--accent)) 15%, transparent);
+  border-color: var(--lc, var(--accent));
+  color: var(--lc, var(--accent));
+  font-weight: 600;
+}
+.welcome-field-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.welcome-optional {
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--muted);
+  opacity: .7;
+}
+.welcome-cta {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px 0;
+  background: var(--accent);
+  color: #0c0c0c;
+  border: none;
+  border-radius: var(--r);
+  font-size: 14px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: opacity .15s, transform .12s;
+}
+.welcome-cta:hover { opacity: .9; transform: translateY(-1px); }
+
+@media (max-width: 500px) {
+  .welcome-chips { gap: 6px; }
+  .w-chip { padding: 6px 13px; font-size: 12px; }
+  .welcome-heading { font-size: 17px; }
+  .welcome-tiles { grid-template-columns: 1fr; }
+}
+
 /* collab bar pulse when arriving from intent picker */
 .collab-hl {
   animation: collab-pulse 1.8s ease-out forwards;

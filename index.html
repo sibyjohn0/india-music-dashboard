@@ -33,30 +33,53 @@
     <!-- ── WELCOME ── -->
     <div id="welcome" class="welcome">
       <div class="welcome-inner">
-        <div class="welcome-heading">What brings you here?</div>
-        <div class="welcome-tiles">
-          <button class="intent-tile" data-tab="discover">
-            <span class="intent-icon">🎵</span>
-            <span class="intent-title">Discover new music</span>
-            <span class="intent-desc">Find fresh Indian indie you haven't heard yet</span>
-          </button>
-          <button class="intent-tile" data-tab="artists" data-collab="1">
-            <span class="intent-icon">🎸</span>
-            <span class="intent-title">I'm an artist</span>
-            <span class="intent-desc">Find collaborators who match your sound and language</span>
-          </button>
-          <button class="intent-tile" data-tab="trends">
-            <span class="intent-icon">📈</span>
-            <span class="intent-title">Follow the scene</span>
-            <span class="intent-desc">Track how languages and genres are growing over time</span>
-          </button>
-          <button class="intent-tile" data-tab="buzz">
-            <span class="intent-icon">📰</span>
-            <span class="intent-title">What's happening</span>
-            <span class="intent-desc">Latest news and coverage from indie India</span>
-          </button>
+
+        <!-- Step 1: intent -->
+        <div id="ws-1" class="welcome-step">
+          <div class="welcome-heading">What brings you here?</div>
+          <div class="welcome-tiles">
+            <button class="intent-tile" data-tab="discover">
+              <span class="intent-icon">🎵</span>
+              <span class="intent-title">Discover new music</span>
+              <span class="intent-desc">Find fresh Indian indie you haven't heard yet</span>
+            </button>
+            <button class="intent-tile" data-tab="artists" data-collab="1">
+              <span class="intent-icon">🎸</span>
+              <span class="intent-title">I'm an artist</span>
+              <span class="intent-desc">Find collaborators who match your sound and language</span>
+            </button>
+            <button class="intent-tile" data-tab="trends">
+              <span class="intent-icon">📈</span>
+              <span class="intent-title">Follow the scene</span>
+              <span class="intent-desc">Track how languages and genres are growing over time</span>
+            </button>
+            <button class="intent-tile" data-tab="buzz">
+              <span class="intent-icon">📰</span>
+              <span class="intent-title">What's happening</span>
+              <span class="intent-desc">Latest news and coverage from indie India</span>
+            </button>
+          </div>
+          <button class="intent-skip" id="welcome-skip">Just explore →</button>
         </div>
-        <button class="intent-skip" id="welcome-skip">Just explore →</button>
+
+        <!-- Step 2a: language picker (discover / trends) -->
+        <div id="ws-lang" class="welcome-step" style="display:none">
+          <button class="welcome-back" id="ws-back-lang">← Back</button>
+          <div class="welcome-heading" id="ws-lang-heading">What are you into?</div>
+          <div class="welcome-chips" id="ws-lang-chips"></div>
+        </div>
+
+        <!-- Step 2b: artist sound setup -->
+        <div id="ws-artist" class="welcome-step" style="display:none">
+          <button class="welcome-back" id="ws-back-artist">← Back</button>
+          <div class="welcome-heading">What's your sound?</div>
+          <div class="welcome-field-label">Genre <span class="welcome-optional">optional</span></div>
+          <div class="welcome-chips" id="ws-genre-chips"></div>
+          <div class="welcome-field-label" style="margin-top:18px">Language <span class="welcome-optional">optional</span></div>
+          <div class="welcome-chips" id="ws-artist-lang-chips"></div>
+          <button class="welcome-cta" id="ws-artist-go">Find my scene →</button>
+        </div>
+
       </div>
     </div>
 

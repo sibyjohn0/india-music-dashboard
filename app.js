@@ -301,30 +301,32 @@ function renderArtistGrid(channels) {
   }).join("");
 }
 
-function bindArtistControls() {
-  function apply() {
-    const q      = document.getElementById("a-search").value.toLowerCase();
-    const srt    = document.getElementById("a-sort").value;
-    const gen    = document.getElementById("a-genre").value;
-    const lng    = document.getElementById("a-lang").value;
-    const minEng = parseFloat(document.getElementById("a-min-eng").value)||0;
-    const minVid = parseInt(document.getElementById("a-min-videos").value)||1;
-    const mpOnly = document.getElementById("a-multiplatform").dataset.on==="true";
-    let cs = allChannels.filter(c=>
-      (!q         || c.name.toLowerCase().includes(q)) &&
-      (gen==="all"|| c.top_genre===gen) &&
-      (lng==="all"|| c.top_lang===lng) &&
-      c.avg_engagement >= minEng &&
-      c.video_count    >= minVid &&
-      (!mpOnly || c.multiplatform)
-    );
-    if (srt === "collab_score") {
-      cs = [...cs].sort((a,b) => collabFit(b).score - collabFit(a).score);
-    } else {
-      cs = [...cs].sort((a,b)=>(b[srt]||0)-(a[srt]||0));
-    }
-    renderArtistGrid(cs);
+function applyArtistFilter() {
+  const q      = document.getElementById("a-search").value.toLowerCase();
+  const srt    = document.getElementById("a-sort").value;
+  const gen    = document.getElementById("a-genre").value;
+  const lng    = document.getElementById("a-lang").value;
+  const minEng = parseFloat(document.getElementById("a-min-eng").value)||0;
+  const minVid = parseInt(document.getElementById("a-min-videos").value)||1;
+  const mpOnly = document.getElementById("a-multiplatform").dataset.on==="true";
+  let cs = allChannels.filter(c=>
+    (!q         || c.name.toLowerCase().includes(q)) &&
+    (gen==="all"|| c.top_genre===gen) &&
+    (lng==="all"|| c.top_lang===lng) &&
+    c.avg_engagement >= minEng &&
+    c.video_count    >= minVid &&
+    (!mpOnly || c.multiplatform)
+  );
+  if (srt === "collab_score") {
+    cs = [...cs].sort((a,b) => collabFit(b).score - collabFit(a).score);
+  } else {
+    cs = [...cs].sort((a,b)=>(b[srt]||0)-(a[srt]||0));
   }
+  renderArtistGrid(cs);
+}
+
+function bindArtistControls() {
+  const apply = applyArtistFilter;
   const mpBtn = document.getElementById("a-multiplatform");
   mpBtn.addEventListener("click",()=>{
     const on = mpBtn.dataset.on==="true";
@@ -543,18 +545,88 @@ function initWelcome() {
   if (!el) return;
   if (localStorage.getItem("iimr_ob")) return;
   el.classList.add("is-open");
+
+  const LANGS  = ["Tamil","Telugu","Kannada","Malayalam","Bengali","Punjabi","Marathi","Hindi","All"];
+  const GENRES = ["Indie","Folk / Acoustic","Hip Hop / Rap","Indie Pop","Rock / Alt","Electronic","R&B / Soul","Lo-Fi","Classical/Fusion"];
+  let pendingTab=null, selectedLang=null, selectedGenre=null;
+
+  function buildChips(id, items, useLangColor) {
+    const c = document.getElementById(id); if (!c) return;
+    c.innerHTML = items.map(v => {
+      const col = useLangColor ? (LANG_COLORS[v]||"#888") : null;
+      return `<button class="w-chip" data-val="${v}"${col?` style="--lc:${col}"`:""}>${v}</button>`;
+    }).join("");
+  }
+  buildChips("ws-lang-chips",       LANGS,  true);
+  buildChips("ws-artist-lang-chips", LANGS.filter(l=>l!=="All"), true);
+  buildChips("ws-genre-chips",      GENRES, false);
+
+  function showStep(id) {
+    document.querySelectorAll(".welcome-step").forEach(s=>s.style.display="none");
+    document.getElementById(id).style.display="block";
+  }
+
+  function applyAndGo(tab, lang, genre) {
+    const l = lang && lang!=="All" ? lang : null;
+    if (l)     localStorage.setItem(LS_MY_LANG, l);
+    if (genre) localStorage.setItem(LS_MY_GENRE, genre);
+    dismissWelcome();
+    if (allVideos.length > 0) {
+      if (l)     ["c-my-lang","d-lang","a-lang","v-lang"].forEach(id=>{const e=document.getElementById(id);if(e)e.value=l;});
+      if (genre) ["c-my-genre","d-genre","a-genre","v-genre"].forEach(id=>{const e=document.getElementById(id);if(e)e.value=genre;});
+      if (tab==="artists") {
+        const as=document.getElementById("a-sort"); if(as) as.value="collab_score";
+      }
+      applyDiscover(); applyArtistFilter();
+    }
+    goTab(tab);
+    if (tab==="artists") {
+      setTimeout(()=>{
+        const cb=document.getElementById("collab-bar");
+        if(cb){cb.classList.add("collab-hl");setTimeout(()=>cb.classList.remove("collab-hl"),1800);}
+      },350);
+    }
+  }
+
+  // Step 1 tiles
   el.querySelectorAll(".intent-tile").forEach(tile=>
     tile.addEventListener("click",()=>{
-      dismissWelcome();
-      goTab(tile.dataset.tab);
-      if (tile.dataset.collab) {
-        setTimeout(()=>{
-          const cb=document.getElementById("collab-bar");
-          if(cb){cb.classList.add("collab-hl");setTimeout(()=>cb.classList.remove("collab-hl"),1800);}
-        },350);
-      }
+      pendingTab=tile.dataset.tab;
+      if (pendingTab==="buzz") { applyAndGo("buzz",null,null); return; }
+      if (pendingTab==="artists") { showStep("ws-artist"); return; }
+      document.getElementById("ws-lang-heading").textContent =
+        pendingTab==="trends" ? "Which scene are you following?" : "What are you into?";
+      showStep("ws-lang");
     })
   );
+
+  // Step 2a: tap a language chip → instant go
+  document.getElementById("ws-lang-chips").addEventListener("click", e=>{
+    const chip=e.target.closest(".w-chip"); if(!chip) return;
+    applyAndGo(pendingTab, chip.dataset.val, null);
+  });
+
+  // Step 2b: genre chip selection
+  document.getElementById("ws-genre-chips").addEventListener("click", e=>{
+    const chip=e.target.closest(".w-chip"); if(!chip) return;
+    document.querySelectorAll("#ws-genre-chips .w-chip").forEach(c=>c.classList.remove("active"));
+    chip.classList.add("active"); selectedGenre=chip.dataset.val;
+  });
+  // Step 2b: lang chip selection
+  document.getElementById("ws-artist-lang-chips").addEventListener("click", e=>{
+    const chip=e.target.closest(".w-chip"); if(!chip) return;
+    document.querySelectorAll("#ws-artist-lang-chips .w-chip").forEach(c=>c.classList.remove("active"));
+    chip.classList.add("active"); selectedLang=chip.dataset.val;
+  });
+  // Step 2b: CTA
+  document.getElementById("ws-artist-go")
+    .addEventListener("click",()=>applyAndGo("artists", selectedLang, selectedGenre));
+
+  // Back buttons
+  document.getElementById("ws-back-lang").addEventListener("click",()=>showStep("ws-1"));
+  document.getElementById("ws-back-artist").addEventListener("click",()=>showStep("ws-1"));
+
+  // Skip
   document.getElementById("welcome-skip")
     .addEventListener("click",()=>{dismissWelcome();goTab("discover");});
 }
@@ -864,19 +936,13 @@ init();
 function loadPreferences() {
   const g = localStorage.getItem(LS_MY_GENRE);
   const l = localStorage.getItem(LS_MY_LANG);
-  if (g) {
-    const cg = document.getElementById("c-my-genre");
-    if (cg) cg.value = g;
-    const dg = document.getElementById("d-genre");
-    if (dg) dg.value = g;
-  }
-  if (l) {
-    const cl = document.getElementById("c-my-lang");
-    if (cl) cl.value = l;
-    const dl = document.getElementById("d-lang");
-    if (dl) dl.value = l;
-  }
-  if (g || l) applyDiscover();
+  if (g) ["c-my-genre","d-genre","a-genre","v-genre"].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value=g;
+  });
+  if (l) ["c-my-lang","d-lang","a-lang","v-lang"].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.value=l;
+  });
+  if (g || l) { applyDiscover(); applyArtistFilter(); }
 }
 
 function savePreference(key, val) {
