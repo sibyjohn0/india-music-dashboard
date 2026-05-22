@@ -844,6 +844,8 @@ function buzzCardHTML(p) {
     ? `r/${esc(p.subreddit||"reddit")}`
     : p.platform === "twitter" ? "Twitter"
     : esc(p.subreddit || "News");
+  const scoreHtml = p.score > 0
+    ? `<span class="buzz-dot">·</span><span class="buzz-score">▲ ${p.score}</span>` : "";
 
   return `<a class="buzz-card" href="${esc(p.url)}" target="_blank" rel="noopener">
     <div class="buzz-title">${esc(p.title)}</div>
@@ -851,6 +853,7 @@ function buzzCardHTML(p) {
       <span class="buzz-source">${source}</span>
       <span class="buzz-dot">·</span>
       <span class="buzz-lang-pill" style="--lc:${langColor}">${esc(p.language||"")}</span>
+      ${scoreHtml}
     </div>
   </a>`;
 }
