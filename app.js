@@ -65,11 +65,9 @@ async function init() {
   renderBreakdowns(data.genre_breakdown||[], data.language_breakdown||[]);
   renderArtistGrid(allChannels);
   renderVideoList(allVideos);
-  if (trackerData) renderRadar(trackerData.artists||[]);
   bindTabs(insightsData, socialData);
   bindDiscoverControls();
   bindArtistControls();
-  if (trackerData) bindRadarControls();
   initArtistDrawer();
   initMetricTips();
 }
@@ -396,17 +394,6 @@ function renderVideoList(videos) {
     </a>`).join("");
 }
 
-function bindVideoControls() {
-  const newBtn = document.getElementById("v-new-only");
-  newBtn.addEventListener("click",()=>{
-    const on = newBtn.dataset.on==="true";
-    newBtn.dataset.on=String(!on);
-    newBtn.classList.toggle("active",!on);
-    applyVideos();
-  });
-  ["v-search","v-sort","v-genre","v-lang","v-window","v-min-eng"].forEach(id=>
-    document.getElementById(id).addEventListener(id==="v-search"?"input":"change", applyVideos));
-}
 
 function applyVideos() {
   const q      = document.getElementById("v-search").value.toLowerCase();
@@ -436,107 +423,6 @@ function applyVideos() {
 const TREND_ICON = {new:"✦", rising:"▲", stable:"─", falling:"▼"};
 const TREND_CLS  = {new:"trend-new", rising:"trend-up", stable:"trend-flat", falling:"trend-dn"};
 
-function renderRadar(artists) {
-  if (!artists.length) {
-    document.getElementById("radar-grid").innerHTML =
-      `<div class="empty-state">No artists tracked yet — check back after the next daily refresh.</div>`;
-    return;
-  }
-  document.getElementById("radar-grid").innerHTML = artists.map(a=>{
-    const col   = LANG_COLORS[a.language]||"#666";
-    const trend = a.trend||"new";
-    const rankBadge = a.latest_india_rank
-      ? `<span class="radar-rank">#${a.latest_india_rank} India</span>` : "";
-    const growthBadge = a.growth_pct!=null
-      ? `<span class="radar-growth ${a.growth_pct>=0?"growth-pos":"growth-neg"}">${a.growth_pct>=0?"+":""}${a.growth_pct}%</span>` : "";
-    const ytLink = a.channel_id
-      ? `<a class="radar-yt-link" href="https://youtube.com/channel/${esc(a.channel_id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">▶</a>`
-      : "";
-    const noLfm = !a.latest_global_listeners;
-    return `
-    <div class="radar-card" style="--lang-col:${col}">
-      <div class="radar-card-top">
-        <div class="radar-card-name">${esc(a.name)}${ytLink}</div>
-        <span class="trend-badge ${TREND_CLS[trend]}">${TREND_ICON[trend]} ${trend}</span>
-      </div>
-      <div class="radar-pills">
-        <span class="pill" style="background:${col}22;color:${col};border-color:${col}44">${esc(a.language)}</span>
-        <span class="pill pill-genre">${esc(a.genre)}</span>
-      </div>
-      <div class="radar-stats">
-        <div class="radar-stat">
-          <div class="radar-stat-val">${a.latest_india_listeners>0?fmt(a.latest_india_listeners):"—"}</div>
-          <div class="radar-stat-lbl">India listeners</div>
-        </div>
-        <div class="radar-stat">
-          <div class="radar-stat-val${noLfm?" muted":""}">${noLfm?"not on Last.fm":fmt(a.latest_global_listeners)}</div>
-          <div class="radar-stat-lbl">Global</div>
-        </div>
-      </div>
-      <div class="radar-badges">${rankBadge}${growthBadge}</div>
-    </div>`;
-  }).join("");
-
-  // Language breakdown bars
-  const byLang = {};
-  artists.forEach(a=>{ byLang[a.language]=(byLang[a.language]||0)+1; });
-  const maxL = Math.max(...Object.values(byLang));
-  document.getElementById("radar-lang-bars").innerHTML = Object.entries(byLang)
-    .sort((a,b)=>b[1]-a[1]).map(([l,c])=>`
-    <div class="bar-item">
-      <div class="bar-label">${esc(l)}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(c/maxL*100)}%;background:${LANG_COLORS[l]||"#666"}"></div></div>
-      <div class="bar-count">${c}</div>
-    </div>`).join("");
-
-  // Trend breakdown
-  const byTrend = {new:0,rising:0,stable:0,falling:0};
-  artists.forEach(a=>{ byTrend[a.trend||"new"]++; });
-  const maxT = Math.max(...Object.values(byTrend));
-  const trendCols = {new:"#a78bfa",rising:"#34d399",stable:"#60a5fa",falling:"#f87171"};
-  document.getElementById("radar-trend-bars").innerHTML = Object.entries(byTrend)
-    .filter(([,c])=>c>0).map(([t,c])=>`
-    <div class="bar-item">
-      <div class="bar-label">${TREND_ICON[t]} ${t}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(c/maxT*100)}%;background:${trendCols[t]}"></div></div>
-      <div class="bar-count">${c}</div>
-    </div>`).join("");
-}
-
-function bindRadarControls() {
-  const chartBtn = document.getElementById("r-chart-only");
-  chartBtn.addEventListener("click",()=>{
-    const on = chartBtn.dataset.on==="true";
-    chartBtn.dataset.on=String(!on);
-    chartBtn.classList.toggle("active",!on);
-    applyRadar();
-  });
-  ["r-search","r-lang","r-genre","r-sort","r-trend"].forEach(id=>
-    document.getElementById(id).addEventListener(id==="r-search"?"input":"change", applyRadar));
-}
-
-function applyRadar() {
-  if (!trackerData) return;
-  const q         = document.getElementById("r-search").value.toLowerCase();
-  const lang      = document.getElementById("r-lang").value;
-  const genre     = document.getElementById("r-genre").value;
-  const srt       = document.getElementById("r-sort").value;
-  const trend     = document.getElementById("r-trend").value;
-  const chartOnly = document.getElementById("r-chart-only").dataset.on==="true";
-  let as = trackerData.artists.filter(a=>
-    (!q         || a.name.toLowerCase().includes(q)) &&
-    (lang==="all" || a.language===lang) &&
-    (genre==="all"|| a.genre===genre) &&
-    (trend==="all"|| a.trend===trend) &&
-    (!chartOnly || a.latest_india_rank)
-  );
-  as = [...as].sort((a,b)=>{
-    if (srt==="latest_india_rank") return (a.latest_india_rank||999)-(b.latest_india_rank||999);
-    if (srt==="growth_pct") return (b.growth_pct||0)-(a.growth_pct||0);
-    return (b[srt]||0)-(a[srt]||0);
-  });
-  renderRadar(as);
-}
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 function goTab(name) {
