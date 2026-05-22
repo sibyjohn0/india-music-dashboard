@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-05-21T11:10:04.533117+00:00",
-  "days_of_data": 3,
+  "generated_at": "2026-05-22T11:41:17.288554+00:00",
+  "days_of_data": 4,
   "date_range": {
     "from": "2026-05-18",
-    "to": "2026-05-21"
+    "to": "2026-05-22"
   },
   "languages": {
     "Tamil": {
-      "days_tracked": 3,
+      "days_tracked": 4,
       "dominant_genre": "Indie",
       "top_artists": [
         {
           "name": "Imir Music",
-          "appearances": 2,
-          "avg_views": 9342,
-          "avg_eng": 0.2,
+          "appearances": 3,
+          "avg_views": 8410,
+          "avg_eng": 0.3,
           "top_genre": "Lo-Fi"
+        },
+        {
+          "name": "BeatZ of Lanka Remix",
+          "appearances": 3,
+          "avg_views": 1850,
+          "avg_eng": 3.5,
+          "top_genre": "Folk / Acoustic"
+        },
+        {
+          "name": "IJAS",
+          "appearances": 3,
+          "avg_views": 1389,
+          "avg_eng": 8.0,
+          "top_genre": "Hip Hop / Rap"
         },
         {
           "name": "VVIE",
@@ -25,34 +39,32 @@
           "top_genre": "Indie"
         },
         {
-          "name": "Storified",
-          "appearances": 1,
-          "avg_views": 96592,
-          "avg_eng": 2.3,
-          "top_genre": "Indie"
-        },
-        {
-          "name": "In His Presence Worship",
-          "appearances": 1,
-          "avg_views": 2081,
-          "avg_eng": 7.8,
-          "top_genre": "Indie"
-        },
-        {
-          "name": "Sudharson",
-          "appearances": 1,
-          "avg_views": 2033,
-          "avg_eng": 2.8,
-          "top_genre": "Indie"
+          "name": "The Lyrical Guide ",
+          "appearances": 2,
+          "avg_views": 784,
+          "avg_eng": 1.9,
+          "top_genre": "Lo-Fi"
         }
       ],
       "genre_breakdown": [
         {
           "genre": "Indie",
-          "day_appearances": 10
+          "day_appearances": 16
         },
         {
           "genre": "Hip Hop / Rap",
+          "day_appearances": 8
+        },
+        {
+          "genre": "Folk / Acoustic",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Lo-Fi",
+          "day_appearances": 4
+        },
+        {
+          "genre": "Classical/Fusion",
           "day_appearances": 2
         },
         {
@@ -60,13 +72,17 @@
           "day_appearances": 1
         },
         {
-          "genre": "Lo-Fi",
+          "genre": "R&B / Soul",
+          "day_appearances": 1
+        },
+        {
+          "genre": "Rock / Alt",
           "day_appearances": 1
         }
       ],
       "genre_insights": {
         "Indie": {
-          "day_appearances": 10,
+          "day_appearances": 16,
           "top_artists": [
             {
               "name": "VVIE",
@@ -83,8 +99,12 @@
           ]
         },
         "Hip Hop / Rap": {
-          "day_appearances": 2,
+          "day_appearances": 8,
           "top_artists": [
+            {
+              "name": "IJAS",
+              "appearances": 3
+            },
             {
               "name": "Chengalpattu Music Studio Johnson",
               "appearances": 1
@@ -95,20 +115,45 @@
             }
           ]
         },
-        "Electronic": {
-          "day_appearances": 1,
+        "Folk / Acoustic": {
+          "day_appearances": 6,
           "top_artists": [
             {
-              "name": "Sonix House",
+              "name": "BeatZ of Lanka Remix",
+              "appearances": 3
+            },
+            {
+              "name": "Raakky Audio",
+              "appearances": 1
+            },
+            {
+              "name": "WHISTLE STUDIOS",
               "appearances": 1
             }
           ]
         },
         "Lo-Fi": {
-          "day_appearances": 1,
+          "day_appearances": 4,
           "top_artists": [
             {
               "name": "Imir Music",
+              "appearances": 2
+            },
+            {
+              "name": "The Lyrical Guide ",
+              "appearances": 2
+            }
+          ]
+        },
+        "Classical/Fusion": {
+          "day_appearances": 2,
+          "top_artists": [
+            {
+              "name": "DJ SRIRAM 96 ",
+              "appearances": 1
+            },
+            {
+              "name": "Kalaiyagam Original's",
               "appearances": 1
             }
           ]
@@ -124,35 +169,160 @@
           "date": "2026-05-21",
           "views": 18684,
           "videos": 2
+        },
+        {
+          "date": "2026-05-22",
+          "views": 8554417,
+          "videos": 25
         }
       ],
-      "narrative": "Recurring artists across 3 days: Imir Music, VVIE. Dominant genre: Indie (10 video-appearances across 3 day(s)). Also tracked: Hip Hop / Rap (2), Electronic (1), Lo-Fi (1)."
+      "narrative": "Recurring artists across 4 days: Imir Music, BeatZ of Lanka Remix, IJAS. Dominant genre: Indie (16 video-appearances across 4 day(s)). Also tracked: Hip Hop / Rap (8), Folk / Acoustic (6), Lo-Fi (4)."
     },
     "Telugu": {
-      "days_tracked": 3,
+      "days_tracked": 4,
       "dominant_genre": "Folk / Acoustic",
       "top_artists": [
+        {
+          "name": "DJ NARI CREATIONS",
+          "appearances": 3,
+          "avg_views": 45715,
+          "avg_eng": 1.7,
+          "top_genre": "Folk / Acoustic"
+        },
         {
           "name": "SVC Recording Company",
           "appearances": 2,
           "avg_views": 5686,
           "avg_eng": 2.6,
           "top_genre": "Folk / Acoustic"
+        },
+        {
+          "name": "MANN MUSIC ORIGINALS",
+          "appearances": 2,
+          "avg_views": 622,
+          "avg_eng": 3.5,
+          "top_genre": "Lo-Fi"
+        },
+        {
+          "name": "Bilip Songs",
+          "appearances": 1,
+          "avg_views": 2096322,
+          "avg_eng": 3.1,
+          "top_genre": "Hip Hop / Rap"
+        },
+        {
+          "name": "Musiclife",
+          "appearances": 1,
+          "avg_views": 1122284,
+          "avg_eng": 0.8,
+          "top_genre": "Indie"
         }
       ],
       "genre_breakdown": [
         {
           "genre": "Folk / Acoustic",
+          "day_appearances": 8
+        },
+        {
+          "genre": "Hip Hop / Rap",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Indie",
+          "day_appearances": 6
+        },
+        {
+          "genre": "R&B / Soul",
+          "day_appearances": 4
+        },
+        {
+          "genre": "Lo-Fi",
           "day_appearances": 2
+        },
+        {
+          "genre": "Classical/Fusion",
+          "day_appearances": 1
         }
       ],
       "genre_insights": {
         "Folk / Acoustic": {
-          "day_appearances": 2,
+          "day_appearances": 8,
           "top_artists": [
+            {
+              "name": "DJ NARI CREATIONS",
+              "appearances": 3
+            },
             {
               "name": "SVC Recording Company",
               "appearances": 2
+            },
+            {
+              "name": "Amulya Studio",
+              "appearances": 1
+            }
+          ]
+        },
+        "Hip Hop / Rap": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "Telangana folk",
+              "appearances": 1
+            },
+            {
+              "name": "72 BEATS - THE BROOK MUSIC",
+              "appearances": 1
+            },
+            {
+              "name": "C SHOR",
+              "appearances": 1
+            }
+          ]
+        },
+        "Indie": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "Improve with mune",
+              "appearances": 1
+            },
+            {
+              "name": "Hindi Lyrics",
+              "appearances": 1
+            },
+            {
+              "name": "Musiclife",
+              "appearances": 1
+            }
+          ]
+        },
+        "R&B / Soul": {
+          "day_appearances": 4,
+          "top_artists": [
+            {
+              "name": "MANN MUSIC ORIGINALS",
+              "appearances": 1
+            },
+            {
+              "name": "Feel the lyrics ",
+              "appearances": 1
+            },
+            {
+              "name": "Madhura Audio Originals",
+              "appearances": 1
+            }
+          ]
+        },
+        "Lo-Fi": {
+          "day_appearances": 2,
+          "top_artists": [
+            {
+              "name": "Let's Mix Masala",
+              "appearances": 1
+            },
+            {
+              "name": "MANN MUSIC ORIGINALS",
+              "appearances": 1
             }
           ]
         }
@@ -162,75 +332,160 @@
           "date": "2026-05-21",
           "views": 11373,
           "videos": 2
+        },
+        {
+          "date": "2026-05-22",
+          "views": 4100560,
+          "videos": 25
         }
       ],
-      "narrative": "Recurring artists across 3 days: SVC Recording Company. Dominant genre: Folk / Acoustic (2 video-appearances across 3 day(s))."
+      "narrative": "Recurring artists across 4 days: DJ NARI CREATIONS, SVC Recording Company, MANN MUSIC ORIGINALS. Dominant genre: Folk / Acoustic (8 video-appearances across 4 day(s)). Also tracked: Hip Hop / Rap (6), Indie (6), R&B / Soul (4)."
     },
     "Kannada": {
-      "days_tracked": 3,
-      "dominant_genre": "Indie Pop",
+      "days_tracked": 4,
+      "dominant_genre": "Folk / Acoustic",
       "top_artists": [
         {
           "name": "PKSG Musics",
-          "appearances": 1,
+          "appearances": 2,
           "avg_views": 2739,
           "avg_eng": 0.5,
           "top_genre": "Lo-Fi"
         },
         {
           "name": "Yashaswi",
-          "appearances": 1,
+          "appearances": 2,
           "avg_views": 1713,
           "avg_eng": 2.9,
           "top_genre": "Indie Pop"
         },
         {
           "name": "Panda  Bitz",
-          "appearances": 1,
-          "avg_views": 1300,
+          "appearances": 2,
+          "avg_views": 1303,
           "avg_eng": 1.1,
           "top_genre": "Indie"
+        },
+        {
+          "name": "\u0cb8\u0c82\u0ca6\u0cc7\u0cb6 \u0cb5\u0cbf\u0cb6\u0cc7\u0cb7 \ud835\udd4a\ud835\udd52\ud835\udd5f\ud835\udd55\ud835\udd56\ud835\udd64\ud835\udd59'\ud835\udd64 \ud835\udd4a\ud835\udd61\ud835\udd56\ud835\udd54\ud835\udd5a\ud835\udd52\ud835\udd5d",
+          "appearances": 2,
+          "avg_views": 508,
+          "avg_eng": 1.0,
+          "top_genre": "R&B / Soul"
+        },
+        {
+          "name": "ayyavva music",
+          "appearances": 1,
+          "avg_views": 4715938,
+          "avg_eng": 0.9,
+          "top_genre": "Hip Hop / Rap"
         }
       ],
       "genre_breakdown": [
         {
-          "genre": "Indie Pop",
-          "day_appearances": 1
+          "genre": "Folk / Acoustic",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Hip Hop / Rap",
+          "day_appearances": 6
+        },
+        {
+          "genre": "R&B / Soul",
+          "day_appearances": 4
         },
         {
           "genre": "Indie",
-          "day_appearances": 1
+          "day_appearances": 3
+        },
+        {
+          "genre": "Indie Pop",
+          "day_appearances": 2
         },
         {
           "genre": "Lo-Fi",
+          "day_appearances": 2
+        },
+        {
+          "genre": "Rock / Alt",
           "day_appearances": 1
         }
       ],
       "genre_insights": {
-        "Indie Pop": {
-          "day_appearances": 1,
+        "Folk / Acoustic": {
+          "day_appearances": 6,
           "top_artists": [
             {
-              "name": "Yashaswi",
+              "name": "Siri Beats",
+              "appearances": 1
+            },
+            {
+              "name": "Dj Malakari Alagawadi",
+              "appearances": 1
+            },
+            {
+              "name": "M3 Kannada Songs",
+              "appearances": 1
+            }
+          ]
+        },
+        "Hip Hop / Rap": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "MRSU MUSIC",
+              "appearances": 1
+            },
+            {
+              "name": "PRASAD SHOKDAR",
+              "appearances": 1
+            },
+            {
+              "name": "Kousthuba Entertainments",
+              "appearances": 1
+            }
+          ]
+        },
+        "R&B / Soul": {
+          "day_appearances": 4,
+          "top_artists": [
+            {
+              "name": "\u0cb8\u0c82\u0ca6\u0cc7\u0cb6 \u0cb5\u0cbf\u0cb6\u0cc7\u0cb7 \ud835\udd4a\ud835\udd52\ud835\udd5f\ud835\udd55\ud835\udd56\ud835\udd64\ud835\udd59'\ud835\udd64 \ud835\udd4a\ud835\udd61\ud835\udd56\ud835\udd54\ud835\udd5a\ud835\udd52\ud835\udd5d",
+              "appearances": 2
+            },
+            {
+              "name": "Chandu ai Music",
+              "appearances": 1
+            },
+            {
+              "name": "Sid's Music Garage",
               "appearances": 1
             }
           ]
         },
         "Indie": {
-          "day_appearances": 1,
+          "day_appearances": 3,
           "top_artists": [
             {
               "name": "Panda  Bitz",
               "appearances": 1
+            },
+            {
+              "name": "Poojitha Maheshappa",
+              "appearances": 1
+            },
+            {
+              "name": "Sumanasu",
+              "appearances": 1
             }
           ]
         },
-        "Lo-Fi": {
-          "day_appearances": 1,
+        "Indie Pop": {
+          "day_appearances": 2,
           "top_artists": [
             {
-              "name": "PKSG Musics",
-              "appearances": 1
+              "name": "Yashaswi",
+              "appearances": 2
             }
           ]
         }
@@ -240,14 +495,33 @@
           "date": "2026-05-20",
           "views": 5752,
           "videos": 3
+        },
+        {
+          "date": "2026-05-22",
+          "views": 8083129,
+          "videos": 21
         }
       ],
-      "narrative": "No artists yet appearing across multiple days. Dominant genre: Indie Pop (1 video-appearances across 3 day(s)). Also tracked: Indie (1), Lo-Fi (1)."
+      "narrative": "Recurring artists across 4 days: PKSG Musics, Yashaswi, Panda  Bitz. Dominant genre: Folk / Acoustic (6 video-appearances across 4 day(s)). Also tracked: Hip Hop / Rap (6), R&B / Soul (4), Indie (3)."
     },
     "Malayalam": {
-      "days_tracked": 3,
+      "days_tracked": 4,
       "dominant_genre": "Indie",
       "top_artists": [
+        {
+          "name": "Shamil koppam",
+          "appearances": 3,
+          "avg_views": 1275143,
+          "avg_eng": 2.6,
+          "top_genre": "Indie"
+        },
+        {
+          "name": "Gallery Vision Indie",
+          "appearances": 3,
+          "avg_views": 278641,
+          "avg_eng": 5.0,
+          "top_genre": "Hip Hop / Rap"
+        },
         {
           "name": "Rajesh Elappara",
           "appearances": 3,
@@ -257,50 +531,52 @@
         },
         {
           "name": "Baizyeah",
-          "appearances": 2,
-          "avg_views": 1602,
-          "avg_eng": 6.7,
+          "appearances": 3,
+          "avg_views": 1727,
+          "avg_eng": 6.2,
           "top_genre": "Hip Hop / Rap"
         },
         {
           "name": "Nabzy Nabuhan",
-          "appearances": 2,
-          "avg_views": 1519,
+          "appearances": 3,
+          "avg_views": 1718,
           "avg_eng": 2.4,
           "top_genre": "Hip Hop / Rap"
-        },
-        {
-          "name": "Shamil koppam",
-          "appearances": 1,
-          "avg_views": 43683,
-          "avg_eng": 3.7,
-          "top_genre": "Indie"
-        },
-        {
-          "name": "Patrick Michael",
-          "appearances": 1,
-          "avg_views": 39902,
-          "avg_eng": 2.3,
-          "top_genre": "Folk / Acoustic"
         }
       ],
       "genre_breakdown": [
         {
           "genre": "Indie",
-          "day_appearances": 11
+          "day_appearances": 17
         },
         {
           "genre": "Hip Hop / Rap",
+          "day_appearances": 10
+        },
+        {
+          "genre": "Electronic",
           "day_appearances": 4
         },
         {
           "genre": "Folk / Acoustic",
+          "day_appearances": 3
+        },
+        {
+          "genre": "R&B / Soul",
+          "day_appearances": 1
+        },
+        {
+          "genre": "Lo-Fi",
+          "day_appearances": 1
+        },
+        {
+          "genre": "Classical/Fusion",
           "day_appearances": 1
         }
       ],
       "genre_insights": {
         "Indie": {
-          "day_appearances": 11,
+          "day_appearances": 17,
           "top_artists": [
             {
               "name": "Rajesh Elappara",
@@ -308,7 +584,7 @@
             },
             {
               "name": "Shamil koppam",
-              "appearances": 1
+              "appearances": 2
             },
             {
               "name": "Living Word Church ",
@@ -317,23 +593,61 @@
           ]
         },
         "Hip Hop / Rap": {
-          "day_appearances": 4,
+          "day_appearances": 10,
           "top_artists": [
             {
               "name": "Baizyeah",
-              "appearances": 2
+              "appearances": 3
             },
             {
               "name": "Nabzy Nabuhan",
+              "appearances": 3
+            },
+            {
+              "name": "Gallery Vision Indie",
               "appearances": 2
             }
           ]
         },
+        "Electronic": {
+          "day_appearances": 4,
+          "top_artists": [
+            {
+              "name": "Shamil koppam",
+              "appearances": 1
+            },
+            {
+              "name": "Gallery Vision Indie",
+              "appearances": 1
+            },
+            {
+              "name": "VEDAN with word",
+              "appearances": 1
+            }
+          ]
+        },
         "Folk / Acoustic": {
-          "day_appearances": 1,
+          "day_appearances": 3,
           "top_artists": [
             {
               "name": "Patrick Michael",
+              "appearances": 1
+            },
+            {
+              "name": "Nadham Arts",
+              "appearances": 1
+            },
+            {
+              "name": "Drope of Music ",
+              "appearances": 1
+            }
+          ]
+        },
+        "R&B / Soul": {
+          "day_appearances": 1,
+          "top_artists": [
+            {
+              "name": "finnucreates",
               "appearances": 1
             }
           ]
@@ -349,19 +663,45 @@
           "date": "2026-05-21",
           "views": 6242,
           "videos": 4
+        },
+        {
+          "date": "2026-05-22",
+          "views": 9481235,
+          "videos": 21
         }
       ],
-      "narrative": "Recurring artists across 3 days: Rajesh Elappara, Baizyeah, Nabzy Nabuhan. Dominant genre: Indie (11 video-appearances across 3 day(s)). Also tracked: Hip Hop / Rap (4), Folk / Acoustic (1)."
+      "narrative": "Recurring artists across 4 days: Shamil koppam, Gallery Vision Indie, Rajesh Elappara. Dominant genre: Indie (17 video-appearances across 4 day(s)). Also tracked: Hip Hop / Rap (10), Electronic (4), Folk / Acoustic (3)."
     },
     "Bengali": {
-      "days_tracked": 3,
-      "dominant_genre": "Lo-Fi",
+      "days_tracked": 4,
+      "dominant_genre": "Indie",
       "top_artists": [
         {
           "name": "JOCHONA BARI",
+          "appearances": 3,
+          "avg_views": 11109,
+          "avg_eng": 3.1,
+          "top_genre": "Indie"
+        },
+        {
+          "name": "Suman Ruj",
+          "appearances": 3,
+          "avg_views": 2677,
+          "avg_eng": 11.3,
+          "top_genre": "Lo-Fi"
+        },
+        {
+          "name": "Suman Babu Music ",
+          "appearances": 3,
+          "avg_views": 1632,
+          "avg_eng": 0.9,
+          "top_genre": "Lo-Fi"
+        },
+        {
+          "name": "DADA BHAI INDIA",
           "appearances": 2,
-          "avg_views": 10414,
-          "avg_eng": 2.9,
+          "avg_views": 231876,
+          "avg_eng": 4.4,
           "top_genre": "Indie"
         },
         {
@@ -370,69 +710,113 @@
           "avg_views": 6261,
           "avg_eng": 0.7,
           "top_genre": "Folk / Acoustic"
-        },
-        {
-          "name": "Suman Ruj",
-          "appearances": 2,
-          "avg_views": 3012,
-          "avg_eng": 10.1,
-          "top_genre": "Lo-Fi"
-        },
-        {
-          "name": "Suman Babu Music ",
-          "appearances": 2,
-          "avg_views": 1495,
-          "avg_eng": 0.9,
-          "top_genre": "Lo-Fi"
         }
       ],
       "genre_breakdown": [
         {
-          "genre": "Lo-Fi",
-          "day_appearances": 3
-        },
-        {
           "genre": "Indie",
-          "day_appearances": 3
+          "day_appearances": 8
         },
         {
           "genre": "Folk / Acoustic",
+          "day_appearances": 8
+        },
+        {
+          "genre": "Lo-Fi",
+          "day_appearances": 7
+        },
+        {
+          "genre": "Hip Hop / Rap",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Rock / Alt",
+          "day_appearances": 2
+        },
+        {
+          "genre": "Jazz / Blues",
           "day_appearances": 2
         }
       ],
       "genre_insights": {
-        "Lo-Fi": {
-          "day_appearances": 3,
+        "Indie": {
+          "day_appearances": 8,
           "top_artists": [
             {
-              "name": "Suman Babu Music ",
-              "appearances": 2
+              "name": "JOCHONA BARI",
+              "appearances": 3
             },
             {
               "name": "Suman Ruj",
               "appearances": 1
-            }
-          ]
-        },
-        "Indie": {
-          "day_appearances": 3,
-          "top_artists": [
-            {
-              "name": "JOCHONA BARI",
-              "appearances": 2
             },
             {
-              "name": "Suman Ruj",
+              "name": "DADA BHAI INDIA",
               "appearances": 1
             }
           ]
         },
         "Folk / Acoustic": {
-          "day_appearances": 2,
+          "day_appearances": 8,
           "top_artists": [
             {
               "name": "FA Music BD",
               "appearances": 2
+            },
+            {
+              "name": "Sohail Mia",
+              "appearances": 2
+            },
+            {
+              "name": "SonicDripMusic",
+              "appearances": 1
+            }
+          ]
+        },
+        "Lo-Fi": {
+          "day_appearances": 7,
+          "top_artists": [
+            {
+              "name": "Suman Babu Music ",
+              "appearances": 3
+            },
+            {
+              "name": "Suman Ruj",
+              "appearances": 2
+            },
+            {
+              "name": "Baul Beats",
+              "appearances": 1
+            }
+          ]
+        },
+        "Hip Hop / Rap": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "DADA BHAI INDIA",
+              "appearances": 1
+            },
+            {
+              "name": "Manchu Dada",
+              "appearances": 1
+            },
+            {
+              "name": "MJ Production",
+              "appearances": 1
+            }
+          ]
+        },
+        "Rock / Alt": {
+          "day_appearances": 2,
+          "top_artists": [
+            {
+              "name": "Neel Shor",
+              "appearances": 1
+            },
+            {
+              "name": "Suddhasatta Mitra",
+              "appearances": 1
             }
           ]
         }
@@ -442,55 +826,160 @@
           "date": "2026-05-21",
           "views": 42366,
           "videos": 8
+        },
+        {
+          "date": "2026-05-22",
+          "views": 1812635,
+          "videos": 25
         }
       ],
-      "narrative": "Recurring artists across 3 days: JOCHONA BARI, FA Music BD, Suman Ruj. Dominant genre: Lo-Fi (3 video-appearances across 3 day(s)). Also tracked: Indie (3), Folk / Acoustic (2)."
+      "narrative": "Recurring artists across 4 days: JOCHONA BARI, Suman Ruj, Suman Babu Music . Dominant genre: Indie (8 video-appearances across 4 day(s)). Also tracked: Folk / Acoustic (8), Lo-Fi (7), Hip Hop / Rap (6)."
     },
     "Punjabi": {
-      "days_tracked": 3,
-      "dominant_genre": "R&B / Soul",
+      "days_tracked": 4,
+      "dominant_genre": "Indie",
       "top_artists": [
         {
-          "name": "Hardik Bhardwaj Official",
-          "appearances": 1,
-          "avg_views": 440211,
-          "avg_eng": 4.6,
+          "name": "Sawinder Creations",
+          "appearances": 2,
+          "avg_views": 656832,
+          "avg_eng": 0.9,
           "top_genre": "R&B / Soul"
         },
         {
-          "name": "JP Unlocked",
+          "name": "Hardik Bhardwaj Official",
+          "appearances": 2,
+          "avg_views": 453812,
+          "avg_eng": 4.5,
+          "top_genre": "R&B / Soul"
+        },
+        {
+          "name": "Aarunvoxbeats",
+          "appearances": 2,
+          "avg_views": 826,
+          "avg_eng": 0.7,
+          "top_genre": "Lo-Fi"
+        },
+        {
+          "name": "Simiran Kaur Dhadli - Topic",
           "appearances": 1,
-          "avg_views": 1822,
-          "avg_eng": 1.1,
-          "top_genre": "Hip Hop / Rap"
+          "avg_views": 3373331,
+          "avg_eng": 1.2,
+          "top_genre": "Electronic"
+        },
+        {
+          "name": "Jordan Sandhu",
+          "appearances": 1,
+          "avg_views": 3236134,
+          "avg_eng": 0.6,
+          "top_genre": "Indie"
         }
       ],
       "genre_breakdown": [
         {
-          "genre": "R&B / Soul",
-          "day_appearances": 1
+          "genre": "Indie",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Folk / Acoustic",
+          "day_appearances": 6
         },
         {
           "genre": "Hip Hop / Rap",
+          "day_appearances": 5
+        },
+        {
+          "genre": "Lo-Fi",
+          "day_appearances": 5
+        },
+        {
+          "genre": "R&B / Soul",
+          "day_appearances": 4
+        },
+        {
+          "genre": "Electronic",
           "day_appearances": 1
         }
       ],
       "genre_insights": {
-        "R&B / Soul": {
-          "day_appearances": 1,
+        "Indie": {
+          "day_appearances": 6,
           "top_artists": [
             {
-              "name": "Hardik Bhardwaj Official",
+              "name": "Gurlluv Gill Music",
+              "appearances": 1
+            },
+            {
+              "name": "Indie Vibe Studios",
+              "appearances": 1
+            },
+            {
+              "name": "Jordan Sandhu",
+              "appearances": 1
+            }
+          ]
+        },
+        "Folk / Acoustic": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "Rang Music",
+              "appearances": 1
+            },
+            {
+              "name": "Desi Virsa Punjab",
+              "appearances": 1
+            },
+            {
+              "name": "Punjabi Melody House",
               "appearances": 1
             }
           ]
         },
         "Hip Hop / Rap": {
-          "day_appearances": 1,
+          "day_appearances": 5,
           "top_artists": [
             {
               "name": "JP Unlocked",
               "appearances": 1
+            },
+            {
+              "name": "Luck E",
+              "appearances": 1
+            },
+            {
+              "name": "Indian Folk Originals",
+              "appearances": 1
+            }
+          ]
+        },
+        "Lo-Fi": {
+          "day_appearances": 5,
+          "top_artists": [
+            {
+              "name": "Aarunvoxbeats",
+              "appearances": 2
+            },
+            {
+              "name": "Soulmate Vibes Music",
+              "appearances": 1
+            },
+            {
+              "name": "Arman Study Studio",
+              "appearances": 1
+            }
+          ]
+        },
+        "R&B / Soul": {
+          "day_appearances": 4,
+          "top_artists": [
+            {
+              "name": "Hardik Bhardwaj Official",
+              "appearances": 2
+            },
+            {
+              "name": "Sawinder Creations",
+              "appearances": 2
             }
           ]
         }
@@ -500,34 +989,151 @@
           "date": "2026-05-21",
           "views": 442033,
           "videos": 2
+        },
+        {
+          "date": "2026-05-22",
+          "views": 10728442,
+          "videos": 25
         }
       ],
-      "narrative": "No artists yet appearing across multiple days. Dominant genre: R&B / Soul (1 video-appearances across 3 day(s)). Also tracked: Hip Hop / Rap (1)."
+      "narrative": "Recurring artists across 4 days: Sawinder Creations, Hardik Bhardwaj Official, Aarunvoxbeats. Dominant genre: Indie (6 video-appearances across 4 day(s)). Also tracked: Folk / Acoustic (6), Hip Hop / Rap (5), Lo-Fi (5)."
     },
     "Marathi": {
-      "days_tracked": 3,
+      "days_tracked": 4,
       "dominant_genre": "Indie",
       "top_artists": [
         {
-          "name": "PRAKASH JADHAV ",
-          "appearances": 1,
-          "avg_views": 1898,
-          "avg_eng": 2.2,
+          "name": "SAMBATA__ 00",
+          "appearances": 3,
+          "avg_views": 1963122,
+          "avg_eng": 3.0,
           "top_genre": "Indie"
+        },
+        {
+          "name": "AGRI BABA",
+          "appearances": 3,
+          "avg_views": 6942,
+          "avg_eng": 5.0,
+          "top_genre": "Hip Hop / Rap"
+        },
+        {
+          "name": "DJ Vaibhav In The Mix",
+          "appearances": 2,
+          "avg_views": 63280,
+          "avg_eng": 1.0,
+          "top_genre": "Hip Hop / Rap"
+        },
+        {
+          "name": "PRAKASH JADHAV ",
+          "appearances": 2,
+          "avg_views": 1921,
+          "avg_eng": 4.0,
+          "top_genre": "Indie"
+        },
+        {
+          "name": "The Zero Plays",
+          "appearances": 1,
+          "avg_views": 903070,
+          "avg_eng": 0.4,
+          "top_genre": "Folk / Acoustic"
         }
       ],
       "genre_breakdown": [
         {
           "genre": "Indie",
+          "day_appearances": 7
+        },
+        {
+          "genre": "Hip Hop / Rap",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Folk / Acoustic",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Lo-Fi",
+          "day_appearances": 1
+        },
+        {
+          "genre": "Rock / Alt",
+          "day_appearances": 1
+        },
+        {
+          "genre": "Electronic",
+          "day_appearances": 1
+        },
+        {
+          "genre": "Classical/Fusion",
           "day_appearances": 1
         }
       ],
       "genre_insights": {
         "Indie": {
-          "day_appearances": 1,
+          "day_appearances": 7,
           "top_artists": [
             {
               "name": "PRAKASH JADHAV ",
+              "appearances": 2
+            },
+            {
+              "name": "SAMBATA__ 00",
+              "appearances": 2
+            },
+            {
+              "name": "DJ Vaibhav In The Mix",
+              "appearances": 1
+            }
+          ]
+        },
+        "Hip Hop / Rap": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "AGRI BABA",
+              "appearances": 3
+            },
+            {
+              "name": "Patange Music ",
+              "appearances": 1
+            },
+            {
+              "name": "SAMBATA__ 00",
+              "appearances": 1
+            }
+          ]
+        },
+        "Folk / Acoustic": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "OLD IS GOLD MUSIC",
+              "appearances": 1
+            },
+            {
+              "name": "Atish Bairagi Production",
+              "appearances": 1
+            },
+            {
+              "name": "NS Production - Swapnil",
+              "appearances": 1
+            }
+          ]
+        },
+        "Lo-Fi": {
+          "day_appearances": 1,
+          "top_artists": [
+            {
+              "name": "The Pratik Pakhale",
+              "appearances": 1
+            }
+          ]
+        },
+        "Rock / Alt": {
+          "day_appearances": 1,
+          "top_artists": [
+            {
+              "name": "DJ Rushikesh Official",
               "appearances": 1
             }
           ]
@@ -538,12 +1144,17 @@
           "date": "2026-05-21",
           "views": 1898,
           "videos": 1
+        },
+        {
+          "date": "2026-05-22",
+          "views": 9595968,
+          "videos": 22
         }
       ],
-      "narrative": "No artists yet appearing across multiple days. Dominant genre: Indie (1 video-appearances across 3 day(s))."
+      "narrative": "Recurring artists across 4 days: SAMBATA__ 00, AGRI BABA, DJ Vaibhav In The Mix. Dominant genre: Indie (7 video-appearances across 4 day(s)). Also tracked: Hip Hop / Rap (6), Folk / Acoustic (6), Lo-Fi (1)."
     },
     "Hindi": {
-      "days_tracked": 3,
+      "days_tracked": 4,
       "dominant_genre": "Indie",
       "top_artists": [
         {
@@ -561,17 +1172,17 @@
           "top_genre": "Indie"
         },
         {
+          "name": "Memiixyz",
+          "appearances": 5,
+          "avg_views": 606072,
+          "avg_eng": 2.1,
+          "top_genre": "Indie"
+        },
+        {
           "name": "Saregama Music",
           "appearances": 4,
           "avg_views": 38169356,
           "avg_eng": 0.6,
-          "top_genre": "Indie"
-        },
-        {
-          "name": "Memiixyz",
-          "appearances": 4,
-          "avg_views": 756202,
-          "avg_eng": 1.8,
           "top_genre": "Indie"
         },
         {
@@ -585,19 +1196,31 @@
       "genre_breakdown": [
         {
           "genre": "Indie",
-          "day_appearances": 184
+          "day_appearances": 190
         },
         {
           "genre": "Hip Hop / Rap",
-          "day_appearances": 2
+          "day_appearances": 8
         },
         {
           "genre": "Lo-Fi",
-          "day_appearances": 2
+          "day_appearances": 6
+        },
+        {
+          "genre": "Folk / Acoustic",
+          "day_appearances": 4
         },
         {
           "genre": "R&B / Soul",
-          "day_appearances": 1
+          "day_appearances": 2
+        },
+        {
+          "genre": "Jazz / Blues",
+          "day_appearances": 2
+        },
+        {
+          "genre": "Rock / Alt",
+          "day_appearances": 2
         },
         {
           "genre": "Classical/Fusion",
@@ -606,7 +1229,7 @@
       ],
       "genre_insights": {
         "Indie": {
-          "day_appearances": 184,
+          "day_appearances": 190,
           "top_artists": [
             {
               "name": "Think Music India",
@@ -623,41 +1246,65 @@
           ]
         },
         "Hip Hop / Rap": {
-          "day_appearances": 2,
+          "day_appearances": 8,
           "top_artists": [
             {
-              "name": "HIP-HOP-FACT ",
+              "name": "\u092a\u094b\u0938\u0935\u093e\u0932 \u092e\u094d\u092f\u0942\u091c\u093c\u093f\u0915 \u0916\u091f\u0915\u0921",
+              "appearances": 2
+            },
+            {
+              "name": "Memiixyz",
               "appearances": 1
             },
             {
-              "name": "\u092a\u094b\u0938\u0935\u093e\u0932 \u092e\u094d\u092f\u0942\u091c\u093c\u093f\u0915 \u0916\u091f\u0915\u0921",
+              "name": "KARMA",
               "appearances": 1
             }
           ]
         },
         "Lo-Fi": {
-          "day_appearances": 2,
+          "day_appearances": 6,
           "top_artists": [
             {
               "name": "VirDurgesh Music ",
               "appearances": 2
-            }
-          ]
-        },
-        "R&B / Soul": {
-          "day_appearances": 1,
-          "top_artists": [
+            },
             {
-              "name": "MAHESH MUSIC",
+              "name": "Lo-fi 4790",
+              "appearances": 1
+            },
+            {
+              "name": "Desi Soul Music",
               "appearances": 1
             }
           ]
         },
-        "Classical/Fusion": {
-          "day_appearances": 1,
+        "Folk / Acoustic": {
+          "day_appearances": 4,
+          "top_artists": [
+            {
+              "name": "Desi Unplugged",
+              "appearances": 2
+            },
+            {
+              "name": "Sufi e Roohani music ",
+              "appearances": 1
+            },
+            {
+              "name": "Keyjool",
+              "appearances": 1
+            }
+          ]
+        },
+        "R&B / Soul": {
+          "day_appearances": 2,
           "top_artists": [
             {
               "name": "MAHESH MUSIC",
+              "appearances": 1
+            },
+            {
+              "name": "Hasu Mia",
               "appearances": 1
             }
           ]
@@ -678,29 +1325,154 @@
           "date": "2026-05-21",
           "views": 44547,
           "videos": 6
+        },
+        {
+          "date": "2026-05-22",
+          "views": 2808314,
+          "videos": 25
         }
       ],
-      "narrative": "Recurring artists across 3 days: T-Series, Think Music India, Saregama Music. Dominant genre: Indie (184 video-appearances across 3 day(s)). Also tracked: Hip Hop / Rap (2), Lo-Fi (2), R&B / Soul (1)."
+      "narrative": "Recurring artists across 4 days: T-Series, Think Music India, Memiixyz. Dominant genre: Indie (190 video-appearances across 4 day(s)). Also tracked: Hip Hop / Rap (8), Lo-Fi (6), Folk / Acoustic (4)."
     },
     "English": {
-      "days_tracked": 3,
-      "dominant_genre": "Classical/Fusion",
+      "days_tracked": 4,
+      "dominant_genre": "Indie",
       "top_artists": [
         {
+          "name": "C3RB3RUS India",
+          "appearances": 3,
+          "avg_views": 486236,
+          "avg_eng": 1.2,
+          "top_genre": "Electronic"
+        },
+        {
           "name": "Inayat Kaur Bajaj",
-          "appearances": 2,
-          "avg_views": 3881,
-          "avg_eng": 4.7,
+          "appearances": 3,
+          "avg_views": 3593,
+          "avg_eng": 4.6,
           "top_genre": "Classical/Fusion"
+        },
+        {
+          "name": "Muhafiz",
+          "appearances": 3,
+          "avg_views": 3440,
+          "avg_eng": 2.2,
+          "top_genre": "Rock / Alt"
+        },
+        {
+          "name": "Harshal Music",
+          "appearances": 1,
+          "avg_views": 2811355,
+          "avg_eng": 0.9,
+          "top_genre": "Hip Hop / Rap"
+        },
+        {
+          "name": "Asad Khan",
+          "appearances": 1,
+          "avg_views": 2535035,
+          "avg_eng": 1.1,
+          "top_genre": "Indie"
         }
       ],
       "genre_breakdown": [
         {
+          "genre": "Indie",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Folk / Acoustic",
+          "day_appearances": 6
+        },
+        {
+          "genre": "Hip Hop / Rap",
+          "day_appearances": 4
+        },
+        {
+          "genre": "Electronic",
+          "day_appearances": 4
+        },
+        {
           "genre": "Classical/Fusion",
           "day_appearances": 2
+        },
+        {
+          "genre": "Rock / Alt",
+          "day_appearances": 2
+        },
+        {
+          "genre": "Lo-Fi",
+          "day_appearances": 2
+        },
+        {
+          "genre": "Jazz / Blues",
+          "day_appearances": 1
         }
       ],
       "genre_insights": {
+        "Indie": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "DJ Roshan HKD Official",
+              "appearances": 1
+            },
+            {
+              "name": "AJ Music Beats",
+              "appearances": 1
+            },
+            {
+              "name": "Shreyashhh",
+              "appearances": 1
+            }
+          ]
+        },
+        "Folk / Acoustic": {
+          "day_appearances": 6,
+          "top_artists": [
+            {
+              "name": "Inayat Kaur Bajaj",
+              "appearances": 1
+            },
+            {
+              "name": "Simran Choudhary",
+              "appearances": 1
+            },
+            {
+              "name": "Fleep",
+              "appearances": 1
+            }
+          ]
+        },
+        "Hip Hop / Rap": {
+          "day_appearances": 4,
+          "top_artists": [
+            {
+              "name": "Muhafiz",
+              "appearances": 1
+            },
+            {
+              "name": "Remix Muzik India",
+              "appearances": 1
+            },
+            {
+              "name": "imbsay",
+              "appearances": 1
+            }
+          ]
+        },
+        "Electronic": {
+          "day_appearances": 4,
+          "top_artists": [
+            {
+              "name": "C3RB3RUS India",
+              "appearances": 3
+            },
+            {
+              "name": "DJ Dalal London",
+              "appearances": 1
+            }
+          ]
+        },
         "Classical/Fusion": {
           "day_appearances": 2,
           "top_artists": [
@@ -716,9 +1488,14 @@
           "date": "2026-05-21",
           "views": 7762,
           "videos": 2
+        },
+        {
+          "date": "2026-05-22",
+          "views": 13555647,
+          "videos": 25
         }
       ],
-      "narrative": "Recurring artists across 3 days: Inayat Kaur Bajaj. Dominant genre: Classical/Fusion (2 video-appearances across 3 day(s))."
+      "narrative": "Recurring artists across 4 days: C3RB3RUS India, Inayat Kaur Bajaj, Muhafiz. Dominant genre: Indie (6 video-appearances across 4 day(s)). Also tracked: Folk / Acoustic (6), Hip Hop / Rap (4), Electronic (4)."
     }
   }
 }
