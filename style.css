@@ -363,6 +363,20 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 .toggle-btn { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--muted); padding: 9px 14px; font-size: 13px; font-family: inherit; cursor: pointer; transition: color .15s, border-color .15s, background .15s; white-space: nowrap; }
 .toggle-btn:hover { color: var(--text); border-color: #444; }
 .toggle-btn.active { background: rgba(167,139,250,.15); border-color: var(--accent); color: var(--accent); }
+/* ── More/Less filter expander ── */
+.more-btn {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; color: var(--muted); padding: 9px 14px;
+  font-size: 13px; font-family: inherit; cursor: pointer;
+  transition: color .15s, border-color .15s; white-space: nowrap;
+}
+.more-btn:hover { color: var(--text); border-color: #444; }
+.filter-more {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  width: 100%; padding-top: 4px;
+}
+.filter-more[hidden] { display: none !important; }
+.collab-hint { font-size: 11px; color: var(--muted); font-style: italic; margin-left: 6px; }
 
 /* ── Empty state ── */
 .empty-state { text-align: center; padding: 48px 0; color: var(--muted); font-size: 14px; }

@@ -120,16 +120,10 @@ function buildChannels(videos) {
 function populateDropdowns() {
   const genres = [...new Set(allVideos.map(v=>v.genre).filter(Boolean))].sort();
   const langs  = [...new Set(allVideos.map(v=>v.language).filter(Boolean))].sort();
-  [["d-genre",genres],["v-genre",genres],["a-genre",genres]].forEach(([id,opts])=>
-    opts.forEach(g=>document.getElementById(id).add(new Option(g,g))));
-  [["d-lang",langs],["v-lang",langs],["a-lang",langs]].forEach(([id,opts])=>
-    opts.forEach(l=>document.getElementById(id).add(new Option(l,l))));
-  if (trackerData) {
-    const rLangs = [...new Set(trackerData.artists.map(a=>a.language))].sort();
-    const rGenres= [...new Set(trackerData.artists.map(a=>a.genre))].sort();
-    rLangs.forEach(l=>document.getElementById("r-lang").add(new Option(l,l)));
-    rGenres.forEach(g=>document.getElementById("r-genre").add(new Option(g,g)));
-  }
+  [["d-genre",genres],["a-genre",genres]].forEach(([id,opts])=>
+    opts.forEach(g=>document.getElementById(id)?.add(new Option(g,g))));
+  [["d-lang",langs],["a-lang",langs]].forEach(([id,opts])=>
+    opts.forEach(l=>document.getElementById(id)?.add(new Option(l,l))));
 }
 
 // ── Discover ──────────────────────────────────────────────────────────────────
@@ -324,6 +318,7 @@ function applyArtistFilter() {
   const srt    = document.getElementById("a-sort").value;
   const gen    = document.getElementById("a-genre").value;
   const lng    = document.getElementById("a-lang").value;
+  const trend  = document.getElementById("a-trend").value;
   const minEng = parseFloat(document.getElementById("a-min-eng").value)||0;
   const minVid = parseInt(document.getElementById("a-min-videos").value)||1;
   const mpOnly = document.getElementById("a-multiplatform").dataset.on==="true";
@@ -331,6 +326,7 @@ function applyArtistFilter() {
     (!q         || c.name.toLowerCase().includes(q)) &&
     (gen==="all"|| c.top_genre===gen) &&
     (lng==="all"|| c.top_lang===lng) &&
+    (trend==="all"|| c.trend===trend) &&
     c.avg_engagement >= minEng &&
     c.video_count    >= minVid &&
     (!mpOnly || c.multiplatform)
@@ -357,8 +353,9 @@ function bindArtistControls() {
       savePreference(id === "c-my-genre" ? LS_MY_GENRE : LS_MY_LANG, e.target.value);
       apply();
     }));
-  ["a-search","a-sort","a-genre","a-lang","a-min-eng","a-min-videos"].forEach(id=>
+  ["a-search","a-sort","a-genre","a-lang","a-min-eng","a-min-videos","a-trend"].forEach(id=>
     document.getElementById(id).addEventListener(id==="a-search"?"input":"change", apply));
+  initMoreToggle("a-more-btn", "a-more");
 }
 
 // ── Video list ────────────────────────────────────────────────────────────────
@@ -966,6 +963,17 @@ function loadPreferences() {
 function savePreference(key, val) {
   if (val && val !== "all") localStorage.setItem(key, val);
   else localStorage.removeItem(key);
+}
+
+function initMoreToggle(btnId, panelId) {
+  const btn   = document.getElementById(btnId);
+  const panel = document.getElementById(panelId);
+  if (!btn || !panel) return;
+  btn.addEventListener('click', () => {
+    const isOpen = !panel.hidden;
+    panel.hidden = isOpen;
+    btn.textContent = isOpen ? '+ More ▾' : '− Less ▲';
+  });
 }
 
 function getSavedArtists() {

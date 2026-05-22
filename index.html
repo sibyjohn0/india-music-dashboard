@@ -162,34 +162,45 @@
           <span class="collab-dot collab-both"></span>Strong fit
           <span class="collab-dot collab-genre"></span>Genre match
           <span class="collab-dot collab-lang"></span>Language match
+          <span class="collab-hint">Cards highlight matching artists</span>
         </div>
       </div>
 
       <div class="filter-bar">
         <input type="text" id="a-search" placeholder="Search artist…" />
-        <select id="a-genre"><option value="all">All Genres</option></select>
         <select id="a-lang"><option value="all">All Languages</option></select>
-        <select id="a-sort">
-          <option value="collab_score">Sort: Collab Fit</option>
-          <option value="avg_discovery">Sort: Discovery Score</option>
-          <option value="avg_engagement">Sort: Engagement</option>
-          <option value="avg_velocity">Sort: Velocity</option>
-          <option value="total_views">Sort: Total Views</option>
-          <option value="video_count">Sort: Videos</option>
+        <select id="a-trend">
+          <option value="all">All Trends</option>
+          <option value="new">New</option>
+          <option value="rising">Rising</option>
+          <option value="stable">Stable</option>
+          <option value="falling">Falling</option>
         </select>
-        <select id="a-min-eng">
-          <option value="0">Any Engagement</option>
-          <option value="1">1%+ Engagement</option>
-          <option value="2">2%+ Engagement</option>
-          <option value="5">5%+ Engagement</option>
-        </select>
-        <select id="a-min-videos">
-          <option value="1">Any Video Count</option>
-          <option value="2">2+ Videos</option>
-          <option value="3">3+ Videos</option>
-          <option value="5">5+ Videos</option>
-        </select>
-        <button class="toggle-btn" id="a-multiplatform" data-on="false">Multi-platform Only</button>
+        <button class="more-btn" id="a-more-btn">+ More ▾</button>
+        <div class="filter-more" id="a-more" hidden>
+          <select id="a-genre"><option value="all">All Genres</option></select>
+          <select id="a-sort">
+            <option value="collab_score">Sort: Collab Fit</option>
+            <option value="avg_discovery">Sort: Discovery Score</option>
+            <option value="avg_engagement">Sort: Engagement</option>
+            <option value="avg_velocity">Sort: Velocity</option>
+            <option value="total_views">Sort: Total Views</option>
+            <option value="video_count">Sort: Videos</option>
+          </select>
+          <select id="a-min-eng">
+            <option value="0">Any Engagement</option>
+            <option value="1">1%+ Engagement</option>
+            <option value="2">2%+ Engagement</option>
+            <option value="5">5%+ Engagement</option>
+          </select>
+          <select id="a-min-videos">
+            <option value="1">Any Video Count</option>
+            <option value="2">2+ Videos</option>
+            <option value="3">3+ Videos</option>
+            <option value="5">5+ Videos</option>
+          </select>
+          <button class="toggle-btn" id="a-multiplatform" data-on="false">Multi-platform Only</button>
+        </div>
       </div>
       <div class="artist-grid" id="artist-grid"></div>
     </div>
