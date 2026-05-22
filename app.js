@@ -95,19 +95,23 @@ function buildChannels(videos) {
     if (v.genre)    c.genres[v.genre]       = (c.genres[v.genre]||0)+1;
     if (v.language) c.languages[v.language] = (c.languages[v.language]||0)+1;
   }
-  const trackerNames = new Set((trackerData?.artists||[]).map(a=>a.name.toLowerCase()));
+  const trackerMap = {};
+  (trackerData?.artists||[]).forEach(a => { trackerMap[a.name.toLowerCase()] = a; });
   return Object.values(map).map(c=>{
-    const lfm = lfmData[c.name]||{};
+    const lfm     = lfmData[c.name]||{};
+    const tracker = trackerMap[c.name.toLowerCase()];
     return {
       ...c,
-      avg_velocity:    Math.round(c.total_velocity/c.video_count),
-      avg_engagement:  Math.round((c.total_engagement/c.video_count)*100)/100,
-      avg_discovery:   Math.round((c.total_discovery/c.video_count)*10)/10,
-      top_genre:       Object.entries(c.genres).sort((a,b)=>b[1]-a[1])[0]?.[0]||"Indie",
-      top_lang:        Object.entries(c.languages).sort((a,b)=>b[1]-a[1])[0]?.[0]||"Hindi",
-      lfm_listeners:   lfm.global_listeners||0,
-      lfm_india_rank:  lfm.india_rank||null,
-      multiplatform:   trackerNames.has(c.name.toLowerCase()),
+      avg_velocity:        Math.round(c.total_velocity/c.video_count),
+      avg_engagement:      Math.round((c.total_engagement/c.video_count)*100)/100,
+      avg_discovery:       Math.round((c.total_discovery/c.video_count)*10)/10,
+      top_genre:           Object.entries(c.genres).sort((a,b)=>b[1]-a[1])[0]?.[0]||"Indie",
+      top_lang:            Object.entries(c.languages).sort((a,b)=>b[1]-a[1])[0]?.[0]||"Hindi",
+      lfm_listeners:       lfm.global_listeners||0,
+      lfm_india_listeners: tracker?.latest_india_listeners||0,
+      lfm_india_rank:      lfm.india_rank||null,
+      trend:               tracker?.trend||null,
+      multiplatform:       !!tracker,
     };
   }).sort((a,b)=>b.avg_discovery-a.avg_discovery);
 }
