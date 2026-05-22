@@ -98,13 +98,22 @@
       <div class="filter-bar">
         <select id="d-lang"><option value="all">All Languages</option></select>
         <select id="d-genre"><option value="all">All Genres</option></select>
-        <select id="d-sort">
-          <option value="discovery_score">Sort: Score</option>
-          <option value="engagement_rate">Sort: Engagement</option>
-          <option value="velocity">Sort: Velocity</option>
-          <option value="views">Sort: Views</option>
-        </select>
-        <button class="toggle-btn" id="d-new-only" data-on="false">New Only</button>
+        <button class="more-btn" id="d-more-btn">+ More ▾</button>
+        <div class="filter-more" id="d-more" hidden>
+          <select id="d-sort">
+            <option value="discovery_score">Sort: Score</option>
+            <option value="engagement_rate">Sort: Engagement</option>
+            <option value="velocity">Sort: Velocity</option>
+            <option value="views">Sort: Views</option>
+          </select>
+          <select id="v-min-eng">
+            <option value="0">Any Engagement</option>
+            <option value="1">1%+ Engagement</option>
+            <option value="2">2%+ Engagement</option>
+            <option value="5">5%+ Engagement</option>
+          </select>
+          <button class="toggle-btn" id="d-new-only" data-on="false">New Only</button>
+        </div>
       </div>
 
       <div class="discover-hero">
@@ -125,6 +134,28 @@
           </div>
         </div>
       </div>
+
+      <div class="discover-divider">
+        <span id="d-list-label">All videos</span> — sort &amp; filter below
+      </div>
+      <div class="list-controls">
+        <input type="text" id="v-search" placeholder="Search title or artist…" />
+        <select id="v-sort">
+          <option value="discovery_score">Sort: Discovery Score</option>
+          <option value="engagement_rate">Sort: Engagement</option>
+          <option value="velocity">Sort: Velocity</option>
+          <option value="published_at">Sort: Newest</option>
+          <option value="views_delta">Sort: 24h Growth</option>
+          <option value="views">Sort: Views</option>
+        </select>
+        <select id="v-window">
+          <option value="0">All Time</option>
+          <option value="7">Last 7 Days</option>
+          <option value="14">Last 14 Days</option>
+          <option value="30">Last 30 Days</option>
+        </select>
+      </div>
+      <div class="video-list" id="video-list"></div>
     </div>
 
     <!-- ── ARTISTS ── -->
