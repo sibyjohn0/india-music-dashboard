@@ -71,6 +71,7 @@ async function init() {
   bindArtistControls();
   if (trackerData) bindRadarControls();
   initArtistDrawer();
+  initMetricTips();
 }
 
 // ── Channel aggregation ───────────────────────────────────────────────────────
@@ -173,7 +174,7 @@ function renderDiscover(videos) {
       </div>
       <div class="pulse-right">
         <div class="pulse-score">${v.discovery_score??'—'}</div>
-        <div class="pulse-score-label">score</div>
+        <div class="pulse-score-label"><span class="metric-tip" data-tip="Ranks how likely a video is to break through: weights engagement rate, view velocity, and recency. Higher = more momentum.">score</span></div>
       </div>
     </a>`).join("");
 }
@@ -275,7 +276,7 @@ function renderArtistGrid(channels) {
       : "";
     const lfmRow = c.lfm_listeners > 0
       ? `<div class="artist-lfm-row">
-           <span class="lfm-india">${c.lfm_india_listeners > 0 ? fmt(c.lfm_india_listeners)+" India" : ""}</span>
+           <span class="lfm-india metric-tip" data-tip="Monthly listeners on Last.fm tracked to India. Updates daily.">${c.lfm_india_listeners > 0 ? fmt(c.lfm_india_listeners)+" India" : ""}</span>
            <span class="lfm-global">${fmt(c.lfm_listeners)} global · Last.fm</span>
          </div>`
       : `<div class="artist-lfm-row"><span class="lfm-none">Not yet on Last.fm</span></div>`;
@@ -297,10 +298,10 @@ function renderArtistGrid(channels) {
           <div class="artist-card-stats">
             <div>
               <div class="artist-stat-score">${c.avg_discovery}</div>
-              <div class="artist-stat-label">discovery</div>
+              <div class="artist-stat-label"><span class="metric-tip" data-tip="Ranks how likely a video is to break through: weights engagement rate, view velocity, and recency. Higher = more momentum.">discovery</span></div>
             </div>
             <div class="artist-meta">
-              <div>${fmt(c.total_views)} views · ${fmt(c.avg_velocity)}/day</div>
+              <div>${fmt(c.total_views)} views · <span class="metric-tip" data-tip="Average views per day since publish. Shows whether a track is still gaining traction or has peaked.">${fmt(c.avg_velocity)}/day</span></div>
               ${spFollowers}
               ${c.lfm_india_rank?`<div class="india-rank-sm">#${c.lfm_india_rank} India</div>`:''}
             </div>
@@ -384,10 +385,10 @@ function renderVideoList(videos) {
       </div>
       <div class="video-row-metrics">
         <div class="video-score">${v.discovery_score??'—'}</div>
-        <div class="video-score-sub">score</div>
+        <div class="video-score-sub"><span class="metric-tip" data-tip="Ranks how likely a video is to break through: weights engagement rate, view velocity, and recency. Higher = more momentum.">score</span></div>
         <div class="video-metrics-row">
-          <span class="hi">${v.engagement_rate}%</span>
-          <span class="bl">${fmt(v.velocity)}/d</span>
+          <span class="hi metric-tip" data-tip="Likes + comments divided by views. Higher means the audience is actively responding, not just watching passively.">${v.engagement_rate}%</span>
+          <span class="bl metric-tip" data-tip="Average views per day since publish. Shows whether a track is still gaining traction or has peaked.">${fmt(v.velocity)}/d</span>
           <span>${fmt(v.views)}</span>
           <span>${daysAgo(v.published_at)}</span>
         </div>
@@ -983,6 +984,15 @@ function initMoreToggle(btnId, panelId) {
     const isOpen = !panel.hidden;
     panel.hidden = isOpen;
     btn.textContent = isOpen ? '+ More ▾' : '− Less ▲';
+  });
+}
+
+function initMetricTips() {
+  document.querySelector('main').addEventListener('click', e => {
+    const tip = e.target.closest('.metric-tip');
+    document.querySelectorAll('.metric-tip.tip-open')
+      .forEach(el => el.classList.remove('tip-open'));
+    if (tip) { e.stopPropagation(); tip.classList.add('tip-open'); }
   });
 }
 
