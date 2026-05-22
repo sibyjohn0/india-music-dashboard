@@ -271,11 +271,24 @@ function renderArtistGrid(channels) {
     if (c.lfm_india_rank)      signals.push(`#${c.lfm_india_rank} India`);
 
     const savedClass = getSavedArtists().includes(c.id) ? " saved-artist" : "";
+    const TREND_TIP = "Trend vs the previous 30-day window based on Last.fm listener movement.";
+    const trendBadge = c.trend
+      ? `<span class="artist-card-trend trend-badge ${TREND_CLS[c.trend]} metric-tip" data-tip="${TREND_TIP}">${TREND_ICON[c.trend]} ${c.trend}</span>`
+      : "";
+    const lfmRow = c.lfm_listeners > 0
+      ? `<div class="artist-lfm-row">
+           <span class="lfm-india">${c.lfm_india_listeners > 0 ? fmt(c.lfm_india_listeners)+" India" : ""}</span>
+           <span class="lfm-global">${fmt(c.lfm_listeners)} global · Last.fm</span>
+         </div>`
+      : `<div class="artist-lfm-row"><span class="lfm-none">Not yet on Last.fm</span></div>`;
     return `
     <div class="artist-card ${fit.type!=="none"?"artist-card-fit artist-card-"+fit.type:""}${savedClass}"
          onclick="openArtistDrawer(allChannels.find(x=>x.id==='${esc(c.id)}'))">
       <div class="artist-card-inner">
-        <img class="artist-card-thumb" src="${esc(c.top_video.thumbnail||'')}" alt="" loading="lazy" />
+        <div class="artist-card-thumb-wrap">
+          <img class="artist-card-thumb" src="${esc(c.top_video.thumbnail||'')}" alt="" loading="lazy" />
+          ${trendBadge}
+        </div>
         <div class="artist-card-body">
           <div class="artist-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
           <div class="artist-card-pills">
@@ -295,6 +308,7 @@ function renderArtistGrid(channels) {
             </div>
           </div>
           ${signals.length ? `<div class="artist-signals">${signals.map(s=>`<span class="signal-tag">${esc(s)}</span>`).join("")}</div>` : ""}
+          ${lfmRow}
         </div>
       </div>
       <div class="artist-card-actions">

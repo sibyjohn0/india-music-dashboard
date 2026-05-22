@@ -665,6 +665,21 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 /* ── Artist card clickable ─────────────────────────────────── */
 .artist-card { cursor: pointer; }
 .artist-card-inner { cursor: pointer; }
+/* ── Artist card — Last.fm row ── */
+.artist-card-thumb-wrap { position: relative; }
+.artist-card-trend {
+  position: absolute; top: 6px; right: 6px;
+  font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 20px;
+}
+.artist-lfm-row {
+  display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+  margin-top: 8px; padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+}
+.lfm-india { color: var(--accent); font-weight: 600; }
+.lfm-global { color: var(--muted); }
+.lfm-none { color: var(--muted); font-style: italic; }
 
 /* ── Mobile / Responsive ───────────────────────────────────── */
 @media (max-width: 900px) {
