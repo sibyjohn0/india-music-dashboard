@@ -244,8 +244,11 @@
           <option value="3">Last 3 Months</option>
           <option value="12">Last 12 Months</option>
         </select>
-        <div class="toggle-group" id="t-genre-toggles"></div>
-        <div class="toggle-group" id="t-lang-toggles"></div>
+        <button class="more-btn" id="t-more-btn">+ More ▾</button>
+        <div class="filter-more" id="t-more" hidden>
+          <div class="toggle-group" id="t-genre-toggles"></div>
+          <div class="toggle-group" id="t-lang-toggles"></div>
+        </div>
       </div>
       <div class="trends-empty" id="trends-loading">Loading monthly data…</div>
       <div class="trends-grid" id="trends-grid" style="display:none">
@@ -287,12 +290,15 @@
     <div id="tab-buzz" class="tab-pane">
       <div class="filter-bar">
         <select id="b-lang"><option value="all">All Languages</option></select>
-        <select id="b-platform">
-          <option value="all">All Sources</option>
-          <option value="reddit">Reddit</option>
-          <option value="news">News</option>
-        </select>
-        <button class="toggle-btn" id="b-artist-only" data-on="false">Artist Mentions Only</button>
+        <button class="more-btn" id="b-more-btn">+ More ▾</button>
+        <div class="filter-more" id="b-more" hidden>
+          <select id="b-platform">
+            <option value="all">All Sources</option>
+            <option value="reddit">Reddit</option>
+            <option value="news">News</option>
+          </select>
+          <button class="toggle-btn" id="b-artist-only" data-on="false">Artist Mentions Only</button>
+        </div>
       </div>
       <div class="buzz-empty" id="buzz-loading">Loading community conversations…</div>
       <div id="buzz-content" style="display:none">

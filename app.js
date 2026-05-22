@@ -539,6 +539,8 @@ function applyRadar() {
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 function goTab(name) {
+  document.querySelectorAll('.filter-more').forEach(p => { p.hidden = true; });
+  document.querySelectorAll('.more-btn').forEach(b => { if (b.textContent.startsWith('−')) b.textContent = '+ More ▾'; });
   dismissWelcome();
   document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
   document.querySelectorAll(".tab-pane").forEach(t=>t.classList.remove("active"));
@@ -707,6 +709,7 @@ function buildTrendToggles() {
     monthlyData=[]; hiddenGenres=new Set(); hiddenLangs=new Set();
     loadTrends();
   });
+  initMoreToggle("t-more-btn", "t-more");
 }
 
 function drawTrendCharts() {
@@ -842,6 +845,7 @@ function renderBuzz(data) {
     this.classList.toggle("active", this.dataset.on==="true");
     applyBuzzFilters(buzzData);
   });
+  initMoreToggle("b-more-btn", "b-more");
 }
 
 function applyBuzzFilters(data) {
