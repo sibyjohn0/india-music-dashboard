@@ -777,19 +777,16 @@ function applyBuzzFilters(data) {
 }
 
 function renderBuzzArtistSection(posts) {
-  const hd     = document.getElementById("buzz-artist-hd");
   const blocks = document.getElementById("buzz-artist-blocks");
   const count  = document.getElementById("buzz-artist-count");
 
+  count.textContent = posts.length || "";
+
   if (!posts.length) {
-    hd.style.display = "none";
-    blocks.innerHTML = "";
+    blocks.innerHTML = `<div class="buzz-artist-empty">No tracked artists in coverage this period.</div>`;
     return;
   }
-  hd.style.display = "flex";
-  count.textContent = posts.length;
 
-  // Group by artist
   const byArtist = {};
   for (const p of posts) {
     if (!byArtist[p.artist]) byArtist[p.artist] = [];
@@ -832,13 +829,11 @@ function groupedBuzzHTML(posts) {
 }
 
 function renderBuzzFeed(posts) {
-  const hd    = document.getElementById("buzz-feed-hd");
   const feed  = document.getElementById("buzz-feed");
   const count = document.getElementById("buzz-feed-count");
 
-  hd.style.display = posts.length ? "flex" : "none";
   count.textContent = posts.length;
-  if (!posts.length) { feed.innerHTML = ""; return; }
+  if (!posts.length) { feed.innerHTML = `<div class="buzz-artist-empty">No articles match this filter.</div>`; return; }
 
   const PAGE = 30;
   const rem = posts.length - PAGE;
