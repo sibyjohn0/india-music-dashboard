@@ -491,6 +491,33 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
+#buzz-artist-hd {
+  background: rgba(167,139,250,.08);
+  border: 1px solid rgba(167,139,250,.2);
+  border-bottom: 1px solid rgba(167,139,250,.2);
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-top: 4px;
+  color: #c4b5fd;
+}
+.buzz-show-more {
+  display: block;
+  width: 100%;
+  margin: 18px 0 32px;
+  padding: 10px 0;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+.buzz-show-more:hover {
+  border-color: #a78bfa55;
+  color: var(--fg);
+}
 .buzz-count {
   font-size: 11px;
   font-weight: 500;
