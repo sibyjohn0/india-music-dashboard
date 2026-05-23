@@ -70,6 +70,7 @@ async function init() {
   bindArtistControls();
   initArtistDrawer();
   initMetricTips();
+  initArtistLog();
 }
 
 // ── Channel aggregation ───────────────────────────────────────────────────────
@@ -81,7 +82,7 @@ function buildChannels(videos) {
       id:cid, name:v.channel, thumb:v.thumbnail,
       video_count:0, total_views:0, total_velocity:0,
       total_engagement:0, total_discovery:0,
-      genres:{}, languages:{}, top_video:v,
+      genres:{}, languages:{}, top_video:v, latest_pub:v.published_at,
     };
     const c = map[cid];
     c.video_count++;
@@ -90,6 +91,7 @@ function buildChannels(videos) {
     c.total_engagement += v.engagement_rate||0;
     c.total_discovery  += v.discovery_score||0;
     if ((v.discovery_score||0)>(c.top_video.discovery_score||0)) c.top_video=v;
+    if (v.published_at > c.latest_pub) c.latest_pub = v.published_at;
     if (v.genre)    c.genres[v.genre]       = (c.genres[v.genre]||0)+1;
     if (v.language) c.languages[v.language] = (c.languages[v.language]||0)+1;
   }
@@ -110,6 +112,7 @@ function buildChannels(videos) {
       lfm_india_rank:      lfm.india_rank||null,
       trend:               tracker?.trend||null,
       multiplatform:       !!tracker,
+      latest_pub:          c.latest_pub||null,
     };
   }).sort((a,b)=>b.avg_discovery-a.avg_discovery);
 }
@@ -573,10 +576,17 @@ async function loadTrends() {
     document.getElementById("trends-loading").textContent="No monthly data yet — check back after a few daily runs.";
     return;
   }
-  document.getElementById("trends-grid").style.display="grid";
   document.getElementById("trends-table-wrap").style.display="block";
-  buildTrendToggles();
-  drawTrendCharts();
+  if (monthlyData.length >= 2) {
+    document.getElementById("trends-grid").style.display="grid";
+    document.getElementById("t-more-btn").style.display="";
+    buildTrendToggles();
+    drawTrendCharts();
+  } else {
+    document.getElementById("trends-grid").style.display="none";
+    document.getElementById("t-more-btn").style.display="none";
+    document.getElementById("trends-chart-note").style.display="block";
+  }
 }
 
 function buildTrendToggles() {
@@ -860,6 +870,44 @@ function loadPreferences() {
 function savePreference(key, val) {
   if (val && val !== "all") localStorage.setItem(key, val);
   else localStorage.removeItem(key);
+}
+
+function initArtistLog() {
+  const langs  = [...new Set(allChannels.map(c=>c.top_lang))].filter(Boolean).sort();
+  const genres = [...new Set(allChannels.map(c=>c.top_genre))].filter(Boolean).sort();
+  langs.forEach(l  => document.getElementById("al-lang").add(new Option(l,l)));
+  genres.forEach(g => document.getElementById("al-genre").add(new Option(g,g)));
+  ["al-lang","al-genre","al-sort"].forEach(id =>
+    document.getElementById(id).addEventListener("change", renderArtistLog));
+  renderArtistLog();
+}
+
+function renderArtistLog() {
+  const lang  = document.getElementById("al-lang").value;
+  const genre = document.getElementById("al-genre").value;
+  const sort  = document.getElementById("al-sort").value;
+  let cs = allChannels.filter(c =>
+    (lang==="all"  || c.top_lang===lang) &&
+    (genre==="all" || c.top_genre===genre)
+  );
+  if (sort==="frequent")    cs = [...cs].sort((a,b)=>b.video_count-a.video_count);
+  else if (sort==="score")  cs = [...cs].sort((a,b)=>b.avg_discovery-a.avg_discovery);
+  else                      cs = [...cs].sort((a,b)=>(b.latest_pub||"").localeCompare(a.latest_pub||""));
+  document.getElementById("al-meta").textContent = `${cs.length} artist${cs.length!==1?"s":""}`;
+  document.getElementById("artist-log-body").innerHTML = cs.map(c => {
+    const badge = c.trend
+      ? `<span class="trend-badge ${TREND_CLS[c.trend]}">${TREND_ICON[c.trend]} ${c.trend}</span>`
+      : `<span style="color:var(--muted)">—</span>`;
+    return `<tr>
+      <td><a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" class="al-name">${esc(c.name)}</a></td>
+      <td><span class="pill pill-lang">${esc(c.top_lang)}</span></td>
+      <td><span class="pill pill-genre">${esc(c.top_genre)}</span></td>
+      <td class="al-num">${c.video_count}</td>
+      <td class="al-recency">${daysAgo(c.latest_pub)}</td>
+      <td class="al-score">${c.avg_discovery}</td>
+      <td>${badge}</td>
+    </tr>`;
+  }).join("");
 }
 
 function initMoreToggle(btnId, panelId) {

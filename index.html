@@ -251,6 +251,7 @@
         </div>
       </div>
       <div class="trends-empty" id="trends-loading">Loading monthly data…</div>
+      <div class="trends-chart-note" id="trends-chart-note" style="display:none">Charts will appear once 2+ months of data accumulate.</div>
       <div class="trends-grid" id="trends-grid" style="display:none">
         <div class="chart-card">
           <div class="chart-card-title">Genre — videos per month</div>
@@ -283,6 +284,37 @@
           <div class="insights-meta" id="insights-meta"></div>
         </div>
         <div class="insights-grid" id="insights-grid"></div>
+      </div>
+
+      <!-- ── Artist Discovery Log ── -->
+      <div class="artist-log" id="artist-log">
+        <div class="artist-log-hd">
+          <div class="artist-log-title">Artist Discovery Log</div>
+          <span class="artist-log-meta" id="al-meta"></span>
+        </div>
+        <div class="artist-log-filters">
+          <select id="al-lang"><option value="all">All Languages</option></select>
+          <select id="al-genre"><option value="all">All Genres</option></select>
+          <select id="al-sort">
+            <option value="recent">Sort: Most Recent</option>
+            <option value="frequent">Sort: Most Videos</option>
+            <option value="score">Sort: Highest Score</option>
+          </select>
+        </div>
+        <table class="data-table artist-log-table">
+          <thead>
+            <tr>
+              <th>Artist</th>
+              <th>Language</th>
+              <th>Genre</th>
+              <th>Videos</th>
+              <th>Last active</th>
+              <th>Avg score</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody id="artist-log-body"></tbody>
+        </table>
       </div>
     </div>
 
