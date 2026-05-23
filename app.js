@@ -733,6 +733,20 @@ function renderBuzz(data) {
     bLang.appendChild(o);
   });
 
+  // Auto-apply saved language preference
+  const savedLang = localStorage.getItem(LS_MY_LANG);
+  if (savedLang && [...bLang.options].some(o => o.value === savedLang)) {
+    bLang.value = savedLang;
+  }
+
+  // Remove Reddit option if no Reddit posts exist in this data
+  const hasReddit = [...(data.artist_posts||[]), ...(data.feed||[])].some(p => p.platform === "reddit");
+  if (!hasReddit) {
+    const bPlatform = document.getElementById("b-platform");
+    const redditOpt = [...bPlatform.options].find(o => o.value === "reddit");
+    if (redditOpt) redditOpt.remove();
+  }
+
   applyBuzzFilters(data);
 
   document.getElementById("b-lang").addEventListener("change", ()=>applyBuzzFilters(buzzData));
@@ -803,6 +817,20 @@ function formatBuzzDateGroup(d) {
   return dt.toLocaleDateString("en-IN", { month: "short", day: "numeric" });
 }
 
+function groupedBuzzHTML(posts) {
+  const groups = [], groupMap = {};
+  for (const p of posts) {
+    const label = formatBuzzDateGroup(p.date);
+    if (!groupMap[label]) { const g={label,posts:[]}; groups.push(g); groupMap[label]=g; }
+    groupMap[label].posts.push(p);
+  }
+  return groups.map(g=>`
+    <div class="buzz-date-group">
+      <div class="buzz-date-hd">${esc(g.label)}</div>
+      <div class="buzz-date-cards">${g.posts.map(p=>buzzCardHTML(p)).join("")}</div>
+    </div>`).join("");
+}
+
 function renderBuzzFeed(posts) {
   const hd    = document.getElementById("buzz-feed-hd");
   const feed  = document.getElementById("buzz-feed");
@@ -810,26 +838,18 @@ function renderBuzzFeed(posts) {
 
   hd.style.display = posts.length ? "flex" : "none";
   count.textContent = posts.length;
-
   if (!posts.length) { feed.innerHTML = ""; return; }
 
-  const groups = [];
-  const groupMap = {};
-  for (const p of posts) {
-    const label = formatBuzzDateGroup(p.date);
-    if (!groupMap[label]) {
-      const g = { label, posts: [] };
-      groups.push(g);
-      groupMap[label] = g;
-    }
-    groupMap[label].posts.push(p);
-  }
+  const PAGE = 30;
+  const rem = posts.length - PAGE;
+  feed.innerHTML = groupedBuzzHTML(posts.slice(0, PAGE)) +
+    (rem > 0 ? `<button class="buzz-show-more">Show ${rem} more articles</button>` : "");
 
-  feed.innerHTML = groups.map(g => `
-    <div class="buzz-date-group">
-      <div class="buzz-date-hd">${esc(g.label)}</div>
-      <div class="buzz-date-cards">${g.posts.map(p => buzzCardHTML(p)).join("")}</div>
-    </div>`).join("");
+  if (rem > 0) {
+    feed.querySelector(".buzz-show-more").addEventListener("click", () => {
+      feed.innerHTML = groupedBuzzHTML(posts);
+    });
+  }
 }
 
 function buzzCardHTML(p) {
