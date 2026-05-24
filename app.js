@@ -19,7 +19,7 @@ const PAL = ["#a78bfa","#60a5fa","#34d399","#fbbf24","#f87171","#fb923c","#e879f
 const LANG_COLORS = {
   Tamil:"#f87171", Telugu:"#fb923c", Kannada:"#fbbf24", Malayalam:"#34d399",
   Bengali:"#38bdf8", Punjabi:"#a78bfa", Marathi:"#e879f9", "Hindi Indie":"#60a5fa",
-  English:"#4ade80", Various:"#666"
+  Hindi:"#f472b6", English:"#4ade80", Various:"#888"
 };
 
 // ── State ─────────────────────────────────────────────────────────────────────
