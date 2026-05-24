@@ -62,7 +62,7 @@ async function init() {
   populateDropdowns();
   loadPreferences();
   renderDiscover(allVideos);
-  renderBreakdowns(data.genre_breakdown||[], data.language_breakdown||[]);
+  // breakdown bars removed — data lives in Trends tab
   renderArtistGrid(allChannels);
   renderVideoList(allVideos);
   bindTabs(insightsData, socialData);
@@ -71,6 +71,15 @@ async function init() {
   initArtistDrawer();
   initMetricTips();
   initArtistLog();
+  document.getElementById("trends-toggle-btn").addEventListener("click", function() {
+    const panel = document.getElementById("trends-analytics");
+    const open  = panel.style.display !== "none";
+    panel.style.display = open ? "none" : "block";
+    this.textContent = open ? "Monthly charts & data ▾" : "Monthly charts & data ▴";
+    if (!open && !_trendsLoaded) {
+      _trendsLoaded = true; loadTrends(); if (_insightsData) renderInsights(_insightsData);
+    }
+  });
 }
 
 // ── Channel aggregation ───────────────────────────────────────────────────────
@@ -129,53 +138,29 @@ function populateDropdowns() {
 
 // ── Discover ──────────────────────────────────────────────────────────────────
 function renderDiscover(videos) {
-  // De-duplicate by channel: max 2 per channel in the Discover view
-  // so one prolific uploader can't flood hero + pulse slots
   const seen = {}; const deduped = [];
   for (const v of videos) {
     const key = v.channel_id || v.channel;
     if ((seen[key] || 0) < 2) { deduped.push(v); seen[key] = (seen[key]||0)+1; }
-    if (deduped.length >= 21) break;
+    if (deduped.length >= 3) break;
   }
-  const top = deduped.slice(0,3);
-  const rest= deduped.slice(3,18);
-  const ranks = ["#1 Discovery","#2 Discovery","#3 Discovery"];
-  document.getElementById("hero-cards").innerHTML = top.map((v,i)=>`
+  const newCount = videos.filter(v => v.is_new).length;
+  const newChip  = newCount > 0 ? ` <span class="hero-new-chip">${newCount} new</span>` : "";
+  document.getElementById("d-hero-label").innerHTML =
+    (videos.length === allVideos.length ? "Today's Top Finds" : `Top Finds — ${videos.length} matching`) + newChip;
+
+  document.getElementById("hero-cards").innerHTML = deduped.map((v,i)=>`
     <a href="${esc(v.url)}" target="_blank" rel="noopener" class="hero-card">
       <img src="${esc(v.thumbnail)}" alt="" loading="lazy" />
       <div class="hero-card-overlay">
-        <span class="hero-rank">${ranks[i]}</span>
-        <span class="hero-score">${v.discovery_score??'—'}<span class="hero-score-lbl">score</span></span>
+        <span class="hero-rank">#${i+1}</span>
         <div class="hero-pills">
           <span class="pill pill-genre">${esc(v.genre)}</span>
           <span class="pill pill-lang">${esc(v.language)}</span>
           ${v.is_new?'<span class="pill pill-new">NEW</span>':''}
         </div>
         <div class="hero-title">${esc(v.title)}</div>
-        <div class="hero-channel">${esc(v.channel)} · ${daysAgo(v.published_at)}</div>
-        <div class="hero-stats">
-          <span><strong>${v.engagement_rate}%</strong> engagement</span>
-          <span><strong>${fmt(v.views)}</strong> views</span>
-          <span><strong>${fmt(v.velocity)}</strong>/day</span>
-        </div>
-      </div>
-    </a>`).join("");
-  document.getElementById("pulse-list").innerHTML = rest.map((v,i)=>`
-    <a href="${esc(v.url)}" target="_blank" rel="noopener" class="pulse-item">
-      <div class="pulse-rank">${i+4}</div>
-      <img class="pulse-thumb" src="${esc(v.thumbnail)}" alt="" loading="lazy" />
-      <div class="pulse-info">
-        <div class="pulse-title">${esc(v.title)}</div>
-        <div class="pulse-channel">${esc(v.channel)}</div>
-        <div class="pulse-meta">
-          <span class="hi">${v.engagement_rate}% eng</span>
-          <span>${fmt(v.views)} views</span>
-          <span>${daysAgo(v.published_at)}</span>
-        </div>
-      </div>
-      <div class="pulse-right">
-        <div class="pulse-score">${v.discovery_score??'—'}</div>
-        <div class="pulse-score-label"><span class="metric-tip" data-tip="Ranks how likely a video is to break through: weights engagement rate, view velocity, and recency. Higher = more momentum.">score</span></div>
+        <div class="hero-channel">${esc(v.channel)} · ${daysAgo(v.published_at)} · ${fmt(v.views)} views</div>
       </div>
     </a>`).join("");
 }
@@ -208,8 +193,6 @@ function applyDiscover() {
   );
   vs = [...vs].sort((a,b)=>
     srt==="published_at"?b.published_at.localeCompare(a.published_at):(b[srt]||0)-(a[srt]||0));
-  document.getElementById("d-hero-label").textContent =
-    vs.length===allVideos.length ? "Today's Top Finds" : `Top Finds — ${vs.length} matching`;
   renderDiscover(vs);
   applyVideos();
 }
@@ -296,24 +279,8 @@ function renderArtistGrid(channels) {
             <span class="pill pill-lang">${esc(c.top_lang)}</span>
             ${fitBadge}
           </div>
-          <div class="artist-card-stats">
-            <div>
-              <div class="artist-stat-score">${c.avg_discovery}</div>
-              <div class="artist-stat-label"><span class="metric-tip" data-tip="Ranks how likely a video is to break through: weights engagement rate, view velocity, and recency. Higher = more momentum.">discovery</span></div>
-            </div>
-            <div class="artist-meta">
-              <div>${fmt(c.total_views)} views · <span class="metric-tip" data-tip="Average views per day since publish. Shows whether a track is still gaining traction or has peaked.">${fmt(c.avg_velocity)}/day</span></div>
-              ${spFollowers}
-              ${c.lfm_india_rank?`<div class="india-rank-sm">#${c.lfm_india_rank} India</div>`:''}
-            </div>
-          </div>
-          ${signals.length ? `<div class="artist-signals">${signals.map(s=>`<span class="signal-tag">${esc(s)}</span>`).join("")}</div>` : ""}
-          ${lfmRow}
+          <div class="artist-card-meta">${c.video_count} video${c.video_count!==1?"s":""} · ${fmt(c.total_views)} views</div>
         </div>
-      </div>
-      <div class="artist-card-actions">
-        <a class="action-btn" href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">YouTube</a>
-        ${sp.spotify_url ? `<a class="action-btn action-btn-spotify" href="${esc(sp.spotify_url)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Spotify</a>` : ""}
       </div>
     </div>`;
   }).join("");
@@ -386,13 +353,7 @@ function renderVideoList(videos) {
       </div>
       <div class="video-row-metrics">
         <div class="video-score">${v.discovery_score??'—'}</div>
-        <div class="video-score-sub"><span class="metric-tip" data-tip="Ranks how likely a video is to break through: weights engagement rate, view velocity, and recency. Higher = more momentum.">score</span></div>
-        <div class="video-metrics-row">
-          <span class="hi metric-tip" data-tip="Likes + comments divided by views. Higher means the audience is actively responding, not just watching passively.">${v.engagement_rate}%</span>
-          <span class="bl metric-tip" data-tip="Average views per day since publish. Shows whether a track is still gaining traction or has peaked.">${fmt(v.velocity)}/d</span>
-          <span>${fmt(v.views)}</span>
-          <span>${daysAgo(v.published_at)}</span>
-        </div>
+        <div class="video-row-sub">${fmt(v.views)} views · ${daysAgo(v.published_at)}</div>
       </div>
     </a>`).join("");
 }
@@ -438,9 +399,7 @@ function goTab(name) {
   if (btn) btn.classList.add("active");
   const pane = document.getElementById("tab-"+name);
   if (pane) pane.classList.add("active");
-  if (name==="trends"&&!_trendsLoaded){
-    _trendsLoaded=true; loadTrends(); if (_insightsData) renderInsights(_insightsData);
-  }
+  // Trends: artist log is always ready; charts load on first toggle expand
   if (name==="buzz"&&!_buzzLoaded){
     _buzzLoaded=true; renderBuzz(_socialData);
   }
