@@ -121,20 +121,6 @@
         <div class="hero-cards" id="hero-cards"></div>
       </div>
 
-      <div class="discover-body">
-        <div class="pulse-row" id="pulse-list"></div>
-        <div class="breakdown-col">
-          <div class="breakdown-box">
-            <div class="breakdown-title">By Genre</div>
-            <div id="genre-bars"></div>
-          </div>
-          <div class="breakdown-box">
-            <div class="breakdown-title">By Language</div>
-            <div id="lang-bars"></div>
-          </div>
-        </div>
-      </div>
-
       <div class="discover-divider">
         <span id="d-list-label">All videos</span> — sort &amp; filter below
       </div>
@@ -238,55 +224,8 @@
 
     <!-- ── TRENDS ── -->
     <div id="tab-trends" class="tab-pane">
-      <div class="filter-bar">
-        <select id="t-months">
-          <option value="6">Last 6 Months</option>
-          <option value="3">Last 3 Months</option>
-          <option value="12">Last 12 Months</option>
-        </select>
-        <button class="more-btn" id="t-more-btn">+ More ▾</button>
-        <div class="filter-more" id="t-more" hidden>
-          <div class="toggle-group" id="t-genre-toggles"></div>
-          <div class="toggle-group" id="t-lang-toggles"></div>
-        </div>
-      </div>
-      <div class="trends-empty" id="trends-loading">Loading monthly data…</div>
-      <div class="trends-chart-note" id="trends-chart-note" style="display:none">Charts will appear once 2+ months of data accumulate.</div>
-      <div class="trends-grid" id="trends-grid" style="display:none">
-        <div class="chart-card">
-          <div class="chart-card-title">Genre — videos per month</div>
-          <canvas id="trend-genre"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-title">Language — videos per month</div>
-          <canvas id="trend-lang"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-title">Total views per month</div>
-          <canvas id="trend-views"></canvas>
-        </div>
-        <div class="chart-card">
-          <div class="chart-card-title">Videos tracked per month</div>
-          <canvas id="trend-count"></canvas>
-        </div>
-      </div>
-      <div id="trends-table-wrap" style="display:none">
-        <table class="data-table">
-          <thead><tr><th>Month</th><th>Videos</th><th>Total Views</th><th>Top Genre</th><th>Top Language</th><th>Top Artist</th></tr></thead>
-          <tbody id="trends-body"></tbody>
-        </table>
-      </div>
 
-      <!-- ── Language Insights ── -->
-      <div id="insights-wrap" style="display:none">
-        <div class="insights-header">
-          <div class="insights-title">Language Insights</div>
-          <div class="insights-meta" id="insights-meta"></div>
-        </div>
-        <div class="insights-grid" id="insights-grid"></div>
-      </div>
-
-      <!-- ── Artist Discovery Log ── -->
+      <!-- Artist Discovery Log — always first, no monthly data needed -->
       <div class="artist-log" id="artist-log">
         <div class="artist-log-hd">
           <div class="artist-log-title">Artist Discovery Log</div>
@@ -316,6 +255,59 @@
           <tbody id="artist-log-body"></tbody>
         </table>
       </div>
+
+      <!-- Monthly analytics — deferred, behind toggle -->
+      <div class="trends-analytics-toggle">
+        <button class="trends-toggle-btn" id="trends-toggle-btn">Monthly charts &amp; data ▾</button>
+      </div>
+      <div id="trends-analytics" style="display:none">
+        <div class="filter-bar">
+          <select id="t-months">
+            <option value="6">Last 6 Months</option>
+            <option value="3">Last 3 Months</option>
+            <option value="12">Last 12 Months</option>
+          </select>
+          <button class="more-btn" id="t-more-btn">+ More ▾</button>
+          <div class="filter-more" id="t-more" hidden>
+            <div class="toggle-group" id="t-genre-toggles"></div>
+            <div class="toggle-group" id="t-lang-toggles"></div>
+          </div>
+        </div>
+        <div class="trends-empty" id="trends-loading">Loading monthly data…</div>
+        <div class="trends-chart-note" id="trends-chart-note" style="display:none">Charts will appear once 2+ months of data accumulate.</div>
+        <div class="trends-grid" id="trends-grid" style="display:none">
+          <div class="chart-card">
+            <div class="chart-card-title">Genre — videos per month</div>
+            <canvas id="trend-genre"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-card-title">Language — videos per month</div>
+            <canvas id="trend-lang"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-card-title">Total views per month</div>
+            <canvas id="trend-views"></canvas>
+          </div>
+          <div class="chart-card">
+            <div class="chart-card-title">Videos tracked per month</div>
+            <canvas id="trend-count"></canvas>
+          </div>
+        </div>
+        <div id="trends-table-wrap" style="display:none">
+          <table class="data-table">
+            <thead><tr><th>Month</th><th>Videos</th><th>Total Views</th><th>Top Genre</th><th>Top Language</th><th>Top Artist</th></tr></thead>
+            <tbody id="trends-body"></tbody>
+          </table>
+        </div>
+        <div id="insights-wrap" style="display:none">
+          <div class="insights-header">
+            <div class="insights-title">Language Insights</div>
+            <div class="insights-meta" id="insights-meta"></div>
+          </div>
+          <div class="insights-grid" id="insights-grid"></div>
+        </div>
+      </div>
+
     </div>
 
     <!-- ── BUZZ ── -->
