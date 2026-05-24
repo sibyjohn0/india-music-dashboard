@@ -418,7 +418,7 @@ function initWelcome() {
   if (localStorage.getItem("iimr_ob")) return;
   el.classList.add("is-open");
 
-  const LANGS  = ["Tamil","Telugu","Kannada","Malayalam","Bengali","Punjabi","Marathi","Hindi","All"];
+  const LANGS  = ["Tamil","Telugu","Kannada","Malayalam","Bengali","Punjabi","Marathi","Hindi","English","All"];
   const GENRES = ["Indie","Folk / Acoustic","Hip Hop / Rap","Indie Pop","Rock / Alt","Electronic","R&B / Soul","Lo-Fi","Classical/Fusion"];
   let pendingTab=null, selectedLang=null, selectedGenre=null;
 
