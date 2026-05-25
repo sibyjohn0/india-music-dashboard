@@ -71,6 +71,9 @@ async function init() {
   initArtistDrawer();
   initMetricTips();
   initArtistLog();
+  // Jump to tab if arriving via hash from reviewers.html
+  const _hash = window.location.hash.replace('#', '');
+  if (['artists','trends','buzz'].includes(_hash)) goTab(_hash);
   document.getElementById("trends-toggle-btn").addEventListener("click", function() {
     const panel = document.getElementById("trends-analytics");
     const open  = panel.style.display !== "none";
