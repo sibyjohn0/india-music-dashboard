@@ -474,9 +474,10 @@
     }
     if (r.category === 'submithub') {
       const parts = [];
-      if (reach.followers) parts.push(`<strong>${fmtN(reach.followers)}</strong> followers`);
-      if (reach.approval_rate) parts.push(`${reach.approval_rate}% approval`);
-      if (reach.quality_rank) parts.push(`rank #${reach.quality_rank}`);
+      if (reach.reach_rank != null) parts.push(`reach score <strong>${reach.reach_rank}</strong>/100`);
+      if (reach.youtube_avg) parts.push(`avg <strong>${fmtN(reach.youtube_avg)}</strong> YT views`);
+      if (reach.spotify_playlists) parts.push(`<strong>${reach.spotify_playlists}</strong> Spotify playlists`);
+      if (reach.quality_rank != null && !parts.length) parts.push(`quality score <strong>${reach.quality_rank}</strong>/100`);
       return parts.join(' · ');
     }
     return '';
