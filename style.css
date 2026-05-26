@@ -861,3 +861,12 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 }
 .metric-tip:hover::after,
 .metric-tip.tip-open::after { opacity: 1; }
+
+/* ── Footer ── */
+.site-footer { border-top: 1px solid var(--border); padding: 24px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 12px; }
+.site-footer-left { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.site-footer-name { font-weight: 700; color: var(--text); font-size: 13px; }
+.site-footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+.site-footer-links a { color: var(--muted); transition: color .15s; text-decoration: none; }
+.site-footer-links a:hover { color: var(--text); }
+.site-footer-right { font-size: 11px; }
