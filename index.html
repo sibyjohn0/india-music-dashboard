@@ -60,92 +60,12 @@
 
   <main>
 
-    <!-- ── WELCOME ── -->
-    <div id="welcome" class="welcome">
-      <div class="welcome-inner">
-
-        <!-- Step 1: intent -->
-        <div id="ws-1" class="welcome-step">
-          <div class="welcome-heading">What brings you here?</div>
-          <div class="welcome-tiles">
-            <button class="intent-tile" data-tab="discover">
-              <span class="intent-icon">🎵</span>
-              <span class="intent-title">Discover new music</span>
-              <span class="intent-desc">Find fresh Indian indie you haven't heard yet</span>
-            </button>
-            <button class="intent-tile" data-tab="artists" data-collab="1">
-              <span class="intent-icon">🎸</span>
-              <span class="intent-title">I'm an artist</span>
-              <span class="intent-desc">Find collaborators who match your sound and language</span>
-            </button>
-            <button class="intent-tile" data-tab="trends">
-              <span class="intent-icon">📈</span>
-              <span class="intent-title">Follow the scene</span>
-              <span class="intent-desc">Track how languages and genres are growing over time</span>
-            </button>
-            <button class="intent-tile" data-tab="buzz">
-              <span class="intent-icon">📰</span>
-              <span class="intent-title">What's happening</span>
-              <span class="intent-desc">Latest news and coverage from indie India</span>
-            </button>
-          </div>
-          <button class="intent-skip" id="welcome-skip">Just explore →</button>
-        </div>
-
-        <!-- Step 2a: language picker (discover / trends) -->
-        <div id="ws-lang" class="welcome-step" style="display:none">
-          <button class="welcome-back" id="ws-back-lang">← Back</button>
-          <div class="welcome-heading" id="ws-lang-heading">What are you into?</div>
-          <div class="welcome-chips" id="ws-lang-chips"></div>
-        </div>
-
-        <!-- Step 2b: artist sound setup -->
-        <div id="ws-artist" class="welcome-step" style="display:none">
-          <button class="welcome-back" id="ws-back-artist">← Back</button>
-          <div class="welcome-heading">What's your sound?</div>
-          <div class="welcome-field-label">Genre <span class="welcome-optional">optional</span></div>
-          <div class="welcome-chips" id="ws-genre-chips"></div>
-          <div class="welcome-field-label" style="margin-top:18px">Language <span class="welcome-optional">optional</span></div>
-          <div class="welcome-chips" id="ws-artist-lang-chips"></div>
-          <button class="welcome-cta" id="ws-artist-go">Find my scene →</button>
-        </div>
-
-      </div>
-    </div>
-
     <!-- ── DISCOVER ── -->
     <div id="tab-discover" class="tab-pane active">
       <div class="filter-bar">
+        <input type="text" id="v-search" placeholder="Search title or artist…" />
         <select id="d-lang"><option value="all">All Languages</option></select>
         <select id="d-genre"><option value="all">All Genres</option></select>
-        <button class="more-btn" id="d-more-btn">+ More ▾</button>
-        <div class="filter-more" id="d-more" hidden>
-          <select id="d-sort">
-            <option value="discovery_score">Sort: Score</option>
-            <option value="engagement_rate">Sort: Engagement</option>
-            <option value="velocity">Sort: Velocity</option>
-            <option value="views">Sort: Views</option>
-          </select>
-          <select id="v-min-eng">
-            <option value="0">Any Engagement</option>
-            <option value="1">1%+ Engagement</option>
-            <option value="2">2%+ Engagement</option>
-            <option value="5">5%+ Engagement</option>
-          </select>
-          <button class="toggle-btn" id="d-new-only" data-on="false">New Only</button>
-        </div>
-      </div>
-
-      <div class="discover-hero">
-        <div class="discover-hero-label" id="d-hero-label">Today's Top Finds</div>
-        <div class="hero-cards" id="hero-cards"></div>
-      </div>
-
-      <div class="discover-divider">
-        <span id="d-list-label">All videos</span> — sort &amp; filter below
-      </div>
-      <div class="list-controls">
-        <input type="text" id="v-search" placeholder="Search title or artist…" />
         <select id="v-sort">
           <option value="discovery_score">Sort: Discovery Score</option>
           <option value="engagement_rate">Sort: Engagement</option>
@@ -206,6 +126,7 @@
       <div class="filter-bar">
         <input type="text" id="a-search" placeholder="Search artist…" />
         <select id="a-lang"><option value="all">All Languages</option></select>
+        <select id="a-genre"><option value="all">All Genres</option></select>
         <select id="a-trend">
           <option value="all">All Trends</option>
           <option value="new">New</option>
@@ -213,31 +134,12 @@
           <option value="stable">Stable</option>
           <option value="falling">Falling</option>
         </select>
-        <button class="more-btn" id="a-more-btn">+ More ▾</button>
-        <div class="filter-more" id="a-more" hidden>
-          <select id="a-genre"><option value="all">All Genres</option></select>
-          <select id="a-sort">
-            <option value="collab_score">Sort: Collab Fit</option>
-            <option value="avg_discovery">Sort: Discovery Score</option>
-            <option value="avg_engagement">Sort: Engagement</option>
-            <option value="avg_velocity">Sort: Velocity</option>
-            <option value="total_views">Sort: Total Views</option>
-            <option value="video_count">Sort: Videos</option>
-          </select>
-          <select id="a-min-eng">
-            <option value="0">Any Engagement</option>
-            <option value="1">1%+ Engagement</option>
-            <option value="2">2%+ Engagement</option>
-            <option value="5">5%+ Engagement</option>
-          </select>
-          <select id="a-min-videos">
-            <option value="1">Any Video Count</option>
-            <option value="2">2+ Videos</option>
-            <option value="3">3+ Videos</option>
-            <option value="5">5+ Videos</option>
-          </select>
-          <button class="toggle-btn" id="a-multiplatform" data-on="false">Multi-platform Only</button>
-        </div>
+        <select id="a-sort">
+          <option value="avg_discovery">Sort: Discovery Score</option>
+          <option value="avg_engagement">Sort: Engagement</option>
+          <option value="total_views">Sort: Total Views</option>
+          <option value="video_count">Sort: Videos</option>
+        </select>
       </div>
       <div class="artist-grid" id="artist-grid"></div>
     </div>
