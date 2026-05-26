@@ -9,6 +9,11 @@ const LS_MY_GENRE = "iir_my_genre";
 const LS_MY_LANG  = "iir_my_lang";
 const LS_SAVED    = "iir_saved_artists";
 
+// ── Analytics helper ─────────────────────────────────────────────────────────
+function track(event, params) {
+  if (typeof gtag === 'function') gtag('event', event, params || {});
+}
+
 // ── Formatters ────────────────────────────────────────────────────────────────
 const fmt    = n => n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"K":String(n);
 const fmtInr = n => n>=1e7?"₹"+(n/1e7).toFixed(1)+"Cr":n>=1e5?"₹"+(n/1e5).toFixed(1)+"L":n>=1e3?"₹"+(n/1e3).toFixed(1)+"K":"₹"+n;
@@ -177,10 +182,26 @@ function bindDiscoverControls() {
   });
   ["d-lang","d-genre","d-sort"].forEach(id=>
     document.getElementById(id).addEventListener("change", applyDiscover));
-  document.getElementById("v-search").addEventListener("input", applyVideos);
+  let _searchTimer;
+  document.getElementById("v-search").addEventListener("input", e => {
+    applyVideos();
+    clearTimeout(_searchTimer);
+    _searchTimer = setTimeout(() => {
+      const q = e.target.value.trim();
+      if (q.length > 2) track('search', { search_term: q });
+    }, 800);
+  });
   ["v-sort","v-window","v-min-eng"].forEach(id=>
     document.getElementById(id).addEventListener("change", applyVideos));
   initMoreToggle("d-more-btn", "d-more");
+
+  document.getElementById("video-list").addEventListener("click", e => {
+    const row = e.target.closest(".video-row");
+    if (!row) return;
+    const title = row.querySelector(".video-row-title")?.textContent || "";
+    const channel = row.querySelector(".video-row-channel")?.textContent || "";
+    track('video_click', { video_title: title, artist_name: channel });
+  });
 }
 
 function applyDiscover() {
@@ -401,6 +422,7 @@ function goTab(name) {
   if (btn) btn.classList.add("active");
   const pane = document.getElementById("tab-"+name);
   if (pane) pane.classList.add("active");
+  track('tab_switch', { tab_name: name });
   // Trends: artist log is always ready; charts load on first toggle expand
   if (name==="buzz"&&!_buzzLoaded){
     _buzzLoaded=true; renderBuzz(_socialData);
@@ -916,7 +938,9 @@ function toggleSaveArtist(channelId) {
   if (idx === -1) saved.push(channelId);
   else saved.splice(idx, 1);
   localStorage.setItem(LS_SAVED, JSON.stringify(saved));
-  return idx === -1;
+  const nowSaved = idx === -1;
+  track('artist_save', { action: nowSaved ? 'save' : 'unsave', channel_id: channelId });
+  return nowSaved;
 }
 
 // ── Artist Drawer ─────────────────────────────────────────────────────────────
@@ -934,6 +958,7 @@ function initArtistDrawer() {
 function openArtistDrawer(channel) {
   const drawer = document.getElementById("artist-drawer");
   if (!drawer) return;
+  track('artist_drawer_open', { artist_name: channel.name, genre: channel.top_genre, language: channel.top_lang });
 
   const sp      = spotifyData[channel.name] || {};
   const saved   = getSavedArtists();

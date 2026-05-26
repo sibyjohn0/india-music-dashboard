@@ -12,6 +12,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reviewer Database — India Indie Music Radar</title>
+  <meta name="description" content="924 editorial blogs, podcasts, and Spotify curators for Indian indie music. Direct submission contacts, reach scores, and credit pricing. Updated weekly." />
+  <meta property="og:title" content="Reviewer Database — India Indie Music Radar" />
+  <meta property="og:description" content="924 reviewer contacts for Indian indie music — editorial blogs, podcasts, SubmitHub. Free to use." />
+  <meta property="og:url" content="https://sibyjohn0.github.io/india-music-dashboard/reviewers.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Reviewer Database — India Indie Music Radar" />
+  <meta name="twitter:description" content="924 reviewer contacts for Indian indie music. Free to use." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -462,9 +471,13 @@
     <span class="tab-label">Reviewers</span>
     <span class="tab-sub">924 submit contacts</span>
   </a>
-  <a class="tab" href="https://sibyjohn0.github.io/indie-playbook-viewer" target="_blank" style="text-decoration:none;">
-    <span class="tab-label">Playbook ↗</span>
+  <a class="tab" href="playbook.html" style="text-decoration:none;">
+    <span class="tab-label">Playbook</span>
     <span class="tab-sub">Full artist guide</span>
+  </a>
+  <a class="tab" href="submit.html" style="text-decoration:none;">
+    <span class="tab-label">Submit</span>
+    <span class="tab-sub">Add your music</span>
   </a>
   <a class="tab" href="about.html" style="text-decoration:none;">
     <span class="tab-label">About</span>
@@ -571,6 +584,23 @@
   </div>
 
   <div class="filter-group">
+    <div class="filter-label">Genre</div>
+    <div class="pill-row" id="filter-genre">
+      <button class="pill active" data-val="all">All</button>
+      <button class="pill" data-val="indie">Indie / Alt</button>
+      <button class="pill" data-val="folk">Folk / Acoustic</button>
+      <button class="pill" data-val="hiphop">Hip Hop</button>
+      <button class="pill" data-val="electronic">Electronic</button>
+      <button class="pill" data-val="rnb">R&amp;B / Soul</button>
+      <button class="pill" data-val="pop">Pop</button>
+      <button class="pill" data-val="rock">Rock</button>
+      <button class="pill" data-val="lofi">Lo-Fi</button>
+      <button class="pill" data-val="jazz">Jazz / Classical</button>
+      <button class="pill" data-val="metal">Metal</button>
+    </div>
+  </div>
+
+  <div class="filter-group">
     <div class="filter-label">Max SubmitHub cost</div>
     <div class="pill-row" id="filter-price">
       <button class="pill active" data-val="all">Any</button>
@@ -606,7 +636,33 @@ function toggleGuide() {
   let costFilter = 'all';
   let saFilter = 'all';
   let priceFilter = 'all';
+  let genreFilter = 'all';
   let searchVal = '';
+
+  // Genre bucket keyword map
+  const GENRE_KEYWORDS = {
+    indie:      ['indie', 'alternative', 'alt-', 'indie-pop', 'indie-rock', 'indietronica'],
+    folk:       ['folk', 'acoustic', 'singer-songwriter', 'americana', 'country', 'bluegrass'],
+    hiphop:     ['hip-hop', 'hip hop', 'hiphop', 'rap', 'trap', 'grime', 'drill'],
+    electronic: ['electronic', 'edm', 'dance', 'techno', 'house', 'trance', 'ambient', 'synthwave', 'electronica', 'dubstep', 'dnb', 'drum-and-bass'],
+    rnb:        ['r&b', 'rnb', 'soul', 'r-n-b', 'neo-soul', 'funk'],
+    pop:        ['pop', 'bubblegum', 'synth-pop', 'dream-pop'],
+    rock:       ['rock', 'punk', 'grunge', 'post-rock', 'shoegaze', 'emo', 'hardcore'],
+    lofi:       ['lo-fi', 'lofi', 'chill', 'chillhop', 'chillout'],
+    jazz:       ['jazz', 'blues', 'classical', 'fusion', 'bossa nova', 'bossanova', 'swing'],
+    metal:      ['metal', 'heavy metal', 'death metal', 'black metal', 'doom', 'thrash'],
+  };
+
+  function matchesGenre(r, bucket) {
+    if (bucket === 'all') return true;
+    const keys = GENRE_KEYWORDS[bucket] || [];
+    const haystack = [
+      ...(r.genres || []),
+      ...(r.genre_slugs || []),
+      r.description || '',
+    ].join(' ').toLowerCase();
+    return keys.some(k => haystack.includes(k));
+  }
 
   // Helpers
   function cardCat(r) {
@@ -646,6 +702,7 @@ function toggleGuide() {
       if (costFilter === 'free' && !isFree(r)) return false;
       if (costFilter === 'paid' && isFree(r)) return false;
       if (saFilter === 'yes' && !r.has_south_asian) return false;
+      if (!matchesGenre(r, genreFilter)) return false;
       if (priceFilter !== 'all') {
         if (r.category !== 'submithub') return false;
         if ((r.price_credits || 0) > parseInt(priceFilter)) return false;
@@ -823,6 +880,7 @@ function toggleGuide() {
   setupPillGroup('filter-cat', v => catFilter = v);
   setupPillGroup('filter-cost', v => costFilter = v);
   setupPillGroup('filter-sa', v => saFilter = v);
+  setupPillGroup('filter-genre', v => genreFilter = v);
   setupPillGroup('filter-price', v => priceFilter = v);
 
   document.getElementById('search').addEventListener('input', e => {
