@@ -28,7 +28,6 @@ let _trendsLoaded=false, _buzzLoaded=false, _insightsData=null, _socialData=null
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
-  initWelcome();
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
