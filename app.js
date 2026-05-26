@@ -75,9 +75,24 @@ async function init() {
   initArtistDrawer();
   initMetricTips();
   initArtistLog();
-  // Jump to tab if arriving via hash from reviewers.html
+  // Jump to tab if arriving via hash
   const _hash = window.location.hash.replace('#', '');
   if (['artists','trends','buzz'].includes(_hash)) goTab(_hash);
+
+  // Toolkit intro banner — dismiss once, remember via localStorage
+  const _banner = document.getElementById('toolkit-banner');
+  const _bannerKey = 'iimr_banner_seen';
+  if (_banner) {
+    if (localStorage.getItem(_bannerKey)) {
+      _banner.style.display = 'none';
+    } else {
+      document.getElementById('toolkit-banner-close').addEventListener('click', () => {
+        _banner.style.display = 'none';
+        localStorage.setItem(_bannerKey, '1');
+        track('banner_dismiss', {});
+      });
+    }
+  }
   document.getElementById("trends-toggle-btn").addEventListener("click", function() {
     const panel = document.getElementById("trends-analytics");
     const open  = panel.style.display !== "none";
