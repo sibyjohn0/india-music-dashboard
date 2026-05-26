@@ -217,56 +217,39 @@
       color: #f0f0f0;
     }
 
-    /* ── WORK WITH ME ── */
-    .services-grid {
+    /* ── PATH GRID ── */
+    .path-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
     }
-    .service-card {
+    .path-block {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 22px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      transition: border-color .15s;
+      gap: 12px;
     }
-    .service-card:hover { border-color: #3a3a50; }
-    .service-tag {
+    .path-block-label {
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 4px;
-      width: fit-content;
+      color: var(--accent);
     }
-    .tag-consulting { background: rgba(233,69,96,.15); color: var(--accent); }
-    .tag-brand { background: rgba(247,183,49,.15); color: var(--amber); }
-    .tag-legal { background: rgba(16,185,129,.12); color: var(--green); }
-    .tag-data { background: rgba(96,165,250,.12); color: #60a5fa; }
-
-    .service-name { font-size: 15px; font-weight: 700; color: #f0f0f0; }
-    .service-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
-    .service-detail {
-      font-size: 12px;
-      color: #7a7a95;
-      border-top: 1px solid var(--border);
-      padding-top: 10px;
-      margin-top: 4px;
-      line-height: 1.5;
+    .path-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .path-tag {
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: #c0c0d8;
+      padding: 3px 9px;
+      border-radius: 20px;
     }
-
-    .services-cta {
-      margin-top: 24px;
-      font-size: 14px;
-      color: #b0b0c8;
-      line-height: 1.7;
-    }
-    .services-cta a { color: var(--accent); text-decoration: none; }
-    .services-cta a:hover { text-decoration: underline; }
+    .path-block-note { font-size: 12px; color: var(--muted); line-height: 1.6; }
 
     /* ── CONTACT ── */
     .contact-card {
@@ -461,60 +444,52 @@
     </div>
   </div>
 
-  <!-- WORK WITH ME -->
+  <!-- BUILT FOR EVERY PATH -->
   <div class="section">
-    <div class="section-label">Work with me</div>
-    <div class="section-title">For artists, labels, and brands</div>
-    <p class="section-body">Beyond the free tools, I work directly with artists and industry stakeholders on strategy, partnerships, and infrastructure. These are the engagements available.</p>
+    <div class="section-label">What makes it different</div>
+    <div class="section-title">Built around your specific path, not a generic template.</div>
+    <p class="section-body">Most music advice online assumes one artist type, one genre, one market. This doesn't. The tools here adapt to where you are and what you make.</p>
 
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-tag tag-consulting">Artist Strategy</div>
-        <div class="service-name">30 / 90-Day Sprint</div>
-        <div class="service-desc">A structured consulting engagement covering release planning, platform strategy, outreach campaigns, and income architecture. Built around where you are right now, not a generic template.</div>
-        <div class="service-detail">30-day sprint: one release cycle. 90-day: full strategy + execution support.</div>
+    <div class="path-grid">
+      <div class="path-block">
+        <div class="path-block-label">Artist type</div>
+        <div class="path-tags">
+          <span class="path-tag">Singer-Songwriter</span>
+          <span class="path-tag">Instrumentalist</span>
+          <span class="path-tag">Producer / Beatmaker</span>
+        </div>
+        <div class="path-block-note">The Playbook filters checklists and income paths by type. A producer's route to income looks nothing like a singer-songwriter's.</div>
       </div>
-
-      <div class="service-card">
-        <div class="service-tag tag-brand">Brand Partnerships</div>
-        <div class="service-name">Artist ↔ Brand Matching</div>
-        <div class="service-desc">Finding brands whose audience and identity align with an artist's, structuring the deal, negotiating exclusivity and rate, and protecting the artist's creative integrity in the contract.</div>
-        <div class="service-detail">Flat fee per engagement. No ongoing % of deal value unless agreed upfront.</div>
+      <div class="path-block">
+        <div class="path-block-label">Language and genre</div>
+        <div class="path-tags">
+          <span class="path-tag">Tamil</span>
+          <span class="path-tag">Telugu</span>
+          <span class="path-tag">Hindi</span>
+          <span class="path-tag">Malayalam</span>
+          <span class="path-tag">Kannada</span>
+          <span class="path-tag">Bengali</span>
+          <span class="path-tag">Punjabi</span>
+          <span class="path-tag">English</span>
+          <span class="path-tag">Folk</span>
+          <span class="path-tag">Electronic</span>
+          <span class="path-tag">Hip Hop</span>
+          <span class="path-tag">Indie Pop</span>
+        </div>
+        <div class="path-block-note">The Radar and Reviewer Database filter by language and genre so you're looking at the right scene, not the whole country at once.</div>
       </div>
-
-      <div class="service-card">
-        <div class="service-tag tag-legal">Sync Licensing</div>
-        <div class="service-name">Film, TV, and Advertising</div>
-        <div class="service-desc">Preparing a catalog for sync — metadata, ISRC registration, one-stop licensing structure, split management. Pitching to music supervisors. Evaluating inbound sync offers.</div>
-        <div class="service-detail">Requires clean rights. Masters and publishing must be separated before engagement.</div>
+      <div class="path-block">
+        <div class="path-block-label">Where you are in the journey</div>
+        <div class="path-tags">
+          <span class="path-tag">Just starting out</span>
+          <span class="path-tag">First release</span>
+          <span class="path-tag">Building a live set</span>
+          <span class="path-tag">Getting press</span>
+          <span class="path-tag">First income</span>
+          <span class="path-tag">Rights and registration</span>
+        </div>
+        <div class="path-block-note">The Playbook opens at the section most relevant to your current problem, not chapter one.</div>
       </div>
-
-      <div class="service-card">
-        <div class="service-tag tag-legal">Deal Evaluation</div>
-        <div class="service-name">Label and Management Terms</div>
-        <div class="service-desc">Reading label term sheets, evaluating 360 deals, understanding split points and reversion clauses. Explaining what a contract actually says versus what it seems to say.</div>
-        <div class="service-detail">Not legal advice. Honest, plain-language analysis of commercial terms from a music industry frame.</div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-tag tag-consulting">Collaborations</div>
-        <div class="service-name">Strategic Artist Matching</div>
-        <div class="service-desc">Using the Radar data to identify artists with compatible sound profiles, overlapping audiences, and complementary languages. Facilitated introductions and collaboration structure support.</div>
-        <div class="service-detail">Best results when both artists are tracked in the Radar database.</div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-tag tag-data">Data Licensing</div>
-        <div class="service-name">For Labels and Agencies</div>
-        <div class="service-desc">Access to the Reviewer Database, Radar data, and curated artist shortlists for A&amp;R scouting, campaign planning, and market intelligence. Structured as a monthly or project license.</div>
-        <div class="service-detail">Custom data cuts available. Minimum 3-month engagement for recurring access.</div>
-      </div>
-
-    </div>
-
-    <div class="services-cta">
-      To start a conversation, email <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a> or reach out on <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn</a>. Describe what you're working on in a few lines — no brief needed upfront.
     </div>
   </div>
 
@@ -523,11 +498,11 @@
   <!-- CONTACT -->
   <div class="section">
     <div class="section-label">Get in touch</div>
-    <div class="section-title">Let's talk</div>
+    <div class="section-title">Say hello</div>
     <div class="contact-card">
       <div class="contact-left">
         <h3>Siby John</h3>
-        <p>Based in India. Working with independent artists, labels, and brands on music strategy, partnerships, and infrastructure. Response time is usually 24–48 hours.</p>
+        <p>I built this because the information should exist and be free. If you found it useful, spotted something wrong, have data to add, or just want to talk about the Indian indie scene — reach out.</p>
         <a class="contact-cta" href="mailto:sibyjohn0@gmail.com">Send an email →</a>
       </div>
       <div class="contact-items">
