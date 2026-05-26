@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Indie Music India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d0f;
+      --surface:  #141418;
+      --surface2: #1c1c24;
+      --border:   #242430;
+      --accent:   #e94560;
+      --amber:    #f7b731;
+      --green:    #10b981;
+      --text:     #e8e8f0;
+      --muted:    #6b6b85;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── NAV ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 52px;
+      background: rgba(13,13,15,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 13px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .logo span { color: var(--accent); }
+
+    nav { display: flex; gap: 0; }
+    .tab {
+      padding: 16px 18px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      border-bottom: 2px solid transparent;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
+
+    /* ── PAGE LAYOUT ── */
+    .page { max-width: 860px; margin: 0 auto; padding: 72px 32px 120px; }
+
+    /* ── HERO ── */
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: #f0f0f0;
+      margin-bottom: 24px;
+    }
+    .hero-deck {
+      font-size: 17px;
+      color: #b0b0c8;
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 72px; }
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: opacity .15s;
+    }
+    .cta-primary:hover { opacity: .88; }
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: border-color .15s;
+    }
+    .cta-secondary:hover { border-color: var(--muted); }
+
+    /* ── TOOLS ── */
+    .section { margin-bottom: 80px; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+      margin-bottom: 8px;
+      color: #f0f0f0;
+    }
+    .section-body {
+      font-size: 15px;
+      color: #b0b0c8;
+      line-height: 1.75;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color .15s, transform .15s;
+    }
+    .tool-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .tool-icon { font-size: 22px; }
+    .tool-name { font-size: 15px; font-weight: 700; color: #f0f0f0; }
+    .tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
+    .tool-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .tool-link:hover { opacity: .8; }
+
+    /* ── BUILDER NOTE ── */
+    .builder-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .builder-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .builder-text {
+      font-size: 15px;
+      color: #c0c0d8;
+      line-height: 1.85;
+    }
+    .builder-text p + p { margin-top: 16px; }
+    .stat-inline {
+      display: inline-block;
+      font-weight: 700;
+      color: #f0f0f0;
+    }
+
+    /* ── WORK WITH ME ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color .15s;
+    }
+    .service-card:hover { border-color: #3a3a50; }
+    .service-tag {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    .tag-consulting { background: rgba(233,69,96,.15); color: var(--accent); }
+    .tag-brand { background: rgba(247,183,49,.15); color: var(--amber); }
+    .tag-legal { background: rgba(16,185,129,.12); color: var(--green); }
+    .tag-data { background: rgba(96,165,250,.12); color: #60a5fa; }
+
+    .service-name { font-size: 15px; font-weight: 700; color: #f0f0f0; }
+    .service-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
+    .service-detail {
+      font-size: 12px;
+      color: #7a7a95;
+      border-top: 1px solid var(--border);
+      padding-top: 10px;
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .contact-left h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+      margin-bottom: 12px;
+      color: #f0f0f0;
+    }
+    .contact-left p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 14px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color .15s;
+    }
+    .contact-item:hover { border-color: var(--accent); }
+    .contact-icon { font-size: 16px; flex-shrink: 0; }
+    .contact-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .contact-value { font-size: 14px; font-weight: 600; color: #f0f0f0; }
+    .contact-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      background: var(--accent);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
+      transition: opacity .15s;
+    }
+    .contact-cta:hover { opacity: .88; }
+
+    /* ── DATA FACTS ── */
+    .facts-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 48px;
+    }
+    .fact {
+      background: var(--surface);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .fact-num { font-size: 22px; font-weight: 800; color: #f0f0f0; letter-spacing: -.5px; }
+    .fact-num span { color: var(--accent); }
+    .fact-label { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 64px 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .footer-logo { font-weight: 800; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { color: var(--muted); transition: color .15s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .page { padding: 48px 20px 80px; }
+      header { padding: 0 16px; }
+      nav { display: none; }
+      .contact-card { grid-template-columns: 1fr; gap: 24px; }
+      footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Indie Music <span>India</span></div>
+  <nav>
+    <a class="tab" href="https://sibyjohn0.github.io/indie-playbook-viewer" target="_blank">Playbook ↗</a>
+    <a class="tab" href="index.html">Radar</a>
+    <a class="tab" href="reviewers.html">Reviewers</a>
+    <a class="tab active" href="about.html">About</a>
+  </nav>
+</header>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="eyebrow">Indie Music India</div>
+  <h1 class="hero-headline">Built for the Indian<br>independent artist<br>who means it.</h1>
+  <p class="hero-deck">A free, open set of tools and research for artists navigating India's independent music economy — without a label, without an advance, without a team that already knows the answers.</p>
+
+  <div class="cta-row">
+    <a class="cta-primary" href="https://sibyjohn0.github.io/indie-playbook-viewer" target="_blank">Open the Playbook ↗</a>
+    <a class="cta-secondary" href="index.html">Explore the Radar →</a>
+  </div>
+
+  <!-- THE NUMBERS -->
+  <div class="facts-strip">
+    <div class="fact"><div class="fact-num">204<span>M</span></div><div class="fact-label">music streamers in India</div></div>
+    <div class="fact"><div class="fact-num">₹608<span>Cr</span></div><div class="fact-label">IPRS royalties paid in FY25</div></div>
+    <div class="fact"><div class="fact-num">90<span>%</span></div><div class="fact-label">eligible artists not registered with IPRS</div></div>
+    <div class="fact"><div class="fact-num">3–5</div><div class="fact-label">years: median time to ₹50K/month</div></div>
+    <div class="fact"><div class="fact-num">924<span>+</span></div><div class="fact-label">submission contacts in the database</div></div>
+    <div class="fact"><div class="fact-num">₹0</div><div class="fact-label">cost to use any of this</div></div>
+  </div>
+
+  <!-- THE TOOLS -->
+  <div class="section">
+    <div class="section-label">What this is</div>
+    <div class="section-title">Three tools. One system.</div>
+    <p class="section-body">Each tool is useful on its own. Together they cover the full arc — understanding the scene, knowing who to reach, and having a strategy for the road ahead.</p>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon">📖</div>
+        <div class="tool-name">The Playbook</div>
+        <div class="tool-desc">29 sections covering identity, production, distribution, revenue, live performance, brand deals, sync licensing, and rights registration. India-specific. 154 action items.</div>
+        <a class="tool-link" href="https://sibyjohn0.github.io/indie-playbook-viewer" target="_blank">Open Playbook ↗</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">◉</div>
+        <div class="tool-name">India Indie Music Radar</div>
+        <div class="tool-desc">A live tracker of Indian indie artists — by language, genre, listener data, discovery score, and collaboration fit. Updated daily. No editorial bias.</div>
+        <a class="tool-link" href="index.html">Open Radar →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">📋</div>
+        <div class="tool-name">Reviewer Database</div>
+        <div class="tool-desc">924 editorial blogs, podcasts, Spotify curators, and SubmitHub channels — with direct submission contacts, credit pricing, and reach data. Updated weekly.</div>
+        <a class="tool-link" href="reviewers.html">Open Database →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY I'M BUILDING THIS -->
+  <div class="section">
+    <div class="section-label">Why I'm building this</div>
+    <div class="section-title">The problem with music advice in India</div>
+    <div class="builder-card">
+      <div class="builder-name">Siby John</div>
+      <div class="builder-text">
+        <p>India has <span class="stat-inline">204 million</span> music streamers and one of the fastest-growing independent scenes anywhere in the world. But the infrastructure for the artists making that music barely exists. Labels are opaque. Platforms are algorithmic black boxes. Most advice available online is written for the Western market and does not account for IPRS, JioSaavn, the NRI diaspora market, or the tier-2 city live boom that is reshaping where money actually comes from.</p>
+        <p>I spent time mapping how the independent music economy actually works in India — who the real gatekeepers are, what the revenue numbers look like in practice, what platforms actually pay per stream, which curators genuinely surface new artists versus which ones are pay-to-play. The tools here are the output of that research, built openly so any artist can use them without hiring someone to explain it.</p>
+        <p>The honest version: streaming pays about <span class="stat-inline">₹10,000–16,500 per million plays</span> in India. The artists who build real incomes are not the most talented ones. They are the most consistent, the most strategic, and the most specific about who they are. This is a system to help serious artists become those things.</p>
+        <p>Everything here is free. The only thing I ask is that you use it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORK WITH ME -->
+  <div class="section">
+    <div class="section-label">Work with me</div>
+    <div class="section-title">For artists, labels, and brands</div>
+    <p class="section-body">Beyond the free tools, I work directly with artists and industry stakeholders on strategy, partnerships, and infrastructure. These are the engagements available.</p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-tag tag-consulting">Artist Strategy</div>
+        <div class="service-name">30 / 90-Day Sprint</div>
+        <div class="service-desc">A structured consulting engagement covering release planning, platform strategy, outreach campaigns, and income architecture. Built around where you are right now, not a generic template.</div>
+        <div class="service-detail">30-day sprint: one release cycle. 90-day: full strategy + execution support.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-tag tag-brand">Brand Partnerships</div>
+        <div class="service-name">Artist ↔ Brand Matching</div>
+        <div class="service-desc">Finding brands whose audience and identity align with an artist's, structuring the deal, negotiating exclusivity and rate, and protecting the artist's creative integrity in the contract.</div>
+        <div class="service-detail">Flat fee per engagement. No ongoing % of deal value unless agreed upfront.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-tag tag-legal">Sync Licensing</div>
+        <div class="service-name">Film, TV, and Advertising</div>
+        <div class="service-desc">Preparing a catalog for sync — metadata, ISRC registration, one-stop licensing structure, split management. Pitching to music supervisors. Evaluating inbound sync offers.</div>
+        <div class="service-detail">Requires clean rights. Masters and publishing must be separated before engagement.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-tag tag-legal">Deal Evaluation</div>
+        <div class="service-name">Label and Management Terms</div>
+        <div class="service-desc">Reading label term sheets, evaluating 360 deals, understanding split points and reversion clauses. Explaining what a contract actually says versus what it seems to say.</div>
+        <div class="service-detail">Not legal advice. Honest, plain-language analysis of commercial terms from a music industry frame.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-tag tag-consulting">Collaborations</div>
+        <div class="service-name">Strategic Artist Matching</div>
+        <div class="service-desc">Using the Radar data to identify artists with compatible sound profiles, overlapping audiences, and complementary languages. Facilitated introductions and collaboration structure support.</div>
+        <div class="service-detail">Best results when both artists are tracked in the Radar database.</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-tag tag-data">Data Licensing</div>
+        <div class="service-name">For Labels and Agencies</div>
+        <div class="service-desc">Access to the Reviewer Database, Radar data, and curated artist shortlists for A&amp;R scouting, campaign planning, and market intelligence. Structured as a monthly or project license.</div>
+        <div class="service-detail">Custom data cuts available. Minimum 3-month engagement for recurring access.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- CONTACT -->
+  <div class="section">
+    <div class="section-label">Get in touch</div>
+    <div class="section-title">Let's talk</div>
+    <div class="contact-card">
+      <div class="contact-left">
+        <h3>Siby John</h3>
+        <p>Based in India. Working with independent artists, labels, and brands on music strategy, partnerships, and infrastructure. Response time is usually 24–48 hours.</p>
+        <a class="contact-cta" href="mailto:sibyjohn0@gmail.com">Send an email →</a>
+      </div>
+      <div class="contact-items">
+        <a class="contact-item" href="mailto:sibyjohn0@gmail.com">
+          <div class="contact-icon">✉</div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">sibyjohn0@gmail.com</div>
+          </div>
+        </a>
+        <a class="contact-item" href="tel:+919960025559">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">Phone / WhatsApp</div>
+            <div class="contact-value">+91 99600 25559</div>
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">India</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">Indie Music <span>India</span></div>
+  <div class="footer-links">
+    <a href="https://sibyjohn0.github.io/indie-playbook-viewer" target="_blank">Playbook</a>
+    <a href="index.html">Radar</a>
+    <a href="reviewers.html">Reviewers</a>
+    <a href="about.html">About</a>
+    <a href="mailto:sibyjohn0@gmail.com">Contact</a>
+  </div>
+  <div>Built by Siby John · Free to use · Data updated weekly</div>
+</footer>
+
+</body>
+</html>
