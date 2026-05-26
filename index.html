@@ -131,7 +131,17 @@
           <option value="14">Last 14 Days</option>
           <option value="30">Last 30 Days</option>
         </select>
+        <select id="v-min-eng">
+          <option value="0">Any engagement</option>
+          <option value="0.02">2%+ engagement</option>
+          <option value="0.05">5%+ engagement</option>
+          <option value="0.1">10%+ engagement</option>
+        </select>
+        <button id="d-new-only" class="pill-toggle" data-on="false">✦ New only</button>
       </div>
+      <div class="discover-hero-label" id="d-hero-label">Today's Top Finds</div>
+      <div class="hero-cards" id="hero-cards"></div>
+      <div class="discover-hero-label" id="d-list-label" style="margin-top:28px">All videos</div>
       <div class="video-list" id="video-list"></div>
       <div class="cross-nav-bar">
         <span class="cross-nav-label">Ready to pitch?</span>
