@@ -431,9 +431,9 @@ function goTab(name) {
   document.querySelectorAll('.filter-more').forEach(p => { p.hidden = true; });
   document.querySelectorAll('.more-btn').forEach(b => { if (b.textContent.startsWith('−')) b.textContent = '+ More ▾'; });
   dismissWelcome();
-  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  document.querySelectorAll(".subtab").forEach(t=>t.classList.remove("active"));
   document.querySelectorAll(".tab-pane").forEach(t=>t.classList.remove("active"));
-  const btn = document.querySelector(`.tab[data-tab="${name}"]`);
+  const btn = document.querySelector(`.subtab[data-tab="${name}"]`);
   if (btn) btn.classList.add("active");
   const pane = document.getElementById("tab-"+name);
   if (pane) pane.classList.add("active");
@@ -446,7 +446,7 @@ function goTab(name) {
 
 function bindTabs(insightsData, socialData) {
   _insightsData=insightsData; _socialData=socialData;
-  document.querySelectorAll(".tab").forEach(btn=>
+  document.querySelectorAll(".subtab").forEach(btn=>
     btn.addEventListener("click",()=>goTab(btn.dataset.tab))
   );
 }

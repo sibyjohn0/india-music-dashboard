@@ -62,36 +62,11 @@
     .logo a { color: var(--text); }
     .logo a:hover { color: var(--accent); }
 
-    nav {
-      display: flex;
-      gap: 0;
-      padding: 0 32px;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    .tab {
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      color: #999;
-      font: 13px/1 'Inter', sans-serif;
-      padding: 12px 18px;
-      cursor: pointer;
-      transition: color .15s, border-color .15s;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      white-space: nowrap;
-      text-decoration: none;
-    }
+    nav { display: flex; padding: 0 24px; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    nav::-webkit-scrollbar { display: none; }
+    .tab { background: none; border: none; border-bottom: 2px solid transparent; color: #999; font: 13px/1 'Inter', sans-serif; padding: 0 16px; height: 44px; display: flex; align-items: center; cursor: pointer; transition: color .15s, border-color .15s; white-space: nowrap; text-decoration: none; flex-shrink: 0; font-weight: 500; }
     .tab:hover { color: var(--text); }
-    .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 600; }
-    .tab-label { font-size: 13px; }
-    .tab-sub { font-size: 10px; font-weight: 400; color: #777; line-height: 1; }
-    .tab.active .tab-sub { color: var(--accent); opacity: 0.9; }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
 
     .page { max-width: 680px; margin: 0 auto; padding: 60px 32px 100px; }
 
@@ -176,38 +151,11 @@
 </header>
 
 <nav>
-  <a class="tab" href="about.html" style="text-decoration:none;">
-    <span class="tab-label">About</span>
-    <span class="tab-sub">Why we built this</span>
-  </a>
-  <a class="tab" href="playbook.html" style="text-decoration:none;">
-    <span class="tab-label">Playbook</span>
-    <span class="tab-sub">29 sections · India strategy</span>
-  </a>
-  <a class="tab" href="index.html" style="text-decoration:none;">
-    <span class="tab-label">Discover</span>
-    <span class="tab-sub">Top picks + full list</span>
-  </a>
-  <a class="tab" href="index.html#artists" style="text-decoration:none;">
-    <span class="tab-label">Artists</span>
-    <span class="tab-sub">Profiles + listener data</span>
-  </a>
-  <a class="tab" href="index.html#trends" style="text-decoration:none;">
-    <span class="tab-label">Trends</span>
-    <span class="tab-sub">Monthly charts + insights</span>
-  </a>
-  <a class="tab" href="index.html#buzz" style="text-decoration:none;">
-    <span class="tab-label">Buzz</span>
-    <span class="tab-sub">Music news + coverage</span>
-  </a>
-  <a class="tab" href="reviewers.html" style="text-decoration:none;">
-    <span class="tab-label">Reviewers</span>
-    <span class="tab-sub">924 reviewer contacts</span>
-  </a>
-  <a class="tab active" href="submit.html" style="text-decoration:none;">
-    <span class="tab-label">Submit</span>
-    <span class="tab-sub">Add your music</span>
-  </a>
+  <a class="tab" href="about.html">About</a>
+  <a class="tab" href="playbook.html">Playbook</a>
+  <a class="tab" href="index.html">Radar</a>
+  <a class="tab" href="reviewers.html">Reviewers</a>
+  <a class="tab active" href="submit.html">Submit</a>
 </nav>
 
 <div class="page">
