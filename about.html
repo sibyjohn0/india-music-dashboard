@@ -61,6 +61,22 @@
     .tab:hover { color: var(--text); }
     .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
 
+    /* ── CONTACT STRIP ── */
+    .contact-strip {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 9px 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+    .contact-strip-name { font-weight: 700; color: var(--text); }
+    .contact-strip-sep { color: var(--border); }
+    .contact-strip a { color: var(--muted); text-decoration: none; transition: color .15s; }
+    .contact-strip a:hover { color: var(--text); }
+
     /* ── PAGE LAYOUT ── */
     .page { max-width: 860px; margin: 0 auto; padding: 72px 32px 120px; }
 
@@ -369,6 +385,16 @@
     <a class="tab active" href="about.html">About</a>
   </nav>
 </header>
+
+<div class="contact-strip">
+  <span class="contact-strip-name">Siby John</span>
+  <span class="contact-strip-sep">·</span>
+  <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
+  <span class="contact-strip-sep">·</span>
+  <a href="tel:+919960025559">+91 99600 25559</a>
+  <span class="contact-strip-sep">·</span>
+  <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn ↗</a>
+</div>
 
 <div class="page">
 
