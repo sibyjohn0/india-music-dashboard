@@ -195,7 +195,7 @@ function bindDiscoverControls() {
     newBtn.classList.toggle("active", !on);
     applyDiscover();
   });
-  ["d-lang","d-genre","d-sort"].forEach(id=>
+  ["d-lang","d-genre","v-sort"].forEach(id=>
     document.getElementById(id).addEventListener("change", applyDiscover));
   let _searchTimer;
   document.getElementById("v-search").addEventListener("input", e => {
@@ -206,7 +206,7 @@ function bindDiscoverControls() {
       if (q.length > 2) track('search', { search_term: q });
     }, 800);
   });
-  ["v-sort","v-window","v-min-eng"].forEach(id=>
+  ["v-window","v-min-eng"].forEach(id=>
     document.getElementById(id).addEventListener("change", applyVideos));
   initMoreToggle("d-more-btn", "d-more");
 
@@ -222,7 +222,7 @@ function bindDiscoverControls() {
 function applyDiscover() {
   const lang    = document.getElementById("d-lang").value;
   const genre   = document.getElementById("d-genre").value;
-  const srt     = document.getElementById("d-sort").value;
+  const srt     = document.getElementById("v-sort").value;
   const newOnly = document.getElementById("d-new-only").dataset.on==="true";
   let vs = allVideos.filter(v=>
     (lang==="all"  || v.language===lang) &&

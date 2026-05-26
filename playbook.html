@@ -35,7 +35,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 /* ── ONBOARDING ── */
 #onboarding{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;overflow-y:auto}
 #onboarding.hidden{display:none}
-.ob-logo{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:32px}
+.ob-logo{font-size:11px;letter-spacing:1px;color:var(--accent);font-weight:700;margin-bottom:32px}
 .ob-title{font-size:clamp(22px,4vw,36px);font-weight:800;text-align:center;line-height:1.2;max-width:600px;margin-bottom:12px}
 .ob-sub{font-size:14px;color:var(--muted);text-align:center;margin-bottom:36px;max-width:480px}
 .ob-step{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;text-align:center}
@@ -589,7 +589,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 <!-- TOP BAR -->
 <div id="topbar" style="display:none">
   <button id="hamburger" onclick="toggleSidebar()">☰</button>
-  <div id="topbar-title" onclick="showLanding()" title="Back to home" style="cursor:pointer">Indie Music <span>India</span></div>
+  <div id="topbar-title" onclick="showLanding()" title="Back to home" style="cursor:pointer">India Indie Music <span>Radar</span></div>
   <div id="search-wrap">
     <input id="search-input" type="text" placeholder="Search sections…" autocomplete="off" oninput="onSearch(this.value)" onkeydown="searchKeydown(event)">
     <button id="search-clear" onclick="clearSearch()">✕</button>
