@@ -1151,6 +1151,120 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 }
 .act-see-all:hover { text-decoration: underline; }
 
+/* ── Events grid (Venues near you) ── */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.event-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: border-color .15s, background .15s;
+  min-height: 72px;
+}
+.event-card:hover { border-color: var(--accent); background: var(--surface2); }
+.event-card-name {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--text);
+}
+.event-card-meta {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── Reviewers grid (Active reviewers) ── */
+.reviewers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.reviewer-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 90px;
+  transition: border-color .15s;
+}
+.reviewer-card:hover { border-color: var(--accent); }
+.reviewer-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.reviewer-card-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.reviewer-platform-pill {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--muted);
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.reviewer-card-genres {
+  font-size: 11px;
+  color: var(--muted);
+  flex: 1;
+}
+.reviewer-card-cta {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  align-self: flex-start;
+}
+.reviewer-card-cta:hover { text-decoration: underline; }
+
+/* ── Trending genre pill ── */
+.trending-genre-pill {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--yellow);
+  background: rgba(251,191,36,.1);
+  border: 1px solid rgba(251,191,36,.25);
+  border-radius: 20px;
+  padding: 4px 12px;
+  margin-top: 14px;
+}
+
+/* ── See all events link ── */
+.act-see-all-events {
+  margin-top: 8px;
+}
+
 /* ── Deep dive CTA ── */
 .deep-dive-cta {
   display: block;
@@ -1215,6 +1329,8 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 @media (max-width: 600px) {
   .breaking-cards { grid-template-columns: 1fr; gap: 12px; }
   .act-on-it-grid { grid-template-columns: 1fr; gap: 20px; }
+  .events-grid { grid-template-columns: 1fr; }
+  .reviewers-grid { grid-template-columns: 1fr; }
 
   /* Hero cards: show max 3, rest hidden via JS */
   .hero-cards { grid-template-columns: 1fr; }

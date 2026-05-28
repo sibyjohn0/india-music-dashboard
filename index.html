@@ -49,44 +49,6 @@
     <button class="subtab" data-tab="buzz">Buzz</button>
   </nav>
 
-  <div id="toolkit-banner" class="toolkit-banner">
-    <div class="toolkit-banner-lhs">
-      <span class="toolkit-banner-eyebrow">India Indie Music Toolkit</span>
-      <span class="toolkit-banner-tagline">Three free tools in one place.</span>
-    </div>
-    <div class="toolkit-banner-tools">
-      <div class="toolkit-pill toolkit-pill-active">
-        <span class="toolkit-pill-dot">◉</span>
-        <span class="toolkit-pill-body">
-          <span class="toolkit-pill-name">Music Radar</span>
-          <span class="toolkit-pill-sub">You're here — live discovery feed</span>
-        </span>
-      </div>
-      <a class="toolkit-pill" href="playbook/">
-        <span class="toolkit-pill-icon">📖</span>
-        <span class="toolkit-pill-body">
-          <span class="toolkit-pill-name">Artist Playbook</span>
-          <span class="toolkit-pill-sub">29 sections, India-specific, free</span>
-        </span>
-      </a>
-      <a class="toolkit-pill" href="reviewers/">
-        <span class="toolkit-pill-icon">✉</span>
-        <span class="toolkit-pill-body">
-          <span class="toolkit-pill-name">924 Reviewers</span>
-          <span class="toolkit-pill-sub">Blogs, curators, podcasts</span>
-        </span>
-      </a>
-      <a class="toolkit-pill" href="submit/">
-        <span class="toolkit-pill-icon">＋</span>
-        <span class="toolkit-pill-body">
-          <span class="toolkit-pill-name">Submit your music</span>
-          <span class="toolkit-pill-sub">Get your channel on the radar</span>
-        </span>
-      </a>
-    </div>
-    <button class="toolkit-banner-close" id="toolkit-banner-close" aria-label="Dismiss">✕</button>
-  </div>
-
   <main>
 
     <!-- ── DISCOVER ── -->
@@ -109,22 +71,20 @@
         <div class="today-trending-genre" id="today-trending-genre"></div>
       </div>
 
-      <!-- SECTION 3: Act on it -->
+      <!-- SECTION 3: Venues near you -->
       <div class="today-section">
-        <div class="today-section-hd">Act on it</div>
-        <div class="act-on-it-grid">
-          <div class="act-events-col">
-            <div class="act-col-label">Upcoming shows</div>
-            <div id="today-events">
-              <div class="act-empty">No upcoming shows in data — <a href="https://insider.in" target="_blank" rel="noopener">check Insider.in</a></div>
-            </div>
-          </div>
-          <div class="act-reviewers-col">
-            <div class="act-col-label">Reviewers to pitch this week</div>
-            <div id="today-reviewers"></div>
-            <a class="act-see-all" href="reviewers/">See all 924 reviewers →</a>
-          </div>
+        <div class="today-section-hd">Venues near you</div>
+        <div id="today-events">
+          <div class="act-empty">No upcoming shows found — check back soon</div>
         </div>
+        <a class="act-see-all act-see-all-events" href="https://insider.in" target="_blank" rel="noopener">See all shows →</a>
+      </div>
+
+      <!-- SECTION 4: Active reviewers -->
+      <div class="today-section">
+        <div class="today-section-hd">Active reviewers</div>
+        <div id="today-reviewers"></div>
+        <a class="act-see-all" href="reviewers/">See all 924 reviewers →</a>
       </div>
 
       <!-- Deep dive link -->
