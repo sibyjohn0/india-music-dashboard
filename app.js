@@ -4,6 +4,8 @@ const TRACKER_URL   = "data/tracked_artists.json";
 const INSIGHTS_URL  = "data/insights.json";
 const SOCIAL_URL    = "data/social.json";
 const SPOTIFY_URL   = "data/spotify_enrichment.json";
+const EVENTS_URL    = "data/live-events.json";
+const REVIEWERS_URL = "data/reviewers.json";
 
 const LS_MY_GENRE = "iir_my_genre";
 const LS_MY_LANG  = "iir_my_lang";
@@ -30,19 +32,22 @@ const LANG_COLORS = {
 // ── State ─────────────────────────────────────────────────────────────────────
 let allVideos=[], allChannels=[], lfmData={}, trackerData=null, spotifyData={};
 let _trendsLoaded=false, _buzzLoaded=false, _insightsData=null, _socialData=null;
+let _eventsData=null, _reviewersData=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, reviewersRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(SOCIAL_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(SPOTIFY_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(EVENTS_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
     data = ytRes.value;
     if (lfmRes.status==="fulfilled" && lfmRes.value) lfmData = lfmRes.value.artists||{};
@@ -50,6 +55,8 @@ async function init() {
     insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
     socialData   = (socialRes.status==="fulfilled"   && socialRes.value)   ? socialRes.value   : null;
     if (spotifyRes?.status==="fulfilled" && spotifyRes.value) spotifyData = spotifyRes.value.enrichment||{};
+    _eventsData    = (eventsRes.status==="fulfilled"    && eventsRes.value)    ? eventsRes.value    : null;
+    _reviewersData = (reviewersRes.status==="fulfilled" && reviewersRes.value) ? reviewersRes.value : null;
   } catch {
     document.querySelector("main").innerHTML =
       `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet — run the fetch script.</div>`;
@@ -66,6 +73,10 @@ async function init() {
   populateDropdowns();
   loadPreferences();
   renderDiscover(allVideos);
+  renderBreakingThisWeek();
+  renderTodayEvents(_eventsData);
+  renderTodayReviewers(_reviewersData);
+  renderTrendingGenre(allVideos);
   // breakdown bars removed — data lives in Trends tab
   renderArtistGrid(allChannels);
   renderVideoList(allVideos);
@@ -75,6 +86,7 @@ async function init() {
   initArtistDrawer();
   initMetricTips();
   initArtistLog();
+  initDiscoverFilterToggle();
   // Jump to tab if arriving via hash
   const _hash = window.location.hash.replace('#', '');
   if (['artists','trends','buzz'].includes(_hash)) goTab(_hash);
@@ -160,18 +172,23 @@ function populateDropdowns() {
 
 // ── Discover ──────────────────────────────────────────────────────────────────
 function renderDiscover(videos) {
+  // Dedupe: max 2 per channel, take up to 6 candidates (show 3 initially on mobile)
   const seen = {}; const deduped = [];
   for (const v of videos) {
     const key = v.channel_id || v.channel;
     if ((seen[key] || 0) < 2) { deduped.push(v); seen[key] = (seen[key]||0)+1; }
-    if (deduped.length >= 3) break;
+    if (deduped.length >= 6) break;
   }
+  const top3     = deduped.slice(0,3);
+  const overflow = deduped.slice(3);
+
   const newCount = videos.filter(v => v.is_new).length;
   const newChip  = newCount > 0 ? ` <span class="hero-new-chip">${newCount} new</span>` : "";
-  document.getElementById("d-hero-label").innerHTML =
-    (videos.length === allVideos.length ? "Today's Top Finds" : `Top Finds — ${videos.length} matching`) + newChip;
+  const heroLabel = document.getElementById("d-hero-label");
+  if (heroLabel) heroLabel.innerHTML =
+    (videos.length === allVideos.length ? "Top finds" : `Top finds — ${videos.length} matching`) + newChip;
 
-  document.getElementById("hero-cards").innerHTML = deduped.map((v,i)=>`
+  const cardHTML = (v, i) => `
     <a href="${esc(v.url)}" target="_blank" rel="noopener" class="hero-card">
       <img src="${esc(v.thumbnail)}" alt="" loading="lazy" />
       <div class="hero-card-overlay">
@@ -184,7 +201,25 @@ function renderDiscover(videos) {
         <div class="hero-title">${esc(v.title)}</div>
         <div class="hero-channel">${esc(v.channel)} · ${daysAgo(v.published_at)} · ${fmt(v.views)} views</div>
       </div>
-    </a>`).join("");
+    </a>`;
+
+  const heroCards = document.getElementById("hero-cards");
+  if (heroCards) heroCards.innerHTML = top3.map((v,i) => cardHTML(v,i)).join("");
+
+  // Show more button for overflow cards (mainly useful on mobile)
+  const showMoreBtn = document.getElementById("hero-show-more");
+  if (showMoreBtn) {
+    if (overflow.length > 0) {
+      showMoreBtn.style.display = "";
+      showMoreBtn.textContent = `Show ${overflow.length} more ▾`;
+      showMoreBtn.onclick = () => {
+        heroCards.innerHTML += overflow.map((v,i) => cardHTML(v, i+3)).join("");
+        showMoreBtn.style.display = "none";
+      };
+    } else {
+      showMoreBtn.style.display = "none";
+    }
+  }
 }
 
 function bindDiscoverControls() {
@@ -233,6 +268,204 @@ function applyDiscover() {
     srt==="published_at"?b.published_at.localeCompare(a.published_at):(b[srt]||0)-(a[srt]||0));
   renderDiscover(vs);
   applyVideos();
+}
+
+// ── Breaking this week (channel subscriber growth from history files) ─────────
+async function renderBreakingThisWeek() {
+  const wrap = document.getElementById("breaking-cards");
+  if (!wrap) return;
+
+  // Find today and 7 days ago dates
+  const now     = new Date();
+  const todayStr = now.toISOString().slice(0,10);
+  const weekAgo  = new Date(now - 7 * 864e5);
+
+  // Find available history files: today and nearest older file
+  const candidates = [];
+  for (let i=0; i<=2; i++) {
+    const d = new Date(now - i*864e5);
+    candidates.push(d.toISOString().slice(0,10));
+  }
+
+  let latestSnap = null, oldSnap = null;
+  for (const dateStr of candidates) {
+    const r = await fetch(`data/history/${dateStr}.json`, {cache:"no-cache"}).catch(()=>null);
+    if (r && r.ok) { try { latestSnap = await r.json(); break; } catch {} }
+  }
+
+  // Try to get a snapshot from ~7 days ago
+  for (let daysBack = 6; daysBack <= 9; daysBack++) {
+    const d = new Date(now - daysBack * 864e5);
+    const dateStr = d.toISOString().slice(0,10);
+    const r = await fetch(`data/history/${dateStr}.json`, {cache:"no-cache"}).catch(()=>null);
+    if (r && r.ok) { try { oldSnap = await r.json(); break; } catch {} }
+  }
+
+  // Build growth map from channels.json data by comparing video counts or use latest.json
+  // History files contain videos array — compute per-channel view totals
+  if (!latestSnap || !latestSnap.videos || !latestSnap.videos.length) {
+    wrap.innerHTML = `<div class="breaking-loading">No history data yet — will populate after a few daily runs.</div>`;
+    return;
+  }
+
+  // Aggregate views per channel in latest snapshot
+  const latestByChannel = {};
+  for (const v of latestSnap.videos) {
+    const cid = v.channel_id || v.channel;
+    if (!latestByChannel[cid]) latestByChannel[cid] = {name: v.channel, views: 0, count: 0, language: v.language, genre: v.genre};
+    latestByChannel[cid].views += v.views || 0;
+    latestByChannel[cid].count++;
+  }
+
+  // Aggregate views per channel in old snapshot
+  const oldByChannel = {};
+  if (oldSnap && oldSnap.videos) {
+    for (const v of oldSnap.videos) {
+      const cid = v.channel_id || v.channel;
+      if (!oldByChannel[cid]) oldByChannel[cid] = {views: 0};
+      oldByChannel[cid].views += v.views || 0;
+    }
+  }
+
+  // Compute growth — sort by views delta
+  const growth = Object.entries(latestByChannel).map(([cid, cur]) => {
+    const old = oldByChannel[cid];
+    const delta = old ? cur.views - old.views : cur.views;
+    const pct   = old && old.views > 0 ? Math.round(delta / old.views * 100) : null;
+    return { cid, name: cur.name, language: cur.language, genre: cur.genre, delta, pct, totalViews: cur.views };
+  }).filter(c => c.delta > 0)
+    .sort((a,b) => b.delta - a.delta)
+    .slice(0,3);
+
+  if (!growth.length) {
+    wrap.innerHTML = `<div class="breaking-loading">Not enough history to compute growth yet.</div>`;
+    return;
+  }
+
+  const PLATFORM_ICON = "▶"; // YouTube
+  wrap.innerHTML = growth.map(c => {
+    const growthLabel = c.delta > 0
+      ? `+${fmt(c.delta)} views this week`
+      : `${fmt(c.delta)} views this week`;
+    const pctLabel = c.pct !== null ? ` (+${c.pct}%)` : "";
+    return `<div class="breaking-card">
+      <div class="breaking-card-top">
+        <div class="breaking-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
+        <span class="breaking-platform-icon" title="YouTube">${PLATFORM_ICON}</span>
+      </div>
+      <div class="breaking-card-pill">
+        <span class="pill pill-genre">${esc(c.genre||"Indie")}</span>
+        <span class="pill pill-lang">${esc(c.language||"")}</span>
+      </div>
+      <div class="breaking-growth">${growthLabel}${pctLabel}</div>
+      <div class="breaking-growth-label">compared to last week</div>
+    </div>`;
+  }).join("");
+}
+
+// ── Trending genre signal ─────────────────────────────────────────────────────
+function renderTrendingGenre(videos) {
+  const el = document.getElementById("today-trending-genre");
+  if (!el || !videos.length) return;
+  const topVideos = videos.slice(0, 20);
+  const genreCounts = {};
+  for (const v of topVideos) {
+    if (v.genre) genreCounts[v.genre] = (genreCounts[v.genre]||0)+1;
+  }
+  const top = Object.entries(genreCounts).sort((a,b)=>b[1]-a[1])[0];
+  if (top) {
+    el.innerHTML = `Trending genre in top finds: <strong>${esc(top[0])}</strong> (${top[1]} of top 20 videos)`;
+  }
+}
+
+// ── Today: Events section ─────────────────────────────────────────────────────
+function renderTodayEvents(data) {
+  const el = document.getElementById("today-events");
+  if (!el) return;
+
+  // live-events.json has {cities: {...}} structure
+  const events = [];
+  if (data && data.cities) {
+    for (const city of Object.values(data.cities)) {
+      if (Array.isArray(city)) {
+        for (const ev of city) events.push(ev);
+      }
+    }
+  } else if (Array.isArray(data)) {
+    events.push(...data);
+  }
+
+  // Filter to upcoming events (with date in the future)
+  const now = Date.now();
+  const upcoming = events.filter(e => {
+    if (!e.date) return true;
+    return new Date(e.date) >= now - 864e5;
+  }).slice(0, 2);
+
+  if (!upcoming.length) {
+    el.innerHTML = `<div class="act-empty">No upcoming shows — <a href="https://insider.in" target="_blank" rel="noopener">check Insider.in →</a></div>`;
+    return;
+  }
+
+  el.innerHTML = upcoming.map(e => {
+    const url = e.url || e.link || "#";
+    const name = e.name || e.title || e.event || "Upcoming show";
+    const city = e.city || e.venue_city || "";
+    const date = e.date ? new Date(e.date).toLocaleDateString("en-IN", {day:"numeric",month:"short"}) : "";
+    const venue = e.venue || e.venue_name || "";
+    const meta = [date, venue, city].filter(Boolean).join(" · ");
+    return `<a class="act-event-card" href="${esc(url)}" target="_blank" rel="noopener">
+      <div class="act-event-name">${esc(name)}</div>
+      ${meta ? `<div class="act-event-meta">${esc(meta)}</div>` : ""}
+    </a>`;
+  }).join("");
+}
+
+// ── Today: Reviewers section ──────────────────────────────────────────────────
+function renderTodayReviewers(data) {
+  const el = document.getElementById("today-reviewers");
+  if (!el) return;
+
+  let reviewers = [];
+  if (Array.isArray(data)) reviewers = data;
+  else if (data && Array.isArray(data.reviewers)) reviewers = data.reviewers;
+
+  const sample = reviewers.filter(r => r.active !== false).slice(0, 3);
+
+  if (!sample.length) {
+    el.innerHTML = `<div class="act-empty">Reviewer data loading…</div>`;
+    return;
+  }
+
+  el.innerHTML = sample.map(r => {
+    const genres = (r.genres||[]).slice(0,2).join(", ") || "Various";
+    const pitchLink = (r.pitch_to||[])[0]?.contact
+      ? (r.pitch_to[0].contact.startsWith("http") ? r.pitch_to[0].contact : `mailto:${r.pitch_to[0].contact}`)
+      : (r.url || "#");
+    return `<div class="act-reviewer-card">
+      <div>
+        <div class="act-reviewer-name">${esc(r.name)}</div>
+        <div class="act-reviewer-meta">${esc(genres)}</div>
+      </div>
+      <a class="act-reviewer-link" href="${esc(pitchLink)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Pitch →</a>
+    </div>`;
+  }).join("");
+}
+
+// ── Discover filter toggle ────────────────────────────────────────────────────
+function initDiscoverFilterToggle() {
+  const btn    = document.getElementById("discover-filter-toggle");
+  const bar    = document.getElementById("discover-filter-bar");
+  const label  = document.getElementById("d-list-label");
+  const vlist  = document.getElementById("video-list");
+  if (!btn || !bar) return;
+  btn.addEventListener("click", () => {
+    const open = bar.style.display !== "none";
+    bar.style.display    = open ? "none" : "flex";
+    if (label) label.style.display = open ? "none" : "";
+    if (vlist) vlist.style.display = open ? "none" : "";
+    btn.textContent = open ? "Filter & sort ▾" : "Filter & sort ▴";
+  });
 }
 
 // ── Breakdown bars ────────────────────────────────────────────────────────────

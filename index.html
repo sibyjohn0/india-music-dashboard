@@ -39,8 +39,7 @@
   <nav>
     <a class="tab" href="about/" style="text-decoration:none;">About</a>
     <a class="tab" href="playbook/" style="text-decoration:none;">Playbook</a>
-    <a class="tab active" href="./" style="text-decoration:none;">Radar</a>
-    <a class="tab" href="reviewers/" style="text-decoration:none;">Reviewers</a>
+    <a class="tab active" href="./" style="text-decoration:none;">Today</a>
     <a class="tab" href="submit/" style="text-decoration:none;">Submit</a>
   </nav>
   <nav class="subnav">
@@ -92,7 +91,50 @@
 
     <!-- ── DISCOVER ── -->
     <div id="tab-discover" class="tab-pane active">
-      <div class="filter-bar">
+
+      <!-- SECTION 1: Breaking this week -->
+      <div class="today-section">
+        <div class="today-section-hd">Breaking this week</div>
+        <div class="breaking-cards" id="breaking-cards">
+          <div class="breaking-loading">Loading channel data…</div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: What's moving -->
+      <div class="today-section">
+        <div class="today-section-hd">What's moving</div>
+        <div class="today-section-meta" id="d-hero-label">Top finds</div>
+        <div class="hero-cards" id="hero-cards"></div>
+        <button class="hero-show-more" id="hero-show-more" style="display:none">Show more videos ▾</button>
+        <div class="today-trending-genre" id="today-trending-genre"></div>
+      </div>
+
+      <!-- SECTION 3: Act on it -->
+      <div class="today-section">
+        <div class="today-section-hd">Act on it</div>
+        <div class="act-on-it-grid">
+          <div class="act-events-col">
+            <div class="act-col-label">Upcoming shows</div>
+            <div id="today-events">
+              <div class="act-empty">No upcoming shows in data — <a href="https://insider.in" target="_blank" rel="noopener">check Insider.in</a></div>
+            </div>
+          </div>
+          <div class="act-reviewers-col">
+            <div class="act-col-label">Reviewers to pitch this week</div>
+            <div id="today-reviewers"></div>
+            <a class="act-see-all" href="reviewers/">See all 924 reviewers →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deep dive link -->
+      <a class="deep-dive-cta" href="deep-dive/">Deep dive — full data, all artists, pipeline status →</a>
+
+      <!-- Filters (hidden by default on mobile, shown on demand) -->
+      <div class="discover-filter-toggle-wrap">
+        <button class="discover-filter-toggle" id="discover-filter-toggle">Filter &amp; sort ▾</button>
+      </div>
+      <div class="filter-bar" id="discover-filter-bar" style="display:none">
         <input type="text" id="v-search" placeholder="Search title or artist…" />
         <select id="d-lang"><option value="all">All Languages</option></select>
         <select id="d-genre"><option value="all">All Genres</option></select>
@@ -118,16 +160,9 @@
         </select>
         <button id="d-new-only" class="pill-toggle" data-on="false">✦ New only</button>
       </div>
-      <div class="discover-hero-label" id="d-hero-label">Today's Top Finds</div>
-      <div class="hero-cards" id="hero-cards"></div>
-      <div class="discover-hero-label" id="d-list-label" style="margin-top:28px">All videos</div>
-      <div class="video-list" id="video-list"></div>
-      <div class="cross-nav-bar">
-        <span class="cross-nav-label">Ready to pitch?</span>
-        <a class="cross-nav-link" href="reviewers/">✉ 924 reviewer contacts →</a>
-        <a class="cross-nav-link" href="playbook/">📖 Pitch + release strategy →</a>
-        <a class="cross-nav-link" href="submit/">＋ Submit your music to the radar →</a>
-      </div>
+      <div class="discover-hero-label" id="d-list-label" style="margin-top:28px;display:none">All videos</div>
+      <div class="video-list" id="video-list" style="display:none"></div>
+
     </div>
 
     <!-- ── ARTISTS ── -->

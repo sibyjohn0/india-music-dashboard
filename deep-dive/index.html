@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R7EYMGZEJZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep Dive — India Indie Music Radar</title>
+  <meta name="description" content="Full data view for labels, curators, and power users. All artists, all trends, all events, pipeline status." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .dd-back-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 32px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .dd-back-bar a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .dd-back-bar a:hover { text-decoration: underline; }
+    .dd-intro {
+      padding: 28px 0 8px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 36px;
+    }
+    .dd-intro-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+    .dd-intro-sub { font-size: 13px; color: var(--muted); }
+    @media (max-width: 640px) {
+      .dd-back-bar { padding: 10px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">◉ India Indie Music Radar</div>
+    <div class="header-right">
+      <span id="last-updated" class="muted"></span>
+      <span id="total-badge" class="badge"></span>
+    </div>
+  </header>
+
+  <nav>
+    <a class="tab" href="../about/" style="text-decoration:none;">About</a>
+    <a class="tab" href="../playbook/" style="text-decoration:none;">Playbook</a>
+    <a class="tab active" href="../" style="text-decoration:none;">Today</a>
+    <a class="tab" href="../submit/" style="text-decoration:none;">Submit</a>
+  </nav>
+
+  <div class="dd-back-bar">
+    <a href="../">← Back to Today</a>
+  </div>
+
+  <main>
+    <div class="dd-intro">
+      <div class="dd-intro-title">Deep Dive</div>
+      <div class="dd-intro-sub">Full data — for labels, curators, and power users. No scroll limits.</div>
+    </div>
+
+    <!-- Full artist list -->
+    <div class="deep-dive-section" id="dd-artists-section">
+      <div class="deep-dive-section-hd">
+        All Artists
+        <span class="deep-dive-section-meta" id="dd-artists-meta"></span>
+      </div>
+      <div class="artist-log-filters">
+        <select id="dd-al-lang"><option value="all">All Languages</option></select>
+        <select id="dd-al-genre"><option value="all">All Genres</option></select>
+        <select id="dd-al-sort">
+          <option value="recent">Sort: Most Recent</option>
+          <option value="score">Sort: Highest Score</option>
+          <option value="frequent">Sort: Most Videos</option>
+        </select>
+      </div>
+      <div id="dd-artists-loading" style="color:var(--muted);padding:20px 0">Loading…</div>
+      <table class="data-table" id="dd-artists-table" style="display:none">
+        <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Language</th>
+            <th>Genre</th>
+            <th>Videos</th>
+            <th>Last active</th>
+            <th>Avg score</th>
+            <th>Trend</th>
+          </tr>
+        </thead>
+        <tbody id="dd-artists-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Full trends summary -->
+    <div class="deep-dive-section" id="dd-trends-section">
+      <div class="deep-dive-section-hd">
+        Trends Summary
+        <span class="deep-dive-section-meta" id="dd-trends-meta"></span>
+      </div>
+      <div id="dd-trends-content">
+        <div id="dd-trends-loading" style="color:var(--muted);padding:20px 0">Loading…</div>
+        <div id="dd-trends-body" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- All events -->
+    <div class="deep-dive-section" id="dd-events-section">
+      <div class="deep-dive-section-hd">
+        All Events
+        <span class="deep-dive-section-meta" id="dd-events-meta"></span>
+      </div>
+      <div id="dd-events-content">
+        <div id="dd-events-loading" style="color:var(--muted);padding:20px 0">Loading…</div>
+        <div id="dd-events-body" style="display:none"></div>
+      </div>
+    </div>
+
+    <!-- Pipeline status -->
+    <div class="deep-dive-section" id="dd-pipeline-section" style="display:none">
+      <div class="deep-dive-section-hd">Pipeline Status</div>
+      <table class="pipeline-table" id="dd-pipeline-table">
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Last updated</th>
+            <th>Records</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="dd-pipeline-body"></tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-left">
+      <span class="site-footer-name">Siby John</span>
+      <div class="site-footer-links">
+        <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
+        <a href="tel:+919960025559">+91 99600 25559</a>
+        <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="../about/">About this project</a>
+      </div>
+    </div>
+    <div class="site-footer-right">Radar: daily · Reviewers: weekly · Free to use</div>
+  </footer>
+
+  <script>
+    const fmt    = n => n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":n>=1e3?(n/1e3).toFixed(1)+"K":String(n);
+    const esc    = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+    const daysAgo= iso=>{const d=(Date.now()-new Date(iso))/864e5;return d<1?"Today":d<2?"Yesterday":d<30?Math.floor(d)+"d ago":d<365?Math.floor(d/30)+"mo ago":Math.floor(d/365)+"y ago";};
+    const TREND_ICON = {new:"✦", rising:"▲", stable:"─", falling:"▼"};
+    const TREND_CLS  = {new:"trend-new", rising:"trend-up", stable:"trend-flat", falling:"trend-dn"};
+
+    let allChannels = [];
+
+    async function init() {
+      const NC = {cache:"no-cache"};
+      const [ytRes, trackerRes, lfmRes, eventsRes, pipelineRes] = await Promise.allSettled([
+        fetch("../data/latest.json", NC).then(r=>r.json()),
+        fetch("../data/tracked_artists.json", NC).then(r=>r.json()).catch(()=>null),
+        fetch("../data/lastfm_enrichment.json", NC).then(r=>r.json()).catch(()=>null),
+        fetch("../data/live-events.json", NC).then(r=>r.json()).catch(()=>null),
+        fetch("../data/pipeline-status.json", NC).then(r=>r.json()).catch(()=>null),
+      ]);
+
+      const data     = ytRes.value;
+      const tracker  = (trackerRes.status==="fulfilled") ? trackerRes.value : null;
+      const lfm      = (lfmRes.status==="fulfilled" && lfmRes.value) ? lfmRes.value.artists||{} : {};
+      const events   = (eventsRes.status==="fulfilled") ? eventsRes.value : null;
+      const pipeline = (pipelineRes.status==="fulfilled") ? pipelineRes.value : null;
+
+      // Update header
+      if (data) {
+        document.getElementById("last-updated").textContent =
+          "Updated " + new Date(data.fetched_at).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+        document.getElementById("total-badge").textContent = (data.videos||[]).length + " videos";
+      }
+
+      // Build channels
+      const allVideos = (data.videos||[]).sort((a,b)=>(b.discovery_score||0)-(a.discovery_score||0));
+      const trackerMap = {};
+      (tracker?.artists||[]).forEach(a => { trackerMap[a.name.toLowerCase()] = a; });
+      const map = {};
+      for (const v of allVideos) {
+        const cid = v.channel_id||v.channel;
+        if (!map[cid]) map[cid] = {id:cid, name:v.channel, video_count:0, total_discovery:0, genres:{}, languages:{}, latest_pub:v.published_at};
+        const c = map[cid];
+        c.video_count++;
+        c.total_discovery += v.discovery_score||0;
+        if ((v.published_at||"") > c.latest_pub) c.latest_pub = v.published_at;
+        if (v.genre)    c.genres[v.genre]       = (c.genres[v.genre]||0)+1;
+        if (v.language) c.languages[v.language] = (c.languages[v.language]||0)+1;
+      }
+      allChannels = Object.values(map).map(c => {
+        const t = trackerMap[c.name.toLowerCase()];
+        return {
+          ...c,
+          avg_discovery: Math.round((c.total_discovery/c.video_count)*10)/10,
+          top_genre:     Object.entries(c.genres).sort((a,b)=>b[1]-a[1])[0]?.[0]||"Indie",
+          top_lang:      Object.entries(c.languages).sort((a,b)=>b[1]-a[1])[0]?.[0]||"Hindi",
+          trend:         t?.trend||null,
+        };
+      });
+
+      // Artists table
+      renderDDArtists();
+      initDDArtistFilters(allVideos);
+
+      // Trends summary
+      renderDDTrends(data);
+
+      // Events
+      renderDDEvents(events);
+
+      // Pipeline
+      if (pipeline) renderDDPipeline(pipeline);
+    }
+
+    function renderDDArtists() {
+      const lang  = document.getElementById("dd-al-lang").value;
+      const genre = document.getElementById("dd-al-genre").value;
+      const sort  = document.getElementById("dd-al-sort").value;
+      let cs = allChannels.filter(c =>
+        (lang==="all"  || c.top_lang===lang) &&
+        (genre==="all" || c.top_genre===genre)
+      );
+      if (sort==="frequent") cs = [...cs].sort((a,b)=>b.video_count-a.video_count);
+      else if (sort==="score") cs = [...cs].sort((a,b)=>b.avg_discovery-a.avg_discovery);
+      else cs = [...cs].sort((a,b)=>(b.latest_pub||"").localeCompare(a.latest_pub||""));
+
+      document.getElementById("dd-artists-meta").textContent = `${cs.length} artists`;
+      document.getElementById("dd-artists-loading").style.display = "none";
+      const table = document.getElementById("dd-artists-table");
+      table.style.display = "";
+      document.getElementById("dd-artists-body").innerHTML = cs.map(c => {
+        const badge = c.trend
+          ? `<span class="trend-badge ${TREND_CLS[c.trend]}">${TREND_ICON[c.trend]} ${c.trend}</span>`
+          : `<span style="color:var(--muted)">—</span>`;
+        return `<tr>
+          <td><a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-weight:600">${esc(c.name)}</a></td>
+          <td><span class="pill pill-lang">${esc(c.top_lang)}</span></td>
+          <td><span class="pill pill-genre">${esc(c.top_genre)}</span></td>
+          <td style="text-align:right;font-weight:600">${c.video_count}</td>
+          <td style="color:var(--muted);font-size:12px;white-space:nowrap">${daysAgo(c.latest_pub)}</td>
+          <td style="text-align:right;color:var(--muted)">${c.avg_discovery}</td>
+          <td>${badge}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    function initDDArtistFilters(allVideos) {
+      const langs  = [...new Set(allChannels.map(c=>c.top_lang))].filter(Boolean).sort();
+      const genres = [...new Set(allChannels.map(c=>c.top_genre))].filter(Boolean).sort();
+      langs.forEach(l  => document.getElementById("dd-al-lang").add(new Option(l,l)));
+      genres.forEach(g => document.getElementById("dd-al-genre").add(new Option(g,g)));
+      ["dd-al-lang","dd-al-genre","dd-al-sort"].forEach(id =>
+        document.getElementById(id).addEventListener("change", renderDDArtists));
+    }
+
+    function renderDDTrends(data) {
+      const loading = document.getElementById("dd-trends-loading");
+      const body    = document.getElementById("dd-trends-body");
+      if (!data) { loading.textContent = "No data."; return; }
+
+      const genres = data.genre_breakdown||[];
+      const langs  = data.language_breakdown||[];
+      const topKw  = (data.top_keywords||[]).slice(0,10);
+
+      document.getElementById("dd-trends-meta").textContent =
+        `${data.total||0} videos · ${data.lookback_days||90}d window`;
+      loading.style.display = "none";
+      body.style.display = "";
+      body.innerHTML = `
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px">
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:12px">By Genre</div>
+            ${genres.map(([g,n])=>`<div class="bar-item">
+              <div class="bar-label">${esc(g)}</div>
+              <div class="bar-track"><div class="bar-fill" style="width:${Math.round(n/(genres[0]?.[1]||1)*100)}%"></div></div>
+              <div class="bar-count">${n}</div>
+            </div>`).join("")}
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:12px">By Language</div>
+            ${langs.map(([l,n])=>`<div class="bar-item">
+              <div class="bar-label">${esc(l)}</div>
+              <div class="bar-track"><div class="bar-fill green" style="width:${Math.round(n/(langs[0]?.[1]||1)*100)}%"></div></div>
+              <div class="bar-count">${n}</div>
+            </div>`).join("")}
+          </div>
+        </div>
+        ${topKw.length ? `<div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:10px">Top keywords</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">${topKw.map(k=>`<span class="pill pill-genre">${esc(k)}</span>`).join("")}</div>` : ""}
+      `;
+    }
+
+    function renderDDEvents(data) {
+      const loading = document.getElementById("dd-events-loading");
+      const body    = document.getElementById("dd-events-body");
+
+      const events = [];
+      if (data && data.cities) {
+        for (const [city, list] of Object.entries(data.cities)) {
+          if (Array.isArray(list)) list.forEach(e => events.push({...e, _city: city}));
+        }
+      } else if (Array.isArray(data)) {
+        events.push(...data);
+      }
+
+      document.getElementById("dd-events-meta").textContent = `${events.length} events`;
+      loading.style.display = "none";
+      body.style.display = "";
+
+      if (!events.length) {
+        body.innerHTML = `<div style="color:var(--muted);padding:20px 0">No events in data — check <a href="https://insider.in" target="_blank" rel="noopener" style="color:var(--accent)">Insider.in</a> or <a href="https://in.bookmyshow.com" target="_blank" rel="noopener" style="color:var(--accent)">BookMyShow</a>.</div>`;
+        return;
+      }
+
+      body.innerHTML = `<table class="data-table">
+        <thead><tr><th>Event</th><th>City</th><th>Date</th><th>Venue</th><th>Link</th></tr></thead>
+        <tbody>${events.map(e => {
+          const name  = e.name || e.title || e.event || "—";
+          const city  = e.city || e._city || e.venue_city || "—";
+          const date  = e.date ? new Date(e.date).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}) : "—";
+          const venue = e.venue || e.venue_name || "—";
+          const url   = e.url || e.link || null;
+          return `<tr>
+            <td style="font-weight:600">${esc(name)}</td>
+            <td>${esc(city)}</td>
+            <td style="white-space:nowrap">${esc(date)}</td>
+            <td style="color:var(--muted)">${esc(venue)}</td>
+            <td>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener" style="color:var(--accent);font-size:12px">View →</a>` : "—"}</td>
+          </tr>`;
+        }).join("")}</tbody>
+      </table>`;
+    }
+
+    function renderDDPipeline(data) {
+      const section = document.getElementById("dd-pipeline-section");
+      const body    = document.getElementById("dd-pipeline-body");
+      if (!data || !data.sources) return;
+      section.style.display = "";
+      body.innerHTML = data.sources.map(s => {
+        const statusCls = s.status === "ok" ? "pipeline-status-ok" : "pipeline-status-fail";
+        const updated = s.last_updated
+          ? new Date(s.last_updated).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})
+          : "—";
+        return `<tr>
+          <td style="font-weight:600">${esc(s.name||s.source||"—")}</td>
+          <td style="color:var(--muted)">${esc(updated)}</td>
+          <td style="text-align:right">${s.records ?? "—"}</td>
+          <td class="${statusCls}">${esc(s.status||"—")}</td>
+        </tr>`;
+      }).join("");
+    }
+
+    init();
+  </script>
+</body>
+</html>
