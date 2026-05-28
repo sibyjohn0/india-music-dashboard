@@ -7,6 +7,8 @@ const SPOTIFY_URL     = "data/spotify_enrichment.json";
 const EVENTS_URL      = "data/events-paytm.json";
 const EVENTS_URL_SK   = "data/events-songkick.json";
 const EVENTS_URL_DT   = "data/events-district.json";
+const EVENTS_URL_BMS  = "data/events-bookmyshow.json";
+const EVENTS_URL_SBX  = "data/events-skillboxes.json";
 const EVENTS_URL_FB   = "data/live-events.json";
 const REVIEWERS_URL   = "data/reviewers.json";
 
@@ -42,7 +44,7 @@ async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsFbRes, reviewersRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
@@ -52,6 +54,8 @@ async function init() {
       fetch(EVENTS_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_SK, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_DT, NC).then(r=>r.json()).catch(()=>null),
+      fetch(EVENTS_URL_BMS, NC).then(r=>r.json()).catch(()=>null),
+      fetch(EVENTS_URL_SBX, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_FB, NC).then(r=>r.json()).catch(()=>null),
       fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
@@ -70,7 +74,7 @@ async function init() {
       return false;
     };
     const _allEventSources = [
-      eventsRes, eventsSkRes, eventsDtRes, eventsFbRes
+      eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes
     ].map(r => (r.status === "fulfilled" ? r.value : null));
     _eventsData = _allEventSources.find(_evHasData) || null;
     _reviewersData = (reviewersRes.status==="fulfilled" && reviewersRes.value) ? reviewersRes.value : null;
