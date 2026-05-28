@@ -5,6 +5,8 @@ const INSIGHTS_URL    = "data/insights.json";
 const SOCIAL_URL      = "data/social.json";
 const SPOTIFY_URL     = "data/spotify_enrichment.json";
 const EVENTS_URL      = "data/events-paytm.json";
+const EVENTS_URL_SK   = "data/events-songkick.json";
+const EVENTS_URL_DT   = "data/events-district.json";
 const EVENTS_URL_FB   = "data/live-events.json";
 const REVIEWERS_URL   = "data/reviewers.json";
 
@@ -40,7 +42,7 @@ async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsFbRes, reviewersRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsFbRes, reviewersRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
@@ -48,6 +50,8 @@ async function init() {
       fetch(SOCIAL_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(SPOTIFY_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(EVENTS_URL_SK, NC).then(r=>r.json()).catch(()=>null),
+      fetch(EVENTS_URL_DT, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_FB, NC).then(r=>r.json()).catch(()=>null),
       fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
@@ -57,10 +61,18 @@ async function init() {
     insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
     socialData   = (socialRes.status==="fulfilled"   && socialRes.value)   ? socialRes.value   : null;
     if (spotifyRes?.status==="fulfilled" && spotifyRes.value) spotifyData = spotifyRes.value.enrichment||{};
-    // Events: prefer events-paytm.json, fall back to live-events.json
-    const primaryEvents   = (eventsRes.status==="fulfilled"   && eventsRes.value)   ? eventsRes.value   : null;
-    const fallbackEvents  = (eventsFbRes.status==="fulfilled" && eventsFbRes.value) ? eventsFbRes.value : null;
-    _eventsData    = primaryEvents || fallbackEvents;
+    // Events: try all sources in priority order, pick first with actual events
+    const _evHasData = d => {
+      if (!d) return false;
+      if (Array.isArray(d)) return d.length > 0;
+      if (Array.isArray(d.events)) return d.events.length > 0;
+      if (d.cities) return Object.values(d.cities).some(c => Array.isArray(c) && c.length > 0);
+      return false;
+    };
+    const _allEventSources = [
+      eventsRes, eventsSkRes, eventsDtRes, eventsFbRes
+    ].map(r => (r.status === "fulfilled" ? r.value : null));
+    _eventsData = _allEventSources.find(_evHasData) || null;
     _reviewersData = (reviewersRes.status==="fulfilled" && reviewersRes.value) ? reviewersRes.value : null;
   } catch {
     document.querySelector("main").innerHTML =
