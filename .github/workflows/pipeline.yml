@@ -1,0 +1,53 @@
+name: Daily Pipeline
+
+on:
+  schedule:
+    - cron: "0 1 * * *"    # 01:00 UTC daily (6:30 AM IST)
+  workflow_dispatch:        # allow manual trigger
+    inputs:
+      reviewers:
+        description: "Also run reviewer refresh (normally weekly-only)"
+        required: false
+        default: "false"
+        type: choice
+        options: ["false", "true"]
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run unified pipeline
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+        run: |
+          # On Sundays (UTC day 0) include reviewer refresh; manual trigger honours input
+          FLAGS=""
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$(date -u +%u)" = "7" ]; then
+            FLAGS="--reviewers"
+          elif [ "${{ github.event.inputs.reviewers }}" = "true" ]; then
+            FLAGS="--reviewers"
+          fi
+          echo "Pipeline flags: ${FLAGS}"
+          python scripts/pipeline.py $FLAGS
+
+      - name: Commit all data files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "data: daily pipeline $(date -u '+%Y-%m-%d')"
+          git push
