@@ -1,5 +1,7 @@
 # Core scripts use only Python stdlib (urllib, json, os).
 # Additional scraper dependencies:
-feedparser>=6.0     # fetch_news_rss.py — RSS feed parsing
-beautifulsoup4>=4.12 # fetch_playboard.py, fetch_jiosaavn.py, fetch_events_paytm.py, fetch_songkick.py — HTML fallback parsing
+feedparser>=6.0      # fetch_news_rss.py — RSS feed parsing
+beautifulsoup4>=4.12 # fetch_jiosaavn.py, fetch_events_paytm.py, fetch_songkick.py — HTML fallback parsing
 lxml>=5.0            # optional fast parser backend for BeautifulSoup
+playwright>=1.40     # fetch_spotify_playwright.py, fetch_playboard.py — JS-rendered pages
+                     # GitHub Actions: add `playwright install chromium` step before pipeline run
