@@ -149,12 +149,18 @@ def normalise(item):
     }
 
 
-def fetch_all():
+CITY_FEEDS = [
+    (1119023, "Bangalore"),   # Bangalore local feed (also picks up Kochi)
+    (1275339, "National"),    # National feed: Delhi, Mumbai, Goa, Pune, Hyderabad, Chennai, etc.
+]
+
+
+def fetch_feed(city_id, label):
     all_items = []
     page = 1
     while True:
         payload = {
-            "default_city":  1119023,
+            "default_city":  city_id,
             "opcode":        "search",
             "type":          "fetchAll",
             "eventCityEnb":  False,
@@ -163,21 +169,35 @@ def fetch_all():
         try:
             resp = post_json(API_URL, payload)
         except (HTTPError, URLError, json.JSONDecodeError) as e:
-            print(f"  page {page} failed: {e}", file=sys.stderr)
+            print(f"  [{label}] page {page} failed: {e}", file=sys.stderr)
             break
 
         items = resp.get("items") or []
         all_items.extend(items)
-        print(f"  page {page}: {len(items)} items (total so far: {len(all_items)})")
+        print(f"  [{label}] page {page}: {len(items)} items")
 
         if not resp.get("next") or not items:
             break
         page += 1
         time.sleep(0.5)
-        if page > 10:  # safety cap
+        if page > 15:
             break
 
     return all_items
+
+
+def fetch_all():
+    seen_slugs = set()
+    combined = []
+    for city_id, label in CITY_FEEDS:
+        items = fetch_feed(city_id, label)
+        for item in items:
+            slug = item.get("slug") or item.get("EventId") or item.get("event_display_name")
+            if slug and slug not in seen_slugs:
+                seen_slugs.add(slug)
+                combined.append(item)
+    print(f"  Combined: {len(combined)} unique items across {len(CITY_FEEDS)} feeds")
+    return combined
 
 
 def main():
