@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, json, sys
+import os, json, sys, time
 from datetime import datetime, timezone, timedelta
 from urllib.request import urlopen
 from urllib.parse import urlencode
@@ -165,75 +165,48 @@ LANGUAGE_SEARCHES = {
     "Tamil": [
         ("tamil indie original song", "date"),
         ("tamil folk singer original", "date"),
-        ("tamil rap artist original", "date"),
-        ("tamil indie pop original song", "date"),
         ("carnatic fusion indie original", "rating"),
-        ("tamil electronic producer original", "date"),
     ],
     "Telugu": [
         ("telugu indie original song", "date"),
         ("telugu folk singer original", "date"),
-        ("telugu rap artist original", "date"),
-        ("telugu indie pop original", "date"),
         ("hyderabad indie music original", "date"),
-        ("telugu lo-fi bedroom pop original", "date"),
     ],
     "Kannada": [
         ("kannada indie music original", "date"),
         ("kannada folk singer original", "date"),
-        ("kannada rap artist original", "date"),
-        ("kannada indie pop original", "date"),
         ("bangalore indie music original", "date"),
-        ("kannada carnatic fusion original", "rating"),
     ],
     "Malayalam": [
         ("malayalam indie original music", "date"),
         ("malayalam folk singer original", "date"),
-        ("malayalam rap artist original", "date"),
-        ("malayalam singer songwriter original", "date"),
         ("kerala indie music original", "date"),
-        ("malayalam electronic indie original", "date"),
     ],
     "Bengali": [
         ("bengali indie original song", "date"),
         ("bangla folk singer original", "date"),
-        ("bengali rap artist original", "date"),
-        ("bangla indie pop original", "date"),
-        ("kolkata indie music original", "date"),
         ("baul fusion indie original", "rating"),
     ],
     "Punjabi": [
         ("punjabi indie original song", "date"),
         ("punjabi folk singer original", "date"),
-        ("punjabi underground rap original", "date"),
-        ("punjabi indie pop original song", "date"),
-        ("punjabi acoustic sufi original", "date"),
         ("punjabi lo-fi indie original", "date"),
     ],
     "Marathi": [
         ("marathi indie original song", "date"),
         ("marathi folk singer original", "date"),
-        ("marathi rap artist original", "date"),
-        ("marathi indie pop original", "date"),
-        ("pune indie music marathi", "date"),
         ("lavani fusion indie original", "rating"),
     ],
     "Hindi": [
         ("hindi indie original song", "date"),
         ("hindi folk singer songwriter original", "date"),
-        ("hindi underground rap original", "date"),
-        ("hindi bedroom pop singer songwriter", "date"),
-        ("hindi sufi indie original", "date"),
         ("desi rap artist original", "date"),
         ("hindi r&b soul indie original", "date"),
     ],
     "English": [
         ("indian english indie band original", "date"),
-        ("indian acoustic folk singer songwriter", "date"),
         ("indian indie rock band original", "rating"),
-        ("indian english rap artist original", "date"),
         ("india electronic music artist original", "date"),
-        ("indian jazz fusion indie original", "rating"),
     ],
 }
 
@@ -552,6 +525,7 @@ def main():
             for vid_id in fetch_search_ids(query, order):
                 discovery_ids.setdefault(vid_id, lang)
             quota_used += 100
+            time.sleep(1)
 
     # ── Phase 2: indie label / collective searches ───────────────────────────
     LABEL_SEARCHES = [
@@ -567,6 +541,7 @@ def main():
         for vid_id in fetch_search_ids(query, order):
             discovery_ids.setdefault(vid_id, None)
         quota_used += 100
+        time.sleep(1)
 
     # Registry lang hints take priority over search hints
     for vid_id, lang in discovery_ids.items():
