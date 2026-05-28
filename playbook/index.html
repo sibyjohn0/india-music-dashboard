@@ -404,6 +404,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   <a href="../about/">About</a>
   <a class="active" href="../playbook/">Playbook</a>
   <a href="../">Today</a>
+  <a href="../industry/">Industry</a>
   <a href="../submit/">Submit</a>
 </nav>
 
@@ -3371,6 +3372,7 @@ function buildSidebar(activePhase) {
 
   let html = `<div class="sidebar-home-btn" onclick="showPhaseLanding()">← <span>All Phases</span></div>
 <a class="sidebar-ext-link" href="../reviewers/">✉ <span>924 Reviewer Contacts</span></a>
+<a class="sidebar-ext-link" href="../industry/">🏷 <span>Labels &amp; Agencies</span></a>
 <a class="sidebar-ext-link" href="../about/" target="_blank" rel="noopener">◉ <span>About this project</span></a>`;
   for (const phase of PHASE_ORDER) {
     const items = byPhase[phase.id];
