@@ -53,6 +53,12 @@ SOURCES = [
         "outputs": ["data/insights.json"],
     },
     {
+        "name": "venue_analysis",
+        "script": "analyze_venues.py",
+        "env_required": [],
+        "outputs": ["data/venue-insights.json"],
+    },
+    {
         "name": "spotify",
         "script": "fetch_spotify.py",
         "env_required": ["SPOTIFY_CLIENT_ID", "SPOTIFY_CLIENT_SECRET"],

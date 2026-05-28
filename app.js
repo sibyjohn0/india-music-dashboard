@@ -10,7 +10,8 @@ const EVENTS_URL_DT   = "data/events-district.json";
 const EVENTS_URL_BMS  = "data/events-bookmyshow.json";
 const EVENTS_URL_SBX  = "data/events-skillboxes.json";
 const EVENTS_URL_FB   = "data/live-events.json";
-const REVIEWERS_URL   = "data/reviewers.json";
+const REVIEWERS_URL       = "data/reviewers.json";
+const VENUE_INSIGHTS_URL  = "data/venue-insights.json";
 
 const LS_MY_GENRE = "iir_my_genre";
 const LS_MY_LANG  = "iir_my_lang";
@@ -37,14 +38,14 @@ const LANG_COLORS = {
 // ── State ─────────────────────────────────────────────────────────────────────
 let allVideos=[], allChannels=[], lfmData={}, trackerData=null, spotifyData={};
 let _trendsLoaded=false, _buzzLoaded=false, _insightsData=null, _socialData=null;
-let _eventsData=null, _reviewersData=null;
+let _eventsData=null, _reviewersData=null, _venueInsights=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes, venueInsightsRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
@@ -58,6 +59,7 @@ async function init() {
       fetch(EVENTS_URL_SBX, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_FB, NC).then(r=>r.json()).catch(()=>null),
       fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(VENUE_INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
     data = ytRes.value;
     if (lfmRes.status==="fulfilled" && lfmRes.value) lfmData = lfmRes.value.artists||{};
@@ -84,7 +86,8 @@ async function init() {
       return true;
     });
     _eventsData = _merged.length > 0 ? { events: _merged } : null;
-    _reviewersData = (reviewersRes.status==="fulfilled" && reviewersRes.value) ? reviewersRes.value : null;
+    _reviewersData   = (reviewersRes.status==="fulfilled"     && reviewersRes.value) ? reviewersRes.value     : null;
+    _venueInsights   = (venueInsightsRes.status==="fulfilled" && venueInsightsRes.value) ? venueInsightsRes.value : null;
   } catch {
     document.querySelector("main").innerHTML =
       `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet — run the fetch script.</div>`;
@@ -103,7 +106,7 @@ async function init() {
   renderDiscover(allVideos);
   renderBreakingThisWeek();
   renderTodayEvents(_eventsData);
-  renderTrendsEvents(_eventsData);
+  renderTrendsEvents(_eventsData, _venueInsights);
   renderTodayReviewers(_reviewersData);
   renderTrendingGenre(allVideos);
   // breakdown bars removed — data lives in Trends tab
@@ -477,7 +480,7 @@ function renderTodayEvents(data) {
 }
 
 // ── Trends: Upcoming Shows full list ─────────────────────────────────────────
-function renderTrendsEvents(data) {
+function renderTrendsEvents(data, venueInsights) {
   const el      = document.getElementById("shows-list");
   const pillsEl = document.getElementById("shows-city-pills");
   if (!el) return;
@@ -565,7 +568,7 @@ function renderTrendsEvents(data) {
   };
 
   const drawVenues = () => {
-    const list = activeCity === "all" ? upcoming : upcoming.filter(e => (e.city || "Other") === activeCity);
+    const list = activeCity === "all" ? upcoming : upcoming.filter(e => normCity(e.city || "Other") === activeCity);
 
     const venueMap = {};
     for (const e of list) {
@@ -604,7 +607,79 @@ function renderTrendsEvents(data) {
       ? `<div class="venue-more">+ ${unnamedCount} more show${unnamedCount !== 1 ? "s" : ""} at unlisted venues — <a href="https://www.skillboxes.com/events" target="_blank" rel="noopener">see all on Skillboxes</a></div>`
       : "";
 
+    // ── Rankings panel (top of city view) ──────────────────────────────────────
+    let rankingsHtml = "";
+    if (activeCity !== "all") {
+      const ci = venueInsights?.cities?.[activeCity];
+      const cityVenues = named.sort((a, b) => b.events.length - a.events.length);
+
+      // "Most shows" — top 5 named venues
+      const topVenues = cityVenues.slice(0, 5);
+
+      // "Heating up" — venues with positive growth (from insights) or highest density (fallback)
+      let heatingUp = [];
+      if (ci) {
+        const insightMap = Object.fromEntries((ci.venues || []).map(v => [v.name, v]));
+        heatingUp = cityVenues
+          .map(v => ({ ...v, growth: insightMap[v.name]?.growth ?? null }))
+          .filter(v => v.growth !== null && v.growth > 0)
+          .sort((a, b) => b.growth - a.growth)
+          .slice(0, 5);
+      }
+      // If no history yet, show top 3 venues with 2+ shows in next 14 days as density signal
+      if (!heatingUp.length) {
+        const soon = Date.now() + 14 * 864e5;
+        heatingUp = cityVenues
+          .map(v => ({ ...v, nearShows: v.events.filter(e => e.date && new Date(e.date) <= soon).length }))
+          .filter(v => v.nearShows >= 2)
+          .sort((a, b) => b.nearShows - a.nearShows)
+          .slice(0, 3);
+      }
+
+      if (topVenues.length) {
+        const growthBadge = g => {
+          if (g === null) return "";
+          if (g > 0)  return `<span class="venue-rank-growth up">+${g}</span>`;
+          if (g < 0)  return `<span class="venue-rank-growth down">${g}</span>`;
+          return `<span class="venue-rank-growth flat">—</span>`;
+        };
+
+        const mostShowsRows = topVenues.map((v, i) =>
+          `<div class="venue-rank-row">
+            <span class="venue-rank-pos">${i + 1}</span>
+            <span class="venue-rank-name">${esc(v.name)}</span>
+            <span class="venue-rank-count">${v.events.length}</span>
+            ${growthBadge(ci ? (ci.venues?.find(x => x.name === v.name)?.growth ?? null) : null)}
+          </div>`
+        ).join("");
+
+        const heatingRows = heatingUp.length
+          ? heatingUp.map(v => {
+              const badge = v.growth != null
+                ? `<span class="venue-rank-growth up">+${v.growth} vs last wk</span>`
+                : `<span class="venue-rank-growth up">${v.nearShows} in 2 wks</span>`;
+              return `<div class="venue-rank-row">
+                <span class="venue-rank-name">${esc(v.name)}</span>
+                ${badge}
+              </div>`;
+            }).join("")
+          : `<div class="venue-rank-empty">More data after next pipeline run</div>`;
+
+        rankingsHtml = `<div class="venue-rankings">
+          <div class="venue-rank-col">
+            <div class="venue-rank-heading">Most shows</div>
+            ${mostShowsRows}
+          </div>
+          <div class="venue-rank-col">
+            <div class="venue-rank-heading">Heating up</div>
+            ${heatingRows}
+          </div>
+        </div>`;
+      }
+    }
+
     el.innerHTML = `
+      ${rankingsHtml}
       <div class="venue-summary">${esc(sceneSummary(list))}</div>
       <div class="venue-grid">${cards}</div>
       ${moreNote}`;
