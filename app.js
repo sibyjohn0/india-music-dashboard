@@ -528,19 +528,6 @@ function initDiscoverFilterToggle() {
 }
 
 // ── Breakdown bars ────────────────────────────────────────────────────────────
-function renderBreakdowns(genres, langs) {
-  const barHtml = (items, colorClass="") => {
-    const max = items[0]?.[1]||1;
-    return items.slice(0,8).map(([label,count])=>`
-      <div class="bar-item">
-        <div class="bar-label">${esc(label)}</div>
-        <div class="bar-track"><div class="bar-fill ${colorClass}" style="width:${Math.round(count/max*100)}%"></div></div>
-        <div class="bar-count">${count}</div>
-      </div>`).join("");
-  };
-  document.getElementById("genre-bars").innerHTML = barHtml(genres);
-  document.getElementById("lang-bars").innerHTML  = barHtml(langs,"green");
-}
 
 // ── Collab scoring ────────────────────────────────────────────────────────────
 function collabFit(c) {
@@ -744,10 +731,8 @@ function bindTabs(insightsData, socialData) {
 }
 
 function initWelcome() {
-  const el = document.getElementById("welcome");
-  if (!el) return;
-  if (localStorage.getItem("iimr_ob")) return;
-  el.classList.add("is-open");
+  // Removed — welcome modal no longer exists in the DOM
+  return;
 
   const LANGS  = ["Tamil","Telugu","Kannada","Malayalam","Bengali","Punjabi","Marathi","Hindi","English","All"];
   const GENRES = ["Indie","Folk / Acoustic","Hip Hop / Rap","Indie Pop","Rock / Alt","Electronic","R&B / Soul","Lo-Fi","Classical/Fusion"];
