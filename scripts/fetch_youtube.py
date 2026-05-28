@@ -143,16 +143,20 @@ AGGREGATOR_PATTERNS = [
     "music zone", "music world", "music hub",
     "all songs channel",
     "jukebox official",
-    # DJ / remix channels (added)
+    # DJ / remix channels
+    "dj ", "dj_",                                  # catches "DJ Vaibhav", "DJ NARI"
     "dj creations", "dj beats", "dj records", "dj studio",
     "remix zone", "remix world", "remix official",
     "beats adda", "beats india", "beats official",
+    # Fan clubs / unofficial channels
+    "fan club", "fan_club", "fanclub",
     # Aggregator / compilation channels
     "songs adda", "super songs", "song collection",
     "all songs", "top songs", "best songs",
+    "musiclife", "music life",                     # generic aggregator names
     # Production companies / labels (not independent artists)
     "recording company", "records company", "entertainment company",
-    "music bd", "music official bd",  # Bangladeshi label pattern
+    "music bd", "music official bd",
     "films music", "productions music",
     # Fact / non-music channels
     " facts", "fact channel",
