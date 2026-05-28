@@ -1,11 +1,12 @@
-const DATA_URL      = "data/latest.json";
-const LFM_URL       = "data/lastfm_enrichment.json";
-const TRACKER_URL   = "data/tracked_artists.json";
-const INSIGHTS_URL  = "data/insights.json";
-const SOCIAL_URL    = "data/social.json";
-const SPOTIFY_URL   = "data/spotify_enrichment.json";
-const EVENTS_URL    = "data/live-events.json";
-const REVIEWERS_URL = "data/reviewers.json";
+const DATA_URL        = "data/latest.json";
+const LFM_URL         = "data/lastfm_enrichment.json";
+const TRACKER_URL     = "data/tracked_artists.json";
+const INSIGHTS_URL    = "data/insights.json";
+const SOCIAL_URL      = "data/social.json";
+const SPOTIFY_URL     = "data/spotify_enrichment.json";
+const EVENTS_URL      = "data/events-paytm.json";
+const EVENTS_URL_FB   = "data/live-events.json";
+const REVIEWERS_URL   = "data/reviewers.json";
 
 const LS_MY_GENRE = "iir_my_genre";
 const LS_MY_LANG  = "iir_my_lang";
@@ -39,7 +40,7 @@ async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, reviewersRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsFbRes, reviewersRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
@@ -47,6 +48,7 @@ async function init() {
       fetch(SOCIAL_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(SPOTIFY_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(EVENTS_URL_FB, NC).then(r=>r.json()).catch(()=>null),
       fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
     data = ytRes.value;
@@ -55,7 +57,10 @@ async function init() {
     insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
     socialData   = (socialRes.status==="fulfilled"   && socialRes.value)   ? socialRes.value   : null;
     if (spotifyRes?.status==="fulfilled" && spotifyRes.value) spotifyData = spotifyRes.value.enrichment||{};
-    _eventsData    = (eventsRes.status==="fulfilled"    && eventsRes.value)    ? eventsRes.value    : null;
+    // Events: prefer events-paytm.json, fall back to live-events.json
+    const primaryEvents   = (eventsRes.status==="fulfilled"   && eventsRes.value)   ? eventsRes.value   : null;
+    const fallbackEvents  = (eventsFbRes.status==="fulfilled" && eventsFbRes.value) ? eventsFbRes.value : null;
+    _eventsData    = primaryEvents || fallbackEvents;
     _reviewersData = (reviewersRes.status==="fulfilled" && reviewersRes.value) ? reviewersRes.value : null;
   } catch {
     document.querySelector("main").innerHTML =
@@ -91,20 +96,6 @@ async function init() {
   const _hash = window.location.hash.replace('#', '');
   if (['artists','trends','buzz'].includes(_hash)) goTab(_hash);
 
-  // Toolkit intro banner — dismiss once, remember via localStorage
-  const _banner = document.getElementById('toolkit-banner');
-  const _bannerKey = 'iimr_banner_seen';
-  if (_banner) {
-    if (localStorage.getItem(_bannerKey)) {
-      _banner.style.display = 'none';
-    } else {
-      document.getElementById('toolkit-banner-close').addEventListener('click', () => {
-        _banner.style.display = 'none';
-        localStorage.setItem(_bannerKey, '1');
-        track('banner_dismiss', {});
-      });
-    }
-  }
   document.getElementById("trends-toggle-btn").addEventListener("click", function() {
     const panel = document.getElementById("trends-analytics");
     const open  = panel.style.display !== "none";
@@ -338,7 +329,24 @@ async function renderBreakingThisWeek() {
     .slice(0,3);
 
   if (!growth.length) {
-    wrap.innerHTML = `<div class="breaking-loading">Not enough history to compute growth yet.</div>`;
+    // Fallback: show top 3 channels by avg discovery score from current data
+    const top3 = allChannels.slice(0, 3);
+    if (!top3.length) {
+      wrap.innerHTML = `<div class="breaking-loading">No channel data available yet.</div>`;
+      return;
+    }
+    wrap.innerHTML = top3.map(c => `<div class="breaking-card">
+      <div class="breaking-card-top">
+        <div class="breaking-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
+        <span class="breaking-platform-icon" title="YouTube">▶</span>
+      </div>
+      <div class="breaking-card-pill">
+        <span class="pill pill-genre">${esc(c.top_genre||"Indie")}</span>
+        <span class="pill pill-lang">${esc(c.top_lang||"")}</span>
+      </div>
+      <div class="breaking-growth">Top scorer this week</div>
+      <div class="breaking-growth-label">Discovery score: ${c.avg_discovery}</div>
+    </div>`).join("");
     return;
   }
 
@@ -369,12 +377,21 @@ function renderTrendingGenre(videos) {
   if (!el || !videos.length) return;
   const topVideos = videos.slice(0, 20);
   const genreCounts = {};
+  const genreLangCounts = {};
   for (const v of topVideos) {
-    if (v.genre) genreCounts[v.genre] = (genreCounts[v.genre]||0)+1;
+    if (v.genre) {
+      genreCounts[v.genre] = (genreCounts[v.genre]||0)+1;
+      const key = [v.language, v.genre].filter(Boolean).join(" ");
+      if (key) genreLangCounts[key] = (genreLangCounts[key]||0)+1;
+    }
   }
-  const top = Object.entries(genreCounts).sort((a,b)=>b[1]-a[1])[0];
-  if (top) {
-    el.innerHTML = `Trending genre in top finds: <strong>${esc(top[0])}</strong> (${top[1]} of top 20 videos)`;
+  // Prefer the most common language+genre combo if it's clear
+  const topCombo = Object.entries(genreLangCounts).sort((a,b)=>b[1]-a[1])[0];
+  const topGenre = Object.entries(genreCounts).sort((a,b)=>b[1]-a[1])[0];
+  if (topCombo && topCombo[1] >= 3) {
+    el.innerHTML = `<span class="trending-genre-pill">${esc(topCombo[0])} is moving this week</span>`;
+  } else if (topGenre) {
+    el.innerHTML = `<span class="trending-genre-pill">${esc(topGenre[0])} is moving this week</span>`;
   }
 }
 
@@ -383,7 +400,7 @@ function renderTodayEvents(data) {
   const el = document.getElementById("today-events");
   if (!el) return;
 
-  // live-events.json has {cities: {...}} structure
+  // Flatten events from either {cities:{...}} or {events:[...]} or array structures
   const events = [];
   if (data && data.cities) {
     for (const city of Object.values(data.cities)) {
@@ -391,34 +408,48 @@ function renderTodayEvents(data) {
         for (const ev of city) events.push(ev);
       }
     }
+  } else if (data && Array.isArray(data.events)) {
+    events.push(...data.events);
   } else if (Array.isArray(data)) {
     events.push(...data);
   }
 
-  // Filter to upcoming events (with date in the future)
+  // Filter to upcoming events (today or future, within 90 days)
   const now = Date.now();
   const upcoming = events.filter(e => {
     if (!e.date) return true;
-    return new Date(e.date) >= now - 864e5;
-  }).slice(0, 2);
+    const d = new Date(e.date);
+    return d >= now - 864e5 && d <= now + 90 * 864e5;
+  }).sort((a, b) => {
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return new Date(a.date) - new Date(b.date);
+  }).slice(0, 4);
 
   if (!upcoming.length) {
-    el.innerHTML = `<div class="act-empty">No upcoming shows — <a href="https://insider.in" target="_blank" rel="noopener">check Insider.in →</a></div>`;
+    el.innerHTML = `<div class="act-empty">No upcoming shows found — check back soon</div>`;
     return;
   }
 
-  el.innerHTML = upcoming.map(e => {
-    const url = e.url || e.link || "#";
-    const name = e.name || e.title || e.event || "Upcoming show";
-    const city = e.city || e.venue_city || "";
-    const date = e.date ? new Date(e.date).toLocaleDateString("en-IN", {day:"numeric",month:"short"}) : "";
+  el.innerHTML = `<div class="events-grid">${upcoming.map(e => {
+    const url   = e.url || e.link || "https://insider.in";
+    const name  = e.name || e.title || e.event || "Upcoming show";
+    const city  = e.city || e.venue_city || "";
     const venue = e.venue || e.venue_name || "";
-    const meta = [date, venue, city].filter(Boolean).join(" · ");
-    return `<a class="act-event-card" href="${esc(url)}" target="_blank" rel="noopener">
-      <div class="act-event-name">${esc(name)}</div>
-      ${meta ? `<div class="act-event-meta">${esc(meta)}</div>` : ""}
+    const priceMin = e.price_min || e.min_price;
+    const priceMax = e.price_max || e.max_price;
+    const priceLabel = priceMin
+      ? (priceMax && priceMax !== priceMin ? `₹${priceMin}–₹${priceMax}` : `from ₹${priceMin}`)
+      : (e.price ? `₹${e.price}` : "");
+    const date = e.date
+      ? new Date(e.date).toLocaleDateString("en-IN", {day:"numeric", month:"short", weekday:"short"})
+      : "";
+    const metaParts = [date, venue, city, priceLabel].filter(Boolean);
+    return `<a class="event-card" href="${esc(url)}" target="_blank" rel="noopener">
+      <div class="event-card-name">${esc(name)}</div>
+      ${metaParts.length ? `<div class="event-card-meta">${esc(metaParts.join(" · "))}</div>` : ""}
     </a>`;
-  }).join("");
+  }).join("")}</div>`;
 }
 
 // ── Today: Reviewers section ──────────────────────────────────────────────────
@@ -430,26 +461,54 @@ function renderTodayReviewers(data) {
   if (Array.isArray(data)) reviewers = data;
   else if (data && Array.isArray(data.reviewers)) reviewers = data.reviewers;
 
-  const sample = reviewers.filter(r => r.active !== false).slice(0, 3);
+  // Pick 4 active reviewers, varied by category
+  const active = reviewers.filter(r => r.active !== false);
+  // Try to get variety: editorial, podcast, playlist/spotify, blog
+  const byCategory = {};
+  for (const r of active) {
+    const cat = r.category || "editorial";
+    if (!byCategory[cat]) byCategory[cat] = [];
+    byCategory[cat].push(r);
+  }
+  const sample = [];
+  const order = ["editorial", "podcast", "spotify_curator", "youtube"];
+  for (const cat of order) {
+    if (sample.length >= 4) break;
+    if (byCategory[cat] && byCategory[cat].length) sample.push(byCategory[cat][0]);
+  }
+  // Fill remaining slots from any category
+  for (const r of active) {
+    if (sample.length >= 4) break;
+    if (!sample.includes(r)) sample.push(r);
+  }
 
   if (!sample.length) {
     el.innerHTML = `<div class="act-empty">Reviewer data loading…</div>`;
     return;
   }
 
-  el.innerHTML = sample.map(r => {
-    const genres = (r.genres||[]).slice(0,2).join(", ") || "Various";
+  const PLATFORM_LABEL = {
+    editorial: "Blog / Editorial",
+    podcast: "Podcast",
+    spotify_curator: "Playlist",
+    youtube: "YouTube",
+  };
+
+  el.innerHTML = `<div class="reviewers-grid">${sample.map(r => {
+    const genres    = (r.genres||[]).slice(0, 2).join(", ") || "Various genres";
+    const platform  = PLATFORM_LABEL[r.category] || "Blog";
     const pitchLink = (r.pitch_to||[])[0]?.contact
       ? (r.pitch_to[0].contact.startsWith("http") ? r.pitch_to[0].contact : `mailto:${r.pitch_to[0].contact}`)
       : (r.url || "#");
-    return `<div class="act-reviewer-card">
-      <div>
-        <div class="act-reviewer-name">${esc(r.name)}</div>
-        <div class="act-reviewer-meta">${esc(genres)}</div>
+    return `<div class="reviewer-card">
+      <div class="reviewer-card-top">
+        <div class="reviewer-card-name">${esc(r.name)}</div>
+        <span class="reviewer-platform-pill">${esc(platform)}</span>
       </div>
-      <a class="act-reviewer-link" href="${esc(pitchLink)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Pitch →</a>
+      <div class="reviewer-card-genres">${esc(genres)}</div>
+      <a class="reviewer-card-cta" href="${esc(pitchLink)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Pitch →</a>
     </div>`;
-  }).join("");
+  }).join("")}</div>`;
 }
 
 // ── Discover filter toggle ────────────────────────────────────────────────────
