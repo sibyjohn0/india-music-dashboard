@@ -96,6 +96,7 @@ async function init() {
   renderDiscover(allVideos);
   renderBreakingThisWeek();
   renderTodayEvents(_eventsData);
+  renderTrendsEvents(_eventsData);
   renderTodayReviewers(_reviewersData);
   renderTrendingGenre(allVideos);
   // breakdown bars removed — data lives in Trends tab
@@ -466,6 +467,81 @@ function renderTodayEvents(data) {
       ${metaParts.length ? `<div class="event-card-meta">${esc(metaParts.join(" · "))}</div>` : ""}
     </a>`;
   }).join("")}</div>`;
+}
+
+// ── Trends: Upcoming Shows full list ─────────────────────────────────────────
+function renderTrendsEvents(data) {
+  const el        = document.getElementById("shows-list");
+  const pillsEl   = document.getElementById("shows-city-pills");
+  if (!el) return;
+
+  const events = [];
+  if (data && Array.isArray(data.events)) events.push(...data.events);
+  else if (data && data.cities) {
+    for (const city of Object.values(data.cities)) {
+      if (Array.isArray(city)) events.push(...city);
+    }
+  } else if (Array.isArray(data)) events.push(...data);
+
+  const now = Date.now();
+  const upcoming = events.filter(e => {
+    if (!e.date) return true;
+    const d = new Date(e.date);
+    return d >= now - 864e5 && d <= now + 90 * 864e5;
+  }).sort((a, b) => {
+    if (!a.date) return 1; if (!b.date) return -1;
+    return new Date(a.date) - new Date(b.date);
+  });
+
+  if (!upcoming.length) {
+    el.innerHTML = `<div class="act-empty">No upcoming shows found — check back soon</div>`;
+    return;
+  }
+
+  // City counts
+  const cityCounts = {};
+  for (const e of upcoming) {
+    const c = e.city || "Other";
+    cityCounts[c] = (cityCounts[c] || 0) + 1;
+  }
+
+  let activeCity = "all";
+  const drawList = () => {
+    const list = activeCity === "all" ? upcoming : upcoming.filter(e => (e.city || "Other") === activeCity);
+    el.innerHTML = list.map(e => {
+      const url   = e.url || "#";
+      const name  = e.name || e.title || "Upcoming show";
+      const city  = e.city || "";
+      const venue = e.venue || e.venue_name || "";
+      const pMin  = e.price_min || e.min_price;
+      const pMax  = e.price_max || e.max_price;
+      const price = pMin ? (pMax && pMax !== pMin ? `₹${pMin}–₹${pMax}` : `from ₹${pMin}`) : (pMax ? `up to ₹${pMax}` : "");
+      const date  = e.date ? new Date(e.date).toLocaleDateString("en-IN",{day:"numeric",month:"short",weekday:"short"}) : "";
+      const meta  = [date, venue, city, price].filter(Boolean).join(" · ");
+      return `<a class="show-row" href="${esc(url)}" target="_blank" rel="noopener">
+        <div class="show-row-name">${esc(name)}</div>
+        ${meta ? `<div class="show-row-meta">${esc(meta)}</div>` : ""}
+      </a>`;
+    }).join("");
+  };
+
+  if (pillsEl) {
+    pillsEl.innerHTML =
+      `<button class="city-pill active" data-city="all">All · ${upcoming.length}</button>` +
+      Object.entries(cityCounts).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([c,n])=>
+        `<button class="city-pill" data-city="${esc(c)}">${esc(c)} · ${n}</button>`
+      ).join("");
+    pillsEl.querySelectorAll(".city-pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        pillsEl.querySelectorAll(".city-pill").forEach(b=>b.classList.remove("active"));
+        btn.classList.add("active");
+        activeCity = btn.dataset.city;
+        drawList();
+      });
+    });
+  }
+
+  drawList();
 }
 
 // ── Today: Reviewers section ──────────────────────────────────────────────────

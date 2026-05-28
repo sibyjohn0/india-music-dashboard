@@ -77,7 +77,7 @@
         <div id="today-events">
           <div class="act-empty">No upcoming shows found — check back soon</div>
         </div>
-        <a class="act-see-all act-see-all-events" href="https://insider.in" target="_blank" rel="noopener">See all shows →</a>
+        <a class="act-see-all act-see-all-events" href="#trends" onclick="goTab('trends')" >See all shows →</a>
       </div>
 
       <!-- SECTION 4: Active reviewers -->
@@ -205,6 +205,17 @@
 
     <!-- ── TRENDS ── -->
     <div id="tab-trends" class="tab-pane">
+
+      <!-- Upcoming Shows — live event feed from all scraped sources -->
+      <div class="shows-section">
+        <div class="shows-header">
+          <div class="shows-title">Upcoming Shows</div>
+          <div class="shows-city-pills" id="shows-city-pills"></div>
+        </div>
+        <div class="shows-list" id="shows-list">
+          <div class="act-empty">No upcoming shows found — check back soon</div>
+        </div>
+      </div>
 
       <!-- Artist Discovery Log — always first, no monthly data needed -->
       <div class="artist-log" id="artist-log">
