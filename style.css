@@ -1223,6 +1223,71 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 }
 .shows-list { }
 
+/* ── Venue rankings panel ── */
+.venue-rankings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+@media (max-width: 480px) {
+  .venue-rankings { grid-template-columns: 1fr; }
+}
+.venue-rank-col {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 14px 12px;
+}
+.venue-rank-heading {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.venue-rank-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 12px;
+}
+.venue-rank-row:last-child { border-bottom: none; }
+.venue-rank-pos {
+  font-size: 10px;
+  color: var(--muted);
+  width: 14px;
+  flex-shrink: 0;
+  text-align: right;
+}
+.venue-rank-name {
+  flex: 1;
+  font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.venue-rank-count {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.venue-rank-growth {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 5px;
+  border-radius: 20px;
+  flex-shrink: 0;
+}
+.venue-rank-growth.up   { color: var(--green); background: color-mix(in srgb, var(--green) 12%, transparent); }
+.venue-rank-growth.down { color: var(--red);   background: color-mix(in srgb, var(--red) 12%, transparent); }
+.venue-rank-growth.flat { color: var(--muted); }
+.venue-rank-empty { font-size: 11px; color: var(--muted); padding: 6px 0; }
+
 .venue-summary {
   font-size: 11px;
   color: var(--muted);
