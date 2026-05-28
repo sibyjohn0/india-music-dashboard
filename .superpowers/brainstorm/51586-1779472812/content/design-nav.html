@@ -1,0 +1,96 @@
+<h2>Section 1 — New Navigation Structure</h2>
+<p class="subtitle">4 tabs, each with a clear one-line descriptor. Does this structure look right?</p>
+
+<div class="mockup" style="max-width:700px;margin:0 auto">
+  <div class="mockup-header">New nav bar</div>
+  <div class="mockup-body" style="padding:0">
+
+    <!-- Header -->
+    <div style="background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:12px 20px;display:flex;align-items:center;justify-content:space-between">
+      <div style="font-weight:700;color:#fff;font-size:15px">◉ India Indie Music Radar</div>
+      <div style="font-size:12px;color:#555">Updated 22 May · 214 videos</div>
+    </div>
+
+    <!-- Tab bar -->
+    <div style="background:#0d0d0d;border-bottom:1px solid #1a1a1a;display:flex;padding:0 12px">
+
+      <div style="padding:10px 16px;border-bottom:2px solid #60a5fa;cursor:pointer;text-align:center">
+        <div style="font-size:13px;font-weight:600;color:#60a5fa">Discover</div>
+        <div style="font-size:10px;color:#555;margin-top:2px">Top picks + full list</div>
+      </div>
+
+      <div style="padding:10px 16px;cursor:pointer;text-align:center">
+        <div style="font-size:13px;font-weight:500;color:#666">Artists</div>
+        <div style="font-size:10px;color:#444;margin-top:2px">Profiles + listener data</div>
+      </div>
+
+      <div style="padding:10px 16px;cursor:pointer;text-align:center">
+        <div style="font-size:13px;font-weight:500;color:#666">Trends</div>
+        <div style="font-size:10px;color:#444;margin-top:2px">Monthly charts + insights</div>
+      </div>
+
+      <div style="padding:10px 16px;cursor:pointer;text-align:center">
+        <div style="font-size:13px;font-weight:500;color:#666">Buzz</div>
+        <div style="font-size:10px;color:#444;margin-top:2px">Reddit + news</div>
+      </div>
+
+    </div>
+
+    <!-- Tab content preview -->
+    <div style="padding:16px 20px;background:#111">
+      <div style="font-size:12px;color:#555;margin-bottom:12px">DISCOVER tab — two sections in one scroll:</div>
+
+      <div style="display:flex;gap:8px;margin-bottom:12px">
+        <div style="flex:1;background:#1a1a1a;border-radius:8px;height:80px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#60a5fa;border:1px solid #60a5fa33">Hero cards (top 3)</div>
+        <div style="flex:1;background:#1a1a1a;border-radius:8px;height:80px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#60a5fa;border:1px solid #60a5fa33">Hero cards</div>
+        <div style="flex:1;background:#1a1a1a;border-radius:8px;height:80px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#60a5fa;border:1px solid #60a5fa33">Hero cards</div>
+      </div>
+
+      <div style="display:flex;gap:8px;margin-bottom:8px;align-items:center">
+        <div style="flex:1;height:1px;background:#222"></div>
+        <div style="font-size:11px;color:#444;white-space:nowrap">↓ scroll for full list (replaces Browse tab)</div>
+        <div style="flex:1;height:1px;background:#222"></div>
+      </div>
+
+      <div style="background:#1a1a1a;border-radius:6px;padding:10px;font-size:11px;color:#666">All 214 videos — sortable, filterable — previously the Browse tab</div>
+    </div>
+
+  </div>
+</div>
+
+<br>
+
+<div style="max-width:700px;margin:0 auto">
+  <div style="font-size:13px;color:#888;margin-bottom:12px">What's removed / merged:</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:12px">
+    <div style="background:#1a1a1a;border-radius:8px;padding:12px;border-left:3px solid #f87171">
+      <div style="color:#f87171;font-weight:600;margin-bottom:4px">Removed: Browse tab</div>
+      <div style="color:#666">Full video list moves to bottom of Discover tab. Same filters, same data — just no separate tab needed.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:8px;padding:12px;border-left:3px solid #f87171">
+      <div style="color:#f87171;font-weight:600;margin-bottom:4px">Removed: Radar tab</div>
+      <div style="color:#666">Last.fm listener data + trend badges merge into the Artists tab. Artists tab now shows both YouTube stats AND Last.fm data per artist.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:8px;padding:12px;border-left:3px solid #34d399">
+      <div style="color:#34d399;font-weight:600;margin-bottom:4px">Kept: Trends tab</div>
+      <div style="color:#666">Monthly charts + language insights — no change.</div>
+    </div>
+    <div style="background:#1a1a1a;border-radius:8px;padding:12px;border-left:3px solid #34d399">
+      <div style="color:#34d399;font-weight:600;margin-bottom:4px">Kept: Buzz tab</div>
+      <div style="color:#666">Reddit + news — no change.</div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="options" style="max-width:700px;margin:0 auto">
+  <div class="option" data-choice="yes" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content"><h3>Yes, this structure looks right</h3><p>Move on to designing the individual tabs</p></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">~</div>
+    <div class="content"><h3>Tweak needed</h3><p>I'll say what to change in the terminal</p></div>
+  </div>
+</div>

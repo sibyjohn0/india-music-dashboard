@@ -1,0 +1,77 @@
+<h2>Three Approaches to Fix Intuitiveness</h2>
+<p class="subtitle">All 6 tabs feel confusing — here are 3 ways to fix it, from conservative to structural</p>
+
+<div class="options">
+
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Rename + Explain in Place</h3>
+      <p>Keep 6 tabs, fix the confusion with better names and a one-line context card at the top of each tab that explains what it is and what to do. Collapse dense filter bars behind a "Filters" button.</p>
+      <br>
+      <p><strong>Rename:</strong> Discover → <em>New Releases</em> &nbsp;·&nbsp; Browse → <em>All Videos</em> &nbsp;·&nbsp; Radar → <em>Artist Tracker</em></p>
+      <p><strong>Add:</strong> One-line tab intro card (dismissible), metric tooltips on Score / Velocity / Engagement</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pros</h4><ul><li>Minimal code change</li><li>Keeps all current features intact</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>6 tabs still feels like a lot</li><li>Discover vs Browse distinction is still fuzzy even with new names</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Merge Similar Tabs → 4 Tabs <span style="color:#34d399;font-size:12px;font-weight:600;margin-left:6px">★ Recommended</span></h3>
+      <p>Collapse the 6 tabs into 4 by merging the ones that overlap. Each tab now has a clear, distinct purpose. Add a short descriptor line under each tab name in the nav.</p>
+      <br>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px">
+        <div style="background:#1a1a1a;border-radius:8px;padding:12px">
+          <div style="color:#60a5fa;font-weight:600;margin-bottom:4px">🎵 Discover</div>
+          <div style="color:#888;font-size:12px">Curated top picks — replaces old Discover + Browse combined</div>
+        </div>
+        <div style="background:#1a1a1a;border-radius:8px;padding:12px">
+          <div style="color:#a78bfa;font-weight:600;margin-bottom:4px">🎸 Artists</div>
+          <div style="color:#888;font-size:12px">Channels + Last.fm tracking — replaces old Artists + Radar</div>
+        </div>
+        <div style="background:#1a1a1a;border-radius:8px;padding:12px">
+          <div style="color:#34d399;font-weight:600;margin-bottom:4px">📈 Trends</div>
+          <div style="color:#888;font-size:12px">Monthly charts + language insights — unchanged</div>
+        </div>
+        <div style="background:#1a1a1a;border-radius:8px;padding:12px">
+          <div style="color:#fbbf24;font-weight:600;margin-bottom:4px">📰 Buzz</div>
+          <div style="color:#888;font-size:12px">Reddit + news — unchanged</div>
+        </div>
+      </div>
+      <br>
+      <p><strong>Also:</strong> Add a subtitle line under each tab label in the nav. Collapse filters behind "Filter" button by default. Add metric tooltips.</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pros</h4><ul><li>Each tab has a clear, distinct job</li><li>No more "which tab for artists?" confusion</li><li>Less nav clutter</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>Moderate rework — Discover tab needs to absorb Browse's full-list view</li><li>Artists tab gains Last.fm data columns</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Intent-First Single Feed</h3>
+      <p>Remove tabs entirely. Replace with a persistent intent bar at the top (4 buttons: Find Music / Find Artists / Trends / Buzz). Content below updates based on selection. Deep-dive views (all videos list, artist tracker, charts) accessible via "See all" links within each section.</p>
+      <br>
+      <div style="background:#1a1a1a;border-radius:8px;padding:14px;font-size:13px">
+        <div style="display:flex;gap:8px;margin-bottom:12px">
+          <span style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa44;border-radius:20px;padding:4px 12px;font-size:12px">🎵 Find Music</span>
+          <span style="background:#1a1a1a;color:#666;border:1px solid #333;border-radius:20px;padding:4px 12px;font-size:12px">🎸 Artists</span>
+          <span style="background:#1a1a1a;color:#666;border:1px solid #333;border-radius:20px;padding:4px 12px;font-size:12px">📈 Trends</span>
+          <span style="background:#1a1a1a;color:#666;border:1px solid #333;border-radius:20px;padding:4px 12px;font-size:12px">📰 Buzz</span>
+        </div>
+        <div style="color:#aaa">Hero cards + ranked list below, language filter inline. "Browse all 214 videos →" at the bottom.</div>
+      </div>
+      <br>
+      <div class="pros-cons">
+        <div class="pros"><h4>Pros</h4><ul><li>Most intuitive — no nav decision needed</li><li>Mirrors the intent picker logic that already exists</li></ul></div>
+        <div class="cons"><h4>Cons</h4><ul><li>Largest rewrite</li><li>Loses tab memory (active tab persists on refresh)</li><li>Power users may miss dedicated Browse/Radar views</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+</div>
