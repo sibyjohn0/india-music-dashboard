@@ -498,16 +498,16 @@ function renderTrendsEvents(data) {
     return;
   }
 
+  const CITIES = new Set(["bangalore","bengaluru","mumbai","delhi","hyderabad","chennai","pune","kolkata","goa","kochi","cochin","india"]);
+  const CITY_ALIAS = {"bengaluru":"Bangalore","bangalore city":"Bangalore","new delhi":"Delhi","gurugram":"Delhi","cochin":"Kochi"};
+  const normCity = c => CITY_ALIAS[(c||"").toLowerCase()] || c;
+  const isTourOrDate = v => /\b20\d{2}\b/.test(v) || /\bTour\b/i.test(v) || /^\d+(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i.test(v);
+
   const cityCounts = {};
   for (const e of upcoming) {
     const c = normCity(e.city || "Other");
     cityCounts[c] = (cityCounts[c] || 0) + 1;
   }
-
-  const CITIES = new Set(["bangalore","bengaluru","mumbai","delhi","hyderabad","chennai","pune","kolkata","goa","kochi","cochin","india"]);
-  const CITY_ALIAS = {"bengaluru":"Bangalore","bangalore city":"Bangalore","new delhi":"Delhi","gurugram":"Delhi","cochin":"Kochi"};
-  const normCity = c => CITY_ALIAS[c.toLowerCase()] || c;
-  const isTourOrDate = v => /\b20\d{2}\b/.test(v) || /\bTour\b/i.test(v) || /^\d+(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i.test(v);
   const extractVenue = name => {
     const n = name || "";
     const isCity = v => CITIES.has(v.toLowerCase().trim());
