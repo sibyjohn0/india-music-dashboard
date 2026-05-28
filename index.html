@@ -311,15 +311,12 @@
     <div id="tab-buzz" class="tab-pane">
       <div class="filter-bar">
         <select id="b-lang"><option value="all">All Languages</option></select>
-        <button class="more-btn" id="b-more-btn">+ More ▾</button>
-        <div class="filter-more" id="b-more" hidden>
-          <select id="b-platform">
-            <option value="all">All Sources</option>
-            <option value="reddit">Reddit</option>
-            <option value="news">News</option>
-          </select>
-          <button class="toggle-btn" id="b-artist-only" data-on="false">Artist Mentions Only</button>
-        </div>
+        <select id="b-platform">
+          <option value="all">All Sources</option>
+          <option value="reddit">Reddit</option>
+          <option value="news">News</option>
+        </select>
+        <button class="toggle-btn" id="b-artist-only" data-on="false">Artist Mentions Only</button>
       </div>
       <div class="buzz-empty" id="buzz-loading">Loading community conversations…</div>
       <div id="buzz-content" style="display:none">

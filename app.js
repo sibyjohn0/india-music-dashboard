@@ -1123,7 +1123,6 @@ function renderBuzz(data) {
     this.classList.toggle("active", this.dataset.on==="true");
     applyBuzzFilters(buzzData);
   });
-  initMoreToggle("b-more-btn", "b-more");
 }
 
 function applyBuzzFilters(data) {
@@ -1137,7 +1136,8 @@ function applyBuzzFilters(data) {
     (platform==="all" || p.platform===platform);
 
   const artistPosts = (data.artist_posts||[]).filter(filter);
-  const feedPosts   = artistOnly ? [] : (data.feed||[]).filter(filter);
+  const feedPosts   = artistOnly ? [] : (data.feed||[]).filter(filter)
+    .sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
   renderBuzzArtistSection(artistPosts);
   renderBuzzFeed(feedPosts);
