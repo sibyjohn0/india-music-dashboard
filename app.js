@@ -65,18 +65,25 @@ async function init() {
     insightsData = (insightsRes.status==="fulfilled" && insightsRes.value) ? insightsRes.value : null;
     socialData   = (socialRes.status==="fulfilled"   && socialRes.value)   ? socialRes.value   : null;
     if (spotifyRes?.status==="fulfilled" && spotifyRes.value) spotifyData = spotifyRes.value.enrichment||{};
-    // Events: try all sources in priority order, pick first with actual events
-    const _evHasData = d => {
-      if (!d) return false;
-      if (Array.isArray(d)) return d.length > 0;
-      if (Array.isArray(d.events)) return d.events.length > 0;
-      if (d.cities) return Object.values(d.cities).some(c => Array.isArray(c) && c.length > 0);
-      return false;
+    // Events: merge all sources, deduplicate by name+date+city
+    const _extractEvents = d => {
+      if (!d) return [];
+      if (Array.isArray(d)) return d;
+      if (Array.isArray(d.events)) return d.events;
+      if (d.cities) return Object.values(d.cities).filter(Array.isArray).flat();
+      return [];
     };
-    const _allEventSources = [
-      eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes
-    ].map(r => (r.status === "fulfilled" ? r.value : null));
-    _eventsData = _allEventSources.find(_evHasData) || null;
+    const _rawEvents = [eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes]
+      .filter(r => r.status === "fulfilled" && r.value)
+      .flatMap(r => _extractEvents(r.value));
+    const _seen = new Set();
+    const _merged = _rawEvents.filter(e => {
+      const key = `${(e.name||e.title||"").toLowerCase().trim()}|${e.date||""}|${(e.city||"").toLowerCase()}`;
+      if (_seen.has(key)) return false;
+      _seen.add(key);
+      return true;
+    });
+    _eventsData = _merged.length > 0 ? { events: _merged } : null;
     _reviewersData = (reviewersRes.status==="fulfilled" && reviewersRes.value) ? reviewersRes.value : null;
   } catch {
     document.querySelector("main").innerHTML =
