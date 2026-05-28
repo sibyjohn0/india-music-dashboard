@@ -471,8 +471,8 @@ function renderTodayEvents(data) {
 
 // ── Trends: Upcoming Shows full list ─────────────────────────────────────────
 function renderTrendsEvents(data) {
-  const el        = document.getElementById("shows-list");
-  const pillsEl   = document.getElementById("shows-city-pills");
+  const el      = document.getElementById("shows-list");
+  const pillsEl = document.getElementById("shows-city-pills");
   if (!el) return;
 
   const events = [];
@@ -498,7 +498,6 @@ function renderTrendsEvents(data) {
     return;
   }
 
-  // City counts
   const cityCounts = {};
   for (const e of upcoming) {
     const c = e.city || "Other";
@@ -506,42 +505,83 @@ function renderTrendsEvents(data) {
   }
 
   let activeCity = "all";
-  const drawList = () => {
+
+  const venuePriceLabel = (evs) => {
+    const vals = evs.flatMap(e => [e.price_min ?? e.min_price, e.price_max ?? e.max_price])
+      .filter(p => p != null && p >= 0);
+    if (!vals.length) return "Free entry";
+    const lo = Math.min(...vals), hi = Math.max(...vals);
+    if (lo === 0 && hi === 0) return "Free entry";
+    if (lo === hi) return `₹${lo}`;
+    if (lo === 0) return `Free – ₹${hi}`;
+    return `₹${lo} – ₹${hi}`;
+  };
+
+  const sceneSummary = (list) => {
+    const venues = new Set(list.map(e => (e.venue || e.venue_name || "") + "|" + (e.city || "")));
+    const vals = list.flatMap(e => [e.price_min ?? e.min_price, e.price_max ?? e.max_price])
+      .filter(p => p != null && p >= 0);
+    const lo = vals.length ? Math.min(...vals) : null;
+    const hi = vals.length ? Math.max(...vals) : null;
+    const priceStr = lo == null ? "Free" : lo === hi ? (lo === 0 ? "Free" : `₹${lo}`) :
+      lo === 0 ? `Free – ₹${hi}` : `₹${lo} – ₹${hi}`;
+    return `${venues.size} venue${venues.size !== 1 ? "s" : ""} · ${list.length} show${list.length !== 1 ? "s" : ""} · ${priceStr}`;
+  };
+
+  const drawVenues = () => {
     const list = activeCity === "all" ? upcoming : upcoming.filter(e => (e.city || "Other") === activeCity);
-    el.innerHTML = list.map(e => {
-      const url   = e.url || "#";
-      const name  = e.name || e.title || "Upcoming show";
-      const city  = e.city || "";
-      const venue = e.venue || e.venue_name || "";
-      const pMin  = e.price_min || e.min_price;
-      const pMax  = e.price_max || e.max_price;
-      const price = pMin ? (pMax && pMax !== pMin ? `₹${pMin}–₹${pMax}` : `from ₹${pMin}`) : (pMax ? `up to ₹${pMax}` : "");
-      const date  = e.date ? new Date(e.date).toLocaleDateString("en-IN",{day:"numeric",month:"short",weekday:"short"}) : "";
-      const meta  = [date, venue, city, price].filter(Boolean).join(" · ");
-      return `<a class="show-row" href="${esc(url)}" target="_blank" rel="noopener">
-        <div class="show-row-name">${esc(name)}</div>
-        ${meta ? `<div class="show-row-meta">${esc(meta)}</div>` : ""}
-      </a>`;
-    }).join("");
+
+    const venueMap = {};
+    for (const e of list) {
+      const vname = e.venue || e.venue_name || "Venue TBC";
+      const key   = vname + "|" + (e.city || "");
+      if (!venueMap[key]) venueMap[key] = { name: vname, city: e.city || "", events: [] };
+      venueMap[key].events.push(e);
+    }
+
+    const cards = Object.values(venueMap)
+      .sort((a, b) => b.events.length - a.events.length)
+      .map(v => {
+        const count   = v.events.length;
+        const price   = venuePriceLabel(v.events);
+        const next    = v.events[0];
+        const nextDate = next?.date
+          ? new Date(next.date).toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" })
+          : "";
+        const hot = count >= 3 ? " venue-card--hot" : "";
+        return `<a class="venue-card${hot}" href="${esc(next?.url || "#")}" target="_blank" rel="noopener">
+          <div class="venue-card-name">${esc(v.name)}</div>
+          <div class="venue-card-city">${esc(v.city)}</div>
+          <div class="venue-card-stats">
+            <span class="venue-stat-count">${count} show${count !== 1 ? "s" : ""}</span>
+            <span class="venue-stat-price">${esc(price)}</span>
+          </div>
+          ${nextDate ? `<div class="venue-card-next">Next: ${esc(nextDate)}</div>` : ""}
+        </a>`;
+      }).join("");
+
+    el.innerHTML = `
+      <div class="venue-summary">${esc(sceneSummary(list))}</div>
+      <div class="venue-grid">${cards}</div>`;
   };
 
   if (pillsEl) {
     pillsEl.innerHTML =
       `<button class="city-pill active" data-city="all">All · ${upcoming.length}</button>` +
-      Object.entries(cityCounts).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([c,n])=>
-        `<button class="city-pill" data-city="${esc(c)}">${esc(c)} · ${n}</button>`
-      ).join("");
+      Object.entries(cityCounts).sort((a, b) => b[1] - a[1]).slice(0, 8)
+        .map(([c, n]) => `<button class="city-pill" data-city="${esc(c)}">${esc(c)} · ${n}</button>`)
+        .join("");
     pillsEl.querySelectorAll(".city-pill").forEach(btn => {
       btn.addEventListener("click", () => {
-        pillsEl.querySelectorAll(".city-pill").forEach(b=>b.classList.remove("active"));
+        pillsEl.querySelectorAll(".city-pill").forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         activeCity = btn.dataset.city;
-        drawList();
+        drawVenues();
       });
     });
   }
 
-  drawList();
+  drawVenues();
 }
 
 // ── Today: Reviewers section ──────────────────────────────────────────────────
