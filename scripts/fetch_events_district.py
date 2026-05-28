@@ -1,230 +1,186 @@
 #!/usr/bin/env python3
 """
-fetch_events_district.py — Scrape District (by Zomato) music events.
+fetch_events_district.py — Scrape District (district.in) music events via Playwright.
 
-Source: https://district.zomato.com/events
+Source: https://www.district.in/events/music-in-{city}-book-tickets
+API: POST https://www.district.in/gw/web/get_discovery_results (captured via XHR intercept)
+Response: EDSResponse.rails[*].items[*].ItemDetails.EventData
+
+Cities: Bengaluru, Mumbai, Delhi, Hyderabad, Pune, Chennai, Kolkata, Goa
 Output: data/events-district.json
-
-District serves a Next.js app. Script tries the internal API first,
-then falls back to __NEXT_DATA__ JSON parsing, then BeautifulSoup.
-On failure, last known good data is preserved.
 """
 
-import os, json, sys, re
+import asyncio, json, os, sys, re
 from datetime import datetime, timezone
-from urllib.request import urlopen, Request
-from urllib.error import HTTPError, URLError
+from pathlib import Path
 
-BASE_URL   = "https://district.zomato.com"
-EVENTS_URL = "https://district.zomato.com/events"
-# District internal API endpoints (reverse-engineered from network tab)
-API_URLS = [
-    "https://district.zomato.com/api/events?category=music&page=1&page_size=50",
-    "https://api.district.zomato.com/events?category=music&limit=50",
+OUT = Path(__file__).parent.parent / "data" / "events-district.json"
+
+CITIES = [
+    ("bengaluru", "Bangalore"),
+    ("mumbai",    "Mumbai"),
+    ("new-delhi",  "Delhi"),
+    ("hyderabad", "Hyderabad"),
+    ("pune",      "Pune"),
+    ("chennai",   "Chennai"),
+    ("kolkata",   "Kolkata"),
+    ("goa",       "Goa"),
 ]
-OUT = os.path.join(os.path.dirname(__file__), "..", "data", "events-district.json")
 
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/124.0.0.0 Safari/537.36"
-    ),
-    "Accept":          "application/json, text/html;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Referer":         "https://district.zomato.com/",
+CITY_ALIASES = {
+    "Delhi/NCR":  "Delhi",
+    "Gurugram":   "Delhi",
+    "Bengaluru":  "Bangalore",
+    "bengaluru":  "Bangalore",
 }
 
-INDIAN_CITIES = {
-    "mumbai", "delhi", "bangalore", "bengaluru", "hyderabad",
-    "chennai", "pune", "kolkata", "goa", "ahmedabad",
-}
+BASE_URL = "https://www.district.in"
 
 
 def load_last_known():
-    if os.path.exists(OUT):
+    if OUT.exists():
         with open(OUT) as f:
             return json.load(f)
     return None
 
 
-def fetch_url(url, timeout=20):
-    req = Request(url, headers=HEADERS)
-    with urlopen(req, timeout=timeout) as resp:
-        return resp.read().decode("utf-8", errors="replace")
+def parse_price(price_str):
+    if not price_str:
+        return None
+    nums = re.findall(r"\d+", price_str.replace(",", ""))
+    return int(nums[0]) if nums else None
 
 
-def fmt_date(raw):
-    if not raw:
-        return ""
-    if isinstance(raw, (int, float)):
-        try:
-            return datetime.fromtimestamp(raw / 1000, tz=timezone.utc).strftime("%Y-%m-%d")
-        except Exception:
-            return str(raw)
-    return str(raw)[:10]
+def normalise_event(ev, city_hint):
+    name  = ev.get("name", "").strip()
+    venue = ev.get("venue_name", "").strip()
+    city  = ev.get("city", "").strip() or city_hint
+    city  = CITY_ALIASES.get(city, city)
 
+    epoch = ev.get("start_time_epoch")
+    if epoch:
+        ev_date = datetime.fromtimestamp(epoch, tz=timezone.utc).strftime("%Y-%m-%d")
+        ev_time = datetime.fromtimestamp(epoch, tz=timezone.utc).strftime("%H:%M")
+    else:
+        ev_date = ""
+        ev_time = ""
 
-def parse_price(raw):
-    if not raw:
-        return None, None
-    if isinstance(raw, (int, float)):
-        return int(raw), int(raw)
-    s = str(raw).replace(",", "")
-    nums = re.findall(r"\d+", s)
-    if len(nums) >= 2:
-        return int(nums[0]), int(nums[1])
-    if len(nums) == 1:
-        return int(nums[0]), int(nums[0])
-    return None, None
+    price_min = parse_price(ev.get("price_string", ""))
+    slug      = ev.get("event_slug", "")
+    url       = f"{BASE_URL}/events/{slug}" if slug else ""
 
-
-def normalise_event(raw):
-    """Normalise an event dict from any source into a standard shape."""
-    name    = raw.get("name") or raw.get("title") or raw.get("event_name") or ""
-    venue   = raw.get("venue") or raw.get("venue_name") or raw.get("location") or ""
-    if isinstance(venue, dict):
-        venue = venue.get("name") or venue.get("venue_name") or ""
-    city    = raw.get("city") or raw.get("city_name") or ""
-    if isinstance(city, dict):
-        city = city.get("name") or city.get("city_name") or ""
-    date_raw  = raw.get("date") or raw.get("start_date") or raw.get("event_date") or raw.get("start_time") or ""
-    price_raw = raw.get("price") or raw.get("price_info") or raw.get("min_price") or ""
-    url_raw   = raw.get("url") or raw.get("event_url") or raw.get("slug") or ""
-    if url_raw and not url_raw.startswith("http"):
-        url_raw = BASE_URL + "/" + url_raw.lstrip("/")
-    pmin, pmax = parse_price(price_raw)
+    if not name:
+        return None
     return {
         "name":      name,
         "venue":     venue,
         "city":      city,
-        "date":      fmt_date(date_raw),
-        "price_min": pmin,
-        "price_max": pmax,
-        "url":       url_raw,
+        "date":      ev_date,
+        "time":      ev_time,
+        "price_min": price_min,
+        "price_max": price_min,
+        "url":       url,
     }
 
 
-def is_music_event(ev):
-    text = (ev.get("name", "") + " " + ev.get("category", "") + " " +
-            ev.get("tags", "")).lower()
-    music_kw = ["music", "concert", "gig", "band", "artist", "live", "dj",
-                "fest", "festival", "performance", "show"]
-    return any(k in text for k in music_kw)
+async def scrape():
+    from playwright.async_api import async_playwright
 
+    all_events = []
+    seen_ids   = set()
+    today      = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-def try_api():
-    for url in API_URLS:
-        try:
-            raw = fetch_url(url)
-            data = json.loads(raw)
-            items = (data.get("events") or data.get("data") or
-                     data.get("results") or (data if isinstance(data, list) else []))
-            if items:
-                print(f"  API success: {len(items)} events from {url}")
-                return items
-        except Exception as e:
-            print(f"  API failed ({url}): {e}")
-    return []
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(headless=True)
 
+        for city_slug, city_name in CITIES:
+            ctx = await browser.new_context(
+                user_agent=(
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                )
+            )
+            page     = await ctx.new_page()
+            captured = []
 
-def try_next_data():
-    try:
-        raw = fetch_url(EVENTS_URL)
-        m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', raw, re.S)
-        if not m:
-            return []
-        nd = json.loads(m.group(1))
+            async def handle_response(resp, _city=city_name):
+                if "get_discovery_results" in resp.url and resp.status == 200:
+                    try:
+                        data = await resp.json()
+                        rails = data.get("EDSResponse", {}).get("rails", [])
+                        for rail in rails:
+                            for item in rail.get("items", []):
+                                ev = item.get("ItemDetails", {}).get("EventData")
+                                if ev:
+                                    captured.append(ev)
+                    except Exception:
+                        pass
 
-        def walk(obj, depth=0):
-            if depth > 8:
-                return []
-            if isinstance(obj, list) and obj and isinstance(obj[0], dict):
-                if any(k in obj[0] for k in ("name","title","event_name","slug")):
-                    return obj
-            if isinstance(obj, dict):
-                for v in obj.values():
-                    found = walk(v, depth + 1)
-                    if found:
-                        return found
-            return []
+            page.on("response", handle_response)
 
-        items = walk(nd)
-        if items:
-            print(f"  __NEXT_DATA__ success: {len(items)} items")
-        return items
-    except Exception as e:
-        print(f"  __NEXT_DATA__ failed: {e}")
-        return []
+            try:
+                await page.goto(
+                    f"{BASE_URL}/events/music-in-{city_slug}-book-tickets",
+                    wait_until="domcontentloaded",
+                    timeout=40000,
+                )
+                for _ in range(8):
+                    if captured:
+                        break
+                    await asyncio.sleep(1)
+            except Exception as e:
+                print(f"  {city_name}: navigation failed ({e})", file=sys.stderr)
+                await page.close()
+                await ctx.close()
+                continue
 
+            city_count = 0
+            for raw in captured:
+                ev_id = raw.get("event_id", "")
+                if ev_id and ev_id in seen_ids:
+                    continue
+                if ev_id:
+                    seen_ids.add(ev_id)
+                norm = normalise_event(raw, city_name)
+                if norm and (not norm["date"] or norm["date"] >= today):
+                    all_events.append(norm)
+                    city_count += 1
 
-def try_beautifulsoup():
-    try:
-        from bs4 import BeautifulSoup
-        raw = fetch_url(EVENTS_URL)
-        soup = BeautifulSoup(raw, "lxml")
-        cards = (soup.select("[class*='event-card']") or
-                 soup.select("[class*='EventCard']") or
-                 soup.select("[class*='event_card']") or
-                 soup.select("article"))
-        events = []
-        for card in cards[:50]:
-            name  = card.select_one("h2,h3,[class*='title'],[class*='name']")
-            venue = card.select_one("[class*='venue'],[class*='location']")
-            date  = card.select_one("[class*='date'],[class*='time'],time")
-            price = card.select_one("[class*='price'],[class*='cost']")
-            link  = card.select_one("a[href]")
-            events.append({
-                "name":  name.get_text(strip=True)  if name  else "",
-                "venue": venue.get_text(strip=True) if venue else "",
-                "city":  "",
-                "date":  date.get_text(strip=True)  if date  else "",
-                "price": price.get_text(strip=True) if price else "",
-                "url":   BASE_URL + link["href"] if link else "",
-            })
-        if events:
-            print(f"  BeautifulSoup: {len(events)} cards")
-        return events
-    except ImportError:
-        print("  BeautifulSoup not available")
-        return []
-    except Exception as e:
-        print(f"  BeautifulSoup failed: {e}")
-        return []
+            print(f"  {city_name}: {city_count} music events")
+            await page.close()
+            await ctx.close()
+            await asyncio.sleep(1)
+
+        await browser.close()
+
+    return all_events
 
 
 def main():
-    print("Fetching District (Zomato) events...")
-    now = datetime.now(timezone.utc).isoformat()
+    print("Fetching District (district.in) events...")
+    last_known = load_last_known()
+    fetched_at = datetime.now(timezone.utc).isoformat()
 
-    raw_events = try_api() or try_next_data() or try_beautifulsoup()
+    events = asyncio.run(scrape())
+    events.sort(key=lambda e: (e.get("date") or "9999", e.get("city") or ""))
 
-    if not raw_events:
-        print("  WARNING: all methods failed — preserving last known data")
-        last = load_last_known()
-        if last:
-            last["fetched_at"] = now
-            last["note"] = "preserved from last successful fetch"
+    if not events:
+        print("  WARNING: no events — preserving last known data", file=sys.stderr)
+        if last_known:
+            last_known["fetched_at"] = fetched_at
+            last_known["note"] = "preserved from last successful fetch"
             with open(OUT, "w") as f:
-                json.dump(last, f, indent=2)
+                json.dump(last_known, f, indent=2)
         else:
             with open(OUT, "w") as f:
-                json.dump({"events": [], "fetched_at": now, "note": "no data yet"}, f, indent=2)
+                json.dump({"events": [], "fetched_at": fetched_at, "note": "no data yet"}, f, indent=2)
         sys.exit(0)
 
-    events = [normalise_event(e) for e in raw_events]
-    events = [e for e in events if e["name"] and is_music_event(e)]
-    events.sort(key=lambda e: e["date"] or "9999")
-
-    output = {
-        "fetched_at": now,
-        "total":      len(events),
-        "events":     events,
-    }
+    out = {"fetched_at": fetched_at, "total": len(events), "events": events}
+    OUT.parent.mkdir(exist_ok=True)
     with open(OUT, "w") as f:
-        json.dump(output, f, indent=2)
-
-    print(f"  OK — {len(events)} music events saved to events-district.json")
+        json.dump(out, f, indent=2)
+    print(f"  OK — {len(events)} events saved to events-district.json")
 
 
 if __name__ == "__main__":

@@ -2,27 +2,40 @@
 """
 fetch_bookmyshow.py — Fetch music events from BookMyShow via Playwright.
 
-BookMyShow's API is behind Cloudflare; Playwright navigates the page and
-intercepts the internal explore API response which carries structured event cards.
+BookMyShow's events API is protected; Playwright intercepts the internal
+explore API XHR that the page fires on load.
 
-Cities: Bengaluru, Mumbai, Delhi, Hyderabad, Chennai, Pune, Kolkata, Goa
+Cities covered: Bengaluru, Mumbai, Delhi, Hyderabad, Pune, Chennai, Kolkata, Goa
 Output: data/events-bookmyshow.json
 """
 
 import asyncio, json, os, sys, re, base64, time as _time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 OUT = Path(__file__).parent.parent / "data" / "events-bookmyshow.json"
-
-CITIES = [
-    "bengaluru", "mumbai", "delhi", "hyderabad",
-    "chennai", "pune", "kolkata", "goa",
-]
 
 MUSIC_CATEGORIES = {
     "music-shows", "music-festivals", "concerts", "music-performing-arts",
     "music-workshops", "live-music",
+}
+
+# city slug → (display name, rgn cookie code or None if not needed)
+CITIES = [
+    ("bengaluru",                    "Bangalore", None),
+    ("mumbai",                       "Mumbai",    "MUMB"),
+    ("national-capital-region-ncr",  "Delhi",     None),
+    ("hyderabad",                    "Hyderabad", None),
+    ("pune",                         "Pune",      None),
+    ("chennai",                      "Chennai",   None),
+    ("kolkata",                      "Kolkata",   None),
+    ("goa",                          "Goa",       None),
+]
+
+CITY_ALIASES = {
+    "Bengaluru": "Bangalore",
+    "bengaluru": "Bangalore",
 }
 
 
@@ -31,6 +44,26 @@ def load_last_known():
         with open(OUT) as f:
             return json.load(f)
     return None
+
+
+def _make_rgn_cookie(code, slug, name):
+    val = json.dumps({
+        "regionCode": code,
+        "regionNameSlug": slug,
+        "regionCodeSlug": code.lower(),
+        "regionName": name,
+        "subCode": "",
+        "subName": "",
+        "Lat": "",
+        "Long": "",
+    })
+    return {
+        "name": "rgn",
+        "value": quote(val),
+        "domain": "in.bookmyshow.com",
+        "path": "/",
+        "sameSite": "Lax",
+    }
 
 
 def extract_date(image_url):
@@ -74,11 +107,11 @@ def parse_price(texts):
     return None
 
 
-def parse_card(card, city_slug):
+def parse_card(card, city_name):
     texts = card.get("text", [])
     name  = ""
     venue = ""
-    city  = city_slug.title()
+    city  = city_name
 
     if texts:
         comps = texts[0].get("components", [])
@@ -92,6 +125,8 @@ def parse_card(card, city_slug):
         else:
             venue = vc
 
+    city = CITY_ALIASES.get(city.strip(), city.strip())
+
     price_min = parse_price(texts[2:])
     image_url = card.get("image", {}).get("url", "")
     ev_date   = extract_date(image_url)
@@ -101,7 +136,7 @@ def parse_card(card, city_slug):
     return {
         "name":      name.strip(),
         "venue":     venue.strip(),
-        "city":      city.strip(),
+        "city":      city,
         "date":      ev_date,
         "price_min": price_min,
         "price_max": price_min,
@@ -117,18 +152,22 @@ async def scrape():
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
-        ctx     = await browser.new_context(
-            user_agent=(
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-            )
-        )
 
-        for city in CITIES:
+        for slug, city_name, rgn_code in CITIES:
+            ctx = await browser.new_context(
+                user_agent=(
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+                )
+            )
+
+            if rgn_code:
+                await ctx.add_cookies([_make_rgn_cookie(rgn_code, slug, city_name)])
+
             captured = {}
 
-            async def handle_response(resp, _city=city):
-                if (f"/api/explore/v1/discover/events-{_city}" in resp.url
+            async def handle_response(resp, _slug=slug):
+                if (f"/api/explore/v1/discover/events-{_slug}" in resp.url
                         and resp.status == 200):
                     try:
                         captured["data"] = await resp.json()
@@ -140,34 +179,35 @@ async def scrape():
 
             try:
                 await page.goto(
-                    f"https://in.bookmyshow.com/explore/events-{city}?categories=music-shows",
-                    wait_until="load",
+                    f"https://in.bookmyshow.com/explore/events-{slug}?categories=music-shows",
+                    wait_until="domcontentloaded",
                     timeout=45000,
                 )
-                # Wait up to 8s for the explore API XHR to fire
                 for _ in range(8):
                     if "data" in captured:
                         break
                     await asyncio.sleep(1)
             except Exception as e:
-                print(f"  {city}: navigation failed ({e})", file=sys.stderr)
+                print(f"  {city_name}: navigation failed ({e})", file=sys.stderr)
                 await page.close()
+                await ctx.close()
                 continue
 
-            data         = captured.get("data", {})
-            city_events  = 0
+            data        = captured.get("data", {})
+            city_events = 0
             for listing in data.get("listings", []):
                 for card in listing.get("cards", []):
                     if not is_music(card):
                         continue
-                    ev = parse_card(card, city)
+                    ev = parse_card(card, city_name)
                     if ev and ev["url"] and ev["url"] not in seen_urls:
                         seen_urls.add(ev["url"])
                         all_events.append(ev)
                         city_events += 1
 
-            print(f"  {city}: {city_events} music events")
+            print(f"  {city_name}: {city_events} music events")
             await page.close()
+            await ctx.close()
             await asyncio.sleep(1)
 
         await browser.close()

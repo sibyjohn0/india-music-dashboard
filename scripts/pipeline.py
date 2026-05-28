@@ -89,12 +89,6 @@ SOURCES = [
         "outputs": ["data/news-rss.json"],
     },
     {
-        "name": "songkick",
-        "script": "fetch_songkick.py",
-        "env_required": [],
-        "outputs": ["data/events-songkick.json"],
-    },
-    {
         "name": "events_district",
         "script": "fetch_events_district.py",
         "env_required": [],
