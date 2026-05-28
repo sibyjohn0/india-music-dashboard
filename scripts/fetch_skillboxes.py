@@ -74,6 +74,19 @@ def parse_date(raw):
     return raw[:10]
 
 
+CITY_ALIASES = {
+    "bengaluru": "Bangalore",
+    "bangalore city": "Bangalore",
+    "new delhi": "Delhi",
+    "gurugram": "Delhi",
+    "gurgaon": "Delhi",
+    "cochin": "Kochi",
+}
+
+def _normalise_city(city):
+    return CITY_ALIASES.get(city.strip().lower(), city.strip())
+
+
 CITY_NAMES = {
     "bangalore", "bengaluru", "mumbai", "delhi", "hyderabad", "chennai",
     "pune", "kolkata", "goa", "kochi", "cochin", "ahmedabad", "jaipur",
@@ -108,16 +121,36 @@ def extract_venue_from_name(name):
     if sep in name:
         last = name.split(sep)[-1]
         last = re.sub(r'\s*\([^)]*\)\s*$', '', last).strip()
-        if len(last) > 2 and not re.match(r'^\d+\s*([ap]m)?$', last, re.IGNORECASE) and not is_city(last):
+        if (len(last) > 2
+                and not re.match(r'^\d+\s*([ap]m)?$', last, re.IGNORECASE)
+                and not is_city(last)
+                and not _is_tour_or_date(last)):
             return last
     return ""
+
+
+def _is_tour_or_date(v):
+    """Return True if v looks like a tour name, date, or year reference rather than a venue."""
+    # Contains a 4-digit year
+    if re.search(r'\b20\d{2}\b', v):
+        return True
+    # Contains "Tour" as a word
+    if re.search(r'\bTour\b', v, re.IGNORECASE):
+        return True
+    # Starts with a date pattern like "30th May" or "May 30"
+    months = r'(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|January|February|March|April|June|July|August|September|October|November|December)'
+    if re.match(rf'^\d+(?:st|nd|rd|th)?\s+{months}', v, re.IGNORECASE):
+        return True
+    if re.match(rf'^{months}\s+\d+', v, re.IGNORECASE):
+        return True
+    return False
 
 
 def normalise(item):
     name  = item.get("event_display_name") or item.get("event_name") or ""
     slug  = item.get("slug") or ""
     url   = f"{BASE_URL}/events/{slug}" if slug else ""
-    city  = item.get("city_name") or ""
+    city  = _normalise_city(item.get("city_name") or "")
     venue = item.get("venue_name") or extract_venue_from_name(name)
     # Normalise: strip trailing city name from venue (e.g. "The Humming Tree Bengaluru" → "The Humming Tree")
     if venue:
