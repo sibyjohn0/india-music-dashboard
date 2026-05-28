@@ -11,14 +11,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Labels &amp; Agencies — India Indie Music Radar</title>
-  <meta name="description" content="60 music labels and booking agencies — India-first, then global indie. Artist rosters, websites, and contacts. Free to use." />
+  <meta name="description" content="India's indie labels, booking agencies, and global imprints — with editorial context on who's signing, who to approach, and what stage you need to be at. Free." />
   <meta property="og:title" content="Labels &amp; Agencies — India Indie Music Radar" />
-  <meta property="og:description" content="India labels and booking agencies with artist rosters. Who represents who in Indian indie." />
+  <meta property="og:description" content="Editorial guide to India's music labels and agencies — who represents who, who's signing, and how to approach them." />
   <meta property="og:url" content="https://sibyjohn0.github.io/india-music-dashboard/industry/" />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Labels &amp; Agencies — India Indie Music Radar" />
-  <meta name="twitter:description" content="60 labels and agencies — India + global indie. Who represents who." />
+  <meta name="twitter:description" content="India labels and agencies — who's signing, who to approach, at what stage." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -37,6 +37,10 @@
       --text: #e8e8f0;
       --muted: #6b6b85;
       --tag-bg: #1e1e2e;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #e94560;
+      --purple: #8b5cf6;
     }
 
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
@@ -50,10 +54,7 @@
     .logo a { color: var(--text); text-decoration: none; }
     .logo a:hover { color: var(--accent); }
     .header-right { display: flex; gap: 12px; align-items: center; }
-    .total-badge {
-      background: var(--accent); color: white;
-      font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 20px;
-    }
+    .total-badge { background: var(--accent); color: white; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 20px; }
 
     nav { display: flex; padding: 0 24px; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     nav::-webkit-scrollbar { display: none; }
@@ -62,101 +63,88 @@
     .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
 
     .page-title { padding: 32px 32px 0; font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
-    .page-sub { padding: 8px 32px 24px; font-size: 14px; color: var(--muted); }
+    .page-sub { padding: 8px 32px 24px; font-size: 14px; color: var(--muted); max-width: 680px; line-height: 1.6; }
 
-    .filters {
-      padding: 0 32px 20px;
-      display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end;
-    }
+    /* ── FILTERS ── */
+    .filters { padding: 0 32px 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
     .filter-group { display: flex; flex-direction: column; gap: 6px; }
     .filter-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
     .pill-row { display: flex; gap: 6px; flex-wrap: wrap; }
-    .pill {
-      background: var(--surface2); border: 1px solid var(--border);
-      color: var(--muted); font-size: 12px; font-weight: 500;
-      padding: 6px 14px; border-radius: 20px; cursor: pointer;
-      transition: all .15s; white-space: nowrap;
-    }
+    .pill { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 20px; cursor: pointer; transition: all .15s; white-space: nowrap; }
     .pill:hover { color: var(--text); border-color: #3a3a50; }
     .pill.active { background: var(--accent); color: white; border-color: var(--accent); }
 
-    .search-input {
-      background: var(--surface2); border: 1px solid var(--border);
-      color: var(--text); font: 13px 'Inter', sans-serif;
-      padding: 8px 14px; border-radius: 8px; width: 280px; outline: none;
-    }
+    .search-input { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font: 13px 'Inter', sans-serif; padding: 8px 14px; border-radius: 8px; width: 280px; outline: none; }
     .search-input:focus { border-color: var(--accent); }
     .search-input::placeholder { color: var(--muted); }
 
-    .stats-bar {
-      padding: 0 32px 20px;
-      font-size: 12px; color: var(--muted);
-    }
+    .stats-bar { padding: 0 32px 20px; font-size: 12px; color: var(--muted); }
 
-    .grid {
-      padding: 0 32px 60px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 14px;
-    }
+    /* ── GRID ── */
+    .grid { padding: 0 32px 60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
 
-    .card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px;
-      transition: border-color .15s;
-    }
+    /* ── CARD ── */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: border-color .15s; }
     .card:hover { border-color: #3a3a50; }
+    .card.has-editorial { border-left: 3px solid var(--accent); }
+    .card.tier-india-indie-core { border-left-color: var(--accent2); }
+    .card.tier-india-indie-agency { border-left-color: var(--accent4); }
+    .card.tier-india-major { border-left-color: var(--muted); }
 
     .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
     .card-name { font-size: 15px; font-weight: 700; letter-spacing: -0.2px; flex: 1; }
     .card-name a { color: var(--text); text-decoration: none; }
     .card-name a:hover { color: var(--accent); }
+    .card-tagline { font-size: 13px; color: var(--muted); line-height: 1.5; font-style: italic; margin-top: -4px; }
+    .card-bio { font-size: 13px; color: var(--text); line-height: 1.65; }
 
-    .card-badges { display: flex; gap: 6px; flex-wrap: wrap; flex-shrink: 0; }
-    .badge {
-      font-size: 10px; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px;
-    }
+    .card-badges { display: flex; gap: 5px; flex-wrap: wrap; flex-shrink: 0; }
+    .badge { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
     .badge-label { background: color-mix(in srgb, var(--accent4) 15%, transparent); color: var(--accent4); }
     .badge-agency { background: color-mix(in srgb, var(--accent2) 15%, transparent); color: var(--accent2); }
     .badge-management { background: color-mix(in srgb, var(--accent3) 15%, transparent); color: var(--accent3); }
     .badge-india { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); }
     .badge-global { background: var(--surface2); color: var(--muted); }
 
-    .card-artists { display: flex; flex-direction: column; gap: 2px; }
+    /* Signing status */
+    .status-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; }
+    .status-open { background: color-mix(in srgb, var(--green) 15%, transparent); color: var(--green); }
+    .status-selective { background: color-mix(in srgb, var(--amber) 15%, transparent); color: var(--amber); }
+    .status-major-only { background: var(--surface2); color: var(--muted); }
+    .status-collective { background: color-mix(in srgb, var(--purple) 15%, transparent); color: var(--purple); }
+    .status-closed { background: var(--surface2); color: var(--muted); }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+    /* Scene tags */
+    .scene-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .scene-tag { background: var(--tag-bg); border: 1px solid var(--border); color: var(--muted); font-size: 10px; font-weight: 500; padding: 2px 8px; border-radius: 4px; }
+
+    /* Pitch note */
+    .pitch-note { background: var(--surface2); border-left: 2px solid var(--accent3); border-radius: 0 6px 6px 0; padding: 8px 12px; font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .pitch-note-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent3); margin-bottom: 4px; }
+
+    /* Artists */
     .artist-chips { display: flex; flex-wrap: wrap; gap: 5px; }
-    .artist-chip {
-      background: var(--tag-bg); border: 1px solid var(--border);
-      color: var(--text); font-size: 11px; font-weight: 500;
-      padding: 3px 9px; border-radius: 4px;
-    }
-    .artist-chip.muted { opacity: 0.5; font-style: italic; }
+    .artist-chip { background: var(--tag-bg); border: 1px solid var(--border); color: var(--text); font-size: 11px; font-weight: 500; padding: 3px 9px; border-radius: 4px; }
+    .artist-chip.flagged { opacity: 0.45; font-style: italic; }
     .artist-more { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
-    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 2px; }
+    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding-top: 4px; border-top: 1px solid var(--border); }
     .card-source { font-size: 10px; color: var(--muted); }
     .card-link { font-size: 11px; color: var(--accent4); text-decoration: none; }
     .card-link:hover { text-decoration: underline; }
-    .card-email { font-size: 10px; color: var(--accent2); font-weight: 600; }
 
-    .no-results {
-      grid-column: 1/-1; text-align: center;
-      padding: 60px 20px; color: var(--muted); font-size: 14px;
-    }
+    .no-results { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--muted); font-size: 14px; }
 
-    .note-callout {
-      margin: 0 32px 20px;
-      background: var(--surface2); border: 1px solid var(--border);
-      border-left: 3px solid var(--accent3);
-      border-radius: 8px; padding: 14px 18px;
-      font-size: 13px; color: var(--muted); line-height: 1.6;
-    }
-    .note-callout strong { color: var(--text); }
+    /* Group headers */
+    .group-header { grid-column: 1/-1; padding: 8px 0 4px; border-bottom: 1px solid var(--border); margin-bottom: 4px; }
+    .group-header-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    .group-header-desc { font-size: 12px; color: var(--muted); margin-top: 3px; }
 
     @media (max-width: 600px) {
-      header, .filters, .stats-bar, .grid, .note-callout { padding-left: 16px; padding-right: 16px; }
+      header, .filters, .stats-bar, .grid { padding-left: 16px; padding-right: 16px; }
       .page-title { padding-left: 16px; }
-      .page-sub { padding-left: 16px; }
+      .page-sub { padding-left: 16px; padding-right: 16px; }
       .grid { grid-template-columns: 1fr; }
       .search-input { width: 100%; }
       nav { padding: 0 8px; }
@@ -183,11 +171,7 @@
 </nav>
 
 <h1 class="page-title">Labels &amp; Agencies</h1>
-<p class="page-sub">Who represents who — India indie labels, booking agencies, and global indie imprints worth knowing.</p>
-
-<div class="note-callout">
-  <strong>How to use this:</strong> Filter to India + Agency to find booking agents. Filter to India + Label to find who to pitch your music to. Global labels are the imprints Indian indie artists have crossed over to — useful as benchmarks for where the scene goes.
-</div>
+<p class="page-sub">Who represents who in Indian indie — with context on who's actively signing, what stage to be at before approaching, and what each entity actually does. India-first. Global labels included as benchmarks.</p>
 
 <div class="filters">
   <div class="filter-group">
@@ -196,7 +180,6 @@
       <button class="pill active" data-type="all">All</button>
       <button class="pill" data-type="Label">Labels</button>
       <button class="pill" data-type="Agency">Agencies</button>
-      <button class="pill" data-type="Management">Management</button>
     </div>
   </div>
   <div class="filter-group">
@@ -207,6 +190,15 @@
       <button class="pill" data-region="global">Global</button>
     </div>
   </div>
+  <div class="filter-group">
+    <div class="filter-label">Signing</div>
+    <div class="pill-row" id="status-pills">
+      <button class="pill active" data-status="all">All</button>
+      <button class="pill" data-status="open">Open</button>
+      <button class="pill" data-status="selective">Selective</button>
+      <button class="pill" data-status="major-only">Major only</button>
+    </div>
+  </div>
   <div class="filter-group" style="flex:1;min-width:200px;">
     <div class="filter-label">Search</div>
     <input class="search-input" id="search" type="text" placeholder="Label, agency, or artist name…" autocomplete="off" />
@@ -214,16 +206,34 @@
 </div>
 
 <div class="stats-bar" id="stats-bar"></div>
-
 <div class="grid" id="grid"></div>
 
 <script>
 const DATA_URL = '../data/industry.json';
+const EDITORIAL_URL = '../data/industry-editorial.json';
 
 let allEntities = [];
+let editorial = {};
 let activeType = 'all';
 let activeRegion = 'all';
+let activeStatus = 'all';
 let searchQuery = '';
+
+const STATUS_LABELS = {
+  'open':       ['Open to pitches', 'status-open'],
+  'selective':  ['Selective',       'status-selective'],
+  'major-only': ['Major / Closed',  'status-major-only'],
+  'collective': ['Collective',      'status-collective'],
+  'closed':     ['Artist-owned',    'status-closed'],
+};
+
+const TIER_ORDER = ['india-indie-core', 'india-indie-agency', 'india-major', ''];
+const TIER_META = {
+  'india-indie-core':   { label: 'India Indie — Labels', desc: 'Independent labels that define the Indian indie scene. These are the cultural core.' },
+  'india-indie-agency': { label: 'India — Booking Agencies & Management', desc: 'Who books artists for live shows and manages careers at every level.' },
+  'india-major':        { label: 'India — Major Labels', desc: 'Major label arms operating in India. Useful as benchmarks and eventual targets.' },
+  '':                   { label: 'Global Indie Labels', desc: 'International independent labels Indian artists have crossed over to — or aspire to.' },
+};
 
 function typeBadge(type) {
   if (type === 'Label') return '<span class="badge badge-label">Label</span>';
@@ -234,31 +244,51 @@ function typeBadge(type) {
 
 function regionBadge(country) {
   if (country === 'India') return '<span class="badge badge-india">India</span>';
-  return `<span class="badge badge-global">${country}</span>`;
+  return `<span class="badge badge-global">${country || 'Global'}</span>`;
 }
 
-function renderGrid() {
+function statusPill(status) {
+  if (!status || !STATUS_LABELS[status]) return '';
+  const [label, cls] = STATUS_LABELS[status];
+  return `<span class="status-pill ${cls}"><span class="status-dot"></span>${label}</span>`;
+}
+
+function tierClass(tier) {
+  if (!tier) return '';
+  return 'tier-' + tier;
+}
+
+function filterEntities() {
   const q = searchQuery.toLowerCase();
-  const filtered = allEntities.filter(e => {
+  return allEntities.filter(e => {
+    const ed = editorial[e.name] || {};
     if (activeType !== 'all') {
-      const t = e.type;
-      if (activeType === 'Agency' && t !== 'Agency' && t !== 'Management') return false;
-      if (activeType === 'Label' && t !== 'Label') return false;
-      if (activeType === 'Management' && t !== 'Management') return false;
+      if (activeType === 'Agency' && e.type !== 'Agency' && e.type !== 'Management') return false;
+      if (activeType === 'Label' && e.type !== 'Label') return false;
     }
     if (activeRegion === 'India' && e.country !== 'India') return false;
     if (activeRegion === 'global' && e.country === 'India') return false;
+    if (activeStatus !== 'all') {
+      const s = ed.signing_status || '';
+      if (activeStatus === 'open' && s !== 'open') return false;
+      if (activeStatus === 'selective' && s !== 'selective') return false;
+      if (activeStatus === 'major-only' && s !== 'major-only' && s !== 'closed') return false;
+    }
     if (q) {
       const nameMatch = e.name.toLowerCase().includes(q);
-      const artistMatch = e.artists.some(a => a.name.toLowerCase().includes(q));
-      if (!nameMatch && !artistMatch) return false;
+      const artistMatch = (e.artists || []).some(a => a.name.toLowerCase().includes(q));
+      const sceneMatch = ed.scene ? ed.scene.some(s => s.toLowerCase().includes(q)) : false;
+      if (!nameMatch && !artistMatch && !sceneMatch) return false;
     }
     return true;
   });
+}
 
+function renderGrid() {
+  const filtered = filterEntities();
   document.getElementById('visible-count').textContent = `${filtered.length} entities`;
   document.getElementById('stats-bar').textContent =
-    `${filtered.length} of ${allEntities.length} — ${filtered.reduce((n,e) => n + e.artists.length, 0)} artists`;
+    `${filtered.length} of ${allEntities.length} — ${filtered.reduce((n, e) => n + (e.artists || []).length, 0)} artists`;
 
   const grid = document.getElementById('grid');
   if (!filtered.length) {
@@ -266,36 +296,88 @@ function renderGrid() {
     return;
   }
 
-  grid.innerHTML = filtered.map(e => {
-    const SHOW = 8;
-    const artists = e.artists || [];
-    const shown = artists.slice(0, SHOW);
-    const rest = artists.length - SHOW;
-    const chips = shown.map(a => {
-      const flagged = a.note && a.note.includes('Needs verification');
-      return `<span class="artist-chip${flagged ? ' muted' : ''}" title="${a.note || ''}">${a.name}${flagged ? ' ?' : ''}</span>`;
-    }).join('');
-    const moreText = rest > 0 ? `<div class="artist-more">+${rest} more</div>` : '';
+  // Group by tier (India entities), then the rest
+  const india = filtered.filter(e => e.country === 'India');
+  const global = filtered.filter(e => e.country !== 'India');
 
-    const websiteHtml = e.website
-      ? `<a class="card-link" href="${e.website}" target="_blank" rel="noopener">Website ↗</a>`
-      : '';
-    const emailHtml = e.emails && e.emails.length
-      ? `<span class="card-email">✉ ${e.emails[0]}</span>`
-      : '';
+  const indiaByTier = {};
+  for (const e of india) {
+    const ed = editorial[e.name] || {};
+    const tier = ed.tier || '';
+    if (!indiaByTier[tier]) indiaByTier[tier] = [];
+    indiaByTier[tier].push(e);
+  }
 
-    return `<div class="card">
-      <div class="card-top">
-        <div class="card-name">${e.website ? `<a href="${e.website}" target="_blank" rel="noopener">${e.name}</a>` : e.name}</div>
-        <div class="card-badges">${typeBadge(e.type)}${regionBadge(e.country)}</div>
-      </div>
-      ${artists.length ? `<div class="card-artists"><div class="artist-chips">${chips}</div>${moreText}</div>` : ''}
-      <div class="card-footer">
-        <span class="card-source">${e.source || ''}</span>
-        <div style="display:flex;gap:10px;align-items:center">${emailHtml}${websiteHtml}</div>
-      </div>
+  let html = '';
+
+  for (const tier of TIER_ORDER) {
+    const group = indiaByTier[tier];
+    if (!group || !group.length) continue;
+    const meta = TIER_META[tier] || {};
+    html += `<div class="group-header">
+      <div class="group-header-label">${meta.label || tier}</div>
+      ${meta.desc ? `<div class="group-header-desc">${meta.desc}</div>` : ''}
     </div>`;
+    html += group.map(e => renderCard(e)).join('');
+  }
+
+  if (global.length) {
+    const meta = TIER_META[''];
+    html += `<div class="group-header">
+      <div class="group-header-label">${meta.label}</div>
+      <div class="group-header-desc">${meta.desc}</div>
+    </div>`;
+    html += global.map(e => renderCard(e)).join('');
+  }
+
+  grid.innerHTML = html;
+}
+
+function renderCard(e) {
+  const ed = editorial[e.name] || {};
+  const hasEd = !!ed.tagline;
+  const SHOW = 7;
+  const artists = e.artists || [];
+  const shown = artists.slice(0, SHOW);
+  const rest = artists.length - SHOW;
+
+  const chips = shown.map(a => {
+    const flagged = a.note && a.note.includes('Needs verification');
+    return `<span class="artist-chip${flagged ? ' flagged' : ''}" title="${a.note || ''}">${a.name}</span>`;
   }).join('');
+  const moreText = rest > 0 ? `<div class="artist-more">+${rest} more</div>` : '';
+
+  const websiteHtml = e.website
+    ? `<a class="card-link" href="${e.website}" target="_blank" rel="noopener">Website ↗</a>`
+    : '';
+
+  const sceneTags = ed.scene
+    ? `<div class="scene-tags">${ed.scene.map(s => `<span class="scene-tag">${s}</span>`).join('')}</div>`
+    : '';
+
+  const pitchNoteHtml = ed.pitch_note
+    ? `<div class="pitch-note"><div class="pitch-note-label">How to approach</div>${ed.pitch_note}</div>`
+    : '';
+
+  return `<div class="card ${hasEd ? 'has-editorial' : ''} ${tierClass(ed.tier || '')}">
+    <div class="card-top">
+      <div>
+        <div class="card-name">${e.website ? `<a href="${e.website}" target="_blank" rel="noopener">${e.name}</a>` : e.name}</div>
+        ${ed.tagline ? `<div class="card-tagline">${ed.tagline}</div>` : ''}
+      </div>
+      <div class="card-badges">
+        ${typeBadge(e.type)}${regionBadge(e.country)}
+      </div>
+    </div>
+    ${ed.bio ? `<div class="card-bio">${ed.bio}</div>` : ''}
+    ${ed.signing_status ? `<div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">${statusPill(ed.signing_status)}${sceneTags}</div>` : sceneTags}
+    ${pitchNoteHtml}
+    ${artists.length ? `<div><div class="artist-chips">${chips}</div>${moreText}</div>` : ''}
+    <div class="card-footer">
+      <span class="card-source">${e.source || ''}</span>
+      ${websiteHtml}
+    </div>
+  </div>`;
 }
 
 document.getElementById('type-pills').addEventListener('click', e => {
@@ -305,7 +387,6 @@ document.getElementById('type-pills').addEventListener('click', e => {
   document.querySelectorAll('#type-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
   renderGrid();
 });
-
 document.getElementById('region-pills').addEventListener('click', e => {
   const btn = e.target.closest('[data-region]');
   if (!btn) return;
@@ -313,22 +394,29 @@ document.getElementById('region-pills').addEventListener('click', e => {
   document.querySelectorAll('#region-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
   renderGrid();
 });
-
+document.getElementById('status-pills').addEventListener('click', e => {
+  const btn = e.target.closest('[data-status]');
+  if (!btn) return;
+  activeStatus = btn.dataset.status;
+  document.querySelectorAll('#status-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
+  renderGrid();
+});
 document.getElementById('search').addEventListener('input', e => {
   searchQuery = e.target.value.trim();
   renderGrid();
 });
 
-fetch(DATA_URL)
-  .then(r => r.json())
-  .then(data => {
-    allEntities = data.entities || [];
-    renderGrid();
-  })
-  .catch(() => {
-    document.getElementById('grid').innerHTML = '<div class="no-results">Could not load data.</div>';
-    document.getElementById('visible-count').textContent = 'Error';
-  });
+Promise.all([
+  fetch(DATA_URL).then(r => r.json()),
+  fetch(EDITORIAL_URL).then(r => r.json()),
+]).then(([data, ed]) => {
+  allEntities = data.entities || [];
+  editorial = ed || {};
+  renderGrid();
+}).catch(() => {
+  document.getElementById('grid').innerHTML = '<div class="no-results">Could not load data.</div>';
+  document.getElementById('visible-count').textContent = 'Error';
+});
 </script>
 </body>
 </html>
