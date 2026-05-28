@@ -51,3 +51,54 @@ jobs:
           git add data/
           git diff --cached --quiet || git commit -m "data: daily pipeline $(date -u '+%Y-%m-%d')"
           git push
+
+      - name: Read pipeline status
+        id: pipeline_status
+        run: |
+          python -c "
+          import json, os, sys
+
+          with open('data/pipeline-status.json') as f:
+              d = json.load(f)
+
+          overall = d.get('overall', 'ok')
+          sources = d.get('sources', {})
+
+          failed = {
+              k: v for k, v in sources.items()
+              if isinstance(v, dict) and v.get('status') not in ('ok', 'success', None)
+          }
+          lines = []
+          for src, info in failed.items():
+              err = info.get('error') or info.get('message') or info.get('status') or 'unknown error'
+              lines.append(f'  {src}: {err}')
+
+          body = 'Failed sources:\n' + ('\n'.join(lines) if lines else '  (no detail available)')
+          label = overall.upper()
+          run_date = __import__('datetime').datetime.utcnow().strftime('%Y-%m-%d')
+          subject = f'India Music Radar -- Pipeline [{label}] {run_date}'
+
+          gh_output = os.environ.get('GITHUB_OUTPUT', '/dev/stdout')
+          with open(gh_output, 'a') as out:
+              out.write(f'overall={overall}\n')
+              out.write(f'subject={subject}\n')
+              out.write('body<<BODYEOF\n')
+              out.write(body + '\n')
+              out.write('BODYEOF\n')
+          "
+
+      - name: Send alert email on pipeline failure
+        if: steps.pipeline_status.outputs.overall == 'partial' || steps.pipeline_status.outputs.overall == 'failed'
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          to: sibyjohn0@gmail.com
+          from: ${{ secrets.GMAIL_USERNAME }}
+          subject: ${{ steps.pipeline_status.outputs.subject }}
+          body: |
+            ${{ steps.pipeline_status.outputs.body }}
+
+            View the full run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R7EYMGZEJZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pipeline Status — India Indie Music Radar</title>
+  <meta name="description" content="Data pipeline run history and source status for the India Indie Music Radar." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0a0a0f;
+      --surface:  #13131a;
+      --surface2: #1c1c24;
+      --border:   #2a2a38;
+      --accent:   #e94560;
+      --green:    #10b981;
+      --amber:    #f7b731;
+      --red:      #ef4444;
+      --text:     #e8e8f0;
+      --muted:    #6b6b85;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      height: 52px;
+      background: rgba(10,10,15,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      padding: 0 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    .tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #999;
+      font: 500 13px/1 'Inter', sans-serif;
+      padding: 0 16px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
+
+    /* ── BACK BAR ── */
+    .back-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 32px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .back-bar a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .back-bar a:hover { text-decoration: underline; }
+
+    /* ── PAGE ── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 32px 120px;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+      margin-bottom: 6px;
+    }
+    .page-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    /* ── STATUS BADGE ── */
+    .badge-ok    { background: rgba(16,185,129,.15); color: #10b981; border: 1px solid rgba(16,185,129,.3); }
+    .badge-partial { background: rgba(247,183,49,.12); color: #f7b731; border: 1px solid rgba(247,183,49,.3); }
+    .badge-failed  { background: rgba(239,68,68,.12); color: #ef4444; border: 1px solid rgba(239,68,68,.3); }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .dot-ok      { background: #10b981; }
+    .dot-partial { background: #f7b731; }
+    .dot-failed  { background: #ef4444; }
+
+    /* ── LAST RUN CARD ── */
+    .last-run-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .last-run-badge-wrap .status-badge {
+      font-size: 15px;
+      padding: 8px 20px;
+      border-radius: 30px;
+    }
+    .last-run-badge-wrap .status-dot {
+      width: 10px;
+      height: 10px;
+    }
+    .last-run-meta {
+      flex: 1;
+      min-width: 200px;
+    }
+    .last-run-ts {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .last-run-summary {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .last-run-summary .ok-count  { color: var(--green); }
+    .last-run-summary .fail-count { color: var(--red); }
+
+    /* ── SOURCE GRID ── */
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .source-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+
+    .source-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 18px 20px;
+      border-left: 3px solid transparent;
+    }
+    .source-card.ok      { border-left-color: #10b981; }
+    .source-card.partial { border-left-color: #f7b731; }
+    .source-card.failed  { border-left-color: #ef4444; }
+
+    .source-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .source-name {
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: capitalize;
+      letter-spacing: -.1px;
+    }
+
+    .source-stats {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+    .source-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .source-stat-val {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .source-stat-lbl {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .source-error {
+      font-size: 11px;
+      color: #ef4444;
+      background: rgba(239,68,68,.08);
+      border: 1px solid rgba(239,68,68,.2);
+      border-radius: 6px;
+      padding: 6px 10px;
+      margin-top: 8px;
+      word-break: break-all;
+    }
+
+    /* ── HISTORY TABLE ── */
+    .history-section { margin-top: 8px; }
+
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead th {
+      background: var(--surface2);
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 12px 16px;
+      text-align: left;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background .1s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: rgba(255,255,255,.03); }
+
+    tbody td {
+      padding: 11px 16px;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    tbody tr.row-ok      td:first-child { border-left: 3px solid #10b981; }
+    tbody tr.row-partial td:first-child { border-left: 3px solid #f7b731; }
+    tbody tr.row-failed  td:first-child { border-left: 3px solid #ef4444; }
+
+    .failed-names {
+      color: #ef4444;
+      font-size: 11px;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 56px 32px;
+      text-align: center;
+      color: var(--muted);
+    }
+    .empty-icon { font-size: 36px; margin-bottom: 16px; }
+    .empty-title { font-size: 17px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .empty-body  { font-size: 14px; line-height: 1.7; }
+
+    /* ── LOADING ── */
+    .loading-row {
+      padding: 40px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .site-footer-left { display: flex; flex-direction: column; gap: 8px; }
+    .site-footer-name { font-size: 13px; font-weight: 700; color: var(--text); }
+    .site-footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .site-footer-links a { color: var(--muted); transition: color .15s; }
+    .site-footer-links a:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      header { padding: 0 16px; }
+      nav { padding: 0 12px; }
+      .back-bar { padding: 10px 16px; }
+      main { padding: 32px 16px 80px; }
+      .last-run-card { padding: 20px 18px; gap: 20px; }
+      .source-grid { grid-template-columns: 1fr; }
+      thead th, tbody td { padding: 10px 12px; }
+      .site-footer { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">&#9711; India Indie Music Radar</div>
+  </header>
+
+  <nav>
+    <a class="tab" href="../about/" style="text-decoration:none;">About</a>
+    <a class="tab" href="../playbook/" style="text-decoration:none;">Playbook</a>
+    <a class="tab" href="../" style="text-decoration:none;">Today</a>
+    <a class="tab" href="../submit/" style="text-decoration:none;">Submit</a>
+  </nav>
+
+  <div class="back-bar">
+    <a href="../deep-dive/">&#8592; Back to Deep Dive</a>
+  </div>
+
+  <main>
+    <div class="page-title">Pipeline Status</div>
+    <div class="page-sub">Data source health and run history for all pipeline jobs.</div>
+
+    <!-- Last Run -->
+    <div id="last-run-section">
+      <div class="loading-row" id="status-loading">Loading pipeline status&#8230;</div>
+    </div>
+
+    <!-- Source Grid -->
+    <div id="source-section" style="display:none">
+      <div class="section-label">Sources</div>
+      <div class="source-grid" id="source-grid"></div>
+    </div>
+
+    <!-- Run History -->
+    <div id="history-section" style="display:none" class="history-section">
+      <div class="section-label">Run History</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Overall</th>
+              <th>Sources OK</th>
+              <th>Sources Failed</th>
+              <th>Failed Sources</th>
+            </tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-left">
+      <span class="site-footer-name">Siby John</span>
+      <div class="site-footer-links">
+        <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
+        <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+        <a href="../about/">About this project</a>
+        <a href="../deep-dive/">Deep Dive</a>
+      </div>
+    </div>
+    <div class="site-footer-right">Radar: daily &middot; Reviewers: weekly &middot; Free to use</div>
+  </footer>
+
+  <script>
+    // ── Helpers ──────────────────────────────────────────────────────────────
+    const esc = s => String(s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+
+    function fmtTs(iso) {
+      if (!iso) return 'Unknown';
+      const d = new Date(iso);
+      if (isNaN(d)) return iso;
+      return d.toLocaleString('en-IN', {
+        day: 'numeric', month: 'short', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', timeZoneName: 'short'
+      });
+    }
+
+    function fmtDate(iso) {
+      if (!iso) return '';
+      const d = new Date(iso);
+      if (isNaN(d)) return iso;
+      return d.toLocaleString('en-IN', {
+        day: 'numeric', month: 'short', year: 'numeric',
+        hour: '2-digit', minute: '2-digit'
+      });
+    }
+
+    function badgeHtml(status) {
+      const s = (status || 'unknown').toLowerCase();
+      const cls = s === 'ok' ? 'ok' : s === 'partial' ? 'partial' : 'failed';
+      const label = s.toUpperCase();
+      return `<span class="status-badge badge-${cls}"><span class="status-dot dot-${cls}"></span>${esc(label)}</span>`;
+    }
+
+    function truncate(str, n) {
+      if (!str) return '';
+      return str.length > n ? str.slice(0, n) + '...' : str;
+    }
+
+    // ── Render last-run card ─────────────────────────────────────────────────
+    function renderLastRun(entry) {
+      const sources = entry.sources || {};
+      const names = Object.keys(sources);
+      const okCount = names.filter(k => (sources[k].status || '').toLowerCase() === 'ok').length;
+      const failCount = names.filter(k => (sources[k].status || '').toLowerCase() === 'failed').length;
+      const partialCount = names.length - okCount - failCount;
+
+      const countParts = [];
+      if (okCount > 0)      countParts.push(`<span class="ok-count">${okCount} ok</span>`);
+      if (partialCount > 0) countParts.push(`<span style="color:var(--amber)">${partialCount} partial</span>`);
+      if (failCount > 0)    countParts.push(`<span class="fail-count">${failCount} failed</span>`);
+
+      document.getElementById('last-run-section').innerHTML = `
+        <div class="last-run-card">
+          <div class="last-run-badge-wrap">${badgeHtml(entry.overall)}</div>
+          <div class="last-run-meta">
+            <div class="last-run-ts">Last run: ${esc(fmtTs(entry.run_at))}</div>
+            <div class="last-run-summary">
+              ${names.length} source${names.length !== 1 ? 's' : ''} total &mdash;
+              ${countParts.join(', ') || '<span class="muted">no data</span>'}
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // ── Render source grid ───────────────────────────────────────────────────
+    function renderSourceGrid(entry) {
+      const sources = entry.sources || {};
+      const names = Object.keys(sources);
+      if (names.length === 0) return;
+
+      document.getElementById('source-section').style.display = '';
+
+      const grid = document.getElementById('source-grid');
+      grid.innerHTML = names.map(name => {
+        const src = sources[name];
+        const s = (src.status || 'unknown').toLowerCase();
+        const cls = s === 'ok' ? 'ok' : s === 'partial' ? 'partial' : 'failed';
+        const records = src.records != null ? src.records.toLocaleString() : '—';
+        const durationSec = src.ms != null ? (src.ms / 1000).toFixed(2) + 's' : '—';
+        const errorHtml = src.error
+          ? `<div class="source-error">${esc(truncate(src.error, 80))}</div>`
+          : '';
+
+        return `
+          <div class="source-card ${cls}">
+            <div class="source-card-head">
+              <span class="source-name">${esc(name)}</span>
+              ${badgeHtml(src.status)}
+            </div>
+            <div class="source-stats">
+              <div class="source-stat">
+                <span class="source-stat-val">${esc(records)}</span>
+                <span class="source-stat-lbl">Records</span>
+              </div>
+              <div class="source-stat">
+                <span class="source-stat-val">${esc(durationSec)}</span>
+                <span class="source-stat-lbl">Duration</span>
+              </div>
+            </div>
+            ${errorHtml}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ── Render history table ─────────────────────────────────────────────────
+    function renderHistory(log) {
+      if (!log || log.length === 0) return;
+
+      document.getElementById('history-section').style.display = '';
+
+      const rows = log.slice(0, 30).map(entry => {
+        const sources = entry.sources || {};
+        const names = Object.keys(sources);
+        const okCount = names.filter(k => (sources[k].status || '').toLowerCase() === 'ok').length;
+        const failedNames = names.filter(k => (sources[k].status || '').toLowerCase() === 'failed');
+        const failCount = failedNames.length;
+
+        const overall = (entry.overall || 'unknown').toLowerCase();
+        const rowCls = overall === 'ok' ? 'row-ok' : overall === 'partial' ? 'row-partial' : 'row-failed';
+
+        const failedNamesHtml = failedNames.length > 0
+          ? `<span class="failed-names">${failedNames.map(esc).join(', ')}</span>`
+          : '<span style="color:var(--muted)">—</span>';
+
+        return `
+          <tr class="${rowCls}">
+            <td>${esc(fmtDate(entry.run_at))}</td>
+            <td>${badgeHtml(entry.overall)}</td>
+            <td>${okCount}</td>
+            <td>${failCount}</td>
+            <td>${failedNamesHtml}</td>
+          </tr>
+        `;
+      }).join('');
+
+      document.getElementById('history-body').innerHTML = rows;
+    }
+
+    // ── Empty state ──────────────────────────────────────────────────────────
+    function showEmpty(message) {
+      document.getElementById('last-run-section').innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">&#9711;</div>
+          <div class="empty-title">No pipeline data</div>
+          <div class="empty-body">${esc(message)}</div>
+        </div>
+      `;
+    }
+
+    // ── Fetch and initialise ─────────────────────────────────────────────────
+    async function init() {
+      // Fetch pipeline-status.json
+      let status = null;
+      try {
+        const res = await fetch('../data/pipeline-status.json');
+        if (res.status === 404) {
+          showEmpty('No pipeline runs yet. Run the pipeline to see status here.');
+          return;
+        }
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        status = await res.json();
+      } catch (e) {
+        showEmpty('Could not load pipeline-status.json: ' + e.message);
+        return;
+      }
+
+      renderLastRun(status);
+      renderSourceGrid(status);
+
+      // Fetch pipeline-log.json (optional)
+      try {
+        const res = await fetch('../data/pipeline-log.json');
+        if (res.ok) {
+          const log = await res.json();
+          renderHistory(log);
+        }
+        // 404 or other error: silently hide history section (already hidden)
+      } catch (_) {
+        // hide history — already hidden by default
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
