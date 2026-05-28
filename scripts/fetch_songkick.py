@@ -125,13 +125,25 @@ def normalise_api_event(ev, city_hint):
 
 def scrape_metro(metro):
     """Scrape a Songkick metro area page for events."""
-    url = f"{PAGE_BASE}/{metro['metro_id']}-{metro['slug']}/calendar"
-    events = []
-    try:
-        html = fetch_url(url)
-    except (HTTPError, URLError) as e:
-        print(f"  Scrape: {metro['name']} failed ({e})", file=sys.stderr)
+    # Try multiple URL formats; Songkick has changed URL structure over time
+    candidate_urls = [
+        f"{PAGE_BASE}/{metro['metro_id']}-{metro['slug']}-metro-area/calendar",
+        f"{PAGE_BASE}/{metro['metro_id']}-{metro['slug']}/calendar",
+        f"{PAGE_BASE}/{metro['metro_id']}-{metro['slug']}",
+    ]
+    html = None
+    used_url = None
+    for candidate in candidate_urls:
+        try:
+            html = fetch_url(candidate)
+            used_url = candidate
+            break
+        except (HTTPError, URLError) as e:
+            continue
+    if html is None:
+        print(f"  Scrape: {metro['name']} failed (all URL formats 404)", file=sys.stderr)
         return []
+    events = []
 
     # Try embedded JSON-LD first
     for m in re.finditer(r'<script[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', html, re.DOTALL):
