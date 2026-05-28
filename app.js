@@ -504,15 +504,18 @@ function renderTrendsEvents(data) {
     cityCounts[c] = (cityCounts[c] || 0) + 1;
   }
 
+  const CITIES = new Set(["bangalore","bengaluru","mumbai","delhi","hyderabad","chennai","pune","kolkata","goa","kochi","cochin","india"]);
   const extractVenue = name => {
     const n = name || "";
+    const isCity = v => CITIES.has(v.toLowerCase().trim());
     const mAt = n.match(/\bat\.?\s+(.+)$/i);
-    if (mAt) { const v = mAt[1].replace(/\s*\([^)]*\)\s*$/, "").trim(); if (v.length > 2 && v.length <= 60) return v; }
-    const mPr = n.match(/^(.{4,40}?)\s+presents?\s+/i);
-    if (mPr) { const v = mPr[1].trim(); if (v.length > 3) return v; }
-    if (n.includes(" | ")) {
-      const last = n.split(" | ").pop().replace(/\s*\([^)]*\)\s*$/, "").trim();
-      if (last.length > 2 && !/^\d+\s*([ap]m)?$/i.test(last)) return last;
+    if (mAt) { const v = mAt[1].replace(/\s*\([^)]*\)\s*$/, "").trim(); if (v.length > 2 && v.length <= 60 && !isCity(v)) return v; }
+    const mPr = n.match(/^([A-Za-z0-9 &'\-]{4,30}?)\s+presents?\s+/i);
+    if (mPr) { const v = mPr[1].trim(); if (v.length > 3 && !/\s+x\s+/i.test(v) && !isCity(v)) return v; }
+    const sep = n.includes(" || ") ? " || " : " | ";
+    if (n.includes(sep)) {
+      const last = n.split(sep).pop().replace(/\s*\([^)]*\)\s*$/, "").trim();
+      if (last.length > 2 && !/^\d+\s*([ap]m)?$/i.test(last) && !isCity(last)) return last;
     }
     return "";
   };

@@ -74,27 +74,36 @@ def parse_date(raw):
     return raw[:10]
 
 
+CITY_NAMES = {
+    "bangalore", "bengaluru", "mumbai", "delhi", "hyderabad", "chennai",
+    "pune", "kolkata", "goa", "kochi", "cochin", "ahmedabad", "jaipur",
+    "india", "new delhi",
+}
+
 def extract_venue_from_name(name):
     """Parse venue from patterns like 'Event Name at Venue', 'Venue presents X', 'X | Venue'."""
+    def is_city(v):
+        return v.lower().strip() in CITY_NAMES
+
     # "... at Venue" or "... AT. Venue"
     m = re.search(r'\bat\.?\s+(.+)$', name, re.IGNORECASE)
     if m:
         v = re.sub(r'\s*\([^)]*\)\s*$', '', m.group(1)).strip()
-        if 2 < len(v) <= 60:
+        if 2 < len(v) <= 60 and not is_city(v):
             return v
-    # "Venue presents X" or "Venue present X" (venue is what comes before)
-    m = re.match(r'^(.{4,40}?)\s+presents?\s+', name, re.IGNORECASE)
+    # "Venue presents X" — only accept short, single-token venue names (no x/& chains)
+    m = re.match(r'^([A-Za-z0-9 &\'\-]{4,30}?)\s+presents?\s+', name, re.IGNORECASE)
     if m:
         v = m.group(1).strip()
-        # Skip if it looks like a person/artist name (no venue-like words)
-        if len(v) > 3:
+        # Reject if it contains x / & chains (promoter list, not a venue)
+        if len(v) > 3 and not re.search(r'\s+x\s+|&amp;', v, re.IGNORECASE):
             return v
-    # Pipe-separated: last segment is usually the venue
-    if ' | ' in name:
-        last = name.split(' | ')[-1]
+    # Pipe-separated (single or double): last segment is usually the venue
+    sep = " || " if " || " in name else " | "
+    if sep in name:
+        last = name.split(sep)[-1]
         last = re.sub(r'\s*\([^)]*\)\s*$', '', last).strip()
-        # Exclude pure numbers or time strings like "10pm"
-        if len(last) > 2 and not re.match(r'^\d+\s*([ap]m)?$', last, re.IGNORECASE):
+        if len(last) > 2 and not re.match(r'^\d+\s*([ap]m)?$', last, re.IGNORECASE) and not is_city(last):
             return last
     return ""
 
