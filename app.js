@@ -504,6 +504,21 @@ function renderTrendsEvents(data) {
     cityCounts[c] = (cityCounts[c] || 0) + 1;
   }
 
+  const extractVenue = name => {
+    const n = name || "";
+    const mAt = n.match(/\bat\.?\s+(.+)$/i);
+    if (mAt) { const v = mAt[1].replace(/\s*\([^)]*\)\s*$/, "").trim(); if (v.length > 2 && v.length <= 60) return v; }
+    const mPr = n.match(/^(.{4,40}?)\s+presents?\s+/i);
+    if (mPr) { const v = mPr[1].trim(); if (v.length > 3) return v; }
+    if (n.includes(" | ")) {
+      const last = n.split(" | ").pop().replace(/\s*\([^)]*\)\s*$/, "").trim();
+      if (last.length > 2 && !/^\d+\s*([ap]m)?$/i.test(last)) return last;
+    }
+    return "";
+  };
+
+  const getVenue = e => e.venue || e.venue_name || extractVenue(e.name || e.title || "") || "";
+
   let activeCity = "all";
 
   const venuePriceLabel = (evs) => {
@@ -533,13 +548,17 @@ function renderTrendsEvents(data) {
 
     const venueMap = {};
     for (const e of list) {
-      const vname = e.venue || e.venue_name || "Venue TBC";
+      const vname = getVenue(e) || "Venue TBC";
       const key   = vname + "|" + (e.city || "");
       if (!venueMap[key]) venueMap[key] = { name: vname, city: e.city || "", events: [] };
       venueMap[key].events.push(e);
     }
 
-    const cards = Object.values(venueMap)
+    const named   = Object.values(venueMap).filter(v => v.name !== "Venue TBC");
+    const unnamed = Object.values(venueMap).filter(v => v.name === "Venue TBC");
+    const unnamedCount = unnamed.reduce((s, v) => s + v.events.length, 0);
+
+    const cards = named
       .sort((a, b) => b.events.length - a.events.length)
       .map(v => {
         const count   = v.events.length;
@@ -560,9 +579,14 @@ function renderTrendsEvents(data) {
         </a>`;
       }).join("");
 
+    const moreNote = unnamedCount > 0
+      ? `<div class="venue-more">+ ${unnamedCount} more show${unnamedCount !== 1 ? "s" : ""} at unlisted venues — <a href="https://www.skillboxes.com/events" target="_blank" rel="noopener">see all on Skillboxes</a></div>`
+      : "";
+
     el.innerHTML = `
       <div class="venue-summary">${esc(sceneSummary(list))}</div>
-      <div class="venue-grid">${cards}</div>`;
+      <div class="venue-grid">${cards}</div>
+      ${moreNote}`;
   };
 
   if (pillsEl) {
