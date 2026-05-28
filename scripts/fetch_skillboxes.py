@@ -89,6 +89,11 @@ def extract_venue_from_name(name):
     m = re.search(r'\bat\.?\s+(.+)$', name, re.IGNORECASE)
     if m:
         v = re.sub(r'\s*\([^)]*\)\s*$', '', m.group(1)).strip()
+        # Strip show subtitle after " - " or ":" (e.g. "Bflat' - A Tribute to X")
+        v = re.sub(r"\s+[-–|:]\s+.+$", "", v).strip()
+        # Strip trailing city names (e.g. "The Humming Tree Bengaluru" → "The Humming Tree")
+        v = re.sub(r'\s+(?:Bengaluru|Bangalore|Mumbai|Delhi|Hyderabad|Chennai|Pune|Kolkata|Goa|Kochi)$',
+                   '', v, flags=re.IGNORECASE).strip()
         if 2 < len(v) <= 60 and not is_city(v):
             return v
     # "Venue presents X" — only accept short, single-token venue names (no x/& chains)
@@ -114,6 +119,12 @@ def normalise(item):
     url   = f"{BASE_URL}/events/{slug}" if slug else ""
     city  = item.get("city_name") or ""
     venue = item.get("venue_name") or extract_venue_from_name(name)
+    # Normalise: strip trailing city name from venue (e.g. "The Humming Tree Bengaluru" → "The Humming Tree")
+    if venue:
+        venue = re.sub(
+            r'\s+(?:Bengaluru|Bangalore|Mumbai|Delhi|Hyderabad|Chennai|Pune|Kolkata|Goa|Kochi)$',
+            '', venue, flags=re.IGNORECASE
+        ).strip()
     raw_date = item.get("date") or item.get("event_date") or ""
     ev_date  = parse_date(raw_date)
 
