@@ -64,6 +64,42 @@ SOURCES = [
         "env_required": [],
         "outputs": ["data/social.json"],
     },
+    {
+        "name": "playboard",
+        "script": "fetch_playboard.py",
+        "env_required": [],
+        "outputs": ["data/playboard.json"],
+    },
+    {
+        "name": "jiosaavn",
+        "script": "fetch_jiosaavn.py",
+        "env_required": [],
+        "outputs": ["data/jiosaavn.json"],
+    },
+    {
+        "name": "events_paytm",
+        "script": "fetch_events_paytm.py",
+        "env_required": [],
+        "outputs": ["data/events-paytm.json"],
+    },
+    {
+        "name": "news_rss",
+        "script": "fetch_news_rss.py",
+        "env_required": [],
+        "outputs": ["data/news-rss.json"],
+    },
+    {
+        "name": "songkick",
+        "script": "fetch_songkick.py",
+        "env_required": [],
+        "outputs": ["data/events-songkick.json"],
+    },
+    {
+        "name": "spotify_playwright",
+        "script": "fetch_spotify_playwright.py",
+        "env_required": [],
+        "outputs": ["data/spotify_playwright.json"],
+    },
     # Weekly reviewer sources — included here so pipeline tracks them.
     # These are only triggered on Sunday via the --reviewers flag or directly.
     {
