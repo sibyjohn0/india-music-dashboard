@@ -95,6 +95,12 @@ SOURCES = [
         "outputs": ["data/events-songkick.json"],
     },
     {
+        "name": "events_district",
+        "script": "fetch_events_district.py",
+        "env_required": [],
+        "outputs": ["data/events-district.json"],
+    },
+    {
         "name": "spotify_playwright",
         "script": "fetch_spotify_playwright.py",
         "env_required": [],
