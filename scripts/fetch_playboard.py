@@ -50,7 +50,7 @@ def parse_number(text: str) -> int:
     return int(num * multipliers.get(suffix, 1))
 
 
-def load_last_known() -> dict | None:
+def load_last_known():
     if OUT_PATH.exists():
         with open(OUT_PATH) as f:
             return json.load(f)

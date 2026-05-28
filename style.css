@@ -1184,6 +1184,72 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   line-height: 1.4;
 }
 
+/* ── Upcoming Shows (Trends tab) ── */
+.shows-section {
+  margin-bottom: 32px;
+}
+.shows-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.shows-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  white-space: nowrap;
+}
+.shows-city-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.city-pill {
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.city-pill.active, .city-pill:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+.shows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  max-height: 480px;
+  overflow-y: auto;
+}
+.show-row {
+  display: block;
+  padding: 10px 12px;
+  background: var(--surface2);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background .15s;
+}
+.show-row:hover { background: var(--surface3, #222); }
+.show-row-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--fg);
+  line-height: 1.4;
+}
+.show-row-meta {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
 /* ── Reviewers grid (Active reviewers) ── */
 .reviewers-grid {
   display: grid;
