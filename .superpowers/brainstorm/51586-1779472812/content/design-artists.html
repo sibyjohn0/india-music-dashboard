@@ -1,0 +1,140 @@
+<h2>Section 3 — Artists Tab (absorbs Radar)</h2>
+<p class="subtitle">Artist cards now show YouTube stats AND Last.fm listener data together. Radar tab disappears.</p>
+
+<div class="mockup" style="max-width:720px;margin:0 auto">
+  <div class="mockup-header">Artists tab — layout</div>
+  <div class="mockup-body" style="padding:0;font-size:12px">
+
+    <!-- Collab bar -->
+    <div style="background:#111;border-bottom:1px solid #1a1a1a;padding:10px 16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <span style="color:#666;font-size:12px">Find collaborators for</span>
+      <select style="background:#1a1a1a;border:1px solid #2a2a2a;color:#aaa;border-radius:6px;padding:5px 10px;font-size:12px">
+        <option>My genre…</option>
+      </select>
+      <select style="background:#1a1a1a;border:1px solid #2a2a2a;color:#aaa;border-radius:6px;padding:5px 10px;font-size:12px">
+        <option>My language…</option>
+      </select>
+      <span style="margin-left:auto;font-size:11px;color:#444;font-style:italic">Cards highlight matching artists</span>
+    </div>
+
+    <!-- Filter bar — trimmed -->
+    <div style="background:#0d0d0d;border-bottom:1px solid #1a1a1a;padding:10px 16px;display:flex;gap:8px;align-items:center">
+      <input placeholder="Search artist…" style="background:#1a1a1a;border:1px solid #2a2a2a;color:#aaa;border-radius:6px;padding:5px 10px;font-size:12px;flex:1" />
+      <select style="background:#1a1a1a;border:1px solid #2a2a2a;color:#aaa;border-radius:6px;padding:5px 10px;font-size:12px">
+        <option>All Languages</option>
+      </select>
+      <select style="background:#1a1a1a;border:1px solid #2a2a2a;color:#aaa;border-radius:6px;padding:5px 10px;font-size:12px">
+        <option>All Trends</option>
+        <option>Rising</option>
+        <option>New</option>
+        <option>Stable</option>
+      </select>
+      <button style="background:#1a1a1a;border:1px solid #2a2a2a;color:#888;border-radius:6px;padding:5px 12px;font-size:12px">+ More</button>
+    </div>
+
+    <!-- Artist card grid -->
+    <div style="padding:16px;background:#111;display:grid;grid-template-columns:1fr 1fr;gap:10px">
+
+      <!-- Card 1: has Last.fm data -->
+      <div style="background:#1a1a1a;border-radius:10px;overflow:hidden;border:1px solid #222">
+        <div style="height:60px;background:linear-gradient(135deg,#1a1a2e,#0d0d1a);position:relative">
+          <div style="position:absolute;top:6px;right:6px;background:#34d39922;color:#34d399;font-size:10px;border-radius:4px;padding:2px 6px;border:1px solid #34d39944">▲ rising</div>
+        </div>
+        <div style="padding:10px">
+          <div style="font-weight:600;color:#eee;font-size:13px;margin-bottom:4px">Artist Name</div>
+          <div style="display:flex;gap:4px;margin-bottom:8px">
+            <span style="background:#60a5fa22;color:#60a5fa;border:1px solid #60a5fa33;border-radius:3px;padding:1px 6px;font-size:10px">Indie Pop</span>
+            <span style="background:#f8717122;color:#f87171;border:1px solid #f8717133;border-radius:3px;padding:1px 6px;font-size:10px">Tamil</span>
+          </div>
+          <!-- YouTube stats row -->
+          <div style="display:flex;gap:10px;padding:6px 0;border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a;margin-bottom:6px">
+            <div style="text-align:center;flex:1">
+              <div style="color:#aaa;font-size:12px;font-weight:600">78</div>
+              <div style="color:#444;font-size:10px">discovery</div>
+            </div>
+            <div style="text-align:center;flex:1">
+              <div style="color:#aaa;font-size:12px;font-weight:600">3.8%</div>
+              <div style="color:#444;font-size:10px">engagement</div>
+            </div>
+            <div style="text-align:center;flex:1">
+              <div style="color:#aaa;font-size:12px;font-weight:600">3</div>
+              <div style="color:#444;font-size:10px">videos</div>
+            </div>
+          </div>
+          <!-- Last.fm row — new -->
+          <div style="display:flex;gap:8px;align-items:center">
+            <div style="flex:1">
+              <div style="color:#a78bfa;font-size:11px;font-weight:600">12.4K</div>
+              <div style="color:#444;font-size:10px">India listeners</div>
+            </div>
+            <div style="flex:1">
+              <div style="color:#888;font-size:11px">84K global</div>
+              <div style="color:#444;font-size:10px">Last.fm</div>
+            </div>
+            <a style="background:#1a1a1a;border:1px solid #333;color:#888;border-radius:5px;padding:3px 8px;font-size:10px;text-decoration:none">YouTube</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: no Last.fm data -->
+      <div style="background:#1a1a1a;border-radius:10px;overflow:hidden;border:1px solid #222">
+        <div style="height:60px;background:linear-gradient(135deg,#1a2e1a,#0d1a0d);position:relative">
+          <div style="position:absolute;top:6px;right:6px;background:#a78bfa22;color:#a78bfa;font-size:10px;border-radius:4px;padding:2px 6px;border:1px solid #a78bfa44">✦ new</div>
+        </div>
+        <div style="padding:10px">
+          <div style="font-weight:600;color:#eee;font-size:13px;margin-bottom:4px">Artist Name</div>
+          <div style="display:flex;gap:4px;margin-bottom:8px">
+            <span style="background:#fbbf2422;color:#fbbf24;border:1px solid #fbbf2433;border-radius:3px;padding:1px 6px;font-size:10px">Folk</span>
+            <span style="background:#38bdf822;color:#38bdf8;border:1px solid #38bdf833;border-radius:3px;padding:1px 6px;font-size:10px">Bengali</span>
+          </div>
+          <div style="display:flex;gap:10px;padding:6px 0;border-top:1px solid #2a2a2a;border-bottom:1px solid #2a2a2a;margin-bottom:6px">
+            <div style="text-align:center;flex:1">
+              <div style="color:#aaa;font-size:12px;font-weight:600">65</div>
+              <div style="color:#444;font-size:10px">discovery</div>
+            </div>
+            <div style="text-align:center;flex:1">
+              <div style="color:#aaa;font-size:12px;font-weight:600">5.1%</div>
+              <div style="color:#444;font-size:10px">engagement</div>
+            </div>
+            <div style="text-align:center;flex:1">
+              <div style="color:#aaa;font-size:12px;font-weight:600">2</div>
+              <div style="color:#444;font-size:10px">videos</div>
+            </div>
+          </div>
+          <!-- No Last.fm — show placeholder -->
+          <div style="display:flex;gap:8px;align-items:center">
+            <div style="flex:1;color:#444;font-size:10px;font-style:italic">Not yet on Last.fm</div>
+            <a style="background:#1a1a1a;border:1px solid #333;color:#888;border-radius:5px;padding:3px 8px;font-size:10px;text-decoration:none">YouTube</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div style="max-width:720px;margin:0 auto;font-size:12px;color:#666;background:#1a1a1a;border-radius:8px;padding:14px">
+  <strong style="color:#aaa">Key changes from current:</strong>
+  <ul style="margin:8px 0 0 0;padding-left:18px;line-height:1.8">
+    <li>Last.fm India listeners + trend badge (rising/new/stable/falling) now live on every artist card. No separate Radar tab needed.</li>
+    <li>Trend filter added to filter bar — so you can still filter to "rising only" without a dedicated tab.</li>
+    <li>Filter bar trimmed to search + language + trend + "More" expander. Genre, engagement floor, video count move into "More".</li>
+    <li>Cards without Last.fm data show "Not yet on Last.fm" instead of blank space — makes it clear why data is missing.</li>
+    <li>Collab bar stays, but gets a right-side hint: "Cards highlight matching artists" so its purpose is self-evident.</li>
+  </ul>
+</div>
+
+<br>
+
+<div class="options" style="max-width:720px;margin:0 auto">
+  <div class="option" data-choice="yes" onclick="toggleSelect(this)">
+    <div class="letter">✓</div>
+    <div class="content"><h3>Looks good — show cross-tab improvements</h3></div>
+  </div>
+  <div class="option" data-choice="tweak" onclick="toggleSelect(this)">
+    <div class="letter">~</div>
+    <div class="content"><h3>Need a change — I'll say what</h3></div>
+  </div>
+</div>
