@@ -106,6 +106,18 @@ SOURCES = [
         "env_required": [],
         "outputs": ["data/spotify_playwright.json"],
     },
+    {
+        "name": "bookmyshow",
+        "script": "fetch_bookmyshow.py",
+        "env_required": [],
+        "outputs": ["data/events-bookmyshow.json"],
+    },
+    {
+        "name": "skillboxes",
+        "script": "fetch_skillboxes.py",
+        "env_required": [],
+        "outputs": ["data/events-skillboxes.json"],
+    },
     # Weekly reviewer sources — included here so pipeline tracks them.
     # These are only triggered on Sunday via the --reviewers flag or directly.
     {
