@@ -74,12 +74,37 @@ def parse_date(raw):
     return raw[:10]
 
 
+def extract_venue_from_name(name):
+    """Parse venue from patterns like 'Event Name at Venue', 'Venue presents X', 'X | Venue'."""
+    # "... at Venue" or "... AT. Venue"
+    m = re.search(r'\bat\.?\s+(.+)$', name, re.IGNORECASE)
+    if m:
+        v = re.sub(r'\s*\([^)]*\)\s*$', '', m.group(1)).strip()
+        if 2 < len(v) <= 60:
+            return v
+    # "Venue presents X" or "Venue present X" (venue is what comes before)
+    m = re.match(r'^(.{4,40}?)\s+presents?\s+', name, re.IGNORECASE)
+    if m:
+        v = m.group(1).strip()
+        # Skip if it looks like a person/artist name (no venue-like words)
+        if len(v) > 3:
+            return v
+    # Pipe-separated: last segment is usually the venue
+    if ' | ' in name:
+        last = name.split(' | ')[-1]
+        last = re.sub(r'\s*\([^)]*\)\s*$', '', last).strip()
+        # Exclude pure numbers or time strings like "10pm"
+        if len(last) > 2 and not re.match(r'^\d+\s*([ap]m)?$', last, re.IGNORECASE):
+            return last
+    return ""
+
+
 def normalise(item):
     name  = item.get("event_display_name") or item.get("event_name") or ""
     slug  = item.get("slug") or ""
     url   = f"{BASE_URL}/events/{slug}" if slug else ""
     city  = item.get("city_name") or ""
-    venue = item.get("venue_name") or ""
+    venue = item.get("venue_name") or extract_venue_from_name(name)
     raw_date = item.get("date") or item.get("event_date") or ""
     ev_date  = parse_date(raw_date)
 
