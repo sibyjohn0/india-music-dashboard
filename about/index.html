@@ -64,7 +64,7 @@
     .logo { font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
     .logo span { color: var(--accent); }
 
-    nav { display: flex; padding: 0 24px; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    nav { display: flex; padding: 0 24px; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask-image: linear-gradient(to right, black calc(100% - 32px), transparent 100%); mask-image: linear-gradient(to right, black calc(100% - 32px), transparent 100%); }
     nav::-webkit-scrollbar { display: none; }
     .tab { background: none; border: none; border-bottom: 2px solid transparent; color: #999; font: 13px/1 'Inter', sans-serif; padding: 0 16px; height: 44px; display: flex; align-items: center; cursor: pointer; transition: color .15s, border-color .15s; white-space: nowrap; text-decoration: none; flex-shrink: 0; font-weight: 500; }
     .tab:hover { color: var(--text); }
@@ -387,7 +387,7 @@
     }
     .footer-logo { font-weight: 800; font-size: 13px; letter-spacing: -.2px; }
     .footer-logo span { color: var(--accent); }
-    .footer-links { display: flex; gap: 20px; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
     .footer-links a { color: var(--muted); transition: color .15s; }
     .footer-links a:hover { color: var(--text); }
 
@@ -425,6 +425,7 @@
       .divider { margin: 40px 0; }
 
       footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+      footer > div { max-width: 100%; }
 
       .programme-callout { padding: 20px; gap: 20px; }
       .programme-callout-right { text-align: left; }
@@ -434,7 +435,7 @@
 <body>
 
 <header>
-  <div class="logo">◉ India Indie Music Radar</div>
+  <div class="logo"><a href="../">◉ India Indie Music Radar</a></div>
 </header>
 
 <nav>
