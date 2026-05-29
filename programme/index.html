@@ -463,6 +463,59 @@
     }
     .btn-secondary:hover { border-color: var(--muted); }
 
+    /* ── DELIVERABLES TABLE ── */
+    .deliverables {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .deliverables thead tr {
+      border-bottom: 1px solid var(--border);
+    }
+    .deliverables th {
+      text-align: left;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 10px 16px 10px 0;
+    }
+    .deliverables th:last-child { padding-right: 0; }
+    .deliverables td {
+      padding: 14px 16px 14px 0;
+      vertical-align: top;
+      border-bottom: 1px solid var(--border);
+      color: #b0b0c8;
+      line-height: 1.55;
+    }
+    .deliverables td:last-child { padding-right: 0; }
+    .deliverables tr:last-child td { border-bottom: none; }
+    .del-month {
+      font-weight: 800;
+      color: #f0f0f0;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .del-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 4px;
+    }
+    .del-badge.consult { background: rgba(233,69,96,.12); color: var(--accent); border: 1px solid rgba(233,69,96,.2); }
+    .del-badge.artist  { background: rgba(16,185,129,.12); color: var(--green); border: 1px solid rgba(16,185,129,.2); }
+    .del-badge.joint   { background: rgba(247,183,49,.12); color: var(--amber); border: 1px solid rgba(247,183,49,.2); }
+    .del-deliverable {
+      font-weight: 600;
+      color: #f0f0f0;
+      margin-bottom: 3px;
+    }
+
     footer {
       border-top: 1px solid var(--border);
       padding: 24px 32px;
@@ -920,6 +973,87 @@
       <div class="pricing-terms">
         Payment is monthly. If a payment is missed, weekly check-ins pause until it clears. No chasing, no exceptions.
       </div>
+    </div>
+
+    <div style="margin-top:32px;">
+      <div class="section-label" style="margin-bottom:16px;">Month by month</div>
+      <table class="deliverables">
+        <thead>
+          <tr>
+            <th style="width:90px;">Month</th>
+            <th style="width:160px;">Focus</th>
+            <th>What you walk away with</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="del-month">Month 1</div>
+              <div class="del-badge consult">Consultant</div>
+            </td>
+            <td>Financial diagnostic</td>
+            <td>
+              <div class="del-deliverable">Written financial snapshot</div>
+              Income and cost audit for last six months, monthly income target, production budget agreed, problems named in writing
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="del-month">Month 2</div>
+              <div class="del-badge consult">Consultant</div>
+            </td>
+            <td>Identity and production</td>
+            <td>
+              <div class="del-deliverable">EPK brief + content direction + task list</div>
+              Music audit complete, identity defined, EPK specified, social direction set, 163-item task list filtered to your situation and ready to execute
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="del-month">Month 3</div>
+              <div class="del-badge artist">Artist</div>
+            </td>
+            <td>Distribution and PR</td>
+            <td>
+              <div class="del-deliverable">First 10 pitches sent and tracked</div>
+              Streaming profiles fixed, playlist outreach started, first press pitches sent using the 924-contact reviewer pipeline
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="del-month">Month 4</div>
+              <div class="del-badge artist">Artist</div>
+            </td>
+            <td>Live circuit</td>
+            <td>
+              <div class="del-deliverable">3 shows confirmed or in pipeline</div>
+              Venue outreach complete, EPK pitched to venues, one booking agency approached with a reviewed pitch
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="del-month">Month 5</div>
+              <div class="del-badge artist">Artist</div>
+            </td>
+            <td>Community</td>
+            <td>
+              <div class="del-deliverable">50 named fans + active fan group</div>
+              WhatsApp fan group running, 50 real people identified by name, direct fan engagement habit established
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="del-month">Month 6</div>
+              <div class="del-badge joint">Joint</div>
+            </td>
+            <td>Income activation</td>
+            <td>
+              <div class="del-deliverable">One income stream live + six-month review doc</div>
+              First non-streaming income source activated, full review of what moved, next six months planned and stress-tested
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
