@@ -335,6 +335,22 @@
     .fact-num span { color: var(--accent); }
     .fact-label { font-size: 11px; color: var(--muted); line-height: 1.4; }
 
+    /* ── PROGRAMME CALLOUT ── */
+    .programme-callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .programme-callout-left { flex: 1; min-width: 240px; }
+    .programme-callout-right { flex-shrink: 0; text-align: right; }
+
     /* ── DIVIDER ── */
     .divider { border: none; border-top: 1px solid var(--border); margin: 64px 0; }
 
@@ -384,6 +400,9 @@
       .divider { margin: 40px 0; }
 
       footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+
+      .programme-callout { padding: 20px; gap: 20px; }
+      .programme-callout-right { text-align: left; }
     }
   </style>
 </head>
@@ -465,6 +484,22 @@
         <div class="tool-name">Labels &amp; Agencies</div>
         <div class="tool-desc">60 labels and booking agencies, India-first, with editorial context on who's actively signing, what stage to be at before approaching, and what each entity actually does.</div>
         <a class="tool-link" href="../industry/">Open Directory →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAMME CALLOUT -->
+  <div class="section">
+    <div class="programme-callout">
+      <div class="programme-callout-left">
+        <div class="section-label" style="margin-bottom:10px;">Artist Development Programme</div>
+        <div class="section-title" style="font-size:22px; margin-bottom:10px;">When the tools are not enough.</div>
+        <p style="font-size:14px; color:#b0b0c8; line-height:1.75; max-width:480px;">If you are past reading and want someone to think through it with you, we work directly with a small number of artists. Six months. Two consultants. Your workstream, our thinking. You own the work.</p>
+      </div>
+      <div class="programme-callout-right">
+        <div style="font-size:28px; font-weight:800; color:#f0f0f0; letter-spacing:-.5px; margin-bottom:4px;">₹10,000<span style="font-size:14px; font-weight:500; color:var(--muted);">/month</span></div>
+        <div style="font-size:12px; color:var(--muted); margin-bottom:20px;">16+ hours direct consulting over 6 months</div>
+        <a class="cta-primary" href="../programme/" style="display:inline-flex; align-items:center; gap:8px; font-size:13px;">See how the programme works →</a>
       </div>
     </div>
   </div>
