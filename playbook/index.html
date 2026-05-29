@@ -39,178 +39,44 @@
 html{font-size:15px}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;overflow-x:hidden}
 
-/* ── PHASE LANDING (replaces onboarding) ── */
-#onboarding{position:fixed;top:var(--nav-h);left:0;right:0;bottom:0;background:var(--bg);z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:0;overflow-y:auto}
-#onboarding.hidden{display:none}
-
-.ob-phase-landing-wrap{display:flex;flex-direction:column;align-items:center;width:100%;max-width:800px;padding:52px 24px 48px;margin:0 auto}
-
-.ob-phase-header{text-align:center;margin-bottom:44px;position:relative;background:linear-gradient(135deg,rgba(233,69,96,.07) 0%,transparent 55%);border:1px solid var(--border);border-radius:16px;padding:40px 32px 36px;overflow:hidden}
-.ob-phase-header::after{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(233,69,96,.16) 0%,transparent 70%);pointer-events:none}
-.ob-phase-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
-.ob-phase-headline{font-size:clamp(24px,5vw,42px);font-weight:800;line-height:1.15;color:#f0f0f0;margin-bottom:12px}
-.ob-phase-deck{font-size:15px;color:var(--muted);line-height:1.6}
-
-.ob-phase-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;width:100%;margin-bottom:36px}
-.ob-phase-card{background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:22px 20px 18px;cursor:pointer;position:relative;transition:border-color .2s,transform .15s,background .2s;text-align:left}
-.ob-phase-card:hover{border-color:var(--accent);transform:translateY(-3px);background:#1e1414}
-.ob-phase-card-num{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:8px}
-.ob-phase-card-name{font-size:17px;font-weight:800;color:#f0f0f0;margin-bottom:6px;line-height:1.2}
-.ob-phase-card-desc{font-size:12px;color:var(--muted);line-height:1.6}
-.ob-phase-card-count{font-size:10px;color:var(--muted);margin-top:6px;letter-spacing:.3px}
-.ob-phase-card-arrow{position:absolute;bottom:16px;right:18px;font-size:16px;color:var(--accent);opacity:0;transition:opacity .2s}
-.ob-phase-card:hover .ob-phase-card-arrow{opacity:1}
-
-.ob-phase-search-row{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;margin-bottom:24px}
-.ob-phase-search-label{font-size:12px;color:var(--muted)}
-
-.ob-phase-progress-row{margin-bottom:32px;text-align:center}
-
-@media(max-width:768px){
-  .ob-phase-landing-wrap{padding:36px 16px 40px}
-  .ob-phase-grid{grid-template-columns:1fr 1fr}
-  .ob-phase-headline{font-size:clamp(22px,6vw,32px)}
-}
-@media(max-width:480px){
-  .ob-phase-header{padding:28px 20px 24px;border-radius:12px}
-  .ob-phase-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:10px;padding-bottom:8px;margin:0 -4px;padding-left:4px}
-  .ob-phase-grid::-webkit-scrollbar{display:none}
-  .ob-phase-card{flex:0 0 190px;scroll-snap-align:start}
-}
-.ob-logo{font-size:11px;letter-spacing:1px;color:var(--accent);font-weight:700;margin-bottom:32px}
-.ob-title{font-size:clamp(22px,4vw,36px);font-weight:800;text-align:center;line-height:1.2;max-width:600px;margin-bottom:12px}
-.ob-sub{font-size:14px;color:var(--muted);text-align:center;margin-bottom:36px;max-width:480px}
-.ob-step{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:20px;text-align:center}
-.ob-cta{background:var(--accent);color:#fff;border:none;padding:14px 36px;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;letter-spacing:.5px;margin-top:8px;transition:opacity .2s}
-.ob-cta:disabled{opacity:.4;cursor:not-allowed}
-.ob-cta:not(:disabled):hover{opacity:.9}
-.ob-skip{font-size:12px;color:var(--muted);margin-top:16px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
-.ob-back{font-size:12px;color:var(--muted);cursor:pointer;margin-bottom:24px;display:flex;align-items:center;gap:4px}
-
-
-/* ── LANDING / DOCUMENTATION ── */
-.ob-landing{display:flex;flex-direction:column;align-items:center;width:100%;max-width:760px}
-.ob-landing-header{text-align:center;margin-bottom:40px}
-.ob-landing-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
-.ob-landing-headline{font-size:clamp(26px,5vw,44px);font-weight:800;line-height:1.15;color:#f0f0f0;margin-bottom:12px}
-.ob-landing-deck{font-size:14px;color:var(--muted);line-height:1.7;max-width:520px;margin:0 auto}
-
-.ob-plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;width:100%;margin-bottom:32px}
-.ob-plan-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px}
-.ob-plan-num{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:6px}
-.ob-plan-name{font-size:13px;font-weight:700;color:#f0f0f0;margin-bottom:4px}
-.ob-plan-desc{font-size:11px;color:var(--muted);line-height:1.5}
-
-.ob-assumptions{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:20px 22px;width:100%;margin-bottom:28px}
-.ob-assumptions h4{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:14px}
-.ob-assumption{display:flex;gap:10px;margin-bottom:10px;font-size:12px;color:#bbb;line-height:1.6}
-.ob-assumption:last-child{margin-bottom:0}
-.ob-assumption-dot{color:var(--accent);font-weight:800;flex-shrink:0;margin-top:1px}
-
-.ob-meta-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:28px}
-.ob-meta-chip{font-size:11px;background:var(--card-bg);border:1px solid var(--border);border-radius:6px;padding:5px 12px;color:var(--muted)}
-.ob-meta-chip strong{color:var(--text)}
-
-/* Problem cards (step 0) */
-.ob-prob-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:100%;max-width:600px;margin-bottom:16px}
-.ob-prob-card{background:var(--card-bg);border:2px solid var(--border);border-radius:10px;padding:18px;cursor:pointer;transition:border-color .2s,transform .15s;text-align:left}
-.ob-prob-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.ob-prob-card.selected{border-color:var(--amber);background:#1c1a12}
-.ob-prob-icon{font-size:24px;margin-bottom:10px}
-.ob-prob-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px}
-.ob-prob-hint{font-size:11px;color:var(--muted);line-height:1.4}
-
-/* Type cards (step 1) */
-.ob-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;width:100%;max-width:700px;margin-bottom:20px}
-.ob-card{background:var(--card-bg);border:2px solid var(--border);border-radius:12px;padding:20px;cursor:pointer;transition:border-color .2s,transform .15s;text-align:left}
-.ob-card:hover{border-color:var(--accent);transform:translateY(-2px)}
-.ob-card.selected{border-color:var(--amber);background:#1c1a12}
-.ob-card-icon{font-size:26px;margin-bottom:10px}
-.ob-card-title{font-size:14px;font-weight:700;margin-bottom:6px}
-.ob-card-desc{font-size:11px;color:var(--muted);line-height:1.5}
-.ob-card-advantage{font-size:10px;color:var(--success);margin-top:8px;font-weight:600}
-
-/* Journey map (step 2) */
-.map-visual{width:100%;max-width:560px;background:var(--sidebar-bg);border:1px solid var(--border);border-radius:12px;padding:28px;margin:20px 0}
-.map-stops{display:flex;align-items:flex-start;position:relative;margin-bottom:20px}
-.map-stops::before{content:'';position:absolute;top:22px;left:22px;right:22px;height:2px;background:linear-gradient(90deg,var(--accent),var(--amber),var(--success),#3498db)}
-.map-stop{display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;position:relative;z-index:1}
-.map-stop-dot{width:44px;height:44px;border-radius:50%;background:var(--card-bg);border:2px solid var(--border);font-size:18px;display:flex;align-items:center;justify-content:center;transition:all .4s}
-.map-stop.lit .map-stop-dot{background:var(--accent);border-color:var(--accent);box-shadow:0 0 18px #e9456066;transform:scale(1.15)}
-.map-stop-lbl{font-size:10px;color:var(--muted);text-align:center;line-height:1.3;max-width:64px}
-.map-stop.lit .map-stop-lbl{color:var(--text);font-weight:700}
-.map-callout{background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 16px}
-.map-callout-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:4px}
-.map-callout-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:3px}
-.map-callout-sub{font-size:12px;color:var(--muted)}
-
-/* ── TOP BAR ── */
-#topbar{position:fixed;top:var(--nav-h);left:0;right:0;height:var(--topbar-h);background:rgba(15,15,15,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;padding:0 14px;z-index:100}
-#hamburger{display:none;background:#1e1e1e;border:1px solid var(--border);border-radius:7px;color:var(--text);cursor:pointer;padding:0;font-size:20px;width:40px;height:40px;flex-shrink:0;align-items:center;justify-content:center;line-height:1}
-.progress-container{flex:1;display:flex;align-items:center;gap:10px;min-width:0}
-.progress-track{flex:1;height:3px;background:var(--border);border-radius:2px;overflow:hidden}
-.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--amber));border-radius:2px;transition:width .4s}
-.progress-label{font-size:11px;color:var(--muted);white-space:nowrap;flex-shrink:0}
-#back-to-phases-btn{font-size:11px;color:var(--muted);background:none;border:1px solid var(--border);padding:4px 10px;border-radius:6px;cursor:pointer;white-space:nowrap;flex-shrink:0}
-#back-to-phases-btn:hover{border-color:var(--muted)}
-@keyframes radar-pulse{0%,100%{box-shadow:0 0 0 0 rgba(233,69,96,.5)}60%{box-shadow:0 0 0 7px rgba(233,69,96,0)}}
-@keyframes radar-dot-blink{0%,100%{opacity:1}50%{opacity:.3}}
-#radar-btn{font-size:11px;color:var(--accent);background:#1c0a10;border:1px solid var(--accent);padding:4px 12px;border-radius:6px;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:700;animation:radar-pulse 2s ease-out infinite}
-#radar-btn:hover{background:#2a0e16;animation:none;box-shadow:0 0 0 3px rgba(233,69,96,.3)}
-#radar-btn .r-dot{animation:radar-dot-blink 1.2s ease-in-out infinite}
-#reviewers-btn{font-size:11px;color:#94a3b8;background:#1c1c26;border:1px solid #2a2a38;padding:4px 12px;border-radius:6px;white-space:nowrap;flex-shrink:0;text-decoration:none;display:inline-flex;align-items:center;gap:5px;font-weight:600;transition:border-color .15s,color .15s}
-#reviewers-btn:hover{color:var(--text);border-color:#4a4a5a}
-.ob-attribution{margin-top:32px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
-.ob-attribution strong{color:var(--text)}
-.ob-attribution a{color:var(--muted);text-decoration:none;transition:color .15s}
-.ob-attribution a:hover{color:var(--text)}
-.ob-attr-sep{opacity:.4}
-.ob-radar-card{margin-top:20px;display:flex;justify-content:center}
-.ob-radar-card a{display:inline-flex;align-items:center;gap:10px;background:#1c0a10;border:1px solid var(--accent);border-radius:10px;padding:12px 22px;text-decoration:none;color:var(--accent);font-size:13px;font-weight:700;animation:radar-pulse 2s ease-out infinite}
-.ob-radar-card a:hover{background:#2a0e16;animation:none;box-shadow:0 0 0 3px rgba(233,69,96,.3)}
-.ob-radar-card .r-dot{font-size:16px;animation:radar-dot-blink 1.2s ease-in-out infinite}
-.ob-radar-card .r-label{display:flex;flex-direction:column;gap:1px}
-.ob-radar-card .r-title{font-size:13px;font-weight:700;color:var(--accent)}
-.ob-radar-card .r-sub{font-size:11px;color:var(--muted);font-weight:400}
-.ob-workbook-strip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:transparent;width:100%;margin-bottom:20px;box-sizing:border-box}
-.ob-wk-strip-label{font-size:11px;color:var(--muted);white-space:nowrap}
-.ob-wk-strip-link{font-size:12px;font-weight:600;color:#aaa;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
-.ob-wk-strip-link:hover{color:#ddd}
-.ob-wk-strip-phases{font-size:11px;color:var(--muted);margin-left:auto;white-space:nowrap}
-
-/* ── SIDEBAR ── */
-#sidebar{position:fixed;top:calc(var(--nav-h) + var(--topbar-h));left:0;bottom:0;width:var(--sidebar-w);background:var(--sidebar-bg);border-right:1px solid var(--border);overflow-y:auto;z-index:90;transition:transform .25s}
-.sidebar-home-btn{display:flex;align-items:center;gap:8px;padding:10px 14px;margin:8px 6px 4px 0;font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--muted);cursor:pointer;border-radius:0 6px 6px 0;border-left:3px solid transparent;transition:background .15s,color .15s}
-.sidebar-home-btn:hover{background:rgba(255,255,255,.05);color:var(--text)}
-.sidebar-ext-link{display:flex;align-items:center;gap:8px;padding:7px 14px;margin:1px 6px 1px 0;font-size:11px;font-weight:600;color:var(--muted);text-decoration:none;border-radius:0 6px 6px 0;border-left:3px solid transparent;transition:background .15s,color .15s}
-.sidebar-ext-link:hover{background:rgba(255,255,255,.05);color:var(--text)}
-.sidebar-section-label{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);padding:20px 16px 6px;font-weight:700}
-.phase-group{margin-bottom:2px}
-.phase-header{display:flex;align-items:center;gap:10px;padding:10px 14px 10px 12px;cursor:pointer;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#c8c8c8;user-select:none;border-left:3px solid transparent;border-radius:0 6px 6px 0;margin:1px 6px 1px 0;transition:background .15s,color .15s,border-color .15s}
-.phase-header:hover{background:rgba(255,255,255,.05);color:#fff}
-.phase-header.open{color:#fff}
-.phase-icon{font-size:14px;flex-shrink:0;opacity:.85}
-.phase-label-wrap{flex:1;min-width:0}
-.phase-label-text{display:block;line-height:1.2}
-.phase-label-count{font-size:9px;font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none;margin-top:1px;display:block}
-.phase-header.open .phase-label-count{color:inherit;opacity:.6}
-.phase-chevron{font-size:9px;transition:transform .2s;color:var(--muted);flex-shrink:0}
-.phase-header.open .phase-chevron{transform:rotate(0deg);color:inherit;opacity:.7}
-.phase-header.collapsed .phase-chevron{transform:rotate(-90deg)}
-.phase-items{padding-bottom:4px}
-.phase-items.hidden{display:none}
-.nav-item{display:flex;align-items:center;gap:9px;padding:8px 16px 8px 24px;cursor:pointer;font-size:12px;color:var(--muted);border-left:2px solid transparent;transition:color .15s,border-color .15s;line-height:1.3}
-.nav-item:hover{color:var(--text);background:rgba(255,255,255,.02)}
-.nav-item.active{color:var(--amber);border-left-color:var(--amber);background:rgba(247,183,49,.04)}
-.nav-item.dimmed{opacity:.45}
-.nav-dot{width:12px;height:12px;border:1.5px solid var(--border);border-radius:50%;flex-shrink:0;transition:background .2s,border-color .2s}
-.nav-item.read .nav-dot{background:var(--success);border-color:var(--success)}
-.nav-item.active .nav-dot{border-color:var(--amber)}
-.nav-type-badge{font-size:9px;color:var(--accent);font-weight:700;letter-spacing:.5px;margin-left:auto;flex-shrink:0}
+/* ── PHASE NAV ── */
+#phase-nav{position:fixed;top:var(--nav-h);left:0;right:0;z-index:101;background:var(--sidebar-bg)}
+.phase-tabs{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px;-webkit-overflow-scrolling:touch;border-bottom:1px solid var(--border)}
+.phase-tabs::-webkit-scrollbar{display:none}
+.phase-tab{background:none;border:none;border-bottom:2px solid transparent;color:#999;font:13px/1 'Inter',-apple-system,sans-serif;padding:0 14px;height:44px;display:flex;align-items:center;cursor:pointer;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color .15s,border-color .15s}
+.phase-tab:hover{color:var(--text)}
+.phase-tab.active{color:var(--text);border-bottom-color:var(--accent);font-weight:700}
+#phase-context{padding:9px 32px 9px 28px;background:var(--sidebar-bg);border-left:3px solid var(--accent);border-bottom:1px solid var(--border);font-size:12px;color:#aaa;line-height:1.4}
 
 /* ── MAIN ── */
-#main{margin-left:var(--sidebar-w);padding-top:calc(var(--nav-h) + var(--topbar-h));min-height:100vh}
-#content{padding:40px;max-width:760px}
+#playbook-main{padding-top:calc(var(--nav-h) + 44px + 38px);min-height:100vh}
+#phase-view .pb-inner,#section-view .pb-inner{max-width:800px;margin:0 auto;padding:40px 32px 80px}
+
+/* ── PHASE CARD VIEW ── */
+.pb-phase-hero{margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.pb-phase-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+.pb-phase-title{font-size:clamp(22px,3.5vw,32px);font-weight:800;line-height:1.15;color:#f0f0f0;margin-bottom:8px}
+.pb-phase-subdesc{font-size:14px;color:var(--muted);line-height:1.6}
+.pb-search-row{position:relative;margin:20px 0}
+.pb-section-list{display:flex;flex-direction:column;gap:8px}
+.pb-section-card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:15px 18px;cursor:pointer;transition:border-color .15s,transform .1s;display:flex;align-items:center;gap:14px}
+.pb-section-card:hover{border-color:var(--accent);transform:translateX(3px)}
+.pb-card-body{flex:1;min-width:0}
+.pb-card-title{font-size:14px;font-weight:700;color:#f0f0f0;line-height:1.3;margin-bottom:3px}
+.pb-card-meta{font-size:11px;color:var(--muted)}
+.pb-card-arrow{color:var(--accent);font-size:15px;opacity:0;transition:opacity .15s;flex-shrink:0}
+.pb-section-card:hover .pb-card-arrow{opacity:1}
+.pb-attribution{margin-top:48px;padding-top:20px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pb-attribution strong{color:var(--text)}
+.pb-attribution a{color:var(--muted);text-decoration:none;transition:color .15s}
+.pb-attribution a:hover{color:var(--text)}
+.pb-attr-sep{opacity:.4}
+
+/* ── SECTION BREADCRUMB ── */
+.pb-breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.pb-back-btn{background:none;border:1px solid var(--border);color:var(--muted);font-size:12px;font-weight:600;padding:5px 12px;border-radius:6px;cursor:pointer;transition:border-color .15s,color .15s;white-space:nowrap}
+.pb-back-btn:hover{border-color:var(--muted);color:var(--text)}
+#content{padding:0;max-width:760px}
 
 /* ── SECTION CONTENT ── */
 .section-meta{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;display:flex;gap:12px;align-items:center}
@@ -312,28 +178,17 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .stage-established{background:#0a1a0a;color:var(--success);border:1px solid var(--success)}
 .stage-professional{background:#0a0a1a;color:#8b5cf6;border:1px solid #8b5cf6}
 
-/* Overlay for mobile */
-#sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:89}
-
 @media(max-width:768px){
-  #hamburger{display:flex}
-  #sidebar{transform:translateX(-100%)}
-  #sidebar.open{transform:translateX(0)}
-  #sidebar-overlay.open{display:block}
-  #main{margin-left:0}
-  #content{padding:24px 16px}
-
-  /* Tables: horizontal scroll */
+  #phase-view .pb-inner,#section-view .pb-inner{padding:24px 16px 60px}
+  .phase-tabs{padding:0 8px}
+  .phase-tab{padding:0 10px;font-size:12px}
   .section-content table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}
   .section-content td,.section-content th{white-space:normal;min-width:100px}
-
-  /* Nav footer stacks */
   .nav-footer{flex-direction:column;gap:8px}
   .nav-btn{max-width:100%}
 }
-
 @media(max-width:480px){
-  #reviewers-btn{display:none}
+  #phase-context{padding:8px 16px 8px 13px}
 }
 
 .fade-in{animation:fadeIn .25s ease}
@@ -365,11 +220,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .related-chip small{display:block;font-size:10px;color:#555;margin-top:2px}
 
 @media(max-width:768px){
-  #search-wrap{flex:1;min-width:0}
-  .progress-container{display:none}
-  #back-to-phases-btn{display:none}
   .check-row{padding:12px 0}
-  .nav-item{padding:10px 16px 10px 24px;font-size:13px}
   .check-expand{padding:4px 8px}
   .section-title{font-size:clamp(18px,5vw,26px)}
   .related-chips{gap:6px}
@@ -411,111 +262,55 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   <a href="../submit/">Submit</a>
 </nav>
 
-<!-- PHASE CARD LANDING -->
-<div id="onboarding">
-  <!-- Phase card landing screen -->
-  <div id="ob-phase-landing" class="ob-phase-landing-wrap">
-    <div class="ob-phase-header">
-      <div class="ob-phase-eyebrow">India Indie Music Radar</div>
-      <h1 class="ob-phase-headline">The Indian Independent Artist's Playbook</h1>
-      <p class="ob-phase-deck">44 sections across 5 phases. New here? Start with Phase 1.</p>
-    </div>
-
-    <div class="ob-phase-grid">
-      <div class="ob-phase-card" data-phase="phase1" onclick="enterPhase('phase1','sonic-identity')">
-        <div class="ob-phase-card-num">Phase 1</div>
-        <div class="ob-phase-card-name">Identity</div>
-        <div class="ob-phase-card-desc">Who you are, who you're for, your one-sentence pitch</div>
-        <div class="ob-phase-card-count"></div>
-        <div class="ob-phase-card-arrow">→</div>
-      </div>
-      <div class="ob-phase-card" data-phase="phase2" onclick="enterPhase('phase2','home-studio')">
-        <div class="ob-phase-card-num">Phase 2</div>
-        <div class="ob-phase-card-name">Production</div>
-        <div class="ob-phase-card-desc">Home studio, recording, mixing, release-quality output</div>
-        <div class="ob-phase-card-count"></div>
-        <div class="ob-phase-card-arrow">→</div>
-      </div>
-      <div class="ob-phase-card" data-phase="phase3" onclick="enterPhase('phase3','distributor')">
-        <div class="ob-phase-card-num">Phase 3</div>
-        <div class="ob-phase-card-name">Distribution</div>
-        <div class="ob-phase-card-desc">Get on platforms, pitch playlists, own your masters</div>
-        <div class="ob-phase-card-count"></div>
-        <div class="ob-phase-card-arrow">→</div>
-      </div>
-      <div class="ob-phase-card" data-phase="phase4" onclick="enterPhase('phase4','live-performance')">
-        <div class="ob-phase-card-num">Phase 4</div>
-        <div class="ob-phase-card-name">Revenue</div>
-        <div class="ob-phase-card-desc">Live, sync, merch, AI income streams</div>
-        <div class="ob-phase-card-count"></div>
-        <div class="ob-phase-card-arrow">→</div>
-      </div>
-      <div class="ob-phase-card" data-phase="rights" onclick="enterPhase('rights','rights-registration')">
-        <div class="ob-phase-card-num">Phase 5</div>
-        <div class="ob-phase-card-name">Rights</div>
-        <div class="ob-phase-card-desc">Publishing, royalties, contracts, what to never sign</div>
-        <div class="ob-phase-card-count"></div>
-        <div class="ob-phase-card-arrow">→</div>
-      </div>
-    </div>
-
-    <div class="ob-phase-search-row">
-      <span class="ob-phase-search-label">Or search for a specific topic</span>
-      <div id="ob-phase-search-wrap" style="position:relative;width:100%;max-width:400px">
-        <input id="ob-phase-search-input" type="text" placeholder="Search 44 sections…" autocomplete="off"
-          oninput="onLandingSearch(this.value)"
-          onkeydown="landingSearchKeydown(event)"
-          style="width:100%;background:#1a1a1a;border:1px solid var(--border);color:var(--text);padding:10px 34px 10px 14px;border-radius:8px;font-size:13px;outline:none;transition:border-color .2s"
-        >
-        <button onclick="clearLandingSearch()" id="ob-phase-search-clear" style="display:none;position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px">✕</button>
-        <div id="ob-phase-search-dropdown" style="position:absolute;top:calc(100% + 6px);left:0;right:0;background:#1c1c1c;border:1px solid var(--border);border-radius:8px;max-height:320px;overflow-y:auto;z-index:200;display:none;box-shadow:0 8px 24px rgba(0,0,0,.5)"></div>
-      </div>
-    </div>
-
-    <div class="ob-phase-progress-row" id="ob-phase-progress">
-      <span id="ob-phase-progress-text" style="font-size:12px;color:var(--muted)">Your progress: 0 / 44 sections read</span>
-    </div>
-
-    <div class="ob-attribution">
-      <span>Built by</span>
-      <strong>Siby John</strong>
-      <span class="ob-attr-sep">·</span>
-      <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
-      <span class="ob-attr-sep">·</span>
-      <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <span class="ob-attr-sep">·</span>
-      <a href="../about/" target="_blank" rel="noopener">About this project</a>
-    </div>
-  </div>
+<!-- PHASE NAV -->
+<div id="phase-nav">
+  <div class="phase-tabs" id="phase-tabs"></div>
+  <div id="phase-context"></div>
 </div>
 
-<!-- TOP BAR -->
-<div id="topbar" style="display:none">
-  <button id="hamburger" onclick="toggleSidebar()">☰</button>
-  <div id="search-wrap">
-    <input id="search-input" type="text" placeholder="Search sections…" autocomplete="off" oninput="onSearch(this.value)" onkeydown="searchKeydown(event)">
-    <button id="search-clear" onclick="clearSearch()">✕</button>
-    <div id="search-dropdown"></div>
+<!-- PLAYBOOK MAIN -->
+<div id="playbook-main">
+
+  <!-- Phase view: section cards -->
+  <div id="phase-view">
+    <div class="pb-inner">
+      <div class="pb-phase-hero">
+        <div class="pb-phase-eyebrow" id="pb-eyebrow"></div>
+        <h1 class="pb-phase-title" id="pb-title"></h1>
+        <p class="pb-phase-subdesc" id="pb-subdesc"></p>
+      </div>
+      <div class="pb-search-row">
+        <div id="search-wrap" style="position:relative;max-width:360px;width:100%">
+          <input id="search-input" type="text" placeholder="Search all sections…" autocomplete="off" oninput="onSearch(this.value)" onkeydown="searchKeydown(event)" style="width:100%;background:var(--card-bg);border:1px solid var(--border);color:var(--text);padding:8px 32px 8px 12px;border-radius:7px;font-size:13px;outline:none;transition:border-color .2s">
+          <button id="search-clear" onclick="clearSearch()" style="display:none;position:absolute;right:8px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--muted);cursor:pointer;font-size:14px">✕</button>
+          <div id="search-dropdown"></div>
+        </div>
+      </div>
+      <div class="pb-section-list" id="pb-section-list"></div>
+      <div class="pb-attribution">
+        <span>Built by</span>
+        <strong>Siby John</strong>
+        <span class="pb-attr-sep">·</span>
+        <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
+        <span class="pb-attr-sep">·</span>
+        <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <span class="pb-attr-sep">·</span>
+        <a href="../about/" target="_blank" rel="noopener">About this project</a>
+      </div>
+    </div>
   </div>
-  <div class="progress-container">
-    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
-    <div class="progress-label" id="progress-label">0 / 0 read</div>
+
+  <!-- Section view: full content -->
+  <div id="section-view" style="display:none">
+    <div class="pb-inner">
+      <div class="pb-breadcrumb">
+        <button class="pb-back-btn" id="pb-back-btn" onclick="goBackToPhase()">← Back</button>
+      </div>
+      <div id="content" class="fade-in"></div>
+    </div>
   </div>
-  <button id="back-to-phases-btn" onclick="showPhaseLanding()">← All phases</button>
+
 </div>
-
-<!-- SIDEBAR OVERLAY -->
-<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
-
-<!-- SIDEBAR -->
-<nav id="sidebar" style="display:none">
-  <div id="sidebar-content"></div>
-</nav>
-
-<!-- MAIN CONTENT -->
-<main id="main" style="display:none">
-  <div id="content" class="fade-in"></div>
-</main>
 
 <script>
 // ─── DATA ───────────────────────────────────────────────
@@ -3221,211 +3016,117 @@ function getProducerChecklist90() {
 }
 
 // ─── STATE ───────────────────────────────────────────────
-let artistType = localStorage.getItem('playbook_artist_type') || null;
-let journeyStage = localStorage.getItem('playbook_journey_stage') || null;
+let artistType = 'all';
 let currentSectionId = null;
-let selectedProblem = null;
+let currentPhase = 'your-journey';
 
-// Problem → entry section + map highlight
-const PROBLEM_MAP = {
-  start:      { sectionId: 'identity-problem',        mapStop: 'journey',      label: 'The Identity Problem', sub: 'Why most artists stall: and the fix that changes everything.' },
-  release:    { sectionId: 'home-studio',             mapStop: 'production',   label: 'Home Studio Setup',    sub: 'What you actually need to record a release-quality track in India.' },
-  discovery:  { sectionId: 'social-content-strategy', mapStop: 'distribution', label: 'Social Media Strategy', sub: 'Platform-by-platform: how people find you and keep coming back.' },
-  money:      { sectionId: 'how-to-make-money',       mapStop: 'journey',      label: 'How to Make Money from Music', sub: 'The six income streams, ranked by realistic priority for Indian artists.' },
-  live:       { sectionId: 'live-performance',        mapStop: 'revenue',      label: 'Live Performance',     sub: 'How to get booked, what venues pay, and how to make every show count.' },
-  community:  { sectionId: 'community-building',      mapStop: 'revenue',      label: 'Building Your Community', sub: "Other artists' phonebooks are your most valuable asset. Here's how to use them." },
+// ─── PHASE DATA ───────────────────────────────────────────
+const PHASE_TAB_LABELS = {
+  'your-journey': 'Your Journey',
+  'phase1': 'Identity',
+  'phase2': 'Production',
+  'phase3': 'Distribution',
+  'phase4': 'Revenue',
+  'phase5': 'Scaling',
+  'rights': 'Rights',
+  'casestudies': 'Case Studies',
+  'appendix': 'Reference',
 };
 
-// ─── PHASE CARD LANDING ───────────────────────────────────
-function showPhaseLanding() {
-  document.getElementById('onboarding').classList.remove('hidden');
-  document.getElementById('topbar').style.display = 'none';
-  document.getElementById('sidebar').style.display = 'none';
-  document.getElementById('main').style.display = 'none';
-  const ob = document.getElementById('onboarding');
-  if (ob) ob.scrollTop = 0;
-  updateLandingProgress();
-}
+const PHASE_CONTEXT = {
+  'your-journey': "The big-picture frameworks: how careers work, where the money actually comes from, and what stage you're at",
+  'phase1': "Who you are, who you're for, and your one-sentence pitch",
+  'phase2': 'Home studio, recording quality, mixing, and release-ready output',
+  'phase3': 'Getting on platforms, pitching playlists, and owning your masters',
+  'phase4': 'Live performance, sync licensing, merch, brand deals, and AI income',
+  'phase5': 'Scaling your live career and building the team around you',
+  'rights': 'Publishing, royalties, contracts, and what to never sign',
+  'casestudies': 'Indian artists who built sustainable careers and what they actually did',
+  'appendix': 'Venue directories, booking contacts, festival listings, and reference databases',
+};
 
-function updateLandingProgress() {
-  const total = SECTIONS.length;
-  const read = SECTIONS.filter(s => localStorage.getItem('playbook_read_' + s.id) === '1').length;
-  const el = document.getElementById('ob-phase-progress-text');
-  if (el) el.textContent = 'Your progress: ' + read + ' / ' + total + ' sections read';
-  // Inject section counts into landing phase cards
-  const phaseCounts = {};
-  SECTIONS.forEach(s => { phaseCounts[s.phase] = (phaseCounts[s.phase] || 0) + 1; });
-  document.querySelectorAll('.ob-phase-card[data-phase]').forEach(card => {
-    const n = phaseCounts[card.dataset.phase];
-    const el = card.querySelector('.ob-phase-card-count');
-    if (el && n) el.textContent = n + ' sections';
-  });
-}
+const PHASE_EYEBROW = {
+  'your-journey': 'Start Here',
+  'phase1': 'Phase 1', 'phase2': 'Phase 2', 'phase3': 'Phase 3',
+  'phase4': 'Phase 4', 'phase5': 'Phase 5',
+  'rights': 'Rights', 'casestudies': 'Case Studies', 'appendix': 'Reference',
+};
 
-// Phase card click: enter app and jump to target section
-function enterPhase(phaseId, sectionId) {
-  artistType = localStorage.getItem('playbook_artist_type') || 'all';
-  localStorage.setItem('playbook_artist_type', artistType);
-  document.getElementById('onboarding').classList.add('hidden');
-  document.getElementById('topbar').style.display = 'flex';
-  document.getElementById('sidebar').style.display = 'block';
-  document.getElementById('main').style.display = 'block';
-  if (!document.getElementById('sidebar-content').innerHTML.trim()) buildSidebar();
-  updateProgress();
-  navigateTo(sectionId);
-  loadLiveEvents();
-}
+const PHASE_TITLE = {
+  'your-journey': 'Your Journey',
+  'phase1': 'Identity', 'phase2': 'Production', 'phase3': 'Distribution',
+  'phase4': 'Revenue', 'phase5': 'Scaling',
+  'rights': 'Rights & Infrastructure', 'casestudies': 'Case Studies', 'appendix': 'Reference',
+};
 
-// Generic enterApp: called when navigating from hash on first load
-function enterApp(sectionId) {
-  artistType = localStorage.getItem('playbook_artist_type') || 'all';
-  localStorage.setItem('playbook_artist_type', artistType);
-  document.getElementById('onboarding').classList.add('hidden');
-  document.getElementById('topbar').style.display = 'flex';
-  document.getElementById('sidebar').style.display = 'block';
-  document.getElementById('main').style.display = 'block';
-  buildSidebar();
-  updateProgress();
-  navigateTo(sectionId || 'identity-problem');
-  loadLiveEvents();
-}
-
-// Landing search: searches sections without entering the app
-let _landingSearchFocusIdx = -1;
-
-function onLandingSearch(val) {
-  const clear = document.getElementById('ob-phase-search-clear');
-  const dd = document.getElementById('ob-phase-search-dropdown');
-  if (clear) clear.style.display = val ? 'block' : 'none';
-  if (!val || val.length < 2) { dd.style.display = 'none'; return; }
-  const results = searchSections(val);
-  if (!results.length) {
-    dd.innerHTML = '<div style="padding:14px 16px;font-size:13px;color:var(--muted);text-align:center">No sections match "' + val + '"</div>';
-    dd.style.display = 'block';
-    return;
-  }
-  dd.innerHTML = results.map((r, i) =>
-    '<div class="search-result" data-id="' + r.section.id + '" onclick="landingSearchSelect(\'' + r.section.id + '\')">' +
-    '<span class="sr-title">' + r.section.title + '</span>' +
-    '<span class="sr-meta">' + r.section.phaseName + ' · ' + r.section.readTime + '</span>' +
-    (r.matchSnippet ? '<span class="sr-match">' + r.matchSnippet + '</span>' : '') +
-    '</div>'
-  ).join('');
-  dd.style.display = 'block';
-  _landingSearchFocusIdx = -1;
-}
-
-function clearLandingSearch() {
-  const inp = document.getElementById('ob-phase-search-input');
-  const dd = document.getElementById('ob-phase-search-dropdown');
-  const clear = document.getElementById('ob-phase-search-clear');
-  if (inp) inp.value = '';
-  if (dd) dd.style.display = 'none';
-  if (clear) clear.style.display = 'none';
-  _landingSearchFocusIdx = -1;
-}
-
-function landingSearchSelect(sectionId) {
-  clearLandingSearch();
-  enterApp(sectionId);
-}
-
-function landingSearchKeydown(e) {
-  const dd = document.getElementById('ob-phase-search-dropdown');
-  const items = dd.querySelectorAll('.search-result');
-  if (e.key === 'ArrowDown') {
-    e.preventDefault();
-    _landingSearchFocusIdx = Math.min(_landingSearchFocusIdx + 1, items.length - 1);
-    items.forEach((el, i) => el.classList.toggle('focused', i === _landingSearchFocusIdx));
-  } else if (e.key === 'ArrowUp') {
-    e.preventDefault();
-    _landingSearchFocusIdx = Math.max(_landingSearchFocusIdx - 1, 0);
-    items.forEach((el, i) => el.classList.toggle('focused', i === _landingSearchFocusIdx));
-  } else if (e.key === 'Enter' && _landingSearchFocusIdx >= 0 && items[_landingSearchFocusIdx]) {
-    items[_landingSearchFocusIdx].click();
-  } else if (e.key === 'Escape') {
-    clearLandingSearch();
-  }
-}
-
-// ─── SIDEBAR ─────────────────────────────────────────────
+// ─── PHASE ORDER & VISIBILITY ────────────────────────────
 const PHASE_ORDER = [
-  { id: 'your-journey', label: 'Your Journey',          icon: '🧭', color: '#e94560' },
-  { id: 'phase1',       label: 'Phase 1: Identity',     icon: '🎯', color: '#3b82f6' },
-  { id: 'phase2',       label: 'Phase 2: Production',   icon: '🎛️', color: '#4caf50' },
-  { id: 'phase3',       label: 'Phase 3: Distribution', icon: '📡', color: '#8b5cf6' },
-  { id: 'phase4',       label: 'Phase 4: Revenue',      icon: '💰', color: '#f7b731' },
-  { id: 'phase5',       label: 'Phase 5: Scaling',      icon: '📈', color: '#f97316' },
-  { id: 'rights',       label: 'Rights & Infrastructure',icon: '⚖️', color: '#06b6d4' },
-  { id: 'casestudies',  label: 'Case Studies',          icon: '🎤', color: '#a78bfa' },
-  { id: 'appendix',     label: 'Reference',             icon: '📚', color: '#94a3b8' },
+  { id: 'your-journey', label: 'Your Journey' },
+  { id: 'phase1',       label: 'Phase 1: Identity' },
+  { id: 'phase2',       label: 'Phase 2: Production' },
+  { id: 'phase3',       label: 'Phase 3: Distribution' },
+  { id: 'phase4',       label: 'Phase 4: Revenue' },
+  { id: 'phase5',       label: 'Phase 5: Scaling' },
+  { id: 'rights',       label: 'Rights & Infrastructure' },
+  { id: 'casestudies',  label: 'Case Studies' },
+  { id: 'appendix',     label: 'Reference' },
 ];
 
 function visibleSections() {
   const PLAN_IDS = ['plan-90-songwriter', 'plan-90-instrumentalist', 'plan-90-producer'];
   return SECTIONS.filter(s => {
     if (s.forTypes.includes('all')) return true;
-    if (artistType === 'all') {
-      if (PLAN_IDS.includes(s.id)) return s.id === 'plan-90-songwriter';
-      return true;
-    }
-    return s.forTypes.includes(artistType);
+    if (PLAN_IDS.includes(s.id)) return s.id === 'plan-90-songwriter';
+    return true;
   });
 }
 
-function buildSidebar(activePhase) {
-  const container = document.getElementById('sidebar-content');
+// ─── PHASE TAB NAVIGATION ────────────────────────────────
+
+function buildPhaseTabs() {
   const sections = visibleSections();
   const byPhase = {};
-  for (const s of sections) {
-    if (!byPhase[s.phase]) byPhase[s.phase] = [];
-    byPhase[s.phase].push(s);
-  }
-
-  // Default active phase: your-journey (first phase), or whatever is currently open
-  const openPhase = activePhase || currentSectionId && (SECTIONS.find(s => s.id === currentSectionId) || {}).phase || 'your-journey';
-
-  let html = `<div class="sidebar-home-btn" onclick="showPhaseLanding()">← <span>All Phases</span></div>`;
-  for (const phase of PHASE_ORDER) {
-    const items = byPhase[phase.id];
-    if (!items || items.length === 0) continue;
-    const isOpen = phase.id === openPhase;
-    const doneCount = items.filter(s => localStorage.getItem('playbook_read_' + s.id) === '1').length;
-    const phaseLabel = doneCount > 0 ? `${phase.label} <small style="color:var(--success);font-size:9px">${doneCount}/${items.length}</small>` : phase.label;
-    const totalCount = items.length;
-    const countLabel = doneCount > 0 ? `${doneCount} of ${totalCount} done` : `${totalCount} ${totalCount === 1 ? 'section' : 'sections'}`;
-    html += `<div class="phase-group">
-      <div class="phase-header${isOpen ? ' open' : ' collapsed'}" onclick="togglePhase('${phase.id}')" style="border-left-color:${isOpen ? phase.color : 'transparent'}">
-        <span class="phase-icon">${phase.icon || ''}</span>
-        <span class="phase-label-wrap">
-          <span class="phase-label-text">${phase.label}</span>
-          <span class="phase-label-count">${countLabel}</span>
-        </span>
-        <span class="phase-chevron">▾</span>
-      </div>
-      <div class="phase-items${isOpen ? '' : ' hidden'}" id="phase-${phase.id}">`;
-    for (const s of items) {
-      const isRead = localStorage.getItem('playbook_read_' + s.id) === '1';
-      const isDimmed = artistType !== 'all' && !s.forTypes.includes(artistType) && !s.forTypes.includes('all');
-      html += `<div class="nav-item${isRead ? ' read' : ''}${isDimmed ? ' dimmed' : ''}" id="nav-${s.id}" onclick="navigateTo('${s.id}')">
-        <div class="nav-dot"></div>
-        <span>${s.id === 'plan-90-songwriter' && artistType === 'all' ? 'Your 90-Day Plan' : s.title}</span>
-      </div>`;
-    }
-    html += `</div></div>`;
-  }
-  container.innerHTML = html;
+  for (const s of sections) { byPhase[s.phase] = true; }
+  const tabs = document.getElementById('phase-tabs');
+  if (!tabs) return;
+  tabs.innerHTML = PHASE_ORDER
+    .filter(p => byPhase[p.id])
+    .map(p => `<button class="phase-tab" data-phase="${p.id}" onclick="showPhase('${p.id}')">${PHASE_TAB_LABELS[p.id] || p.label}</button>`)
+    .join('');
 }
 
-function togglePhase(id) {
-  const items = document.getElementById('phase-' + id);
-  const header = items?.previousElementSibling;
-  if (!items) return;
-  const hidden = items.classList.toggle('hidden');
-  header?.classList.toggle('collapsed', hidden);
-  header?.classList.toggle('open', !hidden);
-  const phase = PHASE_ORDER.find(p => p.id === id);
-  if (header && phase) header.style.borderLeftColor = hidden ? 'transparent' : (phase.color || 'transparent');
+function showPhase(phaseId) {
+  currentPhase = phaseId;
+  document.querySelectorAll('.phase-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.phase === phaseId);
+  });
+  const ctx = document.getElementById('phase-context');
+  if (ctx) ctx.textContent = PHASE_CONTEXT[phaseId] || '';
+  const eyebrowEl = document.getElementById('pb-eyebrow');
+  if (eyebrowEl) eyebrowEl.textContent = PHASE_EYEBROW[phaseId] || '';
+  const titleEl = document.getElementById('pb-title');
+  if (titleEl) titleEl.textContent = PHASE_TITLE[phaseId] || '';
+  const subdescEl = document.getElementById('pb-subdesc');
+  if (subdescEl) subdescEl.textContent = PHASE_CONTEXT[phaseId] || '';
+  const phaseSections = visibleSections().filter(s => s.phase === phaseId);
+  const listEl = document.getElementById('pb-section-list');
+  if (listEl) {
+    listEl.innerHTML = phaseSections.map(s => `<div class="pb-section-card" onclick="navigateTo('${s.id}')">
+      <div class="pb-card-body">
+        <div class="pb-card-title">${s.id === 'plan-90-songwriter' ? 'Your 90-Day Plan' : s.title}</div>
+        <div class="pb-card-meta">${s.readTime}</div>
+      </div>
+      <div class="pb-card-arrow">→</div>
+    </div>`).join('');
+  }
+  document.getElementById('phase-view').style.display = 'block';
+  document.getElementById('section-view').style.display = 'none';
+  window.scrollTo(0, 0);
+  loadLiveEvents();
+}
+
+function goBackToPhase() {
+  showPhase(currentPhase);
 }
 
 // ─── NAVIGATION ──────────────────────────────────────────
@@ -3433,20 +3134,22 @@ function navigateTo(id) {
   const section = SECTIONS.find(s => s.id === id);
   if (!section) return;
   currentSectionId = id;
+  currentPhase = section.phase;
 
-  // Expand sidebar phase for this section, collapse others
-  PHASE_ORDER.forEach(p => {
-    const items = document.getElementById('phase-' + p.id);
-    const header = items?.previousElementSibling;
-    if (!items) return;
-    const shouldOpen = p.id === section.phase;
-    items.classList.toggle('hidden', !shouldOpen);
-    header?.classList.toggle('collapsed', !shouldOpen);
+  // Update active tab
+  document.querySelectorAll('.phase-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.phase === section.phase);
   });
+  const ctx = document.getElementById('phase-context');
+  if (ctx) ctx.textContent = PHASE_CONTEXT[section.phase] || '';
 
-  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  const navEl = document.getElementById('nav-' + id);
-  if (navEl) { navEl.classList.add('active'); navEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+  // Update breadcrumb
+  const backBtn = document.getElementById('pb-back-btn');
+  if (backBtn) backBtn.textContent = '← ' + (PHASE_TAB_LABELS[section.phase] || 'Back');
+
+  // Show section view
+  document.getElementById('phase-view').style.display = 'none';
+  document.getElementById('section-view').style.display = 'block';
 
   const content = document.getElementById('content');
   content.classList.remove('fade-in');
@@ -3456,11 +3159,9 @@ function navigateTo(id) {
   // Build checklist HTML
   let checklistHTML = '';
   if (section.checklist && section.checklist.length > 0) {
-    const completed = section.checklist.filter((_, i) => localStorage.getItem(`playbook_check_${id}_${i}`) === '1').length;
     checklistHTML = `<div class="checklist-wrap">
       <div class="checklist-header">
         <h4>Action Checklist</h4>
-        <span class="checklist-count">${completed} / ${section.checklist.length} done</span>
       </div>`;
     section.checklist.forEach((item, i) => {
       const checked = localStorage.getItem(`playbook_check_${id}_${i}`) === '1';
@@ -3554,6 +3255,7 @@ function navigateTo(id) {
 
   // Mark as read after 30s
   markReadTimer(id);
+  window.scrollTo(0, 0);
   window.location.hash = id;
 }
 
@@ -3576,20 +3278,9 @@ function markReadTimer(id) {
 function markRead(id) {
   if (localStorage.getItem('playbook_read_' + id) === '1') return;
   localStorage.setItem('playbook_read_' + id, '1');
-  const el = document.getElementById('nav-' + id);
-  if (el) el.classList.add('read');
-  updateProgress();
 }
 
-function updateProgress() {
-  const all = visibleSections();
-  const read = all.filter(s => localStorage.getItem('playbook_read_' + s.id) === '1').length;
-  const pct = all.length > 0 ? (read / all.length) * 100 : 0;
-  const fill = document.getElementById('progress-fill');
-  const label = document.getElementById('progress-label');
-  if (fill) fill.style.width = pct + '%';
-  if (label) label.textContent = read === 0 ? 'Start your journey' : read === all.length ? 'Playbook complete 🎯' : `${read} of ${all.length} done`;
-}
+function updateProgress() {}
 
 // ─── CHECKLIST INTERACTIONS ─────────────────────────────
 function toggleCheck(sectionId, idx) {
@@ -3600,13 +3291,6 @@ function toggleCheck(sectionId, idx) {
   const label = document.getElementById(`cl-${sectionId}-${idx}`);
   if (box) box.classList.toggle('checked', !checked);
   if (label) label.classList.toggle('done', !checked);
-  // Update count
-  const section = SECTIONS.find(s => s.id === sectionId);
-  if (section) {
-    const completed = section.checklist.filter((_, i) => localStorage.getItem(`playbook_check_${sectionId}_${i}`) === '1').length;
-    const countEl = document.querySelector('.checklist-count');
-    if (countEl) countEl.textContent = `${completed} / ${section.checklist.length} done`;
-  }
   // First check interaction = mark section read
   markRead(sectionId);
 }
@@ -3641,11 +3325,7 @@ function updateLadderDisplay(n) {
   });
 }
 
-// ─── SIDEBAR TOGGLE ──────────────────────────────────────
-function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('sidebar-overlay').classList.toggle('open');
-}
+
 
 
 // ─── VENUE CITY FILTER ──────────────────────────────────────────────────────
@@ -3888,13 +3568,12 @@ function loadLiveEvents() {
 
 // ─── BOOT ────────────────────────────────────────────────
 window.addEventListener('DOMContentLoaded', () => {
+  buildPhaseTabs();
   const hash = window.location.hash.replace('#', '');
   if (hash && SECTIONS.find(s => s.id === hash)) {
-    // Deep link: go directly to the section
-    enterApp(hash);
+    navigateTo(hash);
   } else {
-    // Default: show the phase card landing
-    showPhaseLanding();
+    showPhase('your-journey');
   }
 });
 
@@ -3964,7 +3643,6 @@ function onSearch(val) {
 function searchSelect(id) {
   clearSearch();
   navigateTo(id);
-  if (window.innerWidth <= 768) closeSidebar();
 }
 
 function clearSearch() {
