@@ -267,6 +267,49 @@
       padding: 4px 10px;
       border-radius: 20px;
     }
+    /* ── TOOLS ── */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .tool-stat {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .tool-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #f0f0f0;
+    }
+    .tool-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+      flex: 1;
+      margin-top: 2px;
+    }
+    .tool-link {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 10px;
+    }
+    .tool-link:hover { text-decoration: underline; }
+
     .network-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -619,6 +662,7 @@
       .stat-num { font-size: 20px; }
 
       .team-grid { grid-template-columns: 1fr; }
+      .tool-grid { grid-template-columns: 1fr; }
 
       .diff-grid { grid-template-columns: 1fr; }
 
@@ -758,6 +802,34 @@
       </div>
     </div>
 
+  </div>
+
+  <!-- TOOLS -->
+  <div class="section">
+    <div class="section-label">The tools</div>
+    <h2 class="section-title">Every decision backed by data we built.</h2>
+    <p class="section-body">Generic consulting runs on instinct. We use live databases we built specifically for the Indian indie scene. When we recommend a reviewer, a label, or a release window, we're looking at the same data you can see on this site — and deeper cuts of it.</p>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-stat">Updated daily</div>
+        <div class="tool-name">India Indie Music Radar</div>
+        <div class="tool-desc">Tracks new releases, trending artists, and what is gaining traction across the scene. We use it to understand where your music sits before we recommend anything about timing or positioning.</div>
+        <a class="tool-link" href="../">Open the Radar →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-stat">924 contacts</div>
+        <div class="tool-name">Reviewer Database</div>
+        <div class="tool-desc">Every independent music blog, editorial, and South Asian curator we track, filtered by genre and language. We build your PR pipeline from this, not from a list someone put together three years ago.</div>
+        <a class="tool-link" href="../reviewers/">Browse reviewers →</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-stat">1,327 entities</div>
+        <div class="tool-name">Labels &amp; Agencies Database</div>
+        <div class="tool-desc">Labels, booking agencies, and music companies with signing status and approach routes. We use this when the programme reaches the industry phase and you are ready to move.</div>
+        <a class="tool-link" href="../industry/">Browse industry →</a>
+      </div>
+    </div>
   </div>
 
   <!-- PHASES -->
