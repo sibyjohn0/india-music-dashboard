@@ -99,6 +99,25 @@
     }
     .manifesto p + p { margin-top: 14px; }
 
+    /* ── HERO VISUAL ── */
+    .hero-visual {
+      position: relative;
+      background: linear-gradient(135deg, rgba(233,69,96,.07) 0%, transparent 55%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 44px 44px;
+      margin-bottom: 48px;
+      overflow: hidden;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(233,69,96,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
     .eyebrow {
       font-size: 10px;
       font-weight: 700;
@@ -116,12 +135,41 @@
       margin-bottom: 24px;
     }
     .hero-deck {
-      font-size: 17px;
+      font-size: 16px;
       color: #b0b0c8;
       line-height: 1.75;
-      max-width: 640px;
-      margin-bottom: 16px;
+      max-width: 580px;
+      margin-bottom: 0;
     }
+
+    /* ── PROBLEM CAROUSEL ── */
+    .problem-section { margin-bottom: 0; }
+    .problem-track {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin: 0 -32px;
+      padding: 4px 32px 16px;
+    }
+    .problem-track::-webkit-scrollbar { display: none; }
+    .problem-card {
+      flex: 0 0 230px;
+      scroll-snap-align: start;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent);
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .problem-title { font-size: 13px; font-weight: 700; color: #f0f0f0; }
+    .problem-body  { font-size: 12px; color: var(--muted); line-height: 1.65; }
+    .problem-nudge { font-size: 12px; color: var(--muted); margin-top: 8px; }
 
     .stats-strip {
       display: flex;
@@ -557,6 +605,12 @@
       .section-body { font-size: 14px; }
       .manifesto { font-size: 14px; padding: 16px 18px; margin-bottom: 40px; }
 
+      .hero-visual { padding: 28px 20px 24px; margin-bottom: 32px; border-radius: 12px; }
+      .hero-visual::after { width: 140px; height: 140px; top: -40px; right: -40px; }
+
+      .problem-track { margin: 0 -16px; padding: 4px 16px 12px; }
+      .problem-card { flex: 0 0 200px; padding: 16px; }
+
       /* stats: 2-per-row grid */
       .stats-strip { display: grid; grid-template-columns: 1fr 1fr; border-radius: 10px; }
       .stat-block { border-right: 1px solid var(--border); padding: 14px 16px; min-width: 0; }
@@ -565,22 +619,6 @@
       .stat-num { font-size: 20px; }
 
       .team-grid { grid-template-columns: 1fr; }
-      .network-card { padding: 16px 18px; }
-
-      .phase-num { font-size: 22px; }
-      .phase-name { font-size: 15px; }
-
-      /* deliverables table: horizontal scroll */
-      .deliverables { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
-      .deliverables thead, .deliverables tbody, .deliverables tr { display: table-row-group; }
-      .deliverables thead { display: table-header-group; }
-      .deliverables { white-space: normal; }
-      .del-month { white-space: nowrap; }
-      table.deliverables { font-size: 12px; }
-      .del-deliverable { font-size: 12px; }
-
-      /* table wrapper scroll */
-      .deliverables-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -16px; padding: 0 16px; }
 
       .diff-grid { grid-template-columns: 1fr; }
 
@@ -627,9 +665,36 @@
 <div class="page">
 
   <!-- HERO -->
-  <div class="eyebrow">Artist Development Programme</div>
-  <h1 class="hero-headline">Six months to build it properly.<br>Everything you make, you keep.</h1>
-  <p class="hero-deck">Two consultants. Six months. A complete task list covering identity, production, distribution, PR, live circuit, community, and income. We bring the thinking. You own every decision, every deliverable, and everything you build. When a task needs a specialist, we say so and you pay them directly. No rights taken.</p>
+  <div class="hero-visual">
+    <div class="eyebrow">Artist Development Programme</div>
+    <h1 class="hero-headline">Six months to build it properly.<br>Everything you make, you keep.</h1>
+    <p class="hero-deck">Two consultants. A complete task list. Weekly accountability. You own every decision, every deliverable, and everything you build. No rights taken.</p>
+  </div>
+
+  <!-- PROBLEM STATEMENT -->
+  <div class="section problem-section">
+    <div class="section-label">The problem</div>
+    <h2 class="section-title">Does this sound like your year?</h2>
+    <div class="problem-track">
+      <div class="problem-card">
+        <div class="problem-title">The track that never came out</div>
+        <div class="problem-body">A song you finished two months ago. Still unreleased because one thing is missing. The moment passes. The track goes cold.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-title">The plan that died in February</div>
+        <div class="problem-body">A content strategy that made sense in January. Fourteen posts in, it stopped. Nobody asked why. Nobody noticed.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-title">The list that never moves</div>
+        <div class="problem-body">Forty tasks. No sense of which three matter this week. Every month the same items sit at the top.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-title">The spend with no return</div>
+        <div class="problem-body">Money on a mix, a shoot, a campaign. No measure of whether it worked. No plan for what happens after it drops.</div>
+      </div>
+    </div>
+    <p class="problem-nudge">If two of these are true, this programme is worth a conversation.</p>
+  </div>
 
   <!-- STATS STRIP -->
   <div class="stats-strip">
