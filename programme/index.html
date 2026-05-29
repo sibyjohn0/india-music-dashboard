@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R7EYMGZEJZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artist Development Programme | India Indie Music Radar</title>
+  <meta name="description" content="Six months. A team behind you. No rights taken. A structured artist development programme for Indian independent musicians serious about building a career." />
+  <meta property="og:title" content="Artist Development Programme | India Indie Music Radar" />
+  <meta property="og:description" content="Six months. A team behind you. No rights taken." />
+  <meta property="og:url" content="https://sibyjohn0.github.io/india-music-dashboard/programme/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Artist Development Programme | India Indie Music Radar" />
+  <meta name="twitter:description" content="Six months. A team behind you. No rights taken." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d0f;
+      --surface:  #141418;
+      --surface2: #1c1c24;
+      --border:   #242430;
+      --accent:   #e94560;
+      --amber:    #f7b731;
+      --green:    #10b981;
+      --text:     #e8e8f0;
+      --muted:    #6b6b85;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      height: 52px;
+      background: rgba(13,13,15,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
+
+    nav { display: flex; padding: 0 24px; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    nav::-webkit-scrollbar { display: none; }
+    .tab { background: none; border: none; border-bottom: 2px solid transparent; color: #999; font: 13px/1 'Inter', sans-serif; padding: 0 16px; height: 44px; display: flex; align-items: center; cursor: pointer; transition: color .15s, border-color .15s; white-space: nowrap; text-decoration: none; flex-shrink: 0; font-weight: 500; }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
+
+    .contact-strip {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 9px 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+    .contact-strip-name { font-weight: 700; color: var(--text); }
+    .contact-strip-sep { color: var(--border); }
+    .contact-strip a { color: var(--muted); transition: color .15s; }
+    .contact-strip a:hover { color: var(--text); }
+
+    .page { max-width: 860px; margin: 0 auto; padding: 72px 32px 120px; }
+
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: #f0f0f0;
+      margin-bottom: 24px;
+    }
+    .hero-deck {
+      font-size: 17px;
+      color: #b0b0c8;
+      line-height: 1.75;
+      max-width: 640px;
+      margin-bottom: 16px;
+    }
+
+    .stats-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 44px 0 80px;
+    }
+    .stat-block {
+      flex: 1;
+      min-width: 120px;
+      padding: 20px 24px;
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .stat-block:last-child { border-right: none; }
+    .stat-num {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #f0f0f0;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-num.accent { color: var(--accent); }
+    .stat-num.green { color: var(--green); }
+    .stat-label { font-size: 11px; color: var(--muted); font-weight: 500; }
+
+    .section { margin-bottom: 80px; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+      margin-bottom: 8px;
+      color: #f0f0f0;
+    }
+    .section-body {
+      font-size: 15px;
+      color: #b0b0c8;
+      line-height: 1.75;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    /* ── TEAM ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .team-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .team-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: #f0f0f0;
+      margin-bottom: 4px;
+    }
+    .team-role {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .team-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .team-tag {
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: #c0c0d8;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .network-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .network-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+    .network-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .network-tag {
+      font-size: 11px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: #c0c0d8;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── PHASES ── */
+    .phases { display: flex; flex-direction: column; gap: 16px; }
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .phase-card.team-led   { border-left-color: var(--accent); }
+    .phase-card.artist-led { border-left-color: var(--green); }
+    .phase-card.together   { border-left-color: var(--amber); }
+
+    .phase-month {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding-top: 4px;
+    }
+    .phase-num {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #f0f0f0;
+      line-height: 1;
+    }
+    .phase-month-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .phase-body {}
+    .phase-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .phase-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: #f0f0f0;
+    }
+    .phase-owner {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .phase-owner.team   { background: rgba(233,69,96,.12); color: var(--accent); border: 1px solid rgba(233,69,96,.25); }
+    .phase-owner.artist { background: rgba(16,185,129,.12); color: var(--green); border: 1px solid rgba(16,185,129,.25); }
+    .phase-owner.joint  { background: rgba(247,183,49,.12); color: var(--amber); border: 1px solid rgba(247,183,49,.25); }
+
+    .phase-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 14px;
+    }
+    .phase-items li {
+      font-size: 13px;
+      color: #b0b0c8;
+      padding-left: 16px;
+      position: relative;
+    }
+    .phase-items li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: var(--muted);
+    }
+
+    .phase-output {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+    .phase-output span { color: #f0f0f0; }
+
+    /* ── RHYTHM ── */
+    .rhythm-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--amber);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .rhythm-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f0f0f0;
+      margin-bottom: 12px;
+    }
+    .rhythm-body {
+      font-size: 14px;
+      color: #b0b0c8;
+      line-height: 1.8;
+    }
+    .rhythm-rule {
+      display: inline-block;
+      font-style: italic;
+      color: var(--amber);
+      font-weight: 600;
+      margin-top: 12px;
+    }
+
+    /* ── DIFFERENTIATION ── */
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .diff-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .diff-them {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .diff-what {
+      font-size: 13px;
+      color: #b0b0c8;
+      line-height: 1.6;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 14px;
+    }
+    .diff-us-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 5px;
+    }
+    .diff-us-what {
+      font-size: 13px;
+      color: #f0f0f0;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    /* ── CTA ── */
+    .cta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      color: #f0f0f0;
+      margin-bottom: 12px;
+    }
+    .cta-deck {
+      font-size: 15px;
+      color: #b0b0c8;
+      line-height: 1.7;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: 8px;
+      transition: opacity .15s;
+    }
+    .btn-primary:hover { opacity: .88; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: 8px;
+      transition: border-color .15s;
+    }
+    .btn-secondary:hover { border-color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); transition: color .15s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .page { padding: 48px 20px 80px; }
+      header { padding: 0 12px; }
+      .contact-strip { padding: 9px 20px; }
+      .tab { padding: 14px 12px; font-size: 11px; }
+      .team-grid { grid-template-columns: 1fr; }
+      .stats-strip { border-radius: 10px; }
+      .stat-block { min-width: 100px; padding: 16px 18px; }
+      .phase-card { grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 20px; }
+      .phase-num { font-size: 24px; }
+      .cta-card { padding: 32px 24px; }
+      footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">◉ India Indie Music Radar</div>
+</header>
+
+<nav>
+  <a class="tab" href="../about/">About</a>
+  <a class="tab" href="../playbook/">Playbook</a>
+  <a class="tab" href="../">Today</a>
+  <a class="tab" href="../industry/">Industry</a>
+  <a class="tab active" href="../programme/">Programme</a>
+  <a class="tab" href="../submit/">Submit</a>
+</nav>
+
+<div class="contact-strip">
+  <span class="contact-strip-name">Siby John</span>
+  <span class="contact-strip-sep">·</span>
+  <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
+  <span class="contact-strip-sep">·</span>
+  <a href="tel:+919960025559">+91 99600 25559</a>
+  <span class="contact-strip-sep">·</span>
+  <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn ↗</a>
+</div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="eyebrow">Artist Development Programme</div>
+  <h1 class="hero-headline">Six months.<br>A team behind you.<br>No rights taken.</h1>
+  <p class="hero-deck">Most artist development is self-serve: a course, a playbook, advice you act on alone. This is different. A small number of artists, a structured six-month programme, and a team with real capabilities working alongside you every week.</p>
+  <p class="hero-deck">We handle the diagnosis, the strategy, the creative network, and the accountability. You handle the execution. At the end of six months, you know how to run this yourself.</p>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stat-block">
+      <div class="stat-num accent">6</div>
+      <div class="stat-label">months</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">2</div>
+      <div class="stat-label">deep sessions</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">Weekly</div>
+      <div class="stat-label">check-ins</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num green">0</div>
+      <div class="stat-label">rights taken</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">₹0</div>
+      <div class="stat-label">advance to recoup</div>
+    </div>
+  </div>
+
+  <!-- TEAM -->
+  <div class="section">
+    <div class="section-label">The team</div>
+    <h2 class="section-title">Two people and a phone book.</h2>
+    <p class="section-body">Between us: brand strategy, income analytics, audio direction, social media, IPR contacts, and a network of designers, copywriters, photographers, and VO artists ready to move when you are.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-name">Siby John</div>
+        <div class="team-role">Numbers, audio, and build</div>
+        <div class="team-tags">
+          <span class="team-tag">Income audit</span>
+          <span class="team-tag">Cost diagnosis</span>
+          <span class="team-tag">Audio direction</span>
+          <span class="team-tag">Website builds</span>
+          <span class="team-tag">Streaming analytics</span>
+          <span class="team-tag">Deal structure</span>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Karishma Changroth</div>
+        <div class="team-role">Brand strategy and social</div>
+        <div class="team-tags">
+          <span class="team-tag">Social media strategy</span>
+          <span class="team-tag">Brand positioning</span>
+          <span class="team-tag">Identity</span>
+          <span class="team-tag">IPR contacts</span>
+          <span class="team-tag">Conceptualisation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="network-card" style="margin-top:12px;">
+      <div class="network-label">On call</div>
+      <div class="network-tags">
+        <span class="network-tag">Copywriters</span>
+        <span class="network-tag">Designers</span>
+        <span class="network-tag">Photographers</span>
+        <span class="network-tag">VO artists</span>
+        <span class="network-tag">Eleven Labs</span>
+        <span class="network-tag">IPR lawyers</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASES -->
+  <div class="section">
+    <div class="section-label">The programme</div>
+    <h2 class="section-title">Six phases. One focus per month.</h2>
+    <p class="section-body">The first two months are team-led. From month three onward, you execute and we review weekly. The task list we build together in month two is the anchor for every session through month six.</p>
+
+    <div class="phases">
+
+      <div class="phase-card team-led">
+        <div class="phase-month">
+          <div class="phase-num">1</div>
+          <div class="phase-month-label">Month</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-name">Financial Diagnostic</div>
+            <span class="phase-owner team">Team leads</span>
+          </div>
+          <ul class="phase-items">
+            <li>Income and cost audit: last six months on the table</li>
+            <li>Monthly income target set, tracked from here</li>
+            <li>Singles vs EP direction decided</li>
+            <li>Deal structure education: what you are signing and what it costs you</li>
+            <li>Problems named, not softened</li>
+          </ul>
+          <div class="phase-output">Output: <span>Financial snapshot + monthly target</span></div>
+        </div>
+      </div>
+
+      <div class="phase-card team-led">
+        <div class="phase-month">
+          <div class="phase-num">2</div>
+          <div class="phase-month-label">Month</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-name">Identity and Production</div>
+            <span class="phase-owner team">Team leads</span>
+          </div>
+          <ul class="phase-items">
+            <li>Music audit: what is working, what is not, what to do next</li>
+            <li>Identity work: the one thing you will be known for</li>
+            <li>EPK built from scratch or rebuilt if it exists</li>
+            <li>Social media direction and content plan</li>
+            <li>Designers, photographers, VO artists briefed and moving</li>
+            <li>Task list built together: the spine of months three through six</li>
+          </ul>
+          <div class="phase-output">Output: <span>EPK + content plan + task list</span></div>
+        </div>
+      </div>
+
+      <div class="phase-card artist-led">
+        <div class="phase-month">
+          <div class="phase-num">3</div>
+          <div class="phase-month-label">Month</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-name">Distribution and Outreach</div>
+            <span class="phase-owner artist">Artist executes</span>
+          </div>
+          <ul class="phase-items">
+            <li>Streaming profiles audited and fixed</li>
+            <li>Playlist outreach: first pitches sent using the EPK</li>
+            <li>Cold outreach to blogs, press, and music media</li>
+            <li>Weekly check-in against task list begins</li>
+          </ul>
+          <div class="phase-output">Output: <span>First 10 pitches sent and tracked</span></div>
+        </div>
+      </div>
+
+      <div class="phase-card artist-led">
+        <div class="phase-month">
+          <div class="phase-num">4</div>
+          <div class="phase-month-label">Month</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-name">Live Circuit</div>
+            <span class="phase-owner artist">Artist executes</span>
+          </div>
+          <ul class="phase-items">
+            <li>Three self-booked shows: venue cold outreach using the EPK</li>
+            <li>One booking agency approached with a proper pitch</li>
+            <li>Show documentation: attendance, setlist, video, contacts made</li>
+          </ul>
+          <div class="phase-output">Output: <span>3 shows confirmed or in pipeline</span></div>
+        </div>
+      </div>
+
+      <div class="phase-card artist-led">
+        <div class="phase-month">
+          <div class="phase-num">5</div>
+          <div class="phase-month-label">Month</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-name">Community</div>
+            <span class="phase-owner artist">Artist executes</span>
+          </div>
+          <ul class="phase-items">
+            <li>WhatsApp fan group started and seeded</li>
+            <li>50 named fans identified: real people, direct relationships</li>
+            <li>Direct engagement: five conversations per week minimum</li>
+            <li>Fan-to-revenue pathway sketched</li>
+          </ul>
+          <div class="phase-output">Output: <span>50 named fans, active fan group</span></div>
+        </div>
+      </div>
+
+      <div class="phase-card together">
+        <div class="phase-month">
+          <div class="phase-num">6</div>
+          <div class="phase-month-label">Month</div>
+        </div>
+        <div class="phase-body">
+          <div class="phase-header">
+            <div class="phase-name">Income Activation</div>
+            <span class="phase-owner joint">Together</span>
+          </div>
+          <ul class="phase-items">
+            <li>One non-streaming income stream activated: sync, merch, licensing, direct-to-fan</li>
+            <li>Six-month review: what moved, what did not, what was learned</li>
+            <li>Next six months planned — by you, with our input</li>
+          </ul>
+          <div class="phase-output">Output: <span>One income stream live + 6-month review doc</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WEEKLY RHYTHM -->
+  <div class="section">
+    <div class="section-label">The weekly rhythm</div>
+    <div class="rhythm-card">
+      <div class="rhythm-title">Line items. Every week. From month two onward.</div>
+      <p class="rhythm-body">The task list built in session two is the anchor for every check-in. We go through it together: what shipped, what is blocked, what the one thing to fix is this week. If it is not on the list, it is not this week's conversation — it gets added and reviewed next session.</p>
+      <p class="rhythm-body" style="margin-top:12px;">WhatsApp is async. You send questions any time. We respond in our own time. The weekly session is where things get resolved, not every message thread.</p>
+      <div class="rhythm-rule">"We move at the speed of the task list, not the speed of the anxiety."</div>
+    </div>
+  </div>
+
+  <!-- DIFFERENTIATION -->
+  <div class="section">
+    <div class="section-label">How it's different</div>
+    <h2 class="section-title">Not a deal. Not a course. Not a consultant.</h2>
+    <p class="section-body" style="margin-bottom:24px;">Everything that exists for artist development either takes something from you or gives you nothing back.</p>
+
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-them">Management deal</div>
+        <div class="diff-what">Rights taken. Advance recouped. You are their asset until you recoup.</div>
+        <div class="diff-us-label">This programme</div>
+        <div class="diff-us-what">Your rights. No advance. You own everything you make.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-them">Online course or playbook</div>
+        <div class="diff-what">Self-serve. No accountability. You watch, then you do nothing, or everything alone.</div>
+        <div class="diff-us-label">This programme</div>
+        <div class="diff-us-what">A team working with you. Weekly accountability. Real creative network on call.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-them">Freelance consultant</div>
+        <div class="diff-what">Ad hoc advice. No continuity. No one tracking whether you followed through.</div>
+        <div class="diff-us-label">This programme</div>
+        <div class="diff-us-what">Structured six months. Two people with complementary skills. Weekly reviews.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-them">Label deal</div>
+        <div class="diff-what">Marketing budget, yes. But 80% of masters, 50% of publishing, recoupable everything.</div>
+        <div class="diff-us-label">This programme</div>
+        <div class="diff-us-what">No catalogue grab. The playbook and tools keep working for you after we finish.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="section" style="margin-bottom:0;">
+    <div class="cta-card">
+      <div class="cta-title">We work with a small<br>number of artists at a time.</div>
+      <p class="cta-deck">Start with a conversation. No forms, no decks. Tell us where you are and what is blocking you. We'll tell you honestly if this is the right fit.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/919960025559" target="_blank" rel="noopener" class="btn-primary">WhatsApp Siby ↗</a>
+        <a href="mailto:sibyjohn0@gmail.com" class="btn-secondary">Email us</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <span style="font-weight:700;color:var(--text);font-size:13px">India Indie Music Radar</span>
+    <a href="../about/">About</a>
+    <a href="../playbook/">Playbook</a>
+    <a href="../industry/">Industry</a>
+    <a href="../submit/">Submit</a>
+  </div>
+  <div style="font-size:11px">Built by Siby John · sibyjohn0@gmail.com</div>
+</footer>
+
+<script>
+  if (typeof gtag === 'function') gtag('event', 'programme_page_view', { event_category: 'engagement' });
+</script>
+</body>
+</html>
