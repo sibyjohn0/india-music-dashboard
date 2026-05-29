@@ -62,8 +62,40 @@
     .tab:hover { color: var(--text); }
     .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
 
-    .page-title { padding: 32px 32px 0; font-size: 28px; font-weight: 800; letter-spacing: -0.5px; }
-    .page-sub { padding: 8px 32px 24px; font-size: 14px; color: var(--muted); max-width: 680px; line-height: 1.6; }
+    /* ── HERO ── */
+    .page-hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(233,69,96,.07) 0%, transparent 55%);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 32px 0;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(233,69,96,.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; letter-spacing: -0.5px; color: #f0f0f0; margin-bottom: 10px; }
+    .page-sub { font-size: 14px; color: var(--muted); max-width: 620px; line-height: 1.65; margin-bottom: 28px; }
+    /* ── FEATURE CAROUSEL ── */
+    .feat-track {
+      display: flex; gap: 10px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+      margin: 0 -32px; padding: 4px 32px 20px;
+    }
+    .feat-track::-webkit-scrollbar { display: none; }
+    .feat-card {
+      flex: 0 0 200px; scroll-snap-align: start;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-top: 2px solid var(--accent); border-radius: 10px; padding: 16px;
+    }
+    .feat-num  { font-size: 22px; font-weight: 800; color: #f0f0f0; letter-spacing: -.5px; margin-bottom: 3px; }
+    .feat-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .feat-desc { font-size: 11px; color: var(--muted); line-height: 1.55; }
 
     /* ── FILTERS ── */
     .filters { padding: 0 32px 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
@@ -143,8 +175,9 @@
 
     @media (max-width: 600px) {
       header, .filters, .stats-bar, .grid { padding-left: 16px; padding-right: 16px; }
-      .page-title { padding-left: 16px; }
-      .page-sub { padding-left: 16px; padding-right: 16px; }
+      .page-hero { padding: 24px 16px 0; }
+      .feat-track { margin: 0 -16px; padding: 4px 16px 16px; }
+      .feat-card { flex: 0 0 175px; }
       .grid { grid-template-columns: 1fr; }
       .search-input { width: 100%; }
       nav { padding: 0 8px; }
@@ -171,8 +204,32 @@
   <a class="tab" href="../submit/">Submit</a>
 </nav>
 
-<h1 class="page-title">Labels &amp; Agencies</h1>
-<p class="page-sub">Who represents who in Indian indie — with context on who's actively signing, what stage to be at before approaching, and what each entity actually does. India-first. Global labels included as benchmarks.</p>
+<div class="page-hero">
+  <h1 class="page-title">Labels &amp; Agencies</h1>
+  <p class="page-sub">Who's signing, who's booking, and what stage you need to be at before you approach. 60 entities across labels, agencies, and management — India-first, global labels as benchmarks.</p>
+  <div class="feat-track">
+    <div class="feat-card">
+      <div class="feat-num">60</div>
+      <div class="feat-name">Entities mapped</div>
+      <div class="feat-desc">Labels and booking agencies, India-first. Global benchmarks included for comparison.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">Open</div>
+      <div class="feat-name">Signing status</div>
+      <div class="feat-desc">Each entity is marked: actively signing, selective, or major-only. Know before you approach.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">No deal</div>
+      <div class="feat-name">Booking agencies</div>
+      <div class="feat-desc">Mixtape, Krunk, MGMH, REPRESENT. All book independent artists without a record deal.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">Stage</div>
+      <div class="feat-name">When to approach</div>
+      <div class="feat-desc">Each entity tells you what they need to see before they'll take a meeting. No guesswork.</div>
+    </div>
+  </div>
+</div>
 
 <div class="filters">
   <div class="filter-group">

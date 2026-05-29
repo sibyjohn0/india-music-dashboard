@@ -89,6 +89,25 @@
     /* ── PAGE LAYOUT ── */
     .page { max-width: 860px; margin: 0 auto; padding: 72px 32px 120px; }
 
+    /* ── HERO VISUAL ── */
+    .hero-visual {
+      position: relative;
+      background: linear-gradient(135deg, rgba(233,69,96,.07) 0%, transparent 55%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px 44px 44px;
+      margin-bottom: 48px;
+      overflow: hidden;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(233,69,96,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
     /* ── HERO ── */
     .eyebrow {
       font-size: 10px;
@@ -382,8 +401,14 @@
       .section-title { font-size: 20px; }
       .section-body { font-size: 14px; }
 
+      .hero-visual { padding: 28px 20px 24px; margin-bottom: 28px; border-radius: 12px; }
+      .hero-visual::after { width: 140px; height: 140px; top: -40px; right: -40px; }
       .hero-headline { letter-spacing: -.5px; }
       .hero-deck { font-size: 15px; }
+
+      .tools-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: 0 -16px; padding: 4px 16px 12px; flex-wrap: nowrap; }
+      .tools-grid::-webkit-scrollbar { display: none; }
+      .tool-card { flex: 0 0 220px; scroll-snap-align: start; }
 
       .cta-row { gap: 8px; }
       .cta-primary, .cta-secondary { font-size: 13px; padding: 11px 18px; }
@@ -434,9 +459,11 @@
 <div class="page">
 
   <!-- HERO -->
-  <div class="eyebrow">India Indie Music Radar</div>
-  <h1 class="hero-headline">The label system<br>was built for<br>200 artists.</h1>
-  <p class="hero-deck">India's major labels work with roughly 200 artists at any given time. The rest of the ecosystem, tens of thousands of working musicians, were never in the consideration set. Not rejected. Just not the audience the system was designed to serve. This is for those artists. The playbook, the radar, the reviewer database, the industry directory. Infrastructure that should have existed already.</p>
+  <div class="hero-visual">
+    <div class="eyebrow">India Indie Music Radar</div>
+    <h1 class="hero-headline">The label system<br>was built for<br>200 artists.</h1>
+    <p class="hero-deck">India's major labels work with roughly 200 artists at any given time. The rest of the ecosystem, tens of thousands of working musicians, were never in the consideration set. Not rejected. Just not the audience the system was designed to serve. This is for those artists.</p>
+  </div>
 
   <div class="cta-row">
     <a class="cta-primary" href="../playbook/">Open the Playbook →</a>
