@@ -346,7 +346,7 @@ function renderGrid() {
   const filtered = filterEntities();
   document.getElementById('visible-count').textContent = `${filtered.length} entities`;
   document.getElementById('stats-bar').textContent =
-    `${filtered.length} of ${allEntities.length} — ${filtered.reduce((n, e) => n + (e.artists || []).length, 0)} artists`;
+    `${filtered.length} of ${allEntities.length} · ${filtered.reduce((n, e) => n + (e.artists || []).length, 0)} artists`;
 
   const grid = document.getElementById('grid');
   if (!filtered.length) {
