@@ -369,7 +369,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 /* ── Artist Discovery Log ── */
 .artist-log { margin-top: 0; }
 .artist-log-hd { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; }
-.artist-log-title { font-size: 16px; font-weight: 700; }
+.artist-log-title { font-size: 16px; font-weight: 700; border-left: 3px solid var(--accent); padding-left: 10px; }
 .artist-log-meta { font-size: 12px; color: var(--muted); }
 .artist-log-filters { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; }
 .artist-log-filters select {
@@ -506,6 +506,8 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   margin: 28px 0 12px;
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
 }
 .buzz-split {
   display: grid;
@@ -516,12 +518,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 }
 .buzz-left,
 .buzz-right { min-width: 0; }
-.buzz-left .buzz-section-hd {
-  margin-top: 0;
-  border-left: 2px solid #a78bfa;
-  padding-left: 10px;
-  color: #c4b5fd;
-}
+.buzz-left .buzz-section-hd,
 .buzz-right .buzz-section-hd { margin-top: 0; }
 .buzz-artist-empty {
   color: var(--muted);
@@ -993,6 +990,8 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   letter-spacing: 1.5px;
   color: var(--muted);
   margin-bottom: 16px;
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
 }
 .today-section-meta {
   font-size: 11px;
@@ -1201,8 +1200,10 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 .shows-title {
   font-size: 15px;
   font-weight: 600;
-  color: var(--fg);
+  color: var(--text);
   white-space: nowrap;
+  border-left: 3px solid var(--accent);
+  padding-left: 10px;
 }
 .shows-city-pills {
   display: flex;
