@@ -615,21 +615,54 @@
     }
 
     @media (max-width: 640px) {
-      .page { padding: 48px 20px 80px; }
+      .page { padding: 36px 16px 64px; }
       header { padding: 0 12px; }
-      .contact-strip { padding: 9px 20px; }
-      .tab { padding: 14px 12px; font-size: 11px; }
+      .contact-strip { padding: 9px 16px; }
+      .tab { padding: 14px 10px; font-size: 11px; }
+      .section { margin-bottom: 48px; }
+      .section-title { font-size: 20px; }
+      .section-body { font-size: 14px; }
+      .manifesto { font-size: 14px; padding: 16px 18px; margin-bottom: 40px; }
+
+      /* stats: 2-per-row grid */
+      .stats-strip { display: grid; grid-template-columns: 1fr 1fr; border-radius: 10px; }
+      .stat-block { border-right: 1px solid var(--border); padding: 14px 16px; min-width: 0; }
+      .stat-block:nth-child(2n) { border-right: none; }
+      .stat-block:nth-child(n+3) { border-top: 1px solid var(--border); }
+      .stat-num { font-size: 20px; }
+
       .team-grid { grid-template-columns: 1fr; }
-      .stats-strip { border-radius: 10px; }
-      .stat-block { min-width: 100px; padding: 16px 18px; }
-      .phase-card { grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 20px; }
-      .phase-num { font-size: 24px; }
-      .cta-card { padding: 32px 24px; }
+      .network-card { padding: 16px 18px; }
+
+      .phase-card { grid-template-columns: 48px 1fr; gap: 14px; padding: 18px 16px; }
+      .phase-num { font-size: 22px; }
+      .phase-name { font-size: 15px; }
+
+      /* deliverables table: horizontal scroll */
+      .deliverables { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+      .deliverables thead, .deliverables tbody, .deliverables tr { display: table-row-group; }
+      .deliverables thead { display: table-header-group; }
+      .deliverables { white-space: normal; }
+      .del-month { white-space: nowrap; }
+      table.deliverables { font-size: 12px; }
+      .del-deliverable { font-size: 12px; }
+
+      /* table wrapper scroll */
+      .deliverables-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -16px; padding: 0 16px; }
+
+      .diff-grid { grid-template-columns: 1fr; }
+
       .pricing-cols { grid-template-columns: 1fr; }
       .pricing-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
-      .pricing-col { padding: 20px; }
-      .pricing-main { padding: 24px 20px 20px; }
-      .pricing-terms { padding: 16px 20px; }
+      .pricing-col { padding: 18px 16px; }
+      .pricing-main { padding: 20px 16px 16px; }
+      .pricing-amount { font-size: 36px; }
+      .pricing-terms { padding: 14px 16px; }
+
+      .rhythm-card { padding: 22px 18px; }
+      .cta-card { padding: 28px 20px; }
+      .cta-title { font-size: 22px; }
+
       footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -980,6 +1013,7 @@
 
     <div style="margin-top:32px;">
       <div class="section-label" style="margin-bottom:16px;">Month by month</div>
+      <div class="deliverables-wrap">
       <table class="deliverables">
         <thead>
           <tr>
@@ -1057,6 +1091,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 
