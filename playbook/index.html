@@ -37,11 +37,11 @@
 .site-nav a.active{color:#e8e8f0;border-bottom-color:#e94560;font-weight:700}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:15px}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;overflow-x:hidden}
 
 /* ── PHASE NAV ── */
 #phase-nav{position:fixed;top:var(--nav-h);left:0;right:0;z-index:101;background:var(--sidebar-bg)}
-.phase-tabs{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px;-webkit-overflow-scrolling:touch;border-bottom:1px solid var(--border)}
+.phase-tabs{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px;-webkit-overflow-scrolling:touch;border-bottom:1px solid var(--border);-webkit-mask-image:linear-gradient(to right,black calc(100% - 32px),transparent 100%);mask-image:linear-gradient(to right,black calc(100% - 32px),transparent 100%)}
 .phase-tabs::-webkit-scrollbar{display:none}
 .phase-tab{background:none;border:none;border-bottom:2px solid transparent;color:#999;font:13px/1 'Inter',-apple-system,sans-serif;padding:0 14px;height:44px;display:flex;align-items:center;cursor:pointer;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color .15s,border-color .15s}
 .phase-tab:hover{color:var(--text)}
@@ -3540,10 +3540,10 @@ function renderVenueFrequency(city) {
 function loadLiveEvents() {
   if (_liveEventsData) return; // already loaded
   Promise.allSettled([
-    fetch('../data/live-events.json').then(r => r.ok ? r.json() : null),
-    fetch('../data/skillbox-events.json').then(r => r.ok ? r.json() : null),
-    fetch('../data/townscript-events.json').then(r => r.ok ? r.json() : null),
-    fetch('../data/bookmyshow-events.json').then(r => r.ok ? r.json() : null),
+    fetch('../data/events-district.json').then(r => r.ok ? r.json() : null),
+    fetch('../data/events-skillboxes.json').then(r => r.ok ? r.json() : null),
+    fetch('../data/events-paytm.json').then(r => r.ok ? r.json() : null),
+    fetch('../data/events-bookmyshow.json').then(r => r.ok ? r.json() : null),
   ]).then(([districtResult, skillboxResult, townscriptResult, bmsResult]) => {
     const district = districtResult.status === 'fulfilled' ? districtResult.value : null;
     const skillbox = skillboxResult.status === 'fulfilled' ? skillboxResult.value : null;

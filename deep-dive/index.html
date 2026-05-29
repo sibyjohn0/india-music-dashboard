@@ -34,6 +34,10 @@
     }
     .dd-intro-title { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
     .dd-intro-sub { font-size: 13px; color: var(--muted); }
+    .table-scroll-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
     @media (max-width: 640px) {
       .dd-back-bar { padding: 10px 16px; }
     }
@@ -82,20 +86,22 @@
         </select>
       </div>
       <div id="dd-artists-loading" style="color:var(--muted);padding:20px 0">Loading…</div>
-      <table class="data-table" id="dd-artists-table" style="display:none">
-        <thead>
-          <tr>
-            <th>Artist</th>
-            <th>Language</th>
-            <th>Genre</th>
-            <th>Videos</th>
-            <th>Last active</th>
-            <th>Avg score</th>
-            <th>Trend</th>
-          </tr>
-        </thead>
-        <tbody id="dd-artists-body"></tbody>
-      </table>
+      <div class="table-scroll-wrap">
+        <table class="data-table" id="dd-artists-table" style="display:none">
+          <thead>
+            <tr>
+              <th>Artist</th>
+              <th>Language</th>
+              <th>Genre</th>
+              <th>Videos</th>
+              <th>Last active</th>
+              <th>Avg score</th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody id="dd-artists-body"></tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Full trends summary -->
@@ -118,7 +124,7 @@
       </div>
       <div id="dd-events-content">
         <div id="dd-events-loading" style="color:var(--muted);padding:20px 0">Loading…</div>
-        <div id="dd-events-body" style="display:none"></div>
+        <div id="dd-events-body" style="display:none;overflow-x:auto;-webkit-overflow-scrolling:touch"></div>
       </div>
     </div>
 
@@ -168,7 +174,7 @@
         fetch("../data/latest.json", NC).then(r=>r.json()),
         fetch("../data/tracked_artists.json", NC).then(r=>r.json()).catch(()=>null),
         fetch("../data/lastfm_enrichment.json", NC).then(r=>r.json()).catch(()=>null),
-        fetch("../data/live-events.json", NC).then(r=>r.json()).catch(()=>null),
+        fetch("../data/events-district.json", NC).then(r=>r.json()).catch(()=>null),
         fetch("../data/pipeline-status.json", NC).then(r=>r.json()).catch(()=>null),
       ]);
 
