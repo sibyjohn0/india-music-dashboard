@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-fetch_jiosaavn.py — Scrape JioSaavn trending tracks.
+fetch_jiosaavn.py — Fetch JioSaavn chart tracks (India Superhits Top 50 + English Top 20).
 
-Source: https://www.jiosaavn.com/featured/trending-today/I3ovYAWhFUc_
+Strategy:
+  1. Call content.getCharts to get live chart playlist tokens.
+  2. For each chart, call webapi.get with the token to get 20 tracks.
+  3. Deduplicate and write output.
+
+No hardcoded IDs — chart tokens come from the API on every run.
 Output: data/jiosaavn.json
-
-JioSaavn's public pages are server-side rendered. This script tries a plain
-HTTP request first, then parses the embedded JSON (window.__INITIAL_STATE__
-or JSON-LD) before falling back to BeautifulSoup HTML parsing.
 """
 
 import os, json, sys, re
@@ -15,9 +16,17 @@ from datetime import datetime, timezone
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
 
-URL = "https://www.jiosaavn.com/featured/trending-today/I3ovYAWhFUc_"
-# Also try the JioSaavn internal API endpoint (public, no key required)
-API_URL = "https://www.jiosaavn.com/api.php?__call=content.getAlbumDetails&albumid=I3ovYAWhFUc_&_format=json&_marker=0&ctx=web6dot0"
+CHARTS_URL = (
+    "https://www.jiosaavn.com/api.php"
+    "?__call=content.getCharts&_format=json&_marker=0&ctx=web6dot0"
+    "&language=hindi,english,punjabi,telugu,tamil"
+)
+PLAYLIST_URL_TMPL = (
+    "https://www.jiosaavn.com/api.php"
+    "?__call=webapi.get&token={token}&type=playlist&p=1&n=20"
+    "&_format=json&_marker=0&ctx=web6dot0"
+)
+
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "jiosaavn.json")
 
 HEADERS = {
@@ -27,9 +36,65 @@ HEADERS = {
         "Chrome/124.0.0.0 Safari/537.36"
     ),
     "Accept-Language": "en-US,en;q=0.9",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Referer": "https://www.jiosaavn.com/",
+    "Referer":         "https://www.jiosaavn.com/",
 }
+
+# Prefer these chart title substrings (case-insensitive match)
+PREFERRED_CHARTS = ["superhits top 50", "english top", "trending", "top 20"]
+MAX_CHARTS = 4
+
+
+def fetch_json(url, timeout=20):
+    req = Request(url, headers=HEADERS)
+    with urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read().decode("utf-8", errors="replace"))
+
+
+def clean(text):
+    if not text:
+        return ""
+    text = re.sub(r"&amp;", "&", text)
+    text = re.sub(r"&#039;", "'", text)
+    text = re.sub(r"&quot;", '"', text)
+    return text.strip()
+
+
+def get_chart_token(chart):
+    """Extract the playlist token from a chart item's perma_url."""
+    perma = chart.get("perma_url", "")
+    if perma:
+        return perma.rstrip("/").split("/")[-1]
+    return ""
+
+
+def score_chart(chart):
+    title = (chart.get("title") or "").lower()
+    for i, keyword in enumerate(PREFERRED_CHARTS):
+        if keyword in title:
+            return i
+    return len(PREFERRED_CHARTS)
+
+
+def fetch_chart_tracks(token):
+    url = PLAYLIST_URL_TMPL.format(token=token)
+    data = fetch_json(url)
+    songs = data.get("songs") or data.get("list") or []
+    tracks = []
+    for s in songs:
+        title  = clean(s.get("song") or s.get("title") or "")
+        artist = clean(s.get("primary_artists") or s.get("singers") or "")
+        plays  = str(s.get("play_count") or "")
+        url    = s.get("perma_url") or s.get("url") or ""
+        lang   = s.get("language") or ""
+        if title:
+            tracks.append({
+                "title":    title,
+                "artist":   artist,
+                "plays":    plays,
+                "url":      url,
+                "language": lang,
+            })
+    return tracks
 
 
 def load_last_known():
@@ -39,154 +104,62 @@ def load_last_known():
     return None
 
 
-def fetch_url(url, timeout=20):
-    req = Request(url, headers=HEADERS)
-    with urlopen(req, timeout=timeout) as resp:
-        return resp.read().decode("utf-8", errors="replace")
-
-
-def parse_from_api(text):
-    """Try parsing a JioSaavn API JSON response."""
-    try:
-        data = json.loads(text)
-        songs = data.get("songs") or data.get("list") or []
-        tracks = []
-        for s in songs:
-            title  = s.get("title") or s.get("song", "")
-            # HTML entities in JioSaavn responses
-            title  = re.sub(r"&amp;", "&", title)
-            title  = re.sub(r"&#039;", "'", title)
-            artist = s.get("primary_artists") or s.get("singers") or s.get("artist", "")
-            artist = re.sub(r"&amp;", "&", artist)
-            plays  = s.get("play_count") or s.get("playCount") or ""
-            url    = s.get("perma_url") or s.get("url") or ""
-            if title:
-                tracks.append({
-                    "title":  title,
-                    "artist": artist,
-                    "plays":  str(plays),
-                    "url":    url,
-                })
-        return tracks
-    except (json.JSONDecodeError, KeyError, TypeError):
-        return []
-
-
-def parse_from_html(html):
-    """Extract tracks from JioSaavn's server-rendered HTML / embedded state."""
-    tracks = []
-
-    # Attempt 1: window.__INITIAL_STATE__ / __SSR_DATA__ JSON blob
-    for pattern in [
-        r"window\.__INITIAL_STATE__\s*=\s*(\{.*?\});\s*(?:window|</script>)",
-        r"window\.__SSR_DATA__\s*=\s*(\{.*?\});\s*(?:window|</script>)",
-        r'<script[^>]*type="application/json"[^>]*>(\{.*?\})</script>',
-    ]:
-        m = re.search(pattern, html, re.DOTALL)
-        if not m:
-            continue
-        try:
-            raw = m.group(1)[:500_000]
-            data = json.loads(raw)
-            # Walk for song/track arrays
-            def walk(obj, depth=0):
-                if depth > 12 or len(tracks) >= 50:
-                    return
-                if isinstance(obj, list):
-                    for item in obj:
-                        walk(item, depth + 1)
-                elif isinstance(obj, dict):
-                    # Detect a song-like object
-                    if ("title" in obj or "song" in obj) and ("primary_artists" in obj or "singers" in obj or "artist" in obj):
-                        title  = obj.get("title") or obj.get("song", "")
-                        title  = re.sub(r"&amp;", "&", title)
-                        title  = re.sub(r"&#039;", "'", title)
-                        artist = obj.get("primary_artists") or obj.get("singers") or obj.get("artist", "")
-                        artist = re.sub(r"&amp;", "&", artist)
-                        plays  = str(obj.get("play_count") or obj.get("playCount") or "")
-                        url    = obj.get("perma_url") or obj.get("url") or ""
-                        if title and not any(t["title"] == title for t in tracks):
-                            tracks.append({"title": title, "artist": artist, "plays": plays, "url": url})
-                    else:
-                        for v in obj.values():
-                            walk(v, depth + 1)
-            walk(data)
-            if tracks:
-                break
-        except (json.JSONDecodeError, ValueError):
-            continue
-
-    # Attempt 2: BeautifulSoup fallback
-    if not tracks:
-        try:
-            from bs4 import BeautifulSoup
-            soup = BeautifulSoup(html, "html.parser")
-            items = (
-                soup.select(".song-list .c-content")
-                or soup.select(".trending-track")
-                or soup.select("[data-type='song']")
-                or soup.select("li.list-item")
-            )
-            for item in items:
-                title_el  = item.select_one(".song-name, .title, h3, h4, .name")
-                artist_el = item.select_one(".song-artist, .artist, .subtitle")
-                link_el   = item.select_one("a[href]")
-                title  = title_el.get_text(strip=True) if title_el else ""
-                artist = artist_el.get_text(strip=True) if artist_el else ""
-                href   = link_el["href"] if link_el else ""
-                if title:
-                    tracks.append({"title": title, "artist": artist, "plays": "", "url": href})
-        except ImportError:
-            pass
-
-    return tracks
-
-
 def main():
-    last_known  = load_last_known()
-    scraped_at  = datetime.now(timezone.utc).isoformat()
+    last_known = load_last_known()
+    scraped_at = datetime.now(timezone.utc).isoformat()
+    all_tracks = []
+    seen_titles = set()
 
-    tracks = []
-
-    # Strategy 1: Internal API endpoint
     try:
-        text   = fetch_url(API_URL)
-        tracks = parse_from_api(text)
-        if tracks:
-            print(f"  Fetched {len(tracks)} tracks from JioSaavn API.")
-    except (HTTPError, URLError) as e:
-        print(f"  API endpoint failed ({e}), trying HTML page...", file=sys.stderr)
+        charts = fetch_json(CHARTS_URL)
+    except (HTTPError, URLError, json.JSONDecodeError) as e:
+        print(f"WARNING: Could not fetch JioSaavn charts list: {e}", file=sys.stderr)
+        charts = []
 
-    # Strategy 2: HTML page
-    if not tracks:
+    # Sort by preference, take top MAX_CHARTS
+    charts = [c for c in charts if c.get("type") == "playlist" and c.get("perma_url")]
+    charts.sort(key=score_chart)
+    charts = charts[:MAX_CHARTS]
+
+    for chart in charts:
+        title = chart.get("title", "unknown chart")
+        token = get_chart_token(chart)
+        if not token:
+            print(f"  Skipping {title!r} — no token", file=sys.stderr)
+            continue
         try:
-            html   = fetch_url(URL)
-            tracks = parse_from_html(html)
-            if tracks:
-                print(f"  Fetched {len(tracks)} tracks from JioSaavn HTML.")
-        except (HTTPError, URLError) as e:
-            print(f"WARNING: JioSaavn HTML fetch failed ({e}).", file=sys.stderr)
+            tracks = fetch_chart_tracks(token)
+            added = 0
+            for t in tracks:
+                key = t["title"].lower()
+                if key not in seen_titles:
+                    seen_titles.add(key)
+                    all_tracks.append(t)
+                    added += 1
+            print(f"  {title}: {len(tracks)} fetched, {added} new")
+        except (HTTPError, URLError, json.JSONDecodeError) as e:
+            print(f"  {title!r}: failed ({e})", file=sys.stderr)
 
-    if not tracks:
-        msg = "Could not extract tracks from JioSaavn (page may require JS rendering)."
+    if not all_tracks:
+        msg = "Could not fetch any tracks from JioSaavn charts."
         print(f"WARNING: {msg}", file=sys.stderr)
-        if last_known:
-            print(f"  Preserving last known data ({len(last_known.get('trending_tracks', []))} tracks).")
+        if last_known and last_known.get("trending_tracks"):
+            n = len(last_known["trending_tracks"])
+            print(f"  Preserving last known data ({n} tracks).")
             sys.exit(0)
         out_data = {"trending_tracks": [], "scraped_at": scraped_at, "note": msg}
         os.makedirs(os.path.dirname(OUT), exist_ok=True)
         with open(OUT, "w") as f:
             json.dump(out_data, f, indent=2)
-        print("  Wrote placeholder.")
         sys.exit(0)
 
-    out_data = {"trending_tracks": tracks, "scraped_at": scraped_at}
+    out_data = {"trending_tracks": all_tracks, "scraped_at": scraped_at}
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w") as f:
-        json.dump(out_data, f, indent=2)
+        json.dump(out_data, f, ensure_ascii=False, indent=2)
 
-    print(f"OK: jiosaavn.json — {len(tracks)} trending tracks at {scraped_at}")
-    for t in tracks[:5]:
+    print(f"OK: jiosaavn.json — {len(all_tracks)} tracks at {scraped_at}")
+    for t in all_tracks[:5]:
         print(f"  {t['title']} — {t['artist']}")
 
 

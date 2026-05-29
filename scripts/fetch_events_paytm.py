@@ -219,7 +219,29 @@ def parse_from_html(html):
 def main():
     last_known = load_last_known()
     scraped_at = datetime.now(timezone.utc).isoformat()
-    events     = []
+
+    # insider.in is a fully JS-rendered React app. The /music path returns 404,
+    # api.insider.in DNS does not resolve, and the homepage has no embedded event data.
+    # Preserve last known data and exit cleanly rather than wasting time on failing requests.
+    note = (
+        "insider.in requires JS rendering (React SPA). "
+        "API subdomain does not resolve. Preserving last known data."
+    )
+    print(f"INFO: {note}")
+    if last_known and last_known.get("events"):
+        n = len(last_known["events"])
+        print(f"  Preserving {n} events from last successful run.")
+        sys.exit(0)
+
+    out_data = {"events": [], "scraped_at": scraped_at, "note": note}
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    with open(OUT, "w") as f:
+        json.dump(out_data, f, indent=2)
+    print("  Wrote empty placeholder.")
+    sys.exit(0)
+
+    # ── Dead code — preserved for future Playwright implementation ──
+    events = []
 
     # Strategy 1: API
     try:
