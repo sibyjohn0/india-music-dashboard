@@ -248,103 +248,29 @@
     }
 
     /* ── PHASES ── */
-    .phases { display: flex; flex-direction: column; gap: 16px; }
-    .phase-card {
+    /* ── PHASE LIST ── */
+    .phase-list { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .phase-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 18px;
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--border);
-      border-radius: 12px;
-      padding: 28px 32px;
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 24px;
-      align-items: start;
+      border-bottom: 1px solid var(--border);
     }
-    .phase-card.team-led   { border-left-color: var(--accent); }
-    .phase-card.artist-led { border-left-color: var(--green); }
-    .phase-card.together   { border-left-color: var(--amber); }
-
-    .phase-month {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      padding-top: 4px;
+    .phase-row:last-child { border-bottom: none; }
+    .phase-row-num { font-size: 11px; font-weight: 800; color: var(--muted); min-width: 18px; padding-top: 3px; flex-shrink: 0; }
+    .phase-row-content { flex: 1; }
+    .phase-row-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 3px; }
+    .phase-row-focus { font-size: 14px; font-weight: 700; color: #f0f0f0; }
+    .phase-row-badge {
+      font-size: 10px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 4px;
     }
-    .phase-num {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      color: #f0f0f0;
-      line-height: 1;
-    }
-    .phase-month-label {
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .phase-body {}
-    .phase-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-    .phase-name {
-      font-size: 17px;
-      font-weight: 800;
-      color: #f0f0f0;
-    }
-    .phase-owner {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 20px;
-    }
-    .phase-owner.team   { background: rgba(233,69,96,.12); color: var(--accent); border: 1px solid rgba(233,69,96,.25); }
-    .phase-owner.artist { background: rgba(16,185,129,.12); color: var(--green); border: 1px solid rgba(16,185,129,.25); }
-    .phase-owner.joint  { background: rgba(247,183,49,.12); color: var(--amber); border: 1px solid rgba(247,183,49,.25); }
-
-    .phase-items {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      margin-bottom: 14px;
-    }
-    .phase-items li {
-      font-size: 13px;
-      color: #b0b0c8;
-      padding-left: 16px;
-      position: relative;
-    }
-    .phase-items li::before {
-      content: '·';
-      position: absolute;
-      left: 4px;
-      color: var(--muted);
-    }
-
-    .phase-output {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: var(--surface2);
-      padding: 5px 12px;
-      border-radius: 6px;
-    }
-    .phase-output span { color: #f0f0f0; }
+    .badge-consult { background: rgba(233,69,96,.12); color: var(--accent); border: 1px solid rgba(233,69,96,.25); }
+    .badge-artist  { background: rgba(16,185,129,.1);  color: var(--green);  border: 1px solid rgba(16,185,129,.2);  }
+    .badge-joint   { background: rgba(247,183,49,.1);  color: var(--amber);  border: 1px solid rgba(247,183,49,.2);  }
+    .phase-row-out { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
     /* ── RHYTHM ── */
     .rhythm-card {
@@ -641,7 +567,6 @@
       .team-grid { grid-template-columns: 1fr; }
       .network-card { padding: 16px 18px; }
 
-      .phase-card { grid-template-columns: 48px 1fr; gap: 14px; padding: 18px 16px; }
       .phase-num { font-size: 22px; }
       .phase-name { font-size: 15px; }
 
@@ -701,17 +626,10 @@
 
 <div class="page">
 
-  <!-- MANIFESTO -->
-  <div class="manifesto">
-    <p>Most artists we talk to are not stuck because they lack discipline or drive. They are stuck because the picture is unclear: a release sitting in drafts for two months, a content strategy that made sense in January and quietly died by March, forty tasks on a list with no sense of which three actually matter this week. The cost of confusion is high and most of it is invisible.</p>
-    <p style="margin-top:14px;">This programme exists to fix the picture. Six months, one focus area per month, a prioritised task list that is yours to own and execute. We bring the thinking and the honest challenge. You bring the execution and the decisions. At the end of six months: a financial view you actually understand, distribution and PR running, live momentum building, a real fanbase started. And everything you built still belongs to you.</p>
-  </div>
-
   <!-- HERO -->
   <div class="eyebrow">Artist Development Programme</div>
   <h1 class="hero-headline">Six months to build it properly.<br>Everything you make, you keep.</h1>
-  <p class="hero-deck">Two consultants. A structured six months. A complete task list covering the full arc: identity, production, distribution, PR, live circuit, community, and income. We bring the thinking and the challenge. You own every decision and every deliverable. Nothing we do here gives us any claim on your catalogue or your career.</p>
-  <p class="hero-deck">When a task genuinely needs a specialist, we say so, coordinate the brief, and you pay them directly. When it does not need a specialist, we will say that too.</p>
+  <p class="hero-deck">Two consultants. Six months. A complete task list covering identity, production, distribution, PR, live circuit, community, and income. We bring the thinking. You own every decision, every deliverable, and everything you build. When a task needs a specialist, we say so and you pay them directly. No rights taken.</p>
 
   <!-- STATS STRIP -->
   <div class="stats-strip">
@@ -745,8 +663,6 @@
   <div class="section">
     <div class="section-label">The consultants</div>
     <h2 class="section-title">Two thinking partners. One workstream.</h2>
-    <p class="section-body">We bring the thinking. You bring the execution. Between us: financial diagnosis, distribution strategy, PR pipeline, brand positioning, social media direction, audio direction, and IPR contacts. We do not execute. We direct.</p>
-    <p class="section-body" style="margin-top:-12px;">We start with what you already have. Every artist comes in with something real: a sound, a partial network, skills built on your own, momentum you may not see clearly yet. The first job is to map that honestly. Then we find the gaps: the skills that need a specialist, the network that does not reach far enough, the contacts that are missing. We figure out how to fill each one — your resources first, our network second, a specialist last.</p>
 
     <div class="team-grid">
       <div class="team-card">
@@ -777,207 +693,55 @@
       </div>
     </div>
 
-    <div class="network-card" style="margin-top:12px;">
-      <div class="network-label">Specialists — at your cost, when genuinely needed</div>
-      <div class="network-tags">
-        <span class="network-tag">Copywriters</span>
-        <span class="network-tag">Designers</span>
-        <span class="network-tag">Photographers</span>
-        <span class="network-tag">VO artists</span>
-        <span class="network-tag">Eleven Labs</span>
-        <span class="network-tag">IPR lawyers</span>
-      </div>
-    </div>
   </div>
 
   <!-- PHASES -->
   <div class="section">
     <div class="section-label">The programme</div>
-    <h2 class="section-title">Six phases. One focus per month.</h2>
-    <p class="section-body">You own your workstream from day one. The consultant sessions are where we bring the thinking: diagnosis, direction, challenge. Between sessions, you execute. We review output, not plans.</p>
+    <h2 class="section-title">Six months. One focus each.</h2>
 
-    <div class="phases">
-
-      <div class="phase-card team-led">
-        <div class="phase-month">
-          <div class="phase-num">1</div>
-          <div class="phase-month-label">Month</div>
-        </div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-name">Financial Diagnostic</div>
-            <span class="phase-owner team">Consultant session</span>
-          </div>
-          <ul class="phase-items">
-            <li>We ask the questions. You bring the data: last six months of income and costs on the table</li>
-            <li>Monthly income target set together — you own it from here</li>
-            <li>Singles vs EP: we give the direction, you make it happen</li>
-            <li>Deal structure: we explain what you are signing and exactly what it costs you</li>
-            <li>Production budget agreed: what you will spend on specialists over six months</li>
-            <li>Problems named clearly — you leave knowing what to fix</li>
-          </ul>
-          <div class="phase-output">Output: <span>Financial snapshot + monthly target + production budget</span></div>
+    <div class="phase-list">
+      <div class="phase-row">
+        <span class="phase-row-num">01</span>
+        <div class="phase-row-content">
+          <div class="phase-row-top"><span class="phase-row-focus">Financial Diagnostic</span><span class="phase-row-badge badge-consult">Consultant session</span></div>
+          <div class="phase-row-out">Financial snapshot + monthly income target + production budget agreed</div>
         </div>
       </div>
-
-      <div class="phase-card team-led">
-        <div class="phase-month">
-          <div class="phase-num">2</div>
-          <div class="phase-month-label">Month</div>
-        </div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-name">Identity and Production</div>
-            <span class="phase-owner team">Consultant session</span>
-          </div>
-          <ul class="phase-items">
-            <li>Music audit: we tell you what is working, what to stop, what to do next</li>
-            <li>Identity: we define the one thing. You go live it.</li>
-            <li>EPK brief: we specify exactly what it needs. You build it or commission it.</li>
-            <li>Social media and content direction: framework from us, execution from you</li>
-            <li>Task list built together: you own it the moment you leave the session</li>
-          </ul>
-          <div class="phase-output">Output: <span>EPK brief + content direction + task list</span></div>
+      <div class="phase-row">
+        <span class="phase-row-num">02</span>
+        <div class="phase-row-content">
+          <div class="phase-row-top"><span class="phase-row-focus">Identity and Production</span><span class="phase-row-badge badge-consult">Consultant session</span></div>
+          <div class="phase-row-out">EPK brief + content direction + 163-item task list filtered to your situation</div>
         </div>
       </div>
-
-      <div class="phase-card artist-led">
-        <div class="phase-month">
-          <div class="phase-num">3</div>
-          <div class="phase-month-label">Month</div>
-        </div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-name">Distribution and PR</div>
-            <span class="phase-owner artist">Artist owns</span>
-          </div>
-          <ul class="phase-items">
-            <li>Streaming profiles: your fix, your deadline</li>
-            <li>Playlist pitching: your outreach, using the EPK and the distribution strategy we set</li>
-            <li>PR outreach: your emails, using the 924-contact reviewer pipeline we point you to</li>
-            <li>We review what shipped at the weekly check-in — not what you planned to do</li>
-            <li>Anything not done by check-in: resets to next week or goes to a specialist at your cost</li>
-          </ul>
-          <div class="phase-output">Output: <span>First 10 pitches sent and tracked</span></div>
+      <div class="phase-row">
+        <span class="phase-row-num">03</span>
+        <div class="phase-row-content">
+          <div class="phase-row-top"><span class="phase-row-focus">Distribution and PR</span><span class="phase-row-badge badge-artist">Artist owns</span></div>
+          <div class="phase-row-out">First 10 pitches sent. Streaming profiles fixed. Weekly check-ins on what shipped.</div>
         </div>
       </div>
-
-      <div class="phase-card artist-led">
-        <div class="phase-month">
-          <div class="phase-num">4</div>
-          <div class="phase-month-label">Month</div>
-        </div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-name">Live Circuit</div>
-            <span class="phase-owner artist">Artist owns</span>
-          </div>
-          <ul class="phase-items">
-            <li>You book the shows. We advise on the venue pitch before it goes.</li>
-            <li>Three self-booked shows using the EPK and the venue data from Radar</li>
-            <li>One booking agency approached — we review the pitch, you send it</li>
-            <li>Show documentation is yours: attendance, setlist, video proof, contacts made</li>
-          </ul>
-          <div class="phase-output">Output: <span>3 shows confirmed or in pipeline</span></div>
+      <div class="phase-row">
+        <span class="phase-row-num">04</span>
+        <div class="phase-row-content">
+          <div class="phase-row-top"><span class="phase-row-focus">Live Circuit</span><span class="phase-row-badge badge-artist">Artist owns</span></div>
+          <div class="phase-row-out">3 shows confirmed or in pipeline. One booking agency pitched.</div>
         </div>
       </div>
-
-      <div class="phase-card artist-led">
-        <div class="phase-month">
-          <div class="phase-num">5</div>
-          <div class="phase-month-label">Month</div>
-        </div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-name">Community</div>
-            <span class="phase-owner artist">Artist owns</span>
-          </div>
-          <ul class="phase-items">
-            <li>A fanbase is not built by posting. It is built by direct contact with real people who already care about your music.</li>
-            <li>Start with the people who are already there: anyone who showed up to a gig, shared a track, replied to a story. Those are your first 50.</li>
-            <li>WhatsApp fan group: you start it, you run it. Direct access, no algorithm between you and them.</li>
-            <li>Five real exchanges per week with real people — not broadcast messages, actual conversations</li>
-            <li>We review what you are seeing and tell you what it says about who your audience actually is</li>
-          </ul>
-          <div class="phase-output">Output: <span>50 named fans, active fan group</span></div>
+      <div class="phase-row">
+        <span class="phase-row-num">05</span>
+        <div class="phase-row-content">
+          <div class="phase-row-top"><span class="phase-row-focus">Community</span><span class="phase-row-badge badge-artist">Artist owns</span></div>
+          <div class="phase-row-out">50 named fans identified from people already there. Active fan group running.</div>
         </div>
       </div>
-
-      <div class="phase-card together">
-        <div class="phase-month">
-          <div class="phase-num">6</div>
-          <div class="phase-month-label">Month</div>
+      <div class="phase-row">
+        <span class="phase-row-num">06</span>
+        <div class="phase-row-content">
+          <div class="phase-row-top"><span class="phase-row-focus">Income Activation</span><span class="phase-row-badge badge-joint">Joint review</span></div>
+          <div class="phase-row-out">One non-streaming income stream live + six-month review doc</div>
         </div>
-        <div class="phase-body">
-          <div class="phase-header">
-            <div class="phase-name">Income Activation</div>
-            <span class="phase-owner joint">Joint review</span>
-          </div>
-          <ul class="phase-items">
-            <li>We come back in for the strategic close</li>
-            <li>One non-streaming income stream activated: sync, merch, licensing, or direct-to-fan — your execution, our direction</li>
-            <li>Six-month review: what moved, what did not, what the data says</li>
-            <li>Next six months: your plan, stress-tested by us</li>
-          </ul>
-          <div class="phase-output">Output: <span>One income stream live + 6-month review doc</span></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- WEEKLY RHYTHM -->
-  <div class="section">
-    <div class="section-label">The weekly rhythm</div>
-    <div class="rhythm-card">
-      <div class="rhythm-title">We review output. Not plans.</div>
-      <p class="rhythm-body">The task list from month two is the anchor. Every week you show us what shipped. If something did not ship, we ask why — and the item either resets with a new deadline or goes to a specialist at your cost. We do not do it for you. We do not let it slide.</p>
-      <p class="rhythm-body" style="margin-top:12px;">WhatsApp is async. You send questions any time. We respond in our own time. The weekly session is where things get resolved — not every message thread. If it is not on the task list, it is not this week's conversation.</p>
-      <div class="rhythm-rule">"We move at the speed of the task list, not the speed of the anxiety."</div>
-    </div>
-  </div>
-
-  <!-- THE RULE -->
-  <div class="section">
-    <div class="section-label">The rule</div>
-    <div class="rhythm-card" style="border-left-color: var(--accent);">
-      <div class="rhythm-title">Do it yourself or pay someone to do it.</div>
-      <p class="rhythm-body">If a task does not move by the agreed date, we find out why together. Then it either resets with a real deadline or it goes to a specialist. The production budget was agreed in month one precisely so that decision is never a crisis when it arrives. We make the cost visible early so you are never making that call under pressure.</p>
-      <p class="rhythm-body" style="margin-top:12px;">Doing it yourself is always the right first answer. A specialist is justified when the task genuinely needs one. The goal is not to minimise spending — it is to make sure every rupee is earning its place.</p>
-      <div class="rhythm-rule">"Do it yourself or pay someone. Doing nothing is a deferred cost."</div>
-    </div>
-  </div>
-
-  <!-- DIFFERENTIATION -->
-  <div class="section">
-    <div class="section-label">How it's different</div>
-    <h2 class="section-title">Not a deal. Not a course. Not a manager.</h2>
-    <p class="section-body" style="margin-bottom:24px;">Every other option either owns a piece of your outcome or leaves you alone with a PDF. This is neither.</p>
-
-    <div class="diff-grid">
-      <div class="diff-card">
-        <div class="diff-them">Management deal</div>
-        <div class="diff-what">Rights taken. Advance recouped. You are their asset until you recoup.</div>
-        <div class="diff-us-label">This programme</div>
-        <div class="diff-us-what">A six-month engagement that ends when you decide it ends. Your rights, your catalogue, your call on everything. Nothing we touch becomes ours.</div>
-      </div>
-      <div class="diff-card">
-        <div class="diff-them">Online course or playbook</div>
-        <div class="diff-what">Self-serve. No one asking whether you actually did the work.</div>
-        <div class="diff-us-label">This programme</div>
-        <div class="diff-us-what">Weekly accountability to a real person. The playbook is free and always will be — this is for artists who need someone in the room making them work through it.</div>
-      </div>
-      <div class="diff-card">
-        <div class="diff-them">Music manager</div>
-        <div class="diff-what">Takes over your career. Makes decisions for you. Builds your dependency on them, not your own capability.</div>
-        <div class="diff-us-label">This programme</div>
-        <div class="diff-us-what">We build your capability, not a dependency on us. All decisions are yours. At the end of six months you should need us less, not more.</div>
-      </div>
-      <div class="diff-card">
-        <div class="diff-them">Label deal</div>
-        <div class="diff-what">Marketing budget, yes. But 80% of masters, 50% of publishing, recoupable everything.</div>
-        <div class="diff-us-label">This programme</div>
-        <div class="diff-us-what">No catalogue grab, no recoup. The contacts, the skills, and the process you build here keep working for you long after the six months end.</div>
       </div>
     </div>
   </div>
@@ -1026,88 +790,6 @@
       </div>
     </div>
 
-    <div style="margin-top:32px;">
-      <div class="section-label" style="margin-bottom:16px;">Month by month</div>
-      <div class="deliverables-wrap">
-      <table class="deliverables">
-        <thead>
-          <tr>
-            <th style="width:90px;">Month</th>
-            <th style="width:160px;">Focus</th>
-            <th>What you walk away with</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="del-month">Month 1</div>
-              <div class="del-badge consult">Consultant</div>
-            </td>
-            <td>Financial diagnostic</td>
-            <td>
-              <div class="del-deliverable">Written financial snapshot</div>
-              Income and cost audit for last six months, monthly income target, production budget agreed, problems named in writing
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="del-month">Month 2</div>
-              <div class="del-badge consult">Consultant</div>
-            </td>
-            <td>Identity and production</td>
-            <td>
-              <div class="del-deliverable">EPK brief + content direction + task list</div>
-              Music audit complete, identity defined, EPK specified, social direction set, 163-item task list filtered to your situation and ready to execute
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="del-month">Month 3</div>
-              <div class="del-badge artist">Artist</div>
-            </td>
-            <td>Distribution and PR</td>
-            <td>
-              <div class="del-deliverable">First 10 pitches sent and tracked</div>
-              Streaming profiles fixed, playlist outreach started, first press pitches sent using the 924-contact reviewer pipeline
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="del-month">Month 4</div>
-              <div class="del-badge artist">Artist</div>
-            </td>
-            <td>Live circuit</td>
-            <td>
-              <div class="del-deliverable">3 shows confirmed or in pipeline</div>
-              Venue outreach complete, EPK pitched to venues, one booking agency approached with a reviewed pitch
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="del-month">Month 5</div>
-              <div class="del-badge artist">Artist</div>
-            </td>
-            <td>Community</td>
-            <td>
-              <div class="del-deliverable">50 named fans + active fan group</div>
-              WhatsApp fan group running, 50 real people identified by name, direct fan engagement habit established
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="del-month">Month 6</div>
-              <div class="del-badge joint">Joint</div>
-            </td>
-            <td>Income activation</td>
-            <td>
-              <div class="del-deliverable">One income stream live + six-month review doc</div>
-              First non-streaming income source activated, full review of what moved, next six months planned and stress-tested
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
   </div>
 
   <!-- CTA -->
