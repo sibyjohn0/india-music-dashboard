@@ -958,6 +958,13 @@ const TREND_CLS  = {new:"trend-new", rising:"trend-up", stable:"trend-flat", fal
 
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
+const TAB_CONTEXT = {
+  discover: "New releases, breaking videos, and what's gaining traction this week",
+  artists:  "Filter and track artists by language and genre",
+  trends:   "Upcoming shows across 8 cities and the artist discovery log",
+  buzz:     "Community conversations, Reddit threads, and press coverage"
+};
+
 function goTab(name) {
   document.querySelectorAll('.filter-more').forEach(p => { p.hidden = true; });
   document.querySelectorAll('.more-btn').forEach(b => { if (b.textContent.startsWith('−')) b.textContent = '+ More ▾'; });
@@ -968,6 +975,8 @@ function goTab(name) {
   if (btn) btn.classList.add("active");
   const pane = document.getElementById("tab-"+name);
   if (pane) pane.classList.add("active");
+  const ctx = document.getElementById("tab-context");
+  if (ctx && TAB_CONTEXT[name]) ctx.textContent = TAB_CONTEXT[name];
   track('tab_switch', { tab_name: name });
   // Trends: artist log is always ready; charts load on first toggle expand
   if (name==="buzz"&&!_buzzLoaded){

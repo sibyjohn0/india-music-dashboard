@@ -50,6 +50,7 @@
     <button class="subtab" data-tab="trends">Trends</button>
     <button class="subtab" data-tab="buzz">Buzz</button>
   </nav>
+  <div class="tab-context" id="tab-context">New releases, breaking videos, and what's gaining traction this week</div>
 
   <main>
 
@@ -73,20 +74,11 @@
         <div class="today-trending-genre" id="today-trending-genre"></div>
       </div>
 
-      <!-- SECTION 3: Venues near you -->
-      <div class="today-section">
-        <div class="today-section-hd">Venues near you</div>
-        <div id="today-events">
-          <div class="act-empty">No upcoming shows found — check back soon</div>
-        </div>
-        <a class="act-see-all act-see-all-events" href="#trends" onclick="goTab('trends')" >See all shows →</a>
-      </div>
-
-      <!-- SECTION 4: Active reviewers -->
-      <div class="today-section">
-        <div class="today-section-hd">Active reviewers</div>
-        <div id="today-reviewers"></div>
-        <a class="act-see-all" href="reviewers/">See all 924 reviewers →</a>
+      <!-- Quick links to other tabs -->
+      <div class="discover-links">
+        <a class="disc-link" onclick="goTab('trends')" href="#trends">Upcoming shows &amp; venue rankings →</a>
+        <a class="disc-link" href="reviewers/">924 reviewer contacts →</a>
+        <a class="disc-link" onclick="goTab('artists')" href="#artists">Browse all artists →</a>
       </div>
 
       <!-- Deep dive link -->
