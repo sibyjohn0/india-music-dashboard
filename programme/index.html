@@ -465,6 +465,89 @@
     .footer-links a { color: var(--muted); transition: color .15s; }
     .footer-links a:hover { color: var(--text); }
 
+    /* ── PRICING ── */
+    .pricing-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .pricing-main {
+      padding: 32px 32px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing-amount {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -2px;
+      color: #f0f0f0;
+      line-height: 1;
+    }
+    .pricing-per {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0;
+      color: var(--muted);
+    }
+    .pricing-total {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    .pricing-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .pricing-col {
+      padding: 24px 32px;
+    }
+    .pricing-col:first-child {
+      border-right: 1px solid var(--border);
+    }
+    .pricing-col-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .pricing-col-label.included { color: var(--green); }
+    .pricing-col-label.separate { color: var(--muted); }
+    .pricing-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .pricing-items li {
+      font-size: 13px;
+      color: #b0b0c8;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .pricing-items li::before {
+      content: '·';
+      position: absolute;
+      left: 4px;
+      color: var(--muted);
+    }
+    .pricing-note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .pricing-terms {
+      padding: 16px 32px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--surface2);
+      line-height: 1.6;
+    }
+
     @media (max-width: 640px) {
       .page { padding: 48px 20px 80px; }
       header { padding: 0 12px; }
@@ -476,6 +559,11 @@
       .phase-card { grid-template-columns: 56px 1fr; gap: 16px; padding: 22px 20px; }
       .phase-num { font-size: 24px; }
       .cta-card { padding: 32px 24px; }
+      .pricing-cols { grid-template-columns: 1fr; }
+      .pricing-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .pricing-col { padding: 20px; }
+      .pricing-main { padding: 24px 20px 20px; }
+      .pricing-terms { padding: 16px 20px; }
       footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -532,8 +620,8 @@
       <div class="stat-label">rights taken</div>
     </div>
     <div class="stat-block">
-      <div class="stat-num">₹0</div>
-      <div class="stat-label">advance to recoup</div>
+      <div class="stat-num accent">₹8,500</div>
+      <div class="stat-label">per month, all in</div>
     </div>
   </div>
 
@@ -775,11 +863,51 @@
     </div>
   </div>
 
+  <!-- PRICING -->
+  <div class="section">
+    <div class="section-label">What it costs</div>
+    <h2 class="section-title">₹8,500 a month. Nothing else from us.</h2>
+    <p class="section-body">Six months of consulting. Paid monthly. No upfront lump sum, no hidden fees, no rights taken.</p>
+
+    <div class="pricing-card">
+      <div class="pricing-main">
+        <div class="pricing-amount">₹8,500<span class="pricing-per">/month</span></div>
+        <div class="pricing-total">₹51,000 over six months</div>
+      </div>
+      <div class="pricing-cols">
+        <div class="pricing-col">
+          <div class="pricing-col-label included">What this covers</div>
+          <ul class="pricing-items">
+            <li>Month 1 financial diagnostic session</li>
+            <li>Month 2 identity and production session</li>
+            <li>Weekly thinking check-ins (months 2 to 6)</li>
+            <li>Shared task list, owned and updated by both parties</li>
+            <li>Async WhatsApp access to both consultants</li>
+            <li>Six-month review document at close</li>
+          </ul>
+        </div>
+        <div class="pricing-col">
+          <div class="pricing-col-label separate">Paid separately, direct to specialists</div>
+          <ul class="pricing-items">
+            <li>Designers, photographers, copywriters</li>
+            <li>VO recording and Eleven Labs usage</li>
+            <li>IPR lawyers and filings</li>
+            <li>Any other production cost</li>
+          </ul>
+          <p class="pricing-note">Production budget is agreed in month one so there are no surprises. You pay specialists directly — we coordinate the brief.</p>
+        </div>
+      </div>
+      <div class="pricing-terms">
+        Payment is monthly. If a payment is missed, weekly check-ins pause until it clears. No chasing, no exceptions.
+      </div>
+    </div>
+  </div>
+
   <!-- CTA -->
   <div class="section" style="margin-bottom:0;">
     <div class="cta-card">
       <div class="cta-title">We work with a small<br>number of artists at a time.</div>
-      <p class="cta-deck">Start with a conversation. No forms, no decks. Tell us where you are, what you are making, and what is blocking you. We will tell you honestly if this is the right fit — and what it would cost you not to fix it.</p>
+      <p class="cta-deck">Start with a conversation. No forms, no decks. Tell us where you are, what you are making, and what is blocking you. We will tell you honestly if this is the right fit.</p>
       <div class="cta-buttons">
         <a href="https://wa.me/919960025559" target="_blank" rel="noopener" class="btn-primary">WhatsApp Siby ↗</a>
         <a href="mailto:sibyjohn0@gmail.com" class="btn-secondary">Email us</a>
