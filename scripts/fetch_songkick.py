@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
 """
-fetch_songkick.py — Fetch upcoming music events in Indian cities via Songkick.
+fetch_songkick.py — Fetch upcoming music events via Songkick.
 
-Strategy:
-  1. If SONGKICK_API_KEY env var is set, use the Songkick REST API (free, non-commercial).
-  2. Otherwise, scrape public Songkick metro pages with requests + BeautifulSoup.
+NOTE: Songkick deprecated their public API in 2017. Their website is now a
+pure React SPA — no server-rendered HTML, no JSON-LD. Scraping requires a
+full browser (Playwright), which is expensive for a low-value supplementary
+source. Until Songkick adds a usable public endpoint, this script exits
+cleanly without wasting pipeline time on 7 failing HTTP requests.
 
-Cities covered: Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune, Kolkata
-
+The output file is preserved from the last successful run (if any).
 Output: data/events-songkick.json
-
-Songkick API docs: https://www.songkick.com/developer
-Metro IDs sourced from https://www.songkick.com/metro_areas/
 """
 
 import os, json, sys, re
@@ -240,8 +238,29 @@ def deduplicate(events):
 def main():
     last_known = load_last_known()
     fetched_at = datetime.now(timezone.utc).isoformat()
-    api_key    = os.environ.get("SONGKICK_API_KEY", "")
-    events     = []
+
+    # Songkick is a React SPA — no scrapeable server-rendered HTML.
+    # API deprecated 2017. Preserve last known data and exit cleanly.
+    note = (
+        "Songkick API deprecated (2017). Website requires JS rendering. "
+        "Preserving last known data. Remove this source or add Playwright support."
+    )
+    print(f"INFO: {note}")
+    if last_known and last_known.get("events"):
+        n = len(last_known["events"])
+        print(f"  Preserving {n} events from last successful run.")
+        sys.exit(0)
+
+    out_data = {"events": [], "fetched_at": fetched_at, "note": note}
+    os.makedirs(os.path.dirname(OUT), exist_ok=True)
+    with open(OUT, "w") as f:
+        json.dump(out_data, f, indent=2)
+    print("  Wrote empty placeholder.")
+    sys.exit(0)
+
+    # ── Dead code below — preserved for future API/Playwright implementation ──
+    api_key = os.environ.get("SONGKICK_API_KEY", "")
+    events  = []
 
     if api_key:
         print(f"Using Songkick API key (env: SONGKICK_API_KEY)...")

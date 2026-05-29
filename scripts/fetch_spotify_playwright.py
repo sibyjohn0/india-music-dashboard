@@ -32,7 +32,8 @@ OUT_PATH    = DATA_DIR / "spotify_playwright.json"
 TRACKED     = DATA_DIR / "tracked_artists.json"
 ENRICHMENT  = DATA_DIR / "spotify_enrichment.json"
 
-MAX_ARTISTS = 50
+MAX_ARTISTS = 15        # ~40s per artist × 15 = ~600s; pipeline timeout is 600s
+WALL_BUDGET_S = 480    # stop accepting new artists after this many seconds, write partial results
 USER_AGENT  = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -232,6 +233,7 @@ def main():
 
     results: list[dict] = []
     scraped_at_run = datetime.now(timezone.utc).isoformat()
+    wall_start = time.monotonic()
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch(
@@ -246,6 +248,10 @@ def main():
         page = context.new_page()
 
         for i, artist in enumerate(artists):
+            if time.monotonic() - wall_start > WALL_BUDGET_S:
+                print(f"  Wall budget ({WALL_BUDGET_S}s) reached after {i} artists — writing partial results.")
+                break
+
             name       = artist["name"]
             spotify_id = artist["spotify_id"]
             print(f"  [{i+1}/{len(artists)}] {name} ({spotify_id})")
