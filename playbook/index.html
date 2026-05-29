@@ -3375,10 +3375,7 @@ function buildSidebar(activePhase) {
   // Default active phase: your-journey (first phase), or whatever is currently open
   const openPhase = activePhase || currentSectionId && (SECTIONS.find(s => s.id === currentSectionId) || {}).phase || 'your-journey';
 
-  let html = `<div class="sidebar-home-btn" onclick="showPhaseLanding()">← <span>All Phases</span></div>
-<a class="sidebar-ext-link" href="../reviewers/">✉ <span>924 Reviewer Contacts</span></a>
-<a class="sidebar-ext-link" href="../industry/">🏷 <span>Labels &amp; Agencies</span></a>
-<a class="sidebar-ext-link" href="../about/" target="_blank" rel="noopener">◉ <span>About this project</span></a>`;
+  let html = `<div class="sidebar-home-btn" onclick="showPhaseLanding()">← <span>All Phases</span></div>`;
   for (const phase of PHASE_ORDER) {
     const items = byPhase[phase.id];
     if (!items || items.length === 0) continue;
