@@ -45,7 +45,8 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 .ob-phase-landing-wrap{display:flex;flex-direction:column;align-items:center;width:100%;max-width:800px;padding:52px 24px 48px;margin:0 auto}
 
-.ob-phase-header{text-align:center;margin-bottom:44px}
+.ob-phase-header{text-align:center;margin-bottom:44px;position:relative;background:linear-gradient(135deg,rgba(233,69,96,.07) 0%,transparent 55%);border:1px solid var(--border);border-radius:16px;padding:40px 32px 36px;overflow:hidden}
+.ob-phase-header::after{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(233,69,96,.16) 0%,transparent 70%);pointer-events:none}
 .ob-phase-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
 .ob-phase-headline{font-size:clamp(24px,5vw,42px);font-weight:800;line-height:1.15;color:#f0f0f0;margin-bottom:12px}
 .ob-phase-deck{font-size:15px;color:var(--muted);line-height:1.6}
@@ -70,7 +71,10 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   .ob-phase-headline{font-size:clamp(22px,6vw,32px)}
 }
 @media(max-width:480px){
-  .ob-phase-grid{grid-template-columns:1fr}
+  .ob-phase-header{padding:28px 20px 24px;border-radius:12px}
+  .ob-phase-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:10px;padding-bottom:8px;margin:0 -4px;padding-left:4px}
+  .ob-phase-grid::-webkit-scrollbar{display:none}
+  .ob-phase-card{flex:0 0 190px;scroll-snap-align:start}
 }
 .ob-logo{font-size:11px;letter-spacing:1px;color:var(--accent);font-weight:700;margin-bottom:32px}
 .ob-title{font-size:clamp(22px,4vw,36px);font-weight:800;text-align:center;line-height:1.2;max-width:600px;margin-bottom:12px}

@@ -73,17 +73,60 @@
       border-radius: 20px;
     }
 
+    /* ── HERO ── */
+    .page-hero {
+      position: relative;
+      background: linear-gradient(135deg, rgba(233,69,96,.07) 0%, transparent 55%);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 32px 0;
+      overflow: hidden;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: radial-gradient(circle, rgba(233,69,96,.16) 0%, transparent 70%);
+      pointer-events: none;
+    }
     .page-title {
-      padding: 32px 32px 0;
-      font-size: 28px;
+      font-size: clamp(24px, 4vw, 36px);
       font-weight: 800;
       letter-spacing: -0.5px;
+      color: #f0f0f0;
+      margin-bottom: 10px;
     }
     .page-sub {
-      padding: 8px 32px 24px;
       font-size: 14px;
       color: var(--muted);
+      line-height: 1.65;
+      max-width: 600px;
+      margin-bottom: 28px;
     }
+    /* ── FEATURE CAROUSEL ── */
+    .feat-track {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      margin: 0 -32px;
+      padding: 4px 32px 20px;
+    }
+    .feat-track::-webkit-scrollbar { display: none; }
+    .feat-card {
+      flex: 0 0 200px;
+      scroll-snap-align: start;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .feat-num  { font-size: 22px; font-weight: 800; color: #f0f0f0; letter-spacing: -.5px; margin-bottom: 3px; }
+    .feat-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .feat-desc { font-size: 11px; color: var(--muted); line-height: 1.55; }
 
     /* ── FILTERS ── */
     .filters {
@@ -422,8 +465,9 @@
 
     @media (max-width: 600px) {
       header, .filters, .stats-bar, .grid { padding-left: 16px; padding-right: 16px; }
-      .page-title { padding-left: 16px; }
-      .page-sub { padding-left: 16px; }
+      .page-hero { padding: 24px 16px 0; }
+      .feat-track { margin: 0 -16px; padding: 4px 16px 16px; }
+      .feat-card { flex: 0 0 175px; }
       .guide-note { margin-left: 16px; margin-right: 16px; }
       .grid { grid-template-columns: 1fr; }
       .search-input { width: 100%; }
@@ -456,8 +500,32 @@
   <a class="tab" href="../submit/">Submit</a>
 </nav>
 
-<h1 class="page-title">Reviewer Database</h1>
-<p class="page-sub">924 curators, blogs, podcasts, and playlist editors who cover Indian indie music — with submission contacts and pricing.</p>
+<div class="page-hero">
+  <h1 class="page-title">Reviewer Database</h1>
+  <p class="page-sub">924 curators, editorial blogs, podcasts, and playlist editors who cover Indian indie music. Direct submission contacts, reach scores, and pricing. Free to use.</p>
+  <div class="feat-track">
+    <div class="feat-card">
+      <div class="feat-num">16</div>
+      <div class="feat-name">Editorial blogs</div>
+      <div class="feat-desc">Free to pitch. Indian indie-specific. A placement here travels further than 50 playlist adds.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">17</div>
+      <div class="feat-name">South Asian curators</div>
+      <div class="feat-desc">SubmitHub curators who have explicitly opted into this genre. Start here before going broad.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">924+</div>
+      <div class="feat-name">Total contacts</div>
+      <div class="feat-desc">Spotify playlists, podcasts, YouTube channels, SubmitHub. Filtered by genre, language, and reach.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-num">₹0</div>
+      <div class="feat-name">Cost to access this</div>
+      <div class="feat-desc">Free to use. Updated weekly as SubmitHub data and editorial contacts change.</div>
+    </div>
+  </div>
+</div>
 
 <div class="guide-note">
   <div class="guide-toggle" id="guide-toggle" onclick="toggleGuide()">
