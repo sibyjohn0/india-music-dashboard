@@ -679,106 +679,62 @@
 
       footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
       .econ-grid { flex-direction: column; }
-      .econ-chart-wrap { flex-direction: row; align-items: center; gap: 24px; }
-      .econ-pie { width: 120px; height: 120px; flex-shrink: 0; }
     }
   </style>
 
   <style>
-    /* ── UNIT ECONOMICS ── */
-    .econ-grid {
+    /* ── UNIT ECONOMICS SPLIT BAR ── */
+    .split-bar {
       display: flex;
-      gap: 40px;
-      align-items: flex-start;
-      margin-bottom: 24px;
-    }
-    .econ-chart-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      flex-shrink: 0;
-    }
-    .econ-pie {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: conic-gradient(
-        #4ecdc4 0deg 144deg,
-        #f7b731 144deg 270deg,
-        #e94560 270deg 360deg
-      );
-      box-shadow: 0 0 0 4px #1a1a2e;
-    }
-    .econ-legend {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      min-width: 120px;
-    }
-    .econ-legend-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .econ-dot {
-      width: 10px;
       height: 10px;
-      border-radius: 2px;
-      flex-shrink: 0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 10px;
     }
-    .econ-pct {
-      font-size: 15px;
-      font-weight: 800;
-      color: #f0f0f0;
-      letter-spacing: -.3px;
-      line-height: 1;
+    .split-seg {
+      cursor: pointer;
+      transition: filter 0.15s;
     }
-    .econ-cat {
+    .split-seg:hover, .split-seg.active { filter: brightness(1.2); }
+    .split-labels {
+      display: flex;
+      margin-bottom: 20px;
+      gap: 2px;
+    }
+    .split-label {
       font-size: 11px;
       color: var(--muted);
-      font-weight: 500;
-      margin-top: 2px;
+      font-weight: 600;
+      padding: 0 2px;
     }
-    .econ-breakdown {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      flex: 1;
-    }
-    .econ-slice {
-      border-left: 3px solid;
-      padding: 14px 16px;
-      background: var(--surface);
-      border-radius: 0 8px 8px 0;
-    }
-    .econ-slice-header {
-      font-size: 13px;
+    .split-label strong {
+      display: block;
+      font-size: 14px;
       font-weight: 800;
-      letter-spacing: .3px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .econ-slice-header span {
-      font-size: 16px;
-      font-weight: 800;
+      color: #f0f0f0;
       letter-spacing: -.2px;
     }
-    .econ-slice p {
+    .split-label small {
+      display: block;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .split-detail {
+      display: none;
+      border-left: 3px solid;
+      padding: 12px 16px;
+      background: var(--surface);
+      border-radius: 0 8px 8px 0;
       font-size: 13px;
       color: #9090a8;
-      line-height: 1.6;
-      margin: 0;
+      line-height: 1.65;
+      margin-bottom: 20px;
     }
-    .econ-note {
-      font-size: 13px;
+    .split-detail.visible { display: block; }
+    .split-hint {
+      font-size: 11px;
       color: var(--muted);
-      border-top: 1px solid var(--border);
-      padding-top: 16px;
-      margin-top: 4px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
@@ -865,42 +821,49 @@
     <h2 class="section-title">Your unit economics is what we start with.</h2>
     <p class="section-body">Most artists spend on feel. A mix here, a shoot there, an ad that ran for three days. The result is a music career that looks busy and earns nothing steady. Before anything else, we build a monthly picture: what comes in, what it costs to operate, and what the income target looks like twelve months out.</p>
 
-    <div class="econ-grid">
-      <div class="econ-chart-wrap">
-        <div class="econ-pie" role="img" aria-label="Pie chart: 40% Production, 35% Promotion, 25% Savings"></div>
-        <div class="econ-legend">
-          <div class="econ-legend-item">
-            <span class="econ-dot" style="background:#4ecdc4"></span>
-            <div><div class="econ-pct">40%</div><div class="econ-cat">Production</div></div>
-          </div>
-          <div class="econ-legend-item">
-            <span class="econ-dot" style="background:#f7b731"></span>
-            <div><div class="econ-pct">35%</div><div class="econ-cat">Promotion</div></div>
-          </div>
-          <div class="econ-legend-item">
-            <span class="econ-dot" style="background:#e94560"></span>
-            <div><div class="econ-pct">25%</div><div class="econ-cat">Savings</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="econ-breakdown">
-        <div class="econ-slice" style="border-color:#4ecdc4">
-          <div class="econ-slice-header" style="color:#4ecdc4">Production <span>₹40</span></div>
-          <p>Studio time, mixing, mastering, EPK, and visual assets. This builds the catalog. Without a growing body of work, promotion has nothing to compound on.</p>
-        </div>
-        <div class="econ-slice" style="border-color:#f7b731">
-          <div class="econ-slice-header" style="color:#f7b731">Promotion <span>₹35</span></div>
-          <p>Paid reach, PR pitching, playlist submissions, content. Audience does not grow passively. A consistent allocation here is what turns a release into a data point you can build on.</p>
-        </div>
-        <div class="econ-slice" style="border-color:#e94560">
-          <div class="econ-slice-header" style="color:#e94560">Savings <span>₹25</span></div>
-          <p>Three months of operating costs minimum, always. Gigs cancel. Deals fall through. The artists who build steady income are the ones who never have to say yes out of desperation.</p>
-        </div>
-      </div>
+    <div class="split-bar" role="group" aria-label="100 rupee allocation">
+      <div class="split-seg" style="flex:30;background:#4ecdc4" data-color="#4ecdc4" data-label="Production" data-amt="₹30" data-desc="Home studio gear has made production dramatically cheaper. A decent track can come out of a ₹30,000 setup. This slice covers studio time, mixing, mastering, EPK, and visual assets. Keep it lean and consistent: one quality release is worth more than three unfinished ones." aria-label="Production 30%"></div>
+      <div class="split-seg" style="flex:45;background:#f7b731" data-color="#f7b731" data-label="Promotion" data-amt="₹45" data-desc="This is the actual bottleneck. Paid reach, Meta ads, SubmitHub credits, PR pitches, playlist submissions, content creation. Audience does not grow passively at any budget. A consistent promotion allocation is what turns a release into a data point you can build on." aria-label="Promotion 45%"></div>
+      <div class="split-seg" style="flex:25;background:#e94560" data-color="#e94560" data-label="Savings" data-amt="₹25" data-desc="Three months of operating costs, always. Gigs cancel. Deals fall through. The artists who build steady income are the ones who never have to say yes out of desperation. This is the floor, not a target." aria-label="Savings 25%"></div>
     </div>
 
-    <p class="econ-note">Every 100 rupees that comes into your music career should move through this split. Month one of the programme is building the real numbers for your situation, not a generic template.</p>
+    <div class="split-labels">
+      <div class="split-label" style="flex:30"><strong>₹30</strong>Production</div>
+      <div class="split-label" style="flex:45"><strong>₹45</strong>Promotion</div>
+      <div class="split-label" style="flex:25"><strong>₹25</strong>Savings</div>
+    </div>
+
+    <p class="split-hint">Tap a segment to see how it works.</p>
+
+    <div class="split-detail" id="split-detail"></div>
+
+    <script>
+      (function() {
+        var segs = document.querySelectorAll('.split-seg');
+        var detail = document.getElementById('split-detail');
+        var active = null;
+
+        function show(seg) {
+          if (active) active.classList.remove('active');
+          active = seg;
+          seg.classList.add('active');
+          detail.style.borderColor = seg.dataset.color;
+          detail.innerHTML = '<strong style="color:#f0f0f0;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;">' + seg.dataset.label + ' ' + seg.dataset.amt + '</strong><br><br>' + seg.dataset.desc;
+          detail.classList.add('visible');
+        }
+
+        segs.forEach(function(seg) {
+          seg.addEventListener('mouseenter', function() { show(this); });
+          seg.addEventListener('click', function() {
+            if (this === active && detail.classList.contains('visible')) {
+              detail.classList.remove('visible');
+              this.classList.remove('active');
+              active = null;
+            } else { show(this); }
+          });
+        });
+      })();
+    </script>
   </div>
 
   <!-- TEAM -->
