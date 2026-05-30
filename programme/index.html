@@ -678,6 +678,107 @@
       .cta-title { font-size: 22px; }
 
       footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+      .econ-grid { flex-direction: column; }
+      .econ-chart-wrap { flex-direction: row; align-items: center; gap: 24px; }
+      .econ-pie { width: 120px; height: 120px; flex-shrink: 0; }
+    }
+  </style>
+
+  <style>
+    /* ── UNIT ECONOMICS ── */
+    .econ-grid {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .econ-chart-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+    .econ-pie {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(
+        #4ecdc4 0deg 144deg,
+        #f7b731 144deg 270deg,
+        #e94560 270deg 360deg
+      );
+      box-shadow: 0 0 0 4px #1a1a2e;
+    }
+    .econ-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 120px;
+    }
+    .econ-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .econ-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .econ-pct {
+      font-size: 15px;
+      font-weight: 800;
+      color: #f0f0f0;
+      letter-spacing: -.3px;
+      line-height: 1;
+    }
+    .econ-cat {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .econ-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex: 1;
+    }
+    .econ-slice {
+      border-left: 3px solid;
+      padding: 14px 16px;
+      background: var(--surface);
+      border-radius: 0 8px 8px 0;
+    }
+    .econ-slice-header {
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .econ-slice-header span {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -.2px;
+    }
+    .econ-slice p {
+      font-size: 13px;
+      color: #9090a8;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .econ-note {
+      font-size: 13px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 4px;
     }
   </style>
 </head>
@@ -756,6 +857,50 @@
       <div class="stat-num">₹4K</div>
       <div class="stat-label">per consultant per hour beyond 16</div>
     </div>
+  </div>
+
+  <!-- UNIT ECONOMICS -->
+  <div class="section">
+    <div class="section-label">The approach</div>
+    <h2 class="section-title">Your unit economics is what we start with.</h2>
+    <p class="section-body">Most artists spend on feel. A mix here, a shoot there, an ad that ran for three days. The result is a music career that looks busy and earns nothing steady. Before anything else, we build a monthly picture: what comes in, what it costs to operate, and what the income target looks like twelve months out.</p>
+
+    <div class="econ-grid">
+      <div class="econ-chart-wrap">
+        <div class="econ-pie" role="img" aria-label="Pie chart: 40% Production, 35% Promotion, 25% Savings"></div>
+        <div class="econ-legend">
+          <div class="econ-legend-item">
+            <span class="econ-dot" style="background:#4ecdc4"></span>
+            <div><div class="econ-pct">40%</div><div class="econ-cat">Production</div></div>
+          </div>
+          <div class="econ-legend-item">
+            <span class="econ-dot" style="background:#f7b731"></span>
+            <div><div class="econ-pct">35%</div><div class="econ-cat">Promotion</div></div>
+          </div>
+          <div class="econ-legend-item">
+            <span class="econ-dot" style="background:#e94560"></span>
+            <div><div class="econ-pct">25%</div><div class="econ-cat">Savings</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="econ-breakdown">
+        <div class="econ-slice" style="border-color:#4ecdc4">
+          <div class="econ-slice-header" style="color:#4ecdc4">Production <span>₹40</span></div>
+          <p>Studio time, mixing, mastering, EPK, and visual assets. This builds the catalog. Without a growing body of work, promotion has nothing to compound on.</p>
+        </div>
+        <div class="econ-slice" style="border-color:#f7b731">
+          <div class="econ-slice-header" style="color:#f7b731">Promotion <span>₹35</span></div>
+          <p>Paid reach, PR pitching, playlist submissions, content. Audience does not grow passively. A consistent allocation here is what turns a release into a data point you can build on.</p>
+        </div>
+        <div class="econ-slice" style="border-color:#e94560">
+          <div class="econ-slice-header" style="color:#e94560">Savings <span>₹25</span></div>
+          <p>Three months of operating costs minimum, always. Gigs cancel. Deals fall through. The artists who build steady income are the ones who never have to say yes out of desperation.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="econ-note">Every 100 rupees that comes into your music career should move through this split. Month one of the programme is building the real numbers for your situation, not a generic template.</p>
   </div>
 
   <!-- TEAM -->
