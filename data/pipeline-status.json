@@ -1,95 +1,95 @@
 {
-  "last_run": "2026-05-28T15:48:21.121622+00:00",
-  "overall": "partial",
+  "last_run": "2026-05-30T04:54:50.933271+00:00",
+  "overall": "ok",
   "sources": {
     "youtube": {
       "status": "ok",
       "records": 224,
-      "ms": 101586,
+      "ms": 101987,
       "error": null
     },
     "lastfm": {
       "status": "ok",
-      "records": 111,
-      "ms": 63788,
+      "records": 117,
+      "ms": 55566,
       "error": null
     },
     "radar": {
       "status": "ok",
-      "records": 111,
-      "ms": 23,
+      "records": 117,
+      "ms": 26,
       "error": null
     },
     "insights": {
       "status": "ok",
       "records": null,
-      "ms": 39,
+      "ms": 45,
       "error": null
     },
     "venue_analysis": {
       "status": "ok",
       "records": null,
-      "ms": 33,
+      "ms": 32,
       "error": null
     },
     "spotify": {
       "status": "ok",
-      "records": 51,
-      "ms": 60543,
+      "records": 57,
+      "ms": 64635,
       "error": null
     },
     "social": {
       "status": "ok",
-      "records": 352,
-      "ms": 25963,
+      "records": 346,
+      "ms": 23180,
       "error": null
     },
     "playboard": {
       "status": "ok",
       "records": null,
-      "ms": 50754,
+      "ms": 52012,
       "error": null
     },
     "jiosaavn": {
       "status": "ok",
       "records": null,
-      "ms": 589,
+      "ms": 2563,
       "error": null
     },
     "events_paytm": {
       "status": "ok",
       "records": null,
-      "ms": 360,
+      "ms": 53,
       "error": null
     },
     "news_rss": {
       "status": "ok",
       "records": null,
-      "ms": 1810,
+      "ms": 1437,
       "error": null
     },
     "events_district": {
       "status": "ok",
       "records": 24,
-      "ms": 24405,
+      "ms": 27453,
       "error": null
     },
     "spotify_playwright": {
-      "status": "failed",
-      "records": null,
-      "ms": 600005,
-      "error": "timeout"
+      "status": "ok",
+      "records": 0,
+      "ms": 197053,
+      "error": null
     },
     "bookmyshow": {
       "status": "ok",
-      "records": 64,
-      "ms": 65990,
+      "records": 113,
+      "ms": 51995,
       "error": null
     },
     "skillboxes": {
       "status": "ok",
-      "records": 125,
-      "ms": 47374,
+      "records": 123,
+      "ms": 36102,
       "error": null
     }
   }
