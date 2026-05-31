@@ -190,5 +190,131 @@
         "error": null
       }
     }
+  },
+  {
+    "run_at": "2026-05-31T05:21:59.567140+00:00",
+    "overall": "ok",
+    "sources": {
+      "youtube": {
+        "status": "ok",
+        "records": 222,
+        "ms": 278753,
+        "error": null
+      },
+      "lastfm": {
+        "status": "ok",
+        "records": 118,
+        "ms": 57484,
+        "error": null
+      },
+      "radar": {
+        "status": "ok",
+        "records": 118,
+        "ms": 26,
+        "error": null
+      },
+      "insights": {
+        "status": "ok",
+        "records": null,
+        "ms": 47,
+        "error": null
+      },
+      "venue_analysis": {
+        "status": "ok",
+        "records": null,
+        "ms": 32,
+        "error": null
+      },
+      "spotify": {
+        "status": "ok",
+        "records": 51,
+        "ms": 67631,
+        "error": null
+      },
+      "social": {
+        "status": "ok",
+        "records": 341,
+        "ms": 25980,
+        "error": null
+      },
+      "playboard": {
+        "status": "ok",
+        "records": null,
+        "ms": 51336,
+        "error": null
+      },
+      "jiosaavn": {
+        "status": "ok",
+        "records": null,
+        "ms": 1563,
+        "error": null
+      },
+      "events_paytm": {
+        "status": "ok",
+        "records": null,
+        "ms": 54,
+        "error": null
+      },
+      "news_rss": {
+        "status": "ok",
+        "records": null,
+        "ms": 1840,
+        "error": null
+      },
+      "events_district": {
+        "status": "ok",
+        "records": 12,
+        "ms": 23229,
+        "error": null
+      },
+      "spotify_playwright": {
+        "status": "ok",
+        "records": 0,
+        "ms": 196998,
+        "error": null
+      },
+      "bookmyshow": {
+        "status": "ok",
+        "records": 113,
+        "ms": 74402,
+        "error": null
+      },
+      "skillboxes": {
+        "status": "ok",
+        "records": 120,
+        "ms": 45025,
+        "error": null
+      },
+      "reviewers_editorial": {
+        "status": "ok",
+        "records": null,
+        "ms": 16248,
+        "error": null
+      },
+      "reviewers_podcasts": {
+        "status": "ok",
+        "records": null,
+        "ms": 10530,
+        "error": null
+      },
+      "reviewers_spotify": {
+        "status": "ok",
+        "records": null,
+        "ms": 130876,
+        "error": null
+      },
+      "reviewers_youtube": {
+        "status": "ok",
+        "records": null,
+        "ms": 203669,
+        "error": null
+      },
+      "reviewers_merge": {
+        "status": "ok",
+        "records": 966,
+        "ms": 87,
+        "error": null
+      }
+    }
   }
 ]
