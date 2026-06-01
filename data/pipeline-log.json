@@ -316,5 +316,101 @@
         "error": null
       }
     }
+  },
+  {
+    "run_at": "2026-06-01T06:07:36.237518+00:00",
+    "overall": "ok",
+    "sources": {
+      "youtube": {
+        "status": "ok",
+        "records": 225,
+        "ms": 110813,
+        "error": null
+      },
+      "lastfm": {
+        "status": "ok",
+        "records": 118,
+        "ms": 70141,
+        "error": null
+      },
+      "radar": {
+        "status": "ok",
+        "records": 118,
+        "ms": 22,
+        "error": null
+      },
+      "insights": {
+        "status": "ok",
+        "records": null,
+        "ms": 42,
+        "error": null
+      },
+      "venue_analysis": {
+        "status": "ok",
+        "records": null,
+        "ms": 28,
+        "error": null
+      },
+      "spotify": {
+        "status": "ok",
+        "records": 53,
+        "ms": 67852,
+        "error": null
+      },
+      "social": {
+        "status": "ok",
+        "records": 347,
+        "ms": 22802,
+        "error": null
+      },
+      "playboard": {
+        "status": "ok",
+        "records": null,
+        "ms": 50583,
+        "error": null
+      },
+      "jiosaavn": {
+        "status": "ok",
+        "records": null,
+        "ms": 1170,
+        "error": null
+      },
+      "events_paytm": {
+        "status": "ok",
+        "records": null,
+        "ms": 43,
+        "error": null
+      },
+      "news_rss": {
+        "status": "ok",
+        "records": null,
+        "ms": 1690,
+        "error": null
+      },
+      "events_district": {
+        "status": "ok",
+        "records": 12,
+        "ms": 23182,
+        "error": null
+      },
+      "spotify_playwright": {
+        "status": "ok",
+        "records": 0,
+        "ms": 197326,
+        "error": null
+      },
+      "bookmyshow": {
+        "status": "ok",
+        "records": 100,
+        "ms": 53609,
+        "error": null
+      },
+      "skillboxes": {
+        "status": "ok",
+        "records": 118,
+        "ms": 40318,
+        "error": null
+      }
+    }
   }
 ]
