@@ -122,6 +122,15 @@ NON_MUSIC = [
     "nandi hills", "ooty trip", "chikmagalur trip", "kodaikanal",
     "coorg trip", "chopta", "tungnath", "entrepreneurs summit",
     "tour package", "trip package", "trip from bangalore",
+    # Recurring nightclub/bar nights — not music shows
+    "pool club", "ladies night", "ladies free", "girls night", "open bar",
+    "tangled tuesdays", "thirsty thursdays", "whisper wednesdays",
+    "fever fridays", "soulmate saturdays", "sweetheart sundays", "makeout mondays",
+    # Weekly bar-night naming patterns
+    "tuesdays at ", "wednesdays at ", "thursdays at ", "fridays at ",
+    "saturdays at ", "sundays at ", "mondays at ",
+    # Tech / startup events misclassified as music
+    "tech ", "startup", "hackathon", "pitch night", "demo day",
 ]
 
 
