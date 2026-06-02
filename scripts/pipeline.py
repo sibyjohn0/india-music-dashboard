@@ -124,6 +124,14 @@ SOURCES = [
         "env_required": [],
         "outputs": ["data/events-skillboxes.json"],
     },
+    # Weekly: industry database — rebuild from music-industry-db CSV on Sundays.
+    {
+        "name": "industry",
+        "script": "fetch_industry.py",
+        "env_required": [],
+        "outputs": ["data/industry.json"],
+        "reviewers_only": True,
+    },
     # Weekly reviewer sources — included here so pipeline tracks them.
     # These are only triggered on Sunday via the --reviewers flag or directly.
     {
