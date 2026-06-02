@@ -773,30 +773,23 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
         }).join("");
       el.innerHTML = `${compBar}<div class="city-summary">${cityRows}</div>`;
 
-      // Top-venues spotlight — top 6 cities with top 3 venues each
+      // Top-venues spotlight — one top venue per city for top 6 cities
       const spotlightEl = document.getElementById("venues-city-spotlight");
       if (spotlightEl) {
         const top6Entries = cityEntries.filter(([c]) => DSS_TOP6.includes(c));
         if (top6Entries.length) {
           const cards = top6Entries.map(([city, s]) => {
             const col = CITY_COLORS[city] || "#888";
-            const topVenues = Object.entries(s.venues)
-              .sort((a, b) => b[1] - a[1]).slice(0, 3);
-            const venueLines = topVenues.map(([vn, cnt]) =>
-              `<div class="tv-venue-row"><span class="tv-venue-name">${esc(vn)}</span><span class="tv-venue-cnt">${cnt}</span></div>`
-            ).join("");
-            const ticketedPct = s.events.length ? Math.round(s.ticketed / s.events.length * 100) : 0;
+            const topV = Object.entries(s.venues).sort((a, b) => b[1] - a[1])[0];
+            if (!topV) return "";
+            const [vname, vcnt] = topV;
             return `<div class="tv-card" onclick="selectCity('${esc(city)}')">
-              <div class="tv-card-header">
-                <span class="tv-city-dot" style="background:${col}"></span>
-                <span class="tv-city-name">${esc(city)}</span>
-                <span class="tv-city-count">${s.events.length}</span>
-              </div>
-              <div class="tv-venues">${venueLines || '<div class="tv-venue-row muted">No named venues yet</div>'}</div>
-              <div class="tv-card-footer">${s.ticketed} ticketed · ${ticketedPct}% of shows</div>
+              <div class="tv-city-label" style="color:${col}">${esc(city)}</div>
+              <div class="tv-venue-hero">${esc(vname)}</div>
+              <div class="tv-card-footer">${vcnt} shows · ${s.events.length} in city</div>
             </div>`;
-          }).join("");
-          spotlightEl.innerHTML = `<div class="tv-section-hd">Top venues by city</div><div class="tv-grid">${cards}</div>`;
+          }).filter(Boolean).join("");
+          spotlightEl.innerHTML = `<div class="tv-section-hd">Top venue by city</div><div class="tv-grid">${cards}</div>`;
         } else {
           spotlightEl.innerHTML = "";
         }
