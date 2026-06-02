@@ -1497,14 +1497,21 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   color: var(--muted);
   background: var(--surface2);
   white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.platform-pill:hover:not(.dead) {
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+  color: var(--text);
 }
 .platform-pill strong { font-weight: 700; }
 .platform-pill.active {
   border-color: color-mix(in srgb, var(--accent) 40%, transparent);
   color: var(--text);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface2));
 }
 .platform-pill.active strong { color: var(--accent); }
-.platform-pill.dead { opacity: 0.35; }
+.platform-pill.dead { opacity: 0.35; cursor: default; }
 
 /* ── Composition bars (city/venue distribution) ── */
 .composition-bar {

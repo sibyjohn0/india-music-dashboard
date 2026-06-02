@@ -89,9 +89,16 @@ async function init() {
       count: (s.res.status === "fulfilled" && s.res.value) ? _extractEvents(s.res.value).length : 0,
       ok:    s.res.status === "fulfilled" && !!s.res.value,
     }));
-    const _rawEvents = [eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, eventsHaRes]
-      .filter(r => r.status === "fulfilled" && r.value)
-      .flatMap(r => _extractEvents(r.value));
+    const _rawEvents = [
+      { label: "Paytm",      res: eventsRes },
+      { label: "Songkick",   res: eventsSkRes },
+      { label: "District",   res: eventsDtRes },
+      { label: "BookMyShow", res: eventsBmsRes },
+      { label: "Skillboxes", res: eventsSbxRes },
+      { label: "Insider",    res: eventsFbRes },
+      { label: "HighApe",    res: eventsHaRes },
+    ].filter(s => s.res.status === "fulfilled" && s.res.value)
+     .flatMap(s => _extractEvents(s.res.value).map(e => ({ ...e, _source: s.label })));
     const _seen = new Set();
     const _merged = _rawEvents.filter(e => {
       const key = `${(e.name||e.title||"").toLowerCase().trim()}|${e.date||""}|${(e.city||"").toLowerCase()}`;
@@ -490,14 +497,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
   const pillsEl = document.getElementById("shows-city-pills");
   if (!el) return;
 
-  // Platform source summary
   const platformEl = document.getElementById("platform-summary");
-  if (platformEl && sourceData) {
-    platformEl.innerHTML = sourceData.map(s => {
-      const cls = s.count > 0 ? "platform-pill active" : "platform-pill dead";
-      return `<span class="${cls}">${s.label} <strong>${s.count > 0 ? s.count : "—"}</strong></span>`;
-    }).join("");
-  }
 
   const events = [];
   if (data && Array.isArray(data.events)) events.push(...data.events);
@@ -573,7 +573,12 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
     return raw.replace(/\s+(?:Bengaluru|Bangalore|Mumbai|Delhi|Hyderabad|Chennai|Pune|Kolkata|Goa|Kochi)$/i, "").trim();
   };
 
-  let activeCity = "all";
+  let activeCity   = "all";
+  let activeSource = "all";
+
+  const getFiltered = () => activeSource === "all"
+    ? upcoming
+    : upcoming.filter(e => e._source === activeSource);
 
   const median = arr => {
     if (!arr.length) return null;
@@ -616,10 +621,11 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
   };
 
   const drawVenues = () => {
+    const filtered = getFiltered();
     // ── All-cities summary view ──────────────────────────────────────────────
     if (activeCity === "all") {
       const cityMap = {};
-      for (const e of upcoming) {
+      for (const e of filtered) {
         const c = normCity(e.city || "Other");
         if (!cityMap[c]) cityMap[c] = { events: [], ticketed: 0, prices: [], venues: {} };
         cityMap[c].events.push(e);
@@ -677,7 +683,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
     }
 
     // ── City drill-down: venue cards ─────────────────────────────────────────
-    const list = upcoming.filter(e => normCity(e.city || "Other") === activeCity);
+    const list = filtered.filter(e => normCity(e.city || "Other") === activeCity);
 
     const venueMap = {};
     for (const e of list) {
@@ -730,37 +736,60 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
       ${moreNote}`;
   };
 
-  // Normalise city counts for pills (merged cities)
-  const normCityCounts = {};
-  for (const e of upcoming) {
-    const c = normCity(e.city || "Other");
-    if (c !== "Other") normCityCounts[c] = (normCityCounts[c] || 0) + 1;
-  }
-
-  const selectCity = (city) => {
-    if (pillsEl) {
-      pillsEl.querySelectorAll(".city-pill").forEach(b => {
-        b.classList.toggle("active", b.dataset.city === city);
-      });
+  const drawCityPills = () => {
+    if (!pillsEl) return;
+    const counts = {};
+    for (const e of getFiltered()) {
+      const c = normCity(e.city || "Other");
+      if (c !== "Other" && c.toLowerCase() !== "india") counts[c] = (counts[c] || 0) + 1;
     }
-    activeCity = city;
-    drawVenues();
-  };
-  window.selectCity = selectCity;
-
-  if (pillsEl) {
     pillsEl.innerHTML =
-      `<button class="city-pill active" data-city="all">All cities</button>` +
-      Object.entries(normCityCounts)
-        .filter(([c]) => c !== "Other" && c.toLowerCase() !== "india")
+      `<button class="city-pill${activeCity === "all" ? " active" : ""}" data-city="all">All cities</button>` +
+      Object.entries(counts)
         .sort((a, b) => b[1] - a[1])
-        .map(([c, n]) => `<button class="city-pill" data-city="${esc(c)}">${esc(c)} · ${n}</button>`)
+        .map(([c, n]) => `<button class="city-pill${c === activeCity ? " active" : ""}" data-city="${esc(c)}">${esc(c)} · ${n}</button>`)
         .join("");
     pillsEl.querySelectorAll(".city-pill").forEach(btn => {
       btn.addEventListener("click", () => selectCity(btn.dataset.city));
     });
-  }
+  };
 
+  const drawSourcePills = () => {
+    if (!platformEl || !sourceData) return;
+    const liveSources = sourceData.filter(s => s.count > 0);
+    platformEl.innerHTML =
+      `<button class="platform-pill${activeSource === "all" ? " active" : ""}" data-source="all">All sources</button>` +
+      liveSources.map(s =>
+        `<button class="platform-pill${activeSource === s.label ? " active" : ""}" data-source="${esc(s.label)}">${esc(s.label)} <strong>${s.count}</strong></button>`
+      ).join("") +
+      sourceData.filter(s => s.count === 0).map(s =>
+        `<span class="platform-pill dead">${esc(s.label)} <strong>—</strong></span>`
+      ).join("");
+    platformEl.querySelectorAll(".platform-pill:not(.dead)").forEach(btn => {
+      btn.addEventListener("click", () => selectSource(btn.dataset.source));
+    });
+  };
+
+  const selectCity = (city) => {
+    activeCity = city;
+    drawCityPills();
+    drawVenues();
+  };
+  window.selectCity = selectCity;
+
+  const selectSource = (src) => {
+    activeSource = src;
+    // Reset city if it has no events under new source filter
+    if (activeCity !== "all" && !getFiltered().some(e => normCity(e.city || "Other") === activeCity)) {
+      activeCity = "all";
+    }
+    drawSourcePills();
+    drawCityPills();
+    drawVenues();
+  };
+
+  drawSourcePills();
+  drawCityPills();
   drawVenues();
 }
 
