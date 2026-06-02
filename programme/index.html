@@ -638,6 +638,19 @@
       line-height: 1.6;
     }
 
+    .page-tagline {
+      font-size: clamp(26px, 4.5vw, 44px);
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      color: #f0f0f0;
+      line-height: 1.12;
+      margin-bottom: 40px;
+    }
+    .page-tagline em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
     @media (max-width: 640px) {
       .page { padding: 36px 16px 64px; }
       header { padding: 0 12px; }
@@ -754,6 +767,8 @@
 </nav>
 
 <div class="page">
+
+  <div class="page-tagline">The business education<br>Indian indie artists <em>never got.</em></div>
 
   <!-- HERO -->
   <div class="hero-visual">
