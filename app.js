@@ -509,7 +509,17 @@ function renderTrendsEvents(data, venueInsights) {
   }
 
   const CITIES = new Set(["bangalore","bengaluru","mumbai","delhi","hyderabad","chennai","pune","kolkata","goa","kochi","cochin","india"]);
-  const CITY_ALIAS = {"bengaluru":"Bangalore","bangalore city":"Bangalore","new delhi":"Delhi","gurugram":"Delhi","cochin":"Kochi"};
+  const CITY_ALIAS = {
+    "bengaluru":"Bangalore","bangalore city":"Bangalore",
+    "new delhi":"Delhi","gurugram":"Delhi","gurgaon":"Delhi",
+    "delhi/ncr":"Delhi","delhi ncr":"Delhi","delhi (ncr)":"Delhi",
+    "noida":"Delhi","ghaziabad":"Delhi","dlf cyberhub, gurugram":"Delhi",
+    "navi mumbai":"Mumbai","vile parle":"Mumbai","andheri":"Mumbai",
+    "dadar":"Mumbai","bandra":"Mumbai","borivali(w)":"Mumbai","thane":"Mumbai","matunga":"Mumbai",
+    "southern avenue, kolkata":"Kolkata",
+    "lb nagar":"Hyderabad","madhapur":"Hyderabad",
+    "cochin":"Kochi",
+  };
   const normCity = c => CITY_ALIAS[(c||"").toLowerCase()] || c;
   const isTourOrDate = v => /\b20\d{2}\b/.test(v) || /\bTour\b/i.test(v) || /^\d+(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i.test(v);
 
@@ -567,8 +577,52 @@ function renderTrendsEvents(data, venueInsights) {
     return `${venues.size} venue${venues.size !== 1 ? "s" : ""} · ${list.length} show${list.length !== 1 ? "s" : ""} · ${priceStr}`;
   };
 
+  const growthBadge = g => {
+    if (g === null || g === undefined) return `<span class="venue-growth new">New</span>`;
+    if (g > 0)  return `<span class="venue-growth up">+${g}</span>`;
+    if (g < 0)  return `<span class="venue-growth down">${g}</span>`;
+    return `<span class="venue-growth flat">—</span>`;
+  };
+
   const drawVenues = () => {
-    const list = activeCity === "all" ? upcoming : upcoming.filter(e => normCity(e.city || "Other") === activeCity);
+    // ── All-cities summary view ──────────────────────────────────────────────
+    if (activeCity === "all") {
+      const cityMap = {};
+      for (const e of upcoming) {
+        const c = normCity(e.city || "Other");
+        if (!cityMap[c]) cityMap[c] = { events: [], ticketed: 0, prices: [] };
+        cityMap[c].events.push(e);
+        const p = e.price_min ?? e.min_price;
+        if (p != null && Number(p) > 0) {
+          cityMap[c].ticketed++;
+          cityMap[c].prices.push(Number(p));
+        }
+      }
+      const cityRows = Object.entries(cityMap)
+        .filter(([c]) => c !== "Other")
+        .sort(([, a], [, b]) => b.events.length - a.events.length)
+        .map(([city, s]) => {
+          const lo = s.prices.length ? Math.min(...s.prices) : null;
+          const hi = s.prices.length ? Math.max(...s.prices) : null;
+          const priceStr = lo == null ? "Free" : lo === hi ? `₹${lo.toLocaleString("en-IN")}` : `₹${lo.toLocaleString("en-IN")} – ₹${hi.toLocaleString("en-IN")}`;
+          return `<div class="city-row" onclick="selectCity('${esc(city)}')">
+            <div class="city-row-name">${esc(city)}</div>
+            <div class="city-row-meta">
+              <span class="city-row-count">${s.events.length} shows</span>
+              <span class="city-row-sep">·</span>
+              <span class="city-row-ticketed">${s.ticketed} ticketed</span>
+              <span class="city-row-sep">·</span>
+              <span class="city-row-price">${priceStr}</span>
+            </div>
+            <div class="city-row-arrow">→</div>
+          </div>`;
+        }).join("");
+      el.innerHTML = `<div class="city-summary">${cityRows}</div>`;
+      return;
+    }
+
+    // ── City drill-down: venue cards ─────────────────────────────────────────
+    const list = upcoming.filter(e => normCity(e.city || "Other") === activeCity);
 
     const venueMap = {};
     for (const e of list) {
@@ -582,6 +636,10 @@ function renderTrendsEvents(data, venueInsights) {
     const unnamed = Object.values(venueMap).filter(v => v.name === "Venue TBC");
     const unnamedCount = unnamed.reduce((s, v) => s + v.events.length, 0);
 
+    // Look up growth from venue-insights
+    const ciVenues = venueInsights?.cities?.[activeCity]?.venues || [];
+    const insightMap = Object.fromEntries(ciVenues.map(v => [v.name, v]));
+
     const cards = named
       .sort((a, b) => b.events.length - a.events.length)
       .map(v => {
@@ -592,9 +650,13 @@ function renderTrendsEvents(data, venueInsights) {
           ? new Date(next.date).toLocaleDateString("en-IN", { weekday: "short", day: "numeric", month: "short" })
           : "";
         const hot = count >= 3 ? " venue-card--hot" : "";
+        const insight = insightMap[v.name];
+        const badge = insight ? growthBadge(insight.growth) : "";
         return `<a class="venue-card${hot}" href="${esc(next?.url || "#")}" target="_blank" rel="noopener">
-          <div class="venue-card-name">${esc(v.name)}</div>
-          <div class="venue-card-city">${esc(v.city)}</div>
+          <div class="venue-card-top-row">
+            <div class="venue-card-name">${esc(v.name)}</div>
+            ${badge}
+          </div>
           <div class="venue-card-stats">
             <span class="venue-stat-count">${count} show${count !== 1 ? "s" : ""}</span>
             <span class="venue-stat-price">${esc(price)}</span>
@@ -668,25 +730,37 @@ function renderTrendsEvents(data, venueInsights) {
     }
 
     el.innerHTML = `
-      ${rankingsHtml}
       <div class="venue-summary">${esc(sceneSummary(list))}</div>
       <div class="venue-grid">${cards}</div>
       ${moreNote}`;
   };
 
+  // Normalise city counts for pills (merged cities)
+  const normCityCounts = {};
+  for (const e of upcoming) {
+    const c = normCity(e.city || "Other");
+    if (c !== "Other") normCityCounts[c] = (normCityCounts[c] || 0) + 1;
+  }
+
+  const selectCity = (city) => {
+    if (pillsEl) {
+      pillsEl.querySelectorAll(".city-pill").forEach(b => {
+        b.classList.toggle("active", b.dataset.city === city);
+      });
+    }
+    activeCity = city;
+    drawVenues();
+  };
+  window.selectCity = selectCity;
+
   if (pillsEl) {
     pillsEl.innerHTML =
-      `<button class="city-pill active" data-city="all">All · ${upcoming.length}</button>` +
-      Object.entries(cityCounts).sort((a, b) => b[1] - a[1]).slice(0, 8)
+      `<button class="city-pill active" data-city="all">All cities</button>` +
+      Object.entries(normCityCounts).sort((a, b) => b[1] - a[1]).slice(0, 8)
         .map(([c, n]) => `<button class="city-pill" data-city="${esc(c)}">${esc(c)} · ${n}</button>`)
         .join("");
     pillsEl.querySelectorAll(".city-pill").forEach(btn => {
-      btn.addEventListener("click", () => {
-        pillsEl.querySelectorAll(".city-pill").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        activeCity = btn.dataset.city;
-        drawVenues();
-      });
+      btn.addEventListener("click", () => selectCity(btn.dataset.city));
     });
   }
 
