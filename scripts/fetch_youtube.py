@@ -85,6 +85,8 @@ MAINSTREAM_ARTISTS = [
     "bijibal", "vidyasagar", "m jayachandran",
     # Compilation / soundtrack signals in channel name
     "bollywood", "filmi", "film songs",
+    # Aggregator / playlist channels (not indie artists)
+    "spotify india", "naadverse musics",
 ]
 
 # ── Compilation / fan channel patterns ────────────────────────
