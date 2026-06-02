@@ -36,6 +36,10 @@ CITY_ALIAS = {
     "lb nagar": "Hyderabad", "madhapur": "Hyderabad",
     # Kochi
     "cochin": "Kochi",
+    # Pune localities
+    "karve nagar, pune": "Pune", "karve nagar": "Pune",
+    # Hyderabad: Birla Science Centre is in Hyderabad
+    "birla science centre": "Hyderabad",
 }
 CITY_NAMES = {
     "bangalore","bengaluru","mumbai","delhi","hyderabad","chennai",
