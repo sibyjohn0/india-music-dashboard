@@ -38,7 +38,7 @@ const LANG_COLORS = {
 
 // ── State ─────────────────────────────────────────────────────────────────────
 let allVideos=[], allChannels=[], lfmData={}, trackerData=null, spotifyData={};
-let _trendsLoaded=false, _buzzLoaded=false, _insightsData=null, _socialData=null;
+let _buzzLoaded=false, _socialData=null;
 let _eventsData=null, _reviewersData=null, _venueInsights=null, _sourceData=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
@@ -126,7 +126,7 @@ async function init() {
   // breakdown bars removed — data lives in Trends tab
   renderArtistGrid(allChannels);
   renderVideoList(allVideos);
-  bindTabs(insightsData, socialData);
+  bindTabs(socialData);
   bindDiscoverControls();
   bindArtistControls();
   initArtistDrawer();
@@ -135,17 +135,8 @@ async function init() {
   initDiscoverFilterToggle();
   // Jump to tab if arriving via hash
   const _hash = window.location.hash.replace('#', '');
-  if (['artists','trends','buzz'].includes(_hash)) goTab(_hash);
+  if (['artists','venues','trends','buzz'].includes(_hash)) goTab(_hash==='trends'?'venues':_hash);
 
-  document.getElementById("trends-toggle-btn").addEventListener("click", function() {
-    const panel = document.getElementById("trends-analytics");
-    const open  = panel.style.display !== "none";
-    panel.style.display = open ? "none" : "block";
-    this.textContent = open ? "Monthly charts & data ▾" : "Monthly charts & data ▴";
-    if (!open && !_trendsLoaded) {
-      _trendsLoaded = true; loadTrends(); if (_insightsData) renderInsights(_insightsData);
-    }
-  });
 }
 
 // ── Channel aggregation ───────────────────────────────────────────────────────
@@ -1030,7 +1021,7 @@ const TREND_CLS  = {new:"trend-new", rising:"trend-up", stable:"trend-flat", fal
 const TAB_CONTEXT = {
   discover: "New releases and top picks — scored 0–100 on engagement, daily view growth, and recency",
   artists:  "Browse and filter artists by language and genre — use Collab Finder to spot potential collaborators",
-  trends:   "Upcoming shows across cities and artists newly added to the radar",
+  venues:   "Upcoming shows across cities — updated daily from BookMyShow, Skillboxes, District, and HighApe",
   buzz:     "Reddit threads and press coverage mentioning Indian indie artists",
   industry: "Labels, booking agencies, and music companies — who's signing and how to approach them"
 };
@@ -1058,8 +1049,8 @@ function goTab(name) {
   }
 }
 
-function bindTabs(insightsData, socialData) {
-  _insightsData=insightsData; _socialData=socialData;
+function bindTabs(socialData) {
+  _socialData=socialData;
   document.querySelectorAll(".subtab").forEach(btn=>
     btn.addEventListener("click",()=>goTab(btn.dataset.tab))
   );
@@ -1118,7 +1109,7 @@ function initWelcome() {
       if (pendingTab==="buzz") { applyAndGo("buzz",null,null); return; }
       if (pendingTab==="artists") { showStep("ws-artist"); return; }
       document.getElementById("ws-lang-heading").textContent =
-        pendingTab==="trends" ? "Which scene are you following?" : "What are you into?";
+        pendingTab==="venues" ? "Which scene are you following?" : "What are you into?";
       showStep("ws-lang");
     })
   );
@@ -1160,160 +1151,6 @@ function dismissWelcome() {
   el.style.opacity="0";
   setTimeout(()=>{el.classList.remove("is-open");el.style.opacity="";},240);
   localStorage.setItem("iimr_ob","1");
-}
-
-// ── Trends ────────────────────────────────────────────────────────────────────
-let trendCharts = {};
-let monthlyData = [];
-let hiddenGenres = new Set();
-let hiddenLangs  = new Set();
-
-async function loadTrends() {
-  const monthCount = parseInt(document.getElementById("t-months").value)||6;
-  const now   = new Date();
-  const months= Array.from({length:monthCount},(_,i)=>{
-    const d=new Date(now.getFullYear(),now.getMonth()-i,1);
-    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`;
-  }).reverse();
-
-  const results = await Promise.all(months.map(m=>
-    fetch(`data/monthly/${m}.json`,{cache:"no-cache"}).then(r=>r.ok?r.json():null).catch(()=>null)
-  ));
-  monthlyData = results.filter(Boolean);
-  document.getElementById("trends-loading").style.display="none";
-  if (!monthlyData.length) {
-    document.getElementById("trends-loading").style.display="block";
-    document.getElementById("trends-loading").textContent="No monthly data yet — check back after a few daily runs.";
-    return;
-  }
-  document.getElementById("trends-table-wrap").style.display="block";
-  if (monthlyData.length >= 2) {
-    document.getElementById("trends-grid").style.display="grid";
-    document.getElementById("t-more-btn").style.display="";
-    buildTrendToggles();
-    drawTrendCharts();
-  } else {
-    document.getElementById("trends-grid").style.display="none";
-    document.getElementById("t-more-btn").style.display="none";
-    document.getElementById("trends-chart-note").style.display="block";
-  }
-}
-
-function buildTrendToggles() {
-  const allG = [...new Set(monthlyData.flatMap(m=>(m.genre_breakdown||[]).map(g=>g[0])))];
-  const allL = [...new Set(monthlyData.flatMap(m=>(m.language_breakdown||[]).map(l=>l[0])))];
-  document.getElementById("t-genre-toggles").innerHTML =
-    allG.map((g,i)=>`<button class="pill-toggle active" data-type="genre" data-val="${esc(g)}" style="--tc:${PAL[i%PAL.length]}">${esc(g)}</button>`).join("");
-  document.getElementById("t-lang-toggles").innerHTML =
-    allL.map((l,i)=>`<button class="pill-toggle active" data-type="lang" data-val="${esc(l)}" style="--tc:${PAL[(i+4)%PAL.length]}">${esc(l)}</button>`).join("");
-  document.querySelectorAll(".pill-toggle").forEach(btn=>btn.addEventListener("click",()=>{
-    btn.classList.toggle("active");
-    const set = btn.dataset.type==="genre" ? hiddenGenres : hiddenLangs;
-    if (!btn.classList.contains("active")) set.add(btn.dataset.val); else set.delete(btn.dataset.val);
-    drawTrendCharts();
-  }));
-  document.getElementById("t-months").addEventListener("change",()=>{
-    monthlyData=[]; hiddenGenres=new Set(); hiddenLangs=new Set();
-    loadTrends();
-  });
-  initMoreToggle("t-more-btn", "t-more");
-}
-
-function drawTrendCharts() {
-  Object.values(trendCharts).forEach(c=>c.destroy());
-  trendCharts = {};
-  const labels = monthlyData.map(m=>m.month);
-  const allG   = [...new Set(monthlyData.flatMap(m=>(m.genre_breakdown||[]).map(g=>g[0])))].filter(g=>!hiddenGenres.has(g));
-  const allL   = [...new Set(monthlyData.flatMap(m=>(m.language_breakdown||[]).map(l=>l[0])))].filter(l=>!hiddenLangs.has(l));
-  const getC   = (m,key,field)=>(m[field]||[]).find(x=>x[0]===key)?.[1]||0;
-  const lineOpts = ()=>({
-    plugins:{legend:{position:"bottom",labels:{color:"#666",font:{size:10},boxWidth:10}}},
-    scales:{x:{ticks:{color:"#555",font:{size:10}},grid:{color:"#1a1a1a"}},y:{ticks:{color:"#555"},grid:{color:"#1a1a1a"}}},
-  });
-  const barOpts = cb=>({
-    plugins:{legend:{display:false}},
-    scales:{x:{ticks:{color:"#555",font:{size:10}},grid:{color:"#1a1a1a"}},y:{ticks:{color:"#555",callback:cb},grid:{color:"#1a1a1a"}}},
-  });
-  trendCharts.genre = new Chart(document.getElementById("trend-genre"),{type:"line",data:{labels,datasets:allG.map((g,i)=>({label:g,data:monthlyData.map(m=>getC(m,g,"genre_breakdown")),borderColor:PAL[i%PAL.length],backgroundColor:"transparent",tension:.3,pointRadius:4}))},options:lineOpts()});
-  trendCharts.lang  = new Chart(document.getElementById("trend-lang"), {type:"line",data:{labels,datasets:allL.map((l,i)=>({label:l,data:monthlyData.map(m=>getC(m,l,"language_breakdown")),borderColor:PAL[(i+4)%PAL.length],backgroundColor:"transparent",tension:.3,pointRadius:4}))},options:lineOpts()});
-  trendCharts.views = new Chart(document.getElementById("trend-views"),{type:"bar",data:{labels,datasets:[{data:monthlyData.map(m=>m.total_views||0),backgroundColor:PAL[0],borderRadius:4}]},options:barOpts(v=>fmt(v))});
-  trendCharts.count = new Chart(document.getElementById("trend-count"),{type:"bar",data:{labels,datasets:[{data:monthlyData.map(m=>m.total_videos||0),backgroundColor:PAL[2],borderRadius:4}]},options:barOpts(v=>v)});
-  document.getElementById("trends-body").innerHTML=[...monthlyData].reverse().map(m=>`
-    <tr>
-      <td><strong>${m.month}</strong></td>
-      <td>${m.total_videos||0}</td>
-      <td>${fmt(m.total_views||0)}</td>
-      <td><span class="pill pill-genre">${(m.genre_breakdown||[])[0]?.[0]||"—"}</span></td>
-      <td><span class="pill pill-lang">${(m.language_breakdown||[])[0]?.[0]||"—"}</span></td>
-      <td style="color:var(--muted)">${(m.top_channels||[])[0]?.[0]||"—"}</td>
-    </tr>`).join("");
-}
-
-// ── Language Insights ─────────────────────────────────────────────────────────
-function renderInsights(data) {
-  const wrap = document.getElementById("insights-wrap");
-  const grid = document.getElementById("insights-grid");
-  const meta = document.getElementById("insights-meta");
-  if (!wrap || !grid) return;
-
-  const days = data.days_of_data || 0;
-  const from = data.date_range?.from || "";
-  const to   = data.date_range?.to   || "";
-  meta.textContent = `${days} day${days!==1?"s":""} of data · ${from}${from!==to?" → "+to:""}`;
-
-  const langs = data.languages || {};
-  const LANG_ORDER = ["Tamil","Telugu","Kannada","Malayalam","Bengali","Punjabi","Marathi","Hindi","English"];
-
-  grid.innerHTML = LANG_ORDER.map(lang => {
-    const ins = langs[lang];
-    if (!ins || ins.status === "no data yet") {
-      return `<div class="insight-card insight-empty">
-        <div class="insight-lang" style="--lc:${LANG_COLORS[lang]||'#666'}">${lang}</div>
-        <div class="insight-narrative">No data yet — will populate as daily runs accumulate.</div>
-      </div>`;
-    }
-    const col   = LANG_COLORS[lang] || "#666";
-    const topArtists = (ins.top_artists || []).slice(0, 4);
-    const genres = (ins.genre_breakdown || []).slice(0, 5);
-    const maxG   = genres[0]?.day_appearances || 1;
-
-    // Genre sub-insights: show top artist per genre
-    const genreCards = Object.entries(ins.genre_insights || {}).slice(0, 4).map(([g, gi]) => {
-      const top = gi.top_artists?.[0];
-      return `<div class="insight-genre-row">
-        <span class="pill pill-genre">${esc(g)}</span>
-        <span class="insight-genre-artist">${top ? esc(top.name) : "—"}</span>
-        <span class="insight-genre-days">${gi.day_appearances}d</span>
-      </div>`;
-    }).join("");
-
-    return `<div class="insight-card" style="--lc:${col}">
-      <div class="insight-card-top">
-        <div class="insight-lang" style="--lc:${col}">${lang}</div>
-        <span class="insight-dominant">${esc(ins.dominant_genre)}</span>
-      </div>
-      <p class="insight-narrative">${esc(ins.narrative)}</p>
-      <div class="insight-section-label">Top recurring artists</div>
-      <div class="insight-artists">
-        ${topArtists.map(a=>`
-          <div class="insight-artist-row">
-            <span class="insight-artist-name">${esc(a.name)}</span>
-            <span class="insight-artist-stat">${a.appearances}d · ${fmt(a.avg_views)} avg views · ${a.avg_eng}% eng</span>
-          </div>`).join("")}
-      </div>
-      ${genreCards ? `<div class="insight-section-label">By genre</div><div class="insight-genres">${genreCards}</div>` : ""}
-      <div class="insight-genre-bars">
-        ${genres.map(({genre:g, day_appearances:c})=>`
-          <div class="bar-item">
-            <div class="bar-label">${esc(g)}</div>
-            <div class="bar-track"><div class="bar-fill" style="width:${Math.round(c/maxG*100)}%;background:${col}"></div></div>
-            <div class="bar-count">${c}d</div>
-          </div>`).join("")}
-      </div>
-    </div>`;
-  }).join("");
-
-  wrap.style.display = "block";
 }
 
 // ── Buzz / Social ─────────────────────────────────────────────────────────────
