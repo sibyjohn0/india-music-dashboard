@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T13:19:00.260749+00:00",
+  "generated_at": "2026-06-02T13:28:08.071154+00:00",
   "snapshot_date": "2026-06-02",
   "cities": {
     "Delhi": {
@@ -275,7 +275,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-06-13",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Flashcraft",
@@ -370,6 +370,14 @@
           "price_max": 7999,
           "next_date": "2026-06-06",
           "growth": 0
+        },
+        {
+          "name": "House of Chapora",
+          "shows": 3,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-06-02",
+          "growth": null
         },
         {
           "name": "Orion Beach Club",
@@ -468,7 +476,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 18
+      "unlisted_shows": 15
     },
     "Hyderabad": {
       "total_shows": 48,
@@ -479,7 +487,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-06-06",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Hard Rock Cafe Hitech City",
@@ -1167,7 +1175,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-06-04",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Lyla | Bandra Kurla Complex,",
@@ -1239,7 +1247,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-06-05",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Edition #10 Curated by Maushi",
@@ -1269,7 +1277,7 @@
       "unlisted_shows": 4
     },
     "Bangalore": {
-      "total_shows": 213,
+      "total_shows": 183,
       "venues": [
         {
           "name": "Ricky\u2019s Pool Club by Titos",
@@ -1285,7 +1293,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-06-06",
-          "growth": -7
+          "growth": 0
         },
         {
           "name": "Bombay Adda",
@@ -1337,14 +1345,6 @@
         },
         {
           "name": "The Fixx",
-          "shows": 3,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-02",
-          "growth": 0
-        },
-        {
-          "name": "House of Chapora",
           "shows": 3,
           "price_min": null,
           "price_max": null,
@@ -1432,46 +1432,6 @@
           "growth": 0
         },
         {
-          "name": "Skandagiri Hills",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Antharagange Trekking Starting Point",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Kaiwara Hill",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Kunti Betta",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Uttari Betta",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
           "name": "Orion Beach Restaurant",
           "shows": 2,
           "price_min": null,
@@ -1501,14 +1461,6 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-06-11",
-          "growth": 0
-        },
-        {
-          "name": "HITEX Exhibition Center",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-26",
           "growth": 0
         },
         {
@@ -1720,14 +1672,6 @@
           "growth": 0
         },
         {
-          "name": "Nandi Hills",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
           "name": "Huddle Coffee Co.",
           "shows": 1,
           "price_min": null,
@@ -1744,14 +1688,6 @@
           "growth": 0
         },
         {
-          "name": "Gokarna Beach",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
           "name": "Loco Bear - The Ultimate Entertainment Hub",
           "shows": 1,
           "price_min": null,
@@ -1760,103 +1696,7 @@
           "growth": 0
         },
         {
-          "name": "Netravati Peak",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Kurinjal peak, Kudremukh Range",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
           "name": "Mushroom Studio - Learn, Connect & Grow",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Ooty Viewpoint",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Shivagange Betta Tremendous Trekkers from - {KS}",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Bandaje  falls balarayanadurga",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Dandeli",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Kodaikanal",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Coorg",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Savandurga Trek",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Makalidurga",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Shivagange betta",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
-          "name": "Savandurga Trek Starting Point",
           "shows": 1,
           "price_min": null,
           "price_max": null,
@@ -1881,14 +1721,6 @@
         },
         {
           "name": "JB Arena (Just BLR)",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-06",
-          "growth": 0
-        },
-        {
-          "name": "Nandi Hills Karnataka",
           "shows": 1,
           "price_min": null,
           "price_max": null,
@@ -2088,6 +1920,14 @@
           "growth": 0
         },
         {
+          "name": "HITEX Exhibition Center",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-07-30",
+          "growth": 0
+        },
+        {
           "name": "People for India Foundation",
           "shows": 1,
           "price_min": null,
@@ -2129,14 +1969,6 @@
         },
         {
           "name": "Bali",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-12-25",
-          "growth": 0
-        },
-        {
-          "name": "Chopta Tungnath Chandrashila Trekking",
           "shows": 1,
           "price_min": null,
           "price_max": null,

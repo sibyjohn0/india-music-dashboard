@@ -80,7 +80,8 @@ LOCALITY_TO_CITY = {
     # Goa
     "calangute": "Goa", "baga": "Goa", "anjuna": "Goa",
     "panaji": "Goa", "panjim": "Goa", "vagator": "Goa",
-    "assagao": "Goa", "candolim": "Goa",
+    "assagao": "Goa", "candolim": "Goa", "chapora": "Goa",
+    "morjim": "Goa", "arambol": "Goa", "mapusa": "Goa",
 }
 
 ADDR_LOCALITY_MAP = {
@@ -115,6 +116,12 @@ NON_MUSIC = [
     "tote bag", "lego ", "pottery", "embroidery", "knitting", "crochet",
     "journaling", "vision board", "soap making", "terrarium", "origami",
     "sip and paint", "paint and sip", "painting workshop", "sketching class",
+    # Treks, outdoor tours, travel packages (Namma Trip, e2e, etc.)
+    " trek", "trekking", " hike", "hiking", "sunrise trek", "camping",
+    "waterfall trek", "beach trek", "namma trip", "nammatrip",
+    "nandi hills", "ooty trip", "chikmagalur trip", "kodaikanal",
+    "coorg trip", "chopta", "tungnath", "entrepreneurs summit",
+    "tour package", "trip package", "trip from bangalore",
 ]
 
 
