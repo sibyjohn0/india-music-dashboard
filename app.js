@@ -616,25 +616,16 @@ function renderTrendsEvents(data, venueInsights) {
       // "Most shows" — top 5 named venues
       const topVenues = cityVenues.slice(0, 5);
 
-      // "Heating up" — venues with positive growth (from insights) or highest density (fallback)
-      let heatingUp = [];
-      if (ci) {
-        const insightMap = Object.fromEntries((ci.venues || []).map(v => [v.name, v]));
-        heatingUp = cityVenues
-          .map(v => ({ ...v, growth: insightMap[v.name]?.growth ?? null }))
-          .filter(v => v.growth !== null && v.growth > 0)
-          .sort((a, b) => b.growth - a.growth)
-          .slice(0, 5);
-      }
-      // If no history yet, show top 3 venues with 2+ shows in next 14 days as density signal
-      if (!heatingUp.length) {
-        const soon = Date.now() + 14 * 864e5;
-        heatingUp = cityVenues
-          .map(v => ({ ...v, nearShows: v.events.filter(e => e.date && new Date(e.date) <= soon).length }))
-          .filter(v => v.nearShows >= 2)
-          .sort((a, b) => b.nearShows - a.nearShows)
-          .slice(0, 3);
-      }
+      // "Most ticketed" — venues with the most paid shows (price_min > 0)
+      const ticketedVenues = cityVenues
+        .map(v => ({
+          ...v,
+          ticketedCount: v.events.filter(e => e.price_min && Number(e.price_min) > 0).length,
+          minPrice: Math.min(...v.events.filter(e => Number(e.price_min) > 0).map(e => Number(e.price_min)))
+        }))
+        .filter(v => v.ticketedCount > 0)
+        .sort((a, b) => b.ticketedCount - a.ticketedCount)
+        .slice(0, 5);
 
       if (topVenues.length) {
         const growthBadge = g => {
@@ -653,17 +644,15 @@ function renderTrendsEvents(data, venueInsights) {
           </div>`
         ).join("");
 
-        const heatingRows = heatingUp.length
-          ? heatingUp.map(v => {
-              const badge = v.growth != null
-                ? `<span class="venue-rank-growth up">+${v.growth} vs last wk</span>`
-                : `<span class="venue-rank-growth up">${v.nearShows} in 2 wks</span>`;
-              return `<div class="venue-rank-row">
+        const ticketedRows = ticketedVenues.length
+          ? ticketedVenues.map(v =>
+              `<div class="venue-rank-row">
                 <span class="venue-rank-name">${esc(v.name)}</span>
-                ${badge}
-              </div>`;
-            }).join("")
-          : `<div class="venue-rank-empty">More data after next pipeline run</div>`;
+                <span class="venue-rank-count">${v.ticketedCount}</span>
+                <span class="venue-rank-growth up">from ₹${v.minPrice.toLocaleString('en-IN')}</span>
+              </div>`
+            ).join("")
+          : `<div class="venue-rank-empty">No ticketed shows in this city yet</div>`;
 
         rankingsHtml = `<div class="venue-rankings">
           <div class="venue-rank-col">
@@ -671,8 +660,8 @@ function renderTrendsEvents(data, venueInsights) {
             ${mostShowsRows}
           </div>
           <div class="venue-rank-col">
-            <div class="venue-rank-heading">Heating up</div>
-            ${heatingRows}
+            <div class="venue-rank-heading">Most ticketed</div>
+            ${ticketedRows}
           </div>
         </div>`;
       }
