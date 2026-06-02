@@ -701,6 +701,7 @@
       footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
       .econ-grid { flex-direction: column; }
       .phase-grid { grid-template-columns: 1fr; }
+      .collective-grid { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -753,6 +754,41 @@
       color: #7070a0;
       line-height: 1.7;
       margin-top: 4px;
+    }
+
+    /* ── COLLECTIVE GRID ── */
+    .collective-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .collective-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .collective-step {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .collective-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: #f0f0f0;
+      line-height: 1.25;
+    }
+    .collective-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
     }
 
     /* ── TEAM AVATAR ── */
@@ -848,7 +884,7 @@
   <div class="hero-visual">
     <div class="eyebrow">For independent artists · 6 months</div>
     <h2 class="hero-headline">Six months to build it properly.<br>Everything you make, you keep.</h2>
-    <p class="hero-deck">Two consultants. A complete task list. Weekly accountability. You own every decision, every deliverable, and everything you build. No rights taken.</p>
+    <p class="hero-deck">Two consultants. A collective of independent artists building together. Weekly accountability. Everything you build, you keep. The intelligence compounds with every artist who joins.</p>
   </div>
 
   <!-- PROBLEM STATEMENT -->
@@ -871,6 +907,10 @@
       <div class="problem-card">
         <div class="problem-title">The spend with no return</div>
         <div class="problem-body">Money on a mix, a shoot, a campaign. No measure of whether it worked. No plan for what happens after it drops.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-title">The isolation of building alone</div>
+        <div class="problem-body">Decisions made in a vacuum. No one around who has done it before. No peers navigating the same market, the same constraints, the same questions.</div>
       </div>
     </div>
     <p class="problem-nudge">If two of these are true, this programme is worth a conversation.</p>
@@ -989,6 +1029,29 @@
 
   </div>
 
+  <!-- COLLECTIVE MODEL -->
+  <div class="section">
+    <div class="section-label">The collective model</div>
+    <h2 class="section-title">The more artists join,<br>the more everyone gets.</h2>
+    <div class="collective-grid">
+      <div class="collective-card">
+        <div class="collective-step">Join</div>
+        <div class="collective-title">Six months of structured induction</div>
+        <div class="collective-body">Finance, identity, distribution, live, fans, income. Two consultants working with you through each phase. You own everything you build.</div>
+      </div>
+      <div class="collective-card">
+        <div class="collective-step">Compound</div>
+        <div class="collective-title">The intelligence grows with every artist</div>
+        <div class="collective-body">Which venues respond. Which reviewers convert. What works for which genre. Artist 10 starts with more than artist 1 did — because the collective knows more.</div>
+      </div>
+      <div class="collective-card">
+        <div class="collective-step">Stay</div>
+        <div class="collective-title">Month 6 is the induction, not the end</div>
+        <div class="collective-body">Alumni stay in the collective. Their experience, their network, their story — it belongs to everyone who joins after them. The relationship continues.</div>
+      </div>
+    </div>
+  </div>
+
   <!-- TOOLS -->
   <div class="section">
     <div class="section-label">The tools</div>
@@ -1070,6 +1133,10 @@
         <div class="phase-card-out">Audience defined · Income stream live · Six-month review doc</div>
       </div>
     </div>
+
+    <div style="border-left:3px solid var(--accent);padding:16px 20px;background:var(--surface);border-radius:0 10px 10px 0;margin-top:20px;font-size:14px;color:#b0b0c8;line-height:1.7;">
+      Month 6 is the induction. The collective doesn't end — you stay in it, and what you've learnt becomes part of what every artist who joins after you gets.
+    </div>
   </div>
 
   <!-- PRICING -->
@@ -1094,6 +1161,7 @@
             <li>Shared task list updated live each session</li>
             <li>Async WhatsApp access to both consultants</li>
             <li>Six-month review document at close</li>
+            <li>Access to the collective — current artists and alumni</li>
           </ul>
         </div>
         <div class="pricing-col">
@@ -1121,10 +1189,10 @@
   <!-- CTA -->
   <div class="section" style="margin-bottom:0;">
     <div class="cta-card">
-      <div class="cta-title">We work with a small<br>number of artists at a time.</div>
-      <p class="cta-deck">Start with a conversation. No forms, no decks. Tell us where you are, what you are making, and what is blocking you. We will tell you honestly if this is the right fit.</p>
+      <div class="cta-title">The collective is small<br>by design.</div>
+      <p class="cta-deck">We keep it small so the attention is real. Start with a conversation — no forms, no decks. Tell us where you are, what you're making, and what's blocking you. We'll tell you honestly if this is the right fit.</p>
       <div class="cta-buttons">
-        <a href="https://wa.me/919960025559" target="_blank" rel="noopener" class="btn-primary">WhatsApp Siby ↗</a>
+        <a href="https://wa.me/919960025559" target="_blank" rel="noopener" class="btn-primary">Join the collective ↗</a>
         <a href="mailto:sibyjohn0@gmail.com" class="btn-secondary">Email us</a>
       </div>
     </div>
