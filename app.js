@@ -369,6 +369,16 @@ async function renderBreakingThisWeek() {
     .sort((a,b) => b.delta - a.delta)
     .slice(0,3);
 
+  const attachBreakingClicks = () => {
+    wrap.querySelectorAll(".hero-card[data-cid]").forEach(card => {
+      card.addEventListener("click", () => {
+        const ch = allChannels.find(x => x.id === card.dataset.cid);
+        if (ch) openArtistDrawer(ch);
+        else window.open(`https://youtube.com/channel/${card.dataset.cid}`, "_blank");
+      });
+    });
+  };
+
   if (!growth.length) {
     // Fallback: show top 3 channels by avg discovery score from current data
     const top3 = allChannels.slice(0, 3);
@@ -376,54 +386,46 @@ async function renderBreakingThisWeek() {
       wrap.innerHTML = `<div class="breaking-loading">No channel data available yet.</div>`;
       return;
     }
-    wrap.innerHTML = top3.map(c => `<div class="breaking-card" data-cid="${esc(c.id)}">
-      <div class="breaking-card-top">
-        <div class="breaking-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
-        <span class="breaking-platform-icon" title="YouTube">▶</span>
-      </div>
-      <div class="breaking-card-pill">
-        <span class="pill pill-genre">${esc(c.top_genre||"Indie")}</span>
-        <span class="pill pill-lang">${esc(c.top_lang||"")}</span>
-      </div>
-      <div class="breaking-growth">Top scorer this week</div>
-      <div class="breaking-growth-label">Momentum: ${c.avg_discovery}</div>
-    </div>`).join("");
-    wrap.querySelectorAll(".breaking-card[data-cid]").forEach(card => {
-      card.style.cursor = "pointer";
-      card.addEventListener("click", () => {
-        const ch = allChannels.find(x => x.id === card.dataset.cid);
-        if (ch) openArtistDrawer(ch);
-      });
-    });
+    wrap.innerHTML = top3.map((c, i) => {
+      const thumb = c.top_video?.thumbnail || "";
+      return `<div class="hero-card" data-cid="${esc(c.id)}" style="cursor:pointer">
+        ${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy" />` : ""}
+        <div class="hero-card-overlay">
+          <span class="hero-rank">#${i+1}</span>
+          <div class="hero-pills">
+            <span class="pill pill-genre">${esc(c.top_genre||"Indie")}</span>
+            <span class="pill pill-lang">${esc(c.top_lang||"")}</span>
+          </div>
+          <div class="hero-title">${esc(c.name)}</div>
+          <div class="hero-channel">Momentum: ${c.avg_discovery}</div>
+        </div>
+      </div>`;
+    }).join("");
+    attachBreakingClicks();
     return;
   }
 
-  wrap.innerHTML = growth.map(c => {
+  wrap.innerHTML = growth.map((c, i) => {
+    const channel  = allChannels.find(x => x.id === c.cid);
+    const thumb    = channel?.top_video?.thumbnail || "";
     const growthLabel = c.delta > 0
       ? `+${fmt(c.delta)} views this week`
       : `${fmt(c.delta)} views this week`;
     const pctLabel = c.pct !== null ? ` (+${c.pct}%)` : "";
-    return `<div class="breaking-card" data-cid="${esc(c.cid)}">
-      <div class="breaking-card-top">
-        <div class="breaking-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
-        <span class="breaking-platform-icon" title="YouTube">▶</span>
+    return `<div class="hero-card" data-cid="${esc(c.cid)}" style="cursor:pointer">
+      ${thumb ? `<img src="${esc(thumb)}" alt="" loading="lazy" />` : ""}
+      <div class="hero-card-overlay">
+        <span class="hero-rank">#${i+1}</span>
+        <div class="hero-pills">
+          <span class="pill pill-genre">${esc(c.genre||"Indie")}</span>
+          <span class="pill pill-lang">${esc(c.language||"")}</span>
+        </div>
+        <div class="hero-title">${esc(c.name)}</div>
+        <div class="hero-channel">${growthLabel}${pctLabel}</div>
       </div>
-      <div class="breaking-card-pill">
-        <span class="pill pill-genre">${esc(c.genre||"Indie")}</span>
-        <span class="pill pill-lang">${esc(c.language||"")}</span>
-      </div>
-      <div class="breaking-growth">${growthLabel}${pctLabel}</div>
-      <div class="breaking-growth-label">compared to last week</div>
     </div>`;
   }).join("");
-  wrap.querySelectorAll(".breaking-card[data-cid]").forEach(card => {
-    card.style.cursor = "pointer";
-    card.addEventListener("click", () => {
-      const ch = allChannels.find(x => x.id === card.dataset.cid);
-      if (ch) openArtistDrawer(ch);
-      else window.open(`https://youtube.com/channel/${card.dataset.cid}`, "_blank");
-    });
-  });
+  attachBreakingClicks();
 }
 
 // ── Trending genre signal ─────────────────────────────────────────────────────
