@@ -541,11 +541,13 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
     "dadar":"Mumbai","bandra":"Mumbai","borivali(w)":"Mumbai","thane":"Mumbai","matunga":"Mumbai",
     "southern avenue, kolkata":"Kolkata",
     "lb nagar":"Hyderabad","madhapur":"Hyderabad",
+    "birla science centre":"Hyderabad",
     "cochin":"Kochi",
     "karve nagar, pune":"Pune","karve nagar":"Pune",
-    "lb nagar":"Hyderabad","madhapur":"Hyderabad",
-    "southern avenue, kolkata":"Kolkata",
-    "dlf cyberhub, gurugram":"Delhi",
+    // Goa localities that BMS/Skillboxes use as city names
+    "calangute":"Goa","vagator":"Goa","anjuna":"Goa","baga":"Goa",
+    "panaji":"Goa","panjim":"Goa","assagao":"Goa","candolim":"Goa",
+    "morjim":"Goa","arambol":"Goa","mapusa":"Goa","chapora":"Goa",
   };
   const normCity = c => CITY_ALIAS[(c||"").toLowerCase()] || c;
   const isTourOrDate = v => /\b20\d{2}\b/.test(v) || /\bTour\b/i.test(v) || /^\d+(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i.test(v);
@@ -758,7 +760,9 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
   if (pillsEl) {
     pillsEl.innerHTML =
       `<button class="city-pill active" data-city="all">All cities</button>` +
-      Object.entries(normCityCounts).sort((a, b) => b[1] - a[1]).slice(0, 8)
+      Object.entries(normCityCounts)
+        .filter(([c]) => c !== "Other" && c.toLowerCase() !== "india")
+        .sort((a, b) => b[1] - a[1])
         .map(([c, n]) => `<button class="city-pill" data-city="${esc(c)}">${esc(c)} · ${n}</button>`)
         .join("");
     pillsEl.querySelectorAll(".city-pill").forEach(btn => {
