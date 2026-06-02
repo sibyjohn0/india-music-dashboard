@@ -79,10 +79,16 @@ MAINSTREAM_ARTISTS = [
     "anirudh ravichander", "harris jayaraj", "devi sri prasad",
     "yuvan shankar raja", "sid sriram", "vijay antony", "spb",
     "s.p. balasubrahmanyam", "karthik singer",
+    "sivakarthikeyan",          # major Tamil film star / production house
+    "rajinikanth", "kamal haasan", "vijay thalapathy", "ajith kumar",
     # Telugu mainstream
     "s thaman", "s. thaman", "thaman s",
+    "ram charan", "jr ntr", "mahesh babu", "prabhas",
     # Malayalam mainstream
     "bijibal", "vidyasagar", "m jayachandran",
+    "mohanlal", "mammootty", "dulquer salmaan",
+    # Kannada mainstream
+    "kgf", "puneeth rajkumar",
     # Compilation / soundtrack signals in channel name
     "bollywood", "filmi", "film songs",
     # Aggregator / playlist channels (not indie artists)
@@ -117,6 +123,9 @@ TITLE_SPAM = [
     "distribution", "artist management", "music promotion", "submit your",
     "how to get", "music business", "grow your channel",
     "reaction video", "react to", "interview with",
+    # Cover songs — not original music
+    "song cover", "cover song", "singing cover", "my cover of",
+    "cover version", "#cover", "covering ", " covers ",
     # Status / ringtone filler
     "whatsapp status", "status song", "ringtone", "#whatsappstatus", "#shorts",
     # Devotional
@@ -160,8 +169,14 @@ AGGREGATOR_PATTERNS = [
     "recording company", "records company", "entertainment company",
     "music bd", "music official bd",
     "films music", "productions music",
+    # Gaming / non-music creators who occasionally post covers
+    "gamer", "gaming", "gameplay", "streamer",
     # Fact / non-music channels
     " facts", "fact channel",
+    # Fitness / lifestyle channels posting music
+    "fitness", "yoga channel", "meditation channel",
+    # News / media
+    "news channel", "news official",
 ]
 
 # ── Language-first search structure ──────────────────────────
@@ -621,6 +636,22 @@ def main():
         sys.exit(1)
 
     balanced.sort(key=lambda x: -x["discovery_score"])
+
+    # Percentile-normalize scores so the full 0–100 range is used and ties are broken.
+    # Without this, a majority of videos cluster at 88–99 because the raw formula
+    # saturates quickly on any high-engagement new video.
+    if len(balanced) > 1:
+        raw_scores = [v["discovery_score"] for v in balanced]
+        min_s, max_s = min(raw_scores), max(raw_scores)
+        spread = max_s - min_s
+        for i, v in enumerate(balanced):
+            if spread > 0:
+                # Linear rescale to 1–99, preserving rank order (high raw = high score)
+                pct = 1 + round((v["discovery_score"] - min_s) / spread * 98)
+                v["discovery_score"] = max(1, min(99, pct))
+            else:
+                v["discovery_score"] = 50
+
     genre_b, lang_b, top_kw = build_breakdowns(balanced)
     date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 

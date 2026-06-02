@@ -386,7 +386,7 @@ async function renderBreakingThisWeek() {
         <span class="pill pill-lang">${esc(c.top_lang||"")}</span>
       </div>
       <div class="breaking-growth">Top scorer this week</div>
-      <div class="breaking-growth-label">Discovery score: ${c.avg_discovery}</div>
+      <div class="breaking-growth-label">Momentum: ${c.avg_discovery}</div>
     </div>`).join("");
     return;
   }
@@ -1639,7 +1639,7 @@ function openArtistDrawer(channel) {
   document.getElementById("drawer-stats").innerHTML = `
     <div class="drawer-stat">
       <div class="drawer-stat-val">${channel.avg_discovery}</div>
-      <div class="drawer-stat-lbl">Discovery</div>
+      <div class="drawer-stat-lbl">Momentum</div>
     </div>
     <div class="drawer-stat">
       <div class="drawer-stat-val">${channel.avg_engagement}%</div>
