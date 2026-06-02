@@ -10,6 +10,7 @@ const EVENTS_URL_DT   = "data/events-district.json";
 const EVENTS_URL_BMS  = "data/events-bookmyshow.json";
 const EVENTS_URL_SBX  = "data/events-skillboxes.json";
 const EVENTS_URL_FB   = "data/live-events.json";
+const EVENTS_URL_HA   = "data/events-highape.json";
 const REVIEWERS_URL       = "data/reviewers.json";
 const VENUE_INSIGHTS_URL  = "data/venue-insights.json";
 
@@ -38,14 +39,14 @@ const LANG_COLORS = {
 // ── State ─────────────────────────────────────────────────────────────────────
 let allVideos=[], allChannels=[], lfmData={}, trackerData=null, spotifyData={};
 let _trendsLoaded=false, _buzzLoaded=false, _insightsData=null, _socialData=null;
-let _eventsData=null, _reviewersData=null, _venueInsights=null;
+let _eventsData=null, _reviewersData=null, _venueInsights=null, _sourceData=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes, venueInsightsRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, eventsHaRes, reviewersRes, venueInsightsRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
@@ -58,6 +59,7 @@ async function init() {
       fetch(EVENTS_URL_BMS, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_SBX, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_FB, NC).then(r=>r.json()).catch(()=>null),
+      fetch(EVENTS_URL_HA, NC).then(r=>r.json()).catch(()=>null),
       fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(VENUE_INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
@@ -75,7 +77,19 @@ async function init() {
       if (d.cities) return Object.values(d.cities).filter(Array.isArray).flat();
       return [];
     };
-    const _rawEvents = [eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes]
+    // Track per-source counts for platform summary
+    _sourceData = [
+      { label: "BookMyShow", res: eventsBmsRes },
+      { label: "Skillboxes", res: eventsSbxRes },
+      { label: "District",   res: eventsDtRes },
+      { label: "HighApe",    res: eventsHaRes },
+      { label: "Paytm",      res: eventsRes },
+    ].map(s => ({
+      label: s.label,
+      count: (s.res.status === "fulfilled" && s.res.value) ? _extractEvents(s.res.value).length : 0,
+      ok:    s.res.status === "fulfilled" && !!s.res.value,
+    }));
+    const _rawEvents = [eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, eventsHaRes]
       .filter(r => r.status === "fulfilled" && r.value)
       .flatMap(r => _extractEvents(r.value));
     const _seen = new Set();
@@ -106,7 +120,7 @@ async function init() {
   renderDiscover(allVideos);
   renderBreakingThisWeek();
   renderTodayEvents(_eventsData);
-  renderTrendsEvents(_eventsData, _venueInsights);
+  renderTrendsEvents(_eventsData, _venueInsights, _sourceData);
   renderTodayReviewers(_reviewersData);
   renderTrendingGenre(allVideos);
   // breakdown bars removed — data lives in Trends tab
@@ -480,10 +494,19 @@ function renderTodayEvents(data) {
 }
 
 // ── Trends: Upcoming Shows full list ─────────────────────────────────────────
-function renderTrendsEvents(data, venueInsights) {
+function renderTrendsEvents(data, venueInsights, sourceData) {
   const el      = document.getElementById("shows-list");
   const pillsEl = document.getElementById("shows-city-pills");
   if (!el) return;
+
+  // Platform source summary
+  const platformEl = document.getElementById("platform-summary");
+  if (platformEl && sourceData) {
+    platformEl.innerHTML = sourceData.map(s => {
+      const cls = s.count > 0 ? "platform-pill active" : "platform-pill dead";
+      return `<span class="${cls}">${s.label} <strong>${s.count > 0 ? s.count : "—"}</strong></span>`;
+    }).join("");
+  }
 
   const events = [];
   if (data && Array.isArray(data.events)) events.push(...data.events);
@@ -555,6 +578,19 @@ function renderTrendsEvents(data, venueInsights) {
 
   let activeCity = "all";
 
+  const median = arr => {
+    if (!arr.length) return null;
+    const s = [...arr].sort((a, b) => a - b);
+    const m = Math.floor(s.length / 2);
+    return s.length % 2 ? s[m] : Math.round((s[m-1] + s[m]) / 2);
+  };
+
+  const CITY_COLORS = {
+    "Bangalore":"#a78bfa","Mumbai":"#60a5fa","Delhi":"#34d399",
+    "Hyderabad":"#fbbf24","Chennai":"#f87171","Pune":"#fb923c",
+    "Goa":"#e879f9","Kolkata":"#38bdf8","Kochi":"#4ade80",
+  };
+
   const venuePriceLabel = (evs) => {
     const vals = evs.flatMap(e => [e.price_min ?? e.min_price, e.price_max ?? e.max_price])
       .filter(p => p != null && p >= 0);
@@ -568,13 +604,11 @@ function renderTrendsEvents(data, venueInsights) {
 
   const sceneSummary = (list) => {
     const venues = new Set(list.map(e => (e.venue || e.venue_name || "") + "|" + (e.city || "")));
-    const vals = list.flatMap(e => [e.price_min ?? e.min_price, e.price_max ?? e.max_price])
-      .filter(p => p != null && p >= 0);
-    const lo = vals.length ? Math.min(...vals) : null;
-    const hi = vals.length ? Math.max(...vals) : null;
-    const priceStr = lo == null ? "Free" : lo === hi ? (lo === 0 ? "Free" : `₹${lo}`) :
-      lo === 0 ? `Free – ₹${hi}` : `₹${lo} – ₹${hi}`;
-    return `${venues.size} venue${venues.size !== 1 ? "s" : ""} · ${list.length} show${list.length !== 1 ? "s" : ""} · ${priceStr}`;
+    const ticketPrices = list.map(e => e.price_min ?? e.min_price)
+      .filter(p => p != null && Number(p) > 0).map(Number);
+    const med = median(ticketPrices);
+    const medStr = med != null ? ` · median ₹${med.toLocaleString("en-IN")}` : "";
+    return `${venues.size} venue${venues.size !== 1 ? "s" : ""} · ${list.length} show${list.length !== 1 ? "s" : ""}${medStr}`;
   };
 
   const growthBadge = g => {
@@ -598,14 +632,25 @@ function renderTrendsEvents(data, venueInsights) {
           cityMap[c].prices.push(Number(p));
         }
       }
-      const cityRows = Object.entries(cityMap)
+      const cityEntries = Object.entries(cityMap)
         .filter(([c]) => c !== "Other")
-        .sort(([, a], [, b]) => b.events.length - a.events.length)
-        .map(([city, s]) => {
-          const lo = s.prices.length ? Math.min(...s.prices) : null;
-          const hi = s.prices.length ? Math.max(...s.prices) : null;
-          const priceStr = lo == null ? "Free" : lo === hi ? `₹${lo.toLocaleString("en-IN")}` : `₹${lo.toLocaleString("en-IN")} – ₹${hi.toLocaleString("en-IN")}`;
+        .sort(([, a], [, b]) => b.events.length - a.events.length);
+      const totalShows = cityEntries.reduce((s, [, c]) => s + c.events.length, 0);
+
+      // City composition bar
+      const barSegs = cityEntries.map(([city, s]) => {
+        const pct = totalShows ? (s.events.length / totalShows * 100).toFixed(1) : 0;
+        const col = CITY_COLORS[city] || "#888";
+        return `<div style="flex:${pct};background:${col}" title="${city}: ${s.events.length} shows (${pct}%)"></div>`;
+      }).join("");
+      const compBar = `<div class="composition-bar">${barSegs}</div>`;
+
+      const cityRows = cityEntries.map(([city, s]) => {
+          const med = median(s.prices);
+          const priceStr = med != null ? `median ₹${med.toLocaleString("en-IN")}` : "Free";
+          const col = CITY_COLORS[city] || "#888";
           return `<div class="city-row" onclick="selectCity('${esc(city)}')">
+            <span class="city-row-dot" style="background:${col}"></span>
             <div class="city-row-name">${esc(city)}</div>
             <div class="city-row-meta">
               <span class="city-row-count">${s.events.length} shows</span>
@@ -617,7 +662,7 @@ function renderTrendsEvents(data, venueInsights) {
             <div class="city-row-arrow">→</div>
           </div>`;
         }).join("");
-      el.innerHTML = `<div class="city-summary">${cityRows}</div>`;
+      el.innerHTML = `${compBar}<div class="city-summary">${cityRows}</div>`;
       return;
     }
 
@@ -669,68 +714,20 @@ function renderTrendsEvents(data, venueInsights) {
       ? `<div class="venue-more">+ ${unnamedCount} more show${unnamedCount !== 1 ? "s" : ""} at unlisted venues — <a href="https://www.skillboxes.com/events" target="_blank" rel="noopener">see all on Skillboxes</a></div>`
       : "";
 
-    // ── Rankings panel (top of city view) ──────────────────────────────────────
-    let rankingsHtml = "";
-    if (activeCity !== "all") {
-      const ci = venueInsights?.cities?.[activeCity];
-      const cityVenues = named.sort((a, b) => b.events.length - a.events.length);
-
-      // "Most shows" — top 5 named venues
-      const topVenues = cityVenues.slice(0, 5);
-
-      // "Most ticketed" — venues with the most paid shows (price_min > 0)
-      const ticketedVenues = cityVenues
-        .map(v => ({
-          ...v,
-          ticketedCount: v.events.filter(e => e.price_min && Number(e.price_min) > 0).length,
-          minPrice: Math.min(...v.events.filter(e => Number(e.price_min) > 0).map(e => Number(e.price_min)))
-        }))
-        .filter(v => v.ticketedCount > 0)
-        .sort((a, b) => b.ticketedCount - a.ticketedCount)
-        .slice(0, 5);
-
-      if (topVenues.length) {
-        const growthBadge = g => {
-          if (g === null) return "";
-          if (g > 0)  return `<span class="venue-rank-growth up">+${g}</span>`;
-          if (g < 0)  return `<span class="venue-rank-growth down">${g}</span>`;
-          return `<span class="venue-rank-growth flat">—</span>`;
-        };
-
-        const mostShowsRows = topVenues.map((v, i) =>
-          `<div class="venue-rank-row">
-            <span class="venue-rank-pos">${i + 1}</span>
-            <span class="venue-rank-name">${esc(v.name)}</span>
-            <span class="venue-rank-count">${v.events.length}</span>
-            ${growthBadge(ci ? (ci.venues?.find(x => x.name === v.name)?.growth ?? null) : null)}
-          </div>`
-        ).join("");
-
-        const ticketedRows = ticketedVenues.length
-          ? ticketedVenues.map(v =>
-              `<div class="venue-rank-row">
-                <span class="venue-rank-name">${esc(v.name)}</span>
-                <span class="venue-rank-count">${v.ticketedCount}</span>
-                <span class="venue-rank-growth up">from ₹${v.minPrice.toLocaleString('en-IN')}</span>
-              </div>`
-            ).join("")
-          : `<div class="venue-rank-empty">No ticketed shows in this city yet</div>`;
-
-        rankingsHtml = `<div class="venue-rankings">
-          <div class="venue-rank-col">
-            <div class="venue-rank-heading">Most shows</div>
-            ${mostShowsRows}
-          </div>
-          <div class="venue-rank-col">
-            <div class="venue-rank-heading">Most ticketed</div>
-            ${ticketedRows}
-          </div>
-        </div>`;
-      }
-    }
+    // Venue composition bar for city view
+    const sortedNamed = [...named].sort((a, b) => b.events.length - a.events.length);
+    const totalVenueEvts = sortedNamed.reduce((s, v) => s + v.events.length, 0);
+    const venueBarSegs = sortedNamed.map((v, i) => {
+      const pct = totalVenueEvts ? (v.events.length / totalVenueEvts * 100).toFixed(1) : 0;
+      return `<div style="flex:${pct};background:${PAL[i % PAL.length]}" title="${v.name}: ${v.events.length} shows"></div>`;
+    }).join("");
+    const venueBar = sortedNamed.length > 1
+      ? `<div class="composition-bar">${venueBarSegs}</div>`
+      : "";
 
     el.innerHTML = `
       <div class="venue-summary">${esc(sceneSummary(list))}</div>
+      ${venueBar}
       <div class="venue-grid">${cards}</div>
       ${moreNote}`;
   };

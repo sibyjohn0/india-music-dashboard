@@ -5,11 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>India Indie Music Radar</title>
   <script>
-    // Redirect all unknown/obsolete URLs to the about page.
-    // Preserves UTM params so analytics can attribute the source.
-    var search = window.location.search;
-    var target = 'https://sibyjohn0.github.io/india-music-dashboard/about/' + (search || '');
-    window.location.replace(target);
+    (function () {
+      var base = "https://sibyjohn0.github.io/india-music-dashboard";
+      var path = window.location.pathname.replace(/\/india-music-dashboard/, "").replace(/\.html$/, "");
+      var hash = window.location.hash || "";
+      var search = window.location.search || "";
+
+      // Path-based smart redirects
+      var routes = {
+        "/playbook":         base + "/playbook/" + hash,
+        "/reviewers":        base + "/reviewers/" + hash,
+        "/about":            base + "/about/" + hash,
+        "/programme":        base + "/programme/" + hash,
+        "/submit":           base + "/submit/" + hash,
+        "/deep-dive":        base + "/deep-dive/" + hash,
+        "/status":           base + "/status/" + hash,
+      };
+
+      var target = routes[path] || (base + "/about/" + search);
+      window.location.replace(target);
+    })();
   </script>
   <meta http-equiv="refresh" content="0;url=https://sibyjohn0.github.io/india-music-dashboard/about/" />
   <style>
