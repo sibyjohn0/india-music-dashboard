@@ -69,7 +69,7 @@
       <!-- SECTION 2: Top picks this week -->
       <div class="today-section">
         <div class="today-section-hd">Top picks this week</div>
-        <div class="today-section-sub">Ranked by discovery score — a 0–100 measure of engagement rate, daily view growth, and how recently the video dropped.</div>
+        <div class="today-section-sub">Ranked by momentum — a 0–100 score measuring engagement rate and daily view growth within the 90-day window.</div>
         <div class="today-section-meta" id="d-hero-label">Top finds</div>
         <div class="hero-cards" id="hero-cards"></div>
         <button class="hero-show-more" id="hero-show-more" style="display:none">Show more videos ▾</button>
@@ -95,7 +95,7 @@
         <select id="d-lang"><option value="all">All Languages</option></select>
         <select id="d-genre"><option value="all">All Genres</option></select>
         <select id="v-sort">
-          <option value="discovery_score">Sort: Discovery Score (default)</option>
+          <option value="discovery_score">Sort: Momentum (default)</option>
           <option value="engagement_rate">Sort: Engagement rate</option>
           <option value="velocity">Sort: Daily view growth</option>
           <option value="published_at">Sort: Newest first</option>
@@ -172,7 +172,7 @@
           <option value="falling">Falling</option>
         </select>
         <select id="a-sort">
-          <option value="avg_discovery">Sort: Discovery Score (default)</option>
+          <option value="avg_discovery">Sort: Momentum (default)</option>
           <option value="avg_engagement">Sort: Engagement rate</option>
           <option value="total_views">Sort: Total views</option>
           <option value="video_count">Sort: Video count</option>
@@ -185,6 +185,7 @@
         </select>
         <select id="a-min-videos">
           <option value="1">Any # videos</option>
+          <option value="2" selected>2+ videos</option>
           <option value="3">3+ videos</option>
           <option value="5">5+ videos</option>
           <option value="10">10+ videos</option>
@@ -240,7 +241,7 @@
               <th>Genre</th>
               <th>Videos</th>
               <th>Last active</th>
-              <th><span class="metric-tip" data-tip="Discovery score: 0–100. Combines engagement rate, daily view growth, and recency.">Score</span></th>
+              <th><span class="metric-tip" data-tip="Momentum: 0–99. Percentile rank within the 90-day window — combines engagement rate and daily view growth. 99 = fastest moving artist in the current pool.">Score</span></th>
               <th>Trend</th>
             </tr>
           </thead>
