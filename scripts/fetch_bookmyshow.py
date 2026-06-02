@@ -2,14 +2,18 @@
 """
 fetch_bookmyshow.py — Fetch music events from BookMyShow via Playwright.
 
-BookMyShow's events API is protected; Playwright intercepts the internal
-explore API XHR that the page fires on load.
+BookMyShow renders event cards into window.__INITIAL_STATE__ server-side.
+We extract that state after page load instead of intercepting the discover
+XHR (which returns 0 for Bangalore/Chennai from non-local IPs).
+
+The rgn cookie must be set before navigation so BMS serves the correct
+city's SSR data regardless of the runner's IP geolocation.
 
 Cities covered: Bengaluru, Mumbai, Delhi, Hyderabad, Pune, Chennai, Kolkata, Goa
 Output: data/events-bookmyshow.json
 """
 
-import asyncio, json, os, sys, re, base64, time as _time
+import asyncio, json, sys, re, base64
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
@@ -21,16 +25,17 @@ MUSIC_CATEGORIES = {
     "music-workshops", "live-music",
 }
 
-# city slug → (display name, rgn cookie code or None if not needed)
+# (page_slug, display_name, region_code, rgn_slug, rgn_name)
+# region_code from https://in.bookmyshow.com/api/explore/v1/discover/regions?appCode=WEB
 CITIES = [
-    ("bengaluru",                    "Bangalore", None),
-    ("mumbai",                       "Mumbai",    "MUMB"),
-    ("national-capital-region-ncr",  "Delhi",     None),
-    ("hyderabad",                    "Hyderabad", None),
-    ("pune",                         "Pune",      None),
-    ("chennai",                      "Chennai",   None),
-    ("kolkata",                      "Kolkata",   None),
-    ("goa",                          "Goa",       None),
+    ("bengaluru",                   "Bangalore", "BANG",   "bengaluru",                   "Bengaluru"),
+    ("mumbai",                      "Mumbai",    "MUMBAI", "mumbai",                      "Mumbai"),
+    ("national-capital-region-ncr", "Delhi",     "NCR",    "national-capital-region-ncr", "Delhi-NCR"),
+    ("hyderabad",                   "Hyderabad", "HYD",    "hyderabad",                   "Hyderabad"),
+    ("pune",                        "Pune",      "PUNE",   "pune",                        "Pune"),
+    ("chennai",                     "Chennai",   "CHEN",   "chennai",                     "Chennai"),
+    ("kolkata",                     "Kolkata",   "KOLK",   "kolkata",                     "Kolkata"),
+    ("goa",                         "Goa",       "GOA",    "goa",                         "Goa"),
 ]
 
 CITY_ALIASES = {
@@ -144,6 +149,16 @@ def parse_card(card, city_name):
     }
 
 
+_EXTRACT_JS = """() => {
+    const exploreApi = window.__INITIAL_STATE__?.exploreApi;
+    if (!exploreApi) return null;
+    const queries = exploreApi.queries || {};
+    const key = Object.keys(queries).find(k => k.includes('getDiscoveryData'));
+    if (!key) return null;
+    return queries[key]?.data || null;
+}"""
+
+
 async def scrape():
     from playwright.async_api import async_playwright
 
@@ -153,7 +168,7 @@ async def scrape():
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(headless=True)
 
-        for slug, city_name, rgn_code in CITIES:
+        for slug, city_name, rgn_code, rgn_slug, rgn_name in CITIES:
             ctx = await browser.new_context(
                 user_agent=(
                     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -161,21 +176,11 @@ async def scrape():
                 )
             )
 
-            if rgn_code:
-                await ctx.add_cookies([_make_rgn_cookie(rgn_code, slug, city_name)])
-
-            captured = {}
-
-            async def handle_response(resp, _slug=slug):
-                if (f"/api/explore/v1/discover/events-{_slug}" in resp.url
-                        and resp.status == 200):
-                    try:
-                        captured["data"] = await resp.json()
-                    except Exception:
-                        pass
+            # Always set the rgn cookie so BMS serves the correct city
+            # regardless of the runner's IP geolocation.
+            await ctx.add_cookies([_make_rgn_cookie(rgn_code, rgn_slug, rgn_name)])
 
             page = await ctx.new_page()
-            page.on("response", handle_response)
 
             try:
                 await page.goto(
@@ -183,19 +188,17 @@ async def scrape():
                     wait_until="domcontentloaded",
                     timeout=45000,
                 )
-                for _ in range(8):
-                    if "data" in captured:
-                        break
-                    await asyncio.sleep(1)
+                await asyncio.sleep(4)
+
+                data = await page.evaluate(_EXTRACT_JS)
             except Exception as e:
                 print(f"  {city_name}: navigation failed ({e})", file=sys.stderr)
                 await page.close()
                 await ctx.close()
                 continue
 
-            data        = captured.get("data", {})
             city_events = 0
-            for listing in data.get("listings", []):
+            for listing in (data or {}).get("listings", []):
                 for card in listing.get("cards", []):
                     if not is_music(card):
                         continue

@@ -44,18 +44,18 @@
     <a class="tab" href="submit/" style="text-decoration:none;">Submit</a>
   </nav>
   <nav class="subnav">
-    <button class="subtab active" data-tab="discover">Discover</button>
+    <button class="subtab" data-tab="discover">Discover</button>
     <button class="subtab" data-tab="artists">Artists</button>
     <button class="subtab" data-tab="venues">Venues</button>
-    <button class="subtab" data-tab="buzz">Buzz</button>
-    <button class="subtab" data-tab="industry">Industry</button>
+    <button class="subtab active" data-tab="buzz">Buzz</button>
+    <button class="subtab" data-tab="industry">Scene</button>
   </nav>
-  <div class="tab-context" id="tab-context">New releases, breaking videos, and what's gaining traction this week</div>
+  <div class="tab-context" id="tab-context">Reddit threads and press coverage mentioning Indian indie artists</div>
 
   <main>
 
     <!-- ── DISCOVER ── -->
-    <div id="tab-discover" class="tab-pane active">
+    <div id="tab-discover" class="tab-pane">
 
       <!-- SECTION 1: Breaking this week -->
       <div class="today-section">
@@ -252,7 +252,7 @@
     </div>
 
     <!-- ── BUZZ ── -->
-    <div id="tab-buzz" class="tab-pane">
+    <div id="tab-buzz" class="tab-pane active">
       <div class="filter-bar">
         <select id="b-lang"><option value="all">All Languages</option></select>
         <select id="b-platform">
@@ -285,7 +285,7 @@
     <div id="tab-industry" class="tab-pane">
       <iframe id="industry-frame"
         style="width:100%;border:none;min-height:calc(100vh - 160px);display:block;"
-        title="Labels & Agencies"></iframe>
+        title="Scene"></iframe>
     </div>
 
   </main>

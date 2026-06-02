@@ -140,9 +140,11 @@ async function init() {
   initMetricTips();
   initArtistLog();
   initDiscoverFilterToggle();
-  // Jump to tab if arriving via hash
+  // Default landing tab is Buzz; honour hash overrides for direct links
   const _hash = window.location.hash.replace('#', '');
-  if (['artists','venues','trends','buzz'].includes(_hash)) goTab(_hash==='trends'?'venues':_hash);
+  const _routableTabs = ['discover','artists','venues','trends','buzz','industry'];
+  if (_routableTabs.includes(_hash)) goTab(_hash === 'trends' ? 'venues' : _hash);
+  else goTab('buzz');
 
 }
 
@@ -374,7 +376,7 @@ async function renderBreakingThisWeek() {
       wrap.innerHTML = `<div class="breaking-loading">No channel data available yet.</div>`;
       return;
     }
-    wrap.innerHTML = top3.map(c => `<div class="breaking-card">
+    wrap.innerHTML = top3.map(c => `<div class="breaking-card" data-cid="${esc(c.id)}">
       <div class="breaking-card-top">
         <div class="breaking-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
         <span class="breaking-platform-icon" title="YouTube">▶</span>
@@ -386,19 +388,25 @@ async function renderBreakingThisWeek() {
       <div class="breaking-growth">Top scorer this week</div>
       <div class="breaking-growth-label">Momentum: ${c.avg_discovery}</div>
     </div>`).join("");
+    wrap.querySelectorAll(".breaking-card[data-cid]").forEach(card => {
+      card.style.cursor = "pointer";
+      card.addEventListener("click", () => {
+        const ch = allChannels.find(x => x.id === card.dataset.cid);
+        if (ch) openArtistDrawer(ch);
+      });
+    });
     return;
   }
 
-  const PLATFORM_ICON = "▶"; // YouTube
   wrap.innerHTML = growth.map(c => {
     const growthLabel = c.delta > 0
       ? `+${fmt(c.delta)} views this week`
       : `${fmt(c.delta)} views this week`;
     const pctLabel = c.pct !== null ? ` (+${c.pct}%)` : "";
-    return `<div class="breaking-card">
+    return `<div class="breaking-card" data-cid="${esc(c.cid)}">
       <div class="breaking-card-top">
         <div class="breaking-card-name" title="${esc(c.name)}">${esc(c.name)}</div>
-        <span class="breaking-platform-icon" title="YouTube">${PLATFORM_ICON}</span>
+        <span class="breaking-platform-icon" title="YouTube">▶</span>
       </div>
       <div class="breaking-card-pill">
         <span class="pill pill-genre">${esc(c.genre||"Indie")}</span>
@@ -408,6 +416,14 @@ async function renderBreakingThisWeek() {
       <div class="breaking-growth-label">compared to last week</div>
     </div>`;
   }).join("");
+  wrap.querySelectorAll(".breaking-card[data-cid]").forEach(card => {
+    card.style.cursor = "pointer";
+    card.addEventListener("click", () => {
+      const ch = allChannels.find(x => x.id === card.dataset.cid);
+      if (ch) openArtistDrawer(ch);
+      else window.open(`https://youtube.com/channel/${card.dataset.cid}`, "_blank");
+    });
+  });
 }
 
 // ── Trending genre signal ─────────────────────────────────────────────────────
@@ -1052,7 +1068,7 @@ const TAB_CONTEXT = {
   artists:  "Browse and filter artists by language and genre — use Collab Finder to spot potential collaborators",
   venues:   "Upcoming shows across cities — updated daily from BookMyShow, Skillboxes, District, and HighApe",
   buzz:     "Reddit threads and press coverage mentioning Indian indie artists",
-  industry: "Labels, booking agencies, and music companies — who's signing and how to approach them"
+  industry: "Labels, booking agencies, and music companies active in the Indian indie space"
 };
 
 function goTab(name) {
