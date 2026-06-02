@@ -183,9 +183,15 @@
       nav { padding: 0 8px; }
       .tab { padding: 10px 10px; }
     }
+  .embedded header, .embedded nav { display: none !important; }
   </style>
 </head>
 <body>
+<script>
+  if (new URLSearchParams(location.search).get('embed') === '1') {
+    document.documentElement.classList.add('embedded');
+  }
+</script>
 
 <header>
   <div class="logo"><a href="../">◉ India Indie Music Radar</a></div>
@@ -199,7 +205,6 @@
   <a class="tab" href="../programme/">Programme</a>
   <a class="tab" href="../playbook/">Playbook</a>
   <a class="tab" href="../">Today</a>
-  <a class="tab active" href="../industry/">Industry</a>
   <a class="tab" href="../submit/">Submit</a>
 </nav>
 
