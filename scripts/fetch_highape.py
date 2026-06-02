@@ -31,6 +31,76 @@ CITIES = [
 
 BASE_URL = "https://highape.com"
 
+# Locality-name → canonical city. Used to override URL-based city when
+# the venue name contains a well-known neighbourhood that places it in a
+# different city than the HighApe page it was scraped from.
+LOCALITY_TO_CITY = {
+    # Hyderabad
+    "gachibowli": "Hyderabad", "gachibowil": "Hyderabad",
+    "hitech city": "Hyderabad", "hitec city": "Hyderabad",
+    "madhapur": "Hyderabad", "banjara hills": "Hyderabad",
+    "jubilee hills": "Hyderabad", "kondapur": "Hyderabad",
+    "manikonda": "Hyderabad", "lb nagar": "Hyderabad",
+    "kukatpally": "Hyderabad", "secunderabad": "Hyderabad",
+    "ameerpet": "Hyderabad", "begumpet": "Hyderabad",
+    "miyapur": "Hyderabad",
+    # Mumbai
+    "bandra": "Mumbai", "andheri": "Mumbai", "juhu": "Mumbai",
+    "lower parel": "Mumbai", "bkc": "Mumbai", "kurla": "Mumbai",
+    "powai": "Mumbai", "dadar": "Mumbai", "goregaon": "Mumbai",
+    "malad": "Mumbai", "worli": "Mumbai", "versova": "Mumbai",
+    "navi mumbai": "Mumbai", "thane": "Mumbai", "borivali": "Mumbai",
+    "vile parle": "Mumbai", "matunga": "Mumbai",
+    # Delhi
+    "connaught place": "Delhi", "hauz khas": "Delhi",
+    "cyberhub": "Delhi", "cyber hub": "Delhi",
+    "saket": "Delhi", "vasant kunj": "Delhi",
+    "noida": "Delhi", "gurugram": "Delhi", "gurgaon": "Delhi",
+    "mehrauli": "Delhi", "lajpat nagar": "Delhi",
+    "south extension": "Delhi", "green park": "Delhi",
+    # Bangalore (confirm genuinely Bangalore localities)
+    "whitefield": "Bangalore", "koramangala": "Bangalore",
+    "indiranagar": "Bangalore", "jayanagar": "Bangalore",
+    "mg road": "Bangalore", "ulsoor": "Bangalore",
+    "marathahalli": "Bangalore", "electronic city": "Bangalore",
+    "jp nagar": "Bangalore", "btm layout": "Bangalore",
+    "hsr layout": "Bangalore", "hebbal": "Bangalore",
+    # Pune
+    "koregaon park": "Pune", "kothrud": "Pune",
+    "shivajinagar": "Pune", "viman nagar": "Pune",
+    "baner": "Pune", "aundh": "Pune", "wakad": "Pune",
+    "hinjewadi": "Pune", "kharadi": "Pune",
+    # Chennai
+    "t nagar": "Chennai", "nungambakkam": "Chennai",
+    "anna nagar": "Chennai", "adyar": "Chennai",
+    "velachery": "Chennai", "mylapore": "Chennai",
+    # Kolkata
+    "park street": "Kolkata", "salt lake": "Kolkata",
+    "ballygunge": "Kolkata", "new town": "Kolkata",
+    # Goa
+    "calangute": "Goa", "baga": "Goa", "anjuna": "Goa",
+    "panaji": "Goa", "panjim": "Goa", "vagator": "Goa",
+    "assagao": "Goa", "candolim": "Goa",
+}
+
+ADDR_LOCALITY_MAP = {
+    "bengaluru": "Bangalore", "bangalore": "Bangalore",
+    "mumbai": "Mumbai", "delhi": "Delhi", "new delhi": "Delhi",
+    "hyderabad": "Hyderabad", "pune": "Pune", "chennai": "Chennai",
+    "kolkata": "Kolkata", "goa": "Goa", "kochi": "Kochi", "cochin": "Kochi",
+}
+
+
+def city_from_locality(text):
+    """Return city if text contains a known locality name, else None."""
+    tl = text.lower()
+    # Sort longest first so 'connaught place' beats 'place'
+    for loc, city in sorted(LOCALITY_TO_CITY.items(), key=lambda x: -len(x[0])):
+        if loc in tl:
+            return city
+    return None
+
+
 # HighApe is a music/nightlife platform — accept everything except
 # clearly non-music events. Don't require positive music keywords.
 NON_MUSIC = [
@@ -40,6 +110,11 @@ NON_MUSIC = [
     "art exhibition", "gallery opening", "theatre performance",
     "mafia night", "mafia game", "murder mystery", "networking event",
     "corporate", "seminar", "conference",
+    # Craft / hobby workshops (common at Third Wave Coffee-style venues)
+    " workshop", "resin ", "clay ", "kintsugi", "macrame", "candle making",
+    "tote bag", "lego ", "pottery", "embroidery", "knitting", "crochet",
+    "journaling", "vision board", "soap making", "terrarium", "origami",
+    "sip and paint", "paint and sip", "painting workshop", "sketching class",
 ]
 
 
@@ -164,16 +239,12 @@ async def scrape():
                             continue
                         seen_urls.add(url)
 
-                        # Derive city from URL path (/{city}/events/...) — more reliable
-                        # than the page we scraped from, since HighApe shows cross-city events
-                        city_from_url = city_name
-                        if url:
-                            m = re.search(r'highape\.com/([^/]+)/events/', url)
-                            if m:
-                                slug = m.group(1)
-                                city_from_url = CITY_FROM_URL_SLUG.get(slug, city_name)
-
-                        location = item.get("location", {})
+                        # Derive city — three sources in priority order:
+                        # 1. Schema.org address.addressLocality (most accurate)
+                        # 2. Venue name locality keyword match
+                        # 3. Event URL path slug
+                        # 4. Page city (fallback)
+                        location = item.get("location", {}) or {}
                         venue    = (location.get("name") or "").strip()
                         # Clean city suffix from venue name
                         venue = re.sub(
@@ -183,10 +254,30 @@ async def scrape():
                         if venue.lower() in ("to be announced", "tba", "venue tbc"):
                             venue = ""
 
+                        # 1. Schema.org address
+                        addr = location.get("address") or {}
+                        if isinstance(addr, str):
+                            addr = {}
+                        raw_addr_loc = (addr.get("addressLocality") or "").strip().lower()
+                        city_from_addr = ADDR_LOCALITY_MAP.get(raw_addr_loc)
+
+                        # 2. Venue name locality keyword
+                        city_from_venue = city_from_locality(venue) if venue else None
+
+                        # 3. URL slug
+                        city_from_url = city_name
+                        if url:
+                            m = re.search(r'highape\.com/([^/]+)/events/', url)
+                            if m:
+                                slug = m.group(1)
+                                city_from_url = CITY_FROM_URL_SLUG.get(slug, city_name)
+
+                        actual_city = city_from_addr or city_from_venue or city_from_url
+
                         city_events.append({
                             "name":      name,
                             "venue":     venue,
-                            "city":      city_from_url,
+                            "city":      actual_city,
                             "date":      ev_date,
                             "time":      ev_time,
                             "price_min": None,
