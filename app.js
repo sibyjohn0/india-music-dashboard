@@ -731,20 +731,8 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
       ? `<div class="venue-more">+ ${unnamedCount} more show${unnamedCount !== 1 ? "s" : ""} at unlisted venues — <a href="https://www.skillboxes.com/events" target="_blank" rel="noopener">see all on Skillboxes</a></div>`
       : "";
 
-    // Venue composition bar for city view
-    const sortedNamed = [...named].sort((a, b) => b.events.length - a.events.length);
-    const totalVenueEvts = sortedNamed.reduce((s, v) => s + v.events.length, 0);
-    const venueBarSegs = sortedNamed.map((v, i) => {
-      const pct = totalVenueEvts ? (v.events.length / totalVenueEvts * 100).toFixed(1) : 0;
-      return `<div style="flex:${pct};background:${PAL[i % PAL.length]}" title="${v.name}: ${v.events.length} shows"></div>`;
-    }).join("");
-    const venueBar = sortedNamed.length > 1
-      ? `<div class="composition-bar">${venueBarSegs}</div>`
-      : "";
-
     el.innerHTML = `
       <div class="venue-summary">${esc(sceneSummary(list))}</div>
-      ${venueBar}
       <div class="venue-grid">${cards}</div>
       ${moreNote}`;
   };
