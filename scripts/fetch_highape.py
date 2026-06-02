@@ -246,11 +246,12 @@ async def scrape():
                             continue
                         seen_urls.add(url)
 
-                        # Derive city — three sources in priority order:
+                        # Derive city — priority order:
                         # 1. Schema.org address.addressLocality (most accurate)
                         # 2. Venue name locality keyword match
-                        # 3. Event URL path slug
-                        # 4. Page city (fallback)
+                        # 3. Page city (fallback — event URL slug is unreliable
+                        #    because HighApe cross-promotes events across city pages
+                        #    using the canonical URL from the event's home city)
                         location = item.get("location", {}) or {}
                         venue    = (location.get("name") or "").strip()
                         # Clean city suffix from venue name
@@ -271,15 +272,7 @@ async def scrape():
                         # 2. Venue name locality keyword
                         city_from_venue = city_from_locality(venue) if venue else None
 
-                        # 3. URL slug
-                        city_from_url = city_name
-                        if url:
-                            m = re.search(r'highape\.com/([^/]+)/events/', url)
-                            if m:
-                                slug = m.group(1)
-                                city_from_url = CITY_FROM_URL_SLUG.get(slug, city_name)
-
-                        actual_city = city_from_addr or city_from_venue or city_from_url
+                        actual_city = city_from_addr or city_from_venue or city_name
 
                         city_events.append({
                             "name":      name,
