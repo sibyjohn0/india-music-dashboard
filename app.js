@@ -369,12 +369,38 @@ async function renderBreakingThisWeek() {
     .sort((a,b) => b.delta - a.delta)
     .slice(0,3);
 
+  const body   = document.getElementById("breaking-body");
+  const player = document.getElementById("breaking-player");
+  const iframe = document.getElementById("breaking-player-iframe");
+
+  const closeBreakingPlayer = () => {
+    body?.classList.remove("has-player");
+    if (player) player.hidden = true;
+    if (iframe) iframe.src = "";
+    wrap.querySelectorAll(".hero-card").forEach(c => c.classList.remove("breaking-active"));
+  };
+
+  document.getElementById("breaking-player-close")
+    ?.addEventListener("click", closeBreakingPlayer);
+
   const attachBreakingClicks = () => {
     wrap.querySelectorAll(".hero-card[data-cid]").forEach(card => {
       card.addEventListener("click", () => {
         const ch = allChannels.find(x => x.id === card.dataset.cid);
-        if (ch) openArtistDrawer(ch);
-        else window.open(`https://youtube.com/channel/${card.dataset.cid}`, "_blank");
+        const videoUrl = ch?.top_video?.url || "";
+        const videoId  = videoUrl.match(/[?&]v=([^&]+)/)?.[1];
+        if (videoId) {
+          body?.classList.add("has-player");
+          if (player) player.hidden = false;
+          if (iframe) iframe.src =
+            `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0`;
+          wrap.querySelectorAll(".hero-card").forEach(c => c.classList.remove("breaking-active"));
+          card.classList.add("breaking-active");
+          card.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        } else {
+          if (ch) openArtistDrawer(ch);
+          else window.open(`https://youtube.com/channel/${card.dataset.cid}`, "_blank");
+        }
       });
     });
   };

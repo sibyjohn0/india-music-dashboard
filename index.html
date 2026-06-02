@@ -61,8 +61,15 @@
       <div class="today-section">
         <div class="today-section-hd">Breaking this week</div>
         <div class="today-section-sub">Channels with the biggest week-over-week view growth — artists gaining momentum right now.</div>
-        <div class="breaking-cards" id="breaking-cards">
-          <div class="breaking-loading">Loading channel data…</div>
+        <div class="breaking-body" id="breaking-body">
+          <div class="breaking-player" id="breaking-player" hidden>
+            <iframe id="breaking-player-iframe" frameborder="0" allowfullscreen
+              allow="autoplay; encrypted-media"></iframe>
+            <button class="breaking-player-close" id="breaking-player-close" aria-label="Close">✕</button>
+          </div>
+          <div class="breaking-cards" id="breaking-cards">
+            <div class="breaking-loading">Loading channel data…</div>
+          </div>
         </div>
       </div>
 
