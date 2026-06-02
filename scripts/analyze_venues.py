@@ -19,9 +19,23 @@ OUT_INSIGHTS = DATA_DIR / "venue-insights.json"
 OUT_HISTORY  = DATA_DIR / "venue-history.json"
 
 CITY_ALIAS = {
+    # Bangalore
     "bengaluru": "Bangalore", "bangalore city": "Bangalore",
+    # Delhi NCR — all fold into Delhi
     "new delhi": "Delhi", "gurugram": "Delhi", "gurgaon": "Delhi",
-    "cochin": "Kochi", "delhi/ncr": "Delhi",
+    "delhi/ncr": "Delhi", "delhi ncr": "Delhi", "delhi (ncr)": "Delhi",
+    "noida": "Delhi", "ghaziabad": "Delhi",
+    "dlf cyberhub, gurugram": "Delhi",
+    # Mumbai suburbs → Mumbai
+    "navi mumbai": "Mumbai", "vile parle": "Mumbai", "andheri": "Mumbai",
+    "dadar": "Mumbai", "bandra": "Mumbai", "borivali(w)": "Mumbai",
+    "thane": "Mumbai", "matunga": "Mumbai",
+    # Kolkata localities
+    "southern avenue, kolkata": "Kolkata",
+    # Hyderabad localities
+    "lb nagar": "Hyderabad", "madhapur": "Hyderabad",
+    # Kochi
+    "cochin": "Kochi",
 }
 CITY_NAMES = {
     "bangalore","bengaluru","mumbai","delhi","hyderabad","chennai",

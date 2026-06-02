@@ -1369,6 +1369,76 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   color: #555;
   margin-top: 4px;
 }
+/* ── City summary (All cities view) ── */
+.city-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.city-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.city-row:hover {
+  border-color: #444;
+  background: var(--surface3, #1e1e1e);
+}
+.city-row-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  min-width: 100px;
+}
+.city-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.city-row-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.city-row-sep { font-size: 11px; color: var(--border); }
+.city-row-ticketed { font-size: 12px; color: var(--muted); }
+.city-row-price { font-size: 12px; color: var(--text); }
+.city-row-arrow { font-size: 14px; color: var(--muted); margin-left: auto; }
+
+/* ── Venue growth badge (card-level) ── */
+.venue-growth {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.venue-growth.up   { color: var(--green); background: color-mix(in srgb, var(--green) 15%, transparent); }
+.venue-growth.down { color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+.venue-growth.flat { color: var(--muted); background: var(--surface2); }
+.venue-growth.new  { color: var(--amber); background: color-mix(in srgb, var(--amber) 12%, transparent); }
+
+.venue-card-top-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.venue-card-top-row .venue-card-name { margin-bottom: 0; }
+
 .venue-more {
   margin-top: 12px;
   font-size: 11px;

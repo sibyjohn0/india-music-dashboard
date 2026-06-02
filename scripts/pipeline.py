@@ -118,6 +118,12 @@ SOURCES = [
         "env_required": [],
         "outputs": ["data/events-skillboxes.json"],
     },
+    {
+        "name": "highape",
+        "script": "fetch_highape.py",
+        "env_required": [],
+        "outputs": ["data/events-highape.json"],
+    },
     # Weekly reviewer sources — included here so pipeline tracks them.
     # These are only triggered on Sunday via the --reviewers flag or directly.
     {

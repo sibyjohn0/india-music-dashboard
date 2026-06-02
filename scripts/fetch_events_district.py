@@ -122,12 +122,14 @@ async def scrape():
                 await page.goto(
                     f"{BASE_URL}/events/music-in-{city_slug}-book-tickets",
                     wait_until="domcontentloaded",
-                    timeout=40000,
+                    timeout=45000,
                 )
-                for _ in range(8):
-                    if captured:
-                        break
-                    await asyncio.sleep(1)
+                # Wait for initial XHR to fire
+                await asyncio.sleep(3)
+                # Scroll down in steps to trigger lazy loading / pagination
+                for scroll_step in range(6):
+                    await page.evaluate("window.scrollBy(0, window.innerHeight)")
+                    await asyncio.sleep(1.5)
             except Exception as e:
                 print(f"  {city_name}: navigation failed ({e})", file=sys.stderr)
                 await page.close()
