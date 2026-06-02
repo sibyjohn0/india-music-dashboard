@@ -210,10 +210,10 @@
 
 <div class="page-hero">
   <h1 class="page-title">Labels &amp; Agencies</h1>
-  <p class="page-sub">Who's signing, who's booking, and what stage you need to be at before you approach. 60 entities across labels, agencies, and management — India-first, global labels as benchmarks.</p>
+  <p class="page-sub" id="page-sub">Who's signing, who's booking, and what stage you need to be at before you approach. Labels, agencies, and management — India-first, global labels as benchmarks.</p>
   <div class="feat-track">
     <div class="feat-card">
-      <div class="feat-num">60</div>
+      <div class="feat-num" id="feat-total">—</div>
       <div class="feat-name">Entities mapped</div>
       <div class="feat-desc">Labels and booking agencies, India-first. Global benchmarks included for comparison.</div>
     </div>
@@ -474,6 +474,12 @@ Promise.all([
 ]).then(([data, ed]) => {
   allEntities = data.entities || [];
   editorial = ed || {};
+  const total = data.total_entities || allEntities.length;
+  const indiaCount = data.india_count || allEntities.filter(e => e.country === 'India').length;
+  const featEl = document.getElementById('feat-total');
+  if (featEl) featEl.textContent = total;
+  const subEl = document.getElementById('page-sub');
+  if (subEl) subEl.textContent = `Who's signing, who's booking, and what stage you need to be at before you approach. ${total} entities across labels, agencies, and management — ${indiaCount} India-first, global labels as benchmarks.`;
   renderGrid();
 }).catch(() => {
   document.getElementById('grid').innerHTML = '<div class="no-results">Could not load data.</div>';
