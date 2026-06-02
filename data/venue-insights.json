@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-02T12:38:38.226217+00:00",
+  "generated_at": "2026-06-02T13:19:00.260749+00:00",
   "snapshot_date": "2026-06-02",
   "cities": {
     "Delhi": {
-      "total_shows": 61,
+      "total_shows": 62,
       "venues": [
         {
           "name": "Studio XO",
@@ -270,6 +270,14 @@
           "growth": 0
         },
         {
+          "name": "Rajgarh Farms, Noida",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-06-13",
+          "growth": null
+        },
+        {
           "name": "Flashcraft",
           "shows": 1,
           "price_min": 1000,
@@ -463,8 +471,16 @@
       "unlisted_shows": 18
     },
     "Hyderabad": {
-      "total_shows": 41,
+      "total_shows": 48,
       "venues": [
+        {
+          "name": "Third Wave Coffee | Gachibowli",
+          "shows": 7,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-06-06",
+          "growth": null
+        },
         {
           "name": "Hard Rock Cafe Hitech City",
           "shows": 4,
@@ -639,7 +655,7 @@
           "price_min": 250,
           "price_max": 250,
           "next_date": "2026-06-19",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Venue To Be Announced",
@@ -707,7 +723,7 @@
           "price_min": 399,
           "price_max": 999,
           "next_date": "2026-07-04",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "The Cult Terra",
@@ -1119,7 +1135,7 @@
       "unlisted_shows": 2
     },
     "Mumbai": {
-      "total_shows": 21,
+      "total_shows": 24,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -1144,6 +1160,14 @@
           "price_max": 4999,
           "next_date": "2026-06-26",
           "growth": 0
+        },
+        {
+          "name": "Adagio Lite, Bandra",
+          "shows": 2,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-06-04",
+          "growth": null
         },
         {
           "name": "Lyla | Bandra Kurla Complex,",
@@ -1210,6 +1234,14 @@
           "growth": 0
         },
         {
+          "name": "Rude Lounge Malad",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-06-05",
+          "growth": null
+        },
+        {
           "name": "Edition #10 Curated by Maushi",
           "shows": 1,
           "price_min": null,
@@ -1237,16 +1269,8 @@
       "unlisted_shows": 4
     },
     "Bangalore": {
-      "total_shows": 233,
+      "total_shows": 213,
       "venues": [
-        {
-          "name": "Hard Rock Cafe Whitefield",
-          "shows": 14,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-06",
-          "growth": 0
-        },
         {
           "name": "Ricky\u2019s Pool Club by Titos",
           "shows": 7,
@@ -1256,12 +1280,12 @@
           "growth": 0
         },
         {
-          "name": "Third Wave Coffee | Gachibowli",
+          "name": "Hard Rock Cafe Whitefield",
           "shows": 7,
           "price_min": null,
           "price_max": null,
           "next_date": "2026-06-06",
-          "growth": 0
+          "growth": -7
         },
         {
           "name": "Bombay Adda",
@@ -1381,14 +1405,6 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-06-03",
-          "growth": 0
-        },
-        {
-          "name": "Adagio Lite, Bandra",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-04",
           "growth": 0
         },
         {
@@ -1856,14 +1872,6 @@
           "growth": 0
         },
         {
-          "name": "Rude Lounge Malad",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-05",
-          "growth": 0
-        },
-        {
           "name": "Rehab Social By Wild Flower",
           "shows": 1,
           "price_min": null,
@@ -1968,14 +1976,6 @@
           "growth": 0
         },
         {
-          "name": "Moonlight Films & Theatre Studio",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-06",
-          "growth": 0
-        },
-        {
           "name": "Pindi Pulla Reddy Gardens",
           "shows": 1,
           "price_min": null,
@@ -1993,14 +1993,6 @@
         },
         {
           "name": "Gsuper Club & GToxe",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-07",
-          "growth": 0
-        },
-        {
-          "name": "My Third Space",
           "shows": 1,
           "price_min": null,
           "price_max": null,
@@ -2049,14 +2041,6 @@
         },
         {
           "name": "RTribe Dance and Wellness Space",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-06-13",
-          "growth": 0
-        },
-        {
-          "name": "Rajgarh Farms, Noida",
           "shows": 1,
           "price_min": null,
           "price_max": null,
