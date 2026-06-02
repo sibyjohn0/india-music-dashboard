@@ -564,23 +564,43 @@ function renderDiscoverShowsStrip(data) {
     const d = new Date(e.date);
     return d >= now - 864e5 && d <= now + 90 * 864e5;
   });
-  const cityCounts = {};
+
+  // Build city counts and top venue per city
+  const cityData = {};
   for (const e of events) {
     const c = dssNorm(e.city || "");
-    if (DSS_TOP6.includes(c)) cityCounts[c] = (cityCounts[c] || 0) + 1;
+    if (!DSS_TOP6.includes(c)) continue;
+    if (!cityData[c]) cityData[c] = { count: 0, venues: {} };
+    cityData[c].count++;
+    const vn = (e.venue || "").trim();
+    if (vn && !/^(venue\s*tbc|tba|to be announced)$/i.test(vn)) {
+      cityData[c].venues[vn] = (cityData[c].venues[vn] || 0) + 1;
+    }
   }
-  const total = Object.values(cityCounts).reduce((s, n) => s + n, 0);
+  const total = Object.values(cityData).reduce((s, d) => s + d.count, 0);
   if (!total) return;
-  const pills = DSS_TOP6
-    .filter(c => cityCounts[c])
-    .map(c => `<button class="dss-pill" style="border-color:${DSS_COLORS[c]};color:${DSS_COLORS[c]}" onclick="goToVenueCity('${esc(c)}')">${esc(c)} <strong>${cityCounts[c]}</strong></button>`)
-    .join("");
+
+  const cards = DSS_TOP6
+    .filter(c => cityData[c])
+    .map(c => {
+      const col = DSS_COLORS[c];
+      const { count, venues } = cityData[c];
+      const topV = Object.entries(venues).sort((a, b) => b[1] - a[1])[0];
+      const venueLine = topV
+        ? `<div class="tv-venue-hero">${esc(topV[0])}</div><div class="tv-card-footer">${topV[1]} shows · ${count} in city</div>`
+        : `<div class="tv-venue-hero" style="color:var(--muted);font-size:12px">No named venue yet</div><div class="tv-card-footer">${count} shows</div>`;
+      return `<div class="tv-card" onclick="goToVenueCity('${esc(c)}')">
+        <div class="tv-city-label" style="color:${col}">${esc(c)}</div>
+        ${venueLine}
+      </div>`;
+    }).join("");
+
   el.innerHTML = `
     <div class="dss-header">
-      <span class="dss-title">${total} upcoming shows across ${Object.keys(cityCounts).length} cities</span>
+      <span class="dss-title">${total} upcoming shows across ${Object.keys(cityData).length} cities</span>
       <a class="dss-all" onclick="goTab('venues')" href="#venues">See all →</a>
     </div>
-    <div class="dss-pills">${pills}</div>`;
+    <div class="tv-grid">${cards}</div>`;
   el.style.display = "block";
 }
 
