@@ -127,6 +127,7 @@ async function init() {
   renderDiscover(allVideos);
   renderBreakingThisWeek();
   renderTodayEvents(_eventsData);
+  renderDiscoverShowsStrip(_eventsData);
   renderTrendsEvents(_eventsData, _venueInsights, _sourceData);
   renderTodayReviewers(_reviewersData);
   renderTrendingGenre(allVideos);
@@ -535,6 +536,54 @@ function renderTodayEvents(data) {
   }).join("")}</div>`;
 }
 
+// ── Discover: Shows strip ──────────────────────────────────────────────────────
+const DSS_CITY_ALIAS = {
+  "bengaluru":"Bangalore","bangalore city":"Bangalore","new delhi":"Delhi",
+  "gurugram":"Delhi","gurgaon":"Delhi","noida":"Delhi","delhi/ncr":"Delhi",
+  "navi mumbai":"Mumbai","andheri":"Mumbai","bandra":"Mumbai","thane":"Mumbai",
+  "lb nagar":"Hyderabad","madhapur":"Hyderabad",
+};
+const DSS_TOP6 = ["Bangalore","Mumbai","Delhi","Hyderabad","Pune","Chennai"];
+const DSS_COLORS = {
+  "Bangalore":"#a78bfa","Mumbai":"#60a5fa","Delhi":"#34d399",
+  "Hyderabad":"#fbbf24","Pune":"#fb923c","Chennai":"#f87171",
+};
+const dssNorm = c => DSS_CITY_ALIAS[(c||"").toLowerCase()] || c;
+
+window.goToVenueCity = (city) => {
+  goTab("venues");
+  if (window.selectCity) window.selectCity(city);
+};
+
+function renderDiscoverShowsStrip(data) {
+  const el = document.getElementById("discover-shows-strip");
+  if (!el || !data) return;
+  const now = Date.now();
+  const events = (data.events || []).filter(e => {
+    if (!e.date) return true;
+    const d = new Date(e.date);
+    return d >= now - 864e5 && d <= now + 90 * 864e5;
+  });
+  const cityCounts = {};
+  for (const e of events) {
+    const c = dssNorm(e.city || "");
+    if (DSS_TOP6.includes(c)) cityCounts[c] = (cityCounts[c] || 0) + 1;
+  }
+  const total = Object.values(cityCounts).reduce((s, n) => s + n, 0);
+  if (!total) return;
+  const pills = DSS_TOP6
+    .filter(c => cityCounts[c])
+    .map(c => `<button class="dss-pill" style="border-color:${DSS_COLORS[c]};color:${DSS_COLORS[c]}" onclick="goToVenueCity('${esc(c)}')">${esc(c)} <strong>${cityCounts[c]}</strong></button>`)
+    .join("");
+  el.innerHTML = `
+    <div class="dss-header">
+      <span class="dss-title">${total} upcoming shows across ${Object.keys(cityCounts).length} cities</span>
+      <a class="dss-all" onclick="goTab('venues')" href="#venues">See all →</a>
+    </div>
+    <div class="dss-pills">${pills}</div>`;
+  el.style.display = "block";
+}
+
 // ── Trends: Upcoming Shows full list ─────────────────────────────────────────
 function renderTrendsEvents(data, venueInsights, sourceData) {
   const el      = document.getElementById("shows-list");
@@ -723,10 +772,41 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
           </div>`;
         }).join("");
       el.innerHTML = `${compBar}<div class="city-summary">${cityRows}</div>`;
+
+      // Top-venues spotlight — top 6 cities with top 3 venues each
+      const spotlightEl = document.getElementById("venues-city-spotlight");
+      if (spotlightEl) {
+        const top6Entries = cityEntries.filter(([c]) => DSS_TOP6.includes(c));
+        if (top6Entries.length) {
+          const cards = top6Entries.map(([city, s]) => {
+            const col = CITY_COLORS[city] || "#888";
+            const topVenues = Object.entries(s.venues)
+              .sort((a, b) => b[1] - a[1]).slice(0, 3);
+            const venueLines = topVenues.map(([vn, cnt]) =>
+              `<div class="tv-venue-row"><span class="tv-venue-name">${esc(vn)}</span><span class="tv-venue-cnt">${cnt}</span></div>`
+            ).join("");
+            const ticketedPct = s.events.length ? Math.round(s.ticketed / s.events.length * 100) : 0;
+            return `<div class="tv-card" onclick="selectCity('${esc(city)}')">
+              <div class="tv-card-header">
+                <span class="tv-city-dot" style="background:${col}"></span>
+                <span class="tv-city-name">${esc(city)}</span>
+                <span class="tv-city-count">${s.events.length}</span>
+              </div>
+              <div class="tv-venues">${venueLines || '<div class="tv-venue-row muted">No named venues yet</div>'}</div>
+              <div class="tv-card-footer">${s.ticketed} ticketed · ${ticketedPct}% of shows</div>
+            </div>`;
+          }).join("");
+          spotlightEl.innerHTML = `<div class="tv-section-hd">Top venues by city</div><div class="tv-grid">${cards}</div>`;
+        } else {
+          spotlightEl.innerHTML = "";
+        }
+      }
       return;
     }
 
     // ── City drill-down: venue cards ─────────────────────────────────────────
+    const _spotEl = document.getElementById("venues-city-spotlight");
+    if (_spotEl) _spotEl.innerHTML = "";
     const list = filtered.filter(e => normCity(e.city || "Other") === activeCity);
 
     const venueMap = {};
