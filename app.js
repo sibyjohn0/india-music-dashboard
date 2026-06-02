@@ -962,7 +962,8 @@ const TAB_CONTEXT = {
   discover: "New releases, breaking videos, and what's gaining traction this week",
   artists:  "Filter and track artists by language and genre",
   trends:   "Upcoming shows across 8 cities and the artist discovery log",
-  buzz:     "Community conversations, Reddit threads, and press coverage"
+  buzz:     "Community conversations, Reddit threads, and press coverage",
+  industry: "Labels, booking agencies, and music companies — who's signing and how to approach them"
 };
 
 function goTab(name) {
@@ -981,6 +982,10 @@ function goTab(name) {
   // Trends: artist log is always ready; charts load on first toggle expand
   if (name==="buzz"&&!_buzzLoaded){
     _buzzLoaded=true; renderBuzz(_socialData);
+  }
+  if (name==="industry") {
+    const frame = document.getElementById('industry-frame');
+    if (frame && !frame.src) frame.src = 'industry/?embed=1';
   }
 }
 
