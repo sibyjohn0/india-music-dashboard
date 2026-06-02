@@ -59,6 +59,12 @@ SOURCES = [
         "outputs": ["data/venue-insights.json"],
     },
     {
+        "name": "monthly_digest",
+        "script": "generate_monthly_digest.py",
+        "env_required": [],
+        "outputs": ["data/monthly-digest.json"],
+    },
+    {
         "name": "spotify",
         "script": "fetch_spotify.py",
         "env_required": ["SPOTIFY_CLIENT_ID", "SPOTIFY_CLIENT_SECRET"],
