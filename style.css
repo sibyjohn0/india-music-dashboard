@@ -699,12 +699,13 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 .drawer-embed-wrap { border-radius: 8px; overflow: hidden; background: #000; aspect-ratio: 16/9; }
 .drawer-embed-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
 .drawer-embed-placeholder {
-  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
-  background: var(--surface2); color: var(--muted); font-size: 13px;
+  position: relative; width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface2); color: #fff; font-size: 13px;
   text-decoration: none; flex-direction: column; gap: 8px;
 }
-.drawer-embed-placeholder:hover { color: var(--text); }
-.drawer-embed-play { font-size: 32px; }
+.drawer-embed-placeholder:hover .drawer-embed-play { transform: scale(1.15); }
+.drawer-embed-play { font-size: 40px; position: relative; z-index: 1; text-shadow: 0 2px 8px rgba(0,0,0,.6); transition: transform .15s; }
 
 .drawer-stats-row {
   display: grid; grid-template-columns: repeat(3, 1fr);
@@ -722,6 +723,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   padding: 8px 16px; border-radius: 8px;
   font-size: 13px; font-weight: 600; text-decoration: none;
   border: 1px solid var(--border); color: var(--text);
+  background: transparent;
   transition: all .15s;
 }
 .drawer-platform-link:hover { border-color: var(--accent); color: var(--accent); }

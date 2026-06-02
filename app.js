@@ -1527,13 +1527,21 @@ function openArtistDrawer(channel) {
     saveBtn.className = "drawer-save-btn" + (nowSaved ? " saved" : "");
   };
 
-  // Embed top video or thumbnail link
+  // Embed top video — show thumbnail first, embed on click to avoid "Video unavailable" on load
   const embedWrap = document.getElementById("drawer-embed");
   if (topVideo?.id) {
-    embedWrap.innerHTML = `<iframe
-      src="https://www.youtube.com/embed/${esc(topVideo.id)}?modestbranding=1&rel=0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen loading="lazy"></iframe>`;
+    const thumb = topVideo.thumbnail || `https://i.ytimg.com/vi/${esc(topVideo.id)}/hqdefault.jpg`;
+    const embedSrc = `https://www.youtube.com/embed/${esc(topVideo.id)}?autoplay=1&modestbranding=1&rel=0`;
+    embedWrap.innerHTML = `<div class="drawer-embed-placeholder" style="cursor:pointer" data-embed="${esc(embedSrc)}">
+      <img src="${esc(thumb)}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" alt="" />
+      <span class="drawer-embed-play">▶</span>
+    </div>`;
+    embedWrap.querySelector('[data-embed]').addEventListener('click', function() {
+      embedWrap.innerHTML = `<iframe
+        src="${this.dataset.embed}"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>`;
+    });
   } else if (topVideo?.thumbnail) {
     embedWrap.innerHTML = `<a class="drawer-embed-placeholder" href="${esc(topVideo.url||ytChLink)}" target="_blank" rel="noopener">
       <img src="${esc(topVideo.thumbnail)}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;" alt="" />
