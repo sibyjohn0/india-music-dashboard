@@ -700,10 +700,75 @@
 
       footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
       .econ-grid { flex-direction: column; }
+      .phase-grid { grid-template-columns: 1fr; }
     }
   </style>
 
   <style>
+    /* ── PHASE GRID ── */
+    .phase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .phase-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px 24px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .phase-ghost {
+      position: absolute;
+      top: -14px;
+      right: 10px;
+      font-size: 100px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      letter-spacing: -4px;
+    }
+    .phase-month-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .phase-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #f0f0f0;
+      letter-spacing: -.3px;
+      line-height: 1.2;
+    }
+    .phase-card-out {
+      font-size: 12px;
+      color: #7070a0;
+      line-height: 1.7;
+      margin-top: 4px;
+    }
+
+    /* ── TEAM AVATAR ── */
+    .team-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 14px;
+    }
+
     /* ── UNIT ECONOMICS SPLIT BAR ── */
     .split-bar {
       display: flex;
@@ -776,7 +841,7 @@
 
 <div class="page">
 
-  <div class="page-tagline">A structured music business programme<br>built for <em>Indian indie artists.</em></div>
+  <div class="page-tagline"><em>Live</em> Music MBA.</div>
   <div class="page-subline">Make the magic.<br>Learn the logic.</div>
 
   <!-- HERO -->
@@ -843,8 +908,6 @@
   <div class="section">
     <div class="section-label">The approach</div>
     <h2 class="section-title">Your unit economics is what we start with.</h2>
-    <p class="section-body">Most artists spend on feel. A mix here, a shoot there, an ad that ran for three days. The result is a music career that looks busy and earns nothing steady. Before anything else, we build a monthly picture: what comes in, what it costs to operate, and what the income target looks like twelve months out.</p>
-
     <div class="split-bar" role="group" aria-label="100 rupee allocation">
       <div class="split-seg" style="flex:30;background:#4ecdc4" data-color="#4ecdc4" data-label="Production" data-amt="₹30" data-desc="Home studio gear has made production dramatically cheaper. A decent track can come out of a ₹30,000 setup. This slice covers studio time, mixing, mastering, EPK, and visual assets. Keep it lean and consistent: one quality release is worth more than three unfinished ones." aria-label="Production 30%"></div>
       <div class="split-seg" style="flex:45;background:#f7b731" data-color="#f7b731" data-label="Promotion" data-amt="₹45" data-desc="This is the actual bottleneck. Paid reach, Meta ads, SubmitHub credits, PR pitches, playlist submissions, content creation. Audience does not grow passively at any budget. A consistent promotion allocation is what turns a release into a data point you can build on." aria-label="Promotion 45%"></div>
@@ -897,8 +960,8 @@
 
     <div class="team-grid">
       <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#e94560,#c0392b);">SJ</div>
         <div class="team-name">Siby John</div>
-        <div class="team-bio">Former YouTube India, music and creator marketing. Built the Radar, the reviewer database, and the playbook.</div>
         <div class="team-role">Numbers, audio, distribution, and PR</div>
         <div class="team-tags">
           <span class="team-tag">Income audit</span>
@@ -911,8 +974,8 @@
         </div>
       </div>
       <div class="team-card">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#f7b731,#e67e22);">KC</div>
         <div class="team-name">Karishma Changroth</div>
-        <div class="team-bio">Brand strategist. Talent industry background at Talented. Specialises in artist identity, social direction, and rights navigation.</div>
         <div class="team-role">Brand strategy and social</div>
         <div class="team-tags">
           <span class="team-tag">Social media strategy</span>
@@ -930,25 +993,23 @@
   <div class="section">
     <div class="section-label">The tools</div>
     <h2 class="section-title">Every decision backed by data we built.</h2>
-    <p class="section-body">These tools are live and free. You can open them right now before deciding anything. The programme gives you someone to work through them with, who built them and maintains them for this scene specifically.</p>
-
     <div class="tool-grid">
       <div class="tool-card">
         <div class="tool-stat">Updated daily</div>
         <div class="tool-name">India Indie Music Radar</div>
-        <div class="tool-desc">Tracks new releases, trending artists, and what is gaining traction across the scene. We use it to understand where your music sits before we recommend anything about timing or positioning.</div>
+        <div class="tool-desc">New releases, trending artists, and what's gaining traction across the Indian indie scene.</div>
         <a class="tool-link" href="../">Open the Radar →</a>
       </div>
       <div class="tool-card">
         <div class="tool-stat">924 contacts</div>
         <div class="tool-name">Reviewer Database</div>
-        <div class="tool-desc">Every independent music blog, editorial, and South Asian curator we track, filtered by genre and language. We build your PR pipeline from this, not from a list someone put together three years ago.</div>
+        <div class="tool-desc">Every blog, editorial, and South Asian curator we track — filtered by genre, language, and cost.</div>
         <a class="tool-link" href="../reviewers/">Browse reviewers →</a>
       </div>
       <div class="tool-card">
         <div class="tool-stat">1,327 entities</div>
-        <div class="tool-name">Labels &amp; Agencies Database</div>
-        <div class="tool-desc">Labels, booking agencies, and music companies with signing status and approach routes. We use this when the programme reaches the industry phase and you are ready to move.</div>
+        <div class="tool-name">Labels &amp; Agencies</div>
+        <div class="tool-desc">Labels, booking agencies, and music companies with signing status and approach routes.</div>
         <a class="tool-link" href="../industry/">Browse industry →</a>
       </div>
     </div>
@@ -959,48 +1020,54 @@
     <div class="section-label">The programme</div>
     <h2 class="section-title">Six months. One focus each.</h2>
 
-    <div class="phase-list">
-      <div class="phase-row">
-        <span class="phase-row-num">01</span>
-        <div class="phase-row-content">
-          <div class="phase-row-top"><span class="phase-row-focus">Financial Diagnostic</span><span class="phase-row-badge badge-consult">Consultant session</span></div>
-          <div class="phase-row-out">Financial snapshot + monthly income target + production budget agreed</div>
-        </div>
+    <div style="display:flex; gap:16px; margin-bottom:28px; flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);"><span style="width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0;"></span> Consultant-led</div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);"><span style="width:9px;height:9px;border-radius:50%;background:var(--green);display:inline-block;flex-shrink:0;"></span> Artist-owned</div>
+      <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block;flex-shrink:0;"></span> Joint review</div>
+    </div>
+
+    <div class="phase-grid">
+      <div class="phase-card">
+        <div class="phase-ghost">01</div>
+        <div class="phase-month-label">Month 01</div>
+        <span class="phase-row-badge badge-consult" style="align-self:flex-start;">Consultant session</span>
+        <div class="phase-card-title">Financial<br>Diagnostic</div>
+        <div class="phase-card-out">Income snapshot · Monthly target · Production budget</div>
       </div>
-      <div class="phase-row">
-        <span class="phase-row-num">02</span>
-        <div class="phase-row-content">
-          <div class="phase-row-top"><span class="phase-row-focus">Identity and Production</span><span class="phase-row-badge badge-consult">Consultant session</span></div>
-          <div class="phase-row-out">EPK brief + content direction + 163-item task list filtered to your situation</div>
-        </div>
+      <div class="phase-card">
+        <div class="phase-ghost">02</div>
+        <div class="phase-month-label">Month 02</div>
+        <span class="phase-row-badge badge-consult" style="align-self:flex-start;">Consultant session</span>
+        <div class="phase-card-title">Identity &amp;<br>Production</div>
+        <div class="phase-card-out">EPK brief · Content direction · 163-item task list</div>
       </div>
-      <div class="phase-row">
-        <span class="phase-row-num">03</span>
-        <div class="phase-row-content">
-          <div class="phase-row-top"><span class="phase-row-focus">Distribution and PR</span><span class="phase-row-badge badge-artist">Artist owns</span></div>
-          <div class="phase-row-out">First 10 pitches sent. Streaming profiles fixed. Weekly check-ins on what shipped.</div>
-        </div>
+      <div class="phase-card">
+        <div class="phase-ghost">03</div>
+        <div class="phase-month-label">Month 03</div>
+        <span class="phase-row-badge badge-artist" style="align-self:flex-start;">Artist owns</span>
+        <div class="phase-card-title">Distribution<br>&amp; PR</div>
+        <div class="phase-card-out">First 10 pitches · Streaming profiles fixed · Weekly check-ins</div>
       </div>
-      <div class="phase-row">
-        <span class="phase-row-num">04</span>
-        <div class="phase-row-content">
-          <div class="phase-row-top"><span class="phase-row-focus">Live Circuit</span><span class="phase-row-badge badge-artist">Artist owns</span></div>
-          <div class="phase-row-out">3 shows confirmed or in pipeline. One booking agency pitched.</div>
-        </div>
+      <div class="phase-card">
+        <div class="phase-ghost">04</div>
+        <div class="phase-month-label">Month 04</div>
+        <span class="phase-row-badge badge-artist" style="align-self:flex-start;">Artist owns</span>
+        <div class="phase-card-title">Live<br>Circuit</div>
+        <div class="phase-card-out">3 shows confirmed · One booking agency pitched</div>
       </div>
-      <div class="phase-row">
-        <span class="phase-row-num">05</span>
-        <div class="phase-row-content">
-          <div class="phase-row-top"><span class="phase-row-focus">Community</span><span class="phase-row-badge badge-artist">Artist owns</span></div>
-          <div class="phase-row-out">50 named fans identified from people already there. Active fan group running.</div>
-        </div>
+      <div class="phase-card">
+        <div class="phase-ghost">05</div>
+        <div class="phase-month-label">Month 05</div>
+        <span class="phase-row-badge badge-artist" style="align-self:flex-start;">Artist owns</span>
+        <div class="phase-card-title">Find Your<br>Fans</div>
+        <div class="phase-card-out">50 named fans identified · Active fan group running</div>
       </div>
-      <div class="phase-row">
-        <span class="phase-row-num">06</span>
-        <div class="phase-row-content">
-          <div class="phase-row-top"><span class="phase-row-focus">Income Activation</span><span class="phase-row-badge badge-joint">Joint review</span></div>
-          <div class="phase-row-out">One non-streaming income stream live + six-month review doc</div>
-        </div>
+      <div class="phase-card" style="border-color:rgba(233,69,96,.3);">
+        <div class="phase-ghost">06</div>
+        <div class="phase-month-label">Month 06</div>
+        <span class="phase-row-badge badge-joint" style="align-self:flex-start;">Joint review</span>
+        <div class="phase-card-title">Product-<br>Market Fit</div>
+        <div class="phase-card-out">Audience defined · Income stream live · Six-month review doc</div>
       </div>
     </div>
   </div>
