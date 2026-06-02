@@ -542,6 +542,10 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
     "southern avenue, kolkata":"Kolkata",
     "lb nagar":"Hyderabad","madhapur":"Hyderabad",
     "cochin":"Kochi",
+    "karve nagar, pune":"Pune","karve nagar":"Pune",
+    "lb nagar":"Hyderabad","madhapur":"Hyderabad",
+    "southern avenue, kolkata":"Kolkata",
+    "dlf cyberhub, gurugram":"Delhi",
   };
   const normCity = c => CITY_ALIAS[(c||"").toLowerCase()] || c;
   const isTourOrDate = v => /\b20\d{2}\b/.test(v) || /\bTour\b/i.test(v) || /^\d+(?:st|nd|rd|th)?\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i.test(v);
@@ -624,12 +628,16 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
       const cityMap = {};
       for (const e of upcoming) {
         const c = normCity(e.city || "Other");
-        if (!cityMap[c]) cityMap[c] = { events: [], ticketed: 0, prices: [] };
+        if (!cityMap[c]) cityMap[c] = { events: [], ticketed: 0, prices: [], venues: {} };
         cityMap[c].events.push(e);
         const p = e.price_min ?? e.min_price;
         if (p != null && Number(p) > 0) {
           cityMap[c].ticketed++;
           cityMap[c].prices.push(Number(p));
+        }
+        const vn = getVenue(e);
+        if (vn && !/^(venue\s*tbc|tba|to be announced|venue to be (confirmed|announced))$/i.test(vn)) {
+          cityMap[c].venues[vn] = (cityMap[c].venues[vn] || 0) + 1;
         }
       }
       const cityEntries = Object.entries(cityMap)
@@ -649,15 +657,24 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
           const med = median(s.prices);
           const priceStr = med != null ? `median ₹${med.toLocaleString("en-IN")}` : "Free";
           const col = CITY_COLORS[city] || "#888";
+          const topV = Object.entries(s.venues).sort((a, b) => b[1] - a[1])[0];
+          const topVenueHtml = topV
+            ? `<div class="city-row-top-venue">${esc(topV[0])} <span class="city-row-top-count">${topV[1]} shows</span></div>`
+            : "";
           return `<div class="city-row" onclick="selectCity('${esc(city)}')">
             <span class="city-row-dot" style="background:${col}"></span>
-            <div class="city-row-name">${esc(city)}</div>
-            <div class="city-row-meta">
-              <span class="city-row-count">${s.events.length} shows</span>
-              <span class="city-row-sep">·</span>
-              <span class="city-row-ticketed">${s.ticketed} ticketed</span>
-              <span class="city-row-sep">·</span>
-              <span class="city-row-price">${priceStr}</span>
+            <div class="city-row-body">
+              <div class="city-row-main">
+                <div class="city-row-name">${esc(city)}</div>
+                <div class="city-row-meta">
+                  <span class="city-row-count">${s.events.length} shows</span>
+                  <span class="city-row-sep">·</span>
+                  <span class="city-row-ticketed">${s.ticketed} ticketed</span>
+                  <span class="city-row-sep">·</span>
+                  <span class="city-row-price">${priceStr}</span>
+                </div>
+              </div>
+              ${topVenueHtml}
             </div>
             <div class="city-row-arrow">→</div>
           </div>`;
