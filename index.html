@@ -60,14 +60,16 @@
       <!-- SECTION 1: Breaking this week -->
       <div class="today-section">
         <div class="today-section-hd">Breaking this week</div>
+        <div class="today-section-sub">Channels with the biggest week-over-week view growth — artists gaining momentum right now.</div>
         <div class="breaking-cards" id="breaking-cards">
           <div class="breaking-loading">Loading channel data…</div>
         </div>
       </div>
 
-      <!-- SECTION 2: What's moving -->
+      <!-- SECTION 2: Top picks this week -->
       <div class="today-section">
-        <div class="today-section-hd">What's moving</div>
+        <div class="today-section-hd">Top picks this week</div>
+        <div class="today-section-sub">Ranked by discovery score — a 0–100 measure of engagement rate, daily view growth, and how recently the video dropped.</div>
         <div class="today-section-meta" id="d-hero-label">Top finds</div>
         <div class="hero-cards" id="hero-cards"></div>
         <button class="hero-show-more" id="hero-show-more" style="display:none">Show more videos ▾</button>
@@ -93,12 +95,12 @@
         <select id="d-lang"><option value="all">All Languages</option></select>
         <select id="d-genre"><option value="all">All Genres</option></select>
         <select id="v-sort">
-          <option value="discovery_score">Sort: Discovery Score</option>
-          <option value="engagement_rate">Sort: Engagement</option>
-          <option value="velocity">Sort: Velocity</option>
-          <option value="published_at">Sort: Newest</option>
-          <option value="views_delta">Sort: 24h Growth</option>
-          <option value="views">Sort: Views</option>
+          <option value="discovery_score">Sort: Discovery Score (default)</option>
+          <option value="engagement_rate">Sort: Engagement rate</option>
+          <option value="velocity">Sort: Daily view growth</option>
+          <option value="published_at">Sort: Newest first</option>
+          <option value="views_delta">Sort: 24h views gained</option>
+          <option value="views">Sort: Total views</option>
         </select>
         <select id="v-window">
           <option value="0">All Time</option>
@@ -124,7 +126,7 @@
 
       <!-- Collab Finder bar -->
       <div class="collab-bar" id="collab-bar">
-        <div class="collab-bar-label">Find collaborators for</div>
+        <div class="collab-bar-label">Find collaborators —</div>
         <select id="c-my-genre">
           <option value="">My genre…</option>
           <option>Indie</option>
@@ -154,7 +156,7 @@
           <span class="collab-dot collab-both"></span>Strong fit
           <span class="collab-dot collab-genre"></span>Genre match
           <span class="collab-dot collab-lang"></span>Language match
-          <span class="collab-hint">Cards highlight matching artists</span>
+          <span class="collab-hint">Pick your genre and language — matching artists highlight below</span>
         </div>
       </div>
 
@@ -170,10 +172,10 @@
           <option value="falling">Falling</option>
         </select>
         <select id="a-sort">
-          <option value="avg_discovery">Sort: Discovery Score</option>
-          <option value="avg_engagement">Sort: Engagement</option>
-          <option value="total_views">Sort: Total Views</option>
-          <option value="video_count">Sort: Videos</option>
+          <option value="avg_discovery">Sort: Discovery Score (default)</option>
+          <option value="avg_engagement">Sort: Engagement rate</option>
+          <option value="total_views">Sort: Total views</option>
+          <option value="video_count">Sort: Video count</option>
         </select>
         <select id="a-min-eng">
           <option value="0">Any engagement</option>
@@ -214,7 +216,7 @@
       <!-- Artist Discovery Log — always first, no monthly data needed -->
       <div class="artist-log" id="artist-log">
         <div class="artist-log-hd">
-          <div class="artist-log-title">Artist Discovery Log</div>
+          <div class="artist-log-title">New to the radar</div>
           <span class="artist-log-meta" id="al-meta"></span>
         </div>
         <div class="artist-log-filters">
@@ -234,7 +236,7 @@
               <th>Genre</th>
               <th>Videos</th>
               <th>Last active</th>
-              <th>Avg score</th>
+              <th><span class="metric-tip" data-tip="Discovery score: 0–100. Combines engagement rate, daily view growth, and recency.">Score</span></th>
               <th>Trend</th>
             </tr>
           </thead>

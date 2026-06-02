@@ -959,10 +959,10 @@ const TREND_CLS  = {new:"trend-new", rising:"trend-up", stable:"trend-flat", fal
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 const TAB_CONTEXT = {
-  discover: "New releases, breaking videos, and what's gaining traction this week",
-  artists:  "Filter and track artists by language and genre",
-  trends:   "Upcoming shows across 8 cities and the artist discovery log",
-  buzz:     "Community conversations, Reddit threads, and press coverage",
+  discover: "New releases and top picks — scored 0–100 on engagement, daily view growth, and recency",
+  artists:  "Browse and filter artists by language and genre — use Collab Finder to spot potential collaborators",
+  trends:   "Upcoming shows across cities and artists newly added to the radar",
+  buzz:     "Reddit threads and press coverage mentioning Indian indie artists",
   industry: "Labels, booking agencies, and music companies — who's signing and how to approach them"
 };
 
@@ -1256,7 +1256,11 @@ function renderBuzz(data) {
   const content = document.getElementById("buzz-content");
 
   if (!data || (!data.artist_posts?.length && !data.feed?.length)) {
-    loading.textContent = "Community conversations loading — check back after the next daily refresh.";
+    loading.innerHTML = `<div style="max-width:400px;margin:0 auto;text-align:center">
+      <div style="font-size:28px;margin-bottom:12px">📡</div>
+      <div style="font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px">Reddit coverage coming soon</div>
+      <div style="font-size:13px;line-height:1.6">This tab will surface Reddit threads and press mentions about Indian indie artists. While it's being set up, try <button onclick="goTab('discover')" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:13px;padding:0;text-decoration:underline">Discover</button> or <button onclick="goTab('artists')" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:13px;padding:0;text-decoration:underline">Artists</button> to find what's moving right now.</div>
+    </div>`;
     return;
   }
 
