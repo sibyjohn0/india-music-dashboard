@@ -10,7 +10,6 @@ const EVENTS_URL_DT   = "data/events-district.json";
 const EVENTS_URL_BMS  = "data/events-bookmyshow.json";
 const EVENTS_URL_SBX  = "data/events-skillboxes.json";
 const EVENTS_URL_FB   = "data/live-events.json";
-const EVENTS_URL_HA   = "data/events-highape.json";
 const REVIEWERS_URL       = "data/reviewers.json";
 const VENUE_INSIGHTS_URL  = "data/venue-insights.json";
 
@@ -46,7 +45,7 @@ async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, eventsHaRes, reviewersRes, venueInsightsRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes, venueInsightsRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
@@ -59,7 +58,6 @@ async function init() {
       fetch(EVENTS_URL_BMS, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_SBX, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_FB, NC).then(r=>r.json()).catch(()=>null),
-      fetch(EVENTS_URL_HA, NC).then(r=>r.json()).catch(()=>null),
       fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(VENUE_INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
@@ -82,7 +80,6 @@ async function init() {
       { label: "BookMyShow", res: eventsBmsRes },
       { label: "Skillboxes", res: eventsSbxRes },
       { label: "District",   res: eventsDtRes },
-      { label: "HighApe",    res: eventsHaRes },
       { label: "Paytm",      res: eventsRes },
     ].map(s => ({
       label: s.label,
@@ -96,7 +93,6 @@ async function init() {
       { label: "BookMyShow", res: eventsBmsRes },
       { label: "Skillboxes", res: eventsSbxRes },
       { label: "Insider",    res: eventsFbRes },
-      { label: "HighApe",    res: eventsHaRes },
     ].filter(s => s.res.status === "fulfilled" && s.res.value)
      .flatMap(s => _extractEvents(s.res.value).map(e => ({ ...e, _source: s.label })));
     const _seen = new Set();
@@ -1187,7 +1183,7 @@ const TREND_CLS  = {new:"trend-new", rising:"trend-up", stable:"trend-flat", fal
 const TAB_CONTEXT = {
   discover: "New releases and top picks — scored 0–100 on engagement, daily view growth, and recency",
   artists:  "Browse and filter artists by language and genre — use Collab Finder to spot potential collaborators",
-  venues:   "Upcoming shows across cities — updated daily from BookMyShow, Skillboxes, District, and HighApe",
+  venues:   "Upcoming shows across cities — updated daily from BookMyShow, Skillboxes, and District",
   buzz:     "Reddit threads and press coverage mentioning Indian indie artists",
   industry: "Labels, booking agencies, and music companies active in the Indian indie space"
 };
