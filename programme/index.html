@@ -859,6 +859,15 @@
       margin-bottom: 20px;
     }
   </style>
+  <style>
+    /* Override cascade: these classes are defined above the first style block's @media rule,
+       so mobile overrides must be repeated here to win the cascade. */
+    @media (max-width: 640px) {
+      .phase-grid { grid-template-columns: 1fr !important; }
+      .collective-grid { grid-template-columns: 1fr !important; }
+      .team-avatar { width: 40px; height: 40px; font-size: 14px; margin-bottom: 10px; }
+    }
+  </style>
 </head>
 <body>
 
