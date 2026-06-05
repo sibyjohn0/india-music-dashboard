@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essential Reads | India Indie Music Radar</title>
+  <meta name="description" content="The articles worth reading if you're building a career in independent music in India." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d0f;
+      --surface:  #141418;
+      --surface2: #1c1c24;
+      --border:   #242430;
+      --accent:   #e94560;
+      --amber:    #f7b731;
+      --green:    #10b981;
+      --text:     #e8e8f0;
+      --muted:    #6b6b85;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      height: 52px;
+      background: rgba(13,13,15,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
+
+    nav {
+      display: flex;
+      padding: 0 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    .tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #999;
+      font: 13px/1 'Inter', sans-serif;
+      padding: 0 16px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
+
+    .page { max-width: 760px; margin: 0 auto; padding: 64px 32px 120px; }
+
+    .page-intro {
+      margin-bottom: 64px;
+    }
+    .page-intro h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #f0f0f0;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .page-intro p {
+      font-size: 15px;
+      color: #9090a8;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    .reads-section { margin-bottom: 64px; }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f0f0f0;
+      letter-spacing: -.2px;
+      margin-bottom: 6px;
+    }
+    .section-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .reads-list {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .read-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .read-item:last-child { border-bottom: none; }
+    .read-item:hover { background: var(--surface2); }
+
+    .read-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      min-width: 20px;
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .read-content { flex: 1; }
+
+    .read-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f0f0f0;
+      line-height: 1.35;
+      margin-bottom: 5px;
+      transition: color .15s;
+    }
+    .read-item:hover .read-title { color: var(--accent); }
+
+    .read-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: .2px;
+    }
+
+    .read-why {
+      font-size: 13px;
+      color: #8080a0;
+      line-height: 1.6;
+    }
+
+    .read-arrow {
+      font-size: 16px;
+      color: var(--muted);
+      padding-top: 2px;
+      flex-shrink: 0;
+      transition: color .15s, transform .15s;
+    }
+    .read-item:hover .read-arrow { color: var(--accent); transform: translateX(3px); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); transition: color .15s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      header { padding: 0 16px; }
+      .page { padding: 36px 16px 64px; }
+      .tab { padding: 0 12px; font-size: 12px; }
+      .read-item { padding: 16px 16px; gap: 12px; }
+      footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="../">◉ India Indie Music Radar</a></div>
+</header>
+
+<nav>
+  <a class="tab" href="../about/">About</a>
+  <a class="tab" href="../programme/">Programme</a>
+  <a class="tab" href="../playbook/">Playbook</a>
+  <a class="tab" href="../">Today</a>
+  <a class="tab" href="../submit/">Submit</a>
+  <a class="tab active" href="../reads/">Reads</a>
+</nav>
+
+<div class="page">
+
+  <div class="page-intro">
+    <h1>The reading list.</h1>
+    <p>Not everything — the things worth reading. Essays, features, and guides that change how you think about building a career in independent music. Kept short by design.</p>
+  </div>
+
+  <!-- SECTION 1: HOW AUDIENCES WORK -->
+  <div class="reads-section">
+    <div class="section-label">Foundations</div>
+    <div class="section-title">How audiences actually work</div>
+    <div class="section-desc">The essays that reframe what it means to build a following. Read these before you think about streaming numbers.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://kk.org/thetechnium/1000-true-fans/" target="_blank" rel="noopener">
+        <div class="read-num">01</div>
+        <div class="read-content">
+          <div class="read-title">1,000 True Fans</div>
+          <div class="read-meta">Kevin Kelly · The Technium · 2008</div>
+          <div class="read-why">The original argument that you don't need millions of listeners — you need a small number of people who will buy everything you make. Still the most important frame for independent artists building from scratch.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://a16z.com/1000-true-fans-try-100/" target="_blank" rel="noopener">
+        <div class="read-num">02</div>
+        <div class="read-content">
+          <div class="read-title">1,000 True Fans? Try 100</div>
+          <div class="read-meta">Li Jin · Andreessen Horowitz · 2020</div>
+          <div class="read-why">The sharper update. Kelly's math assumed a direct financial relationship with fans that streaming has made harder. Li Jin argues that 100 people who pay you directly is more achievable and more sustainable than chasing 1,000.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://www.hypebot.com/hypebot/2024/12/why-kevin-kellys-1000-true-fans-isnt-enough-in-2024.html" target="_blank" rel="noopener">
+        <div class="read-num">03</div>
+        <div class="read-content">
+          <div class="read-title">Why 1,000 True Fans Isn't Enough in 2024</div>
+          <div class="read-meta">Hypebot · 2024</div>
+          <div class="read-why">The honest critique. Kelly's framework was built before passive streaming listeners existed. This piece does the real math on what a true fan actually spends today and what that means for the economics.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: THE INDIAN SCENE -->
+  <div class="reads-section">
+    <div class="section-label">The Indian scene</div>
+    <div class="section-title">How Indian indie actually works</div>
+    <div class="section-desc">Pieces specific to the Indian market. The context most advice from the US or UK misses entirely.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://www.thewildcity.com/news/3499-indie-101-a-guide-to-the-independent-music-industry-in-india" target="_blank" rel="noopener">
+        <div class="read-num">04</div>
+        <div class="read-content">
+          <div class="read-title">Indie 101: A Guide To The Independent Music Industry In India</div>
+          <div class="read-meta">Wild City</div>
+          <div class="read-why">The clearest overview of how the Indian indie ecosystem actually works — who the players are, how distribution works locally, and what the entry points look like. Start here if you're new to the scene.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://www.redbull.com/in-en/perspective-indian-independent-music-scene" target="_blank" rel="noopener">
+        <div class="read-num">05</div>
+        <div class="read-content">
+          <div class="read-title">How India's Independent Music Landscape Has Evolved</div>
+          <div class="read-meta">Red Bull India</div>
+          <div class="read-why">The longer arc — where Indian indie came from, what changed with streaming and social, and what the scene looks like now. Good for understanding why the current moment is different from five years ago.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://homegrown.co.in/homegrown-explore/the-people-forging-a-brave-new-future-for-indias-alternative-music-landscape" target="_blank" rel="noopener">
+        <div class="read-num">06</div>
+        <div class="read-content">
+          <div class="read-title">The People Forging A Brave New Future For India's Alternative Music Landscape</div>
+          <div class="read-meta">Homegrown</div>
+          <div class="read-why">Portraits of the people building the infrastructure around Indian indie — labels, bookers, curators, platforms. Useful for understanding who the ecosystem actually depends on beyond the artists themselves.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://homegrown.co.in/article/802677/an-insider-s-guide-to-the-best-indian-venues-for-independent-music/" target="_blank" rel="noopener">
+        <div class="read-num">07</div>
+        <div class="read-content">
+          <div class="read-title">An Insider's Guide To The Best Indian Venues For Independent Music</div>
+          <div class="read-meta">Homegrown</div>
+          <div class="read-why">Practical and specific. The venues that matter in each city, what each one looks for, and how to approach them. Read this before you approach any booker.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://thefederal.com/category/the-eighth-column/k-pop-korean-bts-music-indie-indian-bands-singers-bollywood-global-success-netflix-culture-237794" target="_blank" rel="noopener">
+        <div class="read-num">08</div>
+        <div class="read-content">
+          <div class="read-title">Why Global Success For Indian Indie May Look Nothing Like K-Pop</div>
+          <div class="read-meta">The Federal</div>
+          <div class="read-why">A sober read on what Indian indie's global moment could actually look like — and why the K-pop comparison is the wrong frame. Important for artists building with international ambition.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: MONEY AND RIGHTS -->
+  <div class="reads-section">
+    <div class="section-label">The business</div>
+    <div class="section-title">Money, rights, and contracts</div>
+    <div class="section-desc">The practical stuff most artists learn too late. Read these before you sign anything or release anything.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://tunevalley.com/blog/how-music-royalties-work-in-india/" target="_blank" rel="noopener">
+        <div class="read-num">09</div>
+        <div class="read-content">
+          <div class="read-title">How Music Royalties Work In India: A Practical Guide</div>
+          <div class="read-meta">Tunevalley</div>
+          <div class="read-why">The clearest explanation of how royalties actually flow in India — performance, mechanical, sync. Covers IPRS and what you should be collecting that you probably aren't. Start here on the money side.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://theindianmusicdiaries.com/signing-contracts-a-short-guide-to-artist-rights-contract-clauses-and-more/" target="_blank" rel="noopener">
+        <div class="read-num">10</div>
+        <div class="read-content">
+          <div class="read-title">Signing Contracts: A Short Guide To Artist Rights, Contract Clauses And More</div>
+          <div class="read-meta">The Indian Music Diaries</div>
+          <div class="read-why">What to look for, what to push back on, and what the standard clauses actually mean in an Indian context. Read this before anyone puts a contract in front of you.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: WHAT THE PLATFORMS ARE DOING -->
+  <div class="reads-section">
+    <div class="section-label">The platform question</div>
+    <div class="section-title">What streaming is actually doing</div>
+    <div class="section-desc">Not why streaming is bad — why understanding how it works changes how you use it.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://harpers.org/archive/2024/12/the-ghosts-in-the-machine-liz-pelly-spotify-musicians/" target="_blank" rel="noopener">
+        <div class="read-num">11</div>
+        <div class="read-content">
+          <div class="read-title">The Ghosts in the Machine</div>
+          <div class="read-meta">Liz Pelly · Harper's Magazine · December 2024</div>
+          <div class="read-why">The most important piece on Spotify in years. Pelly documents how Spotify commissions cheap anonymous tracks to fill mood playlists — pushing out independent artists. If you've ever wondered why the algorithm doesn't find you, read this.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <span style="font-weight:700;color:var(--text);font-size:13px">India Indie Music Radar</span>
+    <a href="../about/">About</a>
+    <a href="../programme/">Programme</a>
+    <a href="../playbook/">Playbook</a>
+    <a href="../industry/">Industry</a>
+    <a href="../submit/">Submit</a>
+  </div>
+  <div style="font-size:11px">Built by Siby John · sibyjohn0@gmail.com</div>
+</footer>
+
+</body>
+</html>
