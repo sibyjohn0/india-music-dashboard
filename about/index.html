@@ -353,6 +353,9 @@
     .fact-num { font-size: 22px; font-weight: 800; color: #f0f0f0; letter-spacing: -.5px; }
     .fact-num span { color: var(--accent); }
     .fact-label { font-size: 11px; color: var(--muted); line-height: 1.4; }
+    .fact-source { font-size: 10px; color: var(--muted); margin-top: 6px; opacity: 0.65; }
+    .fact-source a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; transition: opacity .15s; }
+    .fact-source a:hover { opacity: 1; color: var(--text); }
 
     /* ── PROGRAMME CALLOUT ── */
     .programme-callout {
@@ -458,12 +461,34 @@
 
   <!-- THE NUMBERS -->
   <div class="facts-strip">
-    <div class="fact"><div class="fact-num">60<span>K+</span></div><div class="fact-label">active music creators in India</div></div>
-    <div class="fact"><div class="fact-num">&lt;500</div><div class="fact-label">with real career management behind them</div></div>
-    <div class="fact"><div class="fact-num">₹35<span>K</span></div><div class="fact-label">minimum cost to finish and release one song</div></div>
-    <div class="fact"><div class="fact-num">79<span>%</span></div><div class="fact-label">of Indian streams go to local artists. The audience is there.</div></div>
-    <div class="fact"><div class="fact-num">924<span>+</span></div><div class="fact-label">reviewer and curator contacts in the database</div></div>
-    <div class="fact"><div class="fact-num">₹0</div><div class="fact-label">cost to use any of this</div></div>
+    <div class="fact">
+      <div class="fact-num">60<span>K+</span></div>
+      <div class="fact-label">active music creators in India</div>
+      <div class="fact-source"><a href="https://www.ey.com/en_in/insights/media-entertainment/the-music-economy-creator-the-rise-of-music-publishing-in-india" target="_blank" rel="noopener">EY Report ↗</a></div>
+    </div>
+    <div class="fact">
+      <div class="fact-num">&lt;500</div>
+      <div class="fact-label">with professional career management behind them</div>
+    </div>
+    <div class="fact">
+      <div class="fact-num">₹35<span>K</span></div>
+      <div class="fact-label">to record, mix, master and release one song professionally</div>
+      <div class="fact-source"><a href="https://digitalprintingmumbai.in/how-much-do-studios-charge-per-song-in-india-2026-price-guide" target="_blank" rel="noopener">2026 Studio Price Guide ↗</a></div>
+    </div>
+    <div class="fact">
+      <div class="fact-num">70<span>%+</span></div>
+      <div class="fact-label">of Indian streams go to local artists. The audience is there.</div>
+      <div class="fact-source"><a href="https://newsroom.spotify.com/2025-04-15/indian-artists-are-reaching-more-global-fans-than-ever-before-and-the-data-proves-it/" target="_blank" rel="noopener">Spotify Newsroom, 2025 ↗</a></div>
+    </div>
+    <div class="fact">
+      <div class="fact-num">924<span>+</span></div>
+      <div class="fact-label">reviewer and curator contacts in the database</div>
+      <div class="fact-source"><a href="../reviewers/">Our live database ↗</a></div>
+    </div>
+    <div class="fact">
+      <div class="fact-num">₹0</div>
+      <div class="fact-label">cost to use any of this</div>
+    </div>
   </div>
 
   <!-- WHY I'M BUILDING THIS -->
@@ -473,7 +498,7 @@
     <div class="builder-card">
       <div class="builder-name">Siby John</div>
       <div class="builder-text">
-        <p>The economics are harder than most people say. A single finished song costs roughly ₹35,000 once you factor in studio time, mixing, mastering, and session musicians. A video adds ₹15,000 to ₹75,000. An artist releasing four songs a year is spending ₹2-3 lakh before they've made a rupee back. Streaming pays ₹0.003 to ₹0.006 per stream, so a million streams earns ₹3,000 to ₹6,000. The artists building sustainable income from Indian indie are doing it through live performance, brand deals, and sync licensing, not streaming. A label deal does not change those numbers in your favour.</p>
+        <p>The economics are harder than most people say. <a href="https://digitalprintingmumbai.in/how-much-do-studios-charge-per-song-in-india-2026-price-guide" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">A single finished song costs roughly ₹35,000</a> once you factor in studio time, mixing, mastering, and session musicians. A video adds ₹15,000 to ₹75,000. An artist releasing four songs a year is spending ₹2-3 lakh before they've made a rupee back. <a href="https://www.loststoriesacademy.com/blogs-and-tutorials/how-much-does-spotify-actually-pay-per-stream-in-india" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">Streaming from Indian listeners pays roughly ₹0.06–₹0.08 per stream, so a million streams earns approximately ₹60,000–₹80,000</a> before the distributor's cut. The artists building sustainable income from Indian indie are doing it through live performance, brand deals, and sync licensing, not streaming. A label deal does not change those numbers in your favour.</p>
         <p>I spent several years in creator and music marketing at YouTube India, running campaigns with Anuv Jain, Jasleen Royal, Jassie Gill, and others, watching how the system actually surfaces music versus how artists assume it works. The gap was large. The artists I met who were genuinely building something had almost no reliable information about how the business functioned.</p>
         <p>So I built this. The tools are free and always will be. For artists who want the thinking applied directly to their situation, Karishma Changroth and I run the <a href="../programme/" style="color:var(--accent);text-decoration:none;">Artist Development Programme</a>: six months of structured consulting, weekly accountability, everything you build stays yours.</p>
       </div>
