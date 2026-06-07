@@ -1,101 +1,137 @@
 {
-  "last_run": "2026-06-06T04:56:55.469253+00:00",
-  "overall": "ok",
+  "last_run": "2026-06-07T05:25:47.389326+00:00",
+  "overall": "partial",
   "sources": {
     "youtube": {
       "status": "ok",
-      "records": 224,
-      "ms": 102685,
+      "records": 225,
+      "ms": 121704,
       "error": null
     },
     "lastfm": {
       "status": "ok",
-      "records": 121,
-      "ms": 55550,
+      "records": 126,
+      "ms": 63605,
       "error": null
     },
     "radar": {
       "status": "ok",
-      "records": 121,
-      "ms": 26,
+      "records": 126,
+      "ms": 28,
       "error": null
     },
     "insights": {
       "status": "ok",
       "records": null,
-      "ms": 60,
+      "ms": 67,
       "error": null
     },
     "venue_analysis": {
       "status": "ok",
       "records": null,
-      "ms": 36,
+      "ms": 37,
       "error": null
     },
     "monthly_digest": {
       "status": "ok",
       "records": null,
-      "ms": 72,
+      "ms": 78,
       "error": null
     },
     "spotify": {
       "status": "ok",
-      "records": 50,
-      "ms": 63820,
+      "records": 54,
+      "ms": 71834,
       "error": null
     },
     "social": {
       "status": "ok",
-      "records": 358,
-      "ms": 22851,
+      "records": 375,
+      "ms": 25733,
       "error": null
     },
     "playboard": {
       "status": "ok",
       "records": null,
-      "ms": 50605,
+      "ms": 51465,
       "error": null
     },
     "jiosaavn": {
       "status": "ok",
       "records": null,
-      "ms": 1464,
+      "ms": 1765,
       "error": null
     },
     "events_paytm": {
       "status": "ok",
       "records": null,
-      "ms": 51,
+      "ms": 54,
       "error": null
     },
     "news_rss": {
       "status": "ok",
       "records": null,
-      "ms": 1441,
+      "ms": 1707,
       "error": null
     },
     "events_district": {
       "status": "ok",
-      "records": 84,
-      "ms": 110770,
+      "records": 85,
+      "ms": 111762,
       "error": null
     },
     "spotify_playwright": {
       "status": "ok",
       "records": 0,
-      "ms": 195455,
+      "ms": 199325,
       "error": null
     },
     "bookmyshow": {
       "status": "ok",
       "records": 202,
-      "ms": 45913,
+      "ms": 41961,
       "error": null
     },
     "skillboxes": {
       "status": "ok",
-      "records": 113,
-      "ms": 40406,
+      "records": 117,
+      "ms": 43376,
+      "error": null
+    },
+    "industry": {
+      "status": "failed",
+      "records": null,
+      "ms": 27,
+      "error": "ERROR: pip install requests"
+    },
+    "reviewers_editorial": {
+      "status": "ok",
+      "records": null,
+      "ms": 16373,
+      "error": null
+    },
+    "reviewers_podcasts": {
+      "status": "ok",
+      "records": null,
+      "ms": 12303,
+      "error": null
+    },
+    "reviewers_spotify": {
+      "status": "ok",
+      "records": null,
+      "ms": 134103,
+      "error": null
+    },
+    "reviewers_youtube": {
+      "status": "ok",
+      "records": null,
+      "ms": 188413,
+      "error": null
+    },
+    "reviewers_merge": {
+      "status": "ok",
+      "records": 1111,
+      "ms": 98,
       "error": null
     }
   }
