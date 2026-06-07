@@ -12,6 +12,7 @@ const EVENTS_URL_SBX  = "data/events-skillboxes.json";
 const EVENTS_URL_FB   = "data/live-events.json";
 const REVIEWERS_URL       = "data/reviewers.json";
 const VENUE_INSIGHTS_URL  = "data/venue-insights.json";
+const STATUS_URL          = "data/pipeline-status.json";
 
 const LS_MY_GENRE = "iir_my_genre";
 const LS_MY_LANG  = "iir_my_lang";
@@ -38,14 +39,14 @@ const LANG_COLORS = {
 // ── State ─────────────────────────────────────────────────────────────────────
 let allVideos=[], allChannels=[], lfmData={}, trackerData=null, spotifyData={};
 let _buzzLoaded=false, _socialData=null;
-let _eventsData=null, _reviewersData=null, _venueInsights=null, _sourceData=null;
+let _eventsData=null, _reviewersData=null, _venueInsights=null, _sourceData=null, _pipelineStatus=null;
 
 // ── Init ──────────────────────────────────────────────────────────────────────
 async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {cache:"no-cache"};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes, venueInsightsRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes, venueInsightsRes, statusRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
@@ -60,6 +61,7 @@ async function init() {
       fetch(EVENTS_URL_FB, NC).then(r=>r.json()).catch(()=>null),
       fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(VENUE_INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
+      fetch(STATUS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
     data = ytRes.value;
     if (lfmRes.status==="fulfilled" && lfmRes.value) lfmData = lfmRes.value.artists||{};
@@ -105,6 +107,7 @@ async function init() {
     _eventsData = _merged.length > 0 ? { events: _merged } : null;
     _reviewersData   = (reviewersRes.status==="fulfilled"     && reviewersRes.value) ? reviewersRes.value     : null;
     _venueInsights   = (venueInsightsRes.status==="fulfilled" && venueInsightsRes.value) ? venueInsightsRes.value : null;
+    _pipelineStatus  = (statusRes.status==="fulfilled"        && statusRes.value)        ? statusRes.value        : null;
   } catch {
     document.querySelector("main").innerHTML =
       `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet — run the fetch script.</div>`;
@@ -1199,7 +1202,14 @@ function goTab(name) {
   const pane = document.getElementById("tab-"+name);
   if (pane) pane.classList.add("active");
   const ctx = document.getElementById("tab-context");
-  if (ctx && TAB_CONTEXT[name]) ctx.textContent = TAB_CONTEXT[name];
+  if (ctx && TAB_CONTEXT[name]) {
+    let txt = TAB_CONTEXT[name];
+    if (_pipelineStatus?.last_run) {
+      const d = new Date(_pipelineStatus.last_run);
+      txt += ' · Updated ' + d.toLocaleDateString('en-IN', {day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'});
+    }
+    ctx.textContent = txt;
+  }
   track('tab_switch', { tab_name: name });
   // Trends: artist log is always ready; charts load on first toggle expand
   if (name==="buzz"&&!_buzzLoaded){
