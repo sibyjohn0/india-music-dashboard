@@ -1,13 +1,13 @@
 {
   "2026-06": {
     "month": "2026-06",
-    "snapshots": 10,
-    "last_snapshot_at": "2026-06-11T05:55:27.053731+00:00",
+    "snapshots": 11,
+    "last_snapshot_at": "2026-06-12T05:54:26.589583+00:00",
     "total_videos": 224,
-    "total_artists": 206,
-    "new_artists_seen": 196,
-    "median_score": 74.5,
-    "median_views": 3642.5,
+    "total_artists": 213,
+    "new_artists_seen": 203,
+    "median_score": 74.0,
+    "median_views": 3515.5,
     "top_artists": [
       {
         "name": "Sivakarthikeyan Productions",
@@ -83,33 +83,33 @@
     "fastest_growing": [
       {
         "name": "Jaanu Folks",
-        "views_gained": 3331213,
+        "views_gained": 3971583,
         "genre": "Folk / Acoustic",
         "language": "Telugu"
       },
       {
         "name": "Veeru Jamakandi Singer - Topic",
-        "views_gained": 1519884,
+        "views_gained": 1537104,
         "genre": "Electronic",
         "language": "Kannada"
       },
       {
         "name": "Dabzee",
-        "views_gained": 800647,
+        "views_gained": 802357,
         "genre": "Electronic",
         "language": "Malayalam"
       },
       {
-        "name": "Gallery Vision Indie",
-        "views_gained": 573142,
-        "genre": "Electronic",
-        "language": "Tamil"
-      },
-      {
         "name": "Shreyashhh",
-        "views_gained": 460101,
+        "views_gained": 472678,
         "genre": "Indie",
         "language": "English"
+      },
+      {
+        "name": " Veena Singer",
+        "views_gained": 306843,
+        "genre": "Classical/Fusion",
+        "language": "Telugu"
       }
     ],
     "genre_breakdown": [
@@ -123,31 +123,35 @@
       ],
       [
         "Folk / Acoustic",
-        42
+        45
       ],
       [
         "Lo-Fi",
-        24
+        22
       ],
       [
         "R&B / Soul",
-        21
-      ],
-      [
-        "Electronic",
-        17
+        19
       ],
       [
         "Classical/Fusion",
         15
       ],
       [
+        "Electronic",
+        15
+      ],
+      [
+        "Rock / Alt",
+        4
+      ],
+      [
         "Jazz / Blues",
         3
       ],
       [
-        "Rock / Alt",
-        3
+        "Indie Pop",
+        2
       ]
     ],
     "language_breakdown": [
@@ -156,11 +160,11 @@
         25
       ],
       [
-        "Kannada",
+        "Telugu",
         25
       ],
       [
-        "Malayalam",
+        "Kannada",
         25
       ],
       [
@@ -176,7 +180,7 @@
         25
       ],
       [
-        "Telugu",
+        "Malayalam",
         25
       ],
       [
@@ -189,33 +193,35 @@
       ]
     ],
     "city_shows": {
-      "Bangalore": 101,
-      "Goa": 26,
-      "Hyderabad": 41,
+      "Goa": 29,
+      "Hyderabad": 39,
+      "Mumbai": 47,
+      "Delhi": 41,
+      "Pune": 39,
       "Calangute": 2,
-      "Chennai": 31,
-      "Koramangala": 1,
+      "Chennai": 30,
+      "Kolkata": 36,
+      "Bandra.": 1,
+      "Juhu": 1,
       "Vellore": 1,
+      "Worli": 1,
       "Puducherry": 1,
-      "The Memory Studio, Bengaluru": 1,
-      "Whitefield, Bengaluru": 1,
-      "Guwahati": 2,
-      "Mumbai": 20,
-      "Delhi": 14,
-      "Pune": 11,
-      "Kolkata": 14,
+      "Bangalore": 77,
+      "Guwahati": 1,
+      "5674426e2fd8be115e700e82": 1,
+      "Dwarka": 1,
       "Meerut": 1,
       "Tamil Nadu": 1,
-      "Ladakh": 1,
       "Abu Dhabi": 1,
       "India": 1,
-      "Chandigarh": 1,
+      "Dehradun": 2,
       "Puna": 1,
-      "Kanpur": 1,
+      "Patna": 1,
       "Kochi": 1,
+      "Dharamshala": 1,
       "Udaipur": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 277
+    "total_shows": 359
   }
 }
