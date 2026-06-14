@@ -3071,6 +3071,20 @@ const PHASE_ORDER = [
   { id: 'appendix',     label: 'Reference' },
 ];
 
+// Human-readable URL slugs for each phase
+const PHASE_SLUG = {
+  'your-journey': 'your-journey',
+  'phase1':       'identity',
+  'phase2':       'production',
+  'phase3':       'distribution',
+  'phase4':       'revenue',
+  'phase5':       'scaling',
+  'rights':       'rights',
+  'casestudies':  'case-studies',
+  'appendix':     'reference',
+};
+const SLUG_TO_PHASE = Object.fromEntries(Object.entries(PHASE_SLUG).map(([k,v]) => [v, k]));
+
 function visibleSections() {
   const PLAN_IDS = ['plan-90-songwriter', 'plan-90-instrumentalist', 'plan-90-producer'];
   return SECTIONS.filter(s => {
@@ -3121,7 +3135,7 @@ function showPhase(phaseId) {
   document.getElementById('phase-view').style.display = 'block';
   document.getElementById('section-view').style.display = 'none';
   window.scrollTo(0, 0);
-  history.replaceState(null, '', '#phase-' + phaseId);
+  history.replaceState(null, '', '#' + (PHASE_SLUG[phaseId] || phaseId));
   loadLiveEvents();
 }
 
@@ -3572,10 +3586,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#', '');
   if (hash && SECTIONS.find(s => s.id === hash)) {
     navigateTo(hash);
-  } else if (hash.startsWith('phase-')) {
-    const phaseId = hash.slice(6);
-    if (PHASE_ORDER.find(p => p.id === phaseId)) showPhase(phaseId);
-    else showPhase('your-journey');
+  } else if (hash && (SLUG_TO_PHASE[hash] || PHASE_ORDER.find(p => p.id === hash))) {
+    showPhase(SLUG_TO_PHASE[hash] || hash);
   } else {
     showPhase('your-journey');
   }
