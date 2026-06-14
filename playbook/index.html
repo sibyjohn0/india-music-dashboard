@@ -3121,6 +3121,7 @@ function showPhase(phaseId) {
   document.getElementById('phase-view').style.display = 'block';
   document.getElementById('section-view').style.display = 'none';
   window.scrollTo(0, 0);
+  history.replaceState(null, '', '#phase-' + phaseId);
   loadLiveEvents();
 }
 
@@ -3571,6 +3572,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const hash = window.location.hash.replace('#', '');
   if (hash && SECTIONS.find(s => s.id === hash)) {
     navigateTo(hash);
+  } else if (hash.startsWith('phase-')) {
+    const phaseId = hash.slice(6);
+    if (PHASE_ORDER.find(p => p.id === phaseId)) showPhase(phaseId);
+    else showPhase('your-journey');
   } else {
     showPhase('your-journey');
   }
