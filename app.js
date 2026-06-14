@@ -110,7 +110,7 @@ async function init() {
     _pipelineStatus  = (statusRes.status==="fulfilled"        && statusRes.value)        ? statusRes.value        : null;
   } catch {
     document.querySelector("main").innerHTML =
-      `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet — run the fetch script.</div>`;
+      `<div style="text-align:center;padding:80px 0;color:#555;font-size:15px">No data yet. Run the fetch script.</div>`;
     return;
   }
 
@@ -120,6 +120,19 @@ async function init() {
   document.getElementById("last-updated").textContent =
     "Updated "+new Date(data.fetched_at).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
   document.getElementById("total-badge").textContent = allVideos.length+" videos";
+
+  const fmtTs = iso => {
+    if (!iso) return '';
+    const d = new Date(iso);
+    const date = d.toLocaleDateString('en-IN', {day:'numeric', month:'short', timeZone:'Asia/Kolkata'});
+    const time = d.toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit', hour12:true, timeZone:'Asia/Kolkata'});
+    return 'Updated ' + date + ' · ' + time + ' IST';
+  };
+  document.getElementById('upd-discover').textContent = fmtTs(data.fetched_at);
+  document.getElementById('upd-artists').textContent  = fmtTs(trackerData?.exported_at);
+  document.getElementById('upd-venues').textContent   = fmtTs(_venueInsights?.generated_at);
+  document.getElementById('upd-buzz').textContent     = fmtTs(socialData?.generated_at);
+  document.getElementById('upd-scene').textContent    = fmtTs(_pipelineStatus?.last_run);
 
   populateDropdowns();
   loadPreferences();
@@ -142,8 +155,8 @@ async function init() {
   initDiscoverFilterToggle();
   // Default landing tab is Buzz; honour hash overrides for direct links
   const _hash = window.location.hash.replace('#', '');
-  const _routableTabs = ['discover','artists','venues','trends','buzz','industry'];
-  if (_routableTabs.includes(_hash)) goTab(_hash === 'trends' ? 'venues' : _hash);
+  const _routableTabs = ['discover','artists','venues','trends','buzz','industry','scene'];
+  if (_routableTabs.includes(_hash)) goTab(_hash === 'trends' ? 'venues' : _hash === 'scene' ? 'industry' : _hash);
   else goTab('buzz');
 
 }
@@ -218,7 +231,7 @@ function renderDiscover(videos) {
   const newChip  = newCount > 0 ? ` <span class="hero-new-chip">${newCount} new</span>` : "";
   const heroLabel = document.getElementById("d-hero-label");
   if (heroLabel) heroLabel.innerHTML =
-    (videos.length === allVideos.length ? "Top finds" : `Top finds — ${videos.length} matching`) + newChip;
+    (videos.length === allVideos.length ? "Top finds" : `Top finds: ${videos.length} matching`) + newChip;
 
   const cardHTML = (v, i) => `
     <a href="${esc(v.url)}" target="_blank" rel="noopener" class="hero-card">
@@ -336,7 +349,7 @@ async function renderBreakingThisWeek() {
   // Build growth map from channels.json data by comparing video counts or use latest.json
   // History files contain videos array — compute per-channel view totals
   if (!latestSnap || !latestSnap.videos || !latestSnap.videos.length) {
-    wrap.innerHTML = `<div class="breaking-loading">No history data yet — will populate after a few daily runs.</div>`;
+    wrap.innerHTML = `<div class="breaking-loading">No history data yet. Will populate after a few daily runs.</div>`;
     return;
   }
 
@@ -510,7 +523,7 @@ function renderTodayEvents(data) {
   }).slice(0, 4);
 
   if (!upcoming.length) {
-    el.innerHTML = `<div class="act-empty">No upcoming shows found — check back soon</div>`;
+    el.innerHTML = `<div class="act-empty">No upcoming shows found. Check back soon.</div>`;
     return;
   }
 
@@ -630,7 +643,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
   });
 
   if (!upcoming.length) {
-    el.innerHTML = `<div class="act-empty">No upcoming shows found — check back soon</div>`;
+    el.innerHTML = `<div class="act-empty">No upcoming shows found. Check back soon.</div>`;
     return;
   }
 
@@ -729,7 +742,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
     if (g === null || g === undefined) return `<span class="venue-growth new">New</span>`;
     if (g > 0)  return `<span class="venue-growth up">+${g}</span>`;
     if (g < 0)  return `<span class="venue-growth down">${g}</span>`;
-    return `<span class="venue-growth flat">—</span>`;
+    return `<span class="venue-growth flat">-</span>`;
   };
 
   const drawVenues = () => {
@@ -863,7 +876,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
       }).join("");
 
     const moreNote = unnamedCount > 0
-      ? `<div class="venue-more">+ ${unnamedCount} more show${unnamedCount !== 1 ? "s" : ""} at unlisted venues — <a href="https://www.skillboxes.com/events" target="_blank" rel="noopener">see all on Skillboxes</a></div>`
+      ? `<div class="venue-more">+ ${unnamedCount} more show${unnamedCount !== 1 ? "s" : ""} at unlisted venues. <a href="https://www.skillboxes.com/events" target="_blank" rel="noopener">See all on Skillboxes</a></div>`
       : "";
 
     el.innerHTML = `
@@ -899,7 +912,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
         `<button class="platform-pill${activeSource === s.label ? " active" : ""}" data-source="${esc(s.label)}">${esc(s.label)} <strong>${s.count}</strong></button>`
       ).join("") +
       sourceData.filter(s => s.count === 0).map(s =>
-        `<span class="platform-pill dead">${esc(s.label)} <strong>—</strong></span>`
+        `<span class="platform-pill dead">${esc(s.label)} <strong>-</strong></span>`
       ).join("");
     platformEl.querySelectorAll(".platform-pill:not(.dead)").forEach(btn => {
       btn.addEventListener("click", () => selectSource(btn.dataset.source));
@@ -1146,7 +1159,7 @@ function renderVideoList(videos) {
         </div>
       </div>
       <div class="video-row-metrics">
-        <div class="video-score">${v.discovery_score??'—'}</div>
+        <div class="video-score">${v.discovery_score??'-'}</div>
         <div class="video-row-sub">${fmt(v.views)} views · ${daysAgo(v.published_at)}</div>
       </div>
     </a>`).join("");
@@ -1184,9 +1197,9 @@ const TREND_CLS  = {new:"trend-new", rising:"trend-up", stable:"trend-flat", fal
 
 // ── Tabs ──────────────────────────────────────────────────────────────────────
 const TAB_CONTEXT = {
-  discover: "New releases and top picks — scored 0–100 on engagement, daily view growth, and recency",
-  artists:  "Browse and filter artists by language and genre — use Collab Finder to spot potential collaborators",
-  venues:   "Upcoming shows across cities — updated daily from BookMyShow, Skillboxes, and District",
+  discover: "New releases and top picks, scored 0-100 on engagement, daily view growth, and recency",
+  artists:  "Browse and filter artists by language and genre. Use Collab Finder to spot potential collaborators",
+  venues:   "Upcoming shows across cities, updated daily from BookMyShow, Skillboxes, and District",
   buzz:     "Reddit threads and press coverage mentioning Indian indie artists",
   industry: "Labels, booking agencies, and music companies active in the Indian indie space"
 };
@@ -1210,6 +1223,9 @@ function goTab(name) {
     }
     ctx.textContent = txt;
   }
+  // Update URL hash so each subtab is bookmarkable/shareable
+  const urlSlug = name === 'industry' ? 'scene' : name;
+  history.replaceState(null, '', '#' + urlSlug);
   track('tab_switch', { tab_name: name });
   // Trends: artist log is always ready; charts load on first toggle expand
   if (name==="buzz"&&!_buzzLoaded){
@@ -1535,7 +1551,7 @@ function renderArtistLog() {
   document.getElementById("artist-log-body").innerHTML = cs.map(c => {
     const badge = c.trend
       ? `<span class="trend-badge ${TREND_CLS[c.trend]}">${TREND_ICON[c.trend]} ${c.trend}</span>`
-      : `<span style="color:var(--muted)">—</span>`;
+      : `<span style="color:var(--muted)">-</span>`;
     return `<tr>
       <td><a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" class="al-name">${esc(c.name)}</a></td>
       <td><span class="pill pill-lang">${esc(c.top_lang)}</span></td>

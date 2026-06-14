@@ -12,7 +12,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>India Indie Music Radar</title>
-  <meta name="description" content="India Indie Music Radar — discover new Indian indie music, track artists by language and genre, and follow trends across the independent music scene." />
+  <meta name="description" content="India Indie Music Radar: discover new Indian indie music, track artists by language and genre, and follow trends across the independent music scene." />
   <meta property="og:title" content="India Indie Music Radar" />
   <meta property="og:description" content="Discover new Indian indie music. Track artists by language and genre. 924 reviewer contacts. Free and updated daily." />
   <meta property="og:url" content="https://sibyjohn0.github.io/india-music-dashboard/" />
@@ -58,6 +58,7 @@
 
     <!-- ── DISCOVER ── -->
     <div id="tab-discover" class="tab-pane">
+      <div class="tab-updated" id="upd-discover"></div>
 
       <!-- Shows strip — city venue summary of upcoming events -->
       <div class="discover-shows-strip" id="discover-shows-strip" style="display:none"></div>
@@ -65,7 +66,7 @@
       <!-- SECTION 1: Breaking this week -->
       <div class="today-section">
         <div class="today-section-hd">Breaking this week</div>
-        <div class="today-section-sub">Channels with the biggest week-over-week view growth — artists gaining momentum right now.</div>
+        <div class="today-section-sub">Channels with the biggest week-over-week view growth, artists gaining momentum right now.</div>
         <div class="breaking-body" id="breaking-body">
           <div class="breaking-player" id="breaking-player" hidden>
             <iframe id="breaking-player-iframe" frameborder="0" allowfullscreen
@@ -81,7 +82,7 @@
       <!-- SECTION 2: Top picks this week -->
       <div class="today-section">
         <div class="today-section-hd">Top picks this week</div>
-        <div class="today-section-sub">Ranked by momentum — a 0–100 score measuring engagement rate and daily view growth within the 90-day window.</div>
+        <div class="today-section-sub">Ranked by momentum: a 0-100 score measuring engagement rate and daily view growth within the 90-day window.</div>
         <div class="today-section-meta" id="d-hero-label">Top finds</div>
         <div class="hero-cards" id="hero-cards"></div>
         <button class="hero-show-more" id="hero-show-more" style="display:none">Show more videos ▾</button>
@@ -135,10 +136,11 @@
 
     <!-- ── ARTISTS ── -->
     <div id="tab-artists" class="tab-pane">
+      <div class="tab-updated" id="upd-artists"></div>
 
       <!-- Collab Finder bar -->
       <div class="collab-bar" id="collab-bar">
-        <div class="collab-bar-label">Find collaborators —</div>
+        <div class="collab-bar-label">Find collaborators:</div>
         <select id="c-my-genre">
           <option value="">My genre…</option>
           <option>Indie</option>
@@ -168,7 +170,7 @@
           <span class="collab-dot collab-both"></span>Strong fit
           <span class="collab-dot collab-genre"></span>Genre match
           <span class="collab-dot collab-lang"></span>Language match
-          <span class="collab-hint">Pick your genre and language — matching artists highlight below</span>
+          <span class="collab-hint">Pick your genre and language. Matching artists highlight below.</span>
         </div>
       </div>
 
@@ -212,7 +214,7 @@
       </div>
       <div class="artist-log" id="artist-log">
         <div class="artist-log-hd">
-          <div class="artist-log-title">Full roster — 90-day window</div>
+          <div class="artist-log-title">Full roster, 90-day window</div>
           <span class="artist-log-meta" id="al-meta"></span>
         </div>
         <div class="artist-log-filters">
@@ -232,7 +234,7 @@
               <th>Genre</th>
               <th>Videos</th>
               <th>Last active</th>
-              <th><span class="metric-tip" data-tip="Momentum: 0–99. Percentile rank within the 90-day window — combines engagement rate and daily view growth. 99 = fastest moving artist in the current pool.">Score</span></th>
+              <th><span class="metric-tip" data-tip="Momentum: 0-99. Percentile rank within the 90-day window, combining engagement rate and daily view growth. 99 = fastest moving artist in the current pool.">Score</span></th>
               <th>Trend</th>
             </tr>
           </thead>
@@ -249,6 +251,7 @@
 
     <!-- ── VENUES ── -->
     <div id="tab-venues" class="tab-pane">
+      <div class="tab-updated" id="upd-venues"></div>
 
       <div class="shows-section">
         <div class="shows-header">
@@ -266,6 +269,7 @@
 
     <!-- ── BUZZ ── -->
     <div id="tab-buzz" class="tab-pane active">
+      <div class="tab-updated" id="upd-buzz"></div>
       <div class="filter-bar">
         <select id="b-lang"><option value="all">All Languages</option></select>
         <select id="b-platform">
@@ -296,6 +300,7 @@
 
     <!-- ── INDUSTRY ── -->
     <div id="tab-industry" class="tab-pane">
+      <div class="tab-updated" id="upd-scene"></div>
       <iframe id="industry-frame"
         style="width:100%;border:none;min-height:calc(100vh - 160px);display:block;"
         title="Scene"></iframe>
