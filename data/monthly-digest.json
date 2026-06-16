@@ -1,13 +1,13 @@
 {
   "2026-06": {
     "month": "2026-06",
-    "snapshots": 13,
-    "last_snapshot_at": "2026-06-15T06:31:28.056777+00:00",
+    "snapshots": 14,
+    "last_snapshot_at": "2026-06-16T06:37:59.405316+00:00",
     "total_videos": 225,
-    "total_artists": 229,
-    "new_artists_seen": 219,
-    "median_score": 61,
-    "median_views": 3929,
+    "total_artists": 235,
+    "new_artists_seen": 225,
+    "median_score": 65,
+    "median_views": 4335,
     "top_artists": [
       {
         "name": "Sivakarthikeyan Productions",
@@ -82,34 +82,34 @@
     ],
     "fastest_growing": [
       {
+        "name": "Aksomaniac",
+        "views_gained": 2357827,
+        "genre": "Hip Hop / Rap",
+        "language": "Malayalam"
+      },
+      {
         "name": "Veeru Jamakandi Singer - Topic",
-        "views_gained": 1587662,
+        "views_gained": 1602080,
         "genre": "Electronic",
         "language": "Kannada"
       },
       {
+        "name": "Hardik Bhardwaj Official",
+        "views_gained": 891421,
+        "genre": "R&B / Soul",
+        "language": "Punjabi"
+      },
+      {
         "name": "Shreyashhh",
-        "views_gained": 515147,
+        "views_gained": 529089,
         "genre": "Indie",
         "language": "English"
       },
       {
         "name": "Lo-fi 2307",
-        "views_gained": 338485,
+        "views_gained": 349202,
         "genre": "Lo-Fi",
         "language": "English"
-      },
-      {
-        "name": "Gallery Vision Indie",
-        "views_gained": 270841,
-        "genre": "Electronic",
-        "language": "Malayalam"
-      },
-      {
-        "name": "MRSU MUSIC",
-        "views_gained": 173988,
-        "genre": "Indie",
-        "language": "Kannada"
       }
     ],
     "genre_breakdown": [
@@ -119,38 +119,38 @@
       ],
       [
         "Hip Hop / Rap",
-        47
+        48
       ],
       [
         "Folk / Acoustic",
-        43
+        42
       ],
       [
         "Lo-Fi",
         22
       ],
       [
-        "Classical/Fusion",
-        17
-      ],
-      [
         "R&B / Soul",
         17
       ],
       [
+        "Classical/Fusion",
+        17
+      ],
+      [
         "Electronic",
-        16
+        17
       ],
       [
         "Rock / Alt",
-        4
-      ],
-      [
-        "Jazz / Blues",
         3
       ],
       [
         "Indie Pop",
+        3
+      ],
+      [
+        "Jazz / Blues",
         2
       ]
     ],
@@ -161,10 +161,6 @@
       ],
       [
         "Telugu",
-        25
-      ],
-      [
-        "Kannada",
         25
       ],
       [
@@ -184,38 +180,44 @@
         25
       ],
       [
-        "Malayalam",
+        "Kannada",
         25
       ],
       [
         "English",
         25
+      ],
+      [
+        "Malayalam",
+        25
       ]
     ],
     "city_shows": {
-      "Goa": 24,
-      "Bangalore": 58,
+      "Hyderabad": 48,
       "Guwahati": 2,
       "Mumbai": 20,
-      "Kolkata": 8,
-      "Chennai": 6,
-      "Delhi": 12,
-      "Hyderabad": 8,
-      "Pune": 6,
-      "Dwarka": 1,
+      "Goa": 13,
+      "Bangalore": 69,
+      "Chennai": 8,
+      "Delhi": 22,
+      "Pune": 14,
+      "Kolkata": 11,
       "Meerut": 1,
       "Tamil Nadu": 1,
+      "5a06efefe976a85c0cdbd8e7": 1,
       "Ladakh": 1,
+      "Dubai": 1,
       "Abu Dhabi": 1,
       "India": 1,
       "Manali": 1,
       "Patna": 1,
       "Dehradun": 1,
       "Kochi": 1,
+      "Ahmedabad": 1,
       "Dharamshala": 1,
       "Udaipur": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 156
+    "total_shows": 221
   }
 }
