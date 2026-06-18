@@ -153,11 +153,11 @@ async function init() {
   initMetricTips();
   initArtistLog();
   initDiscoverFilterToggle();
-  // Default landing tab is Buzz; honour hash overrides for direct links
+  // Default landing tab is Discover (the core radar view); honour hash overrides for direct links
   const _hash = window.location.hash.replace('#', '');
   const _routableTabs = ['discover','artists','venues','trends','buzz','industry','scene'];
   if (_routableTabs.includes(_hash)) goTab(_hash === 'trends' ? 'venues' : _hash === 'scene' ? 'industry' : _hash);
-  else goTab('buzz');
+  else goTab('discover');
 
 }
 

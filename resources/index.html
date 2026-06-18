@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R7EYMGZEJZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — India Indie Music Radar</title>
+  <meta name="description" content="Free resources for Indian indie artists: a start-here toolkit, a curated reading list, the full 79-document toolkit, and the Artist Playbook. Selected by Siby John and Karishma Changroth." />
+  <meta property="og:title" content="Resources — India Indie Music Radar" />
+  <meta property="og:description" content="Start here, the reading list, the full toolkit, and the Playbook. Free for Indian indie artists." />
+  <meta property="og:url" content="https://sibyjohn0.github.io/india-music-dashboard/resources/" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d0f;
+      --surface:  #141418;
+      --surface2: #1c1c24;
+      --border:   #242430;
+      --accent:   #e94560;
+      --amber:    #f7b731;
+      --green:    #10b981;
+      --blue:     #60a5fa;
+      --purple:   #c084fc;
+      --text:     #e8e8f0;
+      --muted:    #6b6b85;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      height: 52px;
+      background: rgba(13,13,15,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
+
+    nav {
+      display: flex;
+      padding: 0 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    nav::-webkit-scrollbar { display: none; }
+    .tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #999;
+      font: 13px/1 'Inter', sans-serif;
+      padding: 0 16px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: color .15s, border-color .15s;
+      white-space: nowrap;
+      text-decoration: none;
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
+
+    .page { max-width: 760px; margin: 0 auto; padding: 64px 32px 120px; }
+
+    .page-intro { margin-bottom: 48px; }
+    .page-intro h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: #f0f0f0;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .page-intro p {
+      font-size: 15px;
+      color: #9090a8;
+      line-height: 1.75;
+      max-width: 560px;
+    }
+    .spreadsheet-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 14px;
+      transition: border-color .15s, color .15s;
+    }
+    .spreadsheet-link:hover { border-color: var(--muted); color: var(--text); }
+
+    /* Search */
+    .search-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .search-input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font: 14px 'Inter', sans-serif;
+      color: var(--text);
+      outline: none;
+      transition: border-color .15s;
+    }
+    .search-input::placeholder { color: var(--muted); }
+    .search-input:focus { border-color: #444458; }
+    .count-label {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Kit sections */
+    .kit-section { margin-bottom: 60px; }
+    .kit-section.hidden { display: none; }
+
+    .kit-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .kit-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+    .kit-tag.startup  { background: rgba(233,69,96,.15);  color: #e94560; }
+    .kit-tag.touring  { background: rgba(247,183,49,.15); color: #f7b731; }
+    .kit-tag.recording{ background: rgba(16,185,129,.15); color: #10b981; }
+    .kit-tag.marketing{ background: rgba(96,165,250,.15); color: #60a5fa; }
+    .kit-tag.money    { background: rgba(192,132,252,.15);color: #c084fc; }
+
+    .kit-count { font-size: 12px; color: var(--muted); }
+
+    .kit-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #f0f0f0;
+      letter-spacing: -.3px;
+      margin-bottom: 6px;
+    }
+    .kit-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 560px;
+    }
+
+    /* Doc list */
+    .doc-list {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .doc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .doc-item:last-child { border-bottom: none; }
+    .doc-item:hover { background: var(--surface2); }
+    .doc-item.filtered-out { display: none; }
+
+    .doc-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      min-width: 22px;
+      padding-top: 3px;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .doc-content { flex: 1; min-width: 0; }
+
+    .doc-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #f0f0f0;
+      line-height: 1.35;
+      margin-bottom: 4px;
+      transition: color .15s;
+    }
+    .doc-item:hover .doc-title { color: var(--accent); }
+
+    .doc-why {
+      font-size: 12px;
+      color: #7878a0;
+      line-height: 1.55;
+    }
+
+    .doc-arrow {
+      font-size: 14px;
+      color: var(--muted);
+      padding-top: 3px;
+      flex-shrink: 0;
+      transition: color .15s, transform .15s;
+    }
+    .doc-item:hover .doc-arrow { color: var(--accent); transform: translateX(3px); }
+
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .no-results.visible { display: block; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); transition: color .15s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      header { padding: 0 16px; }
+      .page { padding: 36px 16px 64px; }
+      .tab { padding: 0 12px; font-size: 12px; }
+      .doc-item { padding: 14px 16px; gap: 12px; }
+      footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+    }
+  
+.reads-section { margin-bottom: 64px; }
+.section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+.section-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #f0f0f0;
+      letter-spacing: -.2px;
+      margin-bottom: 6px;
+    }
+.section-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+.reads-list {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+.read-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      transition: background .15s;
+      text-decoration: none;
+      color: inherit;
+    }
+.read-item:last-child { border-bottom: none; }
+.read-item:hover { background: var(--surface2); }
+.read-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--muted);
+      min-width: 20px;
+      padding-top: 3px;
+      flex-shrink: 0;
+    }
+.read-content { flex: 1; }
+.read-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #f0f0f0;
+      line-height: 1.35;
+      margin-bottom: 5px;
+      transition: color .15s;
+    }
+.read-item:hover .read-title { color: var(--accent); }
+.read-meta {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: .2px;
+    }
+.read-why {
+      font-size: 13px;
+      color: #8080a0;
+      line-height: 1.6;
+    }
+.read-arrow {
+      font-size: 16px;
+      color: var(--muted);
+      padding-top: 2px;
+      flex-shrink: 0;
+      transition: color .15s, transform .15s;
+    }
+.read-item:hover .read-arrow { color: var(--accent); transform: translateX(3px); }
+.read-item { padding: 16px 16px; gap: 12px; }
+
+  /* ── RESOURCES PAGE ── */
+  .res-hero { padding: 40px 32px 8px; max-width: 1100px; margin: 0 auto; }
+  .res-hero h1 { font-size: clamp(26px,4vw,38px); font-weight: 800; letter-spacing:-.5px; margin-bottom:10px; }
+  .res-hero p { color: var(--muted); font-size: 15px; line-height:1.6; max-width: 640px; }
+  .res-wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px 64px; }
+  .res-search-row { position: sticky; top: var(--nav-h,52px); z-index: 40; background: var(--bg); padding: 18px 0 14px; margin-bottom: 8px; }
+  .res-search { width: 100%; max-width: 520px; padding: 12px 16px; background: var(--card-bg,#1a1a1a); border:1px solid var(--border); border-radius:10px; color: var(--text); font-size:15px; font-family:inherit; outline:none; }
+  .res-search:focus { border-color: var(--accent); }
+  .res-count { display:inline-block; margin-left:12px; color: var(--muted); font-size:13px; }
+  .res-section-head { display:flex; align-items:baseline; gap:12px; margin: 44px 0 6px; padding-top: 22px; border-top:1px solid var(--border); }
+  .res-section-head:first-of-type { border-top:none; padding-top:0; }
+  .res-section-head h2 { font-size: 20px; font-weight: 800; letter-spacing:-.3px; }
+  .res-section-head .res-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.6px; color: var(--accent); }
+  .res-section-sub { color: var(--muted); font-size:13px; line-height:1.55; margin-bottom: 20px; max-width: 640px; }
+  .res-starthere .doc-list { display:grid; grid-template-columns: repeat(auto-fill,minmax(330px,1fr)); gap:10px; }
+  .res-playbook-card { display:block; text-decoration:none; border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:12px; padding:22px 24px; background: var(--card-bg,#1a1a1a); transition:border-color .15s; }
+  .res-playbook-card:hover { border-color: var(--accent); }
+  .res-playbook-card .pbc-title { font-size:17px; font-weight:800; color: var(--text); margin-bottom:6px; }
+  .res-playbook-card .pbc-desc { color: var(--muted); font-size:13.5px; line-height:1.6; }
+  .res-no-results { display:none; color: var(--muted); padding: 28px 0; font-size:15px; }
+  .res-no-results.show { display:block; }
+
+  </style>
+  <link rel="canonical" href="https://sibyjohn0.github.io/india-music-dashboard/resources/" />
+  <meta property="og:image" content="https://sibyjohn0.github.io/india-music-dashboard/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://sibyjohn0.github.io/india-music-dashboard/og-image.png" />
+</head>
+<body>
+
+<header>
+  <div class="logo"><a href="../">◉ India Indie Music Radar</a></div>
+</header>
+
+<nav>
+  <a class="tab" href="../">Radar</a>
+  <a class="tab" href="../reviewers/">Reviewers</a>
+  <a class="tab" href="../industry/">Industry</a>
+  <a class="tab active" href="../resources/">Resources</a>
+  <a class="tab" href="../programme/">Programme</a>
+  <a class="tab" href="../about/">About</a>
+</nav>
+
+<div class="res-hero">
+  <h1>Resources</h1>
+  <p>Everything free, in one place. A start-here shortlist, the reading list, the full toolkit, and the Playbook. Selected and maintained by Siby John and Karishma Changroth.</p>
+</div>
+
+<div class="res-wrap">
+
+  <div class="res-search-row">
+    <input class="res-search" id="res-search" type="text" placeholder="Search every resource on this page…" autocomplete="off" />
+    <span class="res-count" id="res-count"></span>
+  </div>
+
+  <div class="res-no-results" id="res-no-results">Nothing matches that search. Try a broader term.</div>
+
+  <!-- ── START HERE ── -->
+  <section class="res-block res-starthere" id="start">
+    <div class="res-section-head">
+      <span class="res-tag">Begin here</span>
+      <h2>If you are just starting</h2>
+    </div>
+    <p class="res-section-sub">Eight documents that apply to almost every independent Indian artist in their first two years. Start with these before working through the full toolkit below.</p>
+    <div class="doc-list">
+      <a class="doc-item" href="https://docs.google.com/document/d/1ef43w98YUHDgvmI7o6FMsBTQs-DaHwI3vfsIzW4FZHs/edit" target="_blank" rel="noopener">
+        <span class="doc-num">02</span>
+        <div class="doc-content">
+          <div class="doc-title">Artist On-Boarding Checklist</div>
+          <div class="doc-why">Everything to collect and confirm when signing a new artist. Complete within first 30 days.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1tEqhtZagPO8s-1uaeWPv_GSmYKfEl513b1lKgTqV10M/edit" target="_blank" rel="noopener">
+        <span class="doc-num">31</span>
+        <div class="doc-content">
+          <div class="doc-title">New Release Checklist</div>
+          <div class="doc-why">Everything needed to prepare and execute a release. Start working through it 8 weeks before release date.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1oyomJVrVns59_MLGGYBKFbSTlg-D6NNeAhK4_vPBGBA/edit" target="_blank" rel="noopener">
+        <span class="doc-num">33</span>
+        <div class="doc-content">
+          <div class="doc-title">IPRS &amp; PPL Registration Guide</div>
+          <div class="doc-why">Step-by-step registration guide for IPRS and PPL India. Complete once at career start.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1osKd7dq7XjsD9Rft_2pSP-c9pZtetMqmbkUlXk7XwAc/edit" target="_blank" rel="noopener">
+        <span class="doc-num">70</span>
+        <div class="doc-content">
+          <div class="doc-title">Revenue Streams Checklist</div>
+          <div class="doc-why">30+ income streams audited by activation status, with quarterly activation target and India-specific platform notes.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1yL_l0sgrVQJTDmNBTsgiC4rkBGzhX6be9jQTGLleh9Q/edit" target="_blank" rel="noopener">
+        <span class="doc-num">52</span>
+        <div class="doc-content">
+          <div class="doc-title">Single Release Plan</div>
+          <div class="doc-why">Action plan for releasing a single. Start working through it 6 weeks before release date.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Zp7xxHBhZLVelBi8-ljiNvrEC2q6oOxXniqYls8Zw08/edit" target="_blank" rel="noopener">
+        <span class="doc-num">65</span>
+        <div class="doc-content">
+          <div class="doc-title">Artist Finances Template</div>
+          <div class="doc-why">Overview of all revenue streams and expenses for an artist. Review at the start of the relationship and monthly.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Hohe_UgDJ08S4ONjHfmqqGkFYpLUrBawBU5zd2Yr6VM/edit" target="_blank" rel="noopener">
+        <span class="doc-num">54</span>
+        <div class="doc-content">
+          <div class="doc-title">One Sheet Example</div>
+          <div class="doc-why">One-page artist overview for sending to bookers, labels, brands, and press. Update after every major milestone.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/18GIzGxpwSx6v_quSiw-qIfQgGj8oL-t-7dSC3bEQdkI/edit" target="_blank" rel="noopener">
+        <span class="doc-num">55</span>
+        <div class="doc-content">
+          <div class="doc-title">Social Media Calendar</div>
+          <div class="doc-why">Month-by-month content plan across all social platforms. Plan one month ahead minimum, never post reactively.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── READING LIST ── -->
+  <section class="res-block" id="reading">
+    <div class="res-section-head">
+      <span class="res-tag">Read</span>
+      <h2>The reading list</h2>
+    </div>
+    <p class="res-section-sub">Selected by Siby John and Karishma Changroth, not aggregated or sponsored. The criterion is simple: does this change how an independent Indian artist thinks about their career. The list grows when something worth adding appears, not on a schedule.</p>
+<!-- SECTION 1: HOW AUDIENCES WORK -->
+  <div class="reads-section">
+    <div class="section-label">Foundations</div>
+    <div class="section-title">How audiences actually work</div>
+    <div class="section-desc">The essays that reframe what it means to build a following. Read these before you think about streaming numbers.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://kk.org/thetechnium/1000-true-fans/" target="_blank" rel="noopener">
+        <div class="read-num">01</div>
+        <div class="read-content">
+          <div class="read-title">1,000 True Fans</div>
+          <div class="read-meta">Kevin Kelly · The Technium · 2008</div>
+          <div class="read-why">The original argument that you don't need millions of listeners, you need a small number of people who will buy everything you make. Still the most important frame for independent artists building from scratch.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://a16z.com/1000-true-fans-try-100/" target="_blank" rel="noopener">
+        <div class="read-num">02</div>
+        <div class="read-content">
+          <div class="read-title">1,000 True Fans? Try 100</div>
+          <div class="read-meta">Li Jin · Andreessen Horowitz · 2020</div>
+          <div class="read-why">The sharper update. Kelly's math assumed a direct financial relationship with fans that streaming has made harder. Li Jin argues that 100 people who pay you directly is more achievable and more sustainable than chasing 1,000.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://www.hypebot.com/hypebot/2024/12/why-kevin-kellys-1000-true-fans-isnt-enough-in-2024.html" target="_blank" rel="noopener">
+        <div class="read-num">03</div>
+        <div class="read-content">
+          <div class="read-title">Why 1,000 True Fans Isn't Enough in 2024</div>
+          <div class="read-meta">Hypebot · 2024</div>
+          <div class="read-why">The honest critique. Kelly's framework was built before passive streaming listeners existed. This piece does the real math on what a true fan actually spends today and what that means for the economics.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SECTION 2: THE INDIAN SCENE -->
+  <div class="reads-section">
+    <div class="section-label">The Indian scene</div>
+    <div class="section-title">How Indian indie actually works</div>
+    <div class="section-desc">Pieces specific to the Indian market. The context most advice from the US or UK misses entirely.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://homegrown.co.in/ritviz-bares-it-all-on-how-to-start-off-a-career-in-the-independent-music-scene" target="_blank" rel="noopener">
+        <div class="read-num">04</div>
+        <div class="read-content">
+          <div class="read-title">Ritviz On How To Start A Career In The Independent Music Scene</div>
+          <div class="read-meta">Homegrown</div>
+          <div class="read-why">One of the few interviews where a successful Indian indie artist talks honestly about the early decisions: what worked, what didn't, and how the business side actually operates from the inside. More useful than any overview.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://www.redbull.com/in-en/perspective-indian-independent-music-scene" target="_blank" rel="noopener">
+        <div class="read-num">05</div>
+        <div class="read-content">
+          <div class="read-title">How India's Independent Music Landscape Has Evolved</div>
+          <div class="read-meta">Red Bull India</div>
+          <div class="read-why">The longer arc, where Indian indie came from, what changed with streaming and social, and what the scene looks like now. Good for understanding why the current moment is different from five years ago.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://homegrown.co.in/homegrown-explore/the-people-forging-a-brave-new-future-for-indias-alternative-music-landscape" target="_blank" rel="noopener">
+        <div class="read-num">06</div>
+        <div class="read-content">
+          <div class="read-title">The People Forging A Brave New Future For India's Alternative Music Landscape</div>
+          <div class="read-meta">Homegrown</div>
+          <div class="read-why">Portraits of the people building the infrastructure around Indian indie: labels, bookers, curators, platforms. Useful for understanding who the ecosystem actually depends on beyond the artists themselves.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://homegrown.co.in/article/802677/an-insider-s-guide-to-the-best-indian-venues-for-independent-music/" target="_blank" rel="noopener">
+        <div class="read-num">07</div>
+        <div class="read-content">
+          <div class="read-title">An Insider's Guide To The Best Indian Venues For Independent Music</div>
+          <div class="read-meta">Homegrown</div>
+          <div class="read-why">Practical and specific. The venues that matter in each city, what each one looks for, and how to approach them. Read this before you approach any booker.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://thefederal.com/category/the-eighth-column/k-pop-korean-bts-music-indie-indian-bands-singers-bollywood-global-success-netflix-culture-237794" target="_blank" rel="noopener">
+        <div class="read-num">08</div>
+        <div class="read-content">
+          <div class="read-title">Why Global Success For Indian Indie May Look Nothing Like K-Pop</div>
+          <div class="read-meta">The Federal</div>
+          <div class="read-why">A sober read on what Indian indie's global moment could actually look like, and why the K-pop comparison is the wrong frame. Important for artists building with international ambition.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://theindianmusicdiaries.com/cultural-imperialism-or-collaboration-western-influences-on-the-indian-indie-scene/" target="_blank" rel="noopener">
+        <div class="read-num">09</div>
+        <div class="read-content">
+          <div class="read-title">Cultural Imperialism or Collaboration? Western Influences on the Indian Indie Scene</div>
+          <div class="read-meta">The Indian Music Diaries</div>
+          <div class="read-why">The identity question every Indian indie artist faces eventually: am I making something distinctly mine, or imitating a template? The piece argues Indian artists are actively translating Western forms, not just consuming them. Useful for thinking about what your sound is actually doing.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SECTION 3: MONEY AND RIGHTS -->
+  <div class="reads-section">
+    <div class="section-label">The business</div>
+    <div class="section-title">Money, rights, and contracts</div>
+    <div class="section-desc">The practical stuff most artists learn too late. Read these before you sign anything or release anything.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://tunevalley.com/blog/how-music-royalties-work-in-india/" target="_blank" rel="noopener">
+        <div class="read-num">10</div>
+        <div class="read-content">
+          <div class="read-title">How Music Royalties Work In India: A Practical Guide</div>
+          <div class="read-meta">Tunevalley</div>
+          <div class="read-why">The clearest explanation of how royalties actually flow in India: performance, mechanical, sync. Covers IPRS and what you should be collecting that you probably aren't. Start here on the money side.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://theindianmusicdiaries.com/signing-contracts-a-short-guide-to-artist-rights-contract-clauses-and-more/" target="_blank" rel="noopener">
+        <div class="read-num">11</div>
+        <div class="read-content">
+          <div class="read-title">Signing Contracts: A Short Guide To Artist Rights, Contract Clauses And More</div>
+          <div class="read-meta">The Indian Music Diaries</div>
+          <div class="read-why">What to look for, what to push back on, and what the standard clauses actually mean in an Indian context. Read this before anyone puts a contract in front of you.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://spicyip.com/2020/12/who-gets-paid-for-music-revamp-music-copyright-india-part1.html" target="_blank" rel="noopener">
+        <div class="read-num">12</div>
+        <div class="read-content">
+          <div class="read-title">Who Gets Paid For The Music You Listen To?</div>
+          <div class="read-meta">SpicyIP · India's leading IP law blog</div>
+          <div class="read-why">The actual payment chain in Indian music, traced carefully. The finding: of every ₹100 a listener pays, roughly ₹8.75 reaches the composers and lyricists. The rest goes to platforms, labels, and publishers. Read this to understand why the streaming numbers your distributor shows you tell only part of the story.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SECTION 4: WHAT THE PLATFORMS ARE DOING -->
+  <div class="reads-section">
+    <div class="section-label">The platform question</div>
+    <div class="section-title">What streaming is actually doing</div>
+    <div class="section-desc">Not why streaming is bad, but why understanding how it works changes how you use it.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://aristake.com/liz-pelly/" target="_blank" rel="noopener">
+        <div class="read-num">13</div>
+        <div class="read-content">
+          <div class="read-title">Spotify Commissioned Cheap "Fake Artists" And She's Got the Proof</div>
+          <div class="read-meta">Ari Herstand · Ari's Take · 2024</div>
+          <div class="read-why">Covers Liz Pelly's investigation into Spotify's Perfect Fit Content programme, exploring how Spotify fills mood playlists with cheap commissioned tracks instead of independent artists. The Harper's original is paywalled. This is the full story, free.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: NEWSLETTERS -->
+  <div class="reads-section">
+    <div class="section-label">Newsletters</div>
+    <div class="section-title">Worth following, not just reading once</div>
+    <div class="section-desc">Substacks that think seriously about music as a business and a culture. Free tiers on all of these.</div>
+    <div class="reads-list">
+
+      <a class="read-item" href="https://musicx.substack.com" target="_blank" rel="noopener">
+        <div class="read-num">14</div>
+        <div class="read-content">
+          <div class="read-title">Music x Neon</div>
+          <div class="read-meta">Substack · India-focused</div>
+          <div class="read-why">One of the few newsletters specifically covering the Indian music ecosystem: new-age companies, independent labels, the infrastructure being built around indie. The overview of the Indian music ecosystem is the piece to start with.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://pennyfractions.substack.com" target="_blank" rel="noopener">
+        <div class="read-num">15</div>
+        <div class="read-content">
+          <div class="read-title">Penny Fractions</div>
+          <div class="read-meta">David Turner · Substack</div>
+          <div class="read-why">The most rigorous writing on music economics from an artist-first perspective. Covers streaming revenue, platform economics, and what the numbers actually mean for working musicians. Not cheerleading, but honest analysis.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+      <a class="read-item" href="https://www.thewildcity.com" target="_blank" rel="noopener">
+        <div class="read-num">16</div>
+        <div class="read-content">
+          <div class="read-title">Wild City</div>
+          <div class="read-meta">Wild City · India</div>
+          <div class="read-why">The closest thing Indian indie has to a paper of record. New releases, scene features, interviews, and cultural coverage. The site that has tracked Indian alternative music longer and more seriously than anyone else.</div>
+        </div>
+        <div class="read-arrow">→</div>
+      </a>
+
+    </div>
+  </div>
+  </section>
+
+  <!-- ── FULL TOOLKIT ── -->
+  <section class="res-block" id="toolkit">
+    <div class="res-section-head">
+      <span class="res-tag">Use</span>
+      <h2>The full toolkit</h2>
+    </div>
+    <p class="res-section-sub">79 working documents, templates, and checklists across five kits. Open in Google Docs, make a copy, and adapt to your situation.</p>
+<!-- ── STARTUP KIT ── -->
+  <div class="kit-section" data-kit="startup">
+    <div class="kit-header">
+      <span class="kit-tag startup">Startup Kit</span>
+      <span class="kit-count">8 documents</span>
+    </div>
+    <h2 class="kit-title">Set up your management practice</h2>
+    <p class="kit-desc">Legal agreements, business setup, competitive analysis, and intake processes. Work through these before signing your first artist.</p>
+    <div class="doc-list">
+      <a class="doc-item" href="https://docs.google.com/document/d/1RO0S2Jd1Mh-tu5VbVnVpjTHHWQUmcO5xQbgGQ-8T_z4/edit" target="_blank" rel="noopener">
+        <span class="doc-num">01</span>
+        <div class="doc-content">
+          <div class="doc-title">Artist Management Agreement</div>
+          <div class="doc-why">Legal contract between artist and manager. Sign before any management work begins.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1ef43w98YUHDgvmI7o6FMsBTQs-DaHwI3vfsIzW4FZHs/edit" target="_blank" rel="noopener">
+        <span class="doc-num">02</span>
+        <div class="doc-content">
+          <div class="doc-title">Artist On-Boarding Checklist</div>
+          <div class="doc-why">Everything to collect and confirm when signing a new artist. Complete within first 30 days.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1wAl_pYysjY6W6sq3xonvIiDLbFoMPtxvD-Cfm7wbpTw/edit" target="_blank" rel="noopener">
+        <span class="doc-num">03</span>
+        <div class="doc-content">
+          <div class="doc-title">Ultimate Guide to Starting an Artist Management Company (India)</div>
+          <div class="doc-why">How to legally set up a management business in India. Read before registering or signing anyone.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1QraP0WBh4qIi3p9y265l4CTp8LVxdBia6d3Q_BDX_Y8/edit" target="_blank" rel="noopener">
+        <span class="doc-num">04</span>
+        <div class="doc-content">
+          <div class="doc-title">Contact Directory Template</div>
+          <div class="doc-why">Master database of all industry contacts per artist. Maintain continuously throughout the relationship.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1gglhH7WM1viMKCzsWJkMnYOStC1lTzA62mXLfenSvaQ/edit" target="_blank" rel="noopener">
+        <span class="doc-num">05</span>
+        <div class="doc-content">
+          <div class="doc-title">Music Business Plan Template</div>
+          <div class="doc-why">12-month and 3-year strategy document per artist. Complete at signing, review every 6 months.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1HgDplZwDAWgoKON-uBRNfpQV0DyTFGf2l1tP47krz8Y/edit" target="_blank" rel="noopener">
+        <span class="doc-num">06</span>
+        <div class="doc-content">
+          <div class="doc-title">Genius Zone Task Audit</div>
+          <div class="doc-why">Time audit to identify what only the manager should do vs. delegate. Run every 6 months as roster grows.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/18OsCw73xqfNKU1ZsojuQWeRwCzS6fzfohAIjIl0BG2Y/edit" target="_blank" rel="noopener">
+        <span class="doc-num">07</span>
+        <div class="doc-content">
+          <div class="doc-title">Competition Analysis Template</div>
+          <div class="doc-why">Benchmark your artist against 5 comparable artists across streaming, live, and press. Run at signing and every 6 months.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1ZvS7w4C0dRsN1x_TCx6o2isbxmw_TjfNZsmL2LXd8lI/edit" target="_blank" rel="noopener">
+        <span class="doc-num">08</span>
+        <div class="doc-content">
+          <div class="doc-title">Industry Trends Questionnaire</div>
+          <div class="doc-why">Quarterly review of changes in the Indian music market. Complete every 3 months to keep strategy current.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── TOURING KIT ── -->
+  <div class="kit-section" data-kit="touring">
+    <div class="kit-header">
+      <span class="kit-tag touring">Touring Kit</span>
+      <span class="kit-count">19 documents</span>
+    </div>
+    <h2 class="kit-title">Plan and run every live show</h2>
+    <p class="kit-desc">Everything for a live event or multi-city tour: budgets, contracts, logistics, crew lists, and merch tracking.</p>
+    <div class="doc-list">
+      <a class="doc-item" href="https://docs.google.com/document/d/1lIXZVxzfTzJvVYTcIWLFI4Iih1B4tDprDdNEw3baL4s/edit" target="_blank" rel="noopener">
+        <span class="doc-num">09</span>
+        <div class="doc-content">
+          <div class="doc-title">Booking Advance Sheet</div>
+          <div class="doc-why">Confirms all show logistics and agreed terms with the venue. Send to promoter 14 days before every performance.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1je00ol3721BhaI-hNBBWGBaPZOxV9RCK1vojszdrHvM/edit" target="_blank" rel="noopener">
+        <span class="doc-num">10</span>
+        <div class="doc-content">
+          <div class="doc-title">Show Booking Email Template</div>
+          <div class="doc-why">Ready-to-adapt emails for every stage of the booking process, from cold outreach to post-show payment follow-up.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1u0bI7znaMy70jTBXxcZt0slZtH4yqc9U9_GiUWcxQa4/edit" target="_blank" rel="noopener">
+        <span class="doc-num">11</span>
+        <div class="doc-content">
+          <div class="doc-title">DIY Tour Management Guide (India)</div>
+          <div class="doc-why">End-to-end playbook for planning and running a multi-city India tour. Use when planning any run of 3 or more shows.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Rmnxw8wjHnX7x8fMnNT-lm9WYU-nSRwOE_CxCV2WU84/edit" target="_blank" rel="noopener">
+        <span class="doc-num">12</span>
+        <div class="doc-content">
+          <div class="doc-title">Tour Itinerary Template</div>
+          <div class="doc-why">Day-by-day travel and show schedule for the whole tour party. Distribute to all band and crew before departure.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/155_sl27UbJ5s-0Y6O0qbuzc7MGo8hdi-7VQKHU4x8vE/edit" target="_blank" rel="noopener">
+        <span class="doc-num">13</span>
+        <div class="doc-content">
+          <div class="doc-title">Tour Budget Template</div>
+          <div class="doc-why">Full income and expense tracker for a tour. Complete before tour is confirmed, update with actuals after each show.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1dco1lGi_9oWg9tW9JC-8WL9PKJ-7eBVw6mJ1iBwlUvw/edit" target="_blank" rel="noopener">
+        <span class="doc-num">14</span>
+        <div class="doc-content">
+          <div class="doc-title">Tour Reference Notes</div>
+          <div class="doc-why">Running notes document for tour-specific logistics, contacts, and on-ground details. Live document updated throughout the tour.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1uP5IDl8AaAV_gvg7T0hdMvtOgKcoTjS6ajAG-nDde0s/edit" target="_blank" rel="noopener">
+        <span class="doc-num">15</span>
+        <div class="doc-content">
+          <div class="doc-title">Asset Inventory Template</div>
+          <div class="doc-why">Master list of all equipment owned or hired for the tour. Audit before every tour departure.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1fdyuG8wK6sod3XGbgOZ9QBltBY_6iMzv21GIJ14DNHA/edit" target="_blank" rel="noopener">
+        <span class="doc-num">16</span>
+        <div class="doc-content">
+          <div class="doc-title">Promoter Agreement (India)</div>
+          <div class="doc-why">Legal performance contract between artist and venue or promoter. Get signed before any confirmed show.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Q1_BDHGINmat18JaFvXtX8TOAGXN0h3gjocJMDJaF0Q/edit" target="_blank" rel="noopener">
+        <span class="doc-num">17</span>
+        <div class="doc-content">
+          <div class="doc-title">Set List Creating Guide</div>
+          <div class="doc-why">Framework for building a set list that works across different venue sizes and audiences. Use before each tour or new show format.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1A-DCQepTET2JUhWSav3GxhjteYrtXDgcobcKxvM0eFw/edit" target="_blank" rel="noopener">
+        <span class="doc-num">18</span>
+        <div class="doc-content">
+          <div class="doc-title">Tour Booking Guide (India)</div>
+          <div class="doc-why">Step-by-step guide to booking a self-produced tour across Indian cities. Use when planning first or next tour.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1fkblG7IxImfUTXFUet36wlpoMjp30WdY--NNPGy5LNY/edit" target="_blank" rel="noopener">
+        <span class="doc-num">19</span>
+        <div class="doc-content">
+          <div class="doc-title">Merchandise Revenue Tracker</div>
+          <div class="doc-why">Running total of merch income across all shows and channels. Update after every show and every online sale.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1HTDNpaCI_Vww7Pv_9WitXzy3qFO6HnKk_bECZlMYVEA/edit" target="_blank" rel="noopener">
+        <span class="doc-num">20</span>
+        <div class="doc-content">
+          <div class="doc-title">Merch Sales Register</div>
+          <div class="doc-why">Show-by-show record of exactly what merchandise was sold. Fill in at every live event.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/11eowSUwjQIq7EP-PBuchJ4KByjVMqfBXDKRc6BDS1Cs/edit" target="_blank" rel="noopener">
+        <span class="doc-num">21</span>
+        <div class="doc-content">
+          <div class="doc-title">Personnel Doc</div>
+          <div class="doc-why">Contact list and role definitions for all band members and crew. Share at the start of every tour.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1jogOQDHyUX2pcMV8MKKj-7BY-4dWlKs0Ac2ceZPlB3c/edit" target="_blank" rel="noopener">
+        <span class="doc-num">22</span>
+        <div class="doc-content">
+          <div class="doc-title">Run Sheet Template</div>
+          <div class="doc-why">Minute-by-minute show day schedule. Complete and share with venue and crew 48 hours before the show.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1-P1Lu7foue2IJOOnPiTbXaPnGq3hlZX52x2JbXJpjsM/edit" target="_blank" rel="noopener">
+        <span class="doc-num">23</span>
+        <div class="doc-content">
+          <div class="doc-title">Stage Plots &amp; Input List Guide</div>
+          <div class="doc-why">Visual layout of stage positions and full input list for the sound engineer. Send to venue with every booking advance.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1KXkbzPLY4Cr998yjgj8ZKtkrRODFA7tkX7ABo4KZ4S4/edit" target="_blank" rel="noopener">
+        <span class="doc-num">24</span>
+        <div class="doc-content">
+          <div class="doc-title">Email Sign Up Sheet</div>
+          <div class="doc-why">Physical or digital form for collecting fan emails at shows. Use at every live event. Non-negotiable..</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/15cf9jj0m3GOWw4jkm-AP_OS_LCZtkCkrwwHLlNzKfKc/edit" target="_blank" rel="noopener">
+        <span class="doc-num">25</span>
+        <div class="doc-content">
+          <div class="doc-title">Booking Agents 101 Guide (India)</div>
+          <div class="doc-why">Who booking agents are in India, what they do, and how to approach them. Read before seeking agent representation.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1qb7hjEe_8zmZf-pjkPvJrgR1TE--ybP_R811BMKomao/edit" target="_blank" rel="noopener">
+        <span class="doc-num">26</span>
+        <div class="doc-content">
+          <div class="doc-title">Talent Buyers 101 Guide (India)</div>
+          <div class="doc-why">Who talent buyers and venue programmers are, how they think, and how to pitch them. Read before approaching venues directly.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Wk1JHiltyIeZ0Q9XDYJ_FdIUf82MPsvHUgMGIKpmmOA/edit" target="_blank" rel="noopener">
+        <span class="doc-num">27</span>
+        <div class="doc-content">
+          <div class="doc-title">Tour Managers 101 Guide (India)</div>
+          <div class="doc-why">What a tour manager does, when you need one, what to pay, and how to find one in India.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── RECORDING KIT ── -->
+  <div class="kit-section" data-kit="recording">
+    <div class="kit-header">
+      <span class="kit-tag recording">Recording Kit</span>
+      <span class="kit-count">18 documents</span>
+    </div>
+    <h2 class="kit-title">From studio session to streaming release</h2>
+    <p class="kit-desc">Production agreements, metadata, rights registration, distribution, and licensing. Cover these before any track goes live.</p>
+    <div class="doc-list">
+      <a class="doc-item" href="https://docs.google.com/document/d/1bE2PhFdc2JD05f8l9_P8iQkmEdzjhbM_ZLn1sr8rYIY/edit" target="_blank" rel="noopener">
+        <span class="doc-num">28</span>
+        <div class="doc-content">
+          <div class="doc-title">Album Budget Template</div>
+          <div class="doc-why">Full cost breakdown for recording and releasing an album. Complete before any recording begins.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/14uYcbsdSE8nSiOJwZYuVLLAuEEsyItWaeZSP78vasHE/edit" target="_blank" rel="noopener">
+        <span class="doc-num">29</span>
+        <div class="doc-content">
+          <div class="doc-title">Song Master Metadata Sheet</div>
+          <div class="doc-why">All technical and legal data for each recorded track. Fill in for every release before sending to distributor.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1NSyrpcn7FUVyMvfNdkzb2waLSVkTNI9u8gkMp75qJnM/edit" target="_blank" rel="noopener">
+        <span class="doc-num">30</span>
+        <div class="doc-content">
+          <div class="doc-title">Shipping Cost Matrix Sheet</div>
+          <div class="doc-why">Cost comparison for shipping physical product within India and internationally. Use when planning vinyl, CD, or physical merch releases.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1tEqhtZagPO8s-1uaeWPv_GSmYKfEl513b1lKgTqV10M/edit" target="_blank" rel="noopener">
+        <span class="doc-num">31</span>
+        <div class="doc-content">
+          <div class="doc-title">New Release Checklist</div>
+          <div class="doc-why">Everything needed to prepare and execute a release. Start working through it 8 weeks before release date.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1hkhHQap06_J83oE25EkWfaERyiy4majFpsGqrRPmObw/edit" target="_blank" rel="noopener">
+        <span class="doc-num">32</span>
+        <div class="doc-content">
+          <div class="doc-title">Distribution Guide (India)</div>
+          <div class="doc-why">Comparison of distributors available to Indian indie artists. Use when choosing or switching distributor.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1oyomJVrVns59_MLGGYBKFbSTlg-D6NNeAhK4_vPBGBA/edit" target="_blank" rel="noopener">
+        <span class="doc-num">33</span>
+        <div class="doc-content">
+          <div class="doc-title">IPRS &amp; PPL Registration Guide</div>
+          <div class="doc-why">Step-by-step registration guide for IPRS and PPL India. Complete once at career start.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1t1cC5CP3YKFws6JZwOF20JgTzca74ke6Aaz0m4nucZY/edit" target="_blank" rel="noopener">
+        <span class="doc-num">34</span>
+        <div class="doc-content">
+          <div class="doc-title">ISRC &amp; UPC Code Guide</div>
+          <div class="doc-why">What ISRC and UPC codes are, how to get them, and how to apply them correctly to every release.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1QLGK1E2SUl4GDFnZq-6XIizX_0Ceg6HWjG1SyihW0YI/edit" target="_blank" rel="noopener">
+        <span class="doc-num">35</span>
+        <div class="doc-content">
+          <div class="doc-title">The Artist Cycle</div>
+          <div class="doc-why">Framework for understanding the four phases of an artist career. Use in strategic planning conversations with the artist.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1EJX6H4GfXVDPjEbeyOiMrqiai8aPgzSNivA0S9ZZaXk/edit" target="_blank" rel="noopener">
+        <span class="doc-num">36</span>
+        <div class="doc-content">
+          <div class="doc-title">Co-Writer Split Sheet</div>
+          <div class="doc-why">Legal agreement for dividing songwriting credits and royalties between collaborators. Sign before any co-written track is released.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1IH_Vz_XpAqVGQQRBFUcN5IbGFjWeX56qYUIJoxTud28/edit" target="_blank" rel="noopener">
+        <span class="doc-num">37</span>
+        <div class="doc-content">
+          <div class="doc-title">Lyric Sheet Template</div>
+          <div class="doc-why">Formatted document for submitting lyrics to distributors, publishers, and DSPs. Use with every release.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1FaKA6OyEH-m6F2q151yLFPHjiiy92vmByyHYzfNKfSU/edit" target="_blank" rel="noopener">
+        <span class="doc-num">38</span>
+        <div class="doc-content">
+          <div class="doc-title">Label Copy Template</div>
+          <div class="doc-why">All credits and metadata required for a release in the format labels and distributors expect. Complete before every release.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1P48vzSKLu9yNqY4o3O2U6xcfi6c2ou7tT20t6O3RmpE/edit" target="_blank" rel="noopener">
+        <span class="doc-num">39</span>
+        <div class="doc-content">
+          <div class="doc-title">Publishing Admin Agreement (India)</div>
+          <div class="doc-why">Contract for appointing a publisher to collect royalties. Review carefully before signing any publishing deal.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Xz22rUUhTXuBwLM2X7rJA7mNmBfUuGSKVTSzkbJKJp8/edit" target="_blank" rel="noopener">
+        <span class="doc-num">40</span>
+        <div class="doc-content">
+          <div class="doc-title">Chartmetric &amp; Spotify for Artists Guide</div>
+          <div class="doc-why">How to use Chartmetric and Spotify for Artists to track performance and make decisions. Set up at start, review monthly.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1D6E1w1oAY-_8N3b9sNiZ2kFgS4Sqcim__vb6bB26zFo/edit" target="_blank" rel="noopener">
+        <span class="doc-num">41</span>
+        <div class="doc-content">
+          <div class="doc-title">Sync Licensing Agreement (India)</div>
+          <div class="doc-why">Contract for licensing music to film, TV, ads, or digital content. Use whenever music is placed in any visual or commercial context.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Ba9rOfGimlGHzfXo7-9PlkuJ6Xp0Zk5nIPsGl9WegVc/edit" target="_blank" rel="noopener">
+        <span class="doc-num">42</span>
+        <div class="doc-content">
+          <div class="doc-title">Producer Agreement (India)</div>
+          <div class="doc-why">Contract between artist and producer covering fees, royalties, and credits. Sign before any studio session begins.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1lZFX9Pd545hfH1uok-CPTxuB7CsRpevq8VrWbBCaUDk/edit" target="_blank" rel="noopener">
+        <span class="doc-num">43</span>
+        <div class="doc-content">
+          <div class="doc-title">Record Labels &amp; A&amp;R 101 Guide (India)</div>
+          <div class="doc-why">How Indian labels work, what A&R looks for, and how to approach them. Read before seeking any label deal.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1akFCh3MGmKSVSOjxyN-kkK8nEsPbqbCCRjq40nhd1v0/edit" target="_blank" rel="noopener">
+        <span class="doc-num">44</span>
+        <div class="doc-content">
+          <div class="doc-title">Publishers 101 Guide (India)</div>
+          <div class="doc-why">What music publishers do in India, when you need one, and how to approach them. Read before signing any publishing agreement.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1OhTEjBYs-wXqKBox-bvX4WqK5rL7h9cNdPPAMnid3hI/edit" target="_blank" rel="noopener">
+        <span class="doc-num">45</span>
+        <div class="doc-content">
+          <div class="doc-title">Music Supervisors 101 Guide (India)</div>
+          <div class="doc-why">Who music supervisors are, how sync licensing works in Indian film and advertising, and how to get placements.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── MARKETING KIT ── -->
+  <div class="kit-section" data-kit="marketing">
+    <div class="kit-header">
+      <span class="kit-tag marketing">Marketing Kit</span>
+      <span class="kit-count">18 documents</span>
+    </div>
+    <h2 class="kit-title">Release planning, press, and audience growth</h2>
+    <p class="kit-desc">Release timelines, playlist strategy, radio, press, social media, and post-release reporting. Build around the release calendar.</p>
+    <div class="doc-list">
+      <a class="doc-item" href="https://docs.google.com/document/d/10Zv6ihTVMLZ0khGYdOhWft053vkEGAeqwRRC4JxVBKE/edit" target="_blank" rel="noopener">
+        <span class="doc-num">46</span>
+        <div class="doc-content">
+          <div class="doc-title">Album Release Plan Timeline</div>
+          <div class="doc-why">Week-by-week countdown from recording completion to release day. Use for every EP or album release cycle.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1JLO_B4UtxVfkhDnk4w9eX4C6xM_VfF2RKvbQQKfJXfU/edit" target="_blank" rel="noopener">
+        <span class="doc-num">47</span>
+        <div class="doc-content">
+          <div class="doc-title">Album Marketing Plan Template</div>
+          <div class="doc-why">Full marketing strategy document for an album cycle. Complete 8 weeks before release date.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1k9o777v4HhFtA2InuspD87q7tg_a7iyQhieywIWi50U/edit" target="_blank" rel="noopener">
+        <span class="doc-num">48</span>
+        <div class="doc-content">
+          <div class="doc-title">DIY Commercial Radio Promotion Guide (India)</div>
+          <div class="doc-why">How to pitch independent music to commercial radio without a plugger. Use when targeting Mirchi, Big FM, Red FM.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1yc-cSOjszTx5HjFrtDBpIXzER6mlYHFphFuv3bFwSYY/edit" target="_blank" rel="noopener">
+        <span class="doc-num">49</span>
+        <div class="doc-content">
+          <div class="doc-title">DIY College Radio Promotion Guide (India)</div>
+          <div class="doc-why">How to reach college radio stations and music societies across India. Use for grassroots and campus promotion.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/138ZmhI4mDroxYOMcBRbAOvUa3foHp_OlwfL3RHvRIgA/edit" target="_blank" rel="noopener">
+        <span class="doc-num">50</span>
+        <div class="doc-content">
+          <div class="doc-title">Marketing Forecast Template</div>
+          <div class="doc-why">Projected reach and impact of each marketing activity. Complete at campaign planning stage to set expectations.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1aEixi3QBbAfeGE6gT2v3qOAK0ECp8sCDKbl8MIGAkzg/edit" target="_blank" rel="noopener">
+        <span class="doc-num">51</span>
+        <div class="doc-content">
+          <div class="doc-title">Radio Formats 101 Guide (India)</div>
+          <div class="doc-why">Overview of radio formats in India and what each programs. Use to identify which stations are relevant for your artist.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1yL_l0sgrVQJTDmNBTsgiC4rkBGzhX6be9jQTGLleh9Q/edit" target="_blank" rel="noopener">
+        <span class="doc-num">52</span>
+        <div class="doc-content">
+          <div class="doc-title">Single Release Plan</div>
+          <div class="doc-why">Action plan for releasing a single. Start working through it 6 weeks before release date.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1GMt2aHCLiOLBDvG3WM-GYrfVz31KylWA-DT4BnNf7I8/edit" target="_blank" rel="noopener">
+        <span class="doc-num">53</span>
+        <div class="doc-content">
+          <div class="doc-title">Streaming Playlist Target Sheet (India)</div>
+          <div class="doc-why">List of editorial and independent playlists to target for each release. Update every release cycle.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Hohe_UgDJ08S4ONjHfmqqGkFYpLUrBawBU5zd2Yr6VM/edit" target="_blank" rel="noopener">
+        <span class="doc-num">54</span>
+        <div class="doc-content">
+          <div class="doc-title">One Sheet Example</div>
+          <div class="doc-why">One-page artist overview for sending to bookers, labels, brands, and press. Update after every major milestone.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/18GIzGxpwSx6v_quSiw-qIfQgGj8oL-t-7dSC3bEQdkI/edit" target="_blank" rel="noopener">
+        <span class="doc-num">55</span>
+        <div class="doc-content">
+          <div class="doc-title">Social Media Calendar</div>
+          <div class="doc-why">Month-by-month content plan across all social platforms. Plan one month ahead minimum, never post reactively.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1sX6rY4DRVRSl-y9ACzlKXEIuZdICCvzlUWZ8IOn958E/edit" target="_blank" rel="noopener">
+        <span class="doc-num">56</span>
+        <div class="doc-content">
+          <div class="doc-title">Artist Audience Report Template</div>
+          <div class="doc-why">Analysis of who the artist's current audience is across platforms. Complete quarterly using platform analytics.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1sHHkdum63NbxbiL13i51AbA4LASYsfHQ4vzA8uX43bs/edit" target="_blank" rel="noopener">
+        <span class="doc-num">57</span>
+        <div class="doc-content">
+          <div class="doc-title">Marketing Routine Checklist</div>
+          <div class="doc-why">Weekly and monthly recurring marketing tasks to maintain momentum between releases. Use every week.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1-YeW5LDtNVt7rJ_AjMZI5U1lmiWrYZOPxAA_RC3KI38/edit" target="_blank" rel="noopener">
+        <span class="doc-num">58</span>
+        <div class="doc-content">
+          <div class="doc-title">Release Plan Example</div>
+          <div class="doc-why">Completed example of a full release plan for reference. Use as a model when building your artist's own plan.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Szj1rl6FNc9lFXNTzYkgkUBHBzS7eTt9xcVJPgAZUdA/edit" target="_blank" rel="noopener">
+        <span class="doc-num">59</span>
+        <div class="doc-content">
+          <div class="doc-title">Streaming Promo Report</div>
+          <div class="doc-why">Post-release report on streaming performance. Complete 4 weeks after every release to assess what worked.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1B2MT9O_AEZrtnSR4MxcyfIPXtbul0LhXPmt4-4R-7JM/edit" target="_blank" rel="noopener">
+        <span class="doc-num">60</span>
+        <div class="doc-content">
+          <div class="doc-title">Media 101 Guide (India)</div>
+          <div class="doc-why">Overview of Indian music media: who covers what, how to pitch, and what they need from you. Read before any press campaign.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1jjlrgVHgyHf-DpMPI2iSHqjIQZI3LxuyUMUUhlvtxG8/edit" target="_blank" rel="noopener">
+        <span class="doc-num">61</span>
+        <div class="doc-content">
+          <div class="doc-title">Publicists 101 Guide (India)</div>
+          <div class="doc-why">What music publicists do, when you need one, what to pay, and how to find one in India. Read before hiring a PR firm.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Kn_lTKcQTCx4xAWg5zqNxg6QvFDYCyxFWXKVa9AfYCs/edit" target="_blank" rel="noopener">
+        <span class="doc-num">62</span>
+        <div class="doc-content">
+          <div class="doc-title">Radio Stations &amp; Programmers 101 Guide (India)</div>
+          <div class="doc-why">Key radio stations, their formats, programming contacts, and how to approach them. Use for radio promotion campaigns.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1DBcrfG4tR0VidrwJBy2y60dgbwv0SIEoJRidjX1aJlU/edit" target="_blank" rel="noopener">
+        <span class="doc-num">63</span>
+        <div class="doc-content">
+          <div class="doc-title">Playlist Curators 101 Guide (India)</div>
+          <div class="doc-why">Who the key independent playlist curators are in India and how to approach them. Use with every release.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── MONEY KIT ── -->
+  <div class="kit-section" data-kit="money">
+    <div class="kit-header">
+      <span class="kit-tag money">Money Kit</span>
+      <span class="kit-count">16 documents</span>
+    </div>
+    <h2 class="kit-title">Track every rupee in and out</h2>
+    <p class="kit-desc">Invoicing, bookkeeping, royalties, grants, and personal finance, built around India's tax and payment environment.</p>
+    <div class="doc-list">
+      <a class="doc-item" href="https://docs.google.com/document/d/1oifSOkHSP3gnnicz6KqoueVvZ6aeXcUxBDN1onJEj0c/edit" target="_blank" rel="noopener">
+        <span class="doc-num">64</span>
+        <div class="doc-content">
+          <div class="doc-title">Annual Profit &amp; Loss Template</div>
+          <div class="doc-why">Year-end financial summary of all music income and expenses. Complete every financial year (April to March in India).</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1Zp7xxHBhZLVelBi8-ljiNvrEC2q6oOxXniqYls8Zw08/edit" target="_blank" rel="noopener">
+        <span class="doc-num">65</span>
+        <div class="doc-content">
+          <div class="doc-title">Artist Finances Template</div>
+          <div class="doc-why">Overview of all revenue streams and expenses for an artist. Review at the start of the relationship and monthly.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1s21IMTB1tHylQX3bkdQFRZ1TwDpmIpS5N8Tt29ArZnY/edit" target="_blank" rel="noopener">
+        <span class="doc-num">66</span>
+        <div class="doc-content">
+          <div class="doc-title">Daily Bookkeeping Template</div>
+          <div class="doc-why">Daily transaction log with weekly reconciliation checklist and monthly summary covering GST and TDS notes.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/16XDts71_EahS6azFlkI3He5iDK-4v93ee7nj4-tC0gE/edit" target="_blank" rel="noopener">
+        <span class="doc-num">67</span>
+        <div class="doc-content">
+          <div class="doc-title">Invoice Template (India)</div>
+          <div class="doc-why">Ready-to-send invoice with GST, TDS (Sec 194J), SAC codes, and payment follow-up templates.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1mpzaZaprjZoKYglG5kdDr4SxBhWGqIP-5bTNdKIoiyU/edit" target="_blank" rel="noopener">
+        <span class="doc-num">68</span>
+        <div class="doc-content">
+          <div class="doc-title">Monthly Revenue Template</div>
+          <div class="doc-why">12-stream monthly revenue table across all platforms, with quarterly review questions and India streaming rate reference.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1uN5C99htMgyUYNroLnchlLvXc49Bb5nWWX4esCM629E/edit" target="_blank" rel="noopener">
+        <span class="doc-num">69</span>
+        <div class="doc-content">
+          <div class="doc-title">Royalties 101 Guide (India)</div>
+          <div class="doc-why">Full explainer of IPRS, PPL, streaming, and sync royalties with registration steps and common mistakes.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1osKd7dq7XjsD9Rft_2pSP-c9pZtetMqmbkUlXk7XwAc/edit" target="_blank" rel="noopener">
+        <span class="doc-num">70</span>
+        <div class="doc-content">
+          <div class="doc-title">Revenue Streams Checklist</div>
+          <div class="doc-why">30+ income streams audited by activation status, with quarterly activation target and India-specific platform notes.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1mAS6v38f7bkPpSezE9a2jiGAdpH0psvg3gEvZ_ZqSSo/edit" target="_blank" rel="noopener">
+        <span class="doc-num">71</span>
+        <div class="doc-content">
+          <div class="doc-title">Service Record Template</div>
+          <div class="doc-why">Per-engagement log for all paid work, outstanding payments tracker, and email follow-up templates.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/163nnqMnsH34obxxPUOFQq92V6oXi4psR7vHgzmOuagc/edit" target="_blank" rel="noopener">
+        <span class="doc-num">72</span>
+        <div class="doc-content">
+          <div class="doc-title">Cashflow Tracking Template</div>
+          <div class="doc-why">Monthly inflow/outflow forecast vs actuals with 12-month cashflow table and India payment timing guide by platform.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/120PyWWp_XnWoDOrJbzulbrVMrS7nUMC0ArynMzQtz9A/edit" target="_blank" rel="noopener">
+        <span class="doc-num">73</span>
+        <div class="doc-content">
+          <div class="doc-title">India Music Grants &amp; Funding Guide</div>
+          <div class="doc-why">All central, state, international, and private grants available to Indian artists, with application tracker.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1uioNMHCKOKQygm7KGr7NxCLN07c6tKwWvKgN3ik5w88/edit" target="_blank" rel="noopener">
+        <span class="doc-num">74</span>
+        <div class="doc-content">
+          <div class="doc-title">Personal Budget Template</div>
+          <div class="doc-why">Personal income and expense tracker separate from business, with savings rate target and artist-specific financial notes.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1vgPiy7TbnC32lvfKwsDGGN2_Kz2tHwoJ6kI3H9cH5tI/edit" target="_blank" rel="noopener">
+        <span class="doc-num">75</span>
+        <div class="doc-content">
+          <div class="doc-title">Personal Net Worth Sheet</div>
+          <div class="doc-why">Annual assets vs liabilities snapshot with year-on-year tracker and India investment context (PPF, NPS, SGBs).</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/14AtIrJHcFnHXc94Pt_JCRlNUM218kZEHzQs6RSLyWCw/edit" target="_blank" rel="noopener">
+        <span class="doc-num">76</span>
+        <div class="doc-content">
+          <div class="doc-title">Personal Expenses Template</div>
+          <div class="doc-why">Monthly personal expense log by category with India-specific spending traps for artists.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1gsnf_5iTkq2JbsCoILhhXTCIa6OK98PHaGi-xeZc8QQ/edit" target="_blank" rel="noopener">
+        <span class="doc-num">77</span>
+        <div class="doc-content">
+          <div class="doc-title">New Business Opening Balance</div>
+          <div class="doc-why">Day-1 financial snapshot when formalising the music business, with 90-day operating budget and India registration checklist.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1III80C8lvFDSFl_RtlzDBxmdabDLxUySgXkItlLRHLg/edit" target="_blank" rel="noopener">
+        <span class="doc-num">78</span>
+        <div class="doc-content">
+          <div class="doc-title">Monthly Expenses Template</div>
+          <div class="doc-why">Full business expense log by category with monthly totals and tax deductibility rules for Indian artists filing ITR-3.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+      <a class="doc-item" href="https://docs.google.com/document/d/1ibLRiBJIYUfUKTLP6Xup44Zt_H2K_PS1kxXmOvPcnHU/edit" target="_blank" rel="noopener">
+        <span class="doc-num">79</span>
+        <div class="doc-content">
+          <div class="doc-title">Startup Expenses Template</div>
+          <div class="doc-why">One-time setup costs by category with must-have vs nice-to-have split and funding gap calculator.</div>
+        </div>
+        <span class="doc-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+  </section>
+
+  <!-- ── PLAYBOOK ── -->
+  <section class="res-block" id="playbook">
+    <div class="res-section-head">
+      <span class="res-tag">Learn</span>
+      <h2>The Playbook</h2>
+    </div>
+    <p class="res-section-sub">44 sections covering identity, production, distribution, revenue, live performance, venue booking, rights, and more. India-specific, free, no label required.</p>
+    <a class="res-playbook-card" href="../playbook/">
+      <div class="pbc-title">Open the Artist Playbook →</div>
+      <div class="pbc-desc">The full written guide for building a sustainable independent career in India. Read it start to finish, or jump to the phase you are in.</div>
+    </a>
+  </section>
+
+</div>
+
+<footer>
+  <span>◉ India Indie Music Radar</span>
+  <div class="footer-links">
+    <a href="../">Radar</a>
+    <a href="../reviewers/">Reviewers</a>
+    <a href="../industry/">Industry</a>
+    <a href="../programme/">Programme</a>
+    <a href="../about/">About</a>
+  </div>
+</footer>
+
+<script>
+  const search = document.getElementById('res-search');
+  const countEl = document.getElementById('res-count');
+  const noRes = document.getElementById('res-no-results');
+  const items = [...document.querySelectorAll('.doc-item, .read-item')];
+  // count unique toolkit docs (exclude the Start Here shortlist, which duplicates toolkit entries)
+  const totalDocs = document.querySelectorAll('.res-block:not(.res-starthere) .doc-item').length;
+  const totalReads = document.querySelectorAll('.read-item').length;
+
+  function setCount(n, q){
+    countEl.textContent = q ? (n + ' match' + (n===1?'':'es')) : (totalDocs + ' documents · ' + totalReads + ' reads');
+  }
+  setCount(0,'');
+
+  function applySearch(){
+    const q = search.value.trim().toLowerCase();
+    let shown = 0;
+    items.forEach(el => {
+      const match = !q || el.textContent.toLowerCase().includes(q);
+      el.style.display = match ? '' : 'none';
+      if (match) shown++;
+    });
+    // hide section groups (kit-section / reads-section) with no visible items
+    document.querySelectorAll('.kit-section, .reads-section').forEach(sec => {
+      const vis = [...sec.querySelectorAll('.doc-item, .read-item')].some(i => i.style.display !== 'none');
+      sec.style.display = vis ? '' : 'none';
+    });
+    // hide whole res-blocks (start here / reading / toolkit) if empty when searching
+    document.querySelectorAll('.res-block').forEach(b => {
+      const hasItems = b.querySelector('.doc-item, .read-item');
+      if (!hasItems) return; // playbook block always shown
+      const vis = [...b.querySelectorAll('.doc-item, .read-item')].some(i => i.style.display !== 'none');
+      b.style.display = (q && !vis) ? 'none' : '';
+    });
+    noRes.classList.toggle('show', q && shown === 0);
+    setCount(shown, q);
+  }
+  search.addEventListener('input', applySearch);
+</script>
+
+</body>
+</html>

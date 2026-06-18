@@ -11,15 +11,15 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A Music Business Collective for Independent Artists | India Indie Music Radar</title>
-  <meta name="description" content="A music business collective for independent artists. Make the magic. Learn the logic. Six months, two consultants, no rights taken." />
-  <meta property="og:title" content="A Music Business Collective for Independent Artists | India Indie Music Radar" />
-  <meta property="og:description" content="A music business collective for independent artists. Make the magic. Learn the logic." />
+  <title>Artist Development Programme | India Indie Music Radar</title>
+  <meta name="description" content="Artist Development Programme for independent Indian artists. Two consultants, Siby John and Karishma Changroth. Start with one month at ₹10,000, no commitment beyond that." />
+  <meta property="og:title" content="Artist Development Programme | India Indie Music Radar" />
+  <meta property="og:description" content="Two consultants. One month. One document that names what is between you and the next level." />
   <meta property="og:url" content="https://sibyjohn0.github.io/india-music-dashboard/programme/" />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Music Business Collective for Independent Artists | India Indie Music Radar" />
-  <meta name="twitter:description" content="A music business collective for independent artists." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Artist Development Programme | India Indie Music Radar" />
+  <meta name="twitter:description" content="Artist Development Programme for independent Indian artists. Start with one month." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -868,6 +868,11 @@
       .team-avatar { width: 40px; height: 40px; font-size: 14px; margin-bottom: 10px; }
     }
   </style>
+  <link rel="canonical" href="https://sibyjohn0.github.io/india-music-dashboard/programme/" />
+  <meta property="og:image" content="https://sibyjohn0.github.io/india-music-dashboard/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content="https://sibyjohn0.github.io/india-music-dashboard/og-image.png" />
 </head>
 <body>
 
@@ -876,419 +881,125 @@
 </header>
 
 <nav>
-  <a class="tab" href="../about/">About</a>
+  <a class="tab" href="../">Radar</a>
+  <a class="tab" href="../reviewers/">Reviewers</a>
+  <a class="tab" href="../industry/">Industry</a>
+  <a class="tab" href="../resources/">Resources</a>
   <a class="tab active" href="../programme/">Programme</a>
-  <a class="tab" href="../playbook/">Playbook</a>
-  <a class="tab" href="../">Today</a>
-  <a class="tab" href="../submit/">Submit</a>
-  <a class="tab" href="../reads/">Reads</a>
-  <a class="tab" href="../toolkit/">Toolkit</a>
+  <a class="tab" href="../about/">About</a>
 </nav>
 
 <div class="page">
 
-  <!-- HERO -->
-  <div class="hero-visual">
-    <div class="eyebrow">For independent artists · 6 months</div>
-    <h2 class="hero-headline">Make the music.<br>Run the business.</h2>
-    <p class="hero-deck">Most independent artists in India are making the music and guessing the rest. No one around who's done it, no framework for the decisions that actually determine whether it goes anywhere: distribution, deal structure, promotion budgets, how to build a fan base that pays. They figure it out alone, mid-career, by making expensive mistakes.</p>
-    <p class="hero-deck" style="margin-top:16px;">We work with a small group of artists over six months to close that gap. Not by making decisions for them, but by teaching them to make the right ones themselves. Flat fee, no rights, no commission. Everything they build, they keep.</p>
+  <style>
+    .pg-eyebrow{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}
+    .pg-h1{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-1px;line-height:1.12;margin:14px 0 0}
+    .pg-lead{font-size:17px;color:#b6b6cc;line-height:1.7;margin-top:20px;max-width:680px}
+    .pg-block{margin-top:64px}
+    .pg-label{font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+    .pg-h2{font-size:clamp(22px,3.5vw,30px);font-weight:800;letter-spacing:-.5px;line-height:1.2;margin-bottom:18px}
+    .pg-p{font-size:15.5px;color:#b6b6cc;line-height:1.75;max-width:680px;margin-bottom:16px}
+    .pg-people{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:6px}
+    .pg-person{border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--surface)}
+    .pg-person-name{font-size:18px;font-weight:800;letter-spacing:-.3px}
+    .pg-person-role{font-size:13px;font-weight:600;color:var(--accent);margin:5px 0 13px}
+    .pg-person-bio{font-size:14px;color:#b6b6cc;line-height:1.7}
+    .pg-both{font-size:15.5px;color:#d4d4e4;line-height:1.75;max-width:680px;margin-top:22px;border-left:3px solid var(--amber);padding:4px 0 4px 18px}
+    .ladder{display:flex;align-items:flex-end;gap:10px;margin:8px 0 18px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+    .rung{flex:1 0 0;min-width:108px;border:1px solid var(--border);border-bottom:3px solid var(--accent);border-radius:10px 10px 0 0;background:var(--surface);padding:14px 12px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+    .rung .rung-n{font-size:12px;font-weight:800;color:var(--accent)}
+    .rung .rung-t{font-size:14px;font-weight:700;color:var(--text);line-height:1.25}
+    .pg-proof{font-size:clamp(18px,2.6vw,24px);font-weight:700;line-height:1.45;letter-spacing:-.3px;max-width:640px;color:var(--text)}
+    .pg-price{font-size:clamp(38px,7vw,60px);font-weight:800;letter-spacing:-2px;line-height:1;color:var(--text)}
+    .pg-price-sub{font-size:16px;color:var(--muted);margin-top:10px}
+    .pg-cta{margin-top:64px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(135deg,rgba(233,69,96,.08),transparent 60%);padding:40px 34px}
+    .pg-cta h2{font-size:clamp(22px,3.5vw,30px);font-weight:800;letter-spacing:-.5px;margin-bottom:14px}
+    .pg-cta p{font-size:15.5px;color:#b6b6cc;line-height:1.7;max-width:560px;margin-bottom:26px}
+    .pg-btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .pg-wa{background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 26px;border-radius:10px}
+    .pg-email{color:var(--muted);text-decoration:none;font-weight:600;font-size:14px}
+    .pg-email:hover{color:var(--text)}
+    @media(max-width:640px){.pg-people{grid-template-columns:1fr}}
+  </style>
+
+  <!-- OPENING -->
+  <div>
+    <div class="pg-eyebrow">Artist Development Programme</div>
+    <h1 class="pg-h1">You're already moving.<br>You just can't see what's in the way.</h1>
+    <p class="pg-lead">You're releasing music, playing shows, building something real, and the next level still feels further off than the work you're putting in should make it. You think it's the music. It usually isn't. It's everything around the music: the economics, the identity, the network, the way you release. That's the part no one taught you, and it's the part we work on.</p>
   </div>
 
-  <!-- RELATIONSHIP LENS -->
-  <div style="border-left:3px solid var(--amber);padding:16px 20px;background:var(--surface);border-radius:0 10px 10px 0;margin-bottom:48px;font-size:14px;color:#b0b0c8;line-height:1.75;">
-    We also map what you already have. Most artists underestimate their existing network: producers, collaborators, venues, people who already believe in them. We treat those relationships as leverage from the start and help you think about them long-term and on your own terms.
+  <!-- THE TWO PEOPLE -->
+  <div class="pg-block">
+    <div class="pg-label">Who you'd be working with</div>
+    <div class="pg-people">
+      <div class="pg-person">
+        <div class="pg-person-name">Siby John</div>
+        <div class="pg-person-role">The economics, the network, the patterns</div>
+        <p class="pg-person-bio">Thirteen years across YouTube India and LinkedIn, working directly with 400+ artists, labels, and production houses. He knows how streaming and distribution actually pay versus how artists assume they do, and he brings the economics, the phone book, and the pattern recognition that come with it.</p>
+      </div>
+      <div class="pg-person">
+        <div class="pg-person-name">Karishma Changroth</div>
+        <div class="pg-person-role">The identity, the positioning, the brand</div>
+        <p class="pg-person-bio">Founding Member at Talented, Bangalore's independent creative agency. She works on brand identity, social strategy, and positioning: who you are to your audience, and whether everything around your music says the same thing.</p>
+      </div>
+    </div>
+    <p class="pg-both">Most artists have a gap on one of these two sides, and often both: the business they don't understand, and the identity they haven't crystallised. It takes both of us to close it, which is why it's the two of us and not one.</p>
   </div>
 
-  <!-- PROBLEM STATEMENT -->
-  <div class="section problem-section">
-    <h2 class="section-title">Does this sound like your year?</h2>
-    <div class="problem-track">
-      <div class="problem-card">
-        <div class="problem-title">The track that never came out</div>
-        <div class="problem-body">A song you finished two months ago. Still unreleased because one thing is missing. The moment passes. The track goes cold.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-title">The plan that died in February</div>
-        <div class="problem-body">A content strategy that made sense in January. Fourteen posts in, it stopped. Nobody asked why. Nobody noticed.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-title">The list that never moves</div>
-        <div class="problem-body">Forty tasks. No sense of which three matter this week. Every month the same items sit at the top.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-title">The spend with no return</div>
-        <div class="problem-body">Money on a mix, a shoot, a campaign. No measure of whether it worked. No plan for what happens after it drops.</div>
-      </div>
-      <div class="problem-card">
-        <div class="problem-title">The isolation of building alone</div>
-        <div class="problem-body">Decisions made in a vacuum. No one around who has done it before. No peers navigating the same market, the same constraints, the same questions.</div>
-      </div>
-    </div>
-    <p class="problem-nudge">If two of these are true, this programme is worth a conversation.</p>
+  <!-- MONTH 1 -->
+  <div class="pg-block">
+    <div class="pg-label">What the first month looks like</div>
+    <h2 class="pg-h2">Start with one month. ₹10,000. No commitment beyond that.</h2>
+    <p class="pg-p">In the first two weeks, you share three things: your expenses for the last six months, your phone book (who you know), and your ambitions (who you want to be in eighteen months).</p>
+    <p class="pg-p">In the next two weeks, we map what we see: the gaps, the leverage you're already sitting on, and the specific things blocking the next rung.</p>
+    <p class="pg-p">At the end of the month, you get a document: your twelve-month picture, your KPIs, and exactly what stands between you and the next level, named specifically. That document is yours to keep, whatever you decide next.</p>
   </div>
 
-  <!-- STATS STRIP -->
-  <div class="stats-strip">
-    <div class="stat-block">
-      <div class="stat-num accent">6</div>
-      <div class="stat-label">months</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">16<span style="font-size:16px;font-weight:600">+</span></div>
-      <div class="stat-label">hours direct consulting</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">2</div>
-      <div class="stat-label">consultants</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num green">0</div>
-      <div class="stat-label">rights taken</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num accent">₹10K</div>
-      <div class="stat-label">per month, all in</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">₹4K</div>
-      <div class="stat-label">per consultant per hour beyond 16</div>
-    </div>
+  <!-- CONTINUE -->
+  <div class="pg-block">
+    <div class="pg-label">If you want to keep going</div>
+    <p class="pg-p">If the first month is useful and you want to continue, month two onwards is a structured working relationship at the same ₹10,000 a month. Now you have the map, and we execute against it together. Continuing is your choice, not a default.</p>
   </div>
 
-  <!-- UNIT ECONOMICS -->
-  <div class="section">
-    <div class="section-label">How we think about money</div>
-    <h2 class="section-title">Your unit economics is what we start with.</h2>
-    <div class="split-bar" role="group" aria-label="100 rupee allocation">
-      <div class="split-seg" style="flex:30;background:#4ecdc4" data-color="#4ecdc4" data-label="Production" data-amt="₹30" data-desc="Home studio gear has made production dramatically cheaper. A decent track can come out of a ₹30,000 setup. This slice covers studio time, mixing, mastering, EPK, and visual assets. Keep it lean and consistent: one quality release is worth more than three unfinished ones." aria-label="Production 30%"></div>
-      <div class="split-seg" style="flex:45;background:#f7b731" data-color="#f7b731" data-label="Promotion" data-amt="₹45" data-desc="This is the actual bottleneck. Paid reach, Meta ads, SubmitHub credits, PR pitches, playlist submissions, content creation. Audience does not grow passively at any budget. A consistent promotion allocation is what turns a release into a data point you can build on." aria-label="Promotion 45%"></div>
-      <div class="split-seg" style="flex:25;background:#e94560" data-color="#e94560" data-label="Savings" data-amt="₹25" data-desc="Three months of operating costs, always. Gigs cancel. Deals fall through. The artists who build steady income are the ones who never have to say yes out of desperation. This is the floor, not a target." aria-label="Savings 25%"></div>
+  <!-- CREDIBILITY LADDER -->
+  <div class="pg-block">
+    <div class="pg-label">The credibility ladder</div>
+    <div class="ladder">
+      <div class="rung" style="height:96px"><div class="rung-n">01</div><div class="rung-t">Pre-release</div></div>
+      <div class="rung" style="height:120px"><div class="rung-n">02</div><div class="rung-t">Open mic</div></div>
+      <div class="rung" style="height:148px"><div class="rung-n">03</div><div class="rung-t">Support slot</div></div>
+      <div class="rung" style="height:176px"><div class="rung-n">04</div><div class="rung-t">Own headline</div></div>
+      <div class="rung" style="height:204px"><div class="rung-n">05</div><div class="rung-t">Multi-city</div></div>
     </div>
-
-    <div class="split-labels">
-      <div class="split-label" style="flex:30"><strong>₹30</strong>Production</div>
-      <div class="split-label" style="flex:45"><strong>₹45</strong>Promotion</div>
-      <div class="split-label" style="flex:25"><strong>₹25</strong>Savings</div>
-    </div>
-
-    <p class="split-hint">Tap a segment to see how it works.</p>
-
-    <div class="split-detail" id="split-detail"></div>
-
-    <script>
-      (function() {
-        var segs = document.querySelectorAll('.split-seg');
-        var detail = document.getElementById('split-detail');
-        var active = null;
-
-        function show(seg) {
-          if (active) active.classList.remove('active');
-          active = seg;
-          seg.classList.add('active');
-          detail.style.borderColor = seg.dataset.color;
-          detail.innerHTML = '<strong style="color:#f0f0f0;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;">' + seg.dataset.label + ' ' + seg.dataset.amt + '</strong><br><br>' + seg.dataset.desc;
-          detail.classList.add('visible');
-        }
-
-        segs.forEach(function(seg) {
-          seg.addEventListener('mouseenter', function() { show(this); });
-          seg.addEventListener('click', function() {
-            if (this === active && detail.classList.contains('visible')) {
-              detail.classList.remove('visible');
-              this.classList.remove('active');
-              active = null;
-            } else { show(this); }
-          });
-        });
-      })();
-    </script>
+    <p class="pg-p">Most artists we talk to are between rungs two and three. The first month tells you exactly what's between you and the next one.</p>
   </div>
 
-  <!-- TEAM -->
-  <div class="section">
-    <div class="section-label">The consultants</div>
-    <h2 class="section-title">Two thinking partners. One workstream.</h2>
-
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#e94560,#c0392b);">SJ</div>
-        <div class="team-name">Siby John</div>
-        <div class="team-role">Numbers, audio, distribution, and PR</div>
-        <div class="team-tags">
-          <span class="team-tag">Income audit</span>
-          <span class="team-tag">Cost diagnosis</span>
-          <span class="team-tag">Audio direction</span>
-          <span class="team-tag">Distribution strategy</span>
-          <span class="team-tag">PR pipeline (924 contacts)</span>
-          <span class="team-tag">Streaming analytics</span>
-          <span class="team-tag">Deal structure</span>
-        </div>
-      </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background:linear-gradient(135deg,#f7b731,#e67e22);">KC</div>
-        <div class="team-name">Karishma Changroth</div>
-        <div class="team-role">Founding Member, Talented</div>
-        <div class="team-tags">
-          <span class="team-tag">Social media strategy</span>
-          <span class="team-tag">Brand positioning</span>
-          <span class="team-tag">Identity</span>
-          <span class="team-tag">IPR contacts</span>
-          <span class="team-tag">Conceptualisation</span>
-        </div>
-      </div>
-    </div>
-
+  <!-- SOCIAL PROOF -->
+  <div class="pg-block">
+    <p class="pg-proof">We're currently working with two artists. We don't take on more than four at a time.</p>
   </div>
 
-  <!-- COLLECTIVE MODEL -->
-  <div class="section">
-    <div class="section-label">The collective model</div>
-    <h2 class="section-title">The more artists join,<br>the more everyone gets.</h2>
-    <div class="collective-grid">
-      <div class="collective-card">
-        <div class="collective-step">Join</div>
-        <div class="collective-title">Six months of structured induction</div>
-        <div class="collective-body">Finance, identity, distribution, live, fans, income. Two consultants working with you through each phase. You own everything you build.</div>
-      </div>
-      <div class="collective-card">
-        <div class="collective-step">Compound</div>
-        <div class="collective-title">Shared mistakes, not shared contacts</div>
-        <div class="collective-body">What wasted six months. What a bad contract looked like. How this market behaves for this genre. Process knowledge and pattern intelligence: nobody loses anything by sharing it, and it accumulates with every artist who goes through.</div>
-      </div>
-      <div class="collective-card">
-        <div class="collective-step">Stay</div>
-        <div class="collective-title">Month 6 is the induction, not the end</div>
-        <div class="collective-body">Alumni stay in the collective. What they learnt becomes part of what every artist who joins after them gets. The relationship continues, and so does the value.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TOOLS -->
-  <div class="section">
-    <div class="section-label">The tools</div>
-    <h2 class="section-title">Every decision backed by data we built.</h2>
-    <div class="tool-grid">
-      <div class="tool-card">
-        <div class="tool-stat">Updated daily</div>
-        <div class="tool-name">India Indie Music Radar</div>
-        <div class="tool-desc">New releases, trending artists, and what's gaining traction across the Indian indie scene.</div>
-        <a class="tool-link" href="../">Open the Radar →</a>
-      </div>
-      <div class="tool-card">
-        <div class="tool-stat">924 contacts</div>
-        <div class="tool-name">Reviewer Database</div>
-        <div class="tool-desc">Every blog, editorial, and South Asian curator we track, filtered by genre, language, and cost.</div>
-        <a class="tool-link" href="../reviewers/">Browse reviewers →</a>
-      </div>
-      <div class="tool-card">
-        <div class="tool-stat">1,327 entities</div>
-        <div class="tool-name">Labels &amp; Agencies</div>
-        <div class="tool-desc">Labels, booking agencies, and music companies with signing status and approach routes.</div>
-        <a class="tool-link" href="../industry/">Browse industry →</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- PHASES -->
-  <div class="section">
-    <div class="section-label">The programme</div>
-    <h2 class="section-title">Six months. One focus each.</h2>
-
-    <!-- ARCHETYPE DIAGNOSTIC -->
-    <div style="margin-bottom:28px;">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:12px;">Session 1: which artist are you?</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
-        <div style="background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:8px;padding:14px 16px;">
-          <div style="font-size:12px;font-weight:700;color:#f0f0f0;margin-bottom:5px;">Commercial artist</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.55;">Live circuit · High release cadence · Reach and playlist growth</div>
-        </div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--amber);border-radius:8px;padding:14px 16px;">
-          <div style="font-size:12px;font-weight:700;color:#f0f0f0;margin-bottom:5px;">Non-commercial artist</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.55;">Sync catalogue · Teaching · Grants · IPRS and rights focus</div>
-        </div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-top:2px solid var(--green);border-radius:8px;padding:14px 16px;">
-          <div style="font-size:12px;font-weight:700;color:#f0f0f0;margin-bottom:5px;">Creator-artist</div>
-          <div style="font-size:11px;color:var(--muted);line-height:1.55;">Content consistency · Brand deals · Platform SEO</div>
-        </div>
-      </div>
-      <div style="font-size:11px;color:var(--muted);margin-top:8px;">The 8-question diagnostic in Session 1 identifies your type. Everything after is filtered to what applies to you.</div>
-    </div>
-
-    <div style="display:flex; gap:16px; margin-bottom:28px; flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);"><span style="width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;flex-shrink:0;"></span> Consultant-led</div>
-      <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);"><span style="width:9px;height:9px;border-radius:50%;background:var(--green);display:inline-block;flex-shrink:0;"></span> Artist-owned</div>
-      <div style="display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block;flex-shrink:0;"></span> Joint review</div>
-    </div>
-
-    <div class="phase-grid">
-      <div class="phase-card">
-        <div class="phase-ghost">01</div>
-        <div class="phase-month-label">Month 01</div>
-        <span class="phase-row-badge badge-consult" style="align-self:flex-start;">Consultant session</span>
-        <div class="phase-card-title">Financial<br>Diagnostic</div>
-        <div class="phase-card-out">Income snapshot · 7 revenue streams mapped · Production budget set</div>
-      </div>
-      <div class="phase-card">
-        <div class="phase-ghost">02</div>
-        <div class="phase-month-label">Month 02</div>
-        <span class="phase-row-badge badge-consult" style="align-self:flex-start;">Consultant session</span>
-        <div class="phase-card-title">Identity, Production<br>&amp; Rights</div>
-        <div class="phase-card-out">EPK brief · Identity sentence · IPRS + PPL registration · Content direction</div>
-      </div>
-      <div class="phase-card">
-        <div class="phase-ghost">03</div>
-        <div class="phase-month-label">Month 03</div>
-        <span class="phase-row-badge badge-artist" style="align-self:flex-start;">Artist owns</span>
-        <div class="phase-card-title">Distribution,<br>PR &amp; Social</div>
-        <div class="phase-card-out">First 10 pitches · Streaming profiles fixed · Social strategy set</div>
-      </div>
-      <div class="phase-card">
-        <div class="phase-ghost">04</div>
-        <div class="phase-month-label">Month 04</div>
-        <span class="phase-row-badge badge-artist" style="align-self:flex-start;">Artist owns</span>
-        <div class="phase-card-title">Live Circuit<br>&amp; Networking</div>
-        <div class="phase-card-out">3 shows confirmed · Booking agency pitched · Contact pipeline active</div>
-      </div>
-      <div class="phase-card">
-        <div class="phase-ghost">05</div>
-        <div class="phase-month-label">Month 05</div>
-        <span class="phase-row-badge badge-artist" style="align-self:flex-start;">Artist owns</span>
-        <div class="phase-card-title">Fans, Team<br>&amp; Revenue</div>
-        <div class="phase-card-out">50 named fans · Team gaps identified · Second income stream active</div>
-      </div>
-      <div class="phase-card" style="border-color:rgba(233,69,96,.3);">
-        <div class="phase-ghost">06</div>
-        <div class="phase-month-label">Month 06</div>
-        <span class="phase-row-badge badge-joint" style="align-self:flex-start;">Joint review</span>
-        <div class="phase-card-title">Product-<br>Market Fit</div>
-        <div class="phase-card-out">Audience defined · Income stream live · 90-day plan + six-month review</div>
-      </div>
-    </div>
-
-    <!-- CREDIBILITY LADDER -->
-    <div style="margin-top:28px;padding:18px 20px;background:var(--surface);border:1px solid var(--border);border-radius:10px;">
-      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:14px;">The credibility ladder — we establish where you are in Session 2</div>
-      <div style="display:flex;align-items:center;gap:0;overflow-x:auto;scrollbar-width:none;">
-        <div style="flex-shrink:0;text-align:center;padding:0 14px 0 0;">
-          <div style="font-size:18px;font-weight:800;color:var(--muted);line-height:1;">1</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;white-space:nowrap;">Pre-release</div>
-        </div>
-        <div style="flex-shrink:0;color:var(--border);font-size:18px;padding:0 4px;">→</div>
-        <div style="flex-shrink:0;text-align:center;padding:0 14px;">
-          <div style="font-size:18px;font-weight:800;color:var(--muted);line-height:1;">2</div>
-          <div style="font-size:11px;color:var(--muted);margin-top:4px;white-space:nowrap;">Open mic</div>
-        </div>
-        <div style="flex-shrink:0;color:var(--border);font-size:18px;padding:0 4px;">→</div>
-        <div style="flex-shrink:0;text-align:center;padding:0 14px;">
-          <div style="font-size:18px;font-weight:800;color:#f0f0f0;line-height:1;">3</div>
-          <div style="font-size:11px;color:#f0f0f0;margin-top:4px;white-space:nowrap;">Support slot</div>
-        </div>
-        <div style="flex-shrink:0;color:var(--border);font-size:18px;padding:0 4px;">→</div>
-        <div style="flex-shrink:0;text-align:center;padding:0 14px;">
-          <div style="font-size:18px;font-weight:800;color:var(--amber);line-height:1;">4</div>
-          <div style="font-size:11px;color:var(--amber);margin-top:4px;white-space:nowrap;">Own headline</div>
-        </div>
-        <div style="flex-shrink:0;color:var(--border);font-size:18px;padding:0 4px;">→</div>
-        <div style="flex-shrink:0;text-align:center;padding:0 14px;">
-          <div style="font-size:18px;font-weight:800;color:var(--accent);line-height:1;">5</div>
-          <div style="font-size:11px;color:var(--accent);margin-top:4px;white-space:nowrap;">Multi-city</div>
-        </div>
-        <div style="flex:1;min-width:16px;"></div>
-        <div style="flex-shrink:0;font-size:11px;color:var(--muted);text-align:right;white-space:nowrap;">Most artists arrive at rung 2 or 3.<br>The programme moves you up one.</div>
-      </div>
-    </div>
-
-    <!-- WORKBOOK CALLOUT -->
-    <div style="margin-top:16px;display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:14px 18px;">
-      <div style="font-size:22px;flex-shrink:0;">📋</div>
-      <div>
-        <div style="font-size:13px;font-weight:700;color:#f0f0f0;margin-bottom:3px;">The programme workbook</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.5;">A structured Google Sheet with exercises, checklists, and frameworks for all 12 sessions — yours from Session 1, filled in as you go, kept after the programme ends.</div>
-      </div>
-    </div>
-
-    <!-- CURRICULUM CHIPS -->
-    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
-      <div style="font-size:11px;color:var(--muted);width:100%;margin-bottom:2px;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Topics across 12 sessions</div>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Identity</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Production</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Distribution</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Rights &amp; Publishing</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Revenue Streams</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Social Media</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Live &amp; Networking</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Team &amp; Scale</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">Revenue Positioning</span>
-      <span style="font-size:11px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;color:#ccc;">90-Day Plan</span>
-    </div>
-
-  </div>
-
-  <!-- PRICING -->
-  <div class="section">
-    <div class="section-label">What it costs</div>
-    <h2 class="section-title">₹10,000 a month. Nothing else from us.</h2>
-    <p class="section-body">Six months of consulting. Paid monthly. No upfront lump sum, no hidden fees, no rights taken.</p>
-
-    <div class="pricing-card">
-      <div class="pricing-main">
-        <div class="pricing-amount">₹10,000<span class="pricing-per">/month</span></div>
-        <div class="pricing-total">₹60,000 over six months · 16+ hours of direct consulting · 163 task line items</div>
-      </div>
-      <div class="pricing-cols">
-        <div class="pricing-col">
-          <div class="pricing-col-label included">What this covers</div>
-          <ul class="pricing-items">
-            <li>Month 1 financial diagnostic session (2 hrs)</li>
-            <li>Month 2 identity and production session (2 hrs)</li>
-            <li>20 weekly thinking check-ins across months 2 to 6 (10 hrs)</li>
-            <li>Programme workbook — 12 sessions of exercises, checklists, and frameworks (yours to keep)</li>
-            <li>163-item task foundation from the playbook, filtered to your situation</li>
-            <li>Shared task list updated live each session</li>
-            <li>Async WhatsApp access to both consultants</li>
-            <li>Six-month review document at close</li>
-            <li>Access to the collective: current artists and alumni</li>
-          </ul>
-        </div>
-        <div class="pricing-col">
-          <div class="pricing-col-label separate">Paid separately, direct to specialists</div>
-          <ul class="pricing-items">
-            <li>Designers, photographers, copywriters</li>
-            <li>VO recording and Eleven Labs usage</li>
-            <li>IPR lawyers and filings</li>
-            <li>Any other production cost</li>
-          </ul>
-          <p class="pricing-note">Production budget is agreed in month one so there are no surprises. You pay specialists directly. We coordinate the brief.</p>
-        </div>
-      </div>
-      <div class="pricing-terms" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
-        <span style="font-size:16px; font-weight:800; color:#f0f0f0; letter-spacing:-.3px;">₹4,000 <span style="font-size:12px; font-weight:500; color:var(--muted);">per consultant / per hour beyond 16</span></span>
-        <span style="font-size:11px; color:var(--muted);">Agreed before the call, not after.</span>
-      </div>
-      <div class="pricing-terms" style="border-top: 1px solid var(--border);">
-        Payment is monthly. If a payment is missed, weekly check-ins pause until it clears. No chasing, no exceptions.
-      </div>
-    </div>
-
+  <!-- PRICE -->
+  <div class="pg-block">
+    <div class="pg-price">₹10,000</div>
+    <div class="pg-price-sub">One month. No commitment beyond that.</div>
   </div>
 
   <!-- CTA -->
-  <div class="section" style="margin-bottom:0;">
-    <div class="cta-card">
-      <div class="cta-title">The collective is small<br>by design.</div>
-      <p class="cta-deck">We keep it small so the attention is real. Start with a conversation. No forms, no decks. Tell us where you are, what you're making, and what's blocking you. We'll tell you honestly if this is the right fit.</p>
-      <div class="cta-buttons">
-        <a href="https://wa.me/919960025559" target="_blank" rel="noopener" class="btn-primary">Join the collective ↗</a>
-        <a href="mailto:sibyjohn0@gmail.com" class="btn-secondary">Email us</a>
-      </div>
+  <div class="pg-cta">
+    <h2>Tell us where you are.</h2>
+    <p>Tell us where you are, what you're making, and what's blocking you. We'll tell you honestly if this is the right fit. No forms, no decks, just a conversation.</p>
+    <div class="pg-btns">
+      <a class="pg-wa" href="https://wa.me/919960025559" target="_blank" rel="noopener">Message us on WhatsApp ↗</a>
+      <a class="pg-email" href="mailto:sibyjohn0@gmail.com">Or email us</a>
     </div>
   </div>
 
 </div>
 
 <div class="contact-strip">
-  <span class="contact-strip-name">Siby John</span>
+  <span class="contact-strip-name">Siby John &amp; Karishma Changroth</span>
   <span class="contact-strip-sep">·</span>
   <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
   <span class="contact-strip-sep">·</span>
@@ -1305,7 +1016,7 @@
     <a href="../industry/">Industry</a>
     <a href="../submit/">Submit</a>
   </div>
-  <div style="font-size:11px">Built by Siby John · sibyjohn0@gmail.com</div>
+  <div style="font-size:11px">Built by Siby John &amp; Karishma Changroth · sibyjohn0@gmail.com</div>
 </footer>
 
 <script>
