@@ -16,7 +16,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../style.css?v=20260618" />
   <style>
     .dd-back-bar {
       background: var(--surface);
@@ -42,6 +42,12 @@
       .dd-back-bar { padding: 10px 16px; }
     }
   </style>
+  <link rel="canonical" href="https://sibyjohn0.github.io/india-music-dashboard/deep-dive/" />
+  <meta property="og:image" content="https://sibyjohn0.github.io/india-music-dashboard/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://sibyjohn0.github.io/india-music-dashboard/og-image.png" />
 </head>
 <body>
 
@@ -54,17 +60,16 @@
   </header>
 
   <nav>
-    <a class="tab" href="../about/" style="text-decoration:none;">About</a>
+    <a class="tab active" href="../" style="text-decoration:none;">Radar</a>
+    <a class="tab" href="../reviewers/" style="text-decoration:none;">Reviewers</a>
+    <a class="tab" href="../industry/" style="text-decoration:none;">Industry</a>
+    <a class="tab" href="../resources/" style="text-decoration:none;">Resources</a>
     <a class="tab" href="../programme/" style="text-decoration:none;">Programme</a>
-    <a class="tab" href="../playbook/" style="text-decoration:none;">Playbook</a>
-    <a class="tab active" href="../" style="text-decoration:none;">Today</a>
-    <a class="tab" href="../submit/" style="text-decoration:none;">Submit</a>
-    <a class="tab" href="../reads/" style="text-decoration:none;">Reads</a>
-    <a class="tab" href="../toolkit/" style="text-decoration:none;">Toolkit</a>
+    <a class="tab" href="../about/" style="text-decoration:none;">About</a>
   </nav>
 
   <div class="dd-back-bar">
-    <a href="../">← Back to Today</a>
+    <a href="../">← Back to Radar</a>
   </div>
 
   <main>
@@ -151,7 +156,7 @@
 
   <footer class="site-footer">
     <div class="site-footer-left">
-      <span class="site-footer-name">Siby John</span>
+      <span class="site-footer-name">Siby John &amp; Karishma Changroth</span>
       <div class="site-footer-links">
         <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
         <a href="tel:+919960025559">+91 99600 25559</a>
@@ -358,11 +363,22 @@
       const body    = document.getElementById("dd-pipeline-body");
       if (!data || !data.sources) return;
       section.style.display = "";
-      body.innerHTML = data.sources.map(s => {
+      // sources is an object keyed by source name; the run timestamp is top-level last_run
+      const rows = Array.isArray(data.sources)
+        ? data.sources
+        : Object.entries(data.sources).map(([name, s]) => ({ name, ...s }));
+      const runTs = data.last_run
+        ? new Date(data.last_run).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})
+        : "—";
+      if (!rows.length) {
+        body.innerHTML = `<tr><td colspan="4" style="color:var(--muted);padding:16px 0">Pipeline status refreshing. Check back shortly.</td></tr>`;
+        return;
+      }
+      body.innerHTML = rows.map(s => {
         const statusCls = s.status === "ok" ? "pipeline-status-ok" : "pipeline-status-fail";
         const updated = s.last_updated
           ? new Date(s.last_updated).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})
-          : "—";
+          : runTs;
         return `<tr>
           <td style="font-weight:600">${esc(s.name||s.source||"—")}</td>
           <td style="color:var(--muted)">${esc(updated)}</td>
