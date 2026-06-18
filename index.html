@@ -24,7 +24,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=20260618" />
 </head>
 <body>
 
@@ -37,13 +37,12 @@
   </header>
 
   <nav>
-    <a class="tab" href="about/" style="text-decoration:none;">About</a>
+    <a class="tab active" href="./" style="text-decoration:none;">Radar</a>
+    <a class="tab" href="reviewers/" style="text-decoration:none;">Reviewers</a>
+    <a class="tab" href="industry/" style="text-decoration:none;">Industry</a>
+    <a class="tab" href="resources/" style="text-decoration:none;">Resources</a>
     <a class="tab" href="programme/" style="text-decoration:none;">Programme</a>
-    <a class="tab" href="playbook/" style="text-decoration:none;">Playbook</a>
-    <a class="tab active" href="./" style="text-decoration:none;">Today</a>
-    <a class="tab" href="submit/" style="text-decoration:none;">Submit</a>
-    <a class="tab" href="reads/" style="text-decoration:none;">Reads</a>
-    <a class="tab" href="toolkit/" style="text-decoration:none;">Toolkit</a>
+    <a class="tab" href="about/" style="text-decoration:none;">About</a>
   </nav>
   <nav class="subnav">
     <button class="subtab" data-tab="discover">Discover</button>
@@ -331,9 +330,19 @@
     </div>
   </div>
 
+  <section class="submit-cta-band" style="max-width:1100px;margin:8px auto 0;padding:28px 32px;border-top:1px solid var(--border)">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--card-bg,#1a1a1a);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:22px 26px">
+      <div style="max-width:560px">
+        <div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px">Are you an independent Indian artist not yet on the radar?</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.6">Submit your YouTube channel or Spotify profile and you will appear in the next data pull, usually within a week.</div>
+      </div>
+      <a href="submit/" style="flex-shrink:0;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 22px;border-radius:9px;white-space:nowrap">Submit your music →</a>
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div class="site-footer-left">
-      <span class="site-footer-name">Siby John</span>
+      <span class="site-footer-name">Siby John &amp; Karishma Changroth</span>
       <div class="site-footer-links">
         <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
         <a href="tel:+919960025559">+91 99600 25559</a>
@@ -343,6 +352,6 @@
     </div>
     <div class="site-footer-right">Radar: daily · Reviewers: weekly · Free to use</div>
   </footer>
-  <script src="app.js"></script>
+  <script src="app.js?v=20260618"></script>
 </body>
 </html>

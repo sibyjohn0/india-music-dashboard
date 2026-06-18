@@ -201,13 +201,12 @@
 </header>
 
 <nav>
-  <a class="tab" href="../about/">About</a>
+  <a class="tab" href="../">Radar</a>
+  <a class="tab" href="../reviewers/">Reviewers</a>
+  <a class="tab active" href="../industry/">Industry</a>
+  <a class="tab" href="../resources/">Resources</a>
   <a class="tab" href="../programme/">Programme</a>
-  <a class="tab" href="../playbook/">Playbook</a>
-  <a class="tab" href="../">Today</a>
-  <a class="tab" href="../submit/">Submit</a>
-  <a class="tab" href="../reads/">Reads</a>
-  <a class="tab" href="../toolkit/">Toolkit</a>
+  <a class="tab" href="../about/">About</a>
 </nav>
 
 <div class="page-hero">
@@ -484,14 +483,14 @@ Promise.all([
   if (subEl) subEl.textContent = `Who's signing, who's booking, and what stage you need to be at before you approach. ${total} entities across labels, agencies, and management — ${indiaCount} India-first, global labels as benchmarks.`;
   renderGrid();
 }).catch(() => {
-  document.getElementById('grid').innerHTML = '<div class="no-results">Could not load data.</div>';
-  document.getElementById('visible-count').textContent = 'Error';
+  document.getElementById('grid').innerHTML = '<div class="no-results">Data is refreshing. Check back shortly.</div>';
+  document.getElementById('visible-count').textContent = 'Refreshing';
 });
 </script>
 
 <footer style="border-top:1px solid var(--border);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:12px">
   <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
-    <span style="font-weight:700;color:var(--text);font-size:13px">Siby John</span>
+    <span style="font-weight:700;color:var(--text);font-size:13px">Siby John &amp; Karishma Changroth</span>
     <a href="mailto:sibyjohn0@gmail.com" style="color:var(--muted)">sibyjohn0@gmail.com</a>
     <a href="tel:+919960025559" style="color:var(--muted)">+91 99600 25559</a>
     <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener" style="color:var(--muted)">LinkedIn ↗</a>

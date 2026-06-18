@@ -151,13 +151,12 @@
 </header>
 
 <nav>
-  <a class="tab" href="../about/">About</a>
+  <a class="tab" href="../">Radar</a>
+  <a class="tab" href="../reviewers/">Reviewers</a>
+  <a class="tab" href="../industry/">Industry</a>
+  <a class="tab" href="../resources/">Resources</a>
   <a class="tab" href="../programme/">Programme</a>
-  <a class="tab" href="../playbook/">Playbook</a>
-  <a class="tab" href="../">Today</a>
-  <a class="tab active" href="../submit/">Submit</a>
-  <a class="tab" href="../reads/">Reads</a>
-  <a class="tab" href="../toolkit/">Toolkit</a>
+  <a class="tab" href="../about/">About</a>
 </nav>
 
 <div class="page">
@@ -166,10 +165,22 @@
   <h1>Submit your music</h1>
   <p class="deck">Add yourself to the radar. We track Indian independent artists across YouTube, Spotify, and SoundCloud. No editorial gatekeeping. If you're making independent music, you belong here.</p>
 
+  <p class="deck" style="font-size:14px;color:var(--muted)">Currently tracking <strong id="artist-count" style="color:var(--text)">a growing roster of</strong> independent Indian artists on the radar.</p>
+
   <div class="info-box">
     <strong>What happens after you submit</strong>
-    New submissions are reviewed weekly. If your YouTube channel or Spotify profile has public listener data, you'll be added to the next data pull. You'll appear in the Discover tab, Artists tab, and Trends. There's no minimum follower count. We track emerging artists from the start.
+    New submissions are reviewed weekly. If your YouTube channel or Spotify profile has public listener data, you'll be added to the next data pull. You don't need to do anything else: you'll appear automatically in the Discover and Artists tabs, usually within a week of the next pull. There's no minimum follower count, and there's no confirmation email yet, so your presence on the radar is how you'll know it worked.
   </div>
+
+  <script>
+    fetch('../data/tracked_artists.json', {cache:'no-cache'})
+      .then(r => r.json())
+      .then(d => {
+        const n = Array.isArray(d) ? d.length : (d.total || d.artists?.length || d.count);
+        if (n) document.getElementById('artist-count').textContent = n;
+      })
+      .catch(() => {});
+  </script>
 
   <div class="gform-wrap">
     <iframe
@@ -187,7 +198,7 @@
 
 <footer>
   <div class="footer-links">
-    <span style="font-weight:700;color:var(--text);font-size:13px">Siby John</span>
+    <span style="font-weight:700;color:var(--text);font-size:13px">Siby John &amp; Karishma Changroth</span>
     <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
     <a href="tel:+919960025559">+91 99600 25559</a>
     <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn ↗</a>
