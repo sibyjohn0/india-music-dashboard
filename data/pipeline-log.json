@@ -1870,5 +1870,107 @@
         "error": null
       }
     }
+  },
+  {
+    "run_at": "2026-06-18T05:58:39.631493+00:00",
+    "overall": "ok",
+    "sources": {
+      "youtube": {
+        "status": "ok",
+        "records": 225,
+        "ms": 122155,
+        "error": null
+      },
+      "lastfm": {
+        "status": "ok",
+        "records": 123,
+        "ms": 56435,
+        "error": null
+      },
+      "radar": {
+        "status": "ok",
+        "records": 123,
+        "ms": 21,
+        "error": null
+      },
+      "insights": {
+        "status": "ok",
+        "records": null,
+        "ms": 74,
+        "error": null
+      },
+      "venue_analysis": {
+        "status": "ok",
+        "records": null,
+        "ms": 31,
+        "error": null
+      },
+      "monthly_digest": {
+        "status": "ok",
+        "records": null,
+        "ms": 63,
+        "error": null
+      },
+      "spotify": {
+        "status": "ok",
+        "records": 52,
+        "ms": 65387,
+        "error": null
+      },
+      "social": {
+        "status": "ok",
+        "records": 348,
+        "ms": 22906,
+        "error": null
+      },
+      "playboard": {
+        "status": "ok",
+        "records": null,
+        "ms": 51158,
+        "error": null
+      },
+      "jiosaavn": {
+        "status": "ok",
+        "records": null,
+        "ms": 1540,
+        "error": null
+      },
+      "events_paytm": {
+        "status": "ok",
+        "records": null,
+        "ms": 42,
+        "error": null
+      },
+      "news_rss": {
+        "status": "ok",
+        "records": null,
+        "ms": 1394,
+        "error": null
+      },
+      "events_district": {
+        "status": "ok",
+        "records": 86,
+        "ms": 109842,
+        "error": null
+      },
+      "spotify_playwright": {
+        "status": "ok",
+        "records": 0,
+        "ms": 196368,
+        "error": null
+      },
+      "bookmyshow": {
+        "status": "ok",
+        "records": 153,
+        "ms": 45250,
+        "error": null
+      },
+      "skillboxes": {
+        "status": "ok",
+        "records": 116,
+        "ms": 37969,
+        "error": null
+      }
+    }
   }
 ]
