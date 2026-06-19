@@ -121,6 +121,17 @@ async function init() {
     "Updated "+new Date(data.fetched_at).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
   document.getElementById("total-badge").textContent = allVideos.length+" videos";
 
+  // Tracking count banner
+  const _tc = document.getElementById("tracking-count");
+  if (_tc && trackerData) {
+    const _total = trackerData.total || (trackerData.artists||[]).length;
+    const _langN = trackerData.by_language ? Object.keys(trackerData.by_language).length : 0;
+    if (_total) {
+      _tc.innerHTML = 'Tracking <strong style="color:var(--text)">' + _total + '</strong> independent artists' +
+        (_langN ? ' across <strong style="color:var(--text)">' + _langN + '</strong> languages' : '') + '.';
+    }
+  }
+
   const fmtTs = iso => {
     if (!iso) return '';
     const d = new Date(iso);
