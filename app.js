@@ -121,6 +121,12 @@ async function init() {
     "Updated "+new Date(data.fetched_at).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
   document.getElementById("total-badge").textContent = allVideos.length+" videos";
 
+  // Reviewer count on the Discover quick-link (same source as the Reviewers page)
+  const _rc = document.getElementById("reviewer-count");
+  if (_rc && _reviewersData && Array.isArray(_reviewersData.reviewers)) {
+    _rc.textContent = _reviewersData.reviewers.length;
+  }
+
   // Tracking count banner
   const _tc = document.getElementById("tracking-count");
   if (_tc && trackerData) {
