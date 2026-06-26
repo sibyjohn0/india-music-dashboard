@@ -1,13 +1,13 @@
 {
   "2026-06": {
     "month": "2026-06",
-    "snapshots": 23,
-    "last_snapshot_at": "2026-06-25T05:10:35.675028+00:00",
+    "snapshots": 24,
+    "last_snapshot_at": "2026-06-26T05:13:52.443681+00:00",
     "total_videos": 225,
-    "total_artists": 278,
-    "new_artists_seen": 269,
+    "total_artists": 283,
+    "new_artists_seen": 274,
     "median_score": 64,
-    "median_views": 4838,
+    "median_views": 4913,
     "top_artists": [
       {
         "name": "Sivakarthikeyan Productions",
@@ -82,34 +82,34 @@
     ],
     "fastest_growing": [
       {
+        "name": "Aksomaniac",
+        "views_gained": 2411504,
+        "genre": "Hip Hop / Rap",
+        "language": "Malayalam"
+      },
+      {
         "name": "Radha Folks",
-        "views_gained": 1820188,
+        "views_gained": 2018762,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
-        "name": "PINKY MUSIC",
-        "views_gained": 890328,
-        "genre": "Hip Hop / Rap",
-        "language": "Kannada"
-      },
-      {
         "name": "Dabzee",
-        "views_gained": 826725,
+        "views_gained": 828259,
         "genre": "Electronic",
         "language": "Malayalam"
       },
       {
-        "name": "Shreyashhh",
-        "views_gained": 643431,
-        "genre": "Indie",
-        "language": "English"
+        "name": "Gallery Vision Indie",
+        "views_gained": 632133,
+        "genre": "Electronic",
+        "language": "Malayalam"
       },
       {
-        "name": "Gallery Vision Indie",
-        "views_gained": 629057,
-        "genre": "Electronic",
-        "language": "Tamil"
+        "name": "Lo-fi 2307",
+        "views_gained": 561366,
+        "genre": "Lo-Fi",
+        "language": "English"
       }
     ],
     "genre_breakdown": [
@@ -123,15 +123,11 @@
       ],
       [
         "Folk / Acoustic",
-        45
-      ],
-      [
-        "Electronic",
-        20
+        44
       ],
       [
         "R&B / Soul",
-        20
+        22
       ],
       [
         "Lo-Fi",
@@ -139,11 +135,15 @@
       ],
       [
         "Classical/Fusion",
-        15
+        17
+      ],
+      [
+        "Electronic",
+        16
       ],
       [
         "Rock / Alt",
-        3
+        4
       ],
       [
         "Jazz / Blues",
@@ -164,7 +164,11 @@
         25
       ],
       [
-        "Kannada",
+        "Malayalam",
+        25
+      ],
+      [
+        "Bengali",
         25
       ],
       [
@@ -184,39 +188,35 @@
         25
       ],
       [
-        "Bengali",
-        25
-      ],
-      [
-        "Malayalam",
+        "Kannada",
         25
       ]
     ],
     "city_shows": {
-      "Bangalore": 107,
-      "Hyderabad": 46,
-      "Chennai": 27,
-      "Goa": 32,
-      "Puducherry": 1,
-      "Whitefield, Bengaluru": 1,
-      "Koramangala": 1,
-      "Guwahati": 6,
-      "Mumbai": 23,
-      "Kolkata": 14,
-      "Pune": 12,
-      "Delhi": 28,
+      "Gachibowli": 1,
+      "Hyderabad": 42,
+      "Mumbai": 55,
+      "Kolkata": 33,
+      "Pune": 35,
+      "NCPA.": 2,
+      "Bangalore": 82,
+      "Guwahati": 5,
+      "Chennai": 10,
+      "Goa": 18,
+      "Delhi": 25,
       "Ladakh": 1,
       "Dubai": 1,
-      "Abu Dhabi": 1,
       "India": 1,
       "Kochi": 3,
       "Jaipur": 1,
       "Jalandhar": 1,
       "Meerut": 1,
       "Ahmedabad": 1,
-      "Udaipur": 1
+      "Chandigarh": 1,
+      "Udaipur": 1,
+      "Nanakramguda": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 310
+    "total_shows": 321
   }
 }
