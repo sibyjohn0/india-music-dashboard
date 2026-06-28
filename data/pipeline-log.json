@@ -2926,5 +2926,143 @@
         "error": null
       }
     }
+  },
+  {
+    "run_at": "2026-06-28T05:19:59.172398+00:00",
+    "overall": "partial",
+    "sources": {
+      "youtube": {
+        "status": "ok",
+        "records": 225,
+        "ms": 129406,
+        "error": null
+      },
+      "lastfm": {
+        "status": "ok",
+        "records": 128,
+        "ms": 56247,
+        "error": null
+      },
+      "radar": {
+        "status": "ok",
+        "records": 128,
+        "ms": 26,
+        "error": null
+      },
+      "insights": {
+        "status": "ok",
+        "records": null,
+        "ms": 114,
+        "error": null
+      },
+      "venue_analysis": {
+        "status": "ok",
+        "records": null,
+        "ms": 40,
+        "error": null
+      },
+      "monthly_digest": {
+        "status": "ok",
+        "records": null,
+        "ms": 118,
+        "error": null
+      },
+      "spotify": {
+        "status": "ok",
+        "records": 59,
+        "ms": 72303,
+        "error": null
+      },
+      "social": {
+        "status": "ok",
+        "records": 379,
+        "ms": 23333,
+        "error": null
+      },
+      "playboard": {
+        "status": "ok",
+        "records": null,
+        "ms": 51882,
+        "error": null
+      },
+      "jiosaavn": {
+        "status": "ok",
+        "records": null,
+        "ms": 1446,
+        "error": null
+      },
+      "events_paytm": {
+        "status": "ok",
+        "records": null,
+        "ms": 50,
+        "error": null
+      },
+      "news_rss": {
+        "status": "ok",
+        "records": null,
+        "ms": 1472,
+        "error": null
+      },
+      "events_district": {
+        "status": "ok",
+        "records": 89,
+        "ms": 112323,
+        "error": null
+      },
+      "spotify_playwright": {
+        "status": "ok",
+        "records": 0,
+        "ms": 197926,
+        "error": null
+      },
+      "bookmyshow": {
+        "status": "ok",
+        "records": 180,
+        "ms": 48553,
+        "error": null
+      },
+      "skillboxes": {
+        "status": "ok",
+        "records": 104,
+        "ms": 38270,
+        "error": null
+      },
+      "industry": {
+        "status": "failed",
+        "records": null,
+        "ms": 25,
+        "error": "ERROR: pip install requests"
+      },
+      "reviewers_editorial": {
+        "status": "ok",
+        "records": null,
+        "ms": 15700,
+        "error": null
+      },
+      "reviewers_podcasts": {
+        "status": "ok",
+        "records": null,
+        "ms": 13989,
+        "error": null
+      },
+      "reviewers_spotify": {
+        "status": "ok",
+        "records": null,
+        "ms": 140949,
+        "error": null
+      },
+      "reviewers_youtube": {
+        "status": "ok",
+        "records": null,
+        "ms": 179621,
+        "error": null
+      },
+      "reviewers_merge": {
+        "status": "ok",
+        "records": 1112,
+        "ms": 92,
+        "error": null
+      }
+    }
   }
 ]
