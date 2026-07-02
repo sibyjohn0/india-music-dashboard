@@ -217,13 +217,13 @@
   },
   "2026-07": {
     "month": "2026-07",
-    "snapshots": 1,
-    "last_snapshot_at": "2026-07-01T05:27:31.851901+00:00",
+    "snapshots": 2,
+    "last_snapshot_at": "2026-07-02T05:03:09.928528+00:00",
     "total_videos": 225,
-    "total_artists": 130,
-    "new_artists_seen": 44,
-    "median_score": 67,
-    "median_views": 5926,
+    "total_artists": 145,
+    "new_artists_seen": 74,
+    "median_score": 68,
+    "median_views": 5306,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -299,71 +299,75 @@
     "fastest_growing": [
       {
         "name": "Aksomaniac",
-        "views_gained": 2283041,
+        "views_gained": 2289189,
         "genre": "Hip Hop / Rap",
         "language": "Malayalam"
       },
       {
         "name": "Sanathan Shree Krishnan",
-        "views_gained": 522589,
+        "views_gained": 687507,
         "genre": "Indie",
         "language": "Tamil"
       },
       {
+        "name": "Gallery Vision Indie",
+        "views_gained": 297373,
+        "genre": "Electronic",
+        "language": "Malayalam"
+      },
+      {
         "name": "Manchu Dada ",
-        "views_gained": 215333,
+        "views_gained": 215567,
         "genre": "Indie",
         "language": "Bengali"
       },
       {
-        "name": "Shimul Hasan Baul ",
-        "views_gained": 191170,
+        "name": "yochith lyrics",
+        "views_gained": 175271,
         "genre": "Folk / Acoustic",
-        "language": "Bengali"
-      },
-      {
-        "name": "Muttu Halyal Singer",
-        "views_gained": 155434,
-        "genre": "Hip Hop / Rap",
-        "language": "Kannada"
+        "language": "Telugu"
       }
     ],
     "genre_breakdown": [
       [
         "Indie",
-        54
-      ],
-      [
-        "Hip Hop / Rap",
-        41
+        53
       ],
       [
         "Folk / Acoustic",
+        43
+      ],
+      [
+        "Hip Hop / Rap",
         40
       ],
       [
         "R&B / Soul",
-        24
-      ],
-      [
-        "Electronic",
-        21
+        25
       ],
       [
         "Classical/Fusion",
-        20
+        22
+      ],
+      [
+        "Electronic",
+        18
       ],
       [
         "Lo-Fi",
-        15
+        14
       ],
       [
         "Rock / Alt",
-        6
+        5
       ],
       [
         "Indie Pop",
         4
+      ],
+      [
+        "Jazz / Blues",
+        1
       ]
     ],
     "language_breakdown": [
@@ -377,6 +381,14 @@
       ],
       [
         "Kannada",
+        25
+      ],
+      [
+        "Malayalam",
+        25
+      ],
+      [
+        "Bengali",
         25
       ],
       [
@@ -394,39 +406,32 @@
       [
         "English",
         25
-      ],
-      [
-        "Bengali",
-        25
-      ],
-      [
-        "Malayalam",
-        25
       ]
     ],
     "city_shows": {
-      "Bangalore": 88,
-      "Chennai": 31,
-      "Goa": 22,
-      "Hyderabad": 37,
+      "Bangalore": 89,
       "Delhi": 52,
-      "Pune": 35,
-      "Kolkata": 33,
+      "Mumbai": 49,
+      "Pune": 33,
+      "Chennai": 32,
+      "Goa": 24,
+      "Hyderabad": 38,
+      "NCPA.": 1,
       "Puducherry": 1,
-      "Koramangala": 1,
-      "Gachibowli": 1,
+      "Thane (W)": 1,
       "Guwahati": 3,
-      "Mumbai": 23,
+      "MPL Daly College": 1,
+      "Kolkata": 9,
       "Ladakh": 1,
       "Dubai": 1,
       "Abu Dhabi": 1,
       "India": 1,
       "Jaipur": 1,
+      "Kochi": 3,
       "Mysore": 1,
-      "Kochi": 2,
       "Ahmedabad": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 336
+    "total_shows": 343
   }
 }
