@@ -217,13 +217,13 @@
   },
   "2026-07": {
     "month": "2026-07",
-    "snapshots": 10,
-    "last_snapshot_at": "2026-07-10T04:57:48.400186+00:00",
+    "snapshots": 11,
+    "last_snapshot_at": "2026-07-11T04:18:04.354143+00:00",
     "total_videos": 225,
-    "total_artists": 221,
-    "new_artists_seen": 188,
+    "total_artists": 228,
+    "new_artists_seen": 197,
     "median_score": 62,
-    "median_views": 4710,
+    "median_views": 4592,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -299,31 +299,31 @@
     "fastest_growing": [
       {
         "name": "Young Aj",
-        "views_gained": 1683209,
+        "views_gained": 1709767,
         "genre": "Hip Hop / Rap",
         "language": "English"
       },
       {
         "name": "SAMBATA__ 00",
-        "views_gained": 1130038,
+        "views_gained": 1138039,
         "genre": "Rock / Alt",
         "language": "Marathi"
       },
       {
-        "name": "Sanathan Shree Krishnan",
-        "views_gained": 1064982,
-        "genre": "Indie",
-        "language": "Tamil"
+        "name": "Jaanu Folks",
+        "views_gained": 1098354,
+        "genre": "Hip Hop / Rap",
+        "language": "Telugu"
       },
       {
         "name": "Jaanu Folks",
-        "views_gained": 1055957,
+        "views_gained": 884440,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
         "name": "Gallery Vision Indie",
-        "views_gained": 670394,
+        "views_gained": 672909,
         "genre": "Electronic",
         "language": "Malayalam"
       }
@@ -331,39 +331,43 @@
     "genre_breakdown": [
       [
         "Indie",
-        53
+        52
       ],
       [
         "Hip Hop / Rap",
-        46
+        47
       ],
       [
         "Folk / Acoustic",
-        39
+        42
       ],
       [
         "R&B / Soul",
-        23
-      ],
-      [
-        "Classical/Fusion",
-        22
-      ],
-      [
-        "Lo-Fi",
-        19
+        20
       ],
       [
         "Electronic",
-        16
+        18
+      ],
+      [
+        "Lo-Fi",
+        18
+      ],
+      [
+        "Classical/Fusion",
+        18
       ],
       [
         "Rock / Alt",
-        5
+        7
       ],
       [
         "Indie Pop",
         2
+      ],
+      [
+        "Jazz / Blues",
+        1
       ]
     ],
     "language_breakdown": [
@@ -377,6 +381,10 @@
       ],
       [
         "Kannada",
+        25
+      ],
+      [
+        "Malayalam",
         25
       ],
       [
@@ -398,28 +406,26 @@
       [
         "English",
         25
-      ],
-      [
-        "Malayalam",
-        25
       ]
     ],
     "city_shows": {
-      "Bangalore": 87,
-      "Mumbai": 50,
-      "Goa": 24,
-      "Panvel": 1,
-      "Pune": 36,
-      "Chennai": 35,
+      "Bangalore": 85,
+      "Chennai": 29,
       "Delhi": 43,
-      "Greater Noida": 1,
-      "Kolkata": 35,
+      "Goa": 27,
+      "Hyderabad": 39,
+      "Kolkata": 36,
       "Koramangala": 2,
-      "Whitefield, Bengaluru": 2,
+      "Mumbai": 41,
       "Seshadripuram, Bengaluru": 1,
+      "Kalyan": 1,
+      "Mulund": 1,
+      "Panvel": 1,
+      "NCPA.": 1,
+      "Gachibowli": 1,
+      "Puducherry": 1,
       "Guwahati": 3,
-      "Hyderabad": 12,
-      "Kodambakkam": 1,
+      "Pune": 10,
       "Ladakh": 1,
       "India": 1,
       "Kochi": 3,
@@ -428,6 +434,6 @@
       "Ziro": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 341
+    "total_shows": 330
   }
 }
