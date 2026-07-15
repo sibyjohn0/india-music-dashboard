@@ -217,13 +217,13 @@
   },
   "2026-07": {
     "month": "2026-07",
-    "snapshots": 14,
-    "last_snapshot_at": "2026-07-14T04:08:02.315096+00:00",
+    "snapshots": 15,
+    "last_snapshot_at": "2026-07-15T04:10:18.933132+00:00",
     "total_videos": 225,
-    "total_artists": 245,
-    "new_artists_seen": 217,
-    "median_score": 63,
-    "median_views": 3536,
+    "total_artists": 257,
+    "new_artists_seen": 229,
+    "median_score": 61,
+    "median_views": 3594,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -299,51 +299,51 @@
     "fastest_growing": [
       {
         "name": "Jaanu Folks",
-        "views_gained": 1411663,
+        "views_gained": 1526761,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
+      },
+      {
+        "name": "Jordan Sandhu",
+        "views_gained": 1364586,
+        "genre": "Indie",
+        "language": "Punjabi"
       },
       {
         "name": "Jaanu Folks",
-        "views_gained": 1163254,
+        "views_gained": 1172703,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
         "name": "Gallery Vision Indie",
-        "views_gained": 679996,
+        "views_gained": 682207,
         "genre": "Electronic",
         "language": "Malayalam"
       },
       {
         "name": "Gallery Vision Indie",
-        "views_gained": 313214,
+        "views_gained": 314605,
         "genre": "Electronic",
         "language": "Malayalam"
-      },
-      {
-        "name": "Gaibu Gani ",
-        "views_gained": 179590,
-        "genre": "Folk / Acoustic",
-        "language": "Kannada"
       }
     ],
     "genre_breakdown": [
       [
         "Indie",
-        52
+        51
       ],
       [
         "Hip Hop / Rap",
-        46
+        49
       ],
       [
         "Folk / Acoustic",
-        44
+        43
       ],
       [
         "R&B / Soul",
-        23
+        25
       ],
       [
         "Classical/Fusion",
@@ -351,19 +351,19 @@
       ],
       [
         "Electronic",
-        17
+        18
       ],
       [
         "Lo-Fi",
-        16
-      ],
-      [
-        "Indie Pop",
-        4
+        12
       ],
       [
         "Rock / Alt",
-        4
+        5
+      ],
+      [
+        "Indie Pop",
+        3
       ],
       [
         "Jazz / Blues",
@@ -372,11 +372,19 @@
     ],
     "language_breakdown": [
       [
+        "Tamil",
+        25
+      ],
+      [
         "Telugu",
         25
       ],
       [
-        "Malayalam",
+        "Kannada",
+        25
+      ],
+      [
+        "Bengali",
         25
       ],
       [
@@ -396,40 +404,37 @@
         25
       ],
       [
-        "Tamil",
-        25
-      ],
-      [
-        "Kannada",
-        25
-      ],
-      [
-        "Bengali",
+        "Malayalam",
         25
       ]
     ],
     "city_shows": {
-      "Delhi": 46,
-      "Goa": 27,
-      "Bangalore": 83,
-      "Chennai": 35,
-      "Pune": 41,
-      "Kolkata": 37,
+      "Bangalore": 89,
+      "Goa": 28,
+      "Delhi": 47,
+      "Hyderabad": 46,
+      "Pune": 44,
+      "Chennai": 34,
+      "Mumbai": 43,
+      "Whitefield, Bengaluru": 1,
+      "Kolkata": 36,
+      "Thane (W)": 1,
+      "Lower Parel": 1,
+      "NCPA.": 4,
+      "Koramangala": 1,
       "East Midnapur": 1,
+      "Gachibowli": 1,
       "Puducherry": 1,
-      "Guwahati": 3,
-      "Mumbai": 21,
-      "Hyderabad": 13,
+      "Guwahati": 2,
       "Ladakh": 1,
       "Dubai": 1,
       "Kochi": 4,
       "Ahmedabad": 1,
-      "Siliguri": 1,
-      "Ziro": 1,
       "Dharamshala": 1,
-      "Dimapur": 1
+      "Dimapur": 1,
+      "Jalandhar": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 319
+    "total_shows": 390
   }
 }
