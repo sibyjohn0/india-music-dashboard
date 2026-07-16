@@ -1,327 +1,231 @@
 {
-  "generated_at": "2026-07-15T04:11:23.397660+00:00",
-  "snapshot_date": "2026-07-15",
+  "generated_at": "2026-07-16T04:15:17.148471+00:00",
+  "snapshot_date": "2026-07-16",
   "cities": {
-    "Bangalore": {
-      "total_shows": 89,
+    "Delhi": {
+      "total_shows": 45,
       "venues": [
         {
-          "name": "DND The Venue",
-          "shows": 5,
+          "name": "Studio XO",
+          "shows": 3,
           "price_min": 499,
-          "price_max": 2199,
-          "next_date": "2026-07-17",
-          "growth": 1
-        },
-        {
-          "name": "Venue To Be Announced",
-          "shows": 3,
-          "price_min": 1499,
-          "price_max": 5499,
-          "next_date": "2026-07-25",
-          "growth": 0
-        },
-        {
-          "name": "NICE Grounds",
-          "shows": 3,
-          "price_min": 999,
-          "price_max": 5000,
-          "next_date": "2026-08-08",
-          "growth": 2
-        },
-        {
-          "name": "Prestige Centre for Performing Arts",
-          "shows": 3,
-          "price_min": 500,
-          "price_max": 4000,
-          "next_date": "2026-08-08",
-          "growth": 0
-        },
-        {
-          "name": "THT Ground Floor Bar",
-          "shows": 3,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-07-16",
-          "growth": 0
-        },
-        {
-          "name": "Silaa The Garden Cafe, Malleshwaram",
-          "shows": 2,
-          "price_min": 299,
-          "price_max": 399,
-          "next_date": "2026-07-16",
-          "growth": null
-        },
-        {
-          "name": "Chowdiah Memorial Hall",
-          "shows": 2,
-          "price_min": 400,
-          "price_max": 750,
-          "next_date": "2026-07-17",
-          "growth": -1
-        },
-        {
-          "name": "BudBee Restobar 104",
-          "shows": 2,
-          "price_min": 49,
-          "price_max": 49,
-          "next_date": "2026-07-17",
-          "growth": -1
-        },
-        {
-          "name": "Sugar Factory Reloaded",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-07-18",
-          "growth": null
-        },
-        {
-          "name": "The Humming Tree",
-          "shows": 2,
-          "price_min": 499,
-          "price_max": 1500,
-          "next_date": "2026-07-24",
-          "growth": 1
-        },
-        {
-          "name": "District Arena @ Terraform",
-          "shows": 2,
-          "price_min": 1999,
-          "price_max": 5000,
-          "next_date": "2026-09-19",
-          "growth": 1
-        },
-        {
-          "name": "Gsuper Club and GToxe",
-          "shows": 1,
-          "price_min": 100,
-          "price_max": 100,
-          "next_date": "2026-07-15",
-          "growth": null
-        },
-        {
-          "name": "Dialogues Cafe, Koramangala",
-          "shows": 1,
-          "price_min": 250,
-          "price_max": 250,
-          "next_date": "2026-07-16",
-          "growth": null
-        },
-        {
-          "name": "DND - The Venue",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "Silaa The Garden Cafe, HSR Layout",
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 399,
-          "next_date": "2026-07-19",
-          "growth": 0
-        },
-        {
-          "name": "Panacea Blr",
-          "shows": 1,
-          "price_min": 199,
-          "price_max": 199,
-          "next_date": "2026-07-19",
-          "growth": 0
-        },
-        {
-          "name": "ICB Indian Craft Brewery",
-          "shows": 1,
-          "price_min": 999,
           "price_max": 999,
-          "next_date": "2026-07-25",
-          "growth": 0
-        },
-        {
-          "name": "AYUSVARA Speciality",
-          "shows": 1,
-          "price_min": 699,
-          "price_max": 699,
-          "next_date": "2026-07-26",
-          "growth": null
-        },
-        {
-          "name": "Sunburn Union",
-          "shows": 1,
-          "price_min": 1000,
-          "price_max": 1000,
-          "next_date": "2026-07-31",
+          "next_date": "2026-07-18",
           "growth": -1
         },
         {
-          "name": "Eden Event Area, Phoenix Mall Of Asia",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-08-08",
+          "name": "Yashobhoomi",
+          "shows": 3,
+          "price_min": 1299,
+          "price_max": 2199,
+          "next_date": "2026-08-16",
           "growth": 0
         },
         {
-          "name": "Bloom Creative Zone, Indiranagar",
-          "shows": 1,
-          "price_min": 899,
-          "price_max": 899,
-          "next_date": "2026-08-08",
-          "growth": 0
-        },
-        {
-          "name": "Chamara Vajra",
-          "shows": 1,
-          "price_min": 1700,
-          "price_max": 1700,
-          "next_date": "2026-08-28",
-          "growth": null
-        },
-        {
-          "name": "Bengaluru LIVE,",
-          "shows": 1,
-          "price_min": 4000,
-          "price_max": 4000,
-          "next_date": "2027-01-29",
-          "growth": null
-        },
-        {
-          "name": "Koramangala SOCIAL | Koramangala 7th Block,",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
+          "name": "Shri Ram Centre for Performing Arts",
+          "shows": 2,
+          "price_min": 100,
+          "price_max": 1499,
           "next_date": "2026-07-16",
-          "growth": null
+          "growth": 0
         },
         {
-          "name": "BudBee 104 Resto Bar | Koramangala 7th Block,",
-          "shows": 1,
+          "name": "The Terrace",
+          "shows": 2,
           "price_min": 199,
           "price_max": 199,
-          "next_date": "2026-07-17",
+          "next_date": "2026-07-16",
+          "growth": 1
+        },
+        {
+          "name": "Basko",
+          "shows": 2,
+          "price_min": 1000,
+          "price_max": 4000,
+          "next_date": "2026-07-16",
           "growth": 0
         },
         {
-          "name": "Nusa | Varthur Main Road, Whitefield,",
-          "shows": 1,
-          "price_min": 200,
-          "price_max": 200,
-          "next_date": "2026-07-17",
-          "growth": null
-        },
-        {
-          "name": "Hard Rock Cafe | St. Marks Road,",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
+          "name": "Yashobhoomi Convention Center",
+          "shows": 2,
+          "price_min": 999,
+          "price_max": 1499,
           "next_date": "2026-07-18",
-          "growth": null
+          "growth": 0
         },
         {
-          "name": "Hard Rock Cafe | Ascendas Park Square, Whitefield",
+          "name": "Bira 91 Taproom",
+          "shows": 2,
+          "price_min": 100,
+          "price_max": 299,
+          "next_date": "2026-07-18",
+          "growth": 1
+        },
+        {
+          "name": "Bharat Mandapam",
+          "shows": 2,
+          "price_min": 885,
+          "price_max": 999,
+          "next_date": "2026-07-26",
+          "growth": 0
+        },
+        {
+          "name": "Aiwan-E-Ghalib Auditorium",
+          "shows": 2,
+          "price_min": 599,
+          "price_max": 1199,
+          "next_date": "2026-08-01",
+          "growth": 0
+        },
+        {
+          "name": "Utsav at The Square",
           "shows": 1,
           "price_min": 249,
           "price_max": 249,
-          "next_date": "2026-07-25",
+          "next_date": "2026-07-16",
           "growth": null
         },
         {
-          "name": "Phoenix Mall Of Asia",
+          "name": "The Soho Garden",
           "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-08-08",
-          "growth": 0
-        },
-        {
-          "name": "Koramangala Social",
-          "shows": 1,
-          "price_min": 799,
-          "price_max": 799,
-          "next_date": "2026-08-23",
-          "growth": 0
-        },
-        {
-          "name": "Venue to be announced",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-10-24",
-          "growth": null
-        },
-        {
-          "name": "Hamilton Cocktail Bar",
-          "shows": 1,
-          "price_min": 899,
-          "price_max": 899,
+          "price_min": 199,
+          "price_max": 199,
           "next_date": "2026-07-18",
           "growth": 0
         },
         {
-          "name": "Hardrock Cafe, Bangalore.",
+          "name": "Hotel Le Meridien",
           "shows": 1,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-07-19",
-          "growth": null
+          "price_min": 3200,
+          "price_max": 3200,
+          "next_date": "2026-07-18",
+          "growth": 0
         },
         {
-          "name": "Watson\u2019s Indiranagar,",
+          "name": "goSTops Plus",
           "shows": 1,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-07-19",
-          "growth": null
+          "price_min": 200,
+          "price_max": 200,
+          "next_date": "2026-07-18",
+          "growth": 0
         },
         {
-          "name": "BENGALURU EDITION 2",
+          "name": "Drink and Dine by Terrace",
+          "shows": 1,
+          "price_min": 199,
+          "price_max": 199,
+          "next_date": "2026-07-20",
+          "growth": 0
+        },
+        {
+          "name": "Refuge",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-07-26",
+          "growth": 0
+        },
+        {
+          "name": "India Islamic Cultural Centre",
+          "shows": 1,
+          "price_min": 250,
+          "price_max": 250,
+          "next_date": "2026-08-16",
+          "growth": 0
+        },
+        {
+          "name": "Talkatora Indoor Stadium",
+          "shows": 1,
+          "price_min": 1800,
+          "price_max": 1800,
+          "next_date": "2026-08-30",
+          "growth": 0
+        },
+        {
+          "name": "Plenary Hall Bharat Mandapam",
           "shows": 1,
           "price_min": 999,
           "price_max": 999,
-          "next_date": "2026-08-23",
+          "next_date": "2026-10-03",
           "growth": 0
         },
         {
-          "name": "Privilege",
+          "name": "The Country Club - Saket",
           "shows": 1,
-          "price_min": 1499,
-          "price_max": 4999,
-          "next_date": "2026-09-18",
+          "price_min": 2500,
+          "price_max": 2500,
+          "next_date": "2026-10-10",
           "growth": 0
         },
         {
-          "name": "Bighorn Arena",
+          "name": "Venue To Be Announced",
           "shows": 1,
-          "price_min": 2999,
-          "price_max": 6499,
-          "next_date": "2026-10-04",
+          "price_min": 399,
+          "price_max": 399,
+          "next_date": "2026-10-31",
           "growth": 0
         },
         {
-          "name": "BFlat: A Tribute to Fleetwood Mac",
+          "name": "Dirty Good | One Golden Mile, Netaji Nagar",
+          "shows": 1,
+          "price_min": 999,
+          "price_max": 999,
+          "next_date": "2026-07-18",
+          "growth": 0
+        },
+        {
+          "name": "Bellavino | Sector 65, Gurgaon",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-07-18",
+          "growth": 0
+        },
+        {
+          "name": "Cosy Box | DLF Horizon Center",
           "shows": 1,
           "price_min": 499,
-          "price_max": 30000,
-          "next_date": "25 Jul Sat",
+          "price_max": 499,
+          "next_date": "2026-07-25",
           "growth": 0
         },
         {
-          "name": "Yeda Republic",
+          "name": "Depot48 | M Block Market, Greater Kailash 2 (GK2)",
           "shows": 1,
-          "price_min": 799,
-          "price_max": 799,
-          "next_date": "25 Jul Sat",
-          "growth": -2
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-07-31",
+          "growth": 0
+        },
+        {
+          "name": "CDC Experience by Crepdog Crew",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-08-08",
+          "growth": 0
+        },
+        {
+          "name": "The Upper HSE by Tivoli",
+          "shows": 1,
+          "price_min": 1770,
+          "price_max": 1770,
+          "next_date": "2026-08-08",
+          "growth": 0
+        },
+        {
+          "name": "Kamani Auditorium",
+          "shows": 1,
+          "price_min": 5400,
+          "price_max": 5400,
+          "next_date": "2026-10-09",
+          "growth": 0
         }
       ],
-      "unlisted_shows": 32
+      "unlisted_shows": 7
     },
     "Goa": {
-      "total_shows": 28,
+      "total_shows": 31,
       "venues": [
         {
           "name": "UNVRS Club, Vagator",
@@ -330,6 +234,14 @@
           "price_max": 2000,
           "next_date": "2026-07-17",
           "growth": 0
+        },
+        {
+          "name": "Multiple Venues",
+          "shows": 4,
+          "price_min": 349,
+          "price_max": 2000,
+          "next_date": "2026-07-18",
+          "growth": null
         },
         {
           "name": "Saltamontes - Garden Cafe and Bar",
@@ -345,7 +257,7 @@
           "price_min": 1000,
           "price_max": 1000,
           "next_date": "2026-07-17",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Dynamo",
@@ -364,11 +276,11 @@
           "growth": 0
         },
         {
-          "name": "Uncultured | Assagao,",
-          "shows": 2,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "2026-07-15",
+          "name": "Raeeth",
+          "shows": 1,
+          "price_min": 999,
+          "price_max": 999,
+          "next_date": "2026-07-17",
           "growth": 0
         },
         {
@@ -376,16 +288,16 @@
           "shows": 1,
           "price_min": 1000,
           "price_max": 1000,
-          "next_date": "2026-07-15",
-          "growth": -1
+          "next_date": "2026-07-18",
+          "growth": 0
         },
         {
-          "name": "Raeeth",
+          "name": "Hammerzz Nightclub",
           "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-07-17",
-          "growth": 0
+          "price_min": 1000,
+          "price_max": 1000,
+          "next_date": "2026-07-19",
+          "growth": null
         },
         {
           "name": "Hammerzz Makarena",
@@ -401,14 +313,6 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "2026-07-31",
-          "growth": 0
-        },
-        {
-          "name": "Orion Beach Club",
-          "shows": 1,
-          "price_min": 1500,
-          "price_max": 1500,
-          "next_date": "2026-08-14",
           "growth": 0
         },
         {
@@ -434,6 +338,14 @@
           "price_max": 300,
           "next_date": "2026-07-16",
           "growth": 0
+        },
+        {
+          "name": "Uncultured | Assagao,",
+          "shows": 1,
+          "price_min": 500,
+          "price_max": 500,
+          "next_date": "2026-07-17",
+          "growth": -1
         },
         {
           "name": "goSTOPS Goa Baga",
@@ -470,262 +382,8 @@
       ],
       "unlisted_shows": 1
     },
-    "Delhi": {
-      "total_shows": 47,
-      "venues": [
-        {
-          "name": "Studio XO",
-          "shows": 4,
-          "price_min": 499,
-          "price_max": 999,
-          "next_date": "2026-07-15",
-          "growth": 0
-        },
-        {
-          "name": "Yashobhoomi",
-          "shows": 3,
-          "price_min": 1299,
-          "price_max": 2199,
-          "next_date": "2026-08-16",
-          "growth": 1
-        },
-        {
-          "name": "Shri Ram Centre for Performing Arts",
-          "shows": 2,
-          "price_min": 100,
-          "price_max": 1499,
-          "next_date": "2026-07-16",
-          "growth": 0
-        },
-        {
-          "name": "Basko",
-          "shows": 2,
-          "price_min": 1000,
-          "price_max": 4000,
-          "next_date": "2026-07-16",
-          "growth": 0
-        },
-        {
-          "name": "Yashobhoomi Convention Center",
-          "shows": 2,
-          "price_min": 999,
-          "price_max": 1499,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "Bharat Mandapam",
-          "shows": 2,
-          "price_min": 885,
-          "price_max": 999,
-          "next_date": "2026-07-26",
-          "growth": 0
-        },
-        {
-          "name": "Aiwan-E-Ghalib Auditorium",
-          "shows": 2,
-          "price_min": 599,
-          "price_max": 1199,
-          "next_date": "2026-08-01",
-          "growth": 1
-        },
-        {
-          "name": "The Terrace",
-          "shows": 1,
-          "price_min": 199,
-          "price_max": 199,
-          "next_date": "2026-07-16",
-          "growth": -1
-        },
-        {
-          "name": "The Soho Garden",
-          "shows": 1,
-          "price_min": 199,
-          "price_max": 199,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "Hotel Le Meridien",
-          "shows": 1,
-          "price_min": 3200,
-          "price_max": 3200,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "goSTops Plus",
-          "shows": 1,
-          "price_min": 200,
-          "price_max": 200,
-          "next_date": "2026-07-18",
-          "growth": null
-        },
-        {
-          "name": "Bira 91 Taproom",
-          "shows": 1,
-          "price_min": 100,
-          "price_max": 100,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "Drink and Dine by Terrace",
-          "shows": 1,
-          "price_min": 199,
-          "price_max": 199,
-          "next_date": "2026-07-20",
-          "growth": null
-        },
-        {
-          "name": "Refuge",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-26",
-          "growth": 0
-        },
-        {
-          "name": "Amphitheatre, Bharat Mandapam.",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-08-01",
-          "growth": 0
-        },
-        {
-          "name": "India Islamic Cultural Centre",
-          "shows": 1,
-          "price_min": 250,
-          "price_max": 250,
-          "next_date": "2026-08-16",
-          "growth": 0
-        },
-        {
-          "name": "IndiOwl - Platform 13",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-08-23",
-          "growth": 0
-        },
-        {
-          "name": "Talkatora Indoor Stadium",
-          "shows": 1,
-          "price_min": 1800,
-          "price_max": 1800,
-          "next_date": "2026-08-30",
-          "growth": 0
-        },
-        {
-          "name": "Plenary Hall Bharat Mandapam",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-10-03",
-          "growth": 0
-        },
-        {
-          "name": "The Country Club - Saket",
-          "shows": 1,
-          "price_min": 2500,
-          "price_max": 2500,
-          "next_date": "2026-10-10",
-          "growth": 0
-        },
-        {
-          "name": "Venue To Be Announced",
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 399,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Aaviary Cocktail Nest",
-          "shows": 1,
-          "price_min": 200,
-          "price_max": 200,
-          "next_date": "2026-07-15",
-          "growth": null
-        },
-        {
-          "name": "Drums Of Heaven- Serving Since 1994",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-07-15",
-          "growth": 0
-        },
-        {
-          "name": "Dirty Good | One Golden Mile, Netaji Nagar",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-07-18",
-          "growth": null
-        },
-        {
-          "name": "Bellavino | Sector 65, Gurgaon",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "Cosy Box | DLF Horizon Center",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-25",
-          "growth": 0
-        },
-        {
-          "name": "Depot48 | M Block Market, Greater Kailash 2 (GK2)",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-31",
-          "growth": null
-        },
-        {
-          "name": "CDC Experience by Crepdog Crew",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-08-08",
-          "growth": 0
-        },
-        {
-          "name": "The Upper HSE by Tivoli",
-          "shows": 1,
-          "price_min": 1770,
-          "price_max": 1770,
-          "next_date": "2026-08-08",
-          "growth": null
-        },
-        {
-          "name": "Kamani Auditorium",
-          "shows": 1,
-          "price_min": 5400,
-          "price_max": 5400,
-          "next_date": "2026-10-09",
-          "growth": -1
-        },
-        {
-          "name": "Gurugram",
-          "shows": 1,
-          "price_min": 299,
-          "price_max": 999,
-          "next_date": "25 Jul Sat",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 6
-    },
     "Hyderabad": {
-      "total_shows": 46,
+      "total_shows": 45,
       "venues": [
         {
           "name": "Silaa The Garden Cafe Jubilee Hills",
@@ -733,15 +391,15 @@
           "price_min": 299,
           "price_max": 399,
           "next_date": "2026-07-16",
-          "growth": null
+          "growth": 0
         },
         {
-          "name": "Quake Arena",
+          "name": "Akan",
           "shows": 2,
-          "price_min": 560,
-          "price_max": 799,
+          "price_min": 199,
+          "price_max": 499,
           "next_date": "2026-07-17",
-          "growth": null
+          "growth": 1
         },
         {
           "name": "Urban Mayabazar",
@@ -749,7 +407,7 @@
           "price_min": 399,
           "price_max": 499,
           "next_date": "2026-07-17",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Hard Rock Cafe",
@@ -757,7 +415,7 @@
           "price_min": 249,
           "price_max": 499,
           "next_date": "2026-07-18",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Amnesia Sky Bar",
@@ -765,15 +423,7 @@
           "price_min": 299,
           "price_max": 299,
           "next_date": "2026-07-18",
-          "growth": null
-        },
-        {
-          "name": "Krishna Studio",
-          "shows": 2,
-          "price_min": 99,
-          "price_max": 99,
-          "next_date": "2026-07-19",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Hard Rock Cafe Hitech City",
@@ -781,7 +431,7 @@
           "price_min": 249,
           "price_max": 249,
           "next_date": "2026-07-25",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Venue To Be Announced",
@@ -789,7 +439,7 @@
           "price_min": 599,
           "price_max": 1499,
           "next_date": "2026-09-12",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Venue to be announced",
@@ -800,26 +450,26 @@
           "growth": 0
         },
         {
+          "name": "Quake Arena",
+          "shows": 1,
+          "price_min": 560,
+          "price_max": 560,
+          "next_date": "2026-07-17",
+          "growth": -1
+        },
+        {
           "name": "The Rabbit Hole Lounge, Bar and Kitchen",
           "shows": 1,
           "price_min": 499,
           "price_max": 499,
           "next_date": "2026-07-17",
-          "growth": null
+          "growth": 0
         },
         {
-          "name": "Mindspace Social",
+          "name": "Audiocup Coffeehouse",
           "shows": 1,
           "price_min": 299,
           "price_max": 299,
-          "next_date": "2026-07-18",
-          "growth": null
-        },
-        {
-          "name": "Urban Mayabazar - Family Bar and Kitchen",
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 399,
           "next_date": "2026-07-18",
           "growth": null
         },
@@ -829,7 +479,23 @@
           "price_min": 99,
           "price_max": 99,
           "next_date": "2026-07-18",
-          "growth": null
+          "growth": 0
+        },
+        {
+          "name": "Urban Mayabazar - Family Bar and Kitchen",
+          "shows": 1,
+          "price_min": 399,
+          "price_max": 399,
+          "next_date": "2026-07-18",
+          "growth": 0
+        },
+        {
+          "name": "Krishna Studio",
+          "shows": 1,
+          "price_min": 99,
+          "price_max": 99,
+          "next_date": "2026-07-19",
+          "growth": -1
         },
         {
           "name": "Da Aroma The Rooftop",
@@ -837,18 +503,10 @@
           "price_min": 333,
           "price_max": 333,
           "next_date": "2026-07-25",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Odeum By Prism",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-08-01",
-          "growth": null
-        },
-        {
-          "name": "Akan",
           "shows": 1,
           "price_min": 499,
           "price_max": 499,
@@ -861,7 +519,7 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "2026-10-24",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Quake | Kondapur,",
@@ -885,7 +543,7 @@
           "price_min": 200,
           "price_max": 200,
           "next_date": "2026-07-18",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Hard Rock Cafe | Hitech City,",
@@ -917,7 +575,7 @@
           "price_min": 500,
           "price_max": 500,
           "next_date": "2026-07-20",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Shilpakala vedika",
@@ -941,7 +599,7 @@
           "price_min": 300,
           "price_max": 300,
           "next_date": "2026-07-19",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Empower",
@@ -955,47 +613,47 @@
       "unlisted_shows": 5
     },
     "Pune": {
-      "total_shows": 44,
+      "total_shows": 42,
       "venues": [
         {
           "name": "Yashwantrao Chavan Natyagruha",
-          "shows": 5,
+          "shows": 4,
           "price_min": 200,
           "price_max": 400,
           "next_date": "2026-07-17",
-          "growth": 3
+          "growth": -1
         },
         {
           "name": "Bal Gandharva Rang Mandir",
-          "shows": 4,
-          "price_min": 299,
+          "shows": 3,
+          "price_min": 300,
           "price_max": 800,
           "next_date": "2026-07-17",
-          "growth": 1
+          "growth": -1
         },
         {
           "name": "High Spirits | Mundhwa,",
-          "shows": 4,
-          "price_min": 249,
+          "shows": 3,
+          "price_min": 300,
           "price_max": 885,
-          "next_date": "2026-07-15",
-          "growth": 0
+          "next_date": "2026-07-17",
+          "growth": -1
         },
         {
-          "name": "Ram Krishna More Auditorium",
+          "name": "The Auditorium, Elpro City Square",
           "shows": 2,
           "price_min": 200,
-          "price_max": 300,
-          "next_date": "2026-07-17",
-          "growth": 0
+          "price_max": 200,
+          "next_date": "2026-07-19",
+          "growth": 1
         },
         {
-          "name": "MahaLaxmi Lawns",
+          "name": "Phoenix Marketcity",
           "shows": 2,
-          "price_min": 399,
-          "price_max": 500,
-          "next_date": "2026-07-25",
-          "growth": 0
+          "price_min": 499,
+          "price_max": 999,
+          "next_date": "2026-09-06",
+          "growth": null
         },
         {
           "name": "Epitome | The Mills, Bund Garden Road",
@@ -1006,14 +664,6 @@
           "growth": 0
         },
         {
-          "name": "Bharat Natya Rang Mandir",
-          "shows": 1,
-          "price_min": 200,
-          "price_max": 200,
-          "next_date": "2026-07-16",
-          "growth": null
-        },
-        {
           "name": "2BHK Diner and Key Club",
           "shows": 1,
           "price_min": 499,
@@ -1022,20 +672,20 @@
           "growth": 0
         },
         {
-          "name": "Tilak Smarak Mandir",
+          "name": "Ram Krishna More Auditorium",
           "shows": 1,
-          "price_min": 100,
-          "price_max": 100,
-          "next_date": "2026-07-18",
-          "growth": null
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "2026-07-17",
+          "growth": -1
         },
         {
-          "name": "Effingut Koregaon Park",
+          "name": "Phoenix Mall of the Millennium",
           "shows": 1,
-          "price_min": 350,
-          "price_max": 350,
-          "next_date": "2026-07-18",
-          "growth": 0
+          "price_min": 999,
+          "price_max": 999,
+          "next_date": "2026-07-17",
+          "growth": null
         },
         {
           "name": "Bira 91 Taproom, The Mills",
@@ -1046,12 +696,12 @@
           "growth": 0
         },
         {
-          "name": "The Auditorium, Elpro City Square",
+          "name": "Effingut Koregaon Park",
           "shows": 1,
-          "price_min": 200,
-          "price_max": 200,
-          "next_date": "2026-07-19",
-          "growth": -1
+          "price_min": 350,
+          "price_max": 350,
+          "next_date": "2026-07-18",
+          "growth": 0
         },
         {
           "name": "Epitome",
@@ -1062,20 +712,36 @@
           "growth": 0
         },
         {
+          "name": "Aufside Sports Bar, Wakad",
+          "shows": 1,
+          "price_min": 400,
+          "price_max": 400,
+          "next_date": "2026-07-24",
+          "growth": null
+        },
+        {
+          "name": "Shisha Cafe",
+          "shows": 1,
+          "price_min": 330,
+          "price_max": 330,
+          "next_date": "2026-07-24",
+          "growth": null
+        },
+        {
+          "name": "MahaLaxmi Lawns",
+          "shows": 1,
+          "price_min": 399,
+          "price_max": 399,
+          "next_date": "2026-07-25",
+          "growth": -1
+        },
+        {
           "name": "Pandit Farms",
           "shows": 1,
           "price_min": 500,
           "price_max": 500,
           "next_date": "2026-07-25",
           "growth": 0
-        },
-        {
-          "name": "Vithal Tupe Sabhagruh",
-          "shows": 1,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-07-25",
-          "growth": null
         },
         {
           "name": "The High Spirits Cafe",
@@ -1088,8 +754,8 @@
         {
           "name": "Pivo Garten",
           "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
+          "price_min": 699,
+          "price_max": 699,
           "next_date": "2026-08-02",
           "growth": 0
         },
@@ -1139,7 +805,7 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "2026-07-17",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Effingut - Koregoan Park",
@@ -1171,471 +837,61 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-10-31",
+          "growth": 0
+        },
+        {
+          "name": "High Spirits,",
+          "shows": 1,
+          "price_min": 299,
+          "price_max": 599,
+          "next_date": "29 Jul Wed",
           "growth": null
         }
       ],
-      "unlisted_shows": 4
-    },
-    "Chennai": {
-      "total_shows": 34,
-      "venues": [
-        {
-          "name": "Multiple Venues",
-          "shows": 8,
-          "price_min": 349,
-          "price_max": 4000,
-          "next_date": "2026-07-19",
-          "growth": 1
-        },
-        {
-          "name": "Rhapsody - Courtyard by Marriott",
-          "shows": 3,
-          "price_min": 150,
-          "price_max": 300,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "Vani Mahal",
-          "shows": 2,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "2026-07-19",
-          "growth": 0
-        },
-        {
-          "name": "Raja Annamalai Mandram",
-          "shows": 2,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-07-26",
-          "growth": 0
-        },
-        {
-          "name": "Bay 146 - The Savera Hotel | The Savera Hotel, RK Salai (Cathedral Road)",
-          "shows": 2,
-          "price_min": 250,
-          "price_max": 250,
-          "next_date": "2026-07-24",
-          "growth": 0
-        },
-        {
-          "name": "Hard Rock Cafe, Nungabakkam",
-          "shows": 1,
-          "price_min": 249,
-          "price_max": 249,
-          "next_date": "2026-07-17",
-          "growth": 0
-        },
-        {
-          "name": "Ariakoodam",
-          "shows": 1,
-          "price_min": 99,
-          "price_max": 99,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "The Beach Terrace",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-19",
-          "growth": 0
-        },
-        {
-          "name": "The Music Academy",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-26",
-          "growth": 0
-        },
-        {
-          "name": "YMCA Nandanam",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-08-01",
-          "growth": 0
-        },
-        {
-          "name": "IDAM - The Art & Cultural Space",
-          "shows": 1,
-          "price_min": 249,
-          "price_max": 249,
-          "next_date": "2026-08-01",
-          "growth": 0
-        },
-        {
-          "name": "Narada Gana Sabha Auditorium",
-          "shows": 1,
-          "price_min": 350,
-          "price_max": 350,
-          "next_date": "2026-08-01",
-          "growth": -1
-        },
-        {
-          "name": "YMCA Grounds",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-09-05",
-          "growth": 0
-        },
-        {
-          "name": "Image Auditorium",
-          "shows": 1,
-          "price_min": 100,
-          "price_max": 100,
-          "next_date": "2026-12-20",
-          "growth": 0
-        },
-        {
-          "name": "VGP Wonder World",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "Victoria Public Hall",
-          "shows": 1,
-          "price_min": 549,
-          "price_max": 549,
-          "next_date": "2026-07-19",
-          "growth": 0
-        },
-        {
-          "name": "Hard Rock Cafe | Nungambakkam,",
-          "shows": 1,
-          "price_min": 1000,
-          "price_max": 1000,
-          "next_date": "2026-07-25",
-          "growth": 0
-        },
-        {
-          "name": "Music academy",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-26",
-          "growth": 0
-        },
-        {
-          "name": "Rii's Place",
-          "shows": 1,
-          "price_min": 250,
-          "price_max": 250,
-          "next_date": "2026-08-01",
-          "growth": 0
-        },
-        {
-          "name": "Sir Mutha Venkatasubba Rao Concert Hall",
-          "shows": 1,
-          "price_min": 900,
-          "price_max": 900,
-          "next_date": "2026-09-26",
-          "growth": 0
-        },
-        {
-          "name": "Watson\u2019s",
-          "shows": 1,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-07-19",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 1
-    },
-    "Mumbai": {
-      "total_shows": 43,
-      "venues": [
-        {
-          "name": "Vishnudas Bhave Natyagruha",
-          "shows": 3,
-          "price_min": 250,
-          "price_max": 499,
-          "next_date": "2026-07-19",
-          "growth": null
-        },
-        {
-          "name": "Shanmukhananda Hall",
-          "shows": 3,
-          "price_min": 499,
-          "price_max": 1299,
-          "next_date": "2026-08-01",
-          "growth": null
-        },
-        {
-          "name": "Mahalaxmi Race Course",
-          "shows": 3,
-          "price_min": 3500,
-          "price_max": 4250,
-          "next_date": "2026-11-21",
-          "growth": 0
-        },
-        {
-          "name": "Ravindra Natya Mandir",
-          "shows": 2,
-          "price_min": 200,
-          "price_max": 300,
-          "next_date": "2026-08-01",
-          "growth": null
-        },
-        {
-          "name": "Bal Gandharva Rang Mandir",
-          "shows": 2,
-          "price_min": 3540,
-          "price_max": 4720,
-          "next_date": "2026-08-16",
-          "growth": null
-        },
-        {
-          "name": "Dublin Square, Phoenix Marketcity",
-          "shows": 2,
-          "price_min": 699,
-          "price_max": 1800,
-          "next_date": "2026-08-22",
-          "growth": null
-        },
-        {
-          "name": "antiSOCIAL, Lower Parel",
-          "shows": 2,
-          "price_min": 799,
-          "price_max": 800,
-          "next_date": "2026-07-18",
-          "growth": 0
-        },
-        {
-          "name": "The Studio Theatre, NMACC",
-          "shows": 1,
-          "price_min": 1599,
-          "price_max": 1599,
-          "next_date": "2026-07-17",
-          "growth": null
-        },
-        {
-          "name": "House of Sevens",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-07-18",
-          "growth": null
-        },
-        {
-          "name": "Aditya Birla Theatre, Main",
-          "shows": 1,
-          "price_min": 1700,
-          "price_max": 1700,
-          "next_date": "2026-07-18",
-          "growth": null
-        },
-        {
-          "name": "Ravindra Natya Mandir, Mini Theatre",
-          "shows": 1,
-          "price_min": 1500,
-          "price_max": 1500,
-          "next_date": "2026-07-18",
-          "growth": null
-        },
-        {
-          "name": "The Cube, NMACC",
-          "shows": 1,
-          "price_min": 450,
-          "price_max": 450,
-          "next_date": "2026-07-23",
-          "growth": null
-        },
-        {
-          "name": "Phoenix Marketcity",
-          "shows": 1,
-          "price_min": 942,
-          "price_max": 942,
-          "next_date": "2026-07-25",
-          "growth": 0
-        },
-        {
-          "name": "Ajivasan Hall",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-30",
-          "growth": null
-        },
-        {
-          "name": "Swatantryaveer Savarkar Smarak Sabhagriha",
-          "shows": 1,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-07-31",
-          "growth": null
-        },
-        {
-          "name": "The Grand Theatre, NMACC",
-          "shows": 1,
-          "price_min": 1500,
-          "price_max": 1500,
-          "next_date": "2026-08-01",
-          "growth": null
-        },
-        {
-          "name": "Royal Opera House Theatre",
-          "shows": 1,
-          "price_min": 699,
-          "price_max": 699,
-          "next_date": "2026-08-07",
-          "growth": null
-        },
-        {
-          "name": "Aspee Auditorium - Malad West",
-          "shows": 1,
-          "price_min": 600,
-          "price_max": 600,
-          "next_date": "2026-08-12",
-          "growth": null
-        },
-        {
-          "name": "Venue To Be Announced",
-          "shows": 1,
-          "price_min": 699,
-          "price_max": 699,
-          "next_date": "2026-09-19",
-          "growth": null
-        },
-        {
-          "name": "Nehru Centre",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-11-13",
-          "growth": null
-        },
-        {
-          "name": "Lyla | Bandra Kurla Complex,",
-          "shows": 1,
-          "price_min": 200,
-          "price_max": 200,
-          "next_date": "2026-07-15",
-          "growth": null
-        },
-        {
-          "name": "Khar Social | Khar,",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-15",
-          "growth": null
-        },
-        {
-          "name": "Carter Road Social | Carter Road, Bandra West,",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-16",
-          "growth": null
-        },
-        {
-          "name": "Blue Sea",
-          "shows": 1,
-          "price_min": 4999,
-          "price_max": 4999,
-          "next_date": "2026-07-16",
-          "growth": 0
-        },
-        {
-          "name": "Mirage,",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-07-17",
-          "growth": 0
-        },
-        {
-          "name": "Dragonfly Experience | The Orb, Marol",
-          "shows": 1,
-          "price_min": 1000,
-          "price_max": 1000,
-          "next_date": "2026-07-31",
-          "growth": null
-        },
-        {
-          "name": "The Grand Theatre",
-          "shows": 1,
-          "price_min": 2500,
-          "price_max": 2500,
-          "next_date": "2026-08-07",
-          "growth": 0
-        },
-        {
-          "name": "Sapphire Dome, Brahma Mahesh Ground",
-          "shows": 1,
-          "price_min": 1650,
-          "price_max": 1650,
-          "next_date": "2026-08-09",
-          "growth": 0
-        },
-        {
-          "name": "Venue to be announced",
-          "shows": 1,
-          "price_min": 2099,
-          "price_max": 2099,
-          "next_date": "2026-09-13",
-          "growth": -1
-        },
-        {
-          "name": "Raasta Bombay, Khar, Mumbai.",
-          "shows": 1,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-07-19",
-          "growth": 0
-        },
-        {
-          "name": "Empower",
-          "shows": 1,
-          "price_min": 1500,
-          "price_max": 6000,
-          "next_date": "2026-08-08",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 2
-    },
-    "Whitefield, Bengaluru": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "MLR Convention Centre",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-07-19",
-          "growth": null
-        }
-      ],
-      "unlisted_shows": 0
+      "unlisted_shows": 3
     },
     "Kolkata": {
-      "total_shows": 36,
+      "total_shows": 42,
       "venues": [
         {
           "name": "GD Birla Sabhaghar",
-          "shows": 3,
+          "shows": 4,
           "price_min": 499,
           "price_max": 1000,
           "next_date": "2026-07-24",
-          "growth": 0
+          "growth": 1
+        },
+        {
+          "name": "Dhono Dhanyo Auditorium",
+          "shows": 3,
+          "price_min": 999,
+          "price_max": 3540,
+          "next_date": "2026-07-26",
+          "growth": 2
+        },
+        {
+          "name": "Nazrul Mancha",
+          "shows": 3,
+          "price_min": 299,
+          "price_max": 499,
+          "next_date": "2026-08-02",
+          "growth": 1
+        },
+        {
+          "name": "Uttam Mancha",
+          "shows": 2,
+          "price_min": 100,
+          "price_max": 200,
+          "next_date": "2026-07-24",
+          "growth": 1
         },
         {
           "name": "Mahajati Sadan",
-          "shows": 3,
+          "shows": 2,
           "price_min": 99,
-          "price_max": 1199,
+          "price_max": 499,
           "next_date": "2026-07-25",
-          "growth": 0
+          "growth": -1
         },
         {
           "name": "JW Marriott Hotel",
@@ -1644,14 +900,6 @@
           "price_max": 2000,
           "next_date": "2026-08-01",
           "growth": 0
-        },
-        {
-          "name": "Nazrul Mancha",
-          "shows": 2,
-          "price_min": 299,
-          "price_max": 499,
-          "next_date": "2026-08-02",
-          "growth": -1
         },
         {
           "name": "Biswa Bangla Exhibition Centre",
@@ -1675,14 +923,6 @@
           "price_min": 499,
           "price_max": 1299,
           "next_date": "2026-08-29",
-          "growth": 1
-        },
-        {
-          "name": "The Regal Bar",
-          "shows": 1,
-          "price_min": 100,
-          "price_max": 100,
-          "next_date": "2026-07-25",
           "growth": 0
         },
         {
@@ -1694,12 +934,28 @@
           "growth": 0
         },
         {
+          "name": "The Regal Bar",
+          "shows": 1,
+          "price_min": 100,
+          "price_max": 100,
+          "next_date": "2026-07-25",
+          "growth": 0
+        },
+        {
           "name": "Madhusudan Mancha",
           "shows": 1,
           "price_min": 300,
           "price_max": 300,
           "next_date": "2026-07-29",
           "growth": 0
+        },
+        {
+          "name": "Bidhan Garden Banquet",
+          "shows": 1,
+          "price_min": 299,
+          "price_max": 299,
+          "next_date": "2026-07-31",
+          "growth": null
         },
         {
           "name": "Kolkata Centre for Creativity",
@@ -1734,28 +990,20 @@
           "growth": 0
         },
         {
-          "name": "Uttam Mancha",
-          "shows": 1,
-          "price_min": 200,
-          "price_max": 200,
-          "next_date": "2026-09-13",
-          "growth": 0
-        },
-        {
-          "name": "The Satire Club",
-          "shows": 1,
-          "price_min": 799,
-          "price_max": 799,
-          "next_date": "2026-10-24",
-          "growth": 0
-        },
-        {
           "name": "Venue To Be Announced",
           "shows": 1,
           "price_min": 999,
           "price_max": 999,
           "next_date": "2026-10-30",
           "growth": 0
+        },
+        {
+          "name": "Bengaluru LIVE,",
+          "shows": 1,
+          "price_min": 4000,
+          "price_max": 4000,
+          "next_date": "2027-01-29",
+          "growth": null
         },
         {
           "name": "Biswa Bangla Convention Centre",
@@ -1787,7 +1035,7 @@
           "price_min": 350,
           "price_max": 350,
           "next_date": "2026-08-01",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Academy of Fine Arts",
@@ -1814,84 +1062,34 @@
           "growth": 0
         },
         {
-          "name": "Dhono Dhanyo Auditorium",
-          "shows": 1,
-          "price_min": 3539,
-          "price_max": 3539,
-          "next_date": "2026-08-23",
-          "growth": -1
-        },
-        {
           "name": "Barrackpore Sukanta Sadan",
           "shows": 1,
           "price_min": 600,
           "price_max": 600,
           "next_date": "2026-09-27",
+          "growth": 0
+        },
+        {
+          "name": "AMPM,",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "23 Aug Sun",
           "growth": null
         }
       ],
       "unlisted_shows": 1
     },
-    "Thane (W)": {
-      "total_shows": 1,
+    "Gachibowli": {
+      "total_shows": 2,
       "venues": [
         {
-          "name": "Kashinath Ghanekar Natyagruha",
-          "shows": 1,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "2026-07-24",
-          "growth": null
-        }
-      ],
-      "unlisted_shows": 0
-    },
-    "Lower Parel": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "Anti Social Alleyway",
-          "shows": 1,
-          "price_min": 450,
-          "price_max": 450,
-          "next_date": "2026-08-01",
-          "growth": null
-        }
-      ],
-      "unlisted_shows": 0
-    },
-    "NCPA.": {
-      "total_shows": 4,
-      "venues": [
-        {
-          "name": "Jamshed Bhabha Theatre",
-          "shows": 3,
-          "price_min": 300,
-          "price_max": 1000,
-          "next_date": "2026-08-02",
-          "growth": null
-        },
-        {
-          "name": "Experimental Theatre",
-          "shows": 1,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "2026-08-08",
-          "growth": null
-        }
-      ],
-      "unlisted_shows": 0
-    },
-    "Koramangala": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "Prabhath Kaladwaraka Auditorium",
-          "shows": 1,
-          "price_min": 299,
-          "price_max": 299,
-          "next_date": "2026-08-09",
-          "growth": null
+          "name": "Heart Cup Coffee",
+          "shows": 2,
+          "price_min": 499,
+          "price_max": 999,
+          "next_date": "2026-07-25",
+          "growth": 1
         }
       ],
       "unlisted_shows": 0
@@ -1910,36 +1108,190 @@
       ],
       "unlisted_shows": 0
     },
-    "Gachibowli": {
-      "total_shows": 1,
+    "Bangalore": {
+      "total_shows": 62,
       "venues": [
         {
-          "name": "Heart Cup Coffee",
+          "name": "DND The Venue",
+          "shows": 5,
+          "price_min": 499,
+          "price_max": 2199,
+          "next_date": "2026-07-17",
+          "growth": 0
+        },
+        {
+          "name": "THT Ground Floor Bar",
+          "shows": 3,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-07-16",
+          "growth": 0
+        },
+        {
+          "name": "The Humming Tree",
+          "shows": 2,
+          "price_min": 499,
+          "price_max": 1500,
+          "next_date": "2026-07-24",
+          "growth": 0
+        },
+        {
+          "name": "Prestige Centre for Performing Arts",
+          "shows": 2,
+          "price_min": 2750,
+          "price_max": 4000,
+          "next_date": "2026-08-08",
+          "growth": -1
+        },
+        {
+          "name": "District Arena @ Terraform",
+          "shows": 2,
+          "price_min": 1999,
+          "price_max": 5000,
+          "next_date": "2026-09-19",
+          "growth": 0
+        },
+        {
+          "name": "NICE Grounds",
+          "shows": 1,
+          "price_min": 4000,
+          "price_max": 4000,
+          "next_date": "2026-11-14",
+          "growth": -2
+        },
+        {
+          "name": "Koramangala SOCIAL | Koramangala 7th Block,",
           "shows": 1,
           "price_min": 499,
           "price_max": 499,
-          "next_date": "2026-08-22",
-          "growth": null
-        }
-      ],
-      "unlisted_shows": 0
-    },
-    "Puducherry": {
-      "total_shows": 1,
-      "venues": [
+          "next_date": "2026-07-16",
+          "growth": 0
+        },
         {
-          "name": "Expo Ground",
+          "name": "BudBee 104 Resto Bar | Koramangala 7th Block,",
+          "shows": 1,
+          "price_min": 199,
+          "price_max": 199,
+          "next_date": "2026-07-17",
+          "growth": 0
+        },
+        {
+          "name": "Nusa | Varthur Main Road, Whitefield,",
+          "shows": 1,
+          "price_min": 200,
+          "price_max": 200,
+          "next_date": "2026-07-17",
+          "growth": 0
+        },
+        {
+          "name": "Hard Rock Cafe | St. Marks Road,",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-07-18",
+          "growth": 0
+        },
+        {
+          "name": "Hard Rock Cafe | Ascendas Park Square, Whitefield",
+          "shows": 1,
+          "price_min": 249,
+          "price_max": 249,
+          "next_date": "2026-07-25",
+          "growth": 0
+        },
+        {
+          "name": "Phoenix Mall Of Asia",
           "shows": 1,
           "price_min": 999,
           "price_max": 999,
-          "next_date": "2026-09-05",
+          "next_date": "2026-08-08",
+          "growth": 0
+        },
+        {
+          "name": "Koramangala Social",
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "2026-08-23",
+          "growth": 0
+        },
+        {
+          "name": "Venue to be announced",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-10-24",
+          "growth": 0
+        },
+        {
+          "name": "Hamilton Cocktail Bar",
+          "shows": 1,
+          "price_min": 899,
+          "price_max": 899,
+          "next_date": "2026-07-18",
+          "growth": 0
+        },
+        {
+          "name": "Hardrock Cafe, Bangalore.",
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "2026-07-19",
+          "growth": 0
+        },
+        {
+          "name": "Watson\u2019s Indiranagar,",
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "2026-07-19",
+          "growth": 0
+        },
+        {
+          "name": "BENGALURU EDITION 2",
+          "shows": 1,
+          "price_min": 999,
+          "price_max": 999,
+          "next_date": "2026-08-23",
+          "growth": 0
+        },
+        {
+          "name": "Privilege",
+          "shows": 1,
+          "price_min": 1499,
+          "price_max": 4999,
+          "next_date": "2026-09-18",
+          "growth": 0
+        },
+        {
+          "name": "Bighorn Arena",
+          "shows": 1,
+          "price_min": 2999,
+          "price_max": 6499,
+          "next_date": "2026-10-04",
+          "growth": 0
+        },
+        {
+          "name": "BFlat: A Tribute to Fleetwood Mac",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 30000,
+          "next_date": "25 Jul Sat",
+          "growth": 0
+        },
+        {
+          "name": "Yeda Republic",
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "25 Jul Sat",
           "growth": 0
         }
       ],
-      "unlisted_shows": 0
+      "unlisted_shows": 31
     },
     "Guwahati": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [
         {
           "name": "Khanapara Veterinary Ground",
@@ -1948,13 +1300,185 @@
           "price_max": 5000,
           "next_date": "2026-11-17",
           "growth": 0
+        }
+      ],
+      "unlisted_shows": 0
+    },
+    "Mumbai": {
+      "total_shows": 17,
+      "venues": [
+        {
+          "name": "Mahalaxmi Race Course",
+          "shows": 3,
+          "price_min": 3500,
+          "price_max": 4250,
+          "next_date": "2026-11-21",
+          "growth": 0
         },
         {
-          "name": "Odiin Experiences",
+          "name": "antiSOCIAL, Lower Parel",
+          "shows": 2,
+          "price_min": 799,
+          "price_max": 800,
+          "next_date": "2026-07-18",
+          "growth": 0
+        },
+        {
+          "name": "Carter Road Social | Carter Road, Bandra West,",
           "shows": 1,
           "price_min": 499,
-          "price_max": 2799,
-          "next_date": "24 Jul Fri",
+          "price_max": 499,
+          "next_date": "2026-07-16",
+          "growth": 0
+        },
+        {
+          "name": "Blue Sea",
+          "shows": 1,
+          "price_min": 4999,
+          "price_max": 4999,
+          "next_date": "2026-07-16",
+          "growth": 0
+        },
+        {
+          "name": "Mirage,",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-07-17",
+          "growth": 0
+        },
+        {
+          "name": "Vishnudas Bhave Natyagruha",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-07-19",
+          "growth": -2
+        },
+        {
+          "name": "Dragonfly Experience | The Orb, Marol",
+          "shows": 1,
+          "price_min": 1000,
+          "price_max": 1000,
+          "next_date": "2026-07-31",
+          "growth": 0
+        },
+        {
+          "name": "The Grand Theatre",
+          "shows": 1,
+          "price_min": 2500,
+          "price_max": 2500,
+          "next_date": "2026-08-07",
+          "growth": 0
+        },
+        {
+          "name": "Sapphire Dome, Brahma Mahesh Ground",
+          "shows": 1,
+          "price_min": 1650,
+          "price_max": 1650,
+          "next_date": "2026-08-09",
+          "growth": 0
+        },
+        {
+          "name": "Venue to be announced",
+          "shows": 1,
+          "price_min": 2099,
+          "price_max": 2099,
+          "next_date": "2026-09-13",
+          "growth": 0
+        },
+        {
+          "name": "Raasta Bombay, Khar, Mumbai.",
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "2026-07-19",
+          "growth": 0
+        },
+        {
+          "name": "Empower",
+          "shows": 1,
+          "price_min": 1500,
+          "price_max": 6000,
+          "next_date": "2026-08-08",
+          "growth": 0
+        }
+      ],
+      "unlisted_shows": 2
+    },
+    "Chennai": {
+      "total_shows": 11,
+      "venues": [
+        {
+          "name": "Hard Rock Cafe | Nungambakkam,",
+          "shows": 2,
+          "price_min": 249,
+          "price_max": 1000,
+          "next_date": "2026-07-17",
+          "growth": 1
+        },
+        {
+          "name": "Bay 146 - The Savera Hotel | The Savera Hotel, RK Salai (Cathedral Road)",
+          "shows": 2,
+          "price_min": 250,
+          "price_max": 250,
+          "next_date": "2026-07-24",
+          "growth": 0
+        },
+        {
+          "name": "VGP Wonder World",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-07-18",
+          "growth": 0
+        },
+        {
+          "name": "Victoria Public Hall",
+          "shows": 1,
+          "price_min": 549,
+          "price_max": 549,
+          "next_date": "2026-07-19",
+          "growth": 0
+        },
+        {
+          "name": "Music academy",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-07-26",
+          "growth": 0
+        },
+        {
+          "name": "Vani Mahal",
+          "shows": 1,
+          "price_min": 590,
+          "price_max": 590,
+          "next_date": "2026-07-26",
+          "growth": -1
+        },
+        {
+          "name": "Rii's Place",
+          "shows": 1,
+          "price_min": 250,
+          "price_max": 250,
+          "next_date": "2026-08-01",
+          "growth": 0
+        },
+        {
+          "name": "Sir Mutha Venkatasubba Rao Concert Hall",
+          "shows": 1,
+          "price_min": 900,
+          "price_max": 900,
+          "next_date": "2026-09-26",
+          "growth": 0
+        },
+        {
+          "name": "Watson\u2019s",
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "2026-07-19",
           "growth": 0
         }
       ],
@@ -1989,7 +1513,7 @@
       "unlisted_shows": 0
     },
     "Kochi": {
-      "total_shows": 4,
+      "total_shows": 3,
       "venues": [
         {
           "name": "Watson\u2019s Kochi.",
@@ -2008,7 +1532,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 2
+      "unlisted_shows": 1
     },
     "Ahmedabad": {
       "total_shows": 1,
@@ -2024,25 +1548,6 @@
       ],
       "unlisted_shows": 0
     },
-    "Dharamshala": {
-      "total_shows": 1,
-      "venues": [],
-      "unlisted_shows": 1
-    },
-    "Dimapur": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "Dimapur",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "25 Jul Sat",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 0
-    },
     "Jalandhar": {
       "total_shows": 1,
       "venues": [
@@ -2052,6 +1557,20 @@
           "price_min": 799,
           "price_max": 1200,
           "next_date": "25 Jul Sat",
+          "growth": 0
+        }
+      ],
+      "unlisted_shows": 0
+    },
+    "Pondicherry": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "The Storytellers' Bar, Pondicherry",
+          "shows": 1,
+          "price_min": 399,
+          "price_max": 799,
+          "next_date": "28 Aug Fri",
           "growth": null
         }
       ],
