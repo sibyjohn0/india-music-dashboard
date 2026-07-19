@@ -217,13 +217,13 @@
   },
   "2026-07": {
     "month": "2026-07",
-    "snapshots": 18,
-    "last_snapshot_at": "2026-07-18T03:59:32.719975+00:00",
+    "snapshots": 19,
+    "last_snapshot_at": "2026-07-19T04:26:10.619877+00:00",
     "total_videos": 225,
-    "total_artists": 279,
-    "new_artists_seen": 254,
-    "median_score": 60,
-    "median_views": 3091,
+    "total_artists": 286,
+    "new_artists_seen": 261,
+    "median_score": 65,
+    "median_views": 2948,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -299,39 +299,39 @@
     "fastest_growing": [
       {
         "name": "Jaanu Folks",
-        "views_gained": 1790709,
+        "views_gained": 1868463,
         "genre": "Hip Hop / Rap",
+        "language": "Telugu"
+      },
+      {
+        "name": "ANP MUSIC",
+        "views_gained": 1395049,
+        "genre": "Electronic",
         "language": "Telugu"
       },
       {
         "name": "SAMBATA__ 00",
-        "views_gained": 1193697,
+        "views_gained": 1201821,
         "genre": "Rock / Alt",
         "language": "Marathi"
       },
       {
-        "name": "ANP MUSIC",
-        "views_gained": 1175883,
-        "genre": "Electronic",
-        "language": "Telugu"
+        "name": "Ujjal Film",
+        "views_gained": 702748,
+        "genre": "Hip Hop / Rap",
+        "language": "Hindi"
       },
       {
         "name": "Gallery Vision Indie",
-        "views_gained": 688810,
+        "views_gained": 691491,
         "genre": "Electronic",
         "language": "Malayalam"
-      },
-      {
-        "name": "Ujjal Film",
-        "views_gained": 592292,
-        "genre": "Hip Hop / Rap",
-        "language": "Hindi"
       }
     ],
     "genre_breakdown": [
       [
         "Indie",
-        51
+        52
       ],
       [
         "Hip Hop / Rap",
@@ -339,27 +339,27 @@
       ],
       [
         "Folk / Acoustic",
-        46
+        47
       ],
       [
         "Electronic",
-        22
-      ],
-      [
-        "R&B / Soul",
         20
       ],
       [
         "Classical/Fusion",
-        16
+        18
       ],
       [
         "Lo-Fi",
-        14
+        17
+      ],
+      [
+        "R&B / Soul",
+        17
       ],
       [
         "Rock / Alt",
-        5
+        3
       ],
       [
         "Indie Pop",
@@ -388,6 +388,10 @@
         25
       ],
       [
+        "Punjabi",
+        25
+      ],
+      [
         "Marathi",
         25
       ],
@@ -400,35 +404,36 @@
         25
       ],
       [
-        "Punjabi",
-        25
-      ],
-      [
         "Malayalam",
         25
       ]
     ],
     "city_shows": {
+      "Chennai": 28,
+      "Hyderabad": 28,
+      "Mumbai": 46,
       "Kolkata": 41,
+      "Santacruz": 1,
+      "NCPA.": 3,
       "East Midnapur": 1,
+      "Gachibowli": 1,
+      "Mulund": 1,
+      "Puducherry": 1,
+      "Bangalore": 50,
       "Guwahati": 1,
-      "Mumbai": 18,
-      "Bangalore": 58,
-      "Chennai": 7,
-      "Delhi": 19,
       "Goa": 8,
-      "Hyderabad": 16,
-      "Pune": 9,
+      "Delhi": 18,
+      "Pune": 11,
       "Ladakh": 1,
       "Dubai": 1,
       "India": 1,
       "Kochi": 3,
       "Alwar": 1,
       "Ahmedabad": 1,
-      "Pondicherry": 1,
-      "Chandigarh": 1
+      "Chandigarh": 2,
+      "Pondicherry": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 188
+    "total_shows": 250
   }
 }
