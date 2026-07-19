@@ -216,7 +216,7 @@
 
 <div class="page-hero">
   <h1 class="page-title">Labels &amp; Agencies</h1>
-  <p class="page-sub" id="page-sub">Who's signing, who's booking, and what stage you need to be at before you approach. Labels, agencies, and management — India-first, global labels as benchmarks.</p>
+  <p class="page-sub" id="page-sub">Who's signing, who's booking, and what stage to be at before you approach.</p>
   <div class="feat-track">
     <div class="feat-card">
       <div class="feat-num" id="feat-total">—</div>
@@ -490,7 +490,7 @@ Promise.all([
   const featEl = document.getElementById('feat-total');
   if (featEl) featEl.textContent = total;
   const subEl = document.getElementById('page-sub');
-  if (subEl) subEl.textContent = `Who's signing, who's booking, and what stage you need to be at before you approach. ${total} entities across labels, agencies, and management — ${indiaCount} India-first, global labels as benchmarks.`;
+  if (subEl) subEl.textContent = `Who's signing, who's booking, and what stage to be at before you approach. ${total} entities, ${indiaCount} India-first.`;
   renderGrid();
 }).catch(() => {
   document.getElementById('grid').innerHTML = '<div class="no-results">Data is refreshing. Check back shortly.</div>';
