@@ -282,6 +282,7 @@ const EDITORIAL_URL = '../data/industry-editorial.json';
 
 let allEntities = [];
 let editorial = {};
+let updatedLabel = '';
 let activeType = 'all';
 let activeRegion = 'all';
 let activeStatus = 'all';
@@ -356,7 +357,8 @@ function renderGrid() {
   const filtered = filterEntities();
   document.getElementById('visible-count').textContent = `${filtered.length} entities`;
   document.getElementById('stats-bar').textContent =
-    `${filtered.length} of ${allEntities.length} · ${filtered.reduce((n, e) => n + (e.artists || []).length, 0)} artists`;
+    `${filtered.length} of ${allEntities.length} · ${filtered.reduce((n, e) => n + (e.artists || []).length, 0)} artists`
+    + (updatedLabel ? ` · updated ${updatedLabel}` : '');
 
   const grid = document.getElementById('grid');
   if (!filtered.length) {
@@ -480,6 +482,9 @@ Promise.all([
 ]).then(([data, ed]) => {
   allEntities = data.entities || [];
   editorial = ed || {};
+  if (data.generated_at) {
+    updatedLabel = new Date(data.generated_at).toLocaleDateString('en-IN', {day:'numeric', month:'short', year:'numeric', timeZone:'Asia/Kolkata'});
+  }
   const total = data.total_entities || allEntities.length;
   const indiaCount = data.india_count || allEntities.filter(e => e.country === 'India').length;
   const featEl = document.getElementById('feat-total');
