@@ -98,26 +98,64 @@
     .feat-desc { font-size: 11px; color: var(--muted); line-height: 1.55; }
 
     /* ── FILTERS ── */
-    .filters { padding: 0 32px 20px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+    .filter-bar {
+      position: sticky; top: 61px; z-index: 90;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s, padding .2s;
+    }
+    .filter-bar.stuck { border-bottom-color: var(--border); }
+    .filters { padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; transition: padding .2s; }
+    .filter-bar.stuck .filters { padding-top: 12px; padding-bottom: 12px; }
     .filter-group { display: flex; flex-direction: column; gap: 6px; }
     .filter-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
     .pill-row { display: flex; gap: 6px; flex-wrap: wrap; }
-    .pill { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-size: 12px; font-weight: 500; padding: 6px 14px; border-radius: 20px; cursor: pointer; transition: all .15s; white-space: nowrap; }
+    .pill { background: var(--surface2); border: 1px solid var(--border); color: var(--muted); font-size: 12px; font-weight: 500; padding: 8px 14px; min-height: 34px; border-radius: 20px; cursor: pointer; transition: all .16s; white-space: nowrap; }
     .pill:hover { color: var(--text); border-color: #3a3a50; }
     .pill.active { background: var(--accent); color: white; border-color: var(--accent); }
 
-    .search-input { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font: 13px 'Inter', sans-serif; padding: 8px 14px; border-radius: 8px; width: 280px; outline: none; }
+    /* Mobile "Filters" toggle (hidden on desktop) */
+    .filter-toggle { display: none; }
+
+    .search-input { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font: 13px 'Inter', sans-serif; padding: 10px 14px; border-radius: 8px; width: 280px; outline: none; transition: border-color .16s; }
     .search-input:focus { border-color: var(--accent); }
     .search-input::placeholder { color: var(--muted); }
 
-    .stats-bar { padding: 0 32px 20px; font-size: 12px; color: var(--muted); }
+    .stats-bar { padding: 16px 32px 0; font-size: 12px; color: var(--muted); }
 
     /* ── GRID ── */
     .grid { padding: 0 32px 60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 16px; }
 
     /* ── CARD ── */
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: border-color .15s; }
-    .card:hover { border-color: #3a3a50; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+    .card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 8px 24px -12px rgba(0,0,0,.5); }
+
+    /* ── Staggered reveal (capped) ── */
+    @keyframes card-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    .card.reveal { animation: card-in .45s cubic-bezier(.22,1,.36,1) both; }
+    .card.reveal:nth-child(1)  { animation-delay: .02s; }
+    .card.reveal:nth-child(2)  { animation-delay: .05s; }
+    .card.reveal:nth-child(3)  { animation-delay: .08s; }
+    .card.reveal:nth-child(4)  { animation-delay: .11s; }
+    .card.reveal:nth-child(5)  { animation-delay: .14s; }
+    .card.reveal:nth-child(6)  { animation-delay: .17s; }
+    .card.reveal:nth-child(7)  { animation-delay: .20s; }
+    .card.reveal:nth-child(8)  { animation-delay: .23s; }
+    .card.reveal:nth-child(9)  { animation-delay: .26s; }
+    .card.reveal:nth-child(n+10) { animation-delay: .29s; }
+    @media (prefers-reduced-motion: reduce) {
+      .card.reveal { animation: none; }
+      .card:hover { transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── Show more ── */
+    .show-more-wrap { grid-column: 1/-1; display: flex; justify-content: center; padding: 12px 0 8px; }
+    .show-more-btn { background: var(--surface2); border: 1px solid var(--border); color: var(--text); font: 600 14px 'Inter', sans-serif; padding: 12px 28px; min-height: 44px; border-radius: 10px; cursor: pointer; transition: border-color .16s, color .16s; }
+    .show-more-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .show-more-done { grid-column: 1/-1; text-align: center; color: var(--muted); font-size: 12px; padding: 12px 0 8px; }
     .card.has-editorial { border-left: 3px solid var(--accent); }
     .card.tier-india-indie-core { border-left-color: var(--accent2); }
     .card.tier-india-indie-agency { border-left-color: var(--accent4); }
@@ -182,6 +220,21 @@
       .search-input { width: 100%; }
       nav { padding: 0 8px; }
       .tab { padding: 10px 10px; }
+
+      /* Collapse Type/Region/Signing behind a Filters toggle; keep Search visible */
+      .filter-toggle {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--surface2); border: 1px solid var(--border); color: var(--text);
+        font: 600 13px 'Inter', sans-serif; padding: 10px 14px; min-height: 44px;
+        border-radius: 8px; cursor: pointer; width: 100%; justify-content: space-between;
+      }
+      .filter-toggle .chev { transition: transform .18s; color: var(--muted); }
+      .filters.open .filter-toggle .chev { transform: rotate(180deg); }
+      .filters .filter-group.collapsible { display: none; }
+      .filters.open .filter-group.collapsible { display: flex; }
+      .filter-group { width: 100%; }
+      .filter-group.search-group { order: -1; }
+      .pill-row { gap: 8px; }
     }
   .embedded header, .embedded nav { display: none !important; }
   </style>
@@ -241,35 +294,40 @@
   </div>
 </div>
 
-<div class="filters">
-  <div class="filter-group">
-    <div class="filter-label">Type</div>
-    <div class="pill-row" id="type-pills">
-      <button class="pill active" data-type="all">All</button>
-      <button class="pill" data-type="Label">Labels</button>
-      <button class="pill" data-type="Agency">Agencies</button>
+<div class="filter-bar" id="filter-bar">
+  <div class="filters" id="filters">
+    <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filters">
+      <span>Filters</span><span class="chev">▾</span>
+    </button>
+    <div class="filter-group collapsible">
+      <div class="filter-label">Type</div>
+      <div class="pill-row" id="type-pills">
+        <button class="pill active" data-type="all">All</button>
+        <button class="pill" data-type="Label">Labels</button>
+        <button class="pill" data-type="Agency">Agencies</button>
+      </div>
     </div>
-  </div>
-  <div class="filter-group">
-    <div class="filter-label">Region</div>
-    <div class="pill-row" id="region-pills">
-      <button class="pill active" data-region="all">All</button>
-      <button class="pill" data-region="India">India</button>
-      <button class="pill" data-region="global">Global</button>
+    <div class="filter-group collapsible">
+      <div class="filter-label">Region</div>
+      <div class="pill-row" id="region-pills">
+        <button class="pill active" data-region="all">All</button>
+        <button class="pill" data-region="India">India</button>
+        <button class="pill" data-region="global">Global</button>
+      </div>
     </div>
-  </div>
-  <div class="filter-group">
-    <div class="filter-label">Signing</div>
-    <div class="pill-row" id="status-pills">
-      <button class="pill active" data-status="all">All</button>
-      <button class="pill" data-status="open">Open</button>
-      <button class="pill" data-status="selective">Selective</button>
-      <button class="pill" data-status="major-only">Major only</button>
+    <div class="filter-group collapsible">
+      <div class="filter-label">Signing</div>
+      <div class="pill-row" id="status-pills">
+        <button class="pill active" data-status="all">All</button>
+        <button class="pill" data-status="open">Open</button>
+        <button class="pill" data-status="selective">Selective</button>
+        <button class="pill" data-status="major-only">Major only</button>
+      </div>
     </div>
-  </div>
-  <div class="filter-group" style="flex:1;min-width:200px;">
-    <div class="filter-label">Search</div>
-    <input class="search-input" id="search" type="text" placeholder="Label, agency, or artist name…" autocomplete="off" />
+    <div class="filter-group search-group" style="flex:1;min-width:200px;">
+      <div class="filter-label">Search</div>
+      <input class="search-input" id="search" type="text" placeholder="Label, agency, or artist name…" autocomplete="off" />
+    </div>
   </div>
 </div>
 
@@ -295,6 +353,13 @@ const STATUS_LABELS = {
   'collective': ['Collective',      'status-collective'],
   'closed':     ['Artist-owned',    'status-closed'],
 };
+
+const PAGE_SIZE = 24;
+let shownCount = PAGE_SIZE;
+let revealFrom = 0; // index of first card to animate on next render
+
+// Reset pagination + reveal state whenever filters change.
+function resetPagination() { shownCount = PAGE_SIZE; revealFrom = 0; }
 
 const TIER_ORDER = ['india-indie-core', 'india-indie-agency', 'india-major', ''];
 const TIER_META = {
@@ -378,29 +443,52 @@ function renderGrid() {
     indiaByTier[tier].push(e);
   }
 
-  let html = '';
-
+  // Build ordered groups (India tiers in TIER_ORDER, then Global) preserving headers.
+  const groups = [];
   for (const tier of TIER_ORDER) {
     const group = indiaByTier[tier];
-    if (!group || !group.length) continue;
-    const meta = TIER_META[tier] || {};
+    if (group && group.length) groups.push({ meta: TIER_META[tier] || {}, tier, cards: group });
+  }
+  if (global.length) groups.push({ meta: TIER_META[''], tier: '', cards: global });
+
+  // Paginate across ALL cards while keeping tier grouping: cap the number of
+  // CARDS shown, and only emit a group-header if at least one card under it is visible.
+  const cap = Math.min(shownCount, filtered.length);
+  let html = '';
+  let rendered = 0;
+  for (const g of groups) {
+    if (rendered >= cap) break;
+    const visible = g.cards.slice(0, cap - rendered);
+    if (!visible.length) continue;
     html += `<div class="group-header">
-      <div class="group-header-label">${meta.label || tier}</div>
-      ${meta.desc ? `<div class="group-header-desc">${meta.desc}</div>` : ''}
+      <div class="group-header-label">${g.meta.label || g.tier}</div>
+      ${g.meta.desc ? `<div class="group-header-desc">${g.meta.desc}</div>` : ''}
     </div>`;
-    html += group.map(e => renderCard(e)).join('');
+    html += visible.map(e => renderCard(e)).join('');
+    rendered += visible.length;
   }
 
-  if (global.length) {
-    const meta = TIER_META[''];
-    html += `<div class="group-header">
-      <div class="group-header-label">${meta.label}</div>
-      <div class="group-header-desc">${meta.desc}</div>
-    </div>`;
-    html += global.map(e => renderCard(e)).join('');
+  const remaining = filtered.length - cap;
+  if (remaining > 0) {
+    const next = Math.min(PAGE_SIZE, remaining);
+    html += `<div class="show-more-wrap"><button class="show-more-btn" id="show-more">Show ${next} more · ${remaining} left</button></div>`;
+  } else if (filtered.length > PAGE_SIZE) {
+    html += `<div class="show-more-done">Showing all ${filtered.length}</div>`;
   }
 
   grid.innerHTML = html;
+
+  // Stagger reveal only the freshly-visible card batch (capped by CSS nth-child).
+  const cards = grid.querySelectorAll('.card');
+  for (let i = revealFrom; i < cards.length; i++) cards[i].classList.add('reveal');
+  revealFrom = cards.length;
+
+  const btn = document.getElementById('show-more');
+  if (btn) btn.addEventListener('click', () => {
+    revealFrom = grid.querySelectorAll('.card').length;
+    shownCount += PAGE_SIZE;
+    renderGrid();
+  });
 }
 
 function renderCard(e) {
@@ -455,6 +543,7 @@ document.getElementById('type-pills').addEventListener('click', e => {
   if (!btn) return;
   activeType = btn.dataset.type;
   document.querySelectorAll('#type-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
+  resetPagination();
   renderGrid();
 });
 document.getElementById('region-pills').addEventListener('click', e => {
@@ -462,6 +551,7 @@ document.getElementById('region-pills').addEventListener('click', e => {
   if (!btn) return;
   activeRegion = btn.dataset.region;
   document.querySelectorAll('#region-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
+  resetPagination();
   renderGrid();
 });
 document.getElementById('status-pills').addEventListener('click', e => {
@@ -469,12 +559,27 @@ document.getElementById('status-pills').addEventListener('click', e => {
   if (!btn) return;
   activeStatus = btn.dataset.status;
   document.querySelectorAll('#status-pills .pill').forEach(p => p.classList.toggle('active', p === btn));
+  resetPagination();
   renderGrid();
 });
 document.getElementById('search').addEventListener('input', e => {
   searchQuery = e.target.value.trim();
+  resetPagination();
   renderGrid();
 });
+
+// Mobile: expand/collapse the Type/Region/Signing groups behind "Filters".
+const filtersEl = document.getElementById('filters');
+document.getElementById('filter-toggle').addEventListener('click', () => {
+  const open = filtersEl.classList.toggle('open');
+  document.getElementById('filter-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+
+// Sticky filter bar: add a subtle border once it sticks under the nav.
+const filterBar = document.getElementById('filter-bar');
+window.addEventListener('scroll', () => {
+  filterBar.classList.toggle('stuck', filterBar.getBoundingClientRect().top <= 62);
+}, { passive: true });
 
 Promise.all([
   fetch(DATA_URL).then(r => r.json()),

@@ -44,9 +44,41 @@
       color: var(--text);
       min-height: 100vh;
       line-height: 1.65;
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
+
+    /* ── MOTION ── */
+    @keyframes reveal-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      animation: reveal-up .7s cubic-bezier(.22,.61,.36,1) forwards;
+      animation-delay: var(--reveal-delay, 0ms);
+    }
+    /* scroll-reveal: hidden until observed */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: .001ms !important;
+      }
+      .reveal { opacity: 1; }
+      .scroll-reveal { opacity: 1; transform: none; }
+    }
 
     /* ── NAV ── */
     header {
@@ -200,9 +232,13 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
-      transition: border-color .15s, transform .15s;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
     }
-    .tool-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .tool-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(233,69,96,.05) 0%, var(--surface) 55%);
+    }
     .tool-icon { font-size: 22px; }
     .tool-name { font-size: 15px; font-weight: 700; color: #f0f0f0; }
     .tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
@@ -307,13 +343,18 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      min-height: 56px;
       padding: 16px 18px;
       background: var(--surface2);
       border: 1px solid var(--border);
       border-radius: 8px;
-      transition: border-color .15s;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
     }
-    .contact-item:hover { border-color: var(--accent); }
+    .contact-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(233,69,96,.06) 0%, var(--surface2) 60%);
+    }
     .contact-icon { font-size: 16px; flex-shrink: 0; }
     .contact-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
     .contact-value { font-size: 14px; font-weight: 600; color: #f0f0f0; }
@@ -335,26 +376,31 @@
     /* ── DATA FACTS ── */
     .facts-strip {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      margin-bottom: 48px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 56px;
     }
     .fact {
+      position: relative;
       background: var(--surface);
-      padding: 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 20px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 6px;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
     }
-    .fact-num { font-size: 22px; font-weight: 800; color: #f0f0f0; letter-spacing: -.5px; }
+    .fact:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(233,69,96,.05) 0%, var(--surface) 60%);
+    }
+    .fact-num { font-size: 30px; font-weight: 800; color: #f0f0f0; letter-spacing: -1px; line-height: 1.05; }
     .fact-num span { color: var(--accent); }
-    .fact-label { font-size: 11px; color: var(--muted); line-height: 1.4; }
-    .fact-source { font-size: 10px; color: var(--muted); margin-top: 6px; opacity: 0.65; }
-    .fact-source a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; transition: opacity .15s; }
+    .fact-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .fact-source { font-size: 10px; color: var(--muted); margin-top: auto; padding-top: 8px; opacity: 0.7; }
+    .fact-source a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; transition: opacity .15s, color .15s; }
     .fact-source a:hover { opacity: 1; color: var(--text); }
 
     /* ── PROGRAMME CALLOUT ── */
@@ -394,6 +440,10 @@
     .footer-links a { color: var(--muted); transition: color .15s; }
     .footer-links a:hover { color: var(--text); }
 
+    @media (max-width: 760px) {
+      .facts-strip { grid-template-columns: 1fr 1fr; }
+    }
+
     @media (max-width: 640px) {
       .page { padding: 36px 16px 64px; }
       header { padding: 0 12px; flex-wrap: wrap; height: auto; min-height: 52px; }
@@ -416,9 +466,10 @@
       .cta-row { gap: 8px; }
       .cta-primary, .cta-secondary { font-size: 13px; padding: 11px 18px; }
 
-      .facts-strip { grid-template-columns: 1fr 1fr; }
-      .fact { padding: 14px 16px; }
-      .fact-num { font-size: 18px; }
+      .facts-strip { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 36px; }
+      .fact { padding: 16px 14px; }
+      .fact-num { font-size: 24px; }
+      .fact-label { font-size: 11px; }
 
       .builder-card { padding: 20px; }
       .builder-text { font-size: 14px; line-height: 1.75; }
@@ -458,7 +509,7 @@
 <div class="page">
 
   <!-- HERO -->
-  <div class="hero-visual">
+  <div class="hero-visual reveal" style="--reveal-delay:60ms">
     <div class="eyebrow">India Indie Music Radar</div>
     <h1 class="hero-headline">The label system<br>wasn't built<br>for most artists.</h1>
     <p class="hero-deck">Tens of thousands of working musicians were never in the consideration set. Not rejected. Just not the audience the system was designed to serve. This is for those artists.</p>
@@ -467,29 +518,29 @@
 
   <!-- THE NUMBERS -->
   <div class="facts-strip">
-    <div class="fact">
+    <div class="fact reveal" style="--reveal-delay:220ms">
       <div class="fact-num">28<span>K+</span></div>
       <div class="fact-label">artists releasing music in India on Spotify, almost none with professional support</div>
       <div class="fact-source"><a href="https://newsroom.spotify.com/2024-03-27/india-spotify-music-streaming-artists-listeners/" target="_blank" rel="noopener">Spotify Newsroom, Mar 2024 ↗</a></div>
     </div>
-    <div class="fact">
+    <div class="fact reveal" style="--reveal-delay:300ms">
       <div class="fact-num">₹35<span>K</span></div>
       <div class="fact-label">to record, mix, master and release one song professionally</div>
       <div class="fact-source"><a href="https://digitalprintingmumbai.in/how-much-do-studios-charge-per-song-in-india-2026-price-guide" target="_blank" rel="noopener">2026 Studio Price Guide ↗</a></div>
     </div>
-    <div class="fact">
+    <div class="fact reveal" style="--reveal-delay:380ms">
       <div class="fact-num">70<span>%+</span></div>
       <div class="fact-label">of Indian streams go to local artists. The audience is there.</div>
       <div class="fact-source"><a href="https://newsroom.spotify.com/2025-04-15/indian-artists-are-reaching-more-global-fans-than-ever-before-and-the-data-proves-it/" target="_blank" rel="noopener">Spotify Newsroom, 2025 ↗</a></div>
     </div>
-    <div class="fact">
+    <div class="fact reveal" style="--reveal-delay:460ms">
       <div class="fact-num">₹0</div>
       <div class="fact-label">cost to use any of this</div>
     </div>
   </div>
 
   <!-- WHY WE BUILT THIS -->
-  <div class="section">
+  <div class="section scroll-reveal">
     <div class="section-label">Why we built this</div>
     <div class="section-title">The system was never designed for most artists.</div>
     <div class="builder-card">
@@ -503,7 +554,7 @@
   </div>
 
   <!-- PROGRAMME CALLOUT -->
-  <div class="section">
+  <div class="section scroll-reveal">
     <div class="programme-callout">
       <div class="programme-callout-left">
         <div class="section-label" style="margin-bottom:10px;">Artist Development Programme</div>
@@ -519,7 +570,7 @@
   </div>
 
   <!-- THE TOOLS -->
-  <div class="section">
+  <div class="section scroll-reveal">
     <div class="section-label">What this is</div>
     <div class="section-title">Four free tools.</div>
 
@@ -554,7 +605,7 @@
   <hr class="divider" />
 
   <!-- CONTACT -->
-  <div class="section">
+  <div class="section scroll-reveal">
     <div class="section-title">Get in touch</div>
     <div class="contact-card">
       <div class="contact-left">
@@ -603,6 +654,26 @@
   </div>
   <div>Built by Siby John and Karishma Changroth · Free to use · Radar: daily · Reviewers: weekly</div>
 </footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.scroll-reveal');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in-view'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
 
 </body>
 </html>

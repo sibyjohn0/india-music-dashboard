@@ -177,6 +177,7 @@
     .kit-count { font-size: 12px; color: var(--muted); }
 
     .kit-title {
+      display: block;
       font-size: 20px;
       font-weight: 800;
       color: #f0f0f0;
@@ -388,6 +389,72 @@
   .res-no-results { display:none; color: var(--muted); padding: 28px 0; font-size:15px; }
   .res-no-results.show { display:block; }
 
+  /* Sticky search + section-jump chips */
+  .res-search-row { display:flex; align-items:center; flex-wrap:wrap; gap:10px 12px; }
+  .res-jump {
+    position: sticky; top: calc(var(--nav-h,52px) + 74px); z-index: 39;
+    display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+    background: var(--bg); padding: 6px 0 14px; margin-bottom: 4px;
+  }
+  .res-jump::-webkit-scrollbar { display:none; }
+  .res-jump a {
+    flex-shrink:0; display:inline-flex; align-items:center; min-height:36px;
+    padding: 0 14px; border:1px solid var(--border); border-radius: 999px;
+    background: var(--surface); color: var(--muted);
+    font-size:12.5px; font-weight:600; letter-spacing:.2px; white-space:nowrap;
+    transition: color .15s, border-color .15s, background .15s;
+  }
+  .res-jump a:hover { color: var(--text); border-color: #3a3a4a; }
+  .res-jump a.active { color: var(--text); border-color: var(--accent); background: rgba(233,69,96,.12); }
+
+  /* offset anchors so sticky bars don't cover section tops */
+  #start, #reading, #toolkit, #playbook { scroll-margin-top: calc(var(--nav-h,52px) + 120px); }
+
+  /* Card / list polish */
+  .doc-item, .read-item {
+    transition: background .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+    border-left: 2px solid transparent;
+  }
+  .doc-item:hover, .read-item:hover {
+    background: var(--surface2);
+    border-left-color: var(--accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px -8px rgba(0,0,0,.6);
+  }
+
+  /* Kit accordion (progressive disclosure) */
+  .kit-section { position: relative; }
+  .kit-toggle {
+    display:flex; align-items:flex-start; gap:12px; width:100%;
+    background:none; border:none; color:inherit; text-align:left;
+    cursor:pointer; padding: 4px 0; font-family:inherit;
+  }
+  .kit-toggle-main { flex:1; min-width:0; }
+  .kit-chevron {
+    flex-shrink:0; margin-top:4px; color: var(--muted); font-size:13px;
+    transition: transform .2s ease, color .15s ease;
+  }
+  .kit-toggle:hover .kit-chevron { color: var(--text); }
+  .kit-section[data-collapsed="true"] .kit-chevron { transform: rotate(-90deg); }
+  .kit-section[data-collapsed="true"] .kit-desc,
+  .kit-section[data-collapsed="true"] .doc-list { display: none; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-stagger { opacity: 0; transform: translateY(8px); animation: resReveal .45s ease forwards; }
+    @keyframes resReveal { to { opacity: 1; transform: none; } }
+  }
+
+  @media (max-width: 640px) {
+    .res-hero { padding: 28px 16px 4px; }
+    .res-wrap { padding: 0 16px 56px; }
+    .res-search { max-width: 100%; }
+    .res-count { margin-left: 0; }
+    .res-jump { top: calc(var(--nav-h,52px) + 68px); }
+    .res-starthere .doc-list { grid-template-columns: 1fr !important; }
+    .doc-item, .read-item { min-height: 44px; }
+  }
+
   </style>
   <link rel="canonical" href="https://sibyjohn0.github.io/india-music-dashboard/resources/" />
   <meta property="og:image" content="https://sibyjohn0.github.io/india-music-dashboard/og-image.png" />
@@ -422,6 +489,13 @@
     <input class="res-search" id="res-search" type="text" placeholder="Search every resource on this page…" autocomplete="off" />
     <span class="res-count" id="res-count"></span>
   </div>
+
+  <nav class="res-jump" id="res-jump" aria-label="Jump to section">
+    <a href="#start">Start here</a>
+    <a href="#reading">Reading list</a>
+    <a href="#toolkit">Full toolkit</a>
+    <a href="#playbook">Playbook</a>
+  </nav>
 
   <div class="res-no-results" id="res-no-results">Nothing matches that search. Try a broader term.</div>
 
@@ -727,11 +801,16 @@
     <p class="res-section-sub">79 working documents, templates, and checklists across five kits. Open in Google Docs, make a copy, and adapt to your situation.</p>
 <!-- ── STARTUP KIT ── -->
   <div class="kit-section" data-kit="startup">
-    <div class="kit-header">
-      <span class="kit-tag startup">Startup Kit</span>
-      <span class="kit-count">8 documents</span>
-    </div>
-    <h2 class="kit-title">Set up your management practice</h2>
+    <button class="kit-toggle" type="button" aria-expanded="true">
+      <span class="kit-toggle-main">
+        <span class="kit-header">
+          <span class="kit-tag startup">Startup Kit</span>
+          <span class="kit-count">8 documents</span>
+        </span>
+        <span class="kit-title">Set up your management practice</span>
+      </span>
+      <span class="kit-chevron" aria-hidden="true">▾</span>
+    </button>
     <p class="kit-desc">Legal agreements, business setup, competitive analysis, and intake processes. Work through these before signing your first artist.</p>
     <div class="doc-list">
       <a class="doc-item" href="https://docs.google.com/document/d/1RO0S2Jd1Mh-tu5VbVnVpjTHHWQUmcO5xQbgGQ-8T_z4/edit" target="_blank" rel="noopener">
@@ -803,11 +882,16 @@
 
   <!-- ── TOURING KIT ── -->
   <div class="kit-section" data-kit="touring">
-    <div class="kit-header">
-      <span class="kit-tag touring">Touring Kit</span>
-      <span class="kit-count">19 documents</span>
-    </div>
-    <h2 class="kit-title">Plan and run every live show</h2>
+    <button class="kit-toggle" type="button" aria-expanded="true">
+      <span class="kit-toggle-main">
+        <span class="kit-header">
+          <span class="kit-tag touring">Touring Kit</span>
+          <span class="kit-count">19 documents</span>
+        </span>
+        <span class="kit-title">Plan and run every live show</span>
+      </span>
+      <span class="kit-chevron" aria-hidden="true">▾</span>
+    </button>
     <p class="kit-desc">Everything for a live event or multi-city tour: budgets, contracts, logistics, crew lists, and merch tracking.</p>
     <div class="doc-list">
       <a class="doc-item" href="https://docs.google.com/document/d/1lIXZVxzfTzJvVYTcIWLFI4Iih1B4tDprDdNEw3baL4s/edit" target="_blank" rel="noopener">
@@ -967,11 +1051,16 @@
 
   <!-- ── RECORDING KIT ── -->
   <div class="kit-section" data-kit="recording">
-    <div class="kit-header">
-      <span class="kit-tag recording">Recording Kit</span>
-      <span class="kit-count">18 documents</span>
-    </div>
-    <h2 class="kit-title">From studio session to streaming release</h2>
+    <button class="kit-toggle" type="button" aria-expanded="true">
+      <span class="kit-toggle-main">
+        <span class="kit-header">
+          <span class="kit-tag recording">Recording Kit</span>
+          <span class="kit-count">18 documents</span>
+        </span>
+        <span class="kit-title">From studio session to streaming release</span>
+      </span>
+      <span class="kit-chevron" aria-hidden="true">▾</span>
+    </button>
     <p class="kit-desc">Production agreements, metadata, rights registration, distribution, and licensing. Cover these before any track goes live.</p>
     <div class="doc-list">
       <a class="doc-item" href="https://docs.google.com/document/d/1bE2PhFdc2JD05f8l9_P8iQkmEdzjhbM_ZLn1sr8rYIY/edit" target="_blank" rel="noopener">
@@ -1123,11 +1212,16 @@
 
   <!-- ── MARKETING KIT ── -->
   <div class="kit-section" data-kit="marketing">
-    <div class="kit-header">
-      <span class="kit-tag marketing">Marketing Kit</span>
-      <span class="kit-count">18 documents</span>
-    </div>
-    <h2 class="kit-title">Release planning, press, and audience growth</h2>
+    <button class="kit-toggle" type="button" aria-expanded="true">
+      <span class="kit-toggle-main">
+        <span class="kit-header">
+          <span class="kit-tag marketing">Marketing Kit</span>
+          <span class="kit-count">18 documents</span>
+        </span>
+        <span class="kit-title">Release planning, press, and audience growth</span>
+      </span>
+      <span class="kit-chevron" aria-hidden="true">▾</span>
+    </button>
     <p class="kit-desc">Release timelines, playlist strategy, radio, press, social media, and post-release reporting. Build around the release calendar.</p>
     <div class="doc-list">
       <a class="doc-item" href="https://docs.google.com/document/d/10Zv6ihTVMLZ0khGYdOhWft053vkEGAeqwRRC4JxVBKE/edit" target="_blank" rel="noopener">
@@ -1279,11 +1373,16 @@
 
   <!-- ── MONEY KIT ── -->
   <div class="kit-section" data-kit="money">
-    <div class="kit-header">
-      <span class="kit-tag money">Money Kit</span>
-      <span class="kit-count">16 documents</span>
-    </div>
-    <h2 class="kit-title">Track every rupee in and out</h2>
+    <button class="kit-toggle" type="button" aria-expanded="true">
+      <span class="kit-toggle-main">
+        <span class="kit-header">
+          <span class="kit-tag money">Money Kit</span>
+          <span class="kit-count">16 documents</span>
+        </span>
+        <span class="kit-title">Track every rupee in and out</span>
+      </span>
+      <span class="kit-chevron" aria-hidden="true">▾</span>
+    </button>
     <p class="kit-desc">Invoicing, bookkeeping, royalties, grants, and personal finance, built around India's tax and payment environment.</p>
     <div class="doc-list">
       <a class="doc-item" href="https://docs.google.com/document/d/1oifSOkHSP3gnnicz6KqoueVvZ6aeXcUxBDN1onJEj0c/edit" target="_blank" rel="noopener">
@@ -1461,9 +1560,31 @@
   }
   setCount(0,'');
 
+  // ── Kit accordion (progressive disclosure) ──
+  const kits = [...document.querySelectorAll('.kit-section')];
+  function setKitCollapsed(sec, collapsed){
+    sec.setAttribute('data-collapsed', collapsed ? 'true' : 'false');
+    const btn = sec.querySelector('.kit-toggle');
+    if (btn) btn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
+  }
+  // Default state: collapse all kits so the toolkit is scannable, not overwhelming.
+  kits.forEach(sec => setKitCollapsed(sec, true));
+  kits.forEach(sec => {
+    const btn = sec.querySelector('.kit-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', () => {
+      // ignore manual toggles while a search is active (kits are force-open then)
+      if (search.value.trim()) return;
+      setKitCollapsed(sec, sec.getAttribute('data-collapsed') !== 'true');
+    });
+  });
+
   function applySearch(){
     const q = search.value.trim().toLowerCase();
     let shown = 0;
+    // When searching, force every kit open so matches inside collapsed kits are revealed;
+    // when the query is cleared, restore the collapsed-by-default state.
+    kits.forEach(sec => setKitCollapsed(sec, q ? false : true));
     items.forEach(el => {
       const match = !q || el.textContent.toLowerCase().includes(q);
       el.style.display = match ? '' : 'none';
@@ -1485,6 +1606,41 @@
     setCount(shown, q);
   }
   search.addEventListener('input', applySearch);
+
+  // ── Section-jump chips: smooth scroll + scroll-spy active state ──
+  const jumpLinks = [...document.querySelectorAll('.res-jump a')];
+  const sections = jumpLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  jumpLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.replaceState(null, '', a.getAttribute('href'));
+    });
+  });
+  function syncActiveChip(){
+    const marker = window.scrollY + (window.innerHeight * 0.35);
+    let current = sections[0];
+    for (const sec of sections){
+      if (sec.offsetTop <= marker) current = sec;
+    }
+    jumpLinks.forEach(a => a.classList.toggle('active', current && a.getAttribute('href') === '#' + current.id));
+  }
+  window.addEventListener('scroll', syncActiveChip, { passive: true });
+  syncActiveChip();
+
+  // ── Staggered reveal for Start Here + reading cards (respects reduced motion) ──
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const revealTargets = [
+      ...document.querySelectorAll('#start .doc-item'),
+      ...document.querySelectorAll('#reading .read-item')
+    ];
+    revealTargets.forEach((el, i) => {
+      el.classList.add('reveal-stagger');
+      el.style.animationDelay = Math.min(i * 40, 500) + 'ms';
+    });
+  }
 </script>
 
 </body>
