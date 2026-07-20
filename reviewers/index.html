@@ -670,6 +670,7 @@
 <div class="grid" id="grid">
   <div class="loading">Loading reviewer database…</div>
 </div>
+<div id="show-more-wrap" style="text-align:center;padding:4px 32px 60px"></div>
 
 <script>
 function toggleGuide() {
@@ -692,6 +693,11 @@ function toggleGuide() {
   let priceFilter = 'all';
   let genreFilter = 'all';
   let searchVal = '';
+
+  // Pagination (keeps the mobile page short instead of rendering 1,100+ cards at once)
+  const PAGE_SIZE = 24;
+  let shown = PAGE_SIZE;
+  let currentFiltered = [];
 
   // Genre bucket keyword map
   const GENRE_KEYWORDS = {
@@ -907,17 +913,32 @@ function toggleGuide() {
   }
 
   function render() {
-    const filtered = applyFilters();
-    document.getElementById('visible-count').textContent = `${filtered.length} reviewers`;
-    renderStats(filtered);
+    currentFiltered = applyFilters();
+    shown = PAGE_SIZE;
+    document.getElementById('visible-count').textContent = `${currentFiltered.length} reviewers`;
+    renderStats(currentFiltered);
+    draw();
+  }
 
+  function draw() {
     const grid = document.getElementById('grid');
-    if (filtered.length === 0) {
+    const wrap = document.getElementById('show-more-wrap');
+    if (currentFiltered.length === 0) {
       grid.innerHTML = `<div class="empty">No reviewers match your filters. Try broadening your search.</div>`;
+      wrap.innerHTML = '';
       return;
     }
-    grid.innerHTML = filtered.map(renderCard).join('');
+    grid.innerHTML = currentFiltered.slice(0, shown).map(renderCard).join('');
+    const remaining = currentFiltered.length - shown;
+    wrap.innerHTML = remaining > 0
+      ? `<button onclick="__reviewersShowMore()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);font-weight:600;font-size:14px;padding:12px 28px;border-radius:10px;cursor:pointer">Show ${Math.min(PAGE_SIZE, remaining)} more · ${remaining} left</button>`
+      : (currentFiltered.length > PAGE_SIZE ? `<div style="color:var(--muted);font-size:12px">Showing all ${currentFiltered.length}</div>` : '');
   }
+
+  window.__reviewersShowMore = function() {
+    shown += PAGE_SIZE;
+    draw();
+  };
 
   // Filter pill listeners
   function setupPillGroup(groupId, setter, activeClass = 'active') {
