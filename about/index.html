@@ -124,10 +124,15 @@
     /* ── HERO VISUAL ── */
     .hero-visual {
       position: relative;
-      background: linear-gradient(135deg, rgba(233,69,96,.07) 0%, transparent 55%);
+      background:
+        linear-gradient(180deg, rgba(13,13,15,.55) 0%, rgba(13,13,15,.82) 100%),
+        linear-gradient(135deg, rgba(233,69,96,.10) 0%, transparent 55%),
+        url("../assets/hero-about.jpg");
+      background-size: cover;
+      background-position: center;
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 48px 44px 44px;
+      padding: 64px 44px 56px;
       margin-bottom: 48px;
       overflow: hidden;
     }
