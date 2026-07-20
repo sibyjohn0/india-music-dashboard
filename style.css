@@ -1756,3 +1756,17 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 .site-footer-links a { color: var(--muted); transition: color .15s; text-decoration: none; }
 .site-footer-links a:hover { color: var(--text); }
 .site-footer-right { font-size: 11px; }
+
+/* ── Radar slick pass: entrance motion + banner vibrancy (CSS-only, safe) ── */
+#tracking-count {
+  background: linear-gradient(90deg, rgba(233,69,96,.09), transparent 60%);
+  border-left: 2px solid var(--accent);
+}
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes radarRise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  .discover-shows-strip { animation: radarRise .5s cubic-bezier(.2,.6,.2,1) both; }
+  #tab-discover .today-section { animation: radarRise .55s cubic-bezier(.2,.6,.2,1) both; }
+  #tab-discover .today-section:nth-of-type(1) { animation-delay: .04s; }
+  #tab-discover .today-section:nth-of-type(2) { animation-delay: .12s; }
+  .hero-card, .artist-card { will-change: transform; }
+}
