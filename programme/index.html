@@ -892,6 +892,8 @@
 <div class="page">
 
   <style>
+    .pg-hero{position:relative;border:1px solid var(--border);border-radius:18px;padding:52px 40px 44px;margin-bottom:12px;overflow:hidden;background:linear-gradient(180deg,rgba(13,13,15,.5) 0%,rgba(13,13,15,.86) 100%),linear-gradient(135deg,rgba(233,69,96,.12) 0%,transparent 55%),url("../assets/hero-programme.jpg");background-size:cover;background-position:center}
+    @media(max-width:640px){.pg-hero{padding:34px 22px 30px;border-radius:14px}}
     .pg-eyebrow{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}
     .pg-h1{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-1px;line-height:1.12;margin:14px 0 0}
     .pg-lead{font-size:17px;color:#b6b6cc;line-height:1.7;margin-top:20px;max-width:680px}
@@ -984,7 +986,7 @@
   </style>
 
   <!-- OPENING -->
-  <div>
+  <div class="pg-hero">
     <div class="pg-eyebrow load-seq" style="animation-delay:.05s">Artist Development Programme</div>
     <div class="load-seq" style="font-size:14px;color:var(--muted);font-weight:500;margin-top:8px;animation-delay:.13s">Artist development is everything around the music.</div>
     <h1 class="pg-h1 load-seq" style="animation-delay:.22s">You're already moving.<br>You just can't see what's in the way.</h1>
