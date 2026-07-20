@@ -495,14 +495,31 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:image" content="https://sibyjohn0.github.io/india-music-dashboard/og-image.png" />
+<style id="mnav-css">
+html{overflow-x:clip}
+.mnav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:rgba(19,19,26,.72);border:1px solid var(--border,#2a2a38);border-radius:11px;cursor:pointer;padding:0 11px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.mnav-burger span{display:block;height:2px;width:22px;background:var(--text,#e8e8f0);border-radius:2px;transition:transform .25s,opacity .2s}
+body.mnav-open .mnav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.mnav-open .mnav-burger span:nth-child(2){opacity:0}
+body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .mnav-burger{display:flex;position:fixed;top:9px;right:14px;z-index:300}
+  nav.js-primnav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;height:100dvh !important;width:100% !important;max-width:none !important;margin:0 !important;display:flex !important;flex-direction:column !important;justify-content:center !important;align-items:center !important;gap:4px !important;background:rgba(10,10,15,.98) !important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transform:translateX(100%);transition:transform .34s cubic-bezier(.4,0,.2,1);z-index:290 !important;padding:0 !important;border:0 !important;overflow:auto !important;-webkit-mask-image:none !important;mask-image:none !important}
+  body.mnav-open nav.js-primnav{transform:translateX(0) !important}
+  nav.js-primnav a,nav.js-primnav .tab{font-size:24px !important;font-weight:700 !important;line-height:1 !important;padding:15px 30px !important;height:auto !important;width:auto !important;border:0 !important;color:var(--text,#e8e8f0) !important;flex:0 0 auto !important;white-space:nowrap !important}
+  nav.js-primnav a.active,nav.js-primnav a.tab.active,nav.js-primnav .active{color:var(--accent,#e94560) !important;border:0 !important}
+  body.mnav-open{overflow:hidden}
+}
+</style>
 </head>
 <body>
+<button class="mnav-burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('mnav-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
 
 <header>
   <div class="logo"><a href="../">◉ India Indie Music Radar</a></div>
 </header>
 
-<nav>
+<nav class="js-primnav">
   <a class="tab" href="../programme/">Programme</a>
   <a class="tab active" href="../about/">About</a>
   <a class="tab" href="../">Radar</a>
@@ -680,5 +697,6 @@
   })();
 </script>
 
+<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});</script>
 </body>
 </html>
