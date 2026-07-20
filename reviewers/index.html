@@ -45,6 +45,26 @@
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── LOAD REVEAL (staggered) ── */
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes riseIn {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .reveal { opacity: 0; animation: riseIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+      .reveal-1 { animation-delay: 0.04s; }
+      .reveal-2 { animation-delay: 0.10s; }
+      .reveal-3 { animation-delay: 0.16s; }
+      .reveal-4 { animation-delay: 0.22s; }
+      /* Card stagger, capped so later cards are not slow */
+      .card {
+        opacity: 0;
+        animation: riseIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+        animation-delay: calc(var(--i, 0) * 35ms);
+      }
     }
 
     header {
@@ -121,19 +141,71 @@
       background: var(--surface2);
       border: 1px solid var(--border);
       border-top: 2px solid var(--accent);
-      border-radius: 10px;
+      border-radius: 12px;
       padding: 16px;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .feat-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(233,69,96,.5);
+      box-shadow: 0 8px 24px -12px rgba(0,0,0,.6);
     }
     .feat-num  { font-size: 22px; font-weight: 800; color: #f0f0f0; letter-spacing: -.5px; margin-bottom: 3px; }
     .feat-name { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
     .feat-desc { font-size: 11px; color: var(--muted); line-height: 1.55; }
 
+    /* ── STICKY FILTER BAR ── */
+    .filter-bar {
+      position: sticky;
+      top: var(--header-h, 51px);
+      z-index: 90;
+      background: rgba(10,10,15,.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Compact top row: search + mobile toggle */
+    .filter-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 32px;
+    }
+    .search-wrap { position: relative; flex: 1 1 auto; min-width: 0; max-width: 340px; }
+    .search-wrap .search-icon {
+      position: absolute;
+      left: 12px; top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      font-size: 13px;
+      pointer-events: none;
+    }
+    .filters-toggle {
+      display: none;
+      align-items: center;
+      gap: 7px;
+      min-height: 44px;
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: 600 13px/1 'Inter', sans-serif;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .filters-toggle:hover { border-color: var(--accent); }
+    .filters-toggle .chev { font-size: 10px; color: var(--muted); transition: transform 0.2s ease; }
+    .filters-toggle.open .chev { transform: rotate(180deg); }
+
     /* ── FILTERS ── */
     .filters {
-      padding: 0 32px 24px;
+      padding: 0 32px 18px;
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 14px 20px;
       align-items: flex-end;
     }
 
@@ -143,7 +215,8 @@
     .pill-row { display: flex; gap: 6px; flex-wrap: wrap; }
 
     .pill {
-      padding: 6px 14px;
+      padding: 7px 14px;
+      min-height: 34px;
       border-radius: 20px;
       border: 1px solid var(--border);
       background: var(--surface);
@@ -151,27 +224,29 @@
       font-size: 13px;
       font-weight: 500;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: all 0.15s ease;
       white-space: nowrap;
     }
-    .pill:hover { border-color: var(--accent); color: var(--text); }
+    .pill:hover { border-color: var(--accent); color: var(--text); transform: translateY(-1px); }
     .pill.active { background: var(--accent); border-color: var(--accent); color: white; }
     .pill.active-green { background: var(--accent2); border-color: var(--accent2); color: white; }
     .pill.active-amber { background: var(--accent3); border-color: var(--accent3); color: #000; }
     .pill.active-blue { background: var(--accent4); border-color: var(--accent4); color: white; }
 
     .search-input {
-      padding: 8px 14px;
+      padding: 10px 14px 10px 34px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 10px;
       color: var(--text);
       font-size: 14px;
       font-family: inherit;
-      width: 260px;
+      width: 100%;
+      min-height: 44px;
       outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
     }
-    .search-input:focus { border-color: var(--accent); }
+    .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(233,69,96,.14); }
     .search-input::placeholder { color: var(--muted); }
 
     /* ── STATS BAR ── */
@@ -206,16 +281,20 @@
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      transition: border-color 0.15s;
+      transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
       min-width: 0;
       overflow-wrap: anywhere;
     }
-    .card:hover { border-color: #3a3a50; }
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(233,69,96,.5);
+      box-shadow: 0 10px 30px -14px rgba(0,0,0,.7);
+    }
 
     .card-top {
       display: flex;
@@ -298,16 +377,17 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 12px;
-      border-radius: 6px;
+      padding: 9px 14px;
+      min-height: 40px;
+      border-radius: 8px;
       font-size: 12px;
       font-weight: 600;
       text-decoration: none;
-      transition: opacity 0.15s;
+      transition: opacity 0.15s ease, transform 0.15s ease;
       cursor: pointer;
       border: none;
     }
-    .submit-btn:hover { opacity: 0.85; }
+    .submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
     .submit-btn-email { background: rgba(124,58,237,0.2); color: #a78bfa; }
     .submit-btn-web { background: rgba(16,185,129,0.2); color: #34d399; }
     .submit-btn-submithub { background: rgba(59,130,246,0.2); color: #60a5fa; }
@@ -466,19 +546,32 @@
     .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
 
     @media (max-width: 600px) {
-      header, .filters, .stats-bar, .grid { padding-left: 16px; padding-right: 16px; }
+      header, .filters, .filter-top, .stats-bar, .grid { padding-left: 16px; padding-right: 16px; }
       .page-hero { padding: 24px 16px 0; }
       .feat-track { margin: 0 -16px; padding: 4px 16px 16px; }
       .feat-card { flex: 0 0 175px; }
       .guide-note { margin-left: 16px; margin-right: 16px; }
       .grid { grid-template-columns: 1fr; }
-      .search-input { width: 100%; }
+      .search-wrap { max-width: none; }
+
+      /* Collapse filter pills behind a toggle on phones */
+      .filters-toggle { display: inline-flex; }
+      .filters { display: none; padding-top: 4px; }
+      .filter-bar.filters-open .filters { display: flex; }
+      .filter-group { width: 100%; }
+
       .budget-row { grid-template-columns: 1fr auto; }
       .budget-row span:last-child { display: none; }
       .budget-row.header span:last-child { display: none; }
       nav { padding: 0 8px; }
       .tab { padding: 10px 10px; }
       .tab-sub { display: none; }
+    }
+
+    /* Reduced-motion safety net */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .card { opacity: 1 !important; animation: none !important; transform: none !important; }
+      .card:hover, .feat-card:hover, .pill:hover, .submit-btn:hover { transform: none; }
     }
   </style>
   <link rel="canonical" href="https://sibyjohn0.github.io/india-music-dashboard/reviewers/" />
@@ -511,22 +604,22 @@
   <h1 class="page-title">Reviewer Database</h1>
   <p class="page-sub">1,100+ blogs, podcasts, playlist editors, and curators covering Indian indie. Direct submission contacts, reach scores, and pricing. Free.</p>
   <div class="feat-track">
-    <div class="feat-card">
+    <div class="feat-card reveal reveal-1">
       <div class="feat-num">16</div>
       <div class="feat-name">Editorial blogs</div>
       <div class="feat-desc">Free to pitch. Indian indie-specific. A placement here travels further than 50 playlist adds.</div>
     </div>
-    <div class="feat-card">
+    <div class="feat-card reveal reveal-2">
       <div class="feat-num">17</div>
       <div class="feat-name">South Asian curators</div>
       <div class="feat-desc">SubmitHub curators who have explicitly opted into this genre. Start here before going broad.</div>
     </div>
-    <div class="feat-card">
+    <div class="feat-card reveal reveal-3">
       <div class="feat-num">924+</div>
       <div class="feat-name">Total contacts</div>
       <div class="feat-desc">Spotify playlists, podcasts, YouTube channels, SubmitHub. Filtered by genre, language, and reach.</div>
     </div>
-    <div class="feat-card">
+    <div class="feat-card reveal reveal-4">
       <div class="feat-num">₹0</div>
       <div class="feat-name">Cost to access this</div>
       <div class="feat-desc">Free to use. Updated weekly as SubmitHub data and editorial contacts change.</div>
@@ -593,12 +686,18 @@
   </div>
 </div>
 
-<div class="filters">
-  <div class="filter-group">
-    <div class="filter-label">Search</div>
-    <input class="search-input" id="search" type="text" placeholder="Name, genre, language…" />
+<div class="filter-bar" id="filter-bar">
+  <div class="filter-top">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input class="search-input" id="search" type="text" placeholder="Name, genre, language…" />
+    </div>
+    <button class="filters-toggle" id="filters-toggle" type="button" aria-expanded="false" onclick="toggleFilters()">
+      Filters <span class="chev">▼</span>
+    </button>
   </div>
 
+  <div class="filters">
   <div class="filter-group">
     <div class="filter-label">Category</div>
     <div class="pill-row" id="filter-cat">
@@ -656,11 +755,12 @@
       <button class="pill" data-val="3">≤3 credits</button>
     </div>
   </div>
+  </div>
 </div>
 
 <div class="stats-bar" id="stats-bar"></div>
 
-<div style="margin:0 32px 20px;padding:14px 20px;background:#13131a;border:1px solid #2a2a38;border-radius:9px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+<div class="reveal reveal-2" style="margin:0 32px 20px;padding:14px 20px;background:#13131a;border:1px solid #2a2a38;border-radius:12px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
   <span style="font-size:12px;color:#6b6b85;flex-shrink:0;">Need help writing your pitch?</span>
   <a href="../playbook/#release-strategy" style="font-size:12px;font-weight:600;color:#e8e8f0;text-decoration:none;padding:6px 14px;background:#1c1c26;border:1px solid #2a2a38;border-radius:7px;transition:border-color .15s" onmouseover="this.style.borderColor='#e94560';this.style.color='#e94560'" onmouseout="this.style.borderColor='#2a2a38';this.style.color='#e8e8f0'">📖 Pitch guide in the Playbook →</a>
   <a href="../" style="font-size:12px;font-weight:600;color:#e8e8f0;text-decoration:none;padding:6px 14px;background:#1c1c26;border:1px solid #2a2a38;border-radius:7px;transition:border-color .15s" onmouseover="this.style.borderColor='#e94560';this.style.color='#e94560'" onmouseout="this.style.borderColor='#2a2a38';this.style.color='#e8e8f0'">◉ Discover artists on the Radar →</a>
@@ -679,6 +779,25 @@ function toggleGuide() {
   body.classList.toggle('collapsed');
   icon.classList.toggle('open');
 }
+
+function toggleFilters() {
+  const bar = document.getElementById('filter-bar');
+  const btn = document.getElementById('filters-toggle');
+  const open = bar.classList.toggle('filters-open');
+  btn.classList.toggle('open', open);
+  btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+
+// Keep the sticky filter bar pinned right below the sticky header
+(function syncHeaderHeight() {
+  const set = () => {
+    const h = document.querySelector('header');
+    if (h) document.documentElement.style.setProperty('--header-h', h.offsetHeight + 'px');
+  };
+  window.addEventListener('load', set);
+  window.addEventListener('resize', set);
+  set();
+})();
 
 (async () => {
   const res = await fetch('../data/reviewers.json');
@@ -851,7 +970,7 @@ function toggleGuide() {
     }).join('');
   }
 
-  function renderCard(r) {
+  function renderCard(r, i) {
     const genres = (r.genres || []).slice(0, 5).map(g =>
       `<span class="genre-tag">${g}</span>`
     ).join('');
@@ -861,8 +980,10 @@ function toggleGuide() {
     const nameLink = r.url
       ? `<a href="${r.url}" target="_blank">${r.name}</a>`
       : r.name;
+    // Cap the stagger index so later cards reveal quickly
+    const si = Math.min((i % PAGE_SIZE) || 0, 12);
 
-    return `<div class="card">
+    return `<div class="card" style="--i:${si}">
       <div class="card-top">
         <div class="card-name">${nameLink}</div>
         <div class="card-badges">
@@ -931,7 +1052,7 @@ function toggleGuide() {
     grid.innerHTML = currentFiltered.slice(0, shown).map(renderCard).join('');
     const remaining = currentFiltered.length - shown;
     wrap.innerHTML = remaining > 0
-      ? `<button onclick="__reviewersShowMore()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);font-weight:600;font-size:14px;padding:12px 28px;border-radius:10px;cursor:pointer">Show ${Math.min(PAGE_SIZE, remaining)} more · ${remaining} left</button>`
+      ? `<button onclick="__reviewersShowMore()" style="background:var(--surface2);border:1px solid var(--border);color:var(--text);font-weight:600;font-size:14px;min-height:44px;padding:12px 28px;border-radius:12px;cursor:pointer;transition:border-color .15s ease,transform .15s ease" onmouseover="this.style.borderColor='#e94560';this.style.transform='translateY(-1px)'" onmouseout="this.style.borderColor='#2a2a38';this.style.transform='none'">Show ${Math.min(PAGE_SIZE, remaining)} more · ${remaining} left</button>`
       : (currentFiltered.length > PAGE_SIZE ? `<div style="color:var(--muted);font-size:12px">Showing all ${currentFiltered.length}</div>` : '');
   }
 
