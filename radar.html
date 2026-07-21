@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R7EYMGZEJZ');
+  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>India Indie Music Radar</title>
+  <meta name="description" content="India Indie Music Radar: discover new Indian indie music, track artists by language and genre, and follow trends across the independent music scene." />
+  <meta property="og:title" content="India Indie Music Radar" />
+  <meta property="og:description" content="Discover new Indian indie music. Track artists by language and genre. 900+ reviewer contacts. Free and updated daily." />
+  <meta property="og:url" content="https://indiemusicindia.com/radar.html" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="India Indie Music Radar" />
+  <meta name="twitter:description" content="Discover new Indian indie music. Track artists by language and genre. Free and updated daily." />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=20260720" />
+  <link rel="canonical" href="https://indiemusicindia.com/radar.html" />
+  <meta property="og:image" content="https://indiemusicindia.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content="https://indiemusicindia.com/og-image.png" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "India Indie Music Radar",
+      "url": "https://indiemusicindia.com/",
+      "logo": "https://indiemusicindia.com/og-image.png",
+      "founder": [
+        {"@type": "Person", "name": "Siby John"},
+        {"@type": "Person", "name": "Karishma Changroth"}
+      ],
+      "sameAs": ["https://linkedin.com/in/sibyjohn"],
+      "description": "Free tools and an artist development programme for independent Indian musicians."
+    },
+    {
+      "@type": "WebSite",
+      "name": "India Indie Music Radar",
+      "url": "https://indiemusicindia.com/",
+      "description": "A live radar of independent Indian artists, a reviewer database, a labels and agencies directory, a free toolkit, and an artist playbook."
+    }
+  ]
+}
+</script>
+<style id="mnav-css">
+html{overflow-x:clip}
+.mnav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:rgba(19,19,26,.72);border:1px solid var(--border,#2a2a38);border-radius:11px;cursor:pointer;padding:0 11px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.mnav-burger span{display:block;height:2px;width:22px;background:var(--text,#e8e8f0);border-radius:2px;transition:transform .25s,opacity .2s}
+body.mnav-open .mnav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.mnav-open .mnav-burger span:nth-child(2){opacity:0}
+body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .mnav-burger{display:flex;position:fixed;top:9px;right:14px;z-index:300}
+  nav.js-primnav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;height:100dvh !important;width:100% !important;max-width:none !important;margin:0 !important;display:flex !important;flex-direction:column !important;justify-content:center !important;align-items:center !important;gap:4px !important;background:rgba(10,10,15,.98) !important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transform:translateX(100%);transition:transform .34s cubic-bezier(.4,0,.2,1);z-index:290 !important;padding:0 !important;border:0 !important;overflow:auto !important;-webkit-mask-image:none !important;mask-image:none !important}
+  body.mnav-open nav.js-primnav{transform:translateX(0) !important}
+  nav.js-primnav a,nav.js-primnav .tab{font-size:24px !important;font-weight:700 !important;line-height:1 !important;padding:15px 30px !important;height:auto !important;width:auto !important;border:0 !important;color:var(--text,#e8e8f0) !important;flex:0 0 auto !important;white-space:nowrap !important}
+  nav.js-primnav a.active,nav.js-primnav a.tab.active,nav.js-primnav .active{color:var(--accent,#e94560) !important;border:0 !important}
+  body.mnav-open{overflow:hidden}
+}
+</style>
+</head>
+<body>
+<button class="mnav-burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('mnav-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
+
+  <header>
+    <div class="logo">◉ India Indie Music Radar</div>
+    <div class="header-right">
+      <span id="last-updated" class="muted"></span>
+      <span id="total-badge" class="badge"></span>
+    </div>
+  </header>
+
+  <nav class="js-primnav">
+    <a class="tab" href="programme/" style="text-decoration:none;">Programme</a>
+    <a class="tab" href="about/" style="text-decoration:none;">About</a>
+    <a class="tab active" href="/radar.html" style="text-decoration:none;">Radar</a>
+    <a class="tab" href="reviewers/" style="text-decoration:none;">Reviewers</a>
+    <a class="tab" href="industry/" style="text-decoration:none;">Industry</a>
+    <a class="tab" href="resources/" style="text-decoration:none;">Resources</a>
+  </nav>
+  <nav class="subnav">
+    <button class="subtab" data-tab="discover">Discover</button>
+    <button class="subtab" data-tab="artists">Artists</button>
+    <button class="subtab" data-tab="venues">Venues</button>
+    <button class="subtab active" data-tab="buzz">Buzz</button>
+    <button class="subtab" data-tab="industry">Scene</button>
+  </nav>
+  <div id="tracking-count" style="padding:9px 32px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border)"></div>
+  <div class="tab-context" id="tab-context">Reddit threads and press coverage mentioning Indian indie artists</div>
+
+  <main>
+
+    <!-- ── DISCOVER ── -->
+    <div id="tab-discover" class="tab-pane">
+      <div class="tab-updated" id="upd-discover"></div>
+
+      <!-- Shows strip — city venue summary of upcoming events -->
+      <div class="discover-shows-strip" id="discover-shows-strip" style="display:none"></div>
+
+      <!-- SECTION 1: Breaking this week -->
+      <div class="today-section">
+        <div class="today-section-hd">Breaking this week</div>
+        <div class="today-section-sub">The biggest week-over-week view gains right now.</div>
+        <div class="breaking-body" id="breaking-body">
+          <div class="breaking-player" id="breaking-player" hidden>
+            <iframe id="breaking-player-iframe" frameborder="0" allowfullscreen
+              allow="autoplay; encrypted-media"></iframe>
+            <button class="breaking-player-close" id="breaking-player-close" aria-label="Close">✕</button>
+          </div>
+          <div class="breaking-cards" id="breaking-cards">
+            <div class="breaking-loading">Loading channel data…</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Top picks this week -->
+      <div class="today-section">
+        <div class="today-section-hd">Top picks this week</div>
+        <div class="today-section-sub">Ranked by momentum: engagement and view growth over 90 days.</div>
+        <div class="today-section-meta" id="d-hero-label">Top finds</div>
+        <div class="hero-cards" id="hero-cards"></div>
+        <button class="hero-show-more" id="hero-show-more" style="display:none">Show more videos ▾</button>
+        <div class="today-trending-genre" id="today-trending-genre"></div>
+      </div>
+
+      <!-- Quick links to other tabs -->
+      <div class="discover-links">
+        <a class="disc-link" onclick="goTab('venues')" href="#venues">Upcoming shows &amp; venue rankings →</a>
+        <a class="disc-link" href="reviewers/"><span id="reviewer-count">900+</span> reviewer contacts →</a>
+        <a class="disc-link" onclick="goTab('artists')" href="#artists">Browse all artists →</a>
+      </div>
+
+      <!-- Deep dive link -->
+      <a class="deep-dive-cta" href="deep-dive/">Deep dive: full data, all artists, pipeline status →</a>
+
+      <!-- Filters (hidden by default on mobile, shown on demand) -->
+      <div class="discover-filter-toggle-wrap">
+        <button class="discover-filter-toggle" id="discover-filter-toggle">Filter &amp; sort ▾</button>
+      </div>
+      <div class="filter-bar" id="discover-filter-bar" style="display:none">
+        <input type="text" id="v-search" placeholder="Search title or artist…" />
+        <select id="d-lang"><option value="all">All Languages</option></select>
+        <select id="d-genre"><option value="all">All Genres</option></select>
+        <select id="v-sort">
+          <option value="discovery_score">Sort: Momentum (default)</option>
+          <option value="engagement_rate">Sort: Engagement rate</option>
+          <option value="velocity">Sort: Daily view growth</option>
+          <option value="published_at">Sort: Newest first</option>
+          <option value="views_delta">Sort: 24h views gained</option>
+          <option value="views">Sort: Total views</option>
+        </select>
+        <select id="v-window">
+          <option value="0">All Time</option>
+          <option value="7">Last 7 Days</option>
+          <option value="14">Last 14 Days</option>
+          <option value="30">Last 30 Days</option>
+        </select>
+        <select id="v-min-eng">
+          <option value="0">Any engagement</option>
+          <option value="0.02">2%+ engagement</option>
+          <option value="0.05">5%+ engagement</option>
+          <option value="0.1">10%+ engagement</option>
+        </select>
+        <button id="d-new-only" class="pill-toggle" data-on="false">✦ New only</button>
+      </div>
+      <div class="discover-hero-label" id="d-list-label" style="margin-top:28px;display:none">All videos</div>
+      <div class="video-list" id="video-list" style="display:none"></div>
+
+    </div>
+
+    <!-- ── ARTISTS ── -->
+    <div id="tab-artists" class="tab-pane">
+      <div class="tab-updated" id="upd-artists"></div>
+
+      <!-- Collab Finder bar -->
+      <div class="collab-bar" id="collab-bar">
+        <div class="collab-bar-label">Find collaborators:</div>
+        <select id="c-my-genre">
+          <option value="">My genre…</option>
+          <option>Indie</option>
+          <option>Folk / Acoustic</option>
+          <option>Hip Hop / Rap</option>
+          <option>Indie Pop</option>
+          <option>Rock / Alt</option>
+          <option>Electronic</option>
+          <option>R&amp;B / Soul</option>
+          <option>Jazz / Blues</option>
+          <option>Lo-Fi</option>
+          <option>Classical/Fusion</option>
+        </select>
+        <select id="c-my-lang">
+          <option value="">My language…</option>
+          <option>Tamil</option>
+          <option>Telugu</option>
+          <option>Kannada</option>
+          <option>Malayalam</option>
+          <option>Bengali</option>
+          <option>Punjabi</option>
+          <option>Marathi</option>
+          <option>Hindi</option>
+          <option>English</option>
+        </select>
+        <div class="collab-legend">
+          <span class="collab-dot collab-both"></span>Strong fit
+          <span class="collab-dot collab-genre"></span>Genre match
+          <span class="collab-dot collab-lang"></span>Language match
+          <span class="collab-hint">Pick your genre and language. Matching artists highlight below.</span>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <input type="text" id="a-search" placeholder="Search artist…" />
+        <select id="a-lang"><option value="all">All Languages</option></select>
+        <select id="a-genre"><option value="all">All Genres</option></select>
+        <select id="a-trend">
+          <option value="all">All Trends</option>
+          <option value="new">New</option>
+          <option value="rising">Rising</option>
+          <option value="stable">Stable</option>
+          <option value="falling">Falling</option>
+        </select>
+        <select id="a-sort">
+          <option value="avg_discovery">Sort: Momentum (default)</option>
+          <option value="avg_engagement">Sort: Engagement rate</option>
+          <option value="total_views">Sort: Total views</option>
+          <option value="video_count">Sort: Video count</option>
+        </select>
+        <select id="a-min-eng">
+          <option value="0">Any engagement</option>
+          <option value="0.02">2%+ engagement</option>
+          <option value="0.05">5%+ engagement</option>
+          <option value="0.1">10%+ engagement</option>
+        </select>
+        <select id="a-min-videos">
+          <option value="1">Any # videos</option>
+          <option value="2" selected>2+ videos</option>
+          <option value="3">3+ videos</option>
+          <option value="5">5+ videos</option>
+          <option value="10">10+ videos</option>
+        </select>
+        <button id="a-multiplatform" class="pill-toggle" data-on="false">◈ Multi-platform</button>
+      </div>
+      <div class="artist-grid" id="artist-grid"></div>
+
+      <!-- Artist log — all channels spotted in the 90-day window -->
+      <div class="trends-section-divider">
+        <span>All artists on the radar</span>
+      </div>
+      <div class="artist-log" id="artist-log">
+        <div class="artist-log-hd">
+          <div class="artist-log-title">Full roster, 90-day window</div>
+          <span class="artist-log-meta" id="al-meta"></span>
+        </div>
+        <div class="artist-log-filters">
+          <select id="al-lang"><option value="all">All Languages</option></select>
+          <select id="al-genre"><option value="all">All Genres</option></select>
+          <select id="al-sort">
+            <option value="recent">Sort: Most Recent</option>
+            <option value="frequent">Sort: Most Videos</option>
+            <option value="score">Sort: Highest Score</option>
+          </select>
+        </div>
+        <table class="data-table artist-log-table">
+          <thead>
+            <tr>
+              <th>Artist</th>
+              <th>Language</th>
+              <th>Genre</th>
+              <th>Videos</th>
+              <th>Last active</th>
+              <th><span class="metric-tip" data-tip="Momentum: 0-99. Percentile rank within the 90-day window, combining engagement rate and daily view growth. 99 = fastest moving artist in the current pool.">Score</span></th>
+              <th>Trend</th>
+            </tr>
+          </thead>
+          <tbody id="artist-log-body"></tbody>
+        </table>
+      </div>
+
+      <div class="cross-nav-bar">
+        <span class="cross-nav-label">Found the right artists?</span>
+        <a class="cross-nav-link" href="reviewers/">✉ Find reviewers who cover this genre →</a>
+        <a class="cross-nav-link" href="playbook/">📖 Collaboration strategy in the Playbook →</a>
+      </div>
+    </div>
+
+    <!-- ── VENUES ── -->
+    <div id="tab-venues" class="tab-pane">
+      <div class="tab-updated" id="upd-venues"></div>
+
+      <div class="shows-section">
+        <div class="shows-header">
+          <div class="shows-title">Upcoming Shows</div>
+          <div class="shows-city-pills" id="shows-city-pills"></div>
+        </div>
+        <div id="platform-summary"></div>
+        <div id="venues-city-spotlight"></div>
+        <div class="shows-list" id="shows-list">
+          <div class="act-empty">No upcoming shows found. Check back soon.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── BUZZ ── -->
+    <div id="tab-buzz" class="tab-pane active">
+      <div class="tab-updated" id="upd-buzz"></div>
+      <div class="filter-bar">
+        <select id="b-lang"><option value="all">All Languages</option></select>
+        <select id="b-platform">
+          <option value="all">All Sources</option>
+          <option value="reddit">Reddit</option>
+          <option value="news">News</option>
+        </select>
+        <button class="toggle-btn" id="b-artist-only" data-on="false">Artist Mentions Only</button>
+      </div>
+      <div class="buzz-empty" id="buzz-loading">Loading community conversations…</div>
+      <div id="buzz-content" style="display:none">
+        <div class="buzz-split">
+          <div class="buzz-left">
+            <div class="buzz-section-hd" id="buzz-artist-hd">
+              <span>Artists Getting Coverage</span><span class="buzz-count" id="buzz-artist-count"></span>
+            </div>
+            <div class="buzz-artist-blocks" id="buzz-artist-blocks"></div>
+          </div>
+          <div class="buzz-right">
+            <div class="buzz-section-hd" id="buzz-feed-hd">
+              <span>All Coverage</span><span class="buzz-count" id="buzz-feed-count"></span>
+            </div>
+            <div class="buzz-feed" id="buzz-feed"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── INDUSTRY ── -->
+    <div id="tab-industry" class="tab-pane">
+      <div class="tab-updated" id="upd-scene"></div>
+      <iframe id="industry-frame"
+        style="width:100%;border:none;min-height:calc(100vh - 160px);display:block;"
+        title="Scene"></iframe>
+    </div>
+
+  </main>
+  <!-- ── Artist Profile Drawer ── -->
+  <div id="artist-drawer" class="artist-drawer" aria-hidden="true">
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div class="drawer-artist-info">
+          <div class="drawer-artist-name" id="drawer-name"></div>
+          <div class="drawer-artist-pills" id="drawer-pills"></div>
+        </div>
+        <div class="drawer-header-actions">
+          <button class="drawer-save-btn" id="drawer-save" title="Save artist">♡ Save</button>
+          <button class="drawer-close" id="drawer-close" aria-label="Close">✕</button>
+        </div>
+      </div>
+      <div class="drawer-body">
+        <div class="drawer-embed-wrap" id="drawer-embed"></div>
+        <div class="drawer-stats-row" id="drawer-stats"></div>
+        <div class="drawer-platforms" id="drawer-platforms"></div>
+        <div class="drawer-videos-label">All tracked videos</div>
+        <div class="drawer-videos" id="drawer-videos"></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="submit-cta-band" style="max-width:1100px;margin:8px auto 0;padding:28px 32px;border-top:1px solid var(--border)">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--card-bg,#1a1a1a);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px;padding:22px 26px">
+      <div style="max-width:560px">
+        <div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px">Are you an independent Indian artist not yet on the radar?</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.6">Submit your YouTube channel or Spotify profile and you will appear in the next data pull, usually within a week.</div>
+      </div>
+      <a href="submit/" style="flex-shrink:0;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 22px;border-radius:9px;white-space:nowrap">Submit your music →</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer-left">
+      <span class="site-footer-name">Siby John &amp; Karishma Changroth</span>
+      <div class="site-footer-links">
+        <a href="mailto:sibyjohn0@gmail.com">sibyjohn0@gmail.com</a>
+        <a href="tel:+919960025559">+91 99600 25559</a>
+        <a href="https://linkedin.com/in/sibyjohn" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="about/">About this project</a>
+      </div>
+    </div>
+    <div class="site-footer-right">Radar: daily · Reviewers: weekly · Free to use</div>
+  </footer>
+  <script src="app.js?v=20260620"></script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});</script>
+<style id="carousel-css">
+.crsl-wrap{position:relative}
+.crsl-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:20;width:38px;height:38px;border-radius:50%;border:1px solid var(--border,#2a2a38);background:rgba(19,19,26,.9);color:var(--text,#e8e8f0);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:opacity .2s,border-color .2s,background .2s}
+.crsl-btn:hover{border-color:var(--accent,#e94560);background:rgba(233,69,96,.2)}
+.crsl-prev{left:4px}.crsl-next{right:4px}
+.crsl-btn[disabled]{opacity:0;pointer-events:none}
+@media(max-width:640px){.crsl-btn{display:none}}
+</style>
+<script>
+(function(){
+  var SEL=['.feat-track','.problem-track','.discover-shows-strip'];
+  function initTrack(t){
+    if(t.dataset.crsl)return; if(t.scrollWidth<=t.clientWidth+4)return;
+    t.dataset.crsl='1';
+    var w=document.createElement('div'); w.className='crsl-wrap';
+    t.parentNode.insertBefore(w,t); w.appendChild(t);
+    var p=document.createElement('button'); p.className='crsl-btn crsl-prev'; p.setAttribute('aria-label','Previous'); p.innerHTML='\u2039';
+    var n=document.createElement('button'); n.className='crsl-btn crsl-next'; n.setAttribute('aria-label','Next'); n.innerHTML='\u203a';
+    w.appendChild(p); w.appendChild(n);
+    function u(){p.disabled=t.scrollLeft<8; n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-8;}
+    p.onclick=function(){t.scrollBy({left:-t.clientWidth*0.8,behavior:'smooth'});};
+    n.onclick=function(){t.scrollBy({left:t.clientWidth*0.8,behavior:'smooth'});};
+    t.addEventListener('scroll',u,{passive:true}); window.addEventListener('resize',u); setTimeout(u,120); u();
+  }
+  function all(){SEL.forEach(function(s){document.querySelectorAll(s).forEach(initTrack);});}
+  if(document.readyState!=='loading')setTimeout(all,300); else document.addEventListener('DOMContentLoaded',function(){setTimeout(all,300);});
+  setTimeout(all,1600); setTimeout(all,3600);
+})();
+</script>
+</body>
+</html>
