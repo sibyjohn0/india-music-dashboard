@@ -65,7 +65,12 @@
     /* ── HERO ── */
     .page-hero {
       position: relative;
-      background: linear-gradient(135deg, rgba(233,69,96,.07) 0%, transparent 55%);
+      background:
+        linear-gradient(180deg, rgba(10,10,15,.62) 0%, rgba(10,10,15,.9) 100%),
+        linear-gradient(135deg, rgba(233,69,96,.10) 0%, transparent 55%),
+        url("../assets/hero-industry.jpg");
+      background-size: cover;
+      background-position: center;
       border-bottom: 1px solid var(--border);
       padding: 40px 32px 0;
       overflow: hidden;
