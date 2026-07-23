@@ -110,8 +110,8 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 .pg-person:hover,.problem-card:hover,.tool-card:hover,.fact:hover,.m1-step:hover,
 .deep-card:hover,.read-card:hover,.resource-card:hover,.card:hover,.tile:hover{
   transform:translate(-3px,-3px)!important;
-  box-shadow:8px 8px 0 var(--ink)!important;
-  background:var(--surface)!important;
+  box-shadow:8px 8px 0 var(--pink)!important;
+  border-color:var(--pink)!important;
 }
 /* candy tinting: cycle colours across problem cards & tool cards */
 .problem-card:nth-child(5n+1),.tool-card:nth-child(4n+1){background:var(--pink-s)!important}
@@ -170,6 +170,14 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
   transform:translate(-2px,-2px)!important;box-shadow:7px 7px 0 var(--ink)!important;filter:none!important;
 }
 .pg-email,.tool-link{color:var(--violet)!important;font-family:var(--font-m)!important;font-weight:700!important}
+/* radar footer quick-links: give them the poppy button pop */
+.disc-link,.deep-dive-cta,.discover-filter-toggle,.show-more-btn{
+  background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;
+  border-radius:12px!important;box-shadow:4px 4px 0 var(--ink)!important;font-family:var(--font-m)!important;font-weight:700!important;
+}
+.disc-link:hover,.deep-dive-cta:hover,.discover-filter-toggle:hover,.show-more-btn:hover{
+  transform:translate(-2px,-2px)!important;box-shadow:6px 6px 0 var(--ink)!important;background:var(--yellow-s)!important;
+}
 
 /* ---- heroes: swap dark photo bands for candy gradient bands ---- */
 .pg-hero,.hero-visual{
@@ -216,10 +224,33 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 .res-hero *{color:#fff!important}
 .res-hero::after,.res-hero::before{display:none!important}
 .res-search,.res-search-row input{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:12px!important}
-.res-search-row{background:transparent!important}
+.res-search-row,.res-jump{background:var(--cream)!important}
+.kit-title,.kit-toggle .kit-title{color:var(--ink)!important;font-family:var(--font-d)!important}
+.kit-desc,.kit-count{color:var(--ink)!important}
 .res-jump a,.res-jump .tab{background:#fff!important;border:2px solid var(--ink)!important;border-radius:999px!important;color:var(--ink)!important;font-family:var(--font-m)!important}
 .res-jump a.active,.res-jump .active{background:var(--pink)!important;color:#fff!important}
-.doc-item,.read-item{border:2px solid var(--ink)!important;border-radius:14px!important;background:#fff!important;box-shadow:4px 4px 0 var(--ink)!important;margin-bottom:12px!important}
+/* drop the outer frame that boxed + clipped the doc cards */
+.doc-list{border:none!important;overflow:visible!important;background:transparent!important;padding:0!important;gap:14px!important}
+.doc-item,.read-item{border:2px solid var(--ink)!important;border-radius:14px!important;box-shadow:4px 4px 0 var(--ink)!important;margin-bottom:0!important}
+/* candy tints so the cards pop */
+.doc-item:nth-child(6n+1){background:var(--pink-s)!important}
+.doc-item:nth-child(6n+2){background:var(--blue-s)!important}
+.doc-item:nth-child(6n+3){background:var(--mint-s)!important}
+.doc-item:nth-child(6n+4){background:var(--violet-s)!important}
+.doc-item:nth-child(6n+5){background:var(--yellow-s)!important}
+.doc-item:nth-child(6n+6){background:var(--orange-s)!important}
+.doc-item,.read-item{cursor:pointer}
+.doc-item:hover,.read-item:hover{background:var(--yellow-s)!important;transform:translate(-3px,-3px)!important;box-shadow:7px 7px 0 var(--pink)!important;border-color:var(--pink)!important}
+.doc-item:hover .doc-title,.read-item:hover .read-title{color:var(--pink)!important}
+/* reading-list rows: colour-blocked left edge so they pop without over-saturating */
+.read-item{background:#fff!important}
+.read-item:nth-child(4n+1){border-left:8px solid var(--pink)!important}
+.read-item:nth-child(4n+2){border-left:8px solid var(--blue)!important}
+.read-item:nth-child(4n+3){border-left:8px solid var(--mint)!important}
+.read-item:nth-child(4n+4){border-left:8px solid var(--violet)!important}
+/* pop the index numbers + arrows */
+.doc-num,.read-num{color:var(--violet)!important;font-family:var(--font-m)!important;font-size:13px!important;font-weight:700!important}
+.doc-arrow,.read-arrow{color:var(--pink)!important}
 .res-section-label,.res-kicker{color:var(--violet)!important;font-family:var(--font-m)!important}
 
 /* playbook page specifics */
