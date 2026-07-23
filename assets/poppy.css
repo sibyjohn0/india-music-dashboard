@@ -99,6 +99,10 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 /* mobile hamburger: white chip + ink lines so it's visible on cream */
 .mnav-burger{background:#fff!important;border:2px solid var(--ink)!important;box-shadow:2px 2px 0 var(--ink)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 .mnav-burger span{background:var(--ink)!important}
+/* mobile full-screen menu: cream bg so nav links are visible (was dark) */
+body.mnav-open .js-primnav{background:var(--cream)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+body.mnav-open .js-primnav .tab{color:var(--ink)!important;font-size:20px!important}
+body.mnav-open .js-primnav .tab.active{background:var(--ink)!important;color:#fff!important}
 
 /* ---- generic card / tile treatment ---- */
 .pg-person,.problem-card,.tool-card,.fact,.m1-step,.builder-card,.pg-terms,
