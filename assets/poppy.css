@@ -216,12 +216,24 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 
 /* ---- heroes: swap dark photo bands for candy gradient bands ---- */
 .pg-hero,.hero-visual{
-  background:var(--g-grape)!important;color:#fff!important;
-  border:2px solid var(--ink)!important;border-radius:24px!important;box-shadow:6px 6px 0 var(--ink)!important;
+  background:linear-gradient(120deg,#FF4D8D 0%,#8B5CF6 48%,#3AA0FF 100%)!important;color:#fff!important;
+  border:2px solid var(--ink)!important;border-radius:24px!important;box-shadow:8px 8px 0 var(--ink)!important;
+  overflow:hidden!important;position:relative!important;
 }
 .pg-hero *,.hero-visual *{color:#fff!important}
+.pg-hero>*,.hero-visual>*{position:relative;z-index:2}
 .pg-hero .pg-eyebrow{background:var(--yellow)!important;color:var(--ink)!important}
-.pg-hero::after,.hero-visual::after{display:none!important}
+/* decorative candy shapes peeking from the corners */
+.pg-hero::before,.hero-visual::before{
+  content:''!important;display:block!important;position:absolute!important;z-index:1!important;
+  top:-58px;right:-46px;width:190px;height:190px;border-radius:50%;
+  background:#FFD23F;border:4px solid var(--ink);
+}
+.pg-hero::after,.hero-visual::after{
+  content:''!important;display:block!important;position:absolute!important;z-index:1!important;
+  bottom:-88px;left:-72px;width:150px;height:150px;border-radius:50%;
+  background:#1FCF9E;border:4px solid var(--ink);
+}
 
 /* terms / callout / cta accent blocks */
 .pg-cta,.pg-terms,.programme-callout{background:var(--surface)!important}
