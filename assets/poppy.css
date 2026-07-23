@@ -96,6 +96,9 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 }
 .tab:hover{background:#fff!important;border-color:var(--ink)!important}
 .tab.active{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important}
+/* mobile hamburger: white chip + ink lines so it's visible on cream */
+.mnav-burger{background:#fff!important;border:2px solid var(--ink)!important;box-shadow:2px 2px 0 var(--ink)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.mnav-burger span{background:var(--ink)!important}
 
 /* ---- generic card / tile treatment ---- */
 .pg-person,.problem-card,.tool-card,.fact,.m1-step,.builder-card,.pg-terms,
@@ -121,8 +124,40 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 .problem-card:nth-child(5n+5){background:var(--yellow-s)!important}
 .problem-card{border-top:2px solid var(--ink)!important}
 
-/* never let reveal animations leave content invisible */
-.reveal,.scroll-reveal,.reveal-stagger,[class*="reveal"]{opacity:1!important;transform:none!important}
+/* ============ MOTION: nothing sits static ============ */
+@keyframes flow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes popin{0%{opacity:0;transform:translateY(16px) scale(.98)}100%{opacity:1;transform:none}}
+@keyframes wiggle{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+
+/* keep content visible; page JS reveal handled separately */
+.reveal,.scroll-reveal,.reveal-stagger,[class*="reveal"]{opacity:1!important}
+
+/* flowing candy gradients on the gradient bands + buttons */
+.pg-hero,.hero-visual,.page-hero,.res-hero,.poppy-band,.band-top,.pg-price,.deep-dive-cta,
+.pg-wa,.cta-primary,.contact-cta,.btn,.hero-cta{
+  background-size:220% 220%!important;animation:flow 9s ease-in-out infinite!important;
+}
+/* gradient stat tiles: flow AND pop in (backwards fill so hover still works) */
+.stat-block,.fact{
+  background-size:220% 220%!important;
+  animation:flow 9s ease-in-out infinite, popin .55s cubic-bezier(.16,1,.3,1) backwards!important;
+}
+/* tinted cards: pop in on load (backwards fill keeps hover transforms intact) */
+.problem-card,.tool-card,.feat-card,.doc-item,.read-item,.pg-person,.m1-step{
+  animation:popin .55s cubic-bezier(.16,1,.3,1) backwards!important;
+}
+.problem-card:nth-child(2),.tool-card:nth-child(2),.feat-card:nth-child(2),.doc-item:nth-child(2){animation-delay:.06s!important}
+.problem-card:nth-child(3),.tool-card:nth-child(3),.feat-card:nth-child(3),.doc-item:nth-child(3){animation-delay:.12s!important}
+.problem-card:nth-child(4),.tool-card:nth-child(4),.feat-card:nth-child(4),.doc-item:nth-child(4){animation-delay:.18s!important}
+.problem-card:nth-child(5),.doc-item:nth-child(5){animation-delay:.24s!important}
+.doc-item:nth-child(6){animation-delay:.30s!important}
+
+.pg-eyebrow{animation:flow 9s ease-in-out infinite, wiggle 3.5s ease-in-out infinite!important;background-size:200% 200%!important}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  .reveal,.scroll-reveal,.reveal-stagger,[class*="reveal"]{opacity:1!important;transform:none!important}
+}
 
 /* playbook + directory titles that were near-white in the old theme */
 .pb-phase-title,.pb-card-title,.doc-title,.read-title{color:var(--ink)!important}
@@ -215,9 +250,18 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 .artist-chip,.chip,.tag,.token,.roster-tag{
   background:var(--tag-bg)!important;border:1.5px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;
 }
-/* filter pills */
-.pill,.filter-pill{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;font-family:var(--font-m)!important}
-.pill.active,.pill[aria-pressed="true"],.filter-pill.active{background:var(--ink)!important;color:#fff!important}
+/* colourful filter option pills */
+.pill,.filter-pill,.city-pill,.platform-pill,.buzz-lang-pill,.toolkit-pill{
+  border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;font-family:var(--font-m)!important;
+}
+.pill:nth-child(6n+1),.city-pill:nth-child(6n+1),.platform-pill:nth-child(6n+1),.buzz-lang-pill:nth-child(6n+1){background:var(--pink-s)!important}
+.pill:nth-child(6n+2),.city-pill:nth-child(6n+2),.platform-pill:nth-child(6n+2),.buzz-lang-pill:nth-child(6n+2){background:var(--yellow-s)!important}
+.pill:nth-child(6n+3),.city-pill:nth-child(6n+3),.platform-pill:nth-child(6n+3),.buzz-lang-pill:nth-child(6n+3){background:var(--mint-s)!important}
+.pill:nth-child(6n+4),.city-pill:nth-child(6n+4),.platform-pill:nth-child(6n+4),.buzz-lang-pill:nth-child(6n+4){background:var(--blue-s)!important}
+.pill:nth-child(6n+5),.city-pill:nth-child(6n+5),.platform-pill:nth-child(6n+5),.buzz-lang-pill:nth-child(6n+5){background:var(--violet-s)!important}
+.pill:nth-child(6n+6),.city-pill:nth-child(6n+6),.platform-pill:nth-child(6n+6),.buzz-lang-pill:nth-child(6n+6){background:var(--orange-s)!important}
+.pill:hover,.city-pill:hover,.platform-pill:hover,.buzz-lang-pill:hover{border-color:var(--pink)!important;transform:translateY(-1px)!important}
+.pill.active,.pill[aria-pressed="true"],.filter-pill.active,.city-pill.active,.platform-pill.active,.buzz-lang-pill.active,.toolkit-pill-active{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important}
 .filter-label{color:var(--muted)!important;font-family:var(--font-m)!important}
 .search-input{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:12px!important}
 .filter-bar{background:rgba(255,247,238,.92)!important;backdrop-filter:none!important}
