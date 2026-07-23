@@ -68,6 +68,8 @@ h1,h2,h3,.pg-h1,.pg-h2,.hero-headline,.section-title,.tool-name,.pg-person-name,
 p,.pg-p,.pg-lead,.pg-both,.hero-deck,.builder-text,.tool-desc,.problem-body,
 .fact-label,.m1-t,.pg-person-bio{color:var(--ink)!important}
 .muted,.pg-price-sub,.fact-source,.stat-label,.problem-nudge{color:var(--muted)!important}
+.contact-value,.contact-item .contact-value{color:var(--ink)!important;font-weight:600!important}
+.contact-label{color:var(--violet)!important;font-family:var(--font-m)!important}
 a{color:inherit}
 
 /* mono labels */
