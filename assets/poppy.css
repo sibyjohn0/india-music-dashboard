@@ -201,9 +201,16 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 .page-sub{color:rgba(255,255,255,.92)!important}
 .feat-card,.stat-card,.metric-card{
   background:#fff!important;border:2px solid var(--ink)!important;border-top:2px solid var(--ink)!important;
-  border-radius:12px!important;
+  border-radius:14px!important;box-shadow:4px 4px 0 var(--ink)!important;
 }
+/* colourful stat tiles */
+.feat-card:nth-child(4n+1),.stat-card:nth-child(4n+1){background:var(--pink-s)!important}
+.feat-card:nth-child(4n+2),.stat-card:nth-child(4n+2){background:var(--yellow-s)!important}
+.feat-card:nth-child(4n+3),.stat-card:nth-child(4n+3){background:var(--mint-s)!important}
+.feat-card:nth-child(4n+4),.stat-card:nth-child(4n+4){background:var(--blue-s)!important}
+.feat-card:hover,.stat-card:hover{transform:translate(-3px,-3px)!important;box-shadow:7px 7px 0 var(--pink)!important;border-color:var(--pink)!important}
 .feat-num,.feat-name{color:var(--ink)!important}
+.feat-num{color:var(--pink)!important;font-family:var(--font-d)!important}
 .feat-num{font-family:var(--font-d)!important}
 .artist-chip,.chip,.tag,.token,.roster-tag{
   background:var(--tag-bg)!important;border:1.5px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;
