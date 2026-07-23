@@ -1024,6 +1024,15 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
     /* ── PROBLEM CARD POLISH ── */
     .problem-card{transition:border-color .18s ease, transform .18s ease, background .18s ease}
     .problem-card:hover{border-color:rgba(233,69,96,.45);transform:translateY(-3px);background:var(--surface2)}
+    .problem-ic{margin-bottom:2px;opacity:.9}
+
+    /* ── MONTH ONE STEPS ── */
+    .m1-steps{display:grid;gap:12px;margin-top:8px;max-width:680px}
+    .m1-step{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--border);border-radius:12px;background:var(--surface);padding:18px 20px;transition:border-color .18s ease, transform .18s ease, background .18s ease}
+    .m1-step:hover{border-color:rgba(233,69,96,.4);transform:translateY(-2px);background:var(--surface2)}
+    .m1-n{font-size:20px;font-weight:800;letter-spacing:-.5px;color:var(--accent);line-height:1.1;flex-shrink:0;min-width:30px}
+    .m1-when{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--text)}
+    .m1-t{font-size:14px;color:#b6b6cc;line-height:1.6;margin-top:4px}
 
     /* ── LADDER: intentional on mobile, refined on desktop ── */
     .ladder{position:relative}
@@ -1097,24 +1106,29 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
     <h2 class="section-title" style="margin-bottom:20px">Does this sound like your year?</h2>
     <div class="problem-track">
       <div class="problem-card">
+        <svg class="problem-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="18" r="3"/><path d="M11 18V6l9-2v10"/><circle cx="17" cy="14" r="3"/></svg>
         <div class="problem-title">The track that never came out</div>
-        <div class="problem-body">A song you finished two months ago. Still unreleased because one thing is missing. The moment passes. The track goes cold.</div>
+        <div class="problem-body">Finished two months ago, still unreleased because one thing is missing. The moment passes.</div>
       </div>
       <div class="problem-card">
+        <svg class="problem-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
         <div class="problem-title">The plan that died in February</div>
-        <div class="problem-body">A content strategy that made sense in January. Fourteen posts in, it stopped. Nobody asked why. Nobody noticed.</div>
+        <div class="problem-body">Made sense in January. Fourteen posts in, it stopped. Nobody noticed.</div>
       </div>
       <div class="problem-card">
+        <svg class="problem-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M4 6l1 1 2-2M4 12l1 1 2-2M4 18l1 1 2-2"/></svg>
         <div class="problem-title">The list that never moves</div>
-        <div class="problem-body">Forty tasks. No sense of which three matter this week. Every month the same items sit at the top.</div>
+        <div class="problem-body">Forty tasks, no sense of which three matter. The same ones sit at the top every month.</div>
       </div>
       <div class="problem-card">
+        <svg class="problem-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5a2.5 2 0 0 1 2.5-1.5c1.4 0 2.5.7 2.5 1.8 0 2.4-5 1.2-5 3.6 0 1.1 1.1 1.8 2.5 1.8a2.5 2 0 0 0 2.5-1.5"/></svg>
         <div class="problem-title">The spend with no return</div>
-        <div class="problem-body">Money on a mix, a shoot, a campaign, and no way to tell if any of it came back. No plan for what happens after it drops.</div>
+        <div class="problem-body">Money on a mix, a shoot, a campaign, and no way to tell if any came back.</div>
       </div>
       <div class="problem-card">
+        <svg class="problem-ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
         <div class="problem-title">The isolation of building alone</div>
-        <div class="problem-body">Decisions made in a vacuum. No one around who has done it before. No peers navigating the same market, the same constraints, the same questions.</div>
+        <div class="problem-body">Decisions in a vacuum. No one around who has done it, no peers in the same market.</div>
       </div>
     </div>
     <p class="problem-nudge">If two of these are true, this programme is worth a conversation.</p>
@@ -1122,20 +1136,29 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
 
   <!-- THE MONEY MATH -->
   <div class="pg-block reveal">
-    <div class="pg-label">The part no one does with you</div>
-    <h2 class="pg-h2">Every release costs money. Most never earn it back.</h2>
-    <p class="pg-p">Recording, mixing, the artwork, a video, the money you put behind it to get seen: that all goes out before a single stream comes in. What comes back is streams, show fees, merch, sync, and the fans who stay long enough to buy the next release. Most artists never put the two side by side.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:8px 0 20px;max-width:680px">
-      <div style="border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:10px;padding:18px 20px;background:var(--surface)">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--accent);margin-bottom:10px">Money out</div>
-        <div style="font-size:14px;color:#b6b6cc;line-height:1.7">Recording, mixing, mastering, artwork, a video, ads to push it, the show you play at a loss to be seen.</div>
+    <div style="position:relative;border:1px solid var(--border);border-radius:16px;overflow:hidden;padding:40px 34px 36px;background:linear-gradient(180deg,rgba(13,13,15,.66) 0%,rgba(13,13,15,.9) 100%),url('../assets/section-money.jpg');background-size:cover;background-position:center 42%">
+      <div class="pg-label" style="color:var(--accent);margin-bottom:10px">The part no one does with you</div>
+      <h2 class="pg-h2" style="margin:0;max-width:560px">Every release costs money. Most never earn it back.</h2>
+    </div>
+
+    <div style="display:grid;gap:12px;margin:20px 0;max-width:680px">
+      <div style="display:flex;align-items:center;gap:14px;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:0 12px 12px 0;background:var(--surface);padding:16px 18px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 5v14"/><path d="M19 12l-7 7-7-7"/></svg>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--accent)">Money out</div>
+          <div style="font-size:14px;color:#b6b6cc;line-height:1.6;margin-top:3px">Recording, mixing, artwork, a video, ads, the show you play at a loss to be seen.</div>
+        </div>
       </div>
-      <div style="border:1px solid var(--border);border-top:2px solid var(--green);border-radius:10px;padding:18px 20px;background:var(--surface)">
-        <div style="font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--green);margin-bottom:10px">Money back</div>
-        <div style="font-size:14px;color:#b6b6cc;line-height:1.7">Streams, show fees, merch, sync placements, and the fans who stay and pay for the next release too.</div>
+      <div style="display:flex;align-items:center;gap:14px;border:1px solid var(--border);border-left:3px solid var(--green);border-radius:0 12px 12px 0;background:var(--surface);padding:16px 18px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--green)">Money back</div>
+          <div style="font-size:14px;color:#b6b6cc;line-height:1.6;margin-top:3px">Streams, show fees, merch, sync, and the fans who stay and pay for the next release.</div>
+        </div>
       </div>
     </div>
-    <p class="pg-p">Putting these two side by side, release by release, is where we start. The point is not to spend less. It is to know that what you spend comes back, and builds the audience that pays for the next one. That is the difference between a year of releases and a year of progress.</p>
+
+    <p class="pg-p">We put the two side by side, release by release. Not to make you spend less, to make sure it comes back and grows the audience that pays for the next one.</p>
   </div>
 
   <!-- THE TWO PEOPLE -->
@@ -1177,9 +1200,20 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
   <div class="pg-block reveal">
     <div class="pg-label">What the first month looks like</div>
     <h2 class="pg-h2">Start with one month. No commitment beyond that.</h2>
-    <p class="pg-p">In the first two weeks, you share three things: what you have spent and what has come back over the last six months, your phone book (who you know), and your ambitions (who you want to be in eighteen months).</p>
-    <p class="pg-p">In the next two weeks, we map what we see: the gaps, the leverage you're already sitting on, and the specific things blocking the next rung.</p>
-    <p class="pg-p">At the end of the month, you get a document: your twelve-month picture, your KPIs, and exactly what stands between you and the next level, named specifically. That document is yours to keep, whatever you decide next.</p>
+    <div class="m1-steps">
+      <div class="m1-step">
+        <span class="m1-n">01</span>
+        <div><div class="m1-when">Weeks 1-2</div><div class="m1-t">You share your money in and out over six months, your phone book, and where you want to be in eighteen months.</div></div>
+      </div>
+      <div class="m1-step">
+        <span class="m1-n">02</span>
+        <div><div class="m1-when">Weeks 3-4</div><div class="m1-t">We map the gaps, the leverage you already have, and what's blocking the next rung.</div></div>
+      </div>
+      <div class="m1-step">
+        <span class="m1-n">03</span>
+        <div><div class="m1-when">End of month</div><div class="m1-t">You get a document naming your twelve-month picture, your KPIs, and exactly what's in the way. Yours to keep.</div></div>
+      </div>
+    </div>
   </div>
 
   <!-- CONTINUE -->
