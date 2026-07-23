@@ -64,6 +64,30 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
   body.mnav-open{overflow:hidden}
 }
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Indie Music India",
+     "item": "https://indiemusicindia.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Deep Dive",
+     "item": "https://indiemusicindia.com/deep-dive/"
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <button class="mnav-burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('mnav-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
