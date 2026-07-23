@@ -264,6 +264,39 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
   body.mnav-open{overflow:hidden}
 }
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "CollectionPage",
+   "url": "https://indiemusicindia.com/industry/",
+   "name": "Labels & Agencies",
+   "description": "127 India-first record labels and booking agencies, with who is actively signing and what career stage to approach them at.",
+   "isPartOf": {
+    "@id": "https://indiemusicindia.com/#site"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Indie Music India",
+     "item": "https://indiemusicindia.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Labels & Agencies",
+     "item": "https://indiemusicindia.com/industry/"
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <button class="mnav-burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('mnav-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
@@ -636,5 +669,6 @@ Promise.all([
   <div style="font-size:11px">Data refreshed weekly · Free to use</div>
 </footer>
 <script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});</script>
+<noscript><div class="noscript-seo" style="max-width:760px;margin:24px auto;padding:0 24px;color:#b6b6cc;line-height:1.6">Labels and Agencies covers 127 India-first record labels and booking agencies, with editorial notes on who is actively signing, what career stage to approach them at, and who they represent.</div></noscript>
 </body>
 </html>
