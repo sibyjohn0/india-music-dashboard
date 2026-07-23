@@ -60,6 +60,10 @@ body>*{position:relative;z-index:1}
 
 /* confetti GIF accent */
 .confetti-accent{position:absolute;pointer-events:none;z-index:3;width:200px;height:200px;background:url('/assets/anim/confetti.gif') center/contain no-repeat}
+/* confetti spread across a whole block, behind the content */
+.confetti-full{position:absolute;inset:0;pointer-events:none;z-index:0;background:url('/assets/anim/confetti.gif') repeat;background-size:200px 200px;opacity:.45}
+.pg-cta,.contact-card{position:relative;overflow:hidden}
+.pg-cta>*:not(.confetti-full),.contact-card>*:not(.confetti-full){position:relative;z-index:1}
 /* money coin GIFs */
 .poppy-band{position:relative}
 .coins-band{position:absolute;right:22px;top:50%;transform:translateY(-50%);width:300px;height:180px;pointer-events:none;z-index:2;background:url('/assets/anim/coins-band.gif') center/contain no-repeat}
