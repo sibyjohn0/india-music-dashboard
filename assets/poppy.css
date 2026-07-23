@@ -1,0 +1,249 @@
+/* ============================================================
+   POPPY DESIGN SYSTEM  ·  Indie Music India
+   Bright candy-gradient theme. Loaded after each page's inline
+   <style> so it overrides the old dark editorial look.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+:root{
+  /* remap the existing variable names to the candy palette so
+     every old rule that used them flips automatically */
+  --bg:#FFF7EE;
+  --surface:#FFFFFF;
+  --surface2:#FFF0E2;
+  --border:#241B2E;
+  --text:#241B2E;
+  --muted:#6B6076;
+  --accent:#FF4D8D;
+  --amber:#FF9130;
+  --green:#1FCF9E;
+
+  /* new candy tokens */
+  --ink:#241B2E;
+  --cream:#FFF7EE;
+  --pink:#FF4D8D;  --pink-s:#FFE1EC;
+  --orange:#FF9130;--orange-s:#FFE7D0;
+  --yellow:#FFD23F;--yellow-s:#FFF3CE;
+  --violet:#8B5CF6;--violet-s:#EDE4FF;
+  --blue:#3AA0FF;  --blue-s:#DCEEFF;
+  --mint:#1FCF9E;  --mint-s:#D2F6EC;
+  --g-sunset:linear-gradient(120deg,#FF4D8D,#FF9130);
+  --g-grape:linear-gradient(120deg,#8B5CF6,#3AA0FF);
+  --g-mint:linear-gradient(120deg,#1FCF9E,#3AA0FF);
+  --g-candy:linear-gradient(120deg,#FF4D8D,#8B5CF6);
+  --font-d:'Bricolage Grotesque',system-ui,sans-serif;
+  --font-b:'Inter',system-ui,sans-serif;
+  --font-m:'Space Mono',ui-monospace,monospace;
+  /* chips / tags used across the directory pages */
+  --tag-bg:#FFFFFF;
+  --card-bg:#FFFFFF;
+  --tag-bg-dark:#FFFFFF;
+}
+
+/* ---- base ---- */
+html,body{background:var(--cream)!important;color:var(--ink)!important}
+body{
+  font-family:var(--font-b)!important;
+  background:
+    radial-gradient(600px circle at 8% 4%, rgba(255,77,141,.20), transparent 55%),
+    radial-gradient(620px circle at 94% 12%, rgba(58,160,255,.18), transparent 55%),
+    radial-gradient(700px circle at 20% 62%, rgba(255,210,63,.16), transparent 55%),
+    radial-gradient(680px circle at 88% 88%, rgba(139,92,246,.16), transparent 55%),
+    var(--cream)!important;
+  background-attachment:fixed!important;
+}
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+body>*{position:relative;z-index:1}
+
+/* ---- type ---- */
+h1,h2,h3,.pg-h1,.pg-h2,.hero-headline,.section-title,.tool-name,.pg-person-name,
+.builder-name,.stat-num,.fact-num,.pg-price,.programme-callout .section-title{
+  font-family:var(--font-d)!important;color:var(--ink)!important;letter-spacing:-1px;
+}
+.pg-h1,.hero-headline{letter-spacing:-2px!important;line-height:.98!important}
+p,.pg-p,.pg-lead,.pg-both,.hero-deck,.builder-text,.tool-desc,.problem-body,
+.fact-label,.m1-t,.pg-person-bio{color:var(--ink)!important}
+.muted,.pg-price-sub,.fact-source,.stat-label,.problem-nudge{color:var(--muted)!important}
+a{color:inherit}
+
+/* mono labels */
+.pg-label,.section-label,.pg-eyebrow,.eyebrow,.stat-label,.m1-when,.kicker,
+.fact-source,.contact-label{
+  font-family:var(--font-m)!important;text-transform:uppercase;letter-spacing:.6px;
+}
+.pg-label,.section-label,.pg-eyebrow,.kicker{color:var(--violet)!important;font-weight:700!important}
+
+/* eyebrow as a tilted sticker where it sits alone at the top of a hero */
+.pg-eyebrow{
+  display:inline-block;background:var(--yellow);color:var(--ink)!important;
+  padding:6px 14px;border-radius:999px;border:2px solid var(--ink);transform:rotate(-2deg);
+}
+
+/* ---- header / nav ---- */
+header{background:var(--cream)!important;border-bottom:2px solid var(--ink)!important;backdrop-filter:none!important}
+.logo,.logo a{color:var(--ink)!important;font-family:var(--font-d)!important;font-weight:800!important}
+nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--ink)!important;
+  -webkit-mask-image:none!important;mask-image:none!important}
+.tab{
+  font-family:var(--font-m)!important;color:var(--ink)!important;border:2px solid transparent!important;
+  border-radius:999px!important;height:auto!important;margin:8px 2px;padding:7px 14px!important;font-weight:700!important;
+}
+.tab:hover{background:#fff!important;border-color:var(--ink)!important}
+.tab.active{background:var(--ink)!important;color:#fff!important;border-color:var(--ink)!important}
+
+/* ---- generic card / tile treatment ---- */
+.pg-person,.problem-card,.tool-card,.fact,.m1-step,.builder-card,.pg-terms,
+.programme-callout,.contact-card,.contact-item,.hero-visual,.deep-card,.read-card,
+.resource-card,.card,.rc,.tile{
+  background:var(--surface)!important;
+  border:2px solid var(--ink)!important;
+  border-radius:20px!important;
+  box-shadow:5px 5px 0 var(--ink)!important;
+  transition:transform .16s ease, box-shadow .16s ease!important;
+}
+.pg-person:hover,.problem-card:hover,.tool-card:hover,.fact:hover,.m1-step:hover,
+.deep-card:hover,.read-card:hover,.resource-card:hover,.card:hover,.tile:hover{
+  transform:translate(-3px,-3px)!important;
+  box-shadow:8px 8px 0 var(--ink)!important;
+  background:var(--surface)!important;
+}
+/* candy tinting: cycle colours across problem cards & tool cards */
+.problem-card:nth-child(5n+1),.tool-card:nth-child(4n+1){background:var(--pink-s)!important}
+.problem-card:nth-child(5n+2),.tool-card:nth-child(4n+2){background:var(--blue-s)!important}
+.problem-card:nth-child(5n+3),.tool-card:nth-child(4n+3){background:var(--mint-s)!important}
+.problem-card:nth-child(5n+4),.tool-card:nth-child(4n+4){background:var(--violet-s)!important}
+.problem-card:nth-child(5n+5){background:var(--yellow-s)!important}
+.problem-card{border-top:2px solid var(--ink)!important}
+
+/* never let reveal animations leave content invisible */
+.reveal,.scroll-reveal,.reveal-stagger,[class*="reveal"]{opacity:1!important;transform:none!important}
+
+/* playbook + directory titles that were near-white in the old theme */
+.pb-phase-title,.pb-card-title,.doc-title,.read-title{color:var(--ink)!important}
+.pb-phase-title,.pb-card-title{font-family:var(--font-d)!important}
+
+/* card titles / body legibility (old theme made these near-white) */
+.problem-title,.deep-title,.read-title,.resource-title{
+  color:var(--ink)!important;font-family:var(--font-d)!important;font-size:17px!important;line-height:1.15!important;
+}
+.problem-body{font-size:14px!important;color:var(--ink)!important;line-height:1.55!important}
+
+/* problem cards → wrapping grid (drop the horizontal carousel + arrows) */
+.problem-track{
+  display:grid!important;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))!important;
+  gap:16px!important;overflow:visible!important;margin:0!important;padding:4px 0 8px!important;
+}
+.problem-card{flex:none!important;min-width:0!important}
+.crsl-btn{display:none!important}
+
+/* icon chips inside cards */
+.problem-ic,.tool-icon{
+  display:inline-grid!important;place-items:center;width:44px;height:44px;
+  border-radius:13px!important;border:2px solid var(--ink);background:#fff;margin-bottom:12px;
+}
+
+/* ---- stat strips / number tiles ---- */
+.stats-strip,.facts-strip{gap:14px!important;border:none!important;background:transparent!important;overflow:visible!important}
+.stat-block,.fact{border-radius:18px!important;border:2px solid var(--ink)!important;color:#fff!important}
+.stat-block{box-shadow:none!important}
+.stat-block:nth-child(3n+1),.fact:nth-child(4n+1){background:var(--g-sunset)!important}
+.stat-block:nth-child(3n+2),.fact:nth-child(4n+2){background:var(--g-grape)!important}
+.stat-block:nth-child(3n+3),.fact:nth-child(4n+3){background:var(--g-mint)!important}
+.fact:nth-child(4n+4){background:var(--g-candy)!important}
+.stat-num,.fact-num,.stat-label,.fact-label,.fact-num span{color:#fff!important}
+.fact-source,.fact-source a{color:rgba(255,255,255,.85)!important}
+
+/* ---- buttons ---- */
+.pg-wa,.cta-primary,.contact-cta,.btn,.hero-cta,button.primary{
+  font-family:var(--font-d)!important;font-weight:700!important;
+  background:var(--pink)!important;color:#fff!important;
+  border:2px solid var(--ink)!important;border-radius:14px!important;
+  box-shadow:5px 5px 0 var(--ink)!important;transition:transform .15s, box-shadow .15s!important;
+}
+.pg-wa:hover,.cta-primary:hover,.contact-cta:hover,.btn:hover{
+  transform:translate(-2px,-2px)!important;box-shadow:7px 7px 0 var(--ink)!important;filter:none!important;
+}
+.pg-email,.tool-link{color:var(--violet)!important;font-family:var(--font-m)!important;font-weight:700!important}
+
+/* ---- heroes: swap dark photo bands for candy gradient bands ---- */
+.pg-hero,.hero-visual{
+  background:var(--g-grape)!important;color:#fff!important;
+  border:2px solid var(--ink)!important;border-radius:24px!important;box-shadow:6px 6px 0 var(--ink)!important;
+}
+.pg-hero *,.hero-visual *{color:#fff!important}
+.pg-hero .pg-eyebrow{background:var(--yellow)!important;color:var(--ink)!important}
+.pg-hero::after,.hero-visual::after{display:none!important}
+
+/* terms / callout / cta accent blocks */
+.pg-cta,.pg-terms,.programme-callout{background:var(--surface)!important}
+.pg-cta{background:var(--yellow-s)!important}
+
+/* ---- app / directory pages (industry, resources, reviewers, radar) ---- */
+.page-hero{
+  background:var(--g-grape)!important;border-bottom:2px solid var(--ink)!important;overflow:hidden;
+}
+.page-hero::after{display:none!important}
+.page-title{color:#fff!important;font-family:var(--font-d)!important}
+.page-sub{color:rgba(255,255,255,.92)!important}
+.feat-card,.stat-card,.metric-card{
+  background:#fff!important;border:2px solid var(--ink)!important;border-top:2px solid var(--ink)!important;
+  border-radius:12px!important;
+}
+.feat-num,.feat-name{color:var(--ink)!important}
+.feat-num{font-family:var(--font-d)!important}
+.artist-chip,.chip,.tag,.token,.roster-tag{
+  background:var(--tag-bg)!important;border:1.5px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;
+}
+/* filter pills */
+.pill,.filter-pill{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;font-family:var(--font-m)!important}
+.pill.active,.pill[aria-pressed="true"],.filter-pill.active{background:var(--ink)!important;color:#fff!important}
+.filter-label{color:var(--muted)!important;font-family:var(--font-m)!important}
+.search-input{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:12px!important}
+.filter-bar{background:rgba(255,247,238,.92)!important;backdrop-filter:none!important}
+.pitch-note,.how-to,.approach{background:var(--yellow-s)!important;color:var(--ink)!important;border-radius:0 10px 10px 0!important}
+.badge-global,.status-major-only,.status-closed{background:var(--violet-s)!important;color:var(--violet)!important}
+.show-more-btn{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;font-family:var(--font-m)!important}
+.group-header-label{color:var(--violet)!important;font-family:var(--font-m)!important}
+
+/* resources page specifics */
+.res-hero{background:var(--g-grape)!important;border:2px solid var(--ink)!important;border-radius:20px!important;box-shadow:6px 6px 0 var(--ink)!important}
+.res-hero *{color:#fff!important}
+.res-hero::after,.res-hero::before{display:none!important}
+.res-search,.res-search-row input{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:12px!important}
+.res-search-row{background:transparent!important}
+.res-jump a,.res-jump .tab{background:#fff!important;border:2px solid var(--ink)!important;border-radius:999px!important;color:var(--ink)!important;font-family:var(--font-m)!important}
+.res-jump a.active,.res-jump .active{background:var(--pink)!important;color:#fff!important}
+.doc-item,.read-item{border:2px solid var(--ink)!important;border-radius:14px!important;background:#fff!important;box-shadow:4px 4px 0 var(--ink)!important;margin-bottom:12px!important}
+.res-section-label,.res-kicker{color:var(--violet)!important;font-family:var(--font-m)!important}
+
+/* playbook page specifics */
+#phase-nav{background:var(--cream)!important;border-bottom:2px solid var(--ink)!important}
+.phase-tabs{background:transparent!important;border-bottom:none!important;padding:6px 0!important}
+.phase-tab{background:#fff!important;border:2px solid var(--ink)!important;border-radius:999px!important;color:var(--ink)!important;font-family:var(--font-m)!important;margin:6px 3px!important;padding:6px 14px!important;height:auto!important;font-weight:700!important}
+.phase-tab.active,.phase-tab[aria-selected="true"]{background:var(--ink)!important;color:#fff!important}
+.pb-section-card{background:#fff!important;border:2px solid var(--ink)!important;border-radius:14px!important;box-shadow:4px 4px 0 var(--ink)!important}
+.pb-phase-eyebrow{color:var(--violet)!important;font-family:var(--font-m)!important}
+.pb-back-btn{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important}
+.income-bar-track{background:var(--cream2)!important}
+#phase-context{background:transparent!important;border:none!important}
+#phase-context *{background:transparent!important;color:var(--ink)!important;border-color:var(--ink)!important}
+#search-input{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:10px!important}
+
+/* reusable candy header band (replaces old dark photo headers) */
+.poppy-band{
+  background:var(--g-candy)!important;border:2px solid var(--ink)!important;border-radius:22px!important;
+  box-shadow:6px 6px 0 var(--ink)!important;padding:34px 32px!important;overflow:hidden!important;
+}
+.poppy-band,.poppy-band *{color:#fff!important}
+.poppy-band .pg-label,.poppy-band .section-label{color:rgba(255,255,255,.92)!important}
+
+/* dividers */
+hr,.divider{border-color:var(--ink)!important;opacity:.15}
+
+/* footer */
+footer{background:var(--cream)!important;border-top:2px solid var(--ink)!important;color:var(--ink)!important}
+footer *{color:var(--ink)!important}
