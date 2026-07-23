@@ -60,6 +60,13 @@ body>*{position:relative;z-index:1}
 
 /* confetti GIF accent */
 .confetti-accent{position:absolute;pointer-events:none;z-index:3;width:200px;height:200px;background:url('/assets/anim/confetti.gif') center/contain no-repeat}
+/* money coin GIFs */
+.poppy-band{position:relative}
+.coins-band{position:absolute;right:22px;top:50%;transform:translateY(-50%);width:300px;height:180px;pointer-events:none;z-index:2;background:url('/assets/anim/coins-band.gif') center/contain no-repeat}
+.coins-row{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:64px;height:64px;pointer-events:none;z-index:2;background-position:center;background-repeat:no-repeat;background-size:contain}
+.coins-row.out{background-image:url('/assets/anim/coins-down.gif')}
+.coins-row.back{background-image:url('/assets/anim/coins-up.gif')}
+@media(max-width:640px){.coins-band{display:none}}
 
 /* animated equaliser sticker */
 .hero-eq{position:absolute!important;z-index:3;display:flex;align-items:flex-end;gap:5px;height:38px}
