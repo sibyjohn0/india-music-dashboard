@@ -1,13 +1,711 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R7EYMGZEJZ');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Indie Music India</title>
-  <link rel="canonical" href="https://indiemusicindia.com/programme/" />
-  <meta http-equiv="refresh" content="0; url=/programme/" />
-  <script>window.location.replace("/programme/");</script>
-  <style>body{background:#0d0d0f;color:#aaa;font-family:'Inter',sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;font-size:14px}a{color:#e94560}</style>
+  <title>Indie Music India — Free tools for India's independent music scene</title>
+  <meta name="description" content="A free, India-first resource for everyone in the independent music scene: artists, labels, curators, and press. A daily radar, 1,100+ reviewer contacts, a labels directory, a playbook, and an artist programme." />
+  <meta property="og:title" content="Indie Music India" />
+  <meta property="og:description" content="Free, India-first tools for the independent music scene: radar, reviewer database, labels directory, playbook, and an artist programme." />
+  <meta property="og:url" content="https://indiemusicindia.com/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Indie Music India" />
+  <meta name="twitter:description" content="Free, India-first tools for the independent music scene." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d0d0f;
+      --surface:  #141418;
+      --surface2: #1c1c24;
+      --border:   #242430;
+      --accent:   #e94560;
+      --amber:    #f7b731;
+      --green:    #10b981;
+      --text:     #e8e8f0;
+      --muted:    #6b6b85;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── MOTION ── */
+    @keyframes reveal-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      animation: reveal-up .7s cubic-bezier(.22,.61,.36,1) forwards;
+      animation-delay: var(--reveal-delay, 0ms);
+    }
+    /* scroll-reveal: hidden until observed */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1);
+      will-change: opacity, transform;
+    }
+    .scroll-reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: .001ms !important;
+      }
+      .reveal { opacity: 1; }
+      .scroll-reveal { opacity: 1; transform: none; }
+    }
+
+    /* ── NAV ── */
+    header {
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      height: 52px;
+      background: rgba(13,13,15,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo { font-size: 15px; font-weight: 700; letter-spacing: -.2px; }
+    .logo span { color: var(--accent); }
+
+    nav { display: flex; padding: 0 24px; background: var(--surface); border-bottom: 1px solid var(--border); overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; -webkit-mask-image: linear-gradient(to right, black calc(100% - 32px), transparent 100%); mask-image: linear-gradient(to right, black calc(100% - 32px), transparent 100%); }
+    nav::-webkit-scrollbar { display: none; }
+    .tab { background: none; border: none; border-bottom: 2px solid transparent; color: #999; font: 13px/1 'Inter', sans-serif; padding: 0 16px; height: 44px; display: flex; align-items: center; cursor: pointer; transition: color .15s, border-color .15s; white-space: nowrap; text-decoration: none; flex-shrink: 0; font-weight: 500; }
+    .tab:hover { color: var(--text); }
+    .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
+
+    /* ── CONTACT STRIP ── */
+    .contact-strip {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 9px 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      flex-wrap: wrap;
+    }
+    .contact-strip-name { font-weight: 700; color: var(--text); }
+    .contact-strip-sep { color: var(--border); }
+    .contact-strip a { color: var(--muted); text-decoration: none; transition: color .15s; }
+    .contact-strip a:hover { color: var(--text); }
+
+    /* ── PAGE LAYOUT ── */
+    .page { max-width: 860px; margin: 0 auto; padding: 72px 32px 120px; }
+
+    /* ── HERO VISUAL ── */
+    .hero-visual {
+      position: relative;
+      background:
+        linear-gradient(180deg, rgba(13,13,15,.55) 0%, rgba(13,13,15,.82) 100%),
+        linear-gradient(135deg, rgba(233,69,96,.10) 0%, transparent 55%),
+        url("/assets/hero-about.jpg");
+      background-size: cover;
+      background-position: center;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 64px 44px 56px;
+      margin-bottom: 48px;
+      overflow: hidden;
+    }
+    .hero-visual::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(233,69,96,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── HERO ── */
+    .eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .hero-headline {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: #f0f0f0;
+      margin-bottom: 24px;
+    }
+    .hero-deck {
+      font-size: 17px;
+      color: #b0b0c8;
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 40px;
+    }
+
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 72px; }
+    .cta-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: opacity .15s;
+    }
+    .cta-primary:hover { opacity: .88; }
+    .cta-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      transition: border-color .15s;
+    }
+    .cta-secondary:hover { border-color: var(--muted); }
+
+    /* ── TOOLS ── */
+    .section { margin-bottom: 80px; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+      margin-bottom: 8px;
+      color: #f0f0f0;
+    }
+    .section-body {
+      font-size: 15px;
+      color: #b0b0c8;
+      line-height: 1.75;
+      max-width: 680px;
+      margin-bottom: 28px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+    .tool-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(233,69,96,.05) 0%, var(--surface) 55%);
+    }
+    .tool-icon { font-size: 22px; }
+    .tool-name { font-size: 15px; font-weight: 700; color: #f0f0f0; }
+    .tool-desc { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
+    .tool-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .tool-link:hover { opacity: .8; }
+
+    /* ── BUILDER NOTE ── */
+    .builder-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .builder-name {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .builder-text {
+      font-size: 15px;
+      color: #c0c0d8;
+      line-height: 1.85;
+    }
+    .builder-text p + p { margin-top: 16px; }
+    .stat-inline {
+      display: inline-block;
+      font-weight: 700;
+      color: #f0f0f0;
+    }
+
+    /* ── PATH GRID ── */
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .path-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .path-block-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .path-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .path-tag {
+      font-size: 11px;
+      font-weight: 500;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: #c0c0d8;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+    .path-block-note { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .contact-left h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.3px;
+      margin-bottom: 12px;
+      color: #f0f0f0;
+    }
+    .contact-left p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 14px; }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 56px;
+      padding: 16px 18px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+    .contact-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(233,69,96,.06) 0%, var(--surface2) 60%);
+    }
+    .contact-icon { font-size: 16px; flex-shrink: 0; }
+    .contact-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .contact-value { font-size: 14px; font-weight: 600; color: #f0f0f0; }
+    .contact-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      background: var(--accent);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 8px;
+      transition: opacity .15s;
+    }
+    .contact-cta:hover { opacity: .88; }
+
+    /* ── DATA FACTS ── */
+    .facts-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 56px;
+    }
+    .fact {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: border-color .18s ease, transform .18s ease, background .18s ease;
+    }
+    .fact:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      background: linear-gradient(180deg, rgba(233,69,96,.05) 0%, var(--surface) 60%);
+    }
+    .fact-num { font-size: 30px; font-weight: 800; color: #f0f0f0; letter-spacing: -1px; line-height: 1.05; }
+    .fact-num span { color: var(--accent); }
+    .fact-label { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .fact-source { font-size: 10px; color: var(--muted); margin-top: auto; padding-top: 8px; opacity: 0.7; }
+    .fact-source a { color: var(--muted); text-decoration: underline; text-underline-offset: 2px; transition: opacity .15s, color .15s; }
+    .fact-source a:hover { opacity: 1; color: var(--text); }
+
+    /* ── PROGRAMME CALLOUT ── */
+    .programme-callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .programme-callout-left { flex: 1; min-width: 240px; }
+    .programme-callout-right { flex-shrink: 0; text-align: right; }
+
+    /* ── DIVIDER ── */
+    .divider { border: none; border-top: 1px solid var(--border); margin: 64px 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .footer-logo { font-weight: 800; font-size: 13px; letter-spacing: -.2px; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); transition: color .15s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 760px) {
+      .facts-strip { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .page { padding: 36px 16px 64px; }
+      header { padding: 0 12px; flex-wrap: wrap; height: auto; min-height: 52px; }
+      nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .tab { padding: 14px 10px; font-size: 11px; }
+
+      .section { margin-bottom: 48px; }
+      .section-title { font-size: 20px; }
+      .section-body { font-size: 14px; }
+
+      .hero-visual { padding: 28px 20px 24px; margin-bottom: 28px; border-radius: 12px; }
+      .hero-visual::after { width: 140px; height: 140px; top: -40px; right: -40px; }
+      .hero-headline { letter-spacing: -.5px; }
+      .hero-deck { font-size: 15px; }
+
+      .tools-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; margin: 0 -16px; padding: 4px 16px 12px; flex-wrap: nowrap; }
+      .tools-grid::-webkit-scrollbar { display: none; }
+      .tool-card { flex: 0 0 220px; scroll-snap-align: start; }
+
+      .cta-row { gap: 8px; }
+      .cta-primary, .cta-secondary { font-size: 13px; padding: 11px 18px; }
+
+      .facts-strip { grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 36px; }
+      .fact { padding: 16px 14px; }
+      .fact-num { font-size: 24px; }
+      .fact-label { font-size: 11px; }
+
+      .builder-card { padding: 20px; }
+      .builder-text { font-size: 14px; line-height: 1.75; }
+
+      .contact-card { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+
+      .divider { margin: 40px 0; }
+
+      footer { padding: 20px 16px; flex-direction: column; align-items: flex-start; }
+      footer > div { max-width: 100%; }
+
+      .programme-callout { padding: 20px; gap: 20px; }
+      .programme-callout-right { text-align: left; }
+    }
+  </style>
+  <link rel="canonical" href="https://indiemusicindia.com/about/" />
+  <meta property="og:image" content="https://indiemusicindia.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content="https://indiemusicindia.com/og-image.png" />
+<style id="mnav-css">
+html{overflow-x:clip}
+.mnav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:rgba(19,19,26,.72);border:1px solid var(--border,#2a2a38);border-radius:11px;cursor:pointer;padding:0 11px;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.mnav-burger span{display:block;height:2px;width:22px;background:var(--text,#e8e8f0);border-radius:2px;transition:transform .25s,opacity .2s}
+body.mnav-open .mnav-burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.mnav-open .mnav-burger span:nth-child(2){opacity:0}
+body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:768px){
+  .mnav-burger{display:flex;position:fixed;top:9px;right:14px;z-index:300}
+  nav.js-primnav{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;bottom:0 !important;height:100dvh !important;width:100% !important;max-width:none !important;margin:0 !important;display:flex !important;flex-direction:column !important;justify-content:center !important;align-items:center !important;gap:4px !important;background:rgba(10,10,15,.98) !important;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);transform:translateX(100%);transition:transform .34s cubic-bezier(.4,0,.2,1);z-index:290 !important;padding:0 !important;border:0 !important;overflow:auto !important;-webkit-mask-image:none !important;mask-image:none !important}
+  body.mnav-open nav.js-primnav{transform:translateX(0) !important}
+  nav.js-primnav a,nav.js-primnav .tab{font-size:24px !important;font-weight:700 !important;line-height:1 !important;padding:15px 30px !important;height:auto !important;width:auto !important;border:0 !important;color:var(--text,#e8e8f0) !important;flex:0 0 auto !important;white-space:nowrap !important}
+  nav.js-primnav a.active,nav.js-primnav a.tab.active,nav.js-primnav .active{color:var(--accent,#e94560) !important;border:0 !important}
+  body.mnav-open{overflow:hidden}
+}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://indiemusicindia.com/#org",
+   "name": "Indie Music India",
+   "url": "https://indiemusicindia.com/",
+   "logo": "https://indiemusicindia.com/og-image.png",
+   "sameAs": [
+    "https://linkedin.com/in/sibyjohn"
+   ],
+   "founder": [
+    {
+     "@type": "Person",
+     "name": "Siby John"
+    },
+    {
+     "@type": "Person",
+     "name": "Karishma Changroth"
+    }
+   ],
+   "description": "Free tools and an artist development programme for independent Indian musicians."
+  },
+  {
+   "@type": "AboutPage",
+   "url": "https://indiemusicindia.com/about/",
+   "name": "About Indie Music India",
+   "about": {
+    "@id": "https://indiemusicindia.com/#org"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Indie Music India",
+     "item": "https://indiemusicindia.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "About",
+     "item": "https://indiemusicindia.com/about/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+<link rel="stylesheet" href="/assets/poppy.css">
 </head>
-<body>Redirecting to the <a href="/programme/">Artist Development Programme</a>&hellip;</body>
+<body>
+<button class="mnav-burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('mnav-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
+
+<header>
+  <div class="logo"><a href="/">◉ Indie Music India</a></div>
+</header>
+
+<nav class="js-primnav">
+  <a class="tab" href="/programme/">Programme</a>
+  <a class="tab" href="/about/">About</a>
+  <a class="tab" href="/radar.html">Radar</a>
+  <a class="tab" href="/reviewers/">Reviewers</a>
+  <a class="tab" href="/industry/">Industry</a>
+  <a class="tab" href="/resources/">Resources</a>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero-visual reveal" style="--reveal-delay:60ms">
+    <div class="eyebrow">Free &middot; India-first</div>
+    <h1 class="hero-headline">The toolkit India's independent<br>music scene never had.</h1>
+    <p class="hero-deck">A free, open resource for everyone in the independent scene here: the artists making the music, and the labels, curators, writers, and teams around them.</p>
+  </div>
+
+  <div class="cta-row reveal" style="--reveal-delay:140ms">
+    <a class="cta-primary" href="#tools">Explore the free tools &rarr;</a>
+    <a class="cta-secondary" href="/programme/">For artists: the programme &rarr;</a>
+  </div>
+
+  <!-- WHO IT'S FOR -->
+  <div class="section scroll-reveal">
+    <div class="section-label">Who it's for</div>
+    <div class="section-title">Wherever you sit in the scene.</div>
+    <div class="path-grid">
+      <div class="path-block">
+        <div class="path-block-label">Independent artists</div>
+        <div class="path-block-note">Free tools to release smarter, and a hands-on programme when you want a team behind you.</div>
+      </div>
+      <div class="path-block">
+        <div class="path-block-label">Labels &amp; industry</div>
+        <div class="path-block-note">A live directory of India-first labels and booking agencies, and who is signing at what stage.</div>
+      </div>
+      <div class="path-block">
+        <div class="path-block-label">Press &amp; curators</div>
+        <div class="path-block-note">1,100+ reviewer contacts and a daily radar of what is emerging across India.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE TOOLS -->
+  <div class="section scroll-reveal" id="tools">
+    <div class="section-label">What's inside</div>
+    <div class="section-title">Free tools. No login. Always.</div>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6.5C10.5 5 8 4.5 4 4.8V19c4-.3 6.5.2 8 1.5 1.5-1.3 4-1.8 8-1.5V4.8c-4-.3-6.5.2-8 1.7z"/><path d="M12 6.5V20"/></svg></div>
+        <div class="tool-name">The Playbook</div>
+        <div class="tool-desc">44 sections on identity, production, distribution, revenue, live, and rights. India-specific, no label required.</div>
+        <a class="tool-link" href="/playbook/">Open Playbook &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="#e94560" stroke="none"/></svg></div>
+        <div class="tool-name">India Indie Radar</div>
+        <div class="tool-desc">Live tracker of Indian indie artists, venues, and upcoming shows across eight cities. Updated daily.</div>
+        <a class="tool-link" href="/radar.html">Open Radar &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r="1" fill="#e94560" stroke="none"/><circle cx="4.5" cy="12" r="1" fill="#e94560" stroke="none"/><circle cx="4.5" cy="18" r="1" fill="#e94560" stroke="none"/></svg></div>
+        <div class="tool-name">Reviewer Database</div>
+        <div class="tool-desc">1,100+ blogs, podcasts, and curators with direct submission contacts and pricing. Updated weekly.</div>
+        <a class="tool-link" href="/reviewers/">Open Database &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 12.5l8-8H20V13l-8 8z"/><circle cx="8" cy="8" r="1.3"/></svg></div>
+        <div class="tool-name">Labels &amp; Agencies</div>
+        <div class="tool-desc">127 India-first labels and booking agencies, with who is signing and what stage to approach at.</div>
+        <a class="tool-link" href="/industry/">Open Directory &rarr;</a>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6a2 2 0 0 1 2-2h4l2 2h6a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 13h6"/></svg></div>
+        <div class="tool-name">Resources</div>
+        <div class="tool-desc">A start-here shortlist, the reading list, and the full toolkit. Everything free, in one place.</div>
+        <a class="tool-link" href="/resources/">Open Resources &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRAMME CALLOUT -->
+  <div class="section scroll-reveal">
+    <div class="programme-callout">
+      <div class="programme-callout-left">
+        <div class="section-label" style="margin-bottom:10px;">Artist Development Programme</div>
+        <div class="section-title" style="font-size:22px; margin-bottom:10px;">Want a team behind your release?</div>
+        <p style="font-size:14px; line-height:1.75; max-width:480px;">For artists who want more than tools: Siby John and Karishma Changroth work directly with a small number of artists at a time, with a network of PR, social, marketing, video, design, legal, and IPRS specialists on call.</p>
+      </div>
+      <div class="programme-callout-right">
+        <div style="font-size:22px; font-weight:800; letter-spacing:-.5px; margin-bottom:6px;">One month to start</div>
+        <div style="font-size:12px; color:var(--muted); margin-bottom:20px;">No commitment beyond that.</div>
+        <a class="cta-primary" href="/programme/" style="font-size:13px;">See how the programme works &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">◉ Indie Music India</div>
+  <div class="footer-links">
+    <a href="/programme/">Programme</a>
+    <a href="/about/">About</a>
+    <a href="/radar.html">Radar</a>
+    <a href="/reviewers/">Reviewers</a>
+    <a href="/industry/">Industry</a>
+    <a href="/resources/">Resources</a>
+    <a href="mailto:sibyjohn0@gmail.com">Contact</a>
+  </div>
+  <div>Built by Siby John and Karishma Changroth · Free to use · Radar: daily · Reviewers: weekly</div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.scroll-reveal');
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in-view'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  })();
+</script>
+
+<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});</script>
+</body>
 </html>
