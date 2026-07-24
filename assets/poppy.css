@@ -274,11 +274,14 @@ html,body{overflow-x:hidden!important;max-width:100%}
 
 /* ---- heroes: swap dark photo bands for candy gradient bands ---- */
 .pg-hero,.hero-visual{
-  background:linear-gradient(120deg,#FF4D8D 0%,#8B5CF6 48%,#3AA0FF 100%)!important;color:#fff!important;
+  background:linear-gradient(180deg,rgba(16,10,28,.30),rgba(16,10,28,.30)),linear-gradient(120deg,#E63A7E 0%,#7A46E0 50%,#2E7FD6 100%)!important;color:#fff!important;
   border:2px solid var(--ink)!important;border-radius:24px!important;box-shadow:8px 8px 0 var(--ink)!important;
   overflow:hidden!important;position:relative!important;
 }
-.pg-hero *,.hero-visual *{color:#fff!important}
+.pg-hero *,.hero-visual *{color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,.32)}
+/* soft shadow on other white-on-gradient text for contrast */
+.stat-block,.stat-num,.stat-label,.fact-num,.fact-label,.fact,.poppy-band,.poppy-band *,.band-top,.band-top *,.deep-dive-cta{text-shadow:0 1px 2px rgba(0,0,0,.25)}
+.fact-source,.fact-source a{color:#fff!important}
 .pg-hero>*,.hero-visual>*{position:relative;z-index:2}
 .pg-hero .pg-eyebrow{background:var(--yellow)!important;color:var(--ink)!important}
 /* decorative candy shapes peeking from the corners (kept out of the text) */
@@ -306,11 +309,12 @@ html,body{overflow-x:hidden!important;max-width:100%}
 
 /* ---- app / directory pages (industry, resources, reviewers, radar) ---- */
 .page-hero{
-  background:var(--g-grape)!important;border-bottom:2px solid var(--ink)!important;overflow:hidden;
+  background:linear-gradient(180deg,rgba(16,10,28,.30),rgba(16,10,28,.30)),linear-gradient(120deg,#7A46E0,#2E7FD6)!important;
+  border-bottom:2px solid var(--ink)!important;overflow:hidden;
 }
 .page-hero::after{display:none!important}
-.page-title{color:#fff!important;font-family:var(--font-d)!important}
-.page-sub{color:rgba(255,255,255,.92)!important}
+.page-title{color:#fff!important;font-family:var(--font-d)!important;text-shadow:0 1px 3px rgba(0,0,0,.32)}
+.page-sub{color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,.32)}
 .feat-card,.stat-card,.metric-card{
   background:#fff!important;border:2px solid var(--ink)!important;border-top:2px solid var(--ink)!important;
   border-radius:14px!important;box-shadow:4px 4px 0 var(--ink)!important;
@@ -348,8 +352,8 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .group-header-label{color:var(--violet)!important;font-family:var(--font-m)!important}
 
 /* resources page specifics */
-.res-hero{background:var(--g-grape)!important;border:2px solid var(--ink)!important;border-radius:20px!important;box-shadow:6px 6px 0 var(--ink)!important}
-.res-hero *{color:#fff!important}
+.res-hero{background:linear-gradient(180deg,rgba(16,10,28,.30),rgba(16,10,28,.30)),linear-gradient(120deg,#7A46E0,#2E7FD6)!important;border:2px solid var(--ink)!important;border-radius:20px!important;box-shadow:6px 6px 0 var(--ink)!important}
+.res-hero *{color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,.32)}
 .res-hero::after,.res-hero::before{display:none!important}
 .res-search,.res-search-row input{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:12px!important}
 .res-search-row,.res-jump{background:var(--cream)!important}
