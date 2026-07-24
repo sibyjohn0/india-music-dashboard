@@ -201,17 +201,30 @@ body.mnav-open .js-primnav .tab.active{background:var(--ink)!important;color:#ff
 /* ============ MOBILE: stop horizontal overflow ============ */
 html,body{overflow-x:hidden!important;max-width:100%}
 @media(max-width:640px){
-  .problem-section .problem-track,.problem-track{grid-template-columns:1fr!important;margin:0!important;padding:4px 0 8px!important}
-  .net-grid{grid-template-columns:1fr!important}
+  /* tall card sections become swipeable strips (one row, not many) */
+  .problem-section .problem-track,.problem-track,.net-grid{
+    display:flex!important;grid-template-columns:none!important;overflow-x:auto!important;
+    gap:12px!important;margin:0 -16px!important;padding:4px 16px 12px!important;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+  }
+  .problem-track::-webkit-scrollbar,.net-grid::-webkit-scrollbar{display:none}
+  .problem-track>*,.net-grid>*{flex:0 0 80%!important;scroll-snap-align:start;min-width:0!important}
+  /* tighter tiles on mobile */
+  .problem-card,.tool-card,.net-grid .tool-card{padding:14px!important}
+  .problem-title{font-size:15px!important}
+  .problem-body{font-size:12.5px!important}
+  .net-grid .tool-name{font-size:14px!important}
+  .net-grid .tool-desc{font-size:12px!important}
   /* stop card grids expanding past the viewport (minmax(0,..) not 1fr) */
   .grid{grid-template-columns:minmax(0,1fr)!important}
   .card,.tool-card,.problem-card,.fact,.feat-card,.doc-item,.read-item,.pg-person{min-width:0!important}
   .card *,.tool-desc,.problem-body,.doc-why,.read-why{min-width:0;max-width:100%;overflow-wrap:anywhere}
   .feat-track{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
   /* condense vertical rhythm so mobile pages aren't endless */
-  .section{margin-bottom:40px!important}
-  .pg-block{margin-top:48px!important}
-  .page{padding-top:36px!important;padding-bottom:56px!important}
+  .section{margin-bottom:30px!important}
+  .pg-block{margin-top:34px!important}
+  .page{padding-top:30px!important;padding-bottom:48px!important}
+  .pg-p,.pg-lead{margin-bottom:10px!important}
   .pg-hero,.hero-visual{padding:30px 20px!important}
   .pg-cta{padding:28px 20px!important;margin-top:48px!important}
   .m1-steps,.stats-strip,.tools-grid,.net-grid,.path-grid{gap:10px!important}
