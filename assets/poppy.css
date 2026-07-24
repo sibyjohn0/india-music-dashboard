@@ -61,7 +61,10 @@ body>*{position:relative;z-index:1}
 /* confetti GIF accent */
 .confetti-accent{position:absolute;pointer-events:none;z-index:3;width:200px;height:200px;background:url('/assets/anim/confetti.gif') center/contain no-repeat}
 /* confetti spread across a whole block, behind the content */
-.confetti-full{position:absolute;inset:0;pointer-events:none;z-index:0;background:url('/assets/anim/confetti.gif') repeat;background-size:200px 200px;opacity:.3}
+.confetti-full{position:absolute;inset:0;pointer-events:none;z-index:0;background:url('/assets/anim/confetti.gif') repeat;background-size:200px 200px;opacity:.14}
+/* keep the copy crisp: give text a readable backdrop above the confetti */
+.pg-cta>*:not(.confetti-full),.contact-card>*:not(.confetti-full){position:relative;z-index:1}
+.pg-cta h2,.pg-cta p,.contact-left h3,.contact-left p{text-shadow:0 1px 0 rgba(255,255,255,.6)}
 .pg-cta,.contact-card{position:relative;overflow:hidden}
 .pg-cta>*:not(.confetti-full),.contact-card>*:not(.confetti-full){position:relative;z-index:1}
 /* money coin GIFs */
