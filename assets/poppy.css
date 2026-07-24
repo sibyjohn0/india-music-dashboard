@@ -208,6 +208,18 @@ html,body{overflow-x:hidden!important;max-width:100%}
   .card,.tool-card,.problem-card,.fact,.feat-card,.doc-item,.read-item,.pg-person{min-width:0!important}
   .card *,.tool-desc,.problem-body,.doc-why,.read-why{min-width:0;max-width:100%;overflow-wrap:anywhere}
   .feat-track{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
+  /* condense vertical rhythm so mobile pages aren't endless */
+  .section{margin-bottom:40px!important}
+  .pg-block{margin-top:48px!important}
+  .page{padding-top:36px!important;padding-bottom:56px!important}
+  .pg-hero,.hero-visual{padding:30px 20px!important}
+  .pg-cta{padding:28px 20px!important;margin-top:48px!important}
+  .m1-steps,.stats-strip,.tools-grid,.net-grid,.path-grid{gap:10px!important}
+  .problem-nudge{margin-top:6px!important}
+  /* the 3 short 'who it's for' tiles go 2-up to cut height */
+  .path-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+  .path-block-note{font-size:12.5px!important}
+  .tool-icon{margin-bottom:8px!important}
   .coins-band{display:none!important}
   /* money rows: shrink coin, keep text room */
   .coins-row{width:44px!important;height:44px!important;right:8px!important}
