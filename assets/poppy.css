@@ -192,6 +192,19 @@ body.mnav-open .js-primnav .tab.active{background:var(--ink)!important;color:#ff
   .reveal,.scroll-reveal,.reveal-stagger,[class*="reveal"]{opacity:1!important;transform:none!important}
 }
 
+/* ============ MOBILE: stop horizontal overflow ============ */
+html,body{overflow-x:hidden!important;max-width:100%}
+@media(max-width:640px){
+  .problem-section .problem-track,.problem-track{grid-template-columns:1fr!important;margin:0!important;padding:4px 0 8px!important}
+  .coins-band{display:none!important}
+  /* money rows: shrink coin, keep text room */
+  .coins-row{width:44px!important;height:44px!important;right:8px!important}
+  /* hero decorative circles smaller so they don't crowd */
+  .pg-hero::before,.hero-visual::before{width:120px;height:120px;top:-40px;right:-30px}
+  .pg-hero::after,.hero-visual::after{width:100px;height:100px;bottom:-56px;left:-46px}
+  .hero-eq{transform:scale(.85)}
+}
+
 /* playbook + directory titles that were near-white in the old theme */
 .pb-phase-title,.pb-card-title,.doc-title,.read-title{color:var(--ink)!important}
 .pb-phase-title,.pb-card-title{font-family:var(--font-d)!important}
