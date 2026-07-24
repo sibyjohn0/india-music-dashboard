@@ -47,10 +47,10 @@ body{
   font-family:var(--font-b)!important;
   background:var(--cream)!important;
 }
-/* living animated candy background (looping webp) */
+/* living animated candy background (looping webp) — kept subtle so text stays readable */
 body::after{
   content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:url('/assets/anim/bg-loop.webp') center center/cover no-repeat;opacity:.5;
+  background:url('/assets/anim/bg-loop.webp') center center/cover no-repeat;opacity:.16;
 }
 body::before{
   content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;
@@ -61,7 +61,7 @@ body>*{position:relative;z-index:1}
 /* confetti GIF accent */
 .confetti-accent{position:absolute;pointer-events:none;z-index:3;width:200px;height:200px;background:url('/assets/anim/confetti.gif') center/contain no-repeat}
 /* confetti spread across a whole block, behind the content */
-.confetti-full{position:absolute;inset:0;pointer-events:none;z-index:0;background:url('/assets/anim/confetti.gif') repeat;background-size:200px 200px;opacity:.45}
+.confetti-full{position:absolute;inset:0;pointer-events:none;z-index:0;background:url('/assets/anim/confetti.gif') repeat;background-size:200px 200px;opacity:.3}
 .pg-cta,.contact-card{position:relative;overflow:hidden}
 .pg-cta>*:not(.confetti-full),.contact-card>*:not(.confetti-full){position:relative;z-index:1}
 /* money coin GIFs */
@@ -192,10 +192,19 @@ body.mnav-open .js-primnav .tab.active{background:var(--ink)!important;color:#ff
   .reveal,.scroll-reveal,.reveal-stagger,[class*="reveal"]{opacity:1!important;transform:none!important}
 }
 
+/* support-network grid */
+.net-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+
 /* ============ MOBILE: stop horizontal overflow ============ */
 html,body{overflow-x:hidden!important;max-width:100%}
 @media(max-width:640px){
   .problem-section .problem-track,.problem-track{grid-template-columns:1fr!important;margin:0!important;padding:4px 0 8px!important}
+  .net-grid{grid-template-columns:1fr!important}
+  /* stop card grids expanding past the viewport (minmax(0,..) not 1fr) */
+  .grid{grid-template-columns:minmax(0,1fr)!important}
+  .card,.tool-card,.problem-card,.fact,.feat-card,.doc-item,.read-item,.pg-person{min-width:0!important}
+  .card *,.tool-desc,.problem-body,.doc-why,.read-why{min-width:0;max-width:100%;overflow-wrap:anywhere}
+  .feat-track{margin-left:0!important;margin-right:0!important;padding-left:0!important;padding-right:0!important}
   .coins-band{display:none!important}
   /* money rows: shrink coin, keep text room */
   .coins-row{width:44px!important;height:44px!important;right:8px!important}
