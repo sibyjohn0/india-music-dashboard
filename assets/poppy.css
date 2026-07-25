@@ -209,6 +209,14 @@ html,body{overflow-x:hidden!important;max-width:100%}
   }
   .problem-track::-webkit-scrollbar,.net-grid::-webkit-scrollbar{display:none}
   .problem-track>*,.net-grid>*{flex:0 0 80%!important;scroll-snap-align:start;min-width:0!important}
+  /* founder cards → swipe strip (2 cards, one row) */
+  .pg-people{display:flex!important;grid-template-columns:none!important;overflow-x:auto!important;gap:12px!important;margin:0 -16px!important;padding:4px 16px 12px!important;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .pg-people::-webkit-scrollbar{display:none}
+  .pg-people>*{flex:0 0 84%!important;scroll-snap-align:start;min-width:0!important}
+  /* credibility ladder → compact horizontal strip */
+  .ladder{flex-direction:row!important;overflow-x:auto!important;gap:8px!important;margin:0 -16px!important;padding:4px 16px 10px!important;scrollbar-width:none}
+  .ladder::-webkit-scrollbar{display:none}
+  .ladder .rung{flex:0 0 128px!important;min-width:128px!important;height:auto!important;min-height:0!important}
   /* tighter tiles on mobile */
   .problem-card,.tool-card,.net-grid .tool-card{padding:14px!important}
   .problem-title{font-size:15px!important}
