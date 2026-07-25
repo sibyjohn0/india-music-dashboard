@@ -1664,31 +1664,33 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
     });
     noRes.classList.toggle('show', q && shown === 0);
     setCount(shown, q);
+    if (!q) showTab(activeTab); // restore single-tab view when the search is cleared
   }
   search.addEventListener('input', applySearch);
 
-  // ── Section-jump chips: smooth scroll + scroll-spy active state ──
+  // ── Tabs: show one section at a time ──
   const jumpLinks = [...document.querySelectorAll('.res-jump a')];
-  const sections = jumpLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const tabBlocks = jumpLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(b => b && b.classList.contains('res-block'));
+  const hashId = (location.hash || '').slice(1);
+  let activeTab = tabBlocks.some(b => b.id === hashId) ? hashId : (tabBlocks[0] ? tabBlocks[0].id : 'start');
+  function showTab(id){
+    activeTab = id;
+    if (search.value.trim()) return;            // during search all matching blocks stay visible
+    tabBlocks.forEach(b => { b.style.display = (b.id === id) ? '' : 'none'; });
+    jumpLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+  }
   jumpLinks.forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
-      if (!target) return;
+      if (!target || !target.classList.contains('res-block')) return;
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showTab(target.id);
       history.replaceState(null, '', a.getAttribute('href'));
+      const y = document.querySelector('.res-jump').getBoundingClientRect().top + window.scrollY - 60;
+      window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
     });
   });
-  function syncActiveChip(){
-    const marker = window.scrollY + (window.innerHeight * 0.35);
-    let current = sections[0];
-    for (const sec of sections){
-      if (sec.offsetTop <= marker) current = sec;
-    }
-    jumpLinks.forEach(a => a.classList.toggle('active', current && a.getAttribute('href') === '#' + current.id));
-  }
-  window.addEventListener('scroll', syncActiveChip, { passive: true });
-  syncActiveChip();
+  showTab(activeTab);
 
   // ── Staggered reveal for Start Here + reading cards (respects reduced motion) ──
   if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
