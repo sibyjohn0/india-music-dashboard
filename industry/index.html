@@ -412,11 +412,12 @@ const STATUS_LABELS = {
 };
 
 const PAGE_SIZE = 24;
-let shownCount = PAGE_SIZE;
+const INITIAL_SHOWN = 3;
+let shownCount = INITIAL_SHOWN;
 let revealFrom = 0; // index of first card to animate on next render
 
 // Reset pagination + reveal state whenever filters change.
-function resetPagination() { shownCount = PAGE_SIZE; revealFrom = 0; }
+function resetPagination() { shownCount = INITIAL_SHOWN; revealFrom = 0; }
 
 const TIER_ORDER = ['india-indie-core', 'india-indie-agency', 'india-major', ''];
 const TIER_META = {
