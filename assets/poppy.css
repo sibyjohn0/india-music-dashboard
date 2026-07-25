@@ -243,6 +243,11 @@ html,body{overflow-x:hidden!important;max-width:100%}
   .res-hero{padding:24px 18px!important}
   /* the header total badge collides with the hamburger — hide on mobile */
   .total-badge,.header-right .total-badge{display:none!important}
+  /* compact the About contact block */
+  .contact-card{padding:18px!important}
+  .contact-items{gap:8px!important}
+  .contact-item{padding:11px 14px!important}
+  .contact-left p{font-size:13.5px!important;line-height:1.55!important}
   /* reviewer summary chips → one swipe row instead of a tall grid */
   .stats-bar{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;gap:8px!important;margin:0 -16px!important;padding:2px 16px 10px!important;scrollbar-width:none}
   .stats-bar::-webkit-scrollbar{display:none}
