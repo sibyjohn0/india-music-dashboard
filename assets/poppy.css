@@ -233,7 +233,20 @@ html,body{overflow-x:hidden!important;max-width:100%}
   .pg-block{margin-top:34px!important}
   .page{padding-top:30px!important;padding-bottom:48px!important}
   .pg-p,.pg-lead{margin-bottom:10px!important}
-  .pg-hero,.hero-visual{padding:30px 20px!important}
+  .pg-hero,.hero-visual{padding:32px 24px!important}
+  /* app-page heroes (industry/reviewers/resources) — trim on mobile */
+  .page-hero{padding:22px 16px 0!important}
+  .page-title{font-size:25px!important;margin-bottom:6px!important}
+  .page-sub{font-size:13px!important;line-height:1.55!important;margin-bottom:14px!important}
+  .feat-card{flex:0 0 176px!important;padding:14px!important}
+  .feat-desc{font-size:11px!important}
+  .res-hero{padding:24px 18px!important}
+  /* the header total badge collides with the hamburger — hide on mobile */
+  .total-badge,.header-right .total-badge{display:none!important}
+  /* reviewer summary chips → one swipe row instead of a tall grid */
+  .stats-bar{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;gap:8px!important;margin:0 -16px!important;padding:2px 16px 10px!important;scrollbar-width:none}
+  .stats-bar::-webkit-scrollbar{display:none}
+  .stat-chip{flex:0 0 auto!important;white-space:nowrap!important}
   .pg-cta{padding:28px 20px!important;margin-top:48px!important}
   .m1-steps,.stats-strip,.tools-grid,.net-grid,.path-grid{gap:10px!important}
   .problem-nudge{margin-top:6px!important}
