@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R7EYMGZEJZ');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify royalty calculator (India): estimate your streaming income in rupees</title>
+  <meta name="description" content="A free Spotify and streaming royalty calculator for India. Estimate what your streams are worth in rupees by listener geography, platform, and distributor cut. Honest ranges, not false precision." />
+  <link rel="canonical" href="https://indiemusicindia.com/tools/royalty-calculator/" />
+  <meta property="og:title" content="Streaming royalty calculator (India)" />
+  <meta property="og:description" content="Estimate what your streams are worth in rupees, by geography, platform, and distributor cut. Free." />
+  <meta property="og:url" content="https://indiemusicindia.com/tools/royalty-calculator/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://indiemusicindia.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0d0d0f;--surface:#141418;--surface2:#1c1c24;--border:#242430;--accent:#e94560;--text:#e8e8f0;--muted:#6b6b85}
+    body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    header{display:flex;align-items:center;padding:0 32px;height:52px;background:rgba(13,13,15,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .logo{font-size:15px;font-weight:700}
+    nav{display:flex;padding:0 24px;background:var(--surface);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+    nav::-webkit-scrollbar{display:none}
+    .tab{color:#999;font:13px/1 'Inter',sans-serif;padding:0 16px;height:44px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;font-weight:500;border-bottom:2px solid transparent}
+    .page{max-width:720px;margin:0 auto;padding:34px 32px 90px}
+    .crumb{font-size:12px;color:var(--muted);margin-bottom:16px}
+    .rc-eyebrow{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}
+    h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.14;margin:12px 0 0}
+    .rc-lead{font-size:16px;color:#c6c6d8;margin-top:14px;max-width:600px}
+    .rc-byline{font-size:13px;color:var(--muted);margin-top:12px}
+    .rc-byline a{color:var(--accent);font-weight:600}
+    /* calculator */
+    .calc{border:1px solid var(--border);border-radius:16px;background:var(--surface);padding:24px;margin-top:26px}
+    .field{margin-bottom:20px}
+    .field:last-child{margin-bottom:0}
+    .field label{display:block;font-size:14px;font-weight:700;margin-bottom:8px}
+    .field .hint{font-weight:500;color:var(--muted);font-size:12px}
+    .field .val{float:right;color:var(--accent);font-weight:800}
+    input[type=number],select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);font:600 15px 'Inter',sans-serif;padding:12px 14px;border-radius:10px;outline:none}
+    input[type=number]:focus,select:focus{border-color:var(--accent)}
+    input[type=range]{width:100%;accent-color:var(--accent);height:6px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:520px){.row{grid-template-columns:1fr}}
+    /* result */
+    .result{margin-top:22px;border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:14px;padding:22px 24px;background:linear-gradient(180deg,rgba(233,69,96,.06),transparent 60%)}
+    .result .rlabel{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+    .result .ramount{font-size:clamp(28px,6vw,42px);font-weight:800;letter-spacing:-1px;margin:4px 0 2px;color:var(--text)}
+    .result .rsub{font-size:13px;color:var(--muted)}
+    .platlist{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    .platrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 15px;border:1px solid var(--border);border-radius:10px;background:var(--bg)}
+    .platrow.top{border-color:var(--accent);background:linear-gradient(180deg,rgba(233,69,96,.10),transparent)}
+    .platrow .pname{font-weight:700;font-size:14px}
+    .platrow .pname .tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--accent);margin-left:8px}
+    .platrow .pright{text-align:right}
+    .platrow .pamt{font-weight:800;font-size:15.5px;white-space:nowrap}
+    .platrow .prate{font-size:11px;color:var(--muted)}
+    .breakdown{margin-top:16px;font-size:13.5px;color:#c2c2d4;line-height:1.7}
+    .breakdown b{color:var(--text)}
+    .caveat{margin-top:22px;border:1px solid var(--border);border-radius:12px;padding:16px 18px;font-size:13px;color:var(--muted);line-height:1.65;background:var(--surface)}
+    article h2{font-size:20px;font-weight:800;margin:36px 0 8px}
+    article p{font-size:15.5px;color:#c2c2d4;margin-bottom:12px}
+    article a{color:var(--accent);font-weight:600}
+    .rc-cta{margin-top:36px;border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--surface)}
+    .rc-cta h3{font-size:18px;font-weight:800;margin-bottom:6px}
+    .rc-cta p{font-size:14px;color:var(--muted);margin-bottom:14px}
+    .rc-btn{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:14px;padding:11px 22px;border-radius:8px}
+    footer{display:flex;flex-direction:column;gap:12px;padding:26px 32px;border-top:1px solid var(--border);font-size:12px;color:var(--muted);margin-top:40px}
+    .footer-logo{font-weight:800;font-size:13px}.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+    .mnav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:rgba(19,19,26,.72);border:1px solid var(--border);border-radius:11px;cursor:pointer;padding:0 11px}
+    .mnav-burger span{display:block;height:2px;width:22px;background:var(--text);border-radius:2px}
+    @media(max-width:640px){.page{padding:24px 16px 60px}header,nav{padding-left:16px;padding-right:16px}
+      .mnav-burger{display:flex;position:fixed;top:9px;right:14px;z-index:300}
+      nav.js-primnav{position:fixed!important;inset:0!important;height:100dvh!important;width:100%!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:4px!important;background:rgba(10,10,15,.98)!important;transform:translateX(100%);transition:transform .34s;z-index:290!important;border:0!important}
+      body.mnav-open nav.js-primnav{transform:translateX(0)!important}
+      nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px 30px!important;height:auto!important;border:0!important}}
+  </style>
+  <link rel="stylesheet" href="/assets/poppy.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Streaming royalty calculator (India)","url":"https://indiemusicindia.com/tools/royalty-calculator/","applicationCategory":"UtilitiesApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Estimate what your music streams are worth in rupees, by listener geography, platform, and distributor cut.","author":{"@type":"Person","name":"Siby John","url":"https://indiemusicindia.com/about/","sameAs":["https://linkedin.com/in/sibyjohn"]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"},{"@type":"ListItem","position":2,"name":"Answers","item":"https://indiemusicindia.com/answers/"},{"@type":"ListItem","position":3,"name":"Streaming royalty calculator","item":"https://indiemusicindia.com/tools/royalty-calculator/"}]}</script>
+</head>
+<body>
+<button class="mnav-burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('mnav-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
+<header><div class="logo"><a href="/">◉ Indie Music India</a></div></header>
+<nav class="js-primnav">
+  <a class="tab" href="/">Home</a><a class="tab" href="/programme/">Programme</a><a class="tab" href="/about/">About</a>
+  <a class="tab" href="/radar.html">Radar</a><a class="tab" href="/reviewers/">Reviewers</a><a class="tab" href="/industry/">Industry</a>
+  <a class="tab" href="/resources/">Resources</a><a class="tab" href="/answers/">Answers</a>
+</nav>
+
+<div class="page">
+  <div class="crumb"><a href="/">Home</a> › <a href="/answers/">Answers</a> › Streaming royalty calculator</div>
+  <div class="rc-eyebrow">Free tool · Estimate</div>
+  <h1>Streaming royalty calculator (India)</h1>
+  <p class="rc-lead">Estimate what your streams are worth in rupees. Because payouts are a share of revenue, not a fixed rate, this gives you an honest range, not a false-precision number.</p>
+  <div class="rc-byline">Built by <a href="/about/">Siby John</a>, from years on the platform side of the Indian music business (YouTube India, now LinkedIn).</div>
+
+  <div class="calc">
+    <div class="field">
+      <label for="streams">Total streams</label>
+      <input type="number" id="streams" min="0" step="1000" value="100000" inputmode="numeric" />
+    </div>
+    <div class="field">
+      <label for="indiamix">Listeners from India <span class="val" id="indiamixval">80%</span><br><span class="hint">The rest are international. Overseas streams pay more.</span></label>
+      <input type="range" id="indiamix" min="0" max="100" step="5" value="80" />
+    </div>
+    <div class="field">
+      <label for="cut">Distributor takes <span class="val" id="cutval">0%</span><br><span class="hint">Flat-fee distributor = 0% (you keep all). Revenue-split = 9 to 30%.</span></label>
+      <input type="range" id="cut" min="0" max="30" step="1" value="0" />
+    </div>
+  </div>
+
+  <div class="result">
+    <div class="rlabel">Estimated earnings by platform (your share) <span id="sub" style="font-weight:500;text-transform:none;letter-spacing:0"></span></div>
+    <div class="platlist" id="platlist"></div>
+    <div class="breakdown" id="breakdown"></div>
+  </div>
+
+  <div class="caveat" id="caveat"></div>
+
+  <article>
+    <h2>How this estimate works</h2>
+    <p>Spotify and other platforms do not pay a fixed rate per play. They pool the revenue they earn in a market and split it by each track's share of total streams, so the effective per-stream rate moves every month. This tool applies reported per-stream ranges, lower for India, higher for international markets, adjusts for the platform, and subtracts your distributor's cut. It is an estimate, so treat the range as a guide and your distributor's dashboard as the truth.</p>
+    <p>Want the full picture? Read <a href="/guides/spotify-pay-per-stream-india/">how much Spotify pays per stream in India</a>, and <a href="/guides/make-money-independent-artist-india/">how independent artists in India actually make money</a> beyond streaming.</p>
+  </article>
+
+  <div class="rc-cta">
+    <h3>Streaming is the discovery layer, not the income</h3>
+    <p>We run a hands-on artist development programme that builds the live, sync, merch, and fan income around your releases.</p>
+    <a class="rc-btn" href="/programme/">See how the programme works →</a>
+  </div>
+  <div style="font-size:12px;color:var(--muted);margin-top:26px">Estimates only, not financial advice. Rates vary by month, agreement, and platform. Free to use.</div>
+</div>
+
+<footer>
+  <div class="footer-logo">◉ Indie Music India</div>
+  <div class="footer-links"><a href="/">Home</a><a href="/programme/">Programme</a><a href="/about/">About</a><a href="/radar.html">Radar</a><a href="/reviewers/">Reviewers</a><a href="/industry/">Industry</a><a href="/resources/">Resources</a><a href="/answers/">Answers</a></div>
+  <div>Built by Siby John and Karishma Changroth · Free to use</div>
+</footer>
+
+<script>
+  // Reported per-stream ranges in INR. Estimates, deliberately conservative and shown as a band.
+  var RATE={india:{low:0.08,high:0.20}, intl:{low:0.25,high:0.42}};
+  // [id, label, per-stream factor relative to Spotify]
+  var PLATS=[['spotify','Spotify',1.0],['apple','Apple Music',1.3],['jiosaavn','JioSaavn',0.5],['youtube','YouTube Music',0.4]];
+  function inr(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
+  function calc(){
+    var streams=Math.max(0,+document.getElementById('streams').value||0);
+    var indiaPct=+document.getElementById('indiamix').value;
+    var cut=+document.getElementById('cut').value;
+    document.getElementById('indiamixval').textContent=indiaPct+'%';
+    document.getElementById('cutval').textContent=cut+'%';
+    var iS=streams*indiaPct/100, xS=streams*(100-indiaPct)/100;
+    var rows=PLATS.map(function(p){
+      var pf=p[2];
+      var gLow=(iS*RATE.india.low + xS*RATE.intl.low)*pf;
+      var gHigh=(iS*RATE.india.high + xS*RATE.intl.high)*pf;
+      return {name:p[1], low:gLow*(1-cut/100), high:gHigh*(1-cut/100)};
+    });
+    rows.sort(function(a,b){return b.high-a.high;});
+    var html='';
+    rows.forEach(function(r,i){
+      var eL=streams?(r.low/streams):0, eH=streams?(r.high/streams):0;
+      html+='<div class="platrow'+(i===0?' top':'')+'"><div class="pname">'+r.name+(i===0?'<span class="tag">Pays most</span>':'')+'</div>'
+        +'<div class="pright"><div class="pamt">'+inr(r.low)+' to '+inr(r.high)+'</div>'
+        +'<div class="prate">about ₹'+eL.toFixed(2)+' to ₹'+eH.toFixed(2)+' per stream</div></div></div>';
+    });
+    document.getElementById('platlist').innerHTML=html;
+    document.getElementById('sub').textContent = cut>0 ? '· after '+cut+'% distributor cut' : '· you keep 100%';
+    document.getElementById('breakdown').innerHTML =
+      'Based on <b>'+Math.round(iS).toLocaleString('en-IN')+'</b> India streams and <b>'+Math.round(xS).toLocaleString('en-IN')+'</b> international.';
+    document.getElementById('caveat').textContent =
+      'These are estimates. Payouts are a share of revenue, not a fixed rate, so real earnings depend on the month, your exact listener countries, and your agreement. JioSaavn and YouTube Music typically pay less per stream than Spotify or Apple Music, and streams concentrated in India sit at the low end, adding international listeners raises the average considerably.';
+  }
+  ['streams','indiamix','cut'].forEach(function(id){
+    document.getElementById(id).addEventListener('input',calc);
+    document.getElementById(id).addEventListener('change',calc);
+  });
+  calc();
+  document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});
+</script>
+</body>
+</html>
