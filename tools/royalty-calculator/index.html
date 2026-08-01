@@ -100,6 +100,15 @@
 
   <div class="calc">
     <div class="field">
+      <label for="platform">Platform</label>
+      <select id="platform">
+        <option value="spotify" selected>Spotify</option>
+        <option value="apple">Apple Music (pays most per stream)</option>
+        <option value="jiosaavn">JioSaavn</option>
+        <option value="youtube">YouTube Music (pays least per stream)</option>
+      </select>
+    </div>
+    <div class="field">
       <label for="streams">Total streams</label>
       <input type="number" id="streams" min="0" step="1000" value="100000" inputmode="numeric" />
     </div>
@@ -114,8 +123,9 @@
   </div>
 
   <div class="result">
-    <div class="rlabel">Estimated earnings by platform (your share) <span id="sub" style="font-weight:500;text-transform:none;letter-spacing:0"></span></div>
-    <div class="platlist" id="platlist"></div>
+    <div class="rlabel">Estimated earnings on <span id="platname">Spotify</span> (your share) <span id="sub" style="font-weight:500;text-transform:none;letter-spacing:0"></span></div>
+    <div class="ramount" id="ramount"></div>
+    <div class="rsub" id="rrate"></div>
     <div class="breakdown" id="breakdown"></div>
   </div>
 
@@ -144,38 +154,31 @@
 <script>
   // Reported per-stream ranges in INR. Estimates, deliberately conservative and shown as a band.
   var RATE={india:{low:0.08,high:0.20}, intl:{low:0.25,high:0.42}};
-  // [id, label, per-stream factor relative to Spotify]
-  var PLATS=[['spotify','Spotify',1.0],['apple','Apple Music',1.3],['jiosaavn','JioSaavn',0.5],['youtube','YouTube Music',0.4]];
+  // per-stream factor relative to Spotify, and display label
+  var PLATS={spotify:{name:'Spotify',pf:1.0}, apple:{name:'Apple Music',pf:1.3}, jiosaavn:{name:'JioSaavn',pf:0.5}, youtube:{name:'YouTube Music',pf:0.4}};
   function inr(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
   function calc(){
     var streams=Math.max(0,+document.getElementById('streams').value||0);
     var indiaPct=+document.getElementById('indiamix').value;
     var cut=+document.getElementById('cut').value;
+    var plat=PLATS[document.getElementById('platform').value]||PLATS.spotify;
     document.getElementById('indiamixval').textContent=indiaPct+'%';
     document.getElementById('cutval').textContent=cut+'%';
+    document.getElementById('platname').textContent=plat.name;
     var iS=streams*indiaPct/100, xS=streams*(100-indiaPct)/100;
-    var rows=PLATS.map(function(p){
-      var pf=p[2];
-      var gLow=(iS*RATE.india.low + xS*RATE.intl.low)*pf;
-      var gHigh=(iS*RATE.india.high + xS*RATE.intl.high)*pf;
-      return {name:p[1], low:gLow*(1-cut/100), high:gHigh*(1-cut/100)};
-    });
-    rows.sort(function(a,b){return b.high-a.high;});
-    var html='';
-    rows.forEach(function(r,i){
-      var eL=streams?(r.low/streams):0, eH=streams?(r.high/streams):0;
-      html+='<div class="platrow'+(i===0?' top':'')+'"><div class="pname">'+r.name+(i===0?'<span class="tag">Pays most</span>':'')+'</div>'
-        +'<div class="pright"><div class="pamt">'+inr(r.low)+' to '+inr(r.high)+'</div>'
-        +'<div class="prate">about ₹'+eL.toFixed(2)+' to ₹'+eH.toFixed(2)+' per stream</div></div></div>';
-    });
-    document.getElementById('platlist').innerHTML=html;
+    var gLow=(iS*RATE.india.low + xS*RATE.intl.low)*plat.pf;
+    var gHigh=(iS*RATE.india.high + xS*RATE.intl.high)*plat.pf;
+    var low=gLow*(1-cut/100), high=gHigh*(1-cut/100);
+    var eL=streams?(low/streams):0, eH=streams?(high/streams):0;
+    document.getElementById('ramount').textContent=inr(low)+' to '+inr(high);
+    document.getElementById('rrate').textContent='about ₹'+eL.toFixed(2)+' to ₹'+eH.toFixed(2)+' per stream';
     document.getElementById('sub').textContent = cut>0 ? '· after '+cut+'% distributor cut' : '· you keep 100%';
     document.getElementById('breakdown').innerHTML =
       'Based on <b>'+Math.round(iS).toLocaleString('en-IN')+'</b> India streams and <b>'+Math.round(xS).toLocaleString('en-IN')+'</b> international.';
     document.getElementById('caveat').textContent =
       'These are estimates. Payouts are a share of revenue, not a fixed rate, so real earnings depend on the month, your exact listener countries, and your agreement. JioSaavn and YouTube Music typically pay less per stream than Spotify or Apple Music, and streams concentrated in India sit at the low end, adding international listeners raises the average considerably.';
   }
-  ['streams','indiamix','cut'].forEach(function(id){
+  ['platform','streams','indiamix','cut'].forEach(function(id){
     document.getElementById(id).addEventListener('input',calc);
     document.getElementById(id).addEventListener('change',calc);
   });
