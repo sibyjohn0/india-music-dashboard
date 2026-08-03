@@ -135,6 +135,7 @@
     <h2>How this estimate works</h2>
     <p>Spotify and other platforms do not pay a fixed rate per play. They pool the revenue they earn in a market and split it by each track's share of total streams, so the effective per-stream rate moves every month. This tool applies reported per-stream ranges, lower for India, higher for international markets, adjusts for the platform, and subtracts your distributor's cut. It is an estimate, so treat the range as a guide and your distributor's dashboard as the truth.</p>
     <p>Want the full picture? Read <a href="/guides/spotify-pay-per-stream-india/">how much Spotify pays per stream in India</a>, and <a href="/guides/make-money-independent-artist-india/">how independent artists in India actually make money</a> beyond streaming.</p>
+    <p class="rc-sources" style="font-size:13px;color:var(--muted);margin-top:6px">Rate ranges: India roughly ₹0.03 to ₹0.05 per stream, international roughly ₹0.25 to ₹0.42 (the global $0.003 to $0.005 average). Based on figures from Ditto Music, TuneCore, Chartlex, and India-specific reporting. Last verified August 2026. Rates change, so treat this as a guide and your distributor's dashboard as the truth.</p>
   </article>
 
   <div class="rc-cta">
@@ -153,7 +154,10 @@
 
 <script>
   // Reported per-stream ranges in INR. Estimates, deliberately conservative and shown as a band.
-  var RATE={india:{low:0.08,high:0.20}, intl:{low:0.25,high:0.42}};
+  // Per-stream ranges in INR. India ~0.03-0.05 (Spotify Premium ~Rs119 vs ~$11 in the US
+  // means a far smaller revenue pool); international ~0.25-0.42 (global avg $0.003-0.005).
+  // Sources: Ditto Music, TuneCore, Chartlex, Loudest.in. Last verified 2026-08-03.
+  var RATE={india:{low:0.03,high:0.05}, intl:{low:0.25,high:0.42}};
   // per-stream factor relative to Spotify, and display label
   var PLATS={spotify:{name:'Spotify',pf:1.0}, apple:{name:'Apple Music',pf:1.3}, jiosaavn:{name:'JioSaavn',pf:0.5}, youtube:{name:'YouTube Music',pf:0.4}};
   function inr(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
