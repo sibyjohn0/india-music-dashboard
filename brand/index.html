@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Indie Music India — Brand Toolkit</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="The brand system for Indie Music India: voice, color, type, visual language, image and video specs, social strategy, content guidelines, and do's and don'ts." />
+<meta property="og:title" content="Indie Music India — Brand Toolkit" />
+<meta property="og:description" content="Voice, color, type, specs, and content guidelines. The single source of truth." />
+<meta property="og:url" content="https://indiemusicindia.com/brand/" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --pink:#FF4D8D; --orange:#FF9130; --yellow:#FFD23F; --violet:#8B5CF6;
+  --blue:#3AA0FF; --mint:#1FCF9E; --ink:#241B2E; --cream:#FFF7EE;
+  --bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478;
+  --border:rgba(36,27,46,.14); --hairline:rgba(36,27,46,.09);
+  --accent:#FF4D8D; --code-bg:#241B2E; --code-fg:#FFF7EE; --shadow:6px 6px 0 #241B2E;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4;
+    --border:rgba(255,247,238,.16); --hairline:rgba(255,247,238,.10);
+    --code-bg:#0F0A18; --code-fg:#FCEFE6; --shadow:6px 6px 0 #000;}
+}
+:root[data-theme="light"]{--bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478;
+  --border:rgba(36,27,46,.14); --hairline:rgba(36,27,46,.09); --code-bg:#241B2E; --code-fg:#FFF7EE; --shadow:6px 6px 0 #241B2E;}
+:root[data-theme="dark"]{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4;
+  --border:rgba(255,247,238,.16); --hairline:rgba(255,247,238,.10); --code-bg:#0F0A18; --code-fg:#FCEFE6; --shadow:6px 6px 0 #000;}
+*{box-sizing:border-box} body{margin:0}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; line-height:1.6}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque','Inter',sans-serif; font-weight:800; letter-spacing:-.02em; text-wrap:balance; line-height:1.03}
+.mono{font-family:'Space Mono',ui-monospace,monospace}
+.eyebrow{font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--accent)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent} a:hover{border-bottom-color:currentColor}
+:focus-visible{outline:3px solid var(--violet); outline-offset:2px; border-radius:3px}
+.container{max-width:1000px; margin:0 auto; padding:0 24px}
+section{padding:60px 0; border-top:1px solid var(--hairline)} section:first-of-type{border-top:none}
+.lede{max-width:64ch}
+.sec-head{display:flex; align-items:baseline; gap:16px; margin-bottom:26px; flex-wrap:wrap}
+.sec-num{font-family:'Space Mono',monospace; font-weight:700; color:var(--muted); font-size:13px}
+h2{font-size:clamp(27px,4.4vw,40px); margin:6px 0} h3{font-size:18px; margin:0 0 6px}
+p{margin:0 0 14px} .muted{color:var(--muted)} .kicker{font-size:15px}
+.grid{display:grid; gap:16px} .g2{grid-template-columns:repeat(2,minmax(0,1fr))} .g3{grid-template-columns:repeat(3,minmax(0,1fr))} .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:720px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:22px}
+ul.clean{margin:0; padding-left:18px} ul.clean li{margin-bottom:7px}
+.topbar{position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--bg) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--hairline)}
+.topbar .container{display:flex; align-items:center; gap:14px; height:56px}
+.mark{display:inline-flex; align-items:center; gap:9px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px}
+.dot{width:18px;height:18px;border-radius:50%; border:3px solid var(--text); display:inline-block; position:relative}
+.dot::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--text)}
+.topnav{margin-left:auto; display:flex; gap:15px; flex-wrap:wrap}
+.topnav a{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); border:none} .topnav a:hover{color:var(--text)}
+.tgl{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; background:none; border:1px solid var(--border); color:var(--text); border-radius:8px; padding:6px 10px; cursor:pointer}
+@media(max-width:960px){.topnav{display:none}}
+.hero{padding:70px 0 54px; position:relative; overflow:hidden}
+.hero h1{font-size:clamp(38px,8vw,80px); margin:14px 0 18px} .hero .lede{font-size:19px}
+.blob{position:absolute; border-radius:50%; opacity:.9; pointer-events:none; z-index:0}
+.hero .container{position:relative} .hero .container > *:not(.blob){position:relative; z-index:1}
+.btnrow{display:flex; gap:12px; flex-wrap:wrap; margin-top:26px; align-items:center}
+.btn{font-family:'Space Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:700; padding:12px 18px; border-radius:10px; cursor:pointer; border:2px solid var(--ink); box-shadow:var(--shadow); background:var(--yellow); color:var(--ink)}
+.btn.alt{background:var(--surface); color:var(--text)}
+.chip-row{display:flex; gap:8px; flex-wrap:wrap; margin-top:22px}
+.chip{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; padding:7px 12px; border-radius:999px; border:1px solid var(--border); background:var(--surface)}
+.swatch{border-radius:14px; overflow:hidden; border:1px solid var(--border); cursor:pointer; background:var(--surface)}
+.swatch .chipcolor{height:78px} .swatch .meta{padding:10px 12px; display:flex; justify-content:space-between; align-items:center; gap:8px}
+.swatch .nm{font-weight:700; font-size:13px} .swatch .hex{font-family:'Space Mono',monospace; font-size:12px; color:var(--muted)}
+.grad{height:92px; border-radius:14px; border:1px solid var(--border); display:flex; align-items:flex-end; padding:10px 12px}
+.grad span{font-family:'Space Mono',monospace; font-size:11px; color:#fff; background:rgba(0,0,0,.28); padding:3px 7px; border-radius:6px}
+.specimen{border:1px solid var(--border); border-radius:16px; padding:22px; background:var(--surface)}
+.specimen .big{font-size:42px; line-height:1.05; margin:2px 0 10px}
+.tags{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+.tag{font-family:'Space Mono',monospace; font-size:11px; color:var(--muted); border:1px solid var(--border); border-radius:6px; padding:3px 8px}
+.mock{aspect-ratio:3/4; border-radius:14px; padding:16px; display:flex; flex-direction:column; position:relative; overflow:hidden; box-shadow:var(--shadow); border:2px solid var(--ink)}
+.mock .m-eye{font-family:'Space Mono',monospace; font-size:9px; letter-spacing:.14em; text-transform:uppercase; font-weight:700}
+.mock .m-h{font-family:'Bricolage Grotesque',sans-serif; font-weight:800; line-height:1.02; font-size:22px; margin-top:auto}
+.mock .m-sub{font-size:11px; margin-top:6px} .mock .m-foot{font-family:'Space Mono',monospace; font-size:9px; margin-top:10px; display:flex; align-items:center; gap:6px}
+.mock .m-cc{width:52px;height:52px;border-radius:50%;position:absolute;top:-14px;right:-10px}
+.mock.cream{background:#FFF7EE;color:#241B2E} .mock.dark{background:#1C1428;color:#FFF7EE}
+.mock.grad{background:linear-gradient(135deg,#FF4D8D,#8B5CF6,#3AA0FF);color:#fff;border-color:#1C1428}
+.sz{position:relative; aspect-ratio:3/4; max-width:280px; border-radius:12px; background:linear-gradient(135deg,#FF9130,#FF4D8D,#8B5CF6); overflow:hidden}
+.sz .safe{position:absolute; inset:0 15.3% 0 15.3%; border:2px dashed rgba(255,255,255,.9); border-radius:4px; display:flex; align-items:center; justify-content:center}
+.sz .safe span{font-family:'Space Mono',monospace; font-size:10px; color:#fff; text-align:center; text-transform:uppercase; letter-spacing:.1em; line-height:1.5}
+.dd{border-radius:14px; border:1px solid var(--border); padding:18px; background:var(--surface)}
+.dd h3{display:flex; align-items:center; gap:9px}
+.badge{width:22px;height:22px;border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:800; color:#fff}
+.do .badge{background:var(--mint)} .dont .badge{background:var(--pink)}
+.dd ul{margin:8px 0 0; padding-left:0; list-style:none; display:flex; flex-direction:column; gap:9px}
+.dd li{padding-left:22px; position:relative; font-size:14.5px} .dd li::before{position:absolute; left:0; top:0}
+.do li::before{content:"✓"; color:var(--mint); font-weight:800} .dont li::before{content:"✕"; color:var(--pink); font-weight:800}
+.spec{width:100%; border-collapse:collapse; font-size:14.5px}
+.spec td{padding:11px 8px; border-bottom:1px solid var(--hairline); vertical-align:top}
+.spec td:first-child{font-family:'Space Mono',monospace; font-size:12px; color:var(--muted); white-space:nowrap; width:170px; text-transform:uppercase; letter-spacing:.06em}
+.spec b{font-weight:700}
+.callout{border-left:4px solid var(--accent); background:var(--surface); border-radius:0 14px 14px 0; padding:18px 20px}
+.lane{border-radius:14px; padding:18px; color:#fff; box-shadow:var(--shadow); border:2px solid var(--ink)}
+.stn td{padding:10px 8px;border-bottom:1px solid var(--hairline);vertical-align:top;font-size:14px}
+.stn td:first-child{color:var(--pink);font-weight:600;width:50%} .stn td:last-child{color:var(--mint);font-weight:600}
+.codewrap{position:relative}
+pre{background:var(--code-bg); color:var(--code-fg); border-radius:14px; padding:22px; overflow-x:auto; font-family:'Space Mono',monospace; font-size:12.5px; line-height:1.7; white-space:pre-wrap}
+.copy{position:absolute; top:12px; right:12px; font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.08em; background:var(--accent); color:#fff; border:none; border-radius:8px; padding:7px 11px; cursor:pointer} .copy:active{transform:translateY(1px)}
+footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--muted); font-size:13px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <span class="mark"><span class="dot"></span>Indie Music India</span>
+  <nav class="topnav">
+    <a href="#foundation">Foundation</a><a href="#voice">Voice</a><a href="#color">Color</a>
+    <a href="#type">Type</a><a href="#elements">Elements</a><a href="#image">Images</a>
+    <a href="#video">Video</a><a href="#content">Content</a><a href="#dodont">Do/Don't</a><a href="#ai">AI spec</a>
+  </nav>
+  <button class="tgl" id="tgl" aria-label="Toggle theme">Theme</button>
+</div></div>
+
+<header class="hero"><div class="container">
+  <div class="blob" style="width:220px;height:220px;background:var(--yellow);top:-40px;right:-30px"></div>
+  <div class="blob" style="width:150px;height:150px;background:var(--mint);bottom:-50px;left:40%"></div>
+  <span class="eyebrow">Brand Toolkit · v1 · Aug 2026</span>
+  <h1>The brand, in one place.</h1>
+  <p class="lede">Everything needed to make anything for Indie Music India stay coherent: voice, color, type, the visual language, and exact specs for posts and video. Built so a person <em>or</em> an AI can pick it up and produce on-brand work.</p>
+  <div class="btnrow">
+    <a class="btn" href="brand-kit.md" download>Download the .md</a>
+    <a class="btn alt" href="#ai">Copy the AI spec →</a>
+    <span class="muted mono" style="font-size:12px">Share this link freely, no login needed.</span>
+  </div>
+  <div class="chip-row">
+    <span class="chip">India-first</span><span class="chip">Independent</span>
+    <span class="chip">Sourced &amp; honest</span><span class="chip">Premium, not hypey</span><span class="chip">Playful, classy</span>
+  </div>
+</div></header>
+
+<main>
+<section id="foundation"><div class="container">
+  <div class="sec-head"><span class="sec-num">00</span><div><span class="eyebrow">Foundation</span><h2>What this is</h2></div></div>
+  <p class="lede kicker">Indie Music India gives independent Indian musicians the things a label usually provides, minus the label. Free, data-driven tools and guides for the whole scene, plus a hands-on paid Artist Development Programme for a small number of artists. The through-line: <b>everything around the music</b> — the economics, the identity, the network, and the release.</p>
+  <div class="grid g3" style="margin-top:26px">
+    <div class="card"><h3>Who it's for</h3><p class="muted">Independent artists in India across languages and genres, and the people around them: managers, labels, curators, brands.</p></div>
+    <div class="card"><h3>What we sound like</h3><p class="muted">A knowledgeable insider who is honest, specific, and warm. Never a hype man, never a guru. We show receipts.</p></div>
+    <div class="card"><h3>Why it works</h3><p class="muted">Credibility from reliable sources and India-specific truth AI can't cheaply copy. We help through free and paid resources, in that order.</p></div>
+  </div>
+  <div class="callout" style="margin-top:20px">
+    <b>The programme, in one line.</b> Siby John and Karishma Changroth work directly with a few independent artists at a time on release strategy, identity, the money, and the network, backed by a bench of specialists (PR, social, marketing, video, design, legal, IPRS) brought in per release. Start with one month, no commitment beyond that; rate shared on an intro call. Free tools for everyone else.
+  </div>
+  <div class="callout" style="margin-top:12px">
+    <b>Handle</b> @indiemusicindia.co &nbsp;·&nbsp; <b>Site</b> indiemusicindia.com &nbsp;·&nbsp; <b>Name</b> Indie Music India &nbsp;·&nbsp; <b>Contact</b> sibyjohn0@gmail.com · WhatsApp +91 99600 25559
+  </div>
+</div></section>
+
+<section id="voice"><div class="container">
+  <div class="sec-head"><span class="sec-num">01</span><div><span class="eyebrow">Voice &amp; tone</span><h2>How we speak</h2></div></div>
+  <div class="grid g2">
+    <div>
+      <p><b>Principles.</b></p>
+      <ul class="clean muted">
+        <li><b>Clear over clever.</b> Plain language an artist actually uses.</li>
+        <li><b>Specific over generic.</b> Real names, real numbers, real steps.</li>
+        <li><b>India-first.</b> Rupees, IPRS, JioSaavn, local venues.</li>
+        <li><b>Sourced.</b> Every factual claim traces to a named source; date evergreen numbers.</li>
+        <li><b>Honest.</b> Ranges not false precision.</li>
+        <li><b>Qualitative for performance.</b> "One of the top-reaching posts," not raw dashboards.</li>
+      </ul>
+    </div>
+    <div>
+      <p><b>Three content lanes.</b> Every post is one of these.</p>
+      <div class="grid" style="gap:12px;margin-top:6px">
+        <div class="lane" style="background:linear-gradient(135deg,#FF4D8D,#8B5CF6)"><b>Receipts</b> — sourced data and how-to. Saves and authority.</div>
+        <div class="lane" style="background:linear-gradient(135deg,#FF9130,#FF4D8D)"><b>Real Talk</b> — classy, motivating, insider meme. Feeling seen, not slapstick.</div>
+        <div class="lane" style="background:linear-gradient(135deg,#3AA0FF,#8B5CF6)"><b>Signal</b> — the sourced, considered take on news, not the hot take.</div>
+      </div>
+    </div>
+  </div>
+  <h3 style="margin:30px 0 8px">Say this, not that</h3>
+  <table class="stn"><tbody>
+    <tr><td>money in vs money back</td><td>~~unit economics~~</td></tr>
+    <tr><td>how listeners find you / pass you on</td><td>~~the algorithm / reach signals~~</td></tr>
+    <tr><td>roughly / a range / an estimate</td><td>~~a single exact number~~</td></tr>
+    <tr><td>reviewers, curators, blogs</td><td>~~influencers~~</td></tr>
+    <tr><td>a comma, a colon, or a rewrite</td><td>~~an em dash~~</td></tr>
+  </tbody></table>
+  <div class="callout" style="margin-top:18px"><b>Hard rules.</b> No em dashes. Never "the algorithm," "engagement velocity," "distribution cycle," or hype words ("game-changer," "explode," "secret hack"). One idea per post. Must be save-worthy.</div>
+</div></section>
+
+<section id="logo"><div class="container">
+  <div class="sec-head"><span class="sec-num">02</span><div><span class="eyebrow">Logo &amp; mark</span><h2>The mark</h2></div></div>
+  <div class="grid g3">
+    <div class="card" style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+      <span class="mark" style="font-size:20px"><span class="dot"></span>Indie Music India</span>
+      <p class="muted" style="margin:0">Primary lockup: the ◉ dot-mark + wordmark in Bricolage Grotesque 800.</p>
+    </div>
+    <div class="card"><h3>The ◉ dot</h3><p class="muted">A filled circle inside a ring. Standalone avatar, bullet, and anchor of the handle lockup. Never restyle it.</p></div>
+    <div class="card"><h3>Handle lockup</h3><p class="mono" style="font-size:13px;color:var(--text)">◉ @indiemusicindia.co</p><p class="muted">Space Mono Bold, accent-filled dot, bottom-left of every asset.</p></div>
+  </div>
+  <p class="muted" style="margin-top:16px">Clear space: keep at least the dot's height around the lockup. Wordmark sits on cream, ink, or a brand gradient, never on a busy photo without a scrim.</p>
+</div></section>
+
+<section id="color"><div class="container">
+  <div class="sec-head"><span class="sec-num">03</span><div><span class="eyebrow">Color</span><h2>The poppy palette</h2></div></div>
+  <p class="lede muted">A candy-bright, high-energy family on warm cream or deep ink. Tap any swatch to copy the hex.</p>
+  <div class="grid g4" style="margin-top:22px" id="swatches"></div>
+  <h3 style="margin:32px 0 12px">Signature gradients</h3>
+  <div class="grid g3">
+    <div class="grad" style="background:linear-gradient(135deg,#FF4D8D,#8B5CF6,#3AA0FF)"><span>Sunset · pink → violet → blue</span></div>
+    <div class="grad" style="background:linear-gradient(135deg,#FF9130,#FF4D8D,#8B5CF6)"><span>Grape · orange → pink → violet</span></div>
+    <div class="grad" style="background:linear-gradient(135deg,#1FCF9E,#3AA0FF,#8B5CF6)"><span>Mint · mint → blue → violet</span></div>
+  </div>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="card"><h3>Usage</h3><ul class="clean muted"><li><b>Cream</b> = default light ground. <b>Ink</b> = dark / "guide" ground.</li><li><b>Accents</b> color labels, dots, highlights, one tile per layout.</li><li><b>Gradients</b> for heroes, CTA slides, video beds. Diagonal, three stops.</li></ul></div>
+    <div class="card"><h3>Contrast</h3><ul class="clean muted"><li>Ink text on cream/yellow/mint. Cream text on ink/violet/blue/pink.</li><li>Never yellow-on-cream or ink-on-violet.</li><li>Text over gradient/photo needs a scrim or shadow.</li></ul></div>
+  </div>
+</div></section>
+
+<section id="type"><div class="container">
+  <div class="sec-head"><span class="sec-num">04</span><div><span class="eyebrow">Typography</span><h2>Three faces, three jobs</h2></div></div>
+  <div class="grid" style="gap:16px">
+    <div class="specimen"><span class="eyebrow">Display · headlines</span>
+      <div class="big disp">Everything around the music</div>
+      <p class="muted" style="margin:0">Bricolage Grotesque 800. Tight, characterful. Headlines, cover lines, big numbers only.</p>
+      <div class="tags"><span class="tag">Bricolage Grotesque</span><span class="tag">wght 800</span><span class="tag">opsz 96 · wdth 100</span><span class="tag">tracking -2%</span></div></div>
+    <div class="specimen"><span class="eyebrow">Body · reading</span>
+      <div class="big" style="font-family:'Inter',sans-serif;font-weight:600;font-size:29px">Clear, sourced, India-first prose.</div>
+      <p class="muted" style="margin:0">Inter 400–600. Captions, paragraphs, sub-lines. Lines near 65 characters.</p>
+      <div class="tags"><span class="tag">Inter</span><span class="tag">400 / 550 / 600</span><span class="tag">line-height 1.6</span></div></div>
+    <div class="specimen"><span class="eyebrow mono">Labels · data</span>
+      <div class="mono" style="font-size:25px;font-weight:700;letter-spacing:.04em">FREE GUIDE · 03 / 07</div>
+      <p class="muted" style="margin:8px 0 0">Space Mono Bold, uppercase, letter-spaced. Eyebrows, counters, handle, tags. Never body.</p>
+      <div class="tags"><span class="tag">Space Mono</span><span class="tag">Bold 700</span><span class="tag">UPPERCASE</span><span class="tag">tracking +14–18%</span></div></div>
+  </div>
+  <p class="muted" style="margin-top:16px">All three are free on Google Fonts (OFL). Local copies + the generators ship in <span class="mono" style="font-size:12px">~/Downloads/iim_instagram_assets/</span>.</p>
+</div></section>
+
+<section id="elements"><div class="container">
+  <div class="sec-head"><span class="sec-num">05</span><div><span class="eyebrow">Visual language</span><h2>The building blocks</h2></div></div>
+  <div class="grid g2">
+    <div><ul class="clean muted">
+      <li><b>2px ink borders</b> + a <b>hard 6px offset shadow</b> (no blur) on tiles and cards.</li>
+      <li><b>Colour-blocked tiles</b>: one flat accent or gradient per tile, high-contrast type.</li>
+      <li><b>Corner circles</b>: a solid accent circle off the top-right, a second bottom-left. Never over the text.</li>
+      <li><b>Eyebrow labels</b> in Space Mono, accent-colored, above every headline.</li>
+      <li><b>"SWIPE →"</b> on carousel covers; <b>"link in bio ↓"</b> only on promo, never educational.</li>
+    </ul></div>
+    <div class="grid g3" style="align-content:start">
+      <div class="mock cream"><span class="m-cc" style="background:var(--yellow)"></span><span class="m-eye" style="color:var(--pink)">Free tool</span><div class="m-h">What a million streams pays in India</div><div class="m-sub muted">Estimate yours.</div><div class="m-foot"><span class="dot" style="width:12px;height:12px;border-width:2px"></span>@indiemusicindia.co</div></div>
+      <div class="mock dark"><span class="m-cc" style="background:var(--violet)"></span><span class="m-eye" style="color:var(--yellow)">Free guide</span><div class="m-h" style="margin-top:26px">How Spotify pay really works</div><div class="m-sub" style="opacity:.8">Inside: 3 things</div><div class="m-foot" style="color:#fff"><span class="dot" style="width:12px;height:12px;border-width:2px;border-color:#fff"></span>swipe →</div></div>
+      <div class="mock grad"><span class="m-eye" style="color:var(--yellow)">Free · no sign-up</span><div class="m-h">Streaming royalty calculator</div><div class="m-sub" style="opacity:.9">By platform &amp; geography.</div><div class="m-foot"><span class="dot" style="width:12px;height:12px;border-width:2px;border-color:#fff"></span>link in bio ↓</div></div>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:20px">
+    <div class="card"><h3>Photography &amp; imagery</h3><ul class="clean muted"><li>Real over stock: independent artists, home studios, small venues, rehearsal rooms, the actual Indian scene.</li><li>Warm natural light, candid not corporate. Feature real faces, including the founders.</li><li>As backgrounds: duotone or gradient-overlay in brand colors, always a scrim before text.</li><li>Avoid: cheesy "musician-with-headphones" stock, generic laser concerts, fake AI faces, Western-only imagery.</li></ul></div>
+    <div class="card"><h3>Grid rhythm</h3><ul class="clean muted"><li>Alternate bright promo tiles and dark guide covers so the grid reads as two content types.</li><li>Break up rows with an artist feature or a gradient post.</li><li>Never three near-identical tiles in a row.</li></ul></div>
+  </div>
+  <p class="muted" style="margin-top:14px"><b>Three post archetypes above:</b> bright promo tile · dark "FREE GUIDE" carousel cover · gradient CTA.</p>
+</div></section>
+
+<section id="image"><div class="container">
+  <div class="sec-head"><span class="sec-num">06</span><div><span class="eyebrow">Image specs</span><h2>Posts &amp; carousels</h2></div></div>
+  <div class="grid g2" style="align-items:start">
+    <table class="spec"><tbody>
+      <tr><td>Canvas</td><td><b>1080 × 1440 px (3:4)</b>. Matches the Instagram profile-grid preview exactly.</td></tr>
+      <tr><td>Why 3:4</td><td>The grid crops to 3:4. A 1:1 loses ~12.5% per side, a 4:5 ~3%. Only 3:4 is uncropped on grid, feed, and the 9:16 boost/story crop.</td></tr>
+      <tr><td>Safe margin</td><td><b>165 px on the sides</b> (content in central ~750px). Keeps all text/logo inside even the 9:16 crop.</td></tr>
+      <tr><td>Type sizes</td><td>Headline Bricolage ~64–96px (auto-fit, max 3 lines). Body Inter ~38–41px. Labels Space Mono ~28–31px.</td></tr>
+      <tr><td>Footer</td><td>◉ dot + @indiemusicindia.co, Space Mono, bottom-left, ~120px from bottom.</td></tr>
+      <tr><td>Carousel</td><td>Dark cover (kicker + headline + INSIDE list + SWIPE) → cream teaching slides (label · counter · title · body · handle) → gradient CTA close.</td></tr>
+    </tbody></table>
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+      <div class="sz"><div class="safe"><span>Safe zone<br>165px sides<br>all text here</span></div></div>
+      <p class="muted" style="font-size:12.5px;text-align:center;max-width:280px">Dashed = the safe zone. Anything outside can crop in the grid or a story/boost.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="video"><div class="container">
+  <div class="sec-head"><span class="sec-num">07</span><div><span class="eyebrow">Video specs</span><h2>Reels</h2></div></div>
+  <table class="spec"><tbody>
+    <tr><td>Canvas</td><td><b>1080 × 1920 px (9:16)</b>. Keep text/logo in the central safe zone; IG UI covers the top ~14% and bottom ~20%.</td></tr>
+    <tr><td>Length</td><td>7–25s. Hook in the first 1–2 seconds. Structure: hook → value → handle/CTA end-card.</td></tr>
+    <tr><td>Cover frame</td><td>Design the thumbnail like a 3:4 tile with the hook text in the safe zone.</td></tr>
+    <tr><td>AI visuals</td><td>Use Veo (or similar) for the <b>visual bed only</b>. Overlay brand text yourself in Canva/VN, AI can't render our fonts or handle.</td></tr>
+    <tr><td>Trending audio</td><td>Add the trending song inside the Instagram Reels editor (only legal source). Export the video silent.</td></tr>
+  </tbody></table>
+  <div class="grid g2" style="margin-top:18px;align-items:start">
+    <div class="card"><h3>Reel hooks that work</h3><ul class="clean muted"><li><b>Number reveal</b>: "What a million streams pays in India" → reveal.</li><li><b>Myth-buster</b>: "No, Spotify doesn't pay per stream. Here's what it does."</li><li><b>POV / mistake</b>: "POV: you released without pitching editorial."</li><li><b>The list</b>: "3 royalties you're not collecting in India."</li><li><b>Comparison</b>: "DistroKid vs Amuse vs CD Baby."</li></ul></div>
+    <div class="card"><h3>Veo prompt template</h3><p class="muted" style="margin:0;font-size:13.5px">Vertical 9:16, 8s, 1080×1920. Scene: [SCENE]. Modern editorial music-brand, bright candy-pop but premium; palette pink #FF4D8D, violet #8B5CF6, blue #3AA0FF, cream #FFF7EE, pops of yellow #FFD23F. India independent-music context. Soft cinematic light, shallow DoF, slow push-in. Clean empty top/bottom thirds for text. No on-screen text, no logos, no watermark. Loop cleanly.</p></div>
+  </div>
+</div></section>
+
+<section id="social"><div class="container">
+  <div class="sec-head"><span class="sec-num">08</span><div><span class="eyebrow">Social strategy</span><h2>How we grow</h2></div></div>
+  <p class="lede muted">Model: the website disseminated into Instagram. Site = library, IG = distribution. Reels drive reach and follows; carousels drive saves and authority. Growth is Reels-led.</p>
+  <div class="grid g2" style="margin-top:22px;align-items:start">
+    <div class="card"><h3>Weekly cadence</h3><table class="spec" style="margin-top:4px"><tbody>
+      <tr><td>Reels ×5</td><td><b>The growth engine.</b> Non-follower reach → follows.</td></tr>
+      <tr><td>Carousels ×2</td><td>Saves, shares, search. Authority layer.</td></tr>
+      <tr><td>Stories daily</td><td>Warmth, polls, reposts, features.</td></tr>
+      <tr><td>Feature ×1</td><td>An artist / scene peer. Reach + goodwill.</td></tr>
+    </tbody></table></div>
+    <div class="card"><h3>Atomize the site</h3><ul class="clean muted"><li>Each <b>guide</b> → 1 carousel + 2–3 Reels.</li><li>Each <b>answer</b> → one 15s Reel.</li><li><b>Radar / reviewer data</b> → "receipts" Reels (real numbers, sourced).</li><li><b>News</b> → a sourced Signal carousel + talking-head Reel.</li></ul></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px;align-items:start">
+    <div class="card"><h3>Caption formula</h3><p class="muted" style="margin:0"><b>Line 1</b> = the exact search phrase. <b>Then</b> the value. <b>Close</b> with "Save this," not "buy." <b>Then</b> 4–6 tight hashtags. Educational captions carry no "link in bio." Set alt text = the headline.</p></div>
+    <div class="card"><h3>Discovery, not a hard sell</h3><p class="muted" style="margin:0">90% playground, in the scene, useful. Never pointed straight at the programme; a few passes to the goal is fine. But never a dead end: bio, a pinned post, and the tools are always one tap away.</p></div>
+  </div>
+  <div class="grid g3" style="margin-top:16px">
+    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--pink)">EXAMPLE · RECEIPTS</h3><p class="muted" style="margin:0;font-size:13.5px">"How much does Spotify pay per stream in India? Not a fixed rate, a share of a local revenue pool. Roughly ₹0.03–0.05. Save this."</p></div>
+    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--orange)">EXAMPLE · REAL TALK</h3><p class="muted" style="margin:0;font-size:13.5px">"POV: you released the song, then remembered you never pitched a single playlist. The pitch happens 4 weeks before."</p></div>
+    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--blue)">EXAMPLE · SIGNAL</h3><p class="muted" style="margin:0;font-size:13.5px">"[This week's India music news] and what it actually means for independent artists. The considered take, with sources."</p></div>
+  </div>
+</div></section>
+
+<section id="content"><div class="container">
+  <div class="sec-head"><span class="sec-num">09</span><div><span class="eyebrow">Content guidelines</span><h2>What we make, and how we check it</h2></div></div>
+  <div class="grid g2" style="align-items:start">
+    <div class="card"><h3>The sourcing standard</h3><ul class="clean muted">
+      <li>Every factual claim names a verifiable source (Spotify Loud &amp; Clear, IPRS.org, copyright.gov.in, PPL India, distributor T&amp;Cs, Luminate/IFPI, credible reporting).</li>
+      <li>Numbers get a <b>range</b>, not false precision, and a <b>"last verified"</b> date on evergreen figures.</li>
+      <li>Fact-check gate before anything factual ships. One wrong number costs us more than anyone.</li>
+      <li>AI can draft; a human verifies every stat and India-specific claim.</li>
+    </ul></div>
+    <div class="card"><h3>What earns a post</h3><ul class="clean muted">
+      <li><b>Save-worthy or it doesn't go.</b> A checklist, a comparison, a real number, a genuine laugh.</li>
+      <li>India-specific &gt; generic. If a chatbot can answer it blandly, add the India truth, the source, or the POV.</li>
+      <li>One idea per post. One clear takeaway.</li>
+      <li>Show, don't claim. Feature real artists, real data, real faces.</li>
+    </ul></div>
+  </div>
+  <div class="callout" style="margin-top:18px">
+    <b>Locked fact — Spotify India payout (verified Aug 2026).</b> ~<b>₹0.03–0.05 per stream</b> → 1,000 India streams ≈ <b>₹30–50</b>, a million ≈ <b>₹30,000–50,000</b>. International ≈ ₹0.25–0.42 (global $0.003–0.005). Sources: Ditto, TuneCore, Chartlex, India reporting. <span class="muted">Use this everywhere. Never quote a per-stream number that contradicts it.</span>
+  </div>
+  <div class="grid g3" style="margin-top:18px">
+    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--pink)">HASHTAGS · CORE</h3><p class="mono" style="margin:0;font-size:12.5px;color:var(--text)">#independentartist #indianmusic #musicbusiness #indieindia #musicianlife</p></div>
+    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--violet)">HASHTAGS · MONEY</h3><p class="mono" style="margin:0;font-size:12.5px;color:var(--text)">#spotifyforartists #musicroyalties #spotifyindia #iprs #musicdistribution</p></div>
+    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--blue)">HASHTAGS · PROMO</h3><p class="mono" style="margin:0;font-size:12.5px;color:var(--text)">#playlistpitching #musicpr #epk #synclicensing #livemusic</p></div>
+  </div>
+</div></section>
+
+<section id="dodont"><div class="container">
+  <div class="sec-head"><span class="sec-num">10</span><div><span class="eyebrow">Guardrails</span><h2>Do &amp; Don't</h2></div></div>
+  <div class="grid g2">
+    <div class="dd do"><h3><span class="badge">✓</span>Do</h3><ul>
+      <li>Design at 3:4 (1080×1440) with 165px side safe margins.</li>
+      <li>Lead captions with the exact search phrase; end educational posts with "Save this."</li>
+      <li>Cite a source and date evergreen numbers.</li>
+      <li>Use one accent or gradient per tile; keep type high-contrast.</li>
+      <li>Keep memes classy and scene-smart.</li>
+      <li>Feature real artists and real, sourced data.</li>
+      <li>Overlay brand text yourself; use AI for visuals only.</li>
+      <li>Add trending audio inside the Instagram app.</li>
+    </ul></div>
+    <div class="dd dont"><h3><span class="badge">✕</span>Don't</h3><ul>
+      <li>Post 1:1 or 4:5, they crop in the grid.</li>
+      <li>Use em dashes, "the algorithm," or hype words.</li>
+      <li>Say "unit economics" or jargon aimed at artists.</li>
+      <li>Quote a per-stream number that contradicts the locked figure.</li>
+      <li>Let AI render the logo, handle, or headline text.</li>
+      <li>Put "link in bio" on educational content.</li>
+      <li>Take a brand deal that would soften an honest comparison.</li>
+      <li>Chase follower count over saves, shares, and DMs.</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<section id="ai"><div class="container">
+  <div class="sec-head"><span class="sec-num">11</span><div><span class="eyebrow">For an AI</span><h2>Copy-paste spec block</h2></div></div>
+  <p class="lede muted">Paste this into any AI chatbot as context before asking it to write a caption, a carousel, a Reel script, or an image spec.</p>
+  <div class="codewrap"><button class="copy" id="copyBtn">Copy</button><pre id="specblock">BRAND: Indie Music India (@indiemusicindia.co, indiemusicindia.com)
+WHAT: Free tools + guides + a paid Artist Development Programme for independent
+Indian musicians. Theme: "everything around the music" (economics, identity,
+network, release). Audience: indie artists in India + managers/labels/curators/brands.
+
+VOICE: clear over clever; specific (real names/numbers/steps); India-first (rupees,
+IPRS, JioSaavn); sourced (name a source, date evergreen numbers, ranges not false
+precision); honest; warm; premium not hypey. Qualitative for performance.
+HARD RULES: no em dashes; never "the algorithm", "engagement velocity",
+"distribution cycle", or hype words; never "unit economics" (say "money in vs
+money back"). One idea per post. Must be save-worthy.
+
+LANES: Receipts (sourced data/how-to), Real Talk (classy motivating/insider meme),
+Signal (sourced considered news take, not hot take).
+
+CAPTIONS: line 1 = the exact search phrase; then the value; educational posts close
+"Save this" and NO "link in bio"; promo may use "link in bio"; 4-6 tight hashtags;
+alt text = the headline.
+HASHTAGS core: #independentartist #indianmusic #musicbusiness #indieindia
+#musicianlife  money: #spotifyforartists #musicroyalties #spotifyindia #iprs
+#musicdistribution  promo: #playlistpitching #musicpr #epk #synclicensing #livemusic
+
+COLOR: pink #FF4D8D, orange #FF9130, yellow #FFD23F, violet #8B5CF6, blue #3AA0FF,
+mint #1FCF9E, ink #241B2E, cream #FFF7EE. Ground = cream (light) or ink (dark/guide).
+One accent or gradient per tile. Gradients diagonal 3-stop. Ink text on cream/yellow/
+mint; cream text on ink/violet/blue/pink.
+
+TYPE: Bricolage Grotesque 800 = headlines/big numbers; Inter 400-600 = body;
+Space Mono Bold UPPERCASE +letterspacing = labels/eyebrows/counters/handle.
+
+IMAGE: 1080x1440 (3:4). 165px side safe margins (all text/logo inside). Headline
+Bricolage 64-96px max 3 lines; body Inter ~40px; labels Space Mono ~30px. Footer
+bottom-left: [dot] @indiemusicindia.co. Types: bright promo tile; dark "FREE GUIDE"
+carousel cover (kicker + headline + INSIDE list + "SWIPE ->"); cream teaching slides
+(LABEL . counter . title . body . handle); gradient CTA slide.
+
+VIDEO: 1080x1920 (9:16). Text/logo central safe zone (top ~14% + bottom ~20% covered
+by IG UI). Hook first 1-2s; hook -> value -> handle/CTA. AI = visual bed only; overlay
+brand text yourself; add trending audio inside Instagram.
+
+LOCKED FACT: Spotify India ~Rs0.03-0.05/stream (1,000 India streams ~= Rs30-50;
+1M ~= Rs30,000-50,000). International ~Rs0.25-0.42. Verified Aug 2026 (Ditto, TuneCore,
+Chartlex, India reporting). Never contradict this.
+
+DISCOVERY: 90% value, indirect funnel; never a hard sell, never a dead end. Optimize
+saves/shares/DMs, not follower count.</pre></div>
+</div></section>
+</main>
+
+<footer><div class="container">
+  Indie Music India — Brand Toolkit v1 · August 2026 · <a href="brand-kit.md" download>Download the .md</a> · <a href="/">indiemusicindia.com</a><br>
+  Fonts: Bricolage Grotesque, Inter, Space Mono (Google Fonts, OFL). This document is the single source of truth, when in doubt, it wins.
+</div></footer>
+
+<script>
+(function(){
+  var COLORS=[["Pink","#FF4D8D"],["Orange","#FF9130"],["Yellow","#FFD23F"],["Violet","#8B5CF6"],["Blue","#3AA0FF"],["Mint","#1FCF9E"],["Ink","#241B2E"],["Cream","#FFF7EE"]];
+  var wrap=document.getElementById("swatches");
+  COLORS.forEach(function(c){
+    var d=document.createElement("div"); d.className="swatch"; d.tabIndex=0; d.setAttribute("role","button"); d.setAttribute("aria-label","Copy "+c[1]);
+    d.innerHTML='<div class="chipcolor" style="background:'+c[1]+'"></div><div class="meta"><span class="nm">'+c[0]+'</span><span class="hex">'+c[1]+'</span></div>';
+    function copy(){navigator.clipboard&&navigator.clipboard.writeText(c[1]); var h=d.querySelector(".hex"); var o=h.textContent; h.textContent="Copied"; setTimeout(function(){h.textContent=o;},900);}
+    d.addEventListener("click",copy); d.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();copy();}});
+    wrap.appendChild(d);
+  });
+  var cb=document.getElementById("copyBtn");
+  cb.addEventListener("click",function(){var t=document.getElementById("specblock").textContent; navigator.clipboard&&navigator.clipboard.writeText(t); cb.textContent="Copied"; setTimeout(function(){cb.textContent="Copy";},1200);});
+  var root=document.documentElement, tg=document.getElementById("tgl");
+  tg.addEventListener("click",function(){
+    var cur=root.getAttribute("data-theme"); if(!cur){cur=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";}
+    root.setAttribute("data-theme", cur==="dark"?"light":"dark");
+  });
+})();
+</script>
+</body>
+</html>
