@@ -82,6 +82,13 @@ ul.clean{margin:0; padding-left:18px} ul.clean li{margin-bottom:7px}
 .mock .m-cc{width:52px;height:52px;border-radius:50%;position:absolute;top:-14px;right:-10px}
 .mock.cream{background:#FFF7EE;color:#241B2E} .mock.dark{background:#1C1428;color:#FFF7EE}
 .mock.grad{background:linear-gradient(135deg,#FF4D8D,#8B5CF6,#3AA0FF);color:#fff;border-color:#1C1428}
+.reelgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:18px;margin-top:22px}
+.reelcard{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.reelcard img{width:100%;display:block;border-bottom:1px solid var(--hairline)}
+.reelcard .rc-body{padding:14px}
+.reelcard h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;margin:0 0 9px}
+.reelcard .rc-l{font-size:12.5px;color:var(--muted);margin:0 0 6px;line-height:1.45}
+.reelcard .rc-l b{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;display:block;margin-bottom:1px}
 .sz{position:relative; aspect-ratio:3/4; max-width:280px; border-radius:12px; background:linear-gradient(135deg,#FF9130,#FF4D8D,#8B5CF6); overflow:hidden}
 .sz .safe{position:absolute; inset:0 15.3% 0 15.3%; border:2px dashed rgba(255,255,255,.9); border-radius:4px; display:flex; align-items:center; justify-content:center}
 .sz .safe span{font-family:'Space Mono',monospace; font-size:10px; color:#fff; text-align:center; text-transform:uppercase; letter-spacing:.1em; line-height:1.5}
@@ -113,7 +120,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
   <nav class="topnav">
     <a href="#foundation">Foundation</a><a href="#voice">Voice</a><a href="#color">Color</a>
     <a href="#type">Type</a><a href="#elements">Elements</a><a href="#image">Images</a>
-    <a href="#video">Video</a><a href="#content">Content</a><a href="#dodont">Do/Don't</a><a href="#ai">AI spec</a>
+    <a href="#video">Video</a><a href="#reels">Reels</a><a href="#content">Content</a><a href="#dodont">Do/Don't</a><a href="#ai">AI spec</a>
   </nav>
   <button class="tgl" id="tgl" aria-label="Toggle theme">Theme</button>
 </div></div>
@@ -290,8 +297,26 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
   </div>
 </div></section>
 
+<section id="reels"><div class="container">
+  <div class="sec-head"><span class="sec-num">08</span><div><span class="eyebrow">Video content · 10 types</span><h2>Reel templates</h2></div></div>
+  <p class="lede muted">Ten ready template frames (9:16, correct safe zones, brand fonts) for the content types we make. Import the frame to Canva, retype the text on top, apply the named animation, drop a clip or screen-record behind, export silent, then add the trending audio in Instagram. <a href="reels/reel-recipes.md" download>Download the full recipes (.md)</a>.</p>
+  <div class="reelgrid">
+    <div class="reelcard"><img src="reels/01_number_reveal.jpg" alt="Number reveal Reel template" loading="lazy" /><div class="rc-body"><h4>01 · Number reveal</h4><p class="rc-l"><b>Use</b>a stat or payout</p><p class="rc-l"><b>Animate</b>number Pop after a beat</p><p class="rc-l"><b>Veo</b>rupee coins &amp; rising light, macro</p></div></div>
+    <div class="reelcard"><img src="reels/02_myth_buster.jpg" alt="Myth-buster Reel template" loading="lazy" /><div class="rc-body"><h4>02 · Myth-buster</h4><p class="rc-l"><b>Use</b>correct a common belief</p><p class="rc-l"><b>Animate</b>strike Wipe, truth Rise</p><p class="rc-l"><b>Veo</b>red line drawing, then gradient</p></div></div>
+    <div class="reelcard"><img src="reels/03_howto_steps.jpg" alt="How-to steps Reel template" loading="lazy" /><div class="rc-body"><h4>03 · How-to steps</h4><p class="rc-l"><b>Use</b>any process</p><p class="rc-l"><b>Animate</b>steps Ascend, staggered</p><p class="rc-l"><b>Veo</b>talking-head or plain brand bg</p></div></div>
+    <div class="reelcard"><img src="reels/04_comparison.jpg" alt="Comparison Reel template" loading="lazy" /><div class="rc-body"><h4>04 · Comparison</h4><p class="rc-l"><b>Use</b>X vs Y</p><p class="rc-l"><b>Animate</b>columns Pan in, VS Breathe</p><p class="rc-l"><b>Veo</b>split textures, or talking-head</p></div></div>
+    <div class="reelcard"><img src="reels/05_list_three.jpg" alt="List of three Reel template" loading="lazy" /><div class="rc-body"><h4>05 · List / 3 things</h4><p class="rc-l"><b>Use</b>a short list</p><p class="rc-l"><b>Animate</b>rows Fade, staggered</p><p class="rc-l"><b>Veo</b>floating brand orbs, slow drift</p></div></div>
+    <div class="reelcard"><img src="reels/06_pov_relatable.jpg" alt="POV relatable Reel template" loading="lazy" /><div class="rc-body"><h4>06 · POV / relatable</h4><p class="rc-l"><b>Use</b>a meme moment</p><p class="rc-l"><b>Animate</b>caption Typewriter</p><p class="rc-l"><b>Veo</b>artist on phone at night, cinematic</p></div></div>
+    <div class="reelcard"><img src="reels/07_motivation.jpg" alt="Motivation Reel template" loading="lazy" /><div class="rc-body"><h4>07 · Motivation</h4><p class="rc-l"><b>Use</b>a truth or mantra</p><p class="rc-l"><b>Animate</b>statement Rise</p><p class="rc-l"><b>Veo</b>intimate gig, small crowd, slow-mo</p></div></div>
+    <div class="reelcard"><img src="reels/08_quick_tip.jpg" alt="Quick tip Reel template" loading="lazy" /><div class="rc-body"><h4>08 · Quick tip</h4><p class="rc-l"><b>Use</b>one sharp tip</p><p class="rc-l"><b>Animate</b>tip Rise, under 12s</p><p class="rc-l"><b>Veo</b>none needed (solid brand bg)</p></div></div>
+    <div class="reelcard"><img src="reels/09_news_signal.jpg" alt="News signal Reel template" loading="lazy" /><div class="rc-body"><h4>09 · News / Signal</h4><p class="rc-l"><b>Use</b>the sourced news take</p><p class="rc-l"><b>Animate</b>headline Rise, show source</p><p class="rc-l"><b>Veo</b>flowing gradient ribbons</p></div></div>
+    <div class="reelcard"><img src="reels/10_tool_demo.jpg" alt="Tool demo Reel template" loading="lazy" /><div class="rc-body"><h4>10 · Tool demo</h4><p class="rc-l"><b>Use</b>show the calculator</p><p class="rc-l"><b>Animate</b>screen-record in the frame</p><p class="rc-l"><b>Veo</b>none — screen-record the tool</p></div></div>
+  </div>
+  <p class="muted" style="margin-top:16px">The master Veo prompt lives in <a href="#video">Video specs</a>; per-type scenes are in the recipes download. Steps, quick tips, and tool demos read better as talking-head or screen-record than AI b-roll.</p>
+</div></section>
+
 <section id="social"><div class="container">
-  <div class="sec-head"><span class="sec-num">08</span><div><span class="eyebrow">Social strategy</span><h2>How we grow</h2></div></div>
+  <div class="sec-head"><span class="sec-num">09</span><div><span class="eyebrow">Social strategy</span><h2>How we grow</h2></div></div>
   <p class="lede muted">Model: the website disseminated into Instagram. Site = library, IG = distribution. Reels drive reach and follows; carousels drive saves and authority. Growth is Reels-led.</p>
   <div class="grid g2" style="margin-top:22px;align-items:start">
     <div class="card"><h3>Weekly cadence</h3><table class="spec" style="margin-top:4px"><tbody>
@@ -314,7 +339,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
 </div></section>
 
 <section id="content"><div class="container">
-  <div class="sec-head"><span class="sec-num">09</span><div><span class="eyebrow">Content guidelines</span><h2>What we make, and how we check it</h2></div></div>
+  <div class="sec-head"><span class="sec-num">10</span><div><span class="eyebrow">Content guidelines</span><h2>What we make, and how we check it</h2></div></div>
   <div class="grid g2" style="align-items:start">
     <div class="card"><h3>The sourcing standard</h3><ul class="clean muted">
       <li>Every factual claim names a verifiable source (Spotify Loud &amp; Clear, IPRS.org, copyright.gov.in, PPL India, distributor T&amp;Cs, Luminate/IFPI, credible reporting).</li>
@@ -340,7 +365,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
 </div></section>
 
 <section id="dodont"><div class="container">
-  <div class="sec-head"><span class="sec-num">10</span><div><span class="eyebrow">Guardrails</span><h2>Do &amp; Don't</h2></div></div>
+  <div class="sec-head"><span class="sec-num">11</span><div><span class="eyebrow">Guardrails</span><h2>Do &amp; Don't</h2></div></div>
   <div class="grid g2">
     <div class="dd do"><h3><span class="badge">✓</span>Do</h3><ul>
       <li>Design at 3:4 (1080×1440) with 165px side safe margins.</li>
@@ -366,7 +391,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
 </div></section>
 
 <section id="ai"><div class="container">
-  <div class="sec-head"><span class="sec-num">11</span><div><span class="eyebrow">For an AI</span><h2>Copy-paste spec block</h2></div></div>
+  <div class="sec-head"><span class="sec-num">12</span><div><span class="eyebrow">For an AI</span><h2>Copy-paste spec block</h2></div></div>
   <p class="lede muted">Paste this into any AI chatbot as context before asking it to write a caption, a carousel, a Reel script, or an image spec.</p>
   <div class="codewrap"><button class="copy" id="copyBtn">Copy</button><pre id="specblock">BRAND: Indie Music India (@indiemusicindia.co, indiemusicindia.com)
 WHAT: Free tools + guides + a paid Artist Development Programme for independent
