@@ -433,13 +433,13 @@
   },
   "2026-08": {
     "month": "2026-08",
-    "snapshots": 4,
-    "last_snapshot_at": "2026-08-04T04:19:25.759438+00:00",
+    "snapshots": 5,
+    "last_snapshot_at": "2026-08-05T04:15:58.476440+00:00",
     "total_videos": 225,
-    "total_artists": 188,
-    "new_artists_seen": 137,
-    "median_score": 64,
-    "median_views": 4388,
+    "total_artists": 199,
+    "new_artists_seen": 158,
+    "median_score": 61,
+    "median_views": 3599,
     "top_artists": [
       {
         "name": "Inqalab",
@@ -514,34 +514,34 @@
     ],
     "fastest_growing": [
       {
-        "name": "Pratyagra Music Paradise",
-        "views_gained": 694608,
-        "genre": "Folk / Acoustic",
-        "language": "Tamil"
-      },
-      {
         "name": "Kousthuba Entertainments",
-        "views_gained": 573152,
+        "views_gained": 589329,
         "genre": "Hip Hop / Rap",
         "language": "Kannada"
       },
       {
-        "name": "Aksomaniac",
-        "views_gained": 387159,
-        "genre": "Indie",
-        "language": "Malayalam"
-      },
-      {
         "name": "DURGAM MUSIC",
-        "views_gained": 354940,
+        "views_gained": 453700,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
         "name": "Gallery Vision Indie",
-        "views_gained": 335514,
+        "views_gained": 336597,
         "genre": "Electronic",
         "language": "Malayalam"
+      },
+      {
+        "name": "Manchu Dada Music ",
+        "views_gained": 219210,
+        "genre": "Indie",
+        "language": "Bengali"
+      },
+      {
+        "name": "Radha Folks",
+        "views_gained": 168350,
+        "genre": "Hip Hop / Rap",
+        "language": "Telugu"
       }
     ],
     "genre_breakdown": [
@@ -551,26 +551,26 @@
       ],
       [
         "Folk / Acoustic",
-        50
+        47
       ],
       [
         "Hip Hop / Rap",
-        37
+        38
       ],
       [
         "R&B / Soul",
-        21
+        23
       ],
       [
         "Lo-Fi",
         21
       ],
       [
-        "Electronic",
-        16
+        "Classical/Fusion",
+        15
       ],
       [
-        "Classical/Fusion",
+        "Electronic",
         14
       ],
       [
@@ -579,7 +579,7 @@
       ],
       [
         "Jazz / Blues",
-        4
+        5
       ],
       [
         "Indie Pop",
@@ -587,10 +587,6 @@
       ]
     ],
     "language_breakdown": [
-      [
-        "Tamil",
-        25
-      ],
       [
         "Telugu",
         25
@@ -604,6 +600,10 @@
         25
       ],
       [
+        "Bengali",
+        25
+      ],
+      [
         "Punjabi",
         25
       ],
@@ -612,7 +612,7 @@
         25
       ],
       [
-        "Bengali",
+        "Tamil",
         25
       ],
       [
@@ -625,33 +625,29 @@
       ]
     ],
     "city_shows": {
-      "Bangalore": 66,
-      "Hyderabad": 37,
-      "Pune": 40,
-      "Chennai": 30,
+      "Bangalore": 69,
+      "Mumbai": 44,
+      "Chennai": 35,
+      "Goa": 31,
       "Delhi": 46,
-      "Juhu": 1,
-      "Mumbai": 49,
-      "Goa": 32,
-      "Kolkata": 34,
-      "Whitefield, Bengaluru": 2,
-      "Auditorium": 1,
-      "Gachibowli": 2,
+      "Hyderabad": 44,
+      "Kolkata": 36,
+      "Pune": 36,
+      "Koramangala": 1,
       "East Midnapur": 1,
+      "Mulund": 2,
       "NCPA.": 1,
       "Puducherry": 1,
-      "Mulund": 1,
-      "NCPA": 1,
       "Guwahati": 1,
       "Ladakh": 1,
+      "Leh": 1,
       "Abu Dhabi": 1,
       "India": 1,
-      "Ahmedabad": 2,
+      "Ahmedabad": 1,
       "Kochi": 2,
-      "Meghalaya": 1,
       "Jaipur": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 355
+    "total_shows": 356
   }
 }
