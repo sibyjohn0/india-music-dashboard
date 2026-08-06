@@ -28,7 +28,16 @@ REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 FONTS = REPO / "assets" / "fonts"
 OUT = REPO / "social" / "radar"
+EXCLUDE_PATH = DATA / "radar_exclude.json"
 N_ARTISTS = 5
+
+def load_exclude():
+    """Human curation layer: names to never feature (AI/no-identity, repeats)."""
+    try:
+        names = json.load(open(EXCLUDE_PATH)).get("exclude", [])
+        return {n.strip().lower() for n in names}
+    except Exception:
+        return set()
 
 # Names that signal a compilation / mix / topic channel rather than a real artist.
 # Their "cover art" is usually a text-heavy thumbnail, which also fails the clean-tile bar.
@@ -83,13 +92,16 @@ def load():
             if isinstance(a, dict) and a.get("name")}
     return enr, arts
 
-def pick(enr, arts, skip=0):
+def pick(enr, arts, skip=0, exclude=None):
     """Prefer rising (growth-based) indie artists that have a cover image.
-    skip>0 drops the top `skip` picks, so a future week can queue the next tier."""
+    skip>0 drops the top `skip` picks, so a future week can queue the next tier.
+    exclude is a set of lowercased names to veto (AI/no-identity, already-featured)."""
+    exclude = exclude or set()
     rows = []
     for name, e in enr.items():
         if not e.get("image"): continue
         if NON_ARTIST.search(name): continue   # drop mix/topic/playlist channels
+        if name.strip().lower() in exclude: continue   # human veto list
         t = arts.get(name, {})
         rows.append({"name": name, "e": e, "t": t,
                      "trend": t.get("trend"), "growth": t.get("growth_pct"),
@@ -187,7 +199,7 @@ def main():
     wk = a.date.upper() if a.date else None
 
     enr, arts = load()
-    picks = pick(enr, arts, skip=a.skip)
+    picks = pick(enr, arts, skip=a.skip, exclude=load_exclude())
     if not picks:
         print("generate_radar: no candidates with cover images, skipping.")
         return
