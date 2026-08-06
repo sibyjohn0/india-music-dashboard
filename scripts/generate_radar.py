@@ -204,13 +204,21 @@ def build(picks, images, out=OUT, wk=None):
     d.text((M,878),"artists on our radar.",font=inter(42),fill=(240,236,246))
     footer(d,YELLOW,WHITE); img.save(out/f"slide_{total:02d}.png")
 
+def load_handles():
+    try:
+        return json.load(open(DATA / "radar_handles.json")).get("handles", {})
+    except Exception:
+        return {}
+
 def write_caption(picks, out=OUT):
-    # Spotify link is reliable (from our enrichment); IG handle must be verified by
-    # hand — Spotify's API doesn't expose it — so leave a @____ placeholder to fill.
+    # Spotify link is reliable (from our enrichment); IG handle comes from the
+    # verified radar_handles.json, else a @____ placeholder to fill by hand.
+    handles = load_handles()
     lines = []
     for r in picks:
         url = r["e"].get("spotify_url", "")
-        lines.append(f"• {r['name']} — IG @______  |  {url}")
+        ig = handles.get(r["name"], "@______")
+        lines.append(f"• {r['name']} — IG {ig}  |  {url}")
     artist_block = "\n".join(lines)
     cap = (
         "THE RADAR — the Indian artists on our radar this week \U0001F3A7\n\n"
