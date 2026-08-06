@@ -7,7 +7,7 @@ Reads:
   data/spotify_enrichment.json -> artist cover images + Spotify URLs (from fetch_spotify.py)
 
 Writes:
-  social/radar/slide_01.png .. slide_NN.png  -> ready-to-post 3:4 carousel
+  social/radar/slide_01.png .. slide_NN.png  -> ready-to-post 9:16 story/reel carousel
   social/radar/caption.txt                   -> caption + the artists to tag
 
 How "rising" is chosen (mirrors build_radar.py's own logic):
@@ -30,7 +30,7 @@ FONTS = REPO / "assets" / "fonts"
 OUT = REPO / "social" / "radar"
 N_ARTISTS = 5
 
-W, H, M = 1080, 1440, 120
+W, H, M = 1080, 1920, 120   # 9:16 story/reel frames
 PINK=(255,77,141); YELLOW=(255,210,63); VIOLET=(139,92,246); BLUE=(58,160,255)
 MINT=(31,207,158); INK=(36,27,46); INK2=(24,18,34); CREAM=(255,247,238); WHITE=(255,255,255); MUT=(150,140,160)
 
@@ -110,45 +110,49 @@ def build(picks, images):
     wk = datetime.date.today().strftime("%d %b %Y").upper()
     total = len(picks) + 2
 
+    # --- Slide 1: cover (vertical rhythm tuned for the 1920px 9:16 frame) ---
     img = Image.new("RGB",(W,H),INK2); d=ImageDraw.Draw(img); circ(d,W-70,120,120,MINT)
-    trk(d,(M,220),f"THE RADAR · {wk}",mono(30),MINT,3)
-    d.text((M,300),"New music",font=bric(140),fill=WHITE)
-    d.text((M,440),"on our",font=bric(140),fill=WHITE)
-    d.text((M,580),"radar.",font=bric(140),fill=YELLOW)
+    trk(d,(M,320),f"THE RADAR · {wk}",mono(30),MINT,3)
+    d.text((M,440),"On our",font=bric(150),fill=WHITE)
+    d.text((M,600),"radar.",font=bric(150),fill=YELLOW)
+    d.text((M,820),"The Indian artists",font=inter(40,600),fill=(225,222,232))
+    d.text((M,876),"we're watching this week.",font=inter(40,600),fill=(225,222,232))
     tx=M
     for r in picks[:4]:
         im=images.get(r["name"])
-        if im: img.paste(cover_fit(im,190,190),(tx,900)); d=ImageDraw.Draw(img)
-        d.rectangle([tx,900,tx+190,1090],outline=WHITE,width=2); tx+=200
-    d.text((M,1170),"Watch these names →",font=inter(40,600),fill=(225,222,232))
-    f=mono(30); d.text((W-M-tw(d,"SWIPE →",f),1180),"SWIPE →",font=f,fill=MUT)
+        if im: img.paste(cover_fit(im,200,200),(tx,1150)); d=ImageDraw.Draw(img)
+        d.rectangle([tx,1150,tx+200,1350],outline=WHITE,width=2); tx+=210
+    d.text((M,1450),"Watch these names →",font=inter(44,600),fill=(225,222,232))
+    f=mono(30); d.text((W-M-tw(d,"SWIPE →",f),1458),"SWIPE →",font=f,fill=MUT)
     footer(d,MINT,WHITE); img.save(OUT/"slide_01.png")
 
+    # --- Slides 2..N: one artist each, cover photo as the hero ---
     for i,r in enumerate(picks,2):
         img=Image.new("RGB",(W,H),CREAM); d=ImageDraw.Draw(img)
-        trk(d,(M,150),f"THE RADAR · {i:02d} / {total:02d}",mono(28),PINK,3)
-        box=(M,205,W-M,205+770); im=images.get(r["name"])
+        trk(d,(M,170),f"THE RADAR · {i:02d} / {total:02d}",mono(28),PINK,3)
+        box=(M,240,W-M,240+1060); im=images.get(r["name"])
         if im: img.paste(cover_fit(im,box[2]-box[0],box[3]-box[1]),(box[0],box[1])); d=ImageDraw.Draw(img)
         d.rectangle([box[0],box[1],box[2]-1,box[3]-1],outline=INK,width=4)
-        yy=box[3]+34
-        nm=r["name"] if tw(d,r["name"],bric(74))<W-2*M else r["name"][:18]+"…"
-        d.text((M,yy),nm,font=bric(74),fill=INK)
-        d.text((M,yy+90),genre_lang(r),font=inter(37,600),fill=(74,64,88))
-        d.text((M,yy+142),stat_line(r),font=inter(35,650),fill=PINK)
+        yy=box[3]+48
+        nm=r["name"] if tw(d,r["name"],bric(76))<W-2*M else r["name"][:18]+"…"
+        d.text((M,yy),nm,font=bric(76),fill=INK)
+        d.text((M,yy+96),genre_lang(r),font=inter(37,600),fill=(74,64,88))
+        d.text((M,yy+150),stat_line(r),font=inter(35,650),fill=PINK)
         footer(d,PINK,INK,note="Cover art: Spotify"); img.save(OUT/f"slide_{i:02d}.png")
 
+    # --- Final slide: CTA on the brand gradient ---
     img=grad([PINK,VIOLET,BLUE]); d=ImageDraw.Draw(img)
-    trk(d,(M,180),"THE RADAR",mono(28),YELLOW,3)
-    d.text((M,330),"Found your",font=bric(84),fill=WHITE)
-    d.text((M,420),"new favourite?",font=bric(84),fill=WHITE)
-    d.text((M,560),"Follow for next week's",font=inter(39),fill=(240,236,246))
-    d.text((M,614),"artists on our radar.",font=inter(39),fill=(240,236,246))
+    trk(d,(M,340),"THE RADAR",mono(28),YELLOW,3)
+    d.text((M,520),"Found your",font=bric(92),fill=WHITE)
+    d.text((M,632),"new favourite?",font=bric(92),fill=WHITE)
+    d.text((M,820),"Follow for next week's",font=inter(42),fill=(240,236,246))
+    d.text((M,878),"artists on our radar.",font=inter(42),fill=(240,236,246))
     footer(d,YELLOW,WHITE); img.save(OUT/f"slide_{total:02d}.png")
 
 def write_caption(picks):
     names = ", ".join(r["name"] for r in picks)
     cap = (
-        "THE RADAR — new Indian music on our radar this week \U0001F3A7\n\n"
+        "THE RADAR — the Indian artists on our radar this week \U0001F3A7\n\n"
         f"Swipe for {len(picks)} acts we're watching: {names}.\n"
         "Save this, and tag a friend who needs new music.\n\n"
         "TAG EACH ARTIST in the post before publishing. Verify the picks first.\n\n"
