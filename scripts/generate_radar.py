@@ -45,6 +45,14 @@ NON_ARTIST = re.compile(
     r"\b(mix|topic|playlist|lofi|lo-?fi|jukebox|mashup|non[- ]?stop|karaoke|"
     r"audio jukebox|full album|hit songs|old songs)\b", re.I)
 
+# Label / aggregator / production channels — not individual artists. Ranking by
+# listeners surfaces these, so drop them (e.g. "A2 Music Official", "Drop of Music",
+# "Radha Entertainment", "MJ Production"). Real names with music inside a word
+# (e.g. "MusicByRuhi") are kept because the token isn't a standalone trailing word.
+LABEL = re.compile(
+    r"\b(entertainment|productions?|records|studios?|media|films?|"
+    r"official music|music official)\b|\bmusic$|\bmuzi[ckx]\b", re.I)
+
 W, H, M = 1080, 1920, 120   # 9:16 story/reel frames
 PINK=(255,77,141); YELLOW=(255,210,63); VIOLET=(139,92,246); BLUE=(58,160,255)
 MINT=(31,207,158); INK=(36,27,46); INK2=(24,18,34); CREAM=(255,247,238); WHITE=(255,255,255); MUT=(150,140,160)
@@ -92,29 +100,57 @@ def load():
             if isinstance(a, dict) and a.get("name")}
     return enr, arts
 
+def _lang(r):
+    return (r["t"].get("language") or "Unknown").strip()
+
+def _score(r):
+    # Prefer real presence (Last.fm listeners), then rising growth, then better rank.
+    return (r["listeners"] or 0, (r["growth"] or 0), -(r["rank"] or 10**9))
+
+def compose(rows, skip=0):
+    """Build a weekly set of 2 English + 3 Indian-language artists, using a
+    different vernacular language for each of the 3 to represent the country.
+    Ranked within each group by Last.fm presence. skip offsets each group for
+    queueing a later week."""
+    eng  = sorted([r for r in rows if _lang(r).lower() == "english"],  key=_score, reverse=True)[skip:]
+    vern = sorted([r for r in rows if _lang(r).lower() != "english"],  key=_score, reverse=True)[skip:]
+
+    picks = eng[:2]
+    vpicks, used = [], set()
+    for r in vern:                       # 3 distinct vernacular languages
+        if _lang(r) in used: continue
+        vpicks.append(r); used.add(_lang(r))
+        if len(vpicks) == 3: break
+    if len(vpicks) < 3:                   # not enough distinct languages: fill anyway
+        for r in vern:
+            if r not in vpicks: vpicks.append(r)
+            if len(vpicks) == 3: break
+    out = picks + vpicks
+    if len(out) < N_ARTISTS:              # not enough English: top up from vernacular
+        for r in vern:
+            if r not in out: out.append(r)
+            if len(out) == N_ARTISTS: break
+    return out[:N_ARTISTS]
+
 def pick(enr, arts, skip=0, exclude=None):
-    """Prefer rising (growth-based) indie artists that have a cover image.
-    skip>0 drops the top `skip` picks, so a future week can queue the next tier.
-    exclude is a set of lowercased names to veto (AI/no-identity, already-featured)."""
+    """Select the weekly artists: real indie acts with a cover image, no mix/topic/
+    label channels, honouring the exclude list, composed 2 English + 3 vernacular."""
     exclude = exclude or set()
     rows = []
     for name, e in enr.items():
         if not e.get("image"): continue
-        if NON_ARTIST.search(name): continue   # drop mix/topic/playlist channels
+        if NON_ARTIST.search(name): continue      # mix/topic/playlist channels
+        if LABEL.search(name): continue           # label / aggregator channels
         if name.strip().lower() in exclude: continue   # human veto list
         t = arts.get(name, {})
         rows.append({"name": name, "e": e, "t": t,
                      "trend": t.get("trend"), "growth": t.get("growth_pct"),
-                     "rank": t.get("india_rank"), "listeners": t.get("latest_global_listeners") or e.get("followers") or 0})
-    rising = [r for r in rows if r["trend"] == "rising"]
-    rising.sort(key=lambda r: (r["growth"] or 0), reverse=True)
-    rest = [r for r in rows if r["trend"] != "rising"]
-    # fill: newest first, then best India rank, then listeners (keeps it emerging, not mainstream)
-    rest.sort(key=lambda r: (r["trend"] == "new", -(r["rank"] or 10**9), r["listeners"]), reverse=True)
-    return (rising + rest)[skip:skip + N_ARTISTS]
+                     "rank": t.get("india_rank"),
+                     "listeners": t.get("latest_global_listeners") or e.get("followers") or 0})
+    return compose(rows, skip=skip)
 
 def stat_line(r):
-    if r["growth"] and r["growth"] > 0: return f"▲  {r['growth']}% listeners this month"
+    if r["growth"] and r["growth"] >= 5: return f"▲  {round(r['growth'])}% listeners this month"
     if r["trend"] == "new": return "New on the radar"
     if r["rank"]: return f"#{r['rank']} in India this week"
     return "On our radar"
@@ -194,12 +230,15 @@ def main():
     p.add_argument("--out", default=None, help="Output dir (default: social/radar).")
     p.add_argument("--date", default=None,
                    help="Date label on the frames, e.g. '13 Aug 2026' (default: today).")
+    p.add_argument("--exclude-extra", default="",
+                   help="Comma-separated names to also skip (e.g. this week's picks, to avoid repeats next week).")
     a = p.parse_args()
     out = Path(a.out) if a.out else OUT
     wk = a.date.upper() if a.date else None
+    exclude = load_exclude() | {n.strip().lower() for n in a.exclude_extra.split(",") if n.strip()}
 
     enr, arts = load()
-    picks = pick(enr, arts, skip=a.skip, exclude=load_exclude())
+    picks = pick(enr, arts, skip=a.skip, exclude=exclude)
     if not picks:
         print("generate_radar: no candidates with cover images, skipping.")
         return
