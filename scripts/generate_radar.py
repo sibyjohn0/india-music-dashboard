@@ -19,7 +19,7 @@ How "rising" is chosen (mirrors build_radar.py's own logic):
 
 Nothing is auto-posted. A human should review the 5 picks, tag each artist, and post.
 """
-import json, os, io, glob, datetime, urllib.request
+import json, os, io, glob, re, datetime, urllib.request
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
@@ -29,6 +29,12 @@ DATA = REPO / "data"
 FONTS = REPO / "assets" / "fonts"
 OUT = REPO / "social" / "radar"
 N_ARTISTS = 5
+
+# Names that signal a compilation / mix / topic channel rather than a real artist.
+# Their "cover art" is usually a text-heavy thumbnail, which also fails the clean-tile bar.
+NON_ARTIST = re.compile(
+    r"\b(mix|topic|playlist|lofi|lo-?fi|jukebox|mashup|non[- ]?stop|karaoke|"
+    r"audio jukebox|full album|hit songs|old songs)\b", re.I)
 
 W, H, M = 1080, 1920, 120   # 9:16 story/reel frames
 PINK=(255,77,141); YELLOW=(255,210,63); VIOLET=(139,92,246); BLUE=(58,160,255)
@@ -77,11 +83,13 @@ def load():
             if isinstance(a, dict) and a.get("name")}
     return enr, arts
 
-def pick(enr, arts):
-    """Prefer rising (growth-based) indie artists that have a cover image."""
+def pick(enr, arts, skip=0):
+    """Prefer rising (growth-based) indie artists that have a cover image.
+    skip>0 drops the top `skip` picks, so a future week can queue the next tier."""
     rows = []
     for name, e in enr.items():
         if not e.get("image"): continue
+        if NON_ARTIST.search(name): continue   # drop mix/topic/playlist channels
         t = arts.get(name, {})
         rows.append({"name": name, "e": e, "t": t,
                      "trend": t.get("trend"), "growth": t.get("growth_pct"),
@@ -91,7 +99,7 @@ def pick(enr, arts):
     rest = [r for r in rows if r["trend"] != "rising"]
     # fill: newest first, then best India rank, then listeners (keeps it emerging, not mainstream)
     rest.sort(key=lambda r: (r["trend"] == "new", -(r["rank"] or 10**9), r["listeners"]), reverse=True)
-    return (rising + rest)[:N_ARTISTS]
+    return (rising + rest)[skip:skip + N_ARTISTS]
 
 def stat_line(r):
     if r["growth"] and r["growth"] > 0: return f"▲  {r['growth']}% listeners this month"
@@ -104,10 +112,10 @@ def genre_lang(r):
     genre = t.get("genre") or (e["genres"][0].title() if e.get("genres") else "Independent")
     return " · ".join([x for x in [t.get("language"), genre] if x])
 
-def build(picks, images):
-    OUT.mkdir(parents=True, exist_ok=True)
-    for f in glob.glob(str(OUT/"slide_*.png")): os.remove(f)
-    wk = datetime.date.today().strftime("%d %b %Y").upper()
+def build(picks, images, out=OUT, wk=None):
+    out.mkdir(parents=True, exist_ok=True)
+    for f in glob.glob(str(out/"slide_*.png")): os.remove(f)
+    wk = wk or datetime.date.today().strftime("%d %b %Y").upper()
     total = len(picks) + 2
 
     # --- Slide 1: cover (vertical rhythm tuned for the 1920px 9:16 frame) ---
@@ -124,7 +132,7 @@ def build(picks, images):
         d.rectangle([tx,1150,tx+200,1350],outline=WHITE,width=2); tx+=210
     d.text((M,1450),"Watch these names →",font=inter(44,600),fill=(225,222,232))
     f=mono(30); d.text((W-M-tw(d,"SWIPE →",f),1458),"SWIPE →",font=f,fill=MUT)
-    footer(d,MINT,WHITE); img.save(OUT/"slide_01.png")
+    footer(d,MINT,WHITE); img.save(out/"slide_01.png")
 
     # --- Slides 2..N: one artist each, cover photo as the hero ---
     for i,r in enumerate(picks,2):
@@ -138,7 +146,7 @@ def build(picks, images):
         d.text((M,yy),nm,font=bric(76),fill=INK)
         d.text((M,yy+96),genre_lang(r),font=inter(37,600),fill=(74,64,88))
         d.text((M,yy+150),stat_line(r),font=inter(35,650),fill=PINK)
-        footer(d,PINK,INK,note="Cover art: Spotify"); img.save(OUT/f"slide_{i:02d}.png")
+        footer(d,PINK,INK,note="Cover art: Spotify"); img.save(out/f"slide_{i:02d}.png")
 
     # --- Final slide: CTA on the brand gradient ---
     img=grad([PINK,VIOLET,BLUE]); d=ImageDraw.Draw(img)
@@ -147,9 +155,9 @@ def build(picks, images):
     d.text((M,632),"new favourite?",font=bric(92),fill=WHITE)
     d.text((M,820),"Follow for next week's",font=inter(42),fill=(240,236,246))
     d.text((M,878),"artists on our radar.",font=inter(42),fill=(240,236,246))
-    footer(d,YELLOW,WHITE); img.save(OUT/f"slide_{total:02d}.png")
+    footer(d,YELLOW,WHITE); img.save(out/f"slide_{total:02d}.png")
 
-def write_caption(picks):
+def write_caption(picks, out=OUT):
     names = ", ".join(r["name"] for r in picks)
     cap = (
         "THE RADAR — the Indian artists on our radar this week \U0001F3A7\n\n"
@@ -159,18 +167,29 @@ def write_caption(picks):
         "#indianmusic #independentartist #newmusic #indiemusic #musicdiscovery "
         "#desimusic #newmusicfriday"
     )
-    (OUT/"caption.txt").write_text(cap)
+    (out/"caption.txt").write_text(cap)
 
 def main():
+    import argparse
+    p = argparse.ArgumentParser(description="Build a Radar carousel from scraped data.")
+    p.add_argument("--skip", type=int, default=0,
+                   help="Drop the top N picks (queue a future week with the next tier).")
+    p.add_argument("--out", default=None, help="Output dir (default: social/radar).")
+    p.add_argument("--date", default=None,
+                   help="Date label on the frames, e.g. '13 Aug 2026' (default: today).")
+    a = p.parse_args()
+    out = Path(a.out) if a.out else OUT
+    wk = a.date.upper() if a.date else None
+
     enr, arts = load()
-    picks = pick(enr, arts)
+    picks = pick(enr, arts, skip=a.skip)
     if not picks:
         print("generate_radar: no candidates with cover images, skipping.")
         return
     images = {r["name"]: fetch(r["e"]["image"]) for r in picks}
-    build(picks, images)
-    write_caption(picks)
-    print("generate_radar: built", len(picks), "artists ->", OUT)
+    build(picks, images, out=out, wk=wk)
+    write_caption(picks, out=out)
+    print("generate_radar: built", len(picks), "artists ->", out)
     print("  picks:", [f"{r['name']} ({r['trend']})" for r in picks])
 
 if __name__ == "__main__":
