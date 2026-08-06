@@ -10,7 +10,7 @@ Run after enrich_lastfm.py each day. Reads:
 Outputs: data/tracked_artists.json
 """
 
-import json, os
+import json, os, re
 from datetime import datetime, timezone
 from collections import defaultdict
 
@@ -18,6 +18,12 @@ DATA_DIR     = os.path.join(os.path.dirname(__file__), "..", "data")
 LATEST_PATH  = os.path.join(DATA_DIR, "latest.json")
 LFM_PATH     = os.path.join(DATA_DIR, "lastfm_enrichment.json")
 OUTPUT_PATH  = os.path.join(DATA_DIR, "tracked_artists.json")
+
+# Channels that are compilations / mixes / topic feeds, not real indie artists.
+# Keep these off the site (Artists + Radar tabs) and out of the social generator.
+NON_ARTIST = re.compile(
+    r"\b(mix|topic|playlist|lofi|lo-?fi|jukebox|mashup|non[- ]?stop|karaoke|"
+    r"remix|audio jukebox|full album|hit songs|old songs)\b", re.I)
 
 
 def load_indie_artists():
@@ -37,6 +43,8 @@ def load_indie_artists():
         genre = v.get("genre") or "Indie"
         key  = cid or ch
         if not key:
+            continue
+        if NON_ARTIST.search(ch):      # skip mix/topic/playlist/remix channels
             continue
         if key not in artists:
             artists[key] = {"name": ch, "language": lang, "genre": genre, "channel_id": cid}

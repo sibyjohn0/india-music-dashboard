@@ -59,7 +59,7 @@ def circ(d,cx,cy,r,fill): d.ellipse([cx-r,cy-r,cx+r,cy+r],fill=fill)
 def footer(d,acc,tc,note=None):
     fy=H-116; f=mono(28)
     d.ellipse([M-1,fy+1,M+29,fy+31],fill=acc,outline=tc,width=4); d.ellipse([M+9,fy+11,M+19,fy+21],fill=tc)
-    d.text((M+40,fy),"@indiemusicindia.co",font=f,fill=tc)
+    d.text((M+48,fy),"@indiemusicindia.co",font=f,fill=tc)
     if note:
         nf=inter(26); d.text((W-M-tw(d,note,nf),fy+2),note,font=nf,fill=MUT)
 def grad(stops):
@@ -131,7 +131,6 @@ def build(picks, images, out=OUT, wk=None):
         if im: img.paste(cover_fit(im,200,200),(tx,1150)); d=ImageDraw.Draw(img)
         d.rectangle([tx,1150,tx+200,1350],outline=WHITE,width=2); tx+=210
     d.text((M,1450),"Watch these names →",font=inter(44,600),fill=(225,222,232))
-    f=mono(30); d.text((W-M-tw(d,"SWIPE →",f),1458),"SWIPE →",font=f,fill=MUT)
     footer(d,MINT,WHITE); img.save(out/"slide_01.png")
 
     # --- Slides 2..N: one artist each, cover photo as the hero ---
@@ -158,12 +157,18 @@ def build(picks, images, out=OUT, wk=None):
     footer(d,YELLOW,WHITE); img.save(out/f"slide_{total:02d}.png")
 
 def write_caption(picks, out=OUT):
-    names = ", ".join(r["name"] for r in picks)
+    # Spotify link is reliable (from our enrichment); IG handle must be verified by
+    # hand — Spotify's API doesn't expose it — so leave a @____ placeholder to fill.
+    lines = []
+    for r in picks:
+        url = r["e"].get("spotify_url", "")
+        lines.append(f"• {r['name']} — IG @______  |  {url}")
+    artist_block = "\n".join(lines)
     cap = (
         "THE RADAR — the Indian artists on our radar this week \U0001F3A7\n\n"
-        f"Swipe for {len(picks)} acts we're watching: {names}.\n"
+        f"Swipe for {len(picks)} acts we're watching:\n{artist_block}\n\n"
         "Save this, and tag a friend who needs new music.\n\n"
-        "TAG EACH ARTIST in the post before publishing. Verify the picks first.\n\n"
+        "TAG EACH ARTIST (fill the @handles above) before publishing. Verify the picks first.\n\n"
         "#indianmusic #independentartist #newmusic #indiemusic #musicdiscovery "
         "#desimusic #newmusicfriday"
     )
