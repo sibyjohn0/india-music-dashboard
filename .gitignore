@@ -4,13 +4,6 @@ __pycache__/
 .DS_Store
 .superpowers/
 
-# IIM manual social content library — kept locally under social/, NOT published.
-# Only social/radar/ and social/radar_next/ (the auto-generated Radar) are tracked.
-social/posts/
-social/carousels/
-social/reels/
-social/assets/
-social/_archive/
-social/radar_archive/
-social/README_content_library.md
-social/.DS_Store
+# Social posts are our IP — nothing under social/ is committed or published.
+# The Radar generator (scripts/generate_radar.py) writes here for LOCAL use only.
+social/

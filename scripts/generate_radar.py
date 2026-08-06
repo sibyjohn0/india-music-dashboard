@@ -74,9 +74,9 @@ def trk(d,pos,txt,f,fill,t):
     for ch in txt: d.text((x,y),ch,font=f,fill=fill); x+=d.textlength(ch,font=f)+t
 def circ(d,cx,cy,r,fill): d.ellipse([cx-r,cy-r,cx+r,cy+r],fill=fill)
 def footer(d,acc,tc,note=None):
-    fy=H-116; f=mono(28)
+    # Brand mark only, no handle baked in (add the @ in the IG app when posting).
+    fy=H-116
     d.ellipse([M-1,fy+1,M+29,fy+31],fill=acc,outline=tc,width=4); d.ellipse([M+9,fy+11,M+19,fy+21],fill=tc)
-    d.text((M+48,fy),"@indiemusicindia.co",font=f,fill=tc)
     if note:
         nf=inter(26); d.text((W-M-tw(d,note,nf),fy+2),note,font=nf,fill=MUT)
 def grad(stops):
