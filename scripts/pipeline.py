@@ -71,6 +71,14 @@ SOURCES = [
         "outputs": ["data/spotify_enrichment.json"],
     },
     {
+        # Generates the weekly "The Radar" social carousel from tracked_artists.json
+        # + spotify_enrichment.json. Depends on the radar and spotify steps above.
+        "name": "radar_social",
+        "script": "generate_radar.py",
+        "env_required": [],
+        "outputs": ["social/radar/slide_01.png"],
+    },
+    {
         "name": "social",
         "script": "fetch_social.py",
         "env_required": [],
