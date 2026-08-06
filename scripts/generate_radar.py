@@ -50,10 +50,12 @@ def trk(d,pos,txt,f,fill,t):
     x,y=pos
     for ch in txt: d.text((x,y),ch,font=f,fill=fill); x+=d.textlength(ch,font=f)+t
 def circ(d,cx,cy,r,fill): d.ellipse([cx-r,cy-r,cx+r,cy+r],fill=fill)
-def footer(d,acc,tc):
+def footer(d,acc,tc,note=None):
     fy=H-116; f=mono(28)
     d.ellipse([M-1,fy+1,M+29,fy+31],fill=acc,outline=tc,width=4); d.ellipse([M+9,fy+11,M+19,fy+21],fill=tc)
     d.text((M+40,fy),"@indiemusicindia.co",font=f,fill=tc)
+    if note:
+        nf=inter(26); d.text((W-M-tw(d,note,nf),fy+2),note,font=nf,fill=MUT)
 def grad(stops):
     yy,xx=np.mgrid[0:H,0:W]; t=((xx/W+yy/H)/2)[...,None]
     a,b,c=[np.array(s,float) for s in stops]
@@ -110,9 +112,9 @@ def build(picks, images):
 
     img = Image.new("RGB",(W,H),INK2); d=ImageDraw.Draw(img); circ(d,W-70,120,120,MINT)
     trk(d,(M,220),f"THE RADAR · {wk}",mono(30),MINT,3)
-    d.text((M,300),"Rising",font=bric(150),fill=WHITE)
-    d.text((M,450),"independent",font=bric(150),fill=WHITE)
-    d.text((M,600),"artists.",font=bric(150),fill=YELLOW)
+    d.text((M,300),"New music",font=bric(140),fill=WHITE)
+    d.text((M,440),"on our",font=bric(140),fill=WHITE)
+    d.text((M,580),"radar.",font=bric(140),fill=YELLOW)
     tx=M
     for r in picks[:4]:
         im=images.get(r["name"])
@@ -133,24 +135,22 @@ def build(picks, images):
         d.text((M,yy),nm,font=bric(74),fill=INK)
         d.text((M,yy+90),genre_lang(r),font=inter(37,600),fill=(74,64,88))
         d.text((M,yy+142),stat_line(r),font=inter(35,650),fill=PINK)
-        d.text((M,H-158),"Cover: Spotify · tag the artist when you post",font=inter(26),fill=MUT)
-        footer(d,PINK,INK); img.save(OUT/f"slide_{i:02d}.png")
+        footer(d,PINK,INK,note="Cover art: Spotify"); img.save(OUT/f"slide_{i:02d}.png")
 
     img=grad([PINK,VIOLET,BLUE]); d=ImageDraw.Draw(img)
     trk(d,(M,180),"THE RADAR",mono(28),YELLOW,3)
     d.text((M,330),"Found your",font=bric(84),fill=WHITE)
     d.text((M,420),"new favourite?",font=bric(84),fill=WHITE)
-    d.text((M,560),"Follow for next week's rising",font=inter(39),fill=(240,236,246))
-    d.text((M,614),"independent Indian artists.",font=inter(39),fill=(240,236,246))
+    d.text((M,560),"Follow for next week's",font=inter(39),fill=(240,236,246))
+    d.text((M,614),"artists on our radar.",font=inter(39),fill=(240,236,246))
     footer(d,YELLOW,WHITE); img.save(OUT/f"slide_{total:02d}.png")
 
 def write_caption(picks):
     names = ", ".join(r["name"] for r in picks)
     cap = (
-        "THE RADAR — this week's rising independent artists in India \U0001F3A7\n\n"
-        f"Swipe for {len(picks)} acts on our radar: {names}.\n"
-        "Every one is an independent artist climbing right now. Save this, and tag a "
-        "friend who needs new music.\n\n"
+        "THE RADAR — new Indian music on our radar this week \U0001F3A7\n\n"
+        f"Swipe for {len(picks)} acts we're watching: {names}.\n"
+        "Save this, and tag a friend who needs new music.\n\n"
         "TAG EACH ARTIST in the post before publishing. Verify the picks first.\n\n"
         "#indianmusic #independentartist #newmusic #indiemusic #musicdiscovery "
         "#desimusic #newmusicfriday"
