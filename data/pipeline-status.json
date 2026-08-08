@@ -1,107 +1,107 @@
 {
-  "last_run": "2026-08-07T03:51:50.499505+00:00",
+  "last_run": "2026-08-08T02:55:53.872556+00:00",
   "overall": "partial",
   "sources": {
     "youtube": {
       "status": "ok",
       "records": 225,
-      "ms": 159212,
+      "ms": 171727,
       "error": null
     },
     "lastfm": {
       "status": "ok",
-      "records": 136,
-      "ms": 60193,
+      "records": 141,
+      "ms": 67917,
       "error": null
     },
     "radar": {
       "status": "ok",
-      "records": 127,
-      "ms": 29,
+      "records": 133,
+      "ms": 21,
       "error": null
     },
     "insights": {
       "status": "ok",
       "records": null,
-      "ms": 242,
+      "ms": 179,
       "error": null
     },
     "venue_analysis": {
       "status": "ok",
       "records": null,
-      "ms": 50,
+      "ms": 34,
       "error": null
     },
     "monthly_digest": {
       "status": "ok",
       "records": null,
-      "ms": 73,
+      "ms": 57,
       "error": null
     },
     "spotify": {
       "status": "ok",
       "records": 64,
-      "ms": 67007,
+      "ms": 72873,
       "error": null
     },
     "radar_social": {
       "status": "failed",
       "records": null,
-      "ms": 57,
+      "ms": 43,
       "error": "ModuleNotFoundError: No module named 'PIL'"
     },
     "social": {
       "status": "ok",
-      "records": 393,
-      "ms": 22560,
+      "records": 396,
+      "ms": 23143,
       "error": null
     },
     "playboard": {
       "status": "ok",
       "records": null,
-      "ms": 50873,
+      "ms": 51090,
       "error": null
     },
     "jiosaavn": {
       "status": "ok",
       "records": null,
-      "ms": 2042,
+      "ms": 1982,
       "error": null
     },
     "events_paytm": {
       "status": "ok",
       "records": null,
-      "ms": 55,
+      "ms": 41,
       "error": null
     },
     "news_rss": {
       "status": "ok",
       "records": null,
-      "ms": 1436,
+      "ms": 1763,
       "error": null
     },
     "events_district": {
       "status": "ok",
-      "records": 94,
-      "ms": 113607,
+      "records": 92,
+      "ms": 111248,
       "error": null
     },
     "spotify_playwright": {
       "status": "ok",
       "records": 0,
-      "ms": 196461,
+      "ms": 198184,
       "error": null
     },
     "bookmyshow": {
       "status": "ok",
-      "records": 199,
-      "ms": 45689,
+      "records": 204,
+      "ms": 46131,
       "error": null
     },
     "skillboxes": {
       "status": "ok",
-      "records": 57,
-      "ms": 45043,
+      "records": 65,
+      "ms": 41639,
       "error": null
     }
   }
