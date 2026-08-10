@@ -1,23 +1,23 @@
 {
-  "last_run": "2026-08-09T03:03:13.648179+00:00",
+  "last_run": "2026-08-10T03:13:00.401218+00:00",
   "overall": "partial",
   "sources": {
     "youtube": {
       "status": "ok",
       "records": 225,
-      "ms": 301362,
+      "ms": 155664,
       "error": null
     },
     "lastfm": {
       "status": "ok",
-      "records": 147,
-      "ms": 79263,
+      "records": 142,
+      "ms": 62916,
       "error": null
     },
     "radar": {
       "status": "ok",
-      "records": 139,
-      "ms": 27,
+      "records": 133,
+      "ms": 26,
       "error": null
     },
     "insights": {
@@ -35,109 +35,73 @@
     "monthly_digest": {
       "status": "ok",
       "records": null,
-      "ms": 78,
+      "ms": 81,
       "error": null
     },
     "spotify": {
       "status": "ok",
-      "records": 61,
-      "ms": 81808,
+      "records": 67,
+      "ms": 67470,
       "error": null
     },
     "radar_social": {
       "status": "failed",
       "records": null,
-      "ms": 55,
+      "ms": 57,
       "error": "ModuleNotFoundError: No module named 'PIL'"
     },
     "social": {
       "status": "ok",
-      "records": 392,
-      "ms": 22568,
+      "records": 384,
+      "ms": 22794,
       "error": null
     },
     "playboard": {
       "status": "ok",
       "records": null,
-      "ms": 51684,
+      "ms": 51894,
       "error": null
     },
     "jiosaavn": {
       "status": "ok",
       "records": null,
-      "ms": 1266,
+      "ms": 1520,
       "error": null
     },
     "events_paytm": {
       "status": "ok",
       "records": null,
-      "ms": 51,
+      "ms": 52,
       "error": null
     },
     "news_rss": {
       "status": "ok",
       "records": null,
-      "ms": 1714,
+      "ms": 1377,
       "error": null
     },
     "events_district": {
       "status": "ok",
-      "records": 88,
-      "ms": 111982,
+      "records": 90,
+      "ms": 112870,
       "error": null
     },
     "spotify_playwright": {
       "status": "ok",
       "records": 0,
-      "ms": 196176,
+      "ms": 203566,
       "error": null
     },
     "bookmyshow": {
       "status": "ok",
-      "records": 174,
-      "ms": 46642,
+      "records": 194,
+      "ms": 45817,
       "error": null
     },
     "skillboxes": {
       "status": "ok",
-      "records": 69,
-      "ms": 35895,
-      "error": null
-    },
-    "industry": {
-      "status": "failed",
-      "records": null,
-      "ms": 25,
-      "error": "ERROR: pip install requests"
-    },
-    "reviewers_editorial": {
-      "status": "ok",
-      "records": null,
-      "ms": 16173,
-      "error": null
-    },
-    "reviewers_podcasts": {
-      "status": "ok",
-      "records": null,
-      "ms": 12690,
-      "error": null
-    },
-    "reviewers_spotify": {
-      "status": "ok",
-      "records": null,
-      "ms": 159693,
-      "error": null
-    },
-    "reviewers_youtube": {
-      "status": "ok",
-      "records": null,
-      "ms": 182302,
-      "error": null
-    },
-    "reviewers_merge": {
-      "status": "ok",
-      "records": 1140,
-      "ms": 94,
+      "records": 72,
+      "ms": 40079,
       "error": null
     }
   }

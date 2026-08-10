@@ -433,13 +433,13 @@
   },
   "2026-08": {
     "month": "2026-08",
-    "snapshots": 9,
-    "last_snapshot_at": "2026-08-09T03:08:14.980470+00:00",
+    "snapshots": 10,
+    "last_snapshot_at": "2026-08-10T03:15:36.031041+00:00",
     "total_videos": 225,
-    "total_artists": 248,
-    "new_artists_seen": 217,
+    "total_artists": 259,
+    "new_artists_seen": 229,
     "median_score": 67,
-    "median_views": 2830,
+    "median_views": 3080,
     "top_artists": [
       {
         "name": "Inqalab",
@@ -515,33 +515,33 @@
     "fastest_growing": [
       {
         "name": "DURGAM MUSIC",
-        "views_gained": 724169,
+        "views_gained": 796967,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
         "name": "CURRY",
-        "views_gained": 398885,
+        "views_gained": 399901,
         "genre": "Classical/Fusion",
         "language": "Kannada"
       },
       {
+        "name": "@shivombhakti",
+        "views_gained": 344599,
+        "genre": "Folk / Acoustic",
+        "language": "Marathi"
+      },
+      {
         "name": "Gallery Vision Indie",
-        "views_gained": 340702,
+        "views_gained": 341782,
         "genre": "Electronic",
         "language": "Malayalam"
       },
       {
         "name": "Radha Folks",
-        "views_gained": 293673,
+        "views_gained": 319516,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
-      },
-      {
-        "name": "Shamil koppam",
-        "views_gained": 264222,
-        "genre": "Rock / Alt",
-        "language": "Malayalam"
       }
     ],
     "genre_breakdown": [
@@ -551,27 +551,27 @@
       ],
       [
         "Folk / Acoustic",
-        49
+        47
       ],
       [
         "Hip Hop / Rap",
-        39
+        40
       ],
       [
         "R&B / Soul",
-        27
-      ],
-      [
-        "Lo-Fi",
-        21
+        24
       ],
       [
         "Classical/Fusion",
-        16
+        21
+      ],
+      [
+        "Lo-Fi",
+        19
       ],
       [
         "Electronic",
-        8
+        7
       ],
       [
         "Rock / Alt",
@@ -579,11 +579,11 @@
       ],
       [
         "Indie Pop",
-        3
+        4
       ],
       [
         "Jazz / Blues",
-        1
+        2
       ]
     ],
     "language_breakdown": [
@@ -625,20 +625,19 @@
       ]
     ],
     "city_shows": {
-      "Delhi": 44,
-      "Goa": 31,
-      "Hyderabad": 31,
+      "Delhi": 48,
+      "Goa": 30,
+      "Hyderabad": 29,
+      "Bangalore": 61,
+      "Chennai": 36,
       "Kolkata": 35,
-      "Mumbai": 41,
-      "Pune": 33,
-      "Chennai": 29,
-      "Calangute": 3,
+      "Calangute": 4,
       "East Midnapur": 1,
       "Gachibowli": 1,
-      "NCPA.": 3,
       "Puducherry": 1,
-      "Bangalore": 38,
       "Guwahati": 1,
+      "Mumbai": 17,
+      "Pune": 9,
       "Ladakh": 1,
       "Leh": 1,
       "Abu Dhabi": 1,
@@ -649,7 +648,7 @@
       "Chandigarh": 1,
       "Kullu": 1
     },
-    "top_city": "Delhi",
-    "total_shows": 302
+    "top_city": "Bangalore",
+    "total_shows": 283
   }
 }
