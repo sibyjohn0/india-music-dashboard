@@ -142,6 +142,9 @@ TITLE_SPAM = [
     "full video song", "video songs hd",
     "evergreen hits", "best of songs", "top songs of",
     "karaoke version", "karaoke track",
+    # Commercial DJ / mass-folk / lyric-video junk that leaked past the filter
+    "dj song", "dj full song", "dj full", "new folk song", "folk dj song",
+    "songs lyrics", "lyrical video song", "full folk song",
 ]
 
 # ── Channel name patterns that signal an aggregator / non-artist ──
@@ -177,6 +180,8 @@ AGGREGATOR_PATTERNS = [
     "fitness", "yoga channel", "meditation channel",
     # News / media
     "news channel", "news official",
+    # Lo-fi mood channels / generic "creations" / mass-folk aggregators
+    "lofi", "lo-fi", "lo fi", " creations", "folks",
 ]
 
 # ── Language-first search structure ──────────────────────────
@@ -448,6 +453,7 @@ def parse_video(item, lang_hint=None):
 
     return {
         "id":               item["id"],
+        "category_id":      snip.get("categoryId", ""),
         "title":            snip.get("title", ""),
         "channel":          channel,
         "channel_id":       snip.get("channelId", ""),
@@ -586,6 +592,11 @@ def main():
         lang_hint = id_to_lang.get(vid_id)
         v = parse_video(item, lang_hint)
 
+        # Only real Music-category uploads. Kills bloopers/anime/news/memes that
+        # leak in via Phase-0 channel uploads and would default to genre "Indie".
+        if v.get("category_id") != MUSIC_CATEGORY:
+            dbg["not_music"] = dbg.get("not_music", 0) + 1
+            continue
         if is_blocked(v["channel"], v["tags"], v["title"]):
             dbg["blocked"] += 1
             continue
@@ -605,6 +616,7 @@ def main():
         lang_buckets[bucket].append(v)
 
     print(f"  Phase 3 filter results: {dbg['passed']} passed | {dbg['blocked']} blocked | "
+          f"{dbg.get('not_music',0)} non-music | "
           f"{dbg['too_few_views']} too-few-views | {dbg['too_many_views']} too-many-views")
 
     # ── Phase 4: per-language balancing with per-channel + per-genre caps ──────
