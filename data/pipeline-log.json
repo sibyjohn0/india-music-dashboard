@@ -7696,5 +7696,113 @@
         "error": null
       }
     }
+  },
+  {
+    "run_at": "2026-08-11T03:05:19.984290+00:00",
+    "overall": "partial",
+    "sources": {
+      "youtube": {
+        "status": "ok",
+        "records": 225,
+        "ms": 175057,
+        "error": null
+      },
+      "lastfm": {
+        "status": "ok",
+        "records": 137,
+        "ms": 67293,
+        "error": null
+      },
+      "radar": {
+        "status": "ok",
+        "records": 131,
+        "ms": 29,
+        "error": null
+      },
+      "insights": {
+        "status": "ok",
+        "records": null,
+        "ms": 248,
+        "error": null
+      },
+      "venue_analysis": {
+        "status": "ok",
+        "records": null,
+        "ms": 48,
+        "error": null
+      },
+      "monthly_digest": {
+        "status": "ok",
+        "records": null,
+        "ms": 72,
+        "error": null
+      },
+      "spotify": {
+        "status": "ok",
+        "records": 64,
+        "ms": 66525,
+        "error": null
+      },
+      "radar_social": {
+        "status": "failed",
+        "records": null,
+        "ms": 57,
+        "error": "ModuleNotFoundError: No module named 'PIL'"
+      },
+      "social": {
+        "status": "ok",
+        "records": 381,
+        "ms": 23815,
+        "error": null
+      },
+      "playboard": {
+        "status": "ok",
+        "records": null,
+        "ms": 50826,
+        "error": null
+      },
+      "jiosaavn": {
+        "status": "ok",
+        "records": null,
+        "ms": 1420,
+        "error": null
+      },
+      "events_paytm": {
+        "status": "ok",
+        "records": null,
+        "ms": 54,
+        "error": null
+      },
+      "news_rss": {
+        "status": "ok",
+        "records": null,
+        "ms": 1309,
+        "error": null
+      },
+      "events_district": {
+        "status": "ok",
+        "records": 91,
+        "ms": 111952,
+        "error": null
+      },
+      "spotify_playwright": {
+        "status": "ok",
+        "records": 0,
+        "ms": 197287,
+        "error": null
+      },
+      "bookmyshow": {
+        "status": "ok",
+        "records": 169,
+        "ms": 45526,
+        "error": null
+      },
+      "skillboxes": {
+        "status": "ok",
+        "records": 73,
+        "ms": 37500,
+        "error": null
+      }
+    }
   }
 ]
