@@ -433,13 +433,13 @@
   },
   "2026-08": {
     "month": "2026-08",
-    "snapshots": 11,
-    "last_snapshot_at": "2026-08-11T03:08:15.004131+00:00",
+    "snapshots": 12,
+    "last_snapshot_at": "2026-08-12T03:27:25.896827+00:00",
     "total_videos": 225,
-    "total_artists": 266,
-    "new_artists_seen": 237,
+    "total_artists": 272,
+    "new_artists_seen": 245,
     "median_score": 66,
-    "median_views": 2976,
+    "median_views": 3077,
     "top_artists": [
       {
         "name": "Inqalab",
@@ -515,31 +515,31 @@
     "fastest_growing": [
       {
         "name": "@shivombhakti",
-        "views_gained": 388822,
+        "views_gained": 454852,
         "genre": "Folk / Acoustic",
         "language": "Marathi"
       },
       {
+        "name": "Gallery Vision Indie",
+        "views_gained": 344130,
+        "genre": "Electronic",
+        "language": "Malayalam"
+      },
+      {
         "name": "TELANGANA FOLK HOUSE 2.0",
-        "views_gained": 292133,
+        "views_gained": 156473,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
-        "name": "Manchu Dada Music ",
-        "views_gained": 219993,
-        "genre": "Indie",
-        "language": "Bengali"
-      },
-      {
         "name": "Neeraj Madhav",
-        "views_gained": 144637,
+        "views_gained": 144753,
         "genre": "Hip Hop / Rap",
         "language": "Malayalam"
       },
       {
         "name": "Shamil koppam",
-        "views_gained": 100619,
+        "views_gained": 101827,
         "genre": "Rock / Alt",
         "language": "Malayalam"
       }
@@ -551,11 +551,11 @@
       ],
       [
         "Folk / Acoustic",
-        49
+        50
       ],
       [
         "Hip Hop / Rap",
-        33
+        32
       ],
       [
         "R&B / Soul",
@@ -563,19 +563,19 @@
       ],
       [
         "Classical/Fusion",
-        23
-      ],
-      [
-        "Lo-Fi",
         20
       ],
       [
+        "Lo-Fi",
+        18
+      ],
+      [
         "Electronic",
-        10
+        13
       ],
       [
         "Rock / Alt",
-        6
+        8
       ],
       [
         "Indie Pop",
@@ -587,10 +587,6 @@
       ]
     ],
     "language_breakdown": [
-      [
-        "Tamil",
-        25
-      ],
       [
         "Telugu",
         25
@@ -620,37 +616,40 @@
         25
       ],
       [
+        "Tamil",
+        25
+      ],
+      [
         "English",
         25
       ]
     ],
     "city_shows": {
-      "Goa": 32,
-      "Hyderabad": 39,
-      "Bangalore": 71,
-      "Chennai": 34,
-      "Delhi": 52,
-      "Pune": 34,
-      "Calangute": 5,
-      "Kolkata": 37,
-      "Pune.": 2,
-      "East Midnapur": 1,
+      "Chennai": 38,
+      "Hyderabad": 37,
+      "Pune": 35,
+      "Mumbai": 50,
+      "Goa": 33,
+      "Bangalore": 73,
+      "Calangute": 3,
+      "Pune.": 1,
+      "NCPA.": 1,
       "Gachibowli": 1,
-      "Seshadripuram, Bengaluru.": 1,
       "Puducherry": 1,
-      "Guwahati": 3,
-      "Mumbai": 24,
+      "Guwahati": 4,
+      "NCPA": 1,
+      "Delhi": 26,
+      "Kolkata": 12,
       "Ladakh": 1,
       "Leh": 1,
       "Abu Dhabi": 1,
       "India": 1,
       "Ahmedabad": 1,
       "Kochi": 2,
-      "Jaipur": 1,
       "Chandigarh": 1,
       "Kullu": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 347
+    "total_shows": 325
   }
 }
