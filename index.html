@@ -444,6 +444,13 @@
     .footer-links { display: flex; gap: 16px; flex-wrap: wrap; }
     .footer-links a { color: var(--muted); transition: color .15s; }
     .footer-links a:hover { color: var(--text); }
+    .footer-cta { margin: 4px 0; }
+    .footer-cta a {
+      display: inline-block; font-weight: 700; font-size: 13px;
+      color: var(--accent); border: 1px solid var(--accent);
+      padding: 7px 14px; border-radius: 999px; transition: all .15s;
+    }
+    .footer-cta a:hover { background: var(--accent); color: #fff; }
 
     @media (max-width: 760px) {
       .facts-strip { grid-template-columns: 1fr 1fr; }
@@ -684,7 +691,11 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
     <a href="/reviewers/">Reviewers</a>
     <a href="/industry/">Industry</a>
     <a href="/resources/">Resources</a><a href="/answers/">Answers</a>
+    <a href="https://instagram.com/indiemusicindia.co" target="_blank" rel="noopener">Instagram</a>
     <a href="mailto:sibyjohn0@gmail.com">Contact</a>
+  </div>
+  <div class="footer-cta">
+    <a href="https://instagram.com/indiemusicindia.co" target="_blank" rel="noopener">Follow the scene on Instagram &rarr; @indiemusicindia.co</a>
   </div>
   <div>Built by Siby John and Karishma Changroth · Free to use · Radar: daily · Reviewers: weekly</div>
 </footer>
