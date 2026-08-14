@@ -51,8 +51,11 @@ def rank_city(city):
                 dt = datetime.date.fromisoformat(str(e.get("date"))[:10])
                 if dt >= today: nxt[v].append(dt)
             except Exception: pass
+    import featured_log as FL
+    done = FL.featured_venues(city)                 # never repeat an already-featured venue
     ranked = []
     for v, c in cnt.most_common():
+        if v.strip().lower() in done: continue
         upcoming = sorted(nxt[v])
         ranked.append({"venue": v, "shows": c, "next": upcoming[0] if upcoming else None})
     # rank by show count, then soonest next show
@@ -115,7 +118,7 @@ def build(city, picks):
     d.text((M, 760), f"{city}.", font=R.bric(150), fill=R.YELLOW)
     d.text((M, 980), "Ranked by shows on the", font=R.inter(40, 600), fill=(225,222,232))
     d.text((M, 1036), "calendar right now.", font=R.inter(40, 600), fill=(225,222,232))
-    d.text((M, 1450), "Swipe the ranking →", font=R.inter(44, 600), fill=(225,222,232))
+    d.text((M, 1450), "The rooms below →", font=R.inter(44, 600), fill=(225,222,232))
     R.footer(d, R.PINK, R.WHITE); img.save(OUT / "slide_01.png")
 
     # Ranked venue cards — venue NAME is the hero (no show count)
@@ -161,13 +164,18 @@ def write_caption(city, picks, OUT):
     (OUT / "caption.txt").write_text(cap)
 
 def main():
-    city = sys.argv[1] if len(sys.argv) > 1 else "Mumbai"
-    picks = rank_city(city)
+    import featured_log as FL
+    args = [a for a in sys.argv[1:] if a != "--preview"]
+    preview = "--preview" in sys.argv
+    city = args[0] if args else "Mumbai"
+    picks = rank_city(city)                          # already excludes featured venues
     if not picks:
         print("no venues found for", city); return
     OUT = build(city, picks)
     write_caption(city, picks, OUT)
-    print(f"generate_venues: {city} ->", OUT)
+    if not preview:
+        FL.record_venues(city, [g["venue"] for g in picks])   # record so next time won't repeat
+    print(f"generate_venues: {city} ->", OUT, "(preview)" if preview else "(recorded)")
     for i, g in enumerate(picks, 1):
         print(f"   {i}. {g['shows']:2}x  next {fmt(g['next'])}  {g['venue']}")
 

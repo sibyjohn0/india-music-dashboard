@@ -51,3 +51,10 @@ HARD: no people, no faces (reads AI/cheap), NO recolouring living things, no ani
 - YouTube rising: `data/latest.json` (velocity+thumbnails). Pipeline filters non-music (categoryId==10) + DJ/folk/lyric junk, but still needs hand-curation — pick verified indie acts, like the Radar.
 
 Always tag featured artists/venues in the caption — their reshares are the main reach lever past the cold-start wall.
+
+## No-repeat rule (never feature the same thing twice)
+
+`data/featured_log.json` is the persistent ledger of everything already featured: `{radar: [...], venues: {city: [...]}, topics: [...]}`. `scripts/featured_log.py` reads/writes it.
+- `generate_radar.py` and `generate_venues.py` auto-exclude anything in the log, and auto-record their picks each run (use `--preview` to build without recording).
+- For any OTHER social content (info reels, art themes, etc.), check `featured_topics()` first and `record_topic("slug")` after, so no topic/theme repeats either.
+- The rule: nothing an audience has already seen from us comes up again. New artists, new venues, new topics, every time.

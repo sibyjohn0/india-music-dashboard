@@ -240,10 +240,15 @@ def main():
                    help="Date label on the frames, e.g. '13 Aug 2026' (default: today).")
     p.add_argument("--exclude-extra", default="",
                    help="Comma-separated names to also skip (e.g. this week's picks, to avoid repeats next week).")
+    p.add_argument("--preview", action="store_true",
+                   help="Build without recording picks to the featured log (for previews).")
     a = p.parse_args()
     out = Path(a.out) if a.out else OUT
     wk = a.date.upper() if a.date else None
-    exclude = load_exclude() | {n.strip().lower() for n in a.exclude_extra.split(",") if n.strip()}
+    import featured_log as FL
+    exclude = (load_exclude()
+               | FL.featured_radar()                       # never repeat an already-featured artist
+               | {n.strip().lower() for n in a.exclude_extra.split(",") if n.strip()})
 
     enr, arts = load()
     picks = pick(enr, arts, skip=a.skip, exclude=exclude)
@@ -253,7 +258,9 @@ def main():
     images = {r["name"]: fetch(r["e"]["image"]) for r in picks}
     build(picks, images, out=out, wk=wk)
     write_caption(picks, out=out)
-    print("generate_radar: built", len(picks), "artists ->", out)
+    if not a.preview:
+        FL.record_radar([r["name"] for r in picks])        # record so next week won't repeat
+    print("generate_radar: built", len(picks), "artists ->", out, "(preview)" if a.preview else "(recorded)")
     print("  picks:", [f"{r['name']} ({r['trend']})" for r in picks])
 
 if __name__ == "__main__":
