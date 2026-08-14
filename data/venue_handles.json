@@ -1,0 +1,16 @@
+{
+  "note": "Verified official Instagram handles, namespaced by city (venue names collide across cities, e.g. 'Privilege' in both Mumbai and Bangalore). Keys are lowercased city -> venue name as normalized by generate_venues.py. Only add verified handles; omit a venue to leave it untagged.",
+  "handles": {
+    "mumbai": {
+      "Shanmukhananda Hall": "@srishanmukhananda",
+      "The Grand Theatre": "@nmacc.india",
+      "Mahalaxmi Race Course": "@rwitcmumbai",
+      "Privilege": "@privilegeclub"
+    },
+    "bangalore": {
+      "Silaa The Garden Cafe": "@silaathegardencafe",
+      "Prestige Centre for Performing Arts": "@pcpabengaluru",
+      "Nolimmits Lounge and Club": "@nolimmits_loungeclub"
+    }
+  }
+}
