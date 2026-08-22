@@ -433,13 +433,13 @@
   },
   "2026-08": {
     "month": "2026-08",
-    "snapshots": 21,
-    "last_snapshot_at": "2026-08-21T02:27:21.088747+00:00",
+    "snapshots": 22,
+    "last_snapshot_at": "2026-08-22T02:21:01.994502+00:00",
     "total_videos": 225,
-    "total_artists": 323,
-    "new_artists_seen": 302,
-    "median_score": 70,
-    "median_views": 3596,
+    "total_artists": 330,
+    "new_artists_seen": 309,
+    "median_score": 65,
+    "median_views": 3156,
     "top_artists": [
       {
         "name": "Inqalab",
@@ -514,34 +514,34 @@
     ],
     "fastest_growing": [
       {
-        "name": "Kalika Tunes",
-        "views_gained": 3375966,
-        "genre": "Hip Hop / Rap",
-        "language": "Telugu"
-      },
-      {
-        "name": "Dabzee",
-        "views_gained": 952127,
-        "genre": "Electronic",
-        "language": "Malayalam"
-      },
-      {
         "name": "Santu Munjeti",
-        "views_gained": 720117,
+        "views_gained": 770362,
         "genre": "Folk / Acoustic",
         "language": "Telugu"
       },
       {
         "name": "Rare.78",
-        "views_gained": 631504,
+        "views_gained": 660159,
         "genre": "Hip Hop / Rap",
         "language": "English"
       },
       {
         "name": "@shivombhakti",
-        "views_gained": 586717,
+        "views_gained": 589878,
         "genre": "Folk / Acoustic",
         "language": "Marathi"
+      },
+      {
+        "name": "AJ MUSIC ",
+        "views_gained": 159331,
+        "genre": "Hip Hop / Rap",
+        "language": "Kannada"
+      },
+      {
+        "name": "Neeraj Madhav",
+        "views_gained": 146241,
+        "genre": "Hip Hop / Rap",
+        "language": "Malayalam"
       }
     ],
     "genre_breakdown": [
@@ -551,39 +551,39 @@
       ],
       [
         "Folk / Acoustic",
-        48
+        49
       ],
       [
         "Hip Hop / Rap",
-        43
-      ],
-      [
-        "Electronic",
-        21
-      ],
-      [
-        "R&B / Soul",
-        18
-      ],
-      [
-        "Lo-Fi",
-        16
+        40
       ],
       [
         "Classical/Fusion",
-        16
+        20
+      ],
+      [
+        "R&B / Soul",
+        19
+      ],
+      [
+        "Lo-Fi",
+        17
+      ],
+      [
+        "Electronic",
+        17
       ],
       [
         "Rock / Alt",
         5
       ],
       [
-        "Jazz / Blues",
-        3
+        "Indie Pop",
+        2
       ],
       [
-        "Indie Pop",
-        1
+        "Jazz / Blues",
+        2
       ]
     ],
     "language_breakdown": [
@@ -592,11 +592,11 @@
         25
       ],
       [
-        "Kannada",
+        "Telugu",
         25
       ],
       [
-        "Malayalam",
+        "Kannada",
         25
       ],
       [
@@ -608,10 +608,6 @@
         25
       ],
       [
-        "Marathi",
-        25
-      ],
-      [
         "Hindi",
         25
       ],
@@ -620,24 +616,30 @@
         25
       ],
       [
-        "Telugu",
+        "Malayalam",
+        25
+      ],
+      [
+        "Marathi",
         25
       ]
     ],
     "city_shows": {
-      "Bangalore": 87,
-      "Calangute": 4,
-      "Chennai": 34,
+      "Bangalore": 95,
+      "Calangute": 5,
+      "Chennai": 30,
+      "Delhi": 55,
+      "Gachibowli": 1,
       "Goa": 29,
-      "Hyderabad": 38,
-      "Mumbai": 50,
-      "Delhi": 57,
-      "Pune": 40,
-      "Gachibowli": 2,
-      "Kolkata": 40,
-      "NCPA.": 4,
-      "Juhu": 1,
-      "Worli": 1,
+      "Hyderabad": 37,
+      "Kolkata": 43,
+      "Mulund": 1,
+      "Mumbai": 46,
+      "Pune": 35,
+      "Ulwe": 1,
+      "Chowpatty": 1,
+      "Pimpalas": 1,
+      "Bandra.": 1,
       "Puducherry": 1,
       "Guwahati": 2,
       "Ladakh": 1,
@@ -650,6 +652,6 @@
       "Kullu": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 401
+    "total_shows": 395
   }
 }
