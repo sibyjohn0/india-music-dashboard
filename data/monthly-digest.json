@@ -433,13 +433,13 @@
   },
   "2026-08": {
     "month": "2026-08",
-    "snapshots": 25,
-    "last_snapshot_at": "2026-08-25T02:22:16.564862+00:00",
+    "snapshots": 26,
+    "last_snapshot_at": "2026-08-26T02:29:05.742568+00:00",
     "total_videos": 225,
-    "total_artists": 344,
-    "new_artists_seen": 325,
-    "median_score": 63,
-    "median_views": 3709,
+    "total_artists": 346,
+    "new_artists_seen": 327,
+    "median_score": 61,
+    "median_views": 3580,
     "top_artists": [
       {
         "name": "Inqalab",
@@ -514,34 +514,34 @@
     ],
     "fastest_growing": [
       {
-        "name": "Smile Music Telugu",
-        "views_gained": 1316553,
-        "genre": "Hip Hop / Rap",
-        "language": "Telugu"
-      },
-      {
         "name": "Santu Munjeti",
-        "views_gained": 889484,
+        "views_gained": 918623,
         "genre": "Folk / Acoustic",
         "language": "Telugu"
       },
       {
         "name": "Rare.78",
-        "views_gained": 741941,
+        "views_gained": 768447,
         "genre": "Hip Hop / Rap",
         "language": "English"
       },
       {
         "name": "KOMALI OFFICIAL",
-        "views_gained": 488516,
+        "views_gained": 631265,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
         "name": "TELANGANA FOLK HOUSE 2.0",
-        "views_gained": 326796,
+        "views_gained": 584409,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
+      },
+      {
+        "name": "Relare Ganga",
+        "views_gained": 323736,
+        "genre": "Electronic",
+        "language": "Tamil"
       }
     ],
     "genre_breakdown": [
@@ -551,11 +551,11 @@
       ],
       [
         "Folk / Acoustic",
-        48
+        46
       ],
       [
         "Hip Hop / Rap",
-        43
+        45
       ],
       [
         "Classical/Fusion",
@@ -571,18 +571,14 @@
       ],
       [
         "R&B / Soul",
-        15
+        17
       ],
       [
         "Rock / Alt",
-        5
+        4
       ],
       [
         "Indie Pop",
-        1
-      ],
-      [
-        "Jazz / Blues",
         1
       ]
     ],
@@ -625,31 +621,34 @@
       ]
     ],
     "city_shows": {
-      "Bangalore": 72,
-      "Goa": 32,
-      "Kolkata": 39,
-      "Delhi": 55,
-      "Mumbai": 48,
-      "Chennai": 33,
-      "Pune": 35,
+      "Delhi": 56,
+      "Goa": 34,
+      "Kolkata": 38,
+      "NCPA.": 4,
+      "Pune": 33,
+      "Hyderabad": 33,
       "Calangute": 3,
-      "Pimpalas": 1,
+      "Mumbai": 48,
+      "Chennai": 30,
+      "Gachibowli": 1,
+      "NCPA": 1,
+      "Kondapur, Hyderabad": 1,
+      "Okhla": 1,
       "Puducherry": 1,
-      "Santacruz": 1,
-      "NCPA.": 2,
+      "Mulund": 1,
+      "Bangalore": 48,
       "Guwahati": 1,
+      "Salem": 1,
       "Ladakh": 1,
       "Leh": 1,
-      "Hyderabad": 12,
       "India": 1,
       "Chandigarh": 1,
       "Kochi": 1,
-      "Gorakhpur": 1,
       "Kullu": 1,
       "Khopoli": 1,
       "Jaipur": 1
     },
-    "top_city": "Bangalore",
-    "total_shows": 344
+    "top_city": "Delhi",
+    "total_shows": 343
   }
 }
