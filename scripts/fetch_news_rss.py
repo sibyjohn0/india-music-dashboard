@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
 """
-fetch_news_rss.py — Fetch RSS feeds from Indian indie music publications.
+fetch_news_rss.py — Fetch RSS feeds from Indian music publications and keep
+only the India-relevant items.
 
-Sources:
-  - Wild City:          https://www.wild-city.com/feed
-  - Homegrown:          https://homegrown.co.in/feed
-  - Rolling Stone India: https://rollingstoneindia.com/feed/
+Reality check (verified 2026-08-26): the usable Indian-music RSS landscape is
+thin. Wild City dropped its RSS feed (old /feed now serves HTML). Homegrown's
+feed lives at /stories.rss and is culture-wide (music is a fraction). Rolling
+Stone India publishes prolifically but is ~80% global pop/K-pop/Hollywood —
+its Indian edition is a minority of the firehose. So we pull the more
+music-focused RS India category feeds plus Homegrown, then apply a POSITIVE
+India-relevance filter and drop everything else. Better a short, genuinely
+Indian feed than a long global one.
 
-Output: data/news-rss.json
-
+Output: data/news-rss.json  (already filtered — the display page trusts it)
 Requires: feedparser (pip install feedparser)
-Keeps the last 20 articles per publication.
 """
 
 import os, json, sys, re
@@ -19,12 +22,49 @@ from datetime import datetime, timezone
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "news-rss.json")
 
 FEEDS = [
-    {"name": "Wild City",           "url": "https://www.wild-city.com/feed"},
-    {"name": "Homegrown",           "url": "https://homegrown.co.in/feed"},
+    {"name": "Homegrown",           "url": "https://homegrown.co.in/stories.rss"},
+    {"name": "Rolling Stone India", "url": "https://rollingstoneindia.com/category/artists/feed/"},
+    {"name": "Rolling Stone India", "url": "https://rollingstoneindia.com/category/reviews/feed/"},
     {"name": "Rolling Stone India", "url": "https://rollingstoneindia.com/feed/"},
 ]
 
-MAX_PER_SOURCE = 20
+MAX_PER_SOURCE = 25
+
+# --- India relevance: an item must match INDIA_RE to survive. -----------------
+# Places, languages, scene/festival names, and India-only signals. Case-insensitive.
+INDIA_RE = re.compile(
+    r"\b("
+    r"india|indian|desi|bharat|bollywood|"
+    r"mumbai|bombay|delhi|new delhi|bengaluru|bangalore|chennai|kolkata|calcutta|"
+    r"hyderabad|pune|goa|kochi|cochin|jaipur|ahmedabad|shillong|guwahati|chandigarh|"
+    r"hindi|punjabi|tamil|telugu|marathi|bengali|malayalam|kannada|assamese|bhojpuri|gujarati|urdu|"
+    r"carnatic|hindustani|ghazal|qawwali|sufi|bhangra|"
+    r"nh7|weekender|ziro|magnetic fields|lollapalooza india|sunburn|hornbill|"
+    r"mahindra blues|bacardi|ragasthan|paddy fields|control alt delete|malhar|"
+    r"antisocial|blueFROG|bluefrog|prithvi|the piano man|g5a|"
+    r"indie india|independent music india"
+    r")\b", re.I)
+
+# Known Indian indie / mainstream-Indian artist names (extend as needed).
+INDIA_ARTISTS = re.compile(
+    r"\b("
+    r"prateek kuhad|when chai met toast|the local train|ritviz|nucleya|divine|"
+    r"mc stan|seedhe maut|prabh deep|raftaar|badshah|ap dhillon|diljit|"
+    r"anuv jain|taba chake|lifafa|peter cat recording co|parekh|singh|"
+    r"raghu dixit|indian ocean|swarathma|agam|thermal and a quarter|"
+    r"arijit|shreya|a\.?r\.? rahman|ar rahman|amit trivedi|"
+    r"osho jain|kamakshi|dhruv|zaeden|kayan|hanumankind|"
+    r"acyuta gopi|barkha ritu|kaam bhaari|frizzell|bloodywood"
+    r")\b", re.I)
+
+
+def is_india_relevant(article):
+    # Broad India/place/scene signal is matched against the TITLE only — RS India's
+    # summaries carry "Rolling Stone India" boilerplate that would match everything.
+    title = article.get("title", "")
+    blob  = title + " " + article.get("summary", "")
+    # Specific artist names are safe to match anywhere (they don't appear in boilerplate).
+    return bool(INDIA_RE.search(title) or INDIA_ARTISTS.search(blob))
 
 
 def load_last_known():
@@ -99,7 +139,10 @@ def fetch_feed(fp, source_name, url):
             getattr(entry, "summary", "")
             or (entry.content[0].value if getattr(entry, "content", None) else "")
         )
-        summary = strip_html(summary_raw)[:500]
+        summary = strip_html(summary_raw)
+        # Strip WordPress "The post X appeared first on Y." boilerplate.
+        summary = re.split(r"\s*The post .+? appeared first on", summary)[0]
+        summary = summary[:500].strip()
         if title:
             articles.append({
                 "title":        title,
@@ -118,17 +161,31 @@ def main():
     fetched_at  = datetime.now(timezone.utc).isoformat()
     fp          = ensure_feedparser()
 
-    all_articles = []
+    raw_articles = []
     errors       = []
 
     for source in FEEDS:
         try:
             articles = fetch_feed(fp, source["name"], source["url"])
-            all_articles.extend(articles)
+            raw_articles.extend(articles)
         except Exception as e:
             msg = f"{source['name']}: {e}"
             print(f"  ERROR: {msg}", file=sys.stderr)
             errors.append(msg)
+
+    # Dedupe by URL (RS category + main feeds overlap), then keep only India-relevant.
+    seen = set()
+    deduped = []
+    for a in raw_articles:
+        key = a.get("url") or a.get("title")
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(a)
+
+    total_raw = len(deduped)
+    all_articles = [a for a in deduped if is_india_relevant(a)]
+    print(f"  India-relevant: {len(all_articles)} of {total_raw} unique articles")
 
     if not all_articles:
         msg = "No articles fetched from any RSS feed."
@@ -150,7 +207,7 @@ def main():
     out_data = {
         "articles":   all_articles,
         "fetched_at": fetched_at,
-        "sources":    [s["name"] for s in FEEDS],
+        "sources":    sorted({s["name"] for s in FEEDS}),
         "errors":     errors,
     }
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

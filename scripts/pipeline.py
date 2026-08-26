@@ -109,6 +109,12 @@ SOURCES = [
         "outputs": ["data/news-rss.json"],
     },
     {
+        "name": "news_page",
+        "script": "generate_news.py",
+        "env_required": [],
+        "outputs": ["news/index.html"],
+    },
+    {
         "name": "events_district",
         "script": "fetch_events_district.py",
         "env_required": [],
