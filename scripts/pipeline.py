@@ -151,6 +151,19 @@ SOURCES = [
         "env_required": [],
         "outputs": ["live/index.html"],
     },
+    # Venues: per-metro venue SEO pages, also built from the event feeds.
+    {
+        "name": "venues_build",
+        "script": "build_venues.py",
+        "env_required": [],
+        "outputs": ["data/venues.json"],
+    },
+    {
+        "name": "venues_pages",
+        "script": "generate_venue_pages.py",
+        "env_required": [],
+        "outputs": ["venues/index.html"],
+    },
     # Weekly: industry database — rebuild from music-industry-db CSV on Sundays.
     {
         "name": "industry",
