@@ -5,3 +5,4 @@ beautifulsoup4>=4.12 # fetch_jiosaavn.py, fetch_events_paytm.py, fetch_songkick.
 lxml>=5.0            # optional fast parser backend for BeautifulSoup
 playwright>=1.40     # fetch_spotify_playwright.py, fetch_playboard.py — JS-rendered pages
                      # GitHub Actions: add `playwright install chromium` step before pipeline run
+Pillow>=10.0         # generate_radar.py, generate_venues.py, generate_gigs_social.py — image/reel rendering
