@@ -138,6 +138,12 @@ SOURCES = [
         "env_required": [],
         "outputs": ["data/events-skillboxes.json"],
     },
+    {
+        "name": "events_thumpn",
+        "script": "fetch_events_thumpn.py",
+        "env_required": [],
+        "outputs": ["data/events-thumpn.json"],
+    },
     # Festivals & tours: curation layer over all the event feeds above, then the page.
     {
         "name": "festivals_build",
