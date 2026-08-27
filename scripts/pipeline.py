@@ -138,6 +138,19 @@ SOURCES = [
         "env_required": [],
         "outputs": ["data/events-skillboxes.json"],
     },
+    # Festivals & tours: curation layer over all the event feeds above, then the page.
+    {
+        "name": "festivals_build",
+        "script": "build_festivals.py",
+        "env_required": [],
+        "outputs": ["data/festivals.json"],
+    },
+    {
+        "name": "festivals_page",
+        "script": "generate_festivals_page.py",
+        "env_required": [],
+        "outputs": ["live/index.html"],
+    },
     # Weekly: industry database — rebuild from music-industry-db CSV on Sundays.
     {
         "name": "industry",

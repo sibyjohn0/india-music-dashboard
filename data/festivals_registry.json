@@ -1,0 +1,19 @@
+{
+  "_note": "Curated registry of India's marquee music festivals. These are ALWAYS shown on /live/ as the searchable anchor (people google 'NH7 2026 dates'), even before a ticketing feed confirms a specific edition. Only stable facts are hard-coded: city, typical season, official URL, handle. Specific dates come from live feeds via build_festivals.py alias-matching; until matched, the edition shows 'dates TBA'. Do NOT hard-code specific dates here — keep this honest. Add marquee festivals + their aliases (strings that appear in ticketing-feed event names) as they emerge.",
+  "festivals": [
+    {"name": "NH7 Weekender", "aliases": ["nh7 weekender", "bacardi nh7", "nh7"], "city": "Multi-city (Pune / Bengaluru / Delhi)", "season": "Nov – Dec", "official_url": "https://nh7.in/", "ig": "nh7dotin", "tags": ["indie", "multi-genre"]},
+    {"name": "Lollapalooza India", "aliases": ["lollapalooza india", "lollapalooza", "lolla india"], "city": "Mumbai", "season": "Jan – Mar", "official_url": "https://www.lollapaloozaindia.com/", "ig": "lollapaloozaind", "tags": ["international", "multi-genre"]},
+    {"name": "Sunburn Festival", "aliases": ["sunburn festival", "sunburn goa", "sunburn"], "city": "Goa", "season": "December", "official_url": "https://www.sunburn.in/", "ig": "sunburnfestival", "tags": ["edm", "dance"]},
+    {"name": "Echoes of Earth", "aliases": ["echoes of earth"], "city": "Bengaluru", "season": "December", "official_url": "https://www.echoesofearth.com/", "ig": "echoesofearth", "tags": ["indie", "eco", "electronic"]},
+    {"name": "Magnetic Fields Festival", "aliases": ["magnetic fields"], "city": "Alsisar, Rajasthan", "season": "December", "official_url": "https://www.magneticfields.in/", "ig": "magneticfieldsfestival", "tags": ["electronic", "indie", "boutique"]},
+    {"name": "Ziro Festival of Music", "aliases": ["ziro festival", "ziro"], "city": "Ziro, Arunachal Pradesh", "season": "September", "official_url": "https://zirofestival.com/", "ig": "zirofestival", "tags": ["indie", "outdoor"]},
+    {"name": "Mahindra Blues Festival", "aliases": ["mahindra blues"], "city": "Mumbai", "season": "February", "official_url": "https://mahindrablues.com/", "ig": "mahindrablues", "tags": ["blues"]},
+    {"name": "VH1 Supersonic", "aliases": ["vh1 supersonic", "supersonic"], "city": "Pune", "season": "February", "official_url": "https://www.vh1supersonic.com/", "ig": "vh1supersonic", "tags": ["electronic", "multi-genre"]},
+    {"name": "Mahindra Independence Rock", "aliases": ["independence rock", "i-rock", "indpendence rock"], "city": "Mumbai", "season": "November", "official_url": "https://mahindrablues.com/", "ig": "independencerock", "tags": ["rock", "metal"]},
+    {"name": "Paddy Fields", "aliases": ["paddy fields"], "city": "Mumbai", "season": "Winter", "official_url": "https://www.paddyfields.in/", "ig": "paddyfieldsindia", "tags": ["folk", "roots"]},
+    {"name": "Control ALT Delete", "aliases": ["control alt delete", "control alt del"], "city": "Mumbai", "season": "Varies", "official_url": "https://www.instagram.com/controlaltdel/", "ig": "controlaltdel", "tags": ["indie", "free", "grassroots"]},
+    {"name": "Ragasthan", "aliases": ["ragasthan"], "city": "Jaisalmer desert, Rajasthan", "season": "Winter", "official_url": "https://www.instagram.com/ragasthan/", "ig": "ragasthan", "tags": ["desert", "multi-genre"]},
+    {"name": "Hornbill Festival", "aliases": ["hornbill festival", "hornbill"], "city": "Kisama, Nagaland", "season": "December", "official_url": "https://hornbillfestival.com/", "ig": "hornbillfestival_official", "tags": ["cultural", "rock", "state-festival"]},
+    {"name": "Timeout 72", "aliases": ["timeout 72", "timeout72"], "city": "Goa", "season": "December", "official_url": "https://www.instagram.com/timeout72festival/", "ig": "timeout72festival", "tags": ["multi-genre"]}
+  ]
+}
