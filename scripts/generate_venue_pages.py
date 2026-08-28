@@ -124,6 +124,7 @@ FOOT = f'''<footer>
   <div>Venue and show data aggregated from public ticketing listings (District, BookMyShow, Skillboxes and more). Confirm on the official listing before booking. Built by Siby John and Karishma Changroth.</div>
 </footer>
 {SCRIPTJS}
+<script src="/assets/analytics.js" defer></script>
 </body>
 </html>'''
 

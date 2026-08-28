@@ -159,6 +159,7 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
   <div>News aggregated from public RSS feeds, headlines link to the original source. Built by Siby John and Karishma Changroth.</div>
 </footer>
 <script>document.addEventListener('click',function(e){{var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');}});document.addEventListener('keydown',function(e){{if(e.key==='Escape')document.body.classList.remove('mnav-open');}});</script>
+<script src="/assets/analytics.js" defer></script>
 </body>
 </html>'''
     OUT.parent.mkdir(parents=True, exist_ok=True)
