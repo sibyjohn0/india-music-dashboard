@@ -1,143 +1,143 @@
 {
-  "last_run": "2026-08-28T12:35:28.546087+00:00",
+  "last_run": "2026-08-29T07:44:11.597864+00:00",
   "overall": "partial",
   "sources": {
     "youtube": {
-      "status": "ok",
-      "records": 225,
-      "ms": 201225,
-      "error": null
+      "status": "failed",
+      "records": null,
+      "ms": 1803,
+      "error": "urllib.error.URLError: <urlopen error [Errno 104] Connection reset by peer>"
     },
     "lastfm": {
       "status": "ok",
       "records": 133,
-      "ms": 70369,
+      "ms": 70741,
       "error": null
     },
     "radar": {
       "status": "ok",
       "records": 126,
-      "ms": 32,
+      "ms": 19,
       "error": null
     },
     "insights": {
       "status": "ok",
       "records": null,
-      "ms": 316,
+      "ms": 210,
       "error": null
     },
     "venue_analysis": {
       "status": "ok",
       "records": null,
-      "ms": 49,
+      "ms": 31,
       "error": null
     },
     "monthly_digest": {
       "status": "ok",
       "records": null,
-      "ms": 137,
+      "ms": 107,
       "error": null
     },
     "spotify": {
       "status": "ok",
-      "records": 64,
-      "ms": 91759,
+      "records": 62,
+      "ms": 63052,
       "error": null
     },
     "radar_social": {
       "status": "failed",
       "records": null,
-      "ms": 82,
+      "ms": 58,
       "error": "ModuleNotFoundError: No module named 'numpy'"
     },
     "social": {
       "status": "ok",
-      "records": 374,
-      "ms": 23478,
+      "records": 377,
+      "ms": 24566,
       "error": null
     },
     "playboard": {
       "status": "ok",
       "records": null,
-      "ms": 50690,
+      "ms": 50666,
       "error": null
     },
     "jiosaavn": {
       "status": "ok",
       "records": null,
-      "ms": 1269,
+      "ms": 1380,
       "error": null
     },
     "events_paytm": {
       "status": "ok",
       "records": null,
-      "ms": 58,
+      "ms": 35,
       "error": null
     },
     "news_rss": {
       "status": "ok",
       "records": null,
-      "ms": 6933,
+      "ms": 1431,
       "error": null
     },
     "news_page": {
       "status": "ok",
       "records": null,
-      "ms": 30,
+      "ms": 19,
       "error": null
     },
     "events_district": {
       "status": "ok",
       "records": 92,
-      "ms": 106056,
+      "ms": 105956,
       "error": null
     },
     "spotify_playwright": {
       "status": "ok",
       "records": 0,
-      "ms": 197317,
+      "ms": 195353,
       "error": null
     },
     "bookmyshow": {
       "status": "ok",
-      "records": 222,
-      "ms": 47421,
+      "records": 140,
+      "ms": 45175,
       "error": null
     },
     "skillboxes": {
       "status": "ok",
-      "records": 87,
-      "ms": 38012,
+      "records": 72,
+      "ms": 34009,
       "error": null
     },
     "events_thumpn": {
       "status": "ok",
-      "records": 1,
-      "ms": 6988,
+      "records": 0,
+      "ms": 15251,
       "error": null
     },
     "festivals_build": {
       "status": "ok",
       "records": null,
-      "ms": 42,
+      "ms": 26,
       "error": null
     },
     "festivals_page": {
       "status": "ok",
       "records": null,
-      "ms": 31,
+      "ms": 19,
       "error": null
     },
     "venues_build": {
       "status": "ok",
       "records": null,
-      "ms": 69,
+      "ms": 36,
       "error": null
     },
     "venues_pages": {
       "status": "ok",
       "records": null,
-      "ms": 34,
+      "ms": 20,
       "error": null
     }
   }

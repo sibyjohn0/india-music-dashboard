@@ -9784,5 +9784,149 @@
         "error": null
       }
     }
+  },
+  {
+    "run_at": "2026-08-29T07:44:11.597864+00:00",
+    "overall": "partial",
+    "sources": {
+      "youtube": {
+        "status": "failed",
+        "records": null,
+        "ms": 1803,
+        "error": "urllib.error.URLError: <urlopen error [Errno 104] Connection reset by peer>"
+      },
+      "lastfm": {
+        "status": "ok",
+        "records": 133,
+        "ms": 70741,
+        "error": null
+      },
+      "radar": {
+        "status": "ok",
+        "records": 126,
+        "ms": 19,
+        "error": null
+      },
+      "insights": {
+        "status": "ok",
+        "records": null,
+        "ms": 210,
+        "error": null
+      },
+      "venue_analysis": {
+        "status": "ok",
+        "records": null,
+        "ms": 31,
+        "error": null
+      },
+      "monthly_digest": {
+        "status": "ok",
+        "records": null,
+        "ms": 107,
+        "error": null
+      },
+      "spotify": {
+        "status": "ok",
+        "records": 62,
+        "ms": 63052,
+        "error": null
+      },
+      "radar_social": {
+        "status": "failed",
+        "records": null,
+        "ms": 58,
+        "error": "ModuleNotFoundError: No module named 'numpy'"
+      },
+      "social": {
+        "status": "ok",
+        "records": 377,
+        "ms": 24566,
+        "error": null
+      },
+      "playboard": {
+        "status": "ok",
+        "records": null,
+        "ms": 50666,
+        "error": null
+      },
+      "jiosaavn": {
+        "status": "ok",
+        "records": null,
+        "ms": 1380,
+        "error": null
+      },
+      "events_paytm": {
+        "status": "ok",
+        "records": null,
+        "ms": 35,
+        "error": null
+      },
+      "news_rss": {
+        "status": "ok",
+        "records": null,
+        "ms": 1431,
+        "error": null
+      },
+      "news_page": {
+        "status": "ok",
+        "records": null,
+        "ms": 19,
+        "error": null
+      },
+      "events_district": {
+        "status": "ok",
+        "records": 92,
+        "ms": 105956,
+        "error": null
+      },
+      "spotify_playwright": {
+        "status": "ok",
+        "records": 0,
+        "ms": 195353,
+        "error": null
+      },
+      "bookmyshow": {
+        "status": "ok",
+        "records": 140,
+        "ms": 45175,
+        "error": null
+      },
+      "skillboxes": {
+        "status": "ok",
+        "records": 72,
+        "ms": 34009,
+        "error": null
+      },
+      "events_thumpn": {
+        "status": "ok",
+        "records": 0,
+        "ms": 15251,
+        "error": null
+      },
+      "festivals_build": {
+        "status": "ok",
+        "records": null,
+        "ms": 26,
+        "error": null
+      },
+      "festivals_page": {
+        "status": "ok",
+        "records": null,
+        "ms": 19,
+        "error": null
+      },
+      "venues_build": {
+        "status": "ok",
+        "records": null,
+        "ms": 36,
+        "error": null
+      },
+      "venues_pages": {
+        "status": "ok",
+        "records": null,
+        "ms": 20,
+        "error": null
+      }
+    }
   }
 ]
