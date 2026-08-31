@@ -433,13 +433,13 @@
   },
   "2026-08": {
     "month": "2026-08",
-    "snapshots": 29,
-    "last_snapshot_at": "2026-08-30T06:24:20.152526+00:00",
+    "snapshots": 30,
+    "last_snapshot_at": "2026-08-31T06:51:38.852338+00:00",
     "total_videos": 225,
-    "total_artists": 367,
-    "new_artists_seen": 350,
-    "median_score": 56,
-    "median_views": 4412,
+    "total_artists": 371,
+    "new_artists_seen": 355,
+    "median_score": 55,
+    "median_views": 5003,
     "top_artists": [
       {
         "name": "Inqalab",
@@ -515,33 +515,33 @@
     "fastest_growing": [
       {
         "name": "Sai Abhyankkar - Topic",
-        "views_gained": 3210835,
+        "views_gained": 3543130,
         "genre": "Electronic",
         "language": "Hindi"
       },
       {
-        "name": "Santu Munjeti",
-        "views_gained": 1041772,
-        "genre": "Folk / Acoustic",
-        "language": "Telugu"
-      },
-      {
-        "name": "Rare.78",
-        "views_gained": 888801,
-        "genre": "Hip Hop / Rap",
-        "language": "English"
-      },
-      {
         "name": "Vijaynarain Rangarajan",
-        "views_gained": 837638,
+        "views_gained": 1816191,
         "genre": "Indie",
         "language": "Malayalam"
       },
       {
-        "name": "Santu Munjeti",
-        "views_gained": 306141,
+        "name": "Rare.78",
+        "views_gained": 916313,
+        "genre": "Hip Hop / Rap",
+        "language": "English"
+      },
+      {
+        "name": "Ts Folk",
+        "views_gained": 617920,
         "genre": "Folk / Acoustic",
         "language": "Telugu"
+      },
+      {
+        "name": "Vijaynarain Rangarajan",
+        "views_gained": 498549,
+        "genre": "Indie",
+        "language": "Malayalam"
       }
     ],
     "genre_breakdown": [
@@ -551,36 +551,40 @@
       ],
       [
         "Folk / Acoustic",
-        47
+        46
       ],
       [
         "Hip Hop / Rap",
-        42
+        44
       ],
       [
         "Electronic",
-        21
+        22
       ],
       [
         "R&B / Soul",
         20
       ],
       [
-        "Lo-Fi",
-        18
+        "Classical/Fusion",
+        16
       ],
       [
-        "Classical/Fusion",
-        18
+        "Lo-Fi",
+        16
       ],
       [
         "Rock / Alt",
-        5
+        7
       ]
     ],
     "language_breakdown": [
       [
         "Tamil",
+        25
+      ],
+      [
+        "Telugu",
         25
       ],
       [
@@ -610,37 +614,35 @@
       [
         "English",
         25
-      ],
-      [
-        "Telugu",
-        25
       ]
     ],
     "city_shows": {
-      "Calangute": 1,
+      "Mumbai": 36,
+      "Goa": 17,
+      "Bandra.": 1,
+      "Bangalore": 68,
+      "Hyderabad": 30,
+      "Chennai": 27,
       "Delhi": 35,
-      "Goa": 24,
-      "Mumbai": 41,
-      "Pune": 31,
-      "Kolkata": 34,
+      "Kolkata": 35,
       "New Delhi.": 1,
+      "Gachibowli": 1,
+      "Kondapur, Hyderabad": 1,
+      "Puducherry": 1,
+      "Pune": 31,
       "Santacruz": 1,
-      "NCPA.": 2,
-      "Mulund": 1,
-      "Bangalore": 46,
+      "NCPA.": 3,
       "Guwahati": 1,
+      "Salem": 1,
       "Ladakh": 1,
       "Leh": 1,
-      "Chennai": 4,
-      "Hyderabad": 9,
       "India": 1,
       "Chandigarh": 2,
       "Kochi": 1,
-      "Ludhiana": 1,
       "Raison": 1,
       "Kullu": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 240
+    "total_shows": 298
   }
 }
