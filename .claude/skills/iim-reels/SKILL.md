@@ -12,6 +12,21 @@ The Indie Music India content system. Three content legs, each with a job:
 
 Validated: the first art post (red chair in empty teal pool) became the highest-viewed post on the channel. But art doesn't earn saves/shares — discovery + info do. Balance accordingly.
 
+## WHAT ACTUALLY WORKS — validated by views (2026-08, ~57 followers)
+
+The data is unambiguous. Wordless art beats everything with text by 5-10x:
+
+| Format | Views |
+|---|---|
+| Wordless art (single arresting object, NO on-screen text) | **400–650** (pool chair 650, telephone 548, gas 495, lamp 408) |
+| Branded value carousels (Radar / venues / "5 things") | **313–476** (consistent) |
+| Photo + positioning/"what we offer" text | **64–213** (worst) |
+| **Art reel WITH text cards** (payphone, 4 message frames) | **26** (floor — text cards actively tank) |
+
+**THE LOCKED RULE: art reels carry ZERO on-screen text. Not an emotional line, not a brand card, nothing.** The moment text appears it reads as an ad and gets skipped. The message goes in the CAPTION only. This overrides the older "art hook → emotional line → end frame" structure below — do NOT put text/brand cards on art reels anymore.
+
+**Reach ≠ follows.** These reels get 650 views and 0 new followers (proven). Art = reach/brand ambiance, cheap and repeatable. Follows come from the *useful recurring* content people subscribe FOR (gig calendar, Radar, venue guides). And the real discovery engine for this business is SEO, not IG — people search "best music distributor india"; they don't follow art. Don't over-invest in IG follower-chasing.
+
 ## HARD RULES (never break)
 
 1. **No "Swipe" / "Swipe →" on a reel** — reels don't swipe, that's carousels only.
@@ -32,7 +47,7 @@ HARD: no people, no faces (reads AI/cheap), NO recolouring living things, no ani
 
 ## Reel structure
 
-**Art reel:** art hook (slow Ken Burns push-in on the PURE image, no text on it) → cross-dissolve → ONE emotional line on a solid card in a colour PULLED from the image → ◉ end frame (pink-filled-ring mark on INK + a brand-line + handle).
+**Art reel (CURRENT, data-validated):** the PURE image, one slow continuous ~4.5s Ken Burns push, and NOTHING else. No text card, no emotional line, no end frame. Words live in the caption. (The older "art hook → emotional line → ◉ end frame" version tanked at 26 views — do not use it.)
 
 **Discovery/info reel:** cover (topic, no "Swipe") → content slides (Radar artists / YouTube thumbnails / info steps, cycling accents) → CTA card ("Save this / Subscribe & share / We hear you").
 
