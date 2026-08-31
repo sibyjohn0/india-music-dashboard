@@ -6,3 +6,6 @@ lxml>=5.0            # optional fast parser backend for BeautifulSoup
 playwright>=1.40     # fetch_spotify_playwright.py, fetch_playboard.py — JS-rendered pages
                      # GitHub Actions: add `playwright install chromium` step before pipeline run
 Pillow>=10.0         # generate_radar.py, generate_venues.py, generate_gigs_social.py — image/reel rendering
+numpy>=1.24          # generate_radar.py, render_reel.py — frame arrays for image/reel compositing
+imageio>=2.31        # render_reel.py — reel/video encoding
+imageio-ffmpeg>=0.4  # bundled ffmpeg backend for imageio (system ffmpeg not installed on runners)
