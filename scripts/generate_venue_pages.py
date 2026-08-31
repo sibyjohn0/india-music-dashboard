@@ -207,12 +207,16 @@ def build():
         page = head(f"Live music venues in {c['name']}: gigs, addresses & tickets — Indie Music India",
                     f"The best live music venues in {c['name']} with upcoming gigs, localities and ticket links. {c['venue_count']} venues, {c['show_count']} shows, updated daily.",
                     f"https://indiemusicindia.com/venues/{slug}/", city_ld)
+        # Only these three metros have a scene guide to link back to.
+        scene_link = (f' New here? Read the <a href="/guides/independent-music-scene-{slug}/" '
+                      f'style="color:var(--accent);font-weight:700">{esc(c["name"])} scene guide</a>.'
+                      if slug in ("mumbai", "bengaluru", "delhi") else "")
         page += f'''
 <div class="page">
   <div class="crumb"><a href="/">Home</a> / <a href="/venues/">Venues</a> / {esc(c["name"])}</div>
   <div class="eyebrow">Venues · {esc(c["name"])}</div>
   <h1>Live music venues in {esc(c["name"])}</h1>
-  <p class="lead">The rooms hosting live music in {esc(c["name"])} right now, ranked by what's on. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--accent);font-weight:700">festivals &amp; tours calendar</a>.</p>
+  <p class="lead">The rooms hosting live music in {esc(c["name"])} right now, ranked by what's on. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--accent);font-weight:700">festivals &amp; tours calendar</a>.{scene_link}</p>
   <div class="stat">{c["venue_count"]} venues · {c["show_count"]} upcoming shows · updated {updated}</div>
   <h2 class="sec">Venues by what's on</h2>
 {cards}
