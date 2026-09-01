@@ -53,6 +53,14 @@ LABEL = re.compile(
     r"\b(entertainment|productions?|records|studios?|media|films?|"
     r"official music|music official)\b|\bmusic$|\bmuzi[ckx]\b", re.I)
 
+# Political / communal / devotional signals (best-effort, NAME-based only). This
+# CANNOT catch content baked into a track's title or thumbnail under a neutral
+# artist name — so a human eyeball on every pick before posting stays mandatory.
+POLITICAL = re.compile(
+    r"\b(modi|yogi|bjp|congress|kejriwal|hindutva|deshbhak|desh bhakti|andolan|"
+    r"jai shree ram|jai shri ram|jai shri krishna|jai hind|har har mahadev|"
+    r"bhajan|kirtan|devotional|mata rani|bhagwan|tiranga|shaheed|rashtra)\b", re.I)
+
 W, H, M = 1080, 1920, 120   # 9:16 story/reel frames
 PINK=(255,77,141); YELLOW=(255,210,63); VIOLET=(139,92,246); BLUE=(58,160,255)
 MINT=(31,207,158); INK=(36,27,46); INK2=(24,18,34); CREAM=(255,247,238); WHITE=(255,255,255); MUT=(150,140,160)
@@ -132,24 +140,48 @@ def compose(rows, skip=0):
             if len(out) == N_ARTISTS: break
     return out[:N_ARTISTS]
 
-def pick(enr, arts, skip=0, exclude=None):
-    """Select the weekly artists: real indie acts with a cover image, no mix/topic/
-    label channels, honouring the exclude list, composed 2 English + 3 vernacular."""
+ALLOWLIST_PATH = DATA / "radar_allowlist.json"
+
+def load_allowlist():
+    try:
+        return json.load(open(ALLOWLIST_PATH)).get("artists", [])
+    except Exception:
+        return []
+
+def pick(enr, arts, skip=0, exclude=None, target=5):
+    """PERMANENT FIX: the Radar is allowlist-driven. Only artists in
+    data/radar_allowlist.json can be featured, so political/communal, devotional,
+    aggregator and film-music content can never leak in (the old rank-then-blocklist
+    model leaked them forever), and every pick carries a verified handle for tagging.
+    No-repeat honoured; if the allowlist is exhausted by the no-repeat log, it cycles."""
     exclude = exclude or set()
-    rows = []
-    for name, e in enr.items():
-        if not e.get("image"): continue
-        if NON_ARTIST.search(name): continue      # mix/topic/playlist channels
-        if LABEL.search(name): continue           # label / aggregator channels
-        if name.strip().lower() in exclude: continue   # human veto list
-        t = arts.get(name, {})
-        rows.append({"name": name, "e": e, "t": t,
-                     "trend": t.get("trend"), "growth": t.get("growth_pct"),
-                     "rank": t.get("india_rank"),
-                     "listeners": t.get("latest_global_listeners") or e.get("followers") or 0})
-    return compose(rows, skip=skip)
+    allow = load_allowlist()
+
+    def rows_for(exc):
+        rows = []
+        for a in allow:
+            name = (a.get("name") or "").strip()
+            if not name or name.lower() in exc:
+                continue
+            e = enr.get(name, {}); t = arts.get(name, {})
+            rows.append({"name": name, "e": e, "t": t,
+                         "handle": a.get("handle", ""), "note": a.get("note", ""),
+                         "alang": a.get("language", ""), "agenre": a.get("genre", ""),
+                         "aimage": a.get("image", ""),
+                         "trend": t.get("trend") or "on our radar", "growth": t.get("growth_pct"),
+                         "rank": t.get("india_rank"),
+                         "listeners": t.get("latest_global_listeners") or e.get("followers") or 0})
+        return rows
+
+    rows = rows_for(exclude)
+    if len(rows) < target:                       # allowlist used up by no-repeat: cycle on hard vetoes only
+        rows = rows_for(load_exclude())
+    if skip:
+        rows = rows[skip:] + rows[:skip]
+    return rows[:target]
 
 def stat_line(r):
+    if r.get("note"): return r["note"]                       # curated one-liner wins
     if r["growth"] and r["growth"] >= 5: return f"▲  {round(r['growth'])}% listeners this month"
     if r["trend"] == "new": return "New on the radar"
     if r["rank"]: return f"#{r['rank']} in India this week"
@@ -157,8 +189,49 @@ def stat_line(r):
 
 def genre_lang(r):
     t, e = r["t"], r["e"]
-    genre = t.get("genre") or (e["genres"][0].title() if e.get("genres") else "Independent")
-    return " · ".join([x for x in [t.get("language"), genre] if x])
+    lang = r.get("alang") or t.get("language")               # allowlist language wins
+    genre = r.get("agenre") or t.get("genre") or (e["genres"][0].title() if e.get("genres") else "Independent")
+    return " · ".join([x for x in [lang, genre] if x])
+
+TILE_COLORS = [PINK, VIOLET, BLUE, MINT, YELLOW]
+
+def artist_image(r):
+    """Cover for an allowlisted artist: enrichment URL, else a local allowlist
+    image, else None (a typographic tile is drawn instead so it always renders)."""
+    url = r["e"].get("image")
+    if url:
+        try: return fetch(url)
+        except Exception: pass
+    p = r.get("aimage")
+    if p:
+        fp = Path(p) if os.path.isabs(p) else (REPO / p)
+        try: return Image.open(fp).convert("RGB")
+        except Exception: pass
+    return None
+
+def _initials(name):
+    parts = [w for w in name.split() if w]
+    return ("".join(w[0] for w in parts[:2]).upper()) or "?"
+
+def tile(w, h, name, color, big=True):
+    """Typographic fallback tile for artists with no photo yet."""
+    im = Image.new("RGB", (w, h), color); d = ImageDraw.Draw(im)
+    if big:
+        f = bric(96)
+        words, lines, cur = name.split(), [], ""
+        for wd in words:
+            t = (cur + " " + wd).strip()
+            if d.textlength(t, font=f) <= w - 90: cur = t
+            else: lines.append(cur); cur = wd
+        if cur: lines.append(cur)
+        lh = f.size + 10; y = (h - lh * len(lines)) // 2
+        for ln in lines:
+            d.text(((w - d.textlength(ln, font=f)) // 2, y), ln, font=f, fill=WHITE); y += lh
+    else:
+        ini = _initials(name); f = bric(int(h * 0.4))
+        bb = d.textbbox((0, 0), ini, font=f)
+        d.text(((w - (bb[2]-bb[0])) // 2 - bb[0], (h - (bb[3]-bb[1])) // 2 - bb[1]), ini, font=f, fill=WHITE)
+    return im
 
 def build(picks, images, out=OUT, wk=None):
     out.mkdir(parents=True, exist_ok=True)
@@ -174,9 +247,10 @@ def build(picks, images, out=OUT, wk=None):
     d.text((M,820),"The Indian artists",font=inter(40,600),fill=(225,222,232))
     d.text((M,876),"we're watching this week.",font=inter(40,600),fill=(225,222,232))
     tx=M
-    for r in picks[:4]:
+    for idx,r in enumerate(picks[:4]):
         im=images.get(r["name"])
-        if im: img.paste(cover_fit(im,200,200),(tx,1150)); d=ImageDraw.Draw(img)
+        thumb = cover_fit(im,200,200) if im else tile(200,200,r["name"],TILE_COLORS[idx%len(TILE_COLORS)],big=False)
+        img.paste(thumb,(tx,1150)); d=ImageDraw.Draw(img)
         d.rectangle([tx,1150,tx+200,1350],outline=WHITE,width=2); tx+=210
     d.text((M,1450),"Watch these names →",font=inter(44,600),fill=(225,222,232))
     footer(d,MINT,WHITE); img.save(out/"slide_01.png")
@@ -185,15 +259,16 @@ def build(picks, images, out=OUT, wk=None):
     for i,r in enumerate(picks,2):
         img=Image.new("RGB",(W,H),CREAM); d=ImageDraw.Draw(img)
         trk(d,(M,170),f"THE RADAR · {i:02d} / {total:02d}",mono(28),PINK,3)
-        box=(M,240,W-M,240+1060); im=images.get(r["name"])
-        if im: img.paste(cover_fit(im,box[2]-box[0],box[3]-box[1]),(box[0],box[1])); d=ImageDraw.Draw(img)
+        box=(M,240,W-M,240+1060); im=images.get(r["name"]); bw,bh=box[2]-box[0],box[3]-box[1]
+        hero = cover_fit(im,bw,bh) if im else tile(bw,bh,r["name"],TILE_COLORS[(i-2)%len(TILE_COLORS)],big=True)
+        img.paste(hero,(box[0],box[1])); d=ImageDraw.Draw(img)
         d.rectangle([box[0],box[1],box[2]-1,box[3]-1],outline=INK,width=4)
         yy=box[3]+48
         nm=r["name"] if tw(d,r["name"],bric(76))<W-2*M else r["name"][:18]+"…"
         d.text((M,yy),nm,font=bric(76),fill=INK)
         d.text((M,yy+96),genre_lang(r),font=inter(37,600),fill=(74,64,88))
         d.text((M,yy+150),stat_line(r),font=inter(35,650),fill=PINK)
-        footer(d,PINK,INK,note="Cover art: Spotify"); img.save(out/f"slide_{i:02d}.png")
+        footer(d,PINK,INK,note=("Cover art: Spotify" if im else None)); img.save(out/f"slide_{i:02d}.png")
 
     # --- Final slide: CTA on the brand gradient ---
     img=grad([PINK,VIOLET,BLUE]); d=ImageDraw.Draw(img)
@@ -217,7 +292,7 @@ def write_caption(picks, out=OUT):
     lines = []
     for r in picks:
         url = r["e"].get("spotify_url", "")
-        ig = handles.get(r["name"], "@______")
+        ig = r.get("handle") or handles.get(r["name"], "@______")
         lines.append(f"• {r['name']} — IG {ig}  |  {url}")
     artist_block = "\n".join(lines)
     cap = (
@@ -253,9 +328,9 @@ def main():
     enr, arts = load()
     picks = pick(enr, arts, skip=a.skip, exclude=exclude)
     if not picks:
-        print("generate_radar: no candidates with cover images, skipping.")
+        print("generate_radar: allowlist empty or all featured. Add artists to data/radar_allowlist.json.")
         return
-    images = {r["name"]: fetch(r["e"]["image"]) for r in picks}
+    images = {r["name"]: artist_image(r) for r in picks}
     build(picks, images, out=out, wk=wk)
     write_caption(picks, out=out)
     if not a.preview:

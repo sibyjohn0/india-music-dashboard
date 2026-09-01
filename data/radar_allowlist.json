@@ -1,0 +1,10 @@
+{
+  "note": "The Radar's SOURCE OF TRUTH. Only artists listed here can ever be featured. This is the permanent curation layer: it makes political/communal, devotional, aggregator, and film-music junk impossible (the old ranking-plus-blocklist model leaked them forever), and it guarantees every pick carries a verified handle for tagging. Add rising independent Indian artists you vouch for. Required: name + handle. Optional: language, genre, note (a custom one-line reason), image (a local file path under data/radar_artists/, else a clean typographic tile is used). Verify each artist and handle before adding.",
+  "artists": [
+    {"name": "Patrick Michael", "handle": "@patrickmichaelmusic", "language": "English", "genre": "Singer-songwriter", "note": "", "image": ""},
+    {"name": "Simran Choudhary", "handle": "@thisissimran_", "language": "Hindi", "genre": "Pop", "note": "", "image": ""},
+    {"name": "Inayat Kaur Bajaj", "handle": "@inayatkaurbajaj", "language": "", "genre": "Independent", "note": "", "image": ""},
+    {"name": "Nihar Shembekar", "handle": "@niharshembekar", "language": "", "genre": "Independent", "note": "", "image": ""},
+    {"name": "Razik Mujawar", "handle": "@razikmujawar20", "language": "", "genre": "Independent", "note": "", "image": ""}
+  ]
+}
