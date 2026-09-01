@@ -112,8 +112,8 @@ im,d=base(); x=72
 d.text((x,150),"SOURCES & METHOD",font=F(MONO,30),fill=ACC)
 y=230
 srcs=[
- "Spotify Loud & Clear (loudandclear.byspotify.com) — how streaming pays: a share of revenue, not a fixed per-stream rate.",
- "Business of Apps — Music streaming royalty rates by platform, 2026.",
+ "Spotify Loud & Clear (loudandclear.byspotify.com). How streaming pays: a share of revenue, not a fixed per-stream rate.",
+ "Business of Apps. Music streaming royalty rates by platform, 2026.",
  "Industry per-stream estimates (Duetti, Digital Music News).",
  "India per-stream figures are Indie Music India estimates, derived from global platform rates adjusted for India's lower revenue per user. Indicative, not exact.",
 ]
@@ -123,4 +123,18 @@ for s in srcs:
     y+=16
 footer(d,7,TOTAL); im.save(OUT/"slide_07.png")
 
-print(f"wrote 7 slides to {OUT}")
+# ---- Standalone single post (self-contained, no swipe cue) ----
+im,d=base(); x=72
+d.text((x,150),"THE MATH NO ONE SHOWS YOU",font=F(MONO,30),fill=ACC)
+d.text((x,250),"₹50.",font=F(HEAD,300),fill=ACC)
+y=620
+y=para(d,x,y,"That's roughly what 1,000 streams pays",F(HEAD,50),WHITE,W-140,62)
+y=para(d,x,y,"an independent Indian artist.",F(HEAD,50),WHITE,W-140,62)
+y=para(d,x,y+24,"Streaming is discovery, not a salary. The full breakdown, with sources, is on our page.",F(BODY,38),MUT,W-140,50)
+# footer without page marker
+cy=H-64
+d.ellipse([64,cy-13,64+26,cy+13],fill=ACC); d.ellipse([73,cy-4,73+8,cy+4],fill=BG)
+d.text((104,H-78),"indiemusicindia.com",font=F(MONO,26),fill=MUT)
+im.save(OUT/"single_streaming_50.png")
+
+print(f"wrote 7 slides + 1 standalone to {OUT}")
