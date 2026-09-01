@@ -173,9 +173,11 @@ def pick(enr, arts, skip=0, exclude=None, target=5):
                          "listeners": t.get("latest_global_listeners") or e.get("followers") or 0})
         return rows
 
+    # Fresh only: exclude already includes the no-repeat featured log. Never pad
+    # with repeats — if fewer than `target` are fresh, show fewer; if zero, the
+    # caller prints "add more artists". Repeats only ever happen if a human clears
+    # the radar featured log deliberately to start a new cycle.
     rows = rows_for(exclude)
-    if len(rows) < target:                       # allowlist used up by no-repeat: cycle on hard vetoes only
-        rows = rows_for(load_exclude())
     if skip:
         rows = rows[skip:] + rows[:skip]
     return rows[:target]
@@ -326,11 +328,14 @@ def main():
                | {n.strip().lower() for n in a.exclude_extra.split(",") if n.strip()})
 
     enr, arts = load()
-    picks = pick(enr, arts, skip=a.skip, exclude=exclude)
-    if not picks:
-        print("generate_radar: allowlist empty or all featured. Add artists to data/radar_allowlist.json.")
-        return
+    picks = pick(enr, arts, skip=a.skip, exclude=exclude, target=N_ARTISTS * 3)  # over-fetch; drop imageless
     images = {r["name"]: artist_image(r) for r in picks}
+    picks = [r for r in picks if images.get(r["name"])][:N_ARTISTS]   # PHOTOS ONLY — no image, drop the artist
+    if not picks:
+        print("generate_radar: no fresh allowlisted artists WITH a photo. "
+              "Add artists (with Spotify presence, or a local image path) to data/radar_allowlist.json.")
+        return
+    images = {r["name"]: images[r["name"]] for r in picks}
     build(picks, images, out=out, wk=wk)
     write_caption(picks, out=out)
     if not a.preview:
