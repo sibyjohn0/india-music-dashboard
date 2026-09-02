@@ -647,13 +647,13 @@
   },
   "2026-09": {
     "month": "2026-09",
-    "snapshots": 1,
-    "last_snapshot_at": "2026-09-01T06:11:40.225223+00:00",
+    "snapshots": 2,
+    "last_snapshot_at": "2026-09-02T05:36:17.144685+00:00",
     "total_videos": 225,
-    "total_artists": 133,
-    "new_artists_seen": 54,
-    "median_score": 54,
-    "median_views": 3999,
+    "total_artists": 157,
+    "new_artists_seen": 91,
+    "median_score": 57,
+    "median_views": 3907,
     "top_artists": [
       {
         "name": "Sanathan Shree Krishnan",
@@ -728,34 +728,34 @@
     ],
     "fastest_growing": [
       {
-        "name": "MRSU MUSIC",
-        "views_gained": 152940,
-        "genre": "Indie",
-        "language": "Kannada"
+        "name": "Shiv Edits",
+        "views_gained": 2019708,
+        "genre": "Folk / Acoustic",
+        "language": "Malayalam"
+      },
+      {
+        "name": "Santu Munjeti",
+        "views_gained": 1150698,
+        "genre": "Folk / Acoustic",
+        "language": "Telugu"
+      },
+      {
+        "name": "Sai Abhyankkar - Topic",
+        "views_gained": 297940,
+        "genre": "Electronic",
+        "language": "Hindi"
+      },
+      {
+        "name": "Hardik Bhardwaj Official",
+        "views_gained": 153280,
+        "genre": "Indie Pop",
+        "language": "Punjabi"
       },
       {
         "name": "Manchu Dada Music ",
-        "views_gained": 66316,
+        "views_gained": 66502,
         "genre": "Hip Hop / Rap",
         "language": "Bengali"
-      },
-      {
-        "name": "Veeru Jamakandi Singer - Topic",
-        "views_gained": 46979,
-        "genre": "Electronic",
-        "language": "Kannada"
-      },
-      {
-        "name": "Pratyagra Music Paradise",
-        "views_gained": 37909,
-        "genre": "Folk / Acoustic",
-        "language": "Tamil"
-      },
-      {
-        "name": "Sounds of Isha",
-        "views_gained": 20258,
-        "genre": "Indie",
-        "language": "Marathi"
       }
     ],
     "genre_breakdown": [
@@ -772,16 +772,16 @@
         42
       ],
       [
-        "R&B / Soul",
-        25
+        "Electronic",
+        22
       ],
       [
-        "Electronic",
+        "R&B / Soul",
         20
       ],
       [
         "Lo-Fi",
-        17
+        16
       ],
       [
         "Classical/Fusion",
@@ -789,7 +789,11 @@
       ],
       [
         "Rock / Alt",
-        6
+        8
+      ],
+      [
+        "Indie Pop",
+        2
       ]
     ],
     "language_breakdown": [
@@ -798,7 +802,15 @@
         25
       ],
       [
+        "Telugu",
+        25
+      ],
+      [
         "Kannada",
+        25
+      ],
+      [
+        "Malayalam",
         25
       ],
       [
@@ -818,41 +830,35 @@
         25
       ],
       [
-        "Telugu",
-        25
-      ],
-      [
         "English",
-        25
-      ],
-      [
-        "Malayalam",
         25
       ]
     ],
     "city_shows": {
-      "Goa": 21,
-      "Hyderabad": 34,
-      "Kolkata": 34,
-      "Bangalore": 68,
-      "Delhi": 37,
-      "Pune": 32,
-      "Mumbai": 44,
-      "Chennai": 25,
-      "New Delhi.": 1,
-      "Kondapur, Hyderabad": 1,
-      "Puducherry": 1,
+      "Bangalore": 69,
+      "Chennai": 26,
+      "Goa": 24,
+      "Delhi": 42,
+      "Pune": 35,
+      "Mumbai": 41,
+      "Hyderabad": 32,
+      "Kolkata": 35,
       "NCPA": 1,
+      "Kondapur, Hyderabad": 1,
+      "Mulund": 2,
+      "NCPA.": 3,
       "Guwahati": 1,
       "Salem": 1,
       "Ladakh": 1,
       "Leh": 1,
       "India": 1,
-      "Chandigarh": 2,
-      "Kochi": 1,
+      "Chandigarh": 1,
+      "Kochi": 2,
+      "Alwar City": 1,
+      "Jaipur": 1,
       "Kullu": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 308
+    "total_shows": 322
   }
 }
