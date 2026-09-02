@@ -1,10 +1,50 @@
 {
   "note": "The Radar's SOURCE OF TRUTH. Only artists listed here can ever be featured. This is the permanent curation layer: it makes political/communal, devotional, aggregator, and film-music junk impossible (the old ranking-plus-blocklist model leaked them forever), and it guarantees every pick carries a verified handle for tagging. Add rising independent Indian artists you vouch for. Required: name + handle. Optional: language, genre, note (a custom one-line reason), image (a local file path under data/radar_artists/, else a clean typographic tile is used). Verify each artist and handle before adding.",
   "artists": [
-    {"name": "Patrick Michael", "handle": "@patrickmichaelmusic", "language": "English", "genre": "Singer-songwriter", "note": "", "image": ""},
-    {"name": "Simran Choudhary", "handle": "@thisissimran_", "language": "Hindi", "genre": "Pop", "note": "", "image": ""},
-    {"name": "Inayat Kaur Bajaj", "handle": "@inayatkaurbajaj", "language": "", "genre": "Independent", "note": "", "image": ""},
-    {"name": "Nihar Shembekar", "handle": "@niharshembekar", "language": "", "genre": "Independent", "note": "", "image": ""},
-    {"name": "Razik Mujawar", "handle": "@razikmujawar20", "language": "", "genre": "Independent", "note": "", "image": ""}
+    {
+      "name": "Patrick Michael",
+      "handle": "@patrickmichaelmusic",
+      "language": "English",
+      "genre": "Singer-songwriter",
+      "note": "",
+      "image": "data/radar_artists/patrick_michael.jpg",
+      "spotify_id": "1WDEfBNAlzFbNbB1Dx1rl0"
+    },
+    {
+      "name": "Simran Choudhary",
+      "handle": "@thisissimran_",
+      "language": "Hindi",
+      "genre": "Pop",
+      "note": "",
+      "image": "data/radar_artists/simran_choudhary.jpg",
+      "spotify_id": "1eQsrFTW5NHQs1X7B0mImu"
+    },
+    {
+      "name": "Inayat Kaur Bajaj",
+      "handle": "@inayatkaurbajaj",
+      "language": "",
+      "genre": "Independent",
+      "note": "",
+      "image": "data/radar_artists/inayat_kaur_bajaj.jpg",
+      "spotify_id": "3tUsiQAwzswWX1pTflob0o"
+    },
+    {
+      "name": "Nihar Shembekar",
+      "handle": "@niharshembekar",
+      "language": "",
+      "genre": "Independent",
+      "note": "",
+      "image": "data/radar_artists/nihar_shembekar.jpg",
+      "spotify_id": "5IWLPvOnpyaiOyz8a7dM2j"
+    },
+    {
+      "name": "Razik Mujawar",
+      "handle": "@razikmujawar20",
+      "language": "",
+      "genre": "Independent",
+      "note": "",
+      "image": "data/radar_artists/razik_mujawar.jpg",
+      "spotify_id": "1h5mPiZCQ1NaYRaqV9PVus"
+    }
   ]
 }
