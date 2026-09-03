@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-02T05:46:30.028186+00:00",
+  "generated_at": "2026-09-03T05:48:05.702308+00:00",
   "counts": {
-    "festivals": 23,
-    "tours": 22,
+    "festivals": 24,
+    "tours": 20,
     "marquee": 14,
-    "international": 9,
+    "international": 8,
     "indian": 36,
-    "new_this_run": 5
+    "new_this_run": 8
   },
   "festivals": [
     {
@@ -86,7 +86,7 @@
           "city": "Mumbai",
           "venue": "Mahalaxmi Race Course",
           "time": "",
-          "price": "from ₹7,499",
+          "price": "from ₹7,999",
           "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
           "source": "bookmyshow"
         },
@@ -400,6 +400,60 @@
       "origin": "indian"
     },
     {
+      "title": "Utsav Lal's Ragas to Reels",
+      "type": "festival",
+      "key": "utsav lal s ragas to reels",
+      "cities": [
+        "Mumbai"
+      ],
+      "dates": [
+        {
+          "date": "2026-09-06",
+          "date_obj": "2026-09-06",
+          "city": "Mumbai",
+          "venue": "The Studio Theatre, NMACC",
+          "time": "",
+          "price": "from ₹750",
+          "url": "https://in.bookmyshow.com/events/utsav-lal-s-ragas-to-reels/ET00510165",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-09-06",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Leela Mahotsav: Biggest Krishna Festival",
+      "type": "festival",
+      "key": "leela mahotsav biggest krishna festival",
+      "cities": [
+        "Mumbai"
+      ],
+      "dates": [
+        {
+          "date": "2026-09-13",
+          "date_obj": "2026-09-13",
+          "city": "Mumbai",
+          "venue": "Rangasharda Auditorium",
+          "time": "",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/divine-clubbing-a-unique-bhajan-experiennce/ET00503390",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-09-13",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "Radha Rani Ka Janam Mahotsav",
       "type": "festival",
       "key": "radha rani ka janam mahotsav",
@@ -481,6 +535,33 @@
       "origin": "indian"
     },
     {
+      "title": "Raas Utsav Mulund Pre Navratri with Naitik Nagda",
+      "type": "festival",
+      "key": "raas utsav mulund pre navratri with naitik nagda",
+      "cities": [
+        "Mulund"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-02",
+          "date_obj": "2026-10-02",
+          "city": "Mulund",
+          "venue": "Richardson and Cruddas Ltd",
+          "time": "",
+          "price": "from ₹699",
+          "url": "https://in.bookmyshow.com/events/raas-utsav-naitk-nagd/ET00514436",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-02",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "The Kolkata Tradition Festival",
       "type": "festival",
       "key": "the tradition festival",
@@ -500,33 +581,6 @@
         }
       ],
       "soonest": "2026-10-02",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Cloud Temple Boutique Music Festival",
-      "type": "festival",
-      "key": "cloud temple boutique music festival",
-      "cities": [
-        "Jaipur"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-24",
-          "date_obj": "2026-10-24",
-          "city": "Jaipur",
-          "venue": "",
-          "time": "05:00 PM",
-          "price": "₹1,000–₹20,000",
-          "url": "https://www.skillboxes.com/events/cloud-temple-boutique-music-festival-sbwbwkaf",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-10-24",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -560,33 +614,6 @@
       "season": "",
       "tags": [],
       "origin": "indian"
-    },
-    {
-      "title": "Sunburn Arena Ft. The Chainsmokers",
-      "type": "festival",
-      "key": "sunburn arena ft the chainsmokers",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "2026-12-20",
-          "date_obj": "2026-12-20",
-          "city": "Bangalore",
-          "venue": "NICE Grounds",
-          "time": "",
-          "price": "from ₹1,500",
-          "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-the-chainsmokers/ET00498933",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-12-20",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "international"
     }
   ],
   "tours": [
@@ -595,8 +622,7 @@
       "type": "tour",
       "key": "sukoon bharat tour",
       "cities": [
-        "Chennai",
-        "Delhi"
+        "Chennai"
       ],
       "dates": [
         {
@@ -607,16 +633,6 @@
           "time": "",
           "price": "from ₹349",
           "url": "https://in.bookmyshow.com/events/sukoon-bharat-tour-chennai/ET00508718",
-          "source": "bookmyshow"
-        },
-        {
-          "date": "2026-10-08",
-          "date_obj": "2026-10-08",
-          "city": "Delhi",
-          "venue": "The Piano Man, Eldeco Centre",
-          "time": "",
-          "price": "from ₹600",
-          "url": "https://in.bookmyshow.com/events/sukoon-bharat-tour-delhi/ET00508716",
           "source": "bookmyshow"
         }
       ],
@@ -660,14 +676,14 @@
       "type": "tour",
       "key": "mandragora live in",
       "cities": [
-        "Hyderabad"
+        "Kolkata"
       ],
       "dates": [
         {
           "date": "2026-09-11",
           "date_obj": "2026-09-11",
-          "city": "Hyderabad",
-          "venue": "Kingdome Klub and Kitchen",
+          "city": "Kolkata",
+          "venue": "CLUB FENICIA",
           "time": "",
           "price": "from ₹799",
           "url": "https://in.bookmyshow.com/events/mandra-gora-live/ET00513659",
@@ -683,25 +699,52 @@
       "origin": "indian"
     },
     {
-      "title": "Jamming Unplugged x Socials Kolkata",
+      "title": "Aarzu India Tour Bengaluru",
       "type": "tour",
-      "key": "jamming unplugged x socials",
+      "key": "aarzu india tour",
       "cities": [
-        "Kolkata"
+        "Bangalore"
       ],
       "dates": [
         {
-          "date": "2026-09-13",
-          "date_obj": "2026-09-13",
-          "city": "Kolkata",
-          "venue": "Park Street SOCIAL",
+          "date": "2026-09-12",
+          "date_obj": "2026-09-12",
+          "city": "Bangalore",
+          "venue": "The Golden Circle Brewery",
           "time": "",
-          "price": "from ₹399",
-          "url": "https://in.bookmyshow.com/events/jamming-unplugged-x-socials-kolkata/ET00513905",
+          "price": "from ₹999",
+          "url": "https://in.bookmyshow.com/events/aarzu-india-tour-bengaluru/ET00512747",
           "source": "bookmyshow"
         }
       ],
-      "soonest": "2026-09-13",
+      "soonest": "2026-09-12",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "MVR LIVE IN BANGALORE ONAM 2026 SPECIAL",
+      "type": "tour",
+      "key": "mvr live in onam special",
+      "cities": [
+        "Bangalore"
+      ],
+      "dates": [
+        {
+          "date": "2026-09-12",
+          "date_obj": "2026-09-12",
+          "city": "Bangalore",
+          "venue": "ZOZO The Club",
+          "time": "",
+          "price": "from ₹999",
+          "url": "https://in.bookmyshow.com/events/mvr-live-in-bangalore-onam-2026-special/ET00512736",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-09-12",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -757,33 +800,6 @@
       "season": "",
       "tags": [],
       "origin": "international"
-    },
-    {
-      "title": "Live in Concert - The Legends",
-      "type": "tour",
-      "key": "live in concert",
-      "cities": [
-        "Delhi"
-      ],
-      "dates": [
-        {
-          "date": "2026-09-24",
-          "date_obj": "2026-09-24",
-          "city": "Delhi",
-          "venue": "Shri Ram Centre for Performing Arts",
-          "time": "",
-          "price": "from ₹399",
-          "url": "https://in.bookmyshow.com/events/live-in-concert-the-legends/ET00512029",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-09-24",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
     },
     {
       "title": "Akhil Sachdeva - Homecoming India Tour",
@@ -865,21 +881,21 @@
       "type": "tour",
       "key": "sukoon tour",
       "cities": [
-        "Mumbai"
+        "Pune"
       ],
       "dates": [
         {
-          "date": "2026-09-27",
-          "date_obj": "2026-09-27",
-          "city": "Mumbai",
-          "venue": "Bal Gandharva Rang Mandir",
+          "date": "2026-09-26",
+          "date_obj": "2026-09-26",
+          "city": "Pune",
+          "venue": "Pune International Centre",
           "time": "",
-          "price": "from ₹2,360",
+          "price": "from ₹3,540",
           "url": "https://in.bookmyshow.com/events/sukoon-tour/ET00503116",
           "source": "bookmyshow"
         }
       ],
-      "soonest": "2026-09-27",
+      "soonest": "2026-09-26",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -934,104 +950,6 @@
         }
       ],
       "soonest": "2026-10-03",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "LAGACY WORLD TOUR - UDIT NARAYAN X ADITYA NARAYAN",
-      "type": "tour",
-      "key": "lagacy world tour",
-      "cities": [
-        "Mumbai"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-10",
-          "date_obj": "2026-10-10",
-          "city": "Mumbai",
-          "venue": "Dublin Square, Phoenix Marketcity",
-          "time": "",
-          "price": "from ₹1,199",
-          "url": "https://in.bookmyshow.com/events/udit-narayan-live-in-concert/ET00511865",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-10-10",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Papon Live In Concert",
-      "type": "tour",
-      "key": "papon live in concert",
-      "cities": [
-        "Bangalore",
-        "Hyderabad",
-        "Kolkata",
-        "Mumbai",
-        "Pune"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-10",
-          "date_obj": "2026-10-10",
-          "city": "Pune",
-          "venue": "Oasis, Amanora Mall",
-          "time": "",
-          "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/papon-live-in-concert-pune/ET00448303",
-          "source": "bookmyshow"
-        },
-        {
-          "date": "2026-11-14",
-          "date_obj": "2026-11-14",
-          "city": "Bangalore",
-          "venue": "District Arena @ Terraform",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-bengaluru-2026",
-          "source": "district"
-        },
-        {
-          "date": "2026-11-28",
-          "date_obj": "2026-11-28",
-          "city": "Hyderabad",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-hyderabad-2026",
-          "source": "district"
-        },
-        {
-          "date": "2026-12-12",
-          "date_obj": "2026-12-12",
-          "city": "Mumbai",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-mumbai-2026",
-          "source": "district"
-        },
-        {
-          "date": "2027-01-23",
-          "date_obj": "2027-01-23",
-          "city": "Kolkata",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-kolkata-2027",
-          "source": "district"
-        }
-      ],
-      "soonest": "2026-10-10",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1100,43 +1018,21 @@
       "origin": "indian"
     },
     {
-      "title": "Quick Style India Tour",
+      "title": "OG TOUR INDIA WITH THAMAN - LIVE IN HYDERABAD",
       "type": "tour",
-      "key": "quick style india tour",
+      "key": "og tour india with thaman",
       "cities": [
-        "Hyderabad",
-        "Mumbai",
-        "Pune"
+        "Hyderabad"
       ],
       "dates": [
         {
           "date": "2026-10-24",
           "date_obj": "2026-10-24",
-          "city": "Mumbai",
-          "venue": "Jio World Drive",
-          "time": "",
-          "price": "from ₹1,499",
-          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-mumbai/ET00495694",
-          "source": "bookmyshow"
-        },
-        {
-          "date": "2026-10-25",
-          "date_obj": "2026-10-25",
-          "city": "Pune",
-          "venue": "Liberty Square, Phoenix Avenue of Stars",
+          "city": "Hyderabad",
+          "venue": "Gachibowli Stadium",
           "time": "",
           "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-pune/ET00495695",
-          "source": "bookmyshow"
-        },
-        {
-          "date": "2026-11-01",
-          "date_obj": "2026-11-01",
-          "city": "Hyderabad",
-          "venue": "Venue To Be Announced",
-          "time": "",
-          "price": "from ₹1,499",
-          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-hyderabad/ET00495698",
+          "url": "https://in.bookmyshow.com/events/og-tour-india-with-thaman-live-in-hyderabad/ET00494783",
           "source": "bookmyshow"
         }
       ],
@@ -1187,25 +1083,25 @@
       "origin": "indian"
     },
     {
-      "title": "Abhijeet Bhattacharya Live In Concert",
+      "title": "Quick Style India Tour",
       "type": "tour",
-      "key": "abhijeet bhattacharya live in concert",
+      "key": "quick style india tour",
       "cities": [
-        "Mumbai"
+        "Pune"
       ],
       "dates": [
         {
-          "date": "2026-10-31",
-          "date_obj": "2026-10-31",
-          "city": "Mumbai",
-          "venue": "Shanmukhananda Hall",
+          "date": "2026-10-25",
+          "date_obj": "2026-10-25",
+          "city": "Pune",
+          "venue": "Liberty Square, Phoenix Avenue of Stars",
           "time": "",
           "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/abhijeet-bhattacharya-live-in-concert/ET00493515",
+          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-pune/ET00495695",
           "source": "bookmyshow"
         }
       ],
-      "soonest": "2026-10-31",
+      "soonest": "2026-10-25",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1219,8 +1115,7 @@
       "key": "lakhwinder wadali india tour",
       "cities": [
         "Hyderabad",
-        "Kolkata",
-        "Pune"
+        "Kolkata"
       ],
       "dates": [
         {
@@ -1231,16 +1126,6 @@
           "time": "",
           "price": "from ₹499",
           "url": "https://in.bookmyshow.com/events/lakhwinder-wadali-india-tour-hyderabad/ET00514005",
-          "source": "bookmyshow"
-        },
-        {
-          "date": "2027-01-16",
-          "date_obj": "2027-01-16",
-          "city": "Pune",
-          "venue": "KOPA Mall",
-          "time": "",
-          "price": "from ₹499",
-          "url": "https://in.bookmyshow.com/events/lakhwinder-wadali-india-tour-pune/ET00514012",
           "source": "bookmyshow"
         },
         {
@@ -1317,7 +1202,8 @@
       "key": "fred again india tour",
       "cities": [
         "Bangalore",
-        "Goa"
+        "Goa",
+        "Gurgaon"
       ],
       "dates": [
         {
@@ -1328,6 +1214,16 @@
           "time": "",
           "price": "from ₹1,750",
           "url": "https://in.bookmyshow.com/events/fred-again-india-tour-2026/ET00503973",
+          "source": "bookmyshow"
+        },
+        {
+          "date": "2026-12-05",
+          "date_obj": "2026-12-05",
+          "city": "Gurgaon",
+          "venue": "Leisure Valley Ground",
+          "time": "",
+          "price": "from ₹1,750",
+          "url": "https://in.bookmyshow.com/events/fred-again-india-tour-2026-delhi-ncr/ET00503974",
           "source": "bookmyshow"
         },
         {
@@ -1438,11 +1334,14 @@
     }
   ],
   "new_this_run": [
-    "Radha Rani Ka Janam Mahotsav",
-    "Gurdas Maan Live in Concert",
-    "LAGACY WORLD TOUR - UDIT NARAYAN X ADITYA NARAYAN",
-    "Abhijeet Bhattacharya Live In Concert",
-    "Osman Mir & Aamir Mir Live In Concert"
+    "Utsav Lal's Ragas to Reels",
+    "Aarzu India Tour Bengaluru",
+    "MVR LIVE IN BANGALORE ONAM 2026 SPECIAL",
+    "Leela Mahotsav: Biggest Krishna Festival",
+    "Raas Utsav Mulund Pre Navratri with Naitik Nagda",
+    "OG TOUR INDIA WITH THAMAN - LIVE IN HYDERABAD",
+    "ANOTR - Live in Delhi",
+    "ENCHANTED ERAS : ERAS TOUR BIRTHDAY EDITION"
   ],
   "_all_keys": [
     "sri krishn janmashtami utsav ft anuj sharma gk das live",
@@ -1459,32 +1358,30 @@
     "domi jd beck who asked tour",
     "khalid live in",
     "vendex",
-    "cloud temple boutique music festival",
     "gaia 2 day festival pass",
     "higher ground music festival",
     "alankaar hindi diwas utsav",
     "sukoon bharat tour",
-    "mandragora live in",
+    "utsav lal s ragas to reels",
     "lifafa live in",
-    "jamming unplugged x socials",
+    "mandragora live in",
+    "aarzu india tour",
+    "mvr live in onam special",
+    "leela mahotsav biggest krishna festival",
     "radha rani ka janam mahotsav",
-    "live in concert",
     "sukoon tour",
     "the tradition festival",
+    "raas utsav mulund pre navratri with naitik nagda",
     "gurdas maan live in concert",
-    "lagacy world tour",
+    "og tour india with thaman",
     "quick style india tour",
     "lakhwinder wadali india tour",
-    "abhijeet bhattacharya live in concert",
     "keinemusik presents adam port",
-    "osman mir aamir mir live in concert",
-    "ncpa international jazz festival",
+    "anotr",
     "yuvan shankar raja live in concert",
     "fred again india tour",
+    "enchanted eras eras tour birthday edition",
     "sunburn festival",
-    "shankar ehsaan loy live in concert",
-    "sunburn arena ft the chainsmokers",
-    "kumar sanu live in concert",
     "lollapalooza india",
     "foo fighters india tour",
     "nh7 weekender",

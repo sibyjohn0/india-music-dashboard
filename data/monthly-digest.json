@@ -647,13 +647,13 @@
   },
   "2026-09": {
     "month": "2026-09",
-    "snapshots": 2,
-    "last_snapshot_at": "2026-09-02T05:36:17.144685+00:00",
+    "snapshots": 3,
+    "last_snapshot_at": "2026-09-03T05:37:32.633629+00:00",
     "total_videos": 225,
-    "total_artists": 157,
-    "new_artists_seen": 91,
+    "total_artists": 171,
+    "new_artists_seen": 113,
     "median_score": 57,
-    "median_views": 3907,
+    "median_views": 4138,
     "top_artists": [
       {
         "name": "Sanathan Shree Krishnan",
@@ -728,34 +728,34 @@
     ],
     "fastest_growing": [
       {
-        "name": "Shiv Edits",
-        "views_gained": 2019708,
-        "genre": "Folk / Acoustic",
-        "language": "Malayalam"
-      },
-      {
         "name": "Santu Munjeti",
-        "views_gained": 1150698,
+        "views_gained": 1190401,
         "genre": "Folk / Acoustic",
         "language": "Telugu"
       },
       {
         "name": "Sai Abhyankkar - Topic",
-        "views_gained": 297940,
+        "views_gained": 596126,
         "genre": "Electronic",
         "language": "Hindi"
       },
       {
-        "name": "Hardik Bhardwaj Official",
-        "views_gained": 153280,
-        "genre": "Indie Pop",
-        "language": "Punjabi"
+        "name": "Shiv Edits",
+        "views_gained": 180896,
+        "genre": "Folk / Acoustic",
+        "language": "Malayalam"
       },
       {
-        "name": "Manchu Dada Music ",
-        "views_gained": 66502,
-        "genre": "Hip Hop / Rap",
-        "language": "Bengali"
+        "name": "SRD AUDIOS&VIDEOS",
+        "views_gained": 180779,
+        "genre": "Indie",
+        "language": "Telugu"
+      },
+      {
+        "name": "Balu Belagundi Singer",
+        "views_gained": 113836,
+        "genre": "Folk / Acoustic",
+        "language": "Kannada"
       }
     ],
     "genre_breakdown": [
@@ -769,15 +769,15 @@
       ],
       [
         "Hip Hop / Rap",
-        42
+        43
       ],
       [
         "Electronic",
-        22
+        25
       ],
       [
         "R&B / Soul",
-        20
+        18
       ],
       [
         "Lo-Fi",
@@ -789,11 +789,11 @@
       ],
       [
         "Rock / Alt",
-        8
+        7
       ],
       [
         "Indie Pop",
-        2
+        1
       ]
     ],
     "language_breakdown": [
@@ -803,14 +803,6 @@
       ],
       [
         "Telugu",
-        25
-      ],
-      [
-        "Kannada",
-        25
-      ],
-      [
-        "Malayalam",
         25
       ],
       [
@@ -830,23 +822,33 @@
         25
       ],
       [
+        "Kannada",
+        25
+      ],
+      [
+        "Malayalam",
+        25
+      ],
+      [
         "English",
         25
       ]
     ],
     "city_shows": {
-      "Bangalore": 69,
-      "Chennai": 26,
+      "Bandra.": 1,
+      "Bangalore": 78,
+      "Delhi": 36,
+      "Pune": 31,
+      "Kolkata": 33,
+      "Chennai": 25,
       "Goa": 24,
-      "Delhi": 42,
-      "Pune": 35,
-      "Mumbai": 41,
-      "Hyderabad": 32,
-      "Kolkata": 35,
-      "NCPA": 1,
-      "Kondapur, Hyderabad": 1,
-      "Mulund": 2,
-      "NCPA.": 3,
+      "Hyderabad": 29,
+      "Mumbai": 45,
+      "New Delhi.": 1,
+      "Gachibowli": 1,
+      "Pune.": 1,
+      "NCPA.": 2,
+      "The Memory Studio, Bengaluru": 1,
       "Guwahati": 1,
       "Salem": 1,
       "Ladakh": 1,
@@ -859,6 +861,6 @@
       "Kullu": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 322
+    "total_shows": 319
   }
 }
