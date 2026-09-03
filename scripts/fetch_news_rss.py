@@ -22,6 +22,8 @@ from datetime import datetime, timezone
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "news-rss.json")
 
 FEEDS = [
+    {"name": "Music Plus",          "url": "https://musicplus.in/feed/"},
+    {"name": "EDMLI",               "url": "https://edmli.com/feed/"},
     {"name": "Homegrown",           "url": "https://homegrown.co.in/stories.rss"},
     {"name": "Rolling Stone India", "url": "https://rollingstoneindia.com/category/artists/feed/"},
     {"name": "Rolling Stone India", "url": "https://rollingstoneindia.com/category/reviews/feed/"},
