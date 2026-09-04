@@ -647,13 +647,13 @@
   },
   "2026-09": {
     "month": "2026-09",
-    "snapshots": 3,
-    "last_snapshot_at": "2026-09-03T05:37:32.633629+00:00",
+    "snapshots": 4,
+    "last_snapshot_at": "2026-09-04T05:42:32.954037+00:00",
     "total_videos": 225,
-    "total_artists": 171,
-    "new_artists_seen": 113,
-    "median_score": 57,
-    "median_views": 4138,
+    "total_artists": 189,
+    "new_artists_seen": 136,
+    "median_score": 56,
+    "median_views": 4338,
     "top_artists": [
       {
         "name": "Sanathan Shree Krishnan",
@@ -729,31 +729,31 @@
     "fastest_growing": [
       {
         "name": "Santu Munjeti",
-        "views_gained": 1190401,
+        "views_gained": 1225722,
         "genre": "Folk / Acoustic",
         "language": "Telugu"
       },
       {
         "name": "Sai Abhyankkar - Topic",
-        "views_gained": 596126,
+        "views_gained": 895405,
         "genre": "Electronic",
         "language": "Hindi"
       },
       {
-        "name": "Shiv Edits",
-        "views_gained": 180896,
-        "genre": "Folk / Acoustic",
-        "language": "Malayalam"
+        "name": "Sounds of Isha",
+        "views_gained": 289692,
+        "genre": "R&B / Soul",
+        "language": "Marathi"
       },
       {
         "name": "SRD AUDIOS&VIDEOS",
-        "views_gained": 180779,
+        "views_gained": 204501,
         "genre": "Indie",
         "language": "Telugu"
       },
       {
         "name": "Balu Belagundi Singer",
-        "views_gained": 113836,
+        "views_gained": 200905,
         "genre": "Folk / Acoustic",
         "language": "Kannada"
       }
@@ -769,15 +769,15 @@
       ],
       [
         "Hip Hop / Rap",
-        43
-      ],
-      [
-        "Electronic",
-        25
+        41
       ],
       [
         "R&B / Soul",
-        18
+        20
+      ],
+      [
+        "Electronic",
+        20
       ],
       [
         "Lo-Fi",
@@ -789,11 +789,15 @@
       ],
       [
         "Rock / Alt",
-        7
+        9
+      ],
+      [
+        "Jazz / Blues",
+        2
       ],
       [
         "Indie Pop",
-        1
+        2
       ]
     ],
     "language_breakdown": [
@@ -803,6 +807,10 @@
       ],
       [
         "Telugu",
+        25
+      ],
+      [
+        "Kannada",
         25
       ],
       [
@@ -822,33 +830,30 @@
         25
       ],
       [
-        "Kannada",
+        "English",
         25
       ],
       [
         "Malayalam",
         25
-      ],
-      [
-        "English",
-        25
       ]
     ],
     "city_shows": {
-      "Bandra.": 1,
       "Bangalore": 78,
-      "Delhi": 36,
-      "Pune": 31,
-      "Kolkata": 33,
-      "Chennai": 25,
-      "Goa": 24,
+      "Chennai": 28,
+      "Goa": 25,
+      "Delhi": 39,
       "Hyderabad": 29,
-      "Mumbai": 45,
+      "Kolkata": 30,
+      "Mumbai": 39,
       "New Delhi.": 1,
       "Gachibowli": 1,
+      "Khar": 1,
+      "Kondapur, Hyderabad": 1,
       "Pune.": 1,
-      "NCPA.": 2,
-      "The Memory Studio, Bengaluru": 1,
+      "Pune": 29,
+      "NCPA.": 3,
+      "Mulund": 1,
       "Guwahati": 1,
       "Salem": 1,
       "Ladakh": 1,
@@ -856,11 +861,9 @@
       "India": 1,
       "Chandigarh": 1,
       "Kochi": 2,
-      "Alwar City": 1,
-      "Jaipur": 1,
       "Kullu": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 319
+    "total_shows": 315
   }
 }
