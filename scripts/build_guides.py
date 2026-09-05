@@ -158,6 +158,7 @@ def build(g):
 </footer>
 <script>document.addEventListener('click',function(e){{var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');}});document.addEventListener('keydown',function(e){{if(e.key==='Escape')document.body.classList.remove('mnav-open');}});</script>
   <script src="/assets/analytics.js" defer></script>
+  <script src="/assets/nav.js" defer></script>
 </body>
 </html>"""
     d = REPO/"guides"/g['slug']
