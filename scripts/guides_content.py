@@ -191,4 +191,131 @@ GUIDES = [
    ("How do I find gigs and concerts in Delhi NCR?","Use our live festivals and tours calendar, updated daily with dates, venues and tickets across the capital region, from club nights to festivals and tours."),
    ("What is the Delhi independent music scene known for?","Delhi NCR is especially strong in hip-hop and indie, with a busy club and gig circuit spread across the capital and Gurugram.")]
 },
+{
+ "slug":"how-to-promote-music-in-india","cat":"Promotion","cta_h":"Want us to run your promotion?",
+ "title":"How to promote your music in India (without a budget)",
+ "desc":"A practical guide to music promotion in India: how to promote your songs on Instagram, YouTube and WhatsApp, get more streams organically, and grow listeners without spending money.",
+ "lead":"You don't need a marketing budget to promote music. You need the right channels and a plan. Here's what actually works in India.",
+ "tldr":"Most music promotion advice is noise. What moves streams for an independent Indian artist: pitch playlists and press <a href=\"/guides/how-to-release-a-song-in-india/\">before you release</a>, use short video (Reels, Shorts) as your discovery engine, get featured by others rather than only posting yourself, and drive everyone to save and follow. Paid ads help only once the organic version is working. Free promotion done consistently beats expensive promotion done once.",
+ "sections":[
+   {"h2":"The honest truth about music promotion","body":[
+     "Promotion doesn't fix a song nobody wants to hear, and it doesn't work as a one-time push after release. It works as a system, run around every release. The artists who grow aren't spending more; they're doing the unglamorous things consistently.",
+     "The single biggest mistake: promoting only on release day. By then it's too late to pitch playlists and press. Real promotion starts two to four weeks before the song is out."]},
+   {"h2":"Free promotion channels that actually work in India","body":[
+     {"ul":["<b>Short video (Reels and YouTube Shorts).</b> This is your discovery engine. A clip of the song with a strong first three seconds reaches people who don't follow you. Wordless, hook-first, let the music carry it.",
+            "<b>Get featured, don't just post.</b> Being tagged or reshared by another artist, a blog, or a page sends their audience to you. Pitch to be featured; it beats shouting into your own small following.",
+            "<b>WhatsApp and community.</b> In India, WhatsApp is underrated. Share the link directly, ask close fans to save the track. A hundred real saves on day one signals the platforms more than a thousand passive plays.",
+            "<b>Playlists and press, pitched early.</b> Use our <a href=\"/reviewers/\">database of 1,100+ curators and blogs</a> and Spotify for Artists, before release."]}]},
+   {"h2":"How to get more streams organically","body":[
+     "Saves and playlist adds tell the algorithm your song has legs, which earns you Release Radar and Discover Weekly placement. So optimise for saves, not vanity plays. Ask for saves explicitly. Pitch every unreleased track to <a href=\"/guides/submit-music-spotify-playlists-india/\">Spotify playlists</a>. Keep releasing on a rhythm so each song lifts the last."]},
+   {"h2":"Paid vs organic: when to spend","body":[
+     "Don't run ads until the organic version works. Boosting a weak post wastes money. Once a reel is genuinely landing, a small spend targeted at Indian indie-music interests can amplify real reach. Never buy followers, they tank your engagement and credibility. The full picture is in <a href=\"/guides/music-marketing-independent-artists-india/\">music marketing for independent artists</a>."]},
+   {"h2":"The promotion checklist for every release","body":[
+     {"ul":["2-4 weeks out: pitch Spotify editorial + curators + press.",
+            "Week of: tease with short video, line up reshares, prep WhatsApp/close-fan push.",
+            "Release day: link everywhere, ask for saves, post the hook as a reel.",
+            "After: keep the video engine running, don't stop at day one."]}]}],
+ "faq":[
+   ("How can I promote my music for free in India?","Use short video (Reels, Shorts) as your discovery engine, get featured or reshared by other artists and pages, pitch playlists and press before release, and drive close fans to save the track on WhatsApp. Consistency matters more than spend."),
+   ("How do I get more streams on Spotify in India?","Optimise for saves and playlist adds, not passive plays, they signal the algorithm and unlock Release Radar and Discover Weekly. Pitch every unreleased track through Spotify for Artists and to independent curators."),
+   ("Is it worth paying to promote music?","Only once your organic content is working. Boosting a genuinely strong reel to a targeted Indian indie audience can help; buying followers or paid-stream playlists hurts you.")]
+},
+{
+ "slug":"music-marketing-independent-artists-india","cat":"Marketing","cta_h":"Want a real marketing plan?",
+ "title":"Music marketing for independent artists in India",
+ "desc":"How to market your music as an independent artist in India: building a brand, a social media strategy for musicians, owning your audience with an email list, and turning listeners into fans.",
+ "lead":"Promotion is pushing a release. Marketing is building something people come back to. Here's how to market yourself as an independent Indian artist.",
+ "tldr":"Music marketing is not posting more; it's building a clear identity people recognise and an audience you own. Get your <b>positioning</b> right (what you sound like and stand for), pick one or two channels and be consistent, and always drive people to something you control, an email list or a follow, not just a stream. A small, engaged audience that shows up beats a big passive one.",
+ "sections":[
+   {"h2":"Marketing vs promotion","body":[
+     "Promotion is the campaign around one song (covered in <a href=\"/guides/how-to-promote-music-in-india/\">how to promote your music</a>). Marketing is the ongoing work of building a brand and an audience so every release starts from a warmer place. If promotion is the sprint, marketing is the training."]},
+   {"h2":"Get your positioning right first","body":[
+     "Before tactics, clarity: what do you sound like, who is it for, and what makes you you? A muddy identity markets terribly. A clear one, \"honest Hindi indie for late-night drives\", gives listeners a reason to follow and gives you a filter for every post. This is the foundation of building a music brand in India."]},
+   {"h2":"The channels that matter (pick one or two)","body":[
+     {"ul":["<b>Short video</b> for reach and discovery (Reels, Shorts, TikTok where relevant).",
+            "<b>Instagram</b> for identity and community, but don't build your whole house on rented land.",
+            "<b>YouTube</b> for longevity, it's a search engine; a good video ranks for years.",
+            "<b>An email list</b> for the audience you actually own, no algorithm can take it away."]},
+     "Better to be consistent on two channels than sporadic on five."]},
+   {"h2":"Own your audience, don't rent it","body":[
+     "Followers are borrowed; the platform can throttle or lose them. An email list, a WhatsApp broadcast, a direct-to-fan link, that's yours. Use social to drive people to something you control, so a release always has a warm audience to land on. This is the difference between building a career and starting from zero each time."]},
+   {"h2":"A simple marketing system","body":[
+     "You don't need a big plan. Consistency beats intensity: show up on your two channels with a clear identity, turn passive listeners into followers, turn followers into a list you own, and treat every release as a chance to deepen that, not just chase strangers. If you want this built with you, that's the <a href=\"/programme/\">programme</a>."]}],
+ "faq":[
+   ("How do I market my music as an independent artist?","Start with clear positioning (your sound and who it's for), pick one or two channels and be consistent, and always drive people to something you own like an email list. Marketing builds the audience; promotion pushes each release to it."),
+   ("What is the best social media for musicians in India?","Short video (Reels, Shorts) for discovery, Instagram for identity and community, YouTube for longevity. Consistency on one or two beats being everywhere occasionally."),
+   ("Do musicians need an email list?","Yes. Followers are borrowed and can vanish with an algorithm change; an email list is an audience you own and can reach directly for every release.")]
+},
+{
+ "slug":"artist-management-india","cat":"Management","cta_h":"Not sure what you need?",
+ "title":"Artist management in India: what a manager does and when you need one",
+ "desc":"What an artist manager actually does, whether you need one as an independent Indian artist, when to get one, and how to find or approach artist management in India.",
+ "lead":"Every artist thinks they need a manager. Most don't yet. Here's what a manager really does, and when it's actually worth it.",
+ "tldr":"An artist manager runs the business side of your career, strategy, deals, opportunities, and the day-to-day, so you can focus on music. But a manager only makes sense once there's something to manage: real momentum, income, or opportunities you can't handle alone. Early on, you often need <a href=\"/guides/artist-development-vs-artist-management-india/\">development</a> (building the thing) more than management (running it). Don't give away a cut of nothing.",
+ "sections":[
+   {"h2":"What an artist manager actually does","body":[
+     "A good manager is your business partner: they set strategy, chase and negotiate opportunities (shows, sync, deals, collaborations), coordinate your team, and handle the logistics that eat your time. They typically take a percentage of income (commonly 15-20%) rather than a fee. Crucially, a manager grows what exists, they don't create it from nothing."]},
+   {"h2":"Do you actually need a manager?","body":[
+     "Be honest about your stage. If you have real momentum, income, and more opportunities than you can handle, a manager multiplies you. If you're still building, an early single, no steady income, a manager has little to work with, and few good managers will take you on, because their pay is a cut of income you don't yet have.",
+     "What most early artists actually need is development: strategy, releases, positioning, audience, the foundation. That's a different thing. See <a href=\"/guides/artist-development-vs-artist-management-india/\">artist development vs artist management</a>."]},
+   {"h2":"When to get one","body":[
+     {"ul":["You're turning down or fumbling real opportunities because you can't keep up.",
+            "You have income a manager's cut wouldn't cripple.",
+            "The business side is stealing time from the music.",
+            "You have a clear direction a manager can execute, not one they have to invent."]}]},
+   {"h2":"How to find and approach management","body":[
+     "The best managers find you through momentum, so building that is step one. Beyond that: warm intros beat cold pitches, target managers who work with artists at your level and in your genre, and show them traction, not just potential. Approach with what you've built (numbers, releases, a plan), not \"can you make me famous.\"",
+     "And know the alternative: many independent artists in India do their own management for years, with the right systems and occasional expert help. You don't have to hand over a cut to grow."]}],
+ "faq":[
+   ("What does an artist manager do?","A manager runs the business side of your career, strategy, negotiating and chasing opportunities, coordinating your team, and handling logistics, usually for a percentage of income (often 15-20%) rather than a fee. They grow what already exists."),
+   ("Do I need an artist manager as an independent artist?","Usually not until you have real momentum, income, or more opportunities than you can handle. Early on, you typically need development, building the foundation, more than management, running it. Don't give away a percentage of nothing."),
+   ("How do I find an artist manager in India?","Build momentum first, most managers find artists through traction. Then use warm intros, target managers who work at your level and in your genre, and approach with what you've built, not just potential.")]
+},
+{
+ "slug":"how-to-become-an-independent-artist-india","cat":"Getting started","cta_h":"Starting out? We can help.",
+ "title":"How to become an independent artist in India: the complete starter guide",
+ "desc":"A step-by-step guide to becoming an independent artist or musician in India: releasing your first music, setting up rights and distribution, getting heard, and building a real career from scratch.",
+ "lead":"You don't need a label, a manager, or money to start. You need to release, protect and promote your music the right way. Here's the whole path.",
+ "tldr":"Becoming an independent artist in India means owning your career: you make the music, you keep the rights, and you build the audience. The path: finish and <a href=\"/guides/how-to-release-a-song-in-india/\">release music</a> through a <a href=\"/guides/best-music-distributor-india/\">distributor</a> (no label needed), handle your <a href=\"/guides/isrc-code-india/\">ISRC</a> and <a href=\"/guides/register-music-copyright-iprs-india/\">copyright and IPRS</a>, then <a href=\"/guides/how-to-promote-music-in-india/\">promote</a> and build a fanbase. Treat it as a business you own, not a lottery you enter.",
+ "sections":[
+   {"h2":"What being an independent artist really means","body":[
+     "Independent means you own your career and your rights. Nobody else decides your music or takes your masters. It also means you carry the business, or build a team around you. The upside: full control and you keep what you earn. The trade: you have to learn the parts a label would otherwise handle. This guide maps them."]},
+   {"h2":"Step 1: Release your first music (no label needed)","body":[
+     "Finish and master a song, prepare square artwork and clean metadata, and release it through a distributor. There's no gatekeeper, any artist can get onto Spotify, Apple Music, JioSaavn and YouTube Music. Full steps in <a href=\"/guides/how-to-release-a-song-in-india/\">how to release a song in India</a>, and distributor choice in <a href=\"/guides/best-music-distributor-india/\">the best music distributor for India</a>."]},
+   {"h2":"Step 2: Set up your foundation (rights and profiles)","body":[
+     {"ul":["Get your <a href=\"/guides/isrc-code-india/\">ISRC</a> (usually free via your distributor), it tracks your recording.",
+            "Register your composition with IPRS so you collect publishing royalties: <a href=\"/guides/register-music-copyright-iprs-india/\">copyright and IPRS in India</a>.",
+            "Claim Spotify for Artists and Apple Music for Artists, so releases land on a real, verified profile.",
+            "Keep 100% of your rights. A distributor takes a fee or a cut, never ownership."]}]},
+   {"h2":"Step 3: Get heard","body":[
+     "Releasing isn't promoting. Pitch playlists and press before each release using our <a href=\"/reviewers/\">reviewer database</a>, use short video as your discovery engine, and drive listeners to save and follow. See <a href=\"/guides/how-to-promote-music-in-india/\">how to promote your music</a>."]},
+   {"h2":"Step 4: Build the career, not just the release","body":[
+     "One song rarely changes anything. Release on a rhythm so each builds on the last, grow an audience you own, and think in campaigns, not one-offs. Money for independent artists comes from live shows, sync and real fans more than streaming, see <a href=\"/guides/make-money-independent-artist-india/\">making money as an independent artist</a>. That long game is the whole point of the <a href=\"/programme/\">programme</a>."]}],
+ "faq":[
+   ("How do I become an independent artist in India?","Release your music through a distributor (no label needed), set up your rights (ISRC and IPRS) and verified artist profiles, keep 100% of your rights, then promote each release and build an audience you own. Treat it as a business you control."),
+   ("Do I need a label to release music in India?","No. Any independent artist can release directly through a distributor onto Spotify, Apple Music, JioSaavn and YouTube Music. A label is one option, not a requirement, and most take your rights in exchange."),
+   ("How do independent artists make money in India?","Mostly from live shows, sync licensing and direct fan support, more than streaming, which pays little in India. Keeping your rights and collecting your publishing royalties matters too.")]
+},
+{
+ "slug":"caller-tune-hello-tune-india","cat":"Monetisation","cta_h":"Want help monetising your music?",
+ "title":"Caller tunes and hello tunes for artists in India: how to set them up and earn",
+ "desc":"How to make your song a caller tune or hello tune in India, which distributors offer Jio and Airtel caller tune delivery, how caller tune royalties work, and whether it's worth it for independent artists.",
+ "lead":"Caller tunes are a real revenue and reach channel in India that most independent artists ignore. Here's how to get your song set up and paid.",
+ "tldr":"Caller tunes (also called hello tunes) let phone callers hear your song, and you earn a share when listeners set it. It's a genuinely India-specific income and discovery channel. To offer it you need a distributor or aggregator with telco deals (Jio, Airtel and others), not every distributor has this, so ask before you distribute. Royalties are modest per set but add up, and it puts your music in front of people who aren't on streaming.",
+ "sections":[
+   {"h2":"What caller tunes are and why they matter in India","body":[
+     "A caller tune (Jio calls it JioTunes, Airtel calls it Hello Tunes) plays your song to anyone who calls a subscriber who has set it. In India, where millions still discover music this way, it's both a revenue stream and a discovery channel that reaches people who never open Spotify. Ignoring it leaves money and ears on the table."]},
+   {"h2":"How to make your song a caller tune","body":[
+     "You can't upload a caller tune directly yourself, it goes through the telcos, and you reach them via a distributor or aggregator that has telco deals. So the steps are: release your song through a distributor that offers caller-tune delivery, opt into the caller-tune channel, and the distributor pushes it to Jio, Airtel and others. Then you (and your fans) can set it and promote it."]},
+   {"h2":"Which distributors offer caller tunes","body":[
+     "Not every distributor delivers caller tunes, it needs direct telco relationships. Before you pick a distributor, ask specifically whether they offer Jio and Airtel caller-tune delivery if this channel matters to you. Some India-focused distributors and aggregators specialise in it. Our <a href=\"/guides/best-music-distributor-india/\">distributor guide</a> covers how to choose, and caller tunes are one of the India-specific things to check for."]},
+   {"h2":"How caller tune royalties work","body":[
+     "When a listener sets your song as their caller tune, you earn a share of the fee, split between the telco, the distributor and you, per your agreement. Per-set royalties are modest, but volume adds up, and unlike a stream, a caller tune keeps earning for as long as someone keeps it set. Track it in your distributor dashboard alongside your <a href=\"/tools/royalty-calculator/\">streaming income</a>."]},
+   {"h2":"Is it worth it for independent artists?","body":[
+     "For the right song, yes, especially anything with wide, mainstream or regional appeal. It costs you nothing extra beyond choosing the right distributor, and it reaches an audience streaming doesn't. Push your fans to set it (a simple \"set my song as your caller tune\" ask works), and treat it as one more income stream, not the whole plan."]}],
+ "faq":[
+   ("How do I make my song a caller tune in India?","You can't upload it directly, it goes through the telcos via a distributor or aggregator that has Jio, Airtel and other caller-tune deals. Release through a distributor that offers caller tunes and opt into that channel."),
+   ("Which distributors offer caller tunes in India?","Only distributors with direct telco relationships can deliver caller tunes, not all do. Ask specifically about Jio and Airtel caller-tune delivery before choosing a distributor if this channel matters to you."),
+   ("Do artists earn money from caller tunes?","Yes. When a listener sets your song as their caller tune you earn a share of the fee. Per-set royalties are modest but add up with volume, and a set caller tune keeps earning as long as it stays set.")]
+},
 ]
