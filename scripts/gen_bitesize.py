@@ -6,9 +6,8 @@ a poppy-branded question/answer card that a website visitor can follow for. Read
 the FAQ Q&As already on the guide pages, so the content stays in sync with the
 site and grows as the guides do.
 
-Outputs:
+Output:
   social/bitesize/*.png   full library for posting (gitignored, our IP)
-  assets/bites/bite_*.png  a curated 6 for the homepage "on Instagram" strip (committed)
 
 Usage: python scripts/gen_bitesize.py            # build everything
        python scripts/gen_bitesize.py --list     # just list available Q&As
@@ -20,7 +19,6 @@ from social_brand import (REPO, W, H, F, wrap, base, chip, shadow_card, footer,
                           INK, PINK, DARK, CREAM, HEAD, BODY, MONO)
 
 LIB = REPO/"social"/"bitesize"
-STRIP = REPO/"assets"/"bites"
 
 def clean(s):
     return html.unescape(re.sub(r"\s+"," ", re.sub(r"<[^>]+>","",s))).strip()
@@ -60,17 +58,6 @@ def card(cat, q, a):
     footer(d)
     return im
 
-# Curated homepage picks: short, high-interest, diverse topics. Match by a
-# distinctive phrase from the question so it stays stable as content grows.
-STRIP_PICKS = [
-    "distrokid available in india",
-    "how much is 1 million streams worth",
-    "submit my music to spotify playlists",
-    "difference between isrc and upc",
-    "promote my music for free",
-    "what is an epk for musicians",
-]
-
 def main():
     items=list(faqs())
     if "--list" in sys.argv:
@@ -78,23 +65,10 @@ def main():
         print(f"\n{len(items)} Q&As available.")
         return
     LIB.mkdir(parents=True, exist_ok=True)
-    STRIP.mkdir(parents=True, exist_ok=True)
-    for p in STRIP.glob("bite_*.png"): p.unlink()
     n=0
     for c,s,q,a in items:
         card(c,q,a).save(LIB/f"{s}__{slug(q)}.png"); n+=1
-    # homepage strip: pick in the fixed order, fall back to first items
-    picked=[]
-    for key in STRIP_PICKS:
-        hit=next((it for it in items if key in it[2].lower()), None)
-        if hit: picked.append(hit)
-    for it in items:
-        if len(picked)>=6: break
-        if it not in picked: picked.append(it)
-    for i,(c,s,q,a) in enumerate(picked[:6],1):
-        card(c,q,a).save(STRIP/f"bite_{i:02d}.png")
     print(f"gen_bitesize: {n} cards -> {LIB}")
-    print(f"              6 homepage cards -> {STRIP}")
 
 if __name__ == "__main__":
     main()

@@ -14,6 +14,7 @@
 (function () {
   var NAV = [
     { label: 'Home', href: '/' },
+    { label: 'Programme', href: '/programme/' },
     { label: 'Discover', children: [
       { label: 'Radar', href: '/radar.html' },
       { label: 'Live', href: '/live/' },
@@ -26,7 +27,6 @@
       { label: 'Industry', href: '/industry/' },
       { label: 'Royalty Calculator', href: '/tools/royalty-calculator/' }
     ] },
-    { label: 'Programme', href: '/programme/' },
     { label: 'About', href: '/about/' }
   ];
 

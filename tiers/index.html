@@ -55,7 +55,7 @@ ul.clean{margin:0; padding-left:18px} ul.clean li{margin-bottom:7px}
 .hero{padding:66px 0 48px; position:relative; overflow:hidden}
 .hero h1{font-size:clamp(38px,7.5vw,74px); margin:14px 0 18px} .hero .lede{font-size:19px}
 .hero .accent{color:var(--pink)}
-.blob{position:absolute; border-radius:50%; opacity:.9; pointer-events:none; z-index:0}
+.blob{position:absolute; border-radius:50%; opacity:.8; pointer-events:none; z-index:0}
 .hero .container{position:relative} .hero .container > *:not(.blob){position:relative; z-index:1}
 .callout{border-left:4px solid var(--accent); background:var(--surface); border-radius:0 14px 14px 0; padding:18px 20px}
 .person .nm{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px}
@@ -92,13 +92,14 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
 </head>
 <body>
 <div class="topbar"><div class="container">
-  <span class="mark"><span class="dot"></span>Indie Music India</span>
+  <a class="mark" href="/" style="color:inherit;border:none" aria-label="Indie Music India home"><span class="dot"></span>Indie Music India</a>
+  <a href="/" class="tgl" style="text-decoration:none">&larr; Home</a>
   <button class="tgl" id="tgl" aria-label="Toggle theme">Theme</button>
 </div></div>
 
 <header class="hero"><div class="container">
-  <div class="blob" style="width:210px;height:210px;background:var(--yellow);top:-40px;right:-30px"></div>
-  <div class="blob" style="width:150px;height:150px;background:var(--mint);bottom:-50px;left:38%"></div>
+  <div class="blob" style="width:200px;height:200px;background:var(--yellow);top:-58px;right:-52px"></div>
+  <div class="blob" style="width:140px;height:140px;background:var(--mint);bottom:-52px;right:-34px"></div>
   <span class="eyebrow">Ways to work together</span>
   <h1>Let's build the <span class="accent">career</span>, not just the release.</h1>
   <p class="lede" style="font-size:19px">Artist development for independent Indian musicians. Positioning, release strategy, and audience, built with you over time. Three ways in, below.</p>
