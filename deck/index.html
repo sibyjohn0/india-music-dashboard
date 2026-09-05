@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Indie Music India — Ways to work together</title>
+<meta name="robots" content="noindex, nofollow" />
+<meta name="description" content="Ways to work with Indie Music India: the three-tier artist development ladder, Roadmap, Advisory, and Development, with clear deliverables and terms." />
+<meta property="og:title" content="Indie Music India — Ways to work together" />
+<meta property="og:description" content="Three ways to work together: Roadmap, Advisory, Development. Founder-led artist development for independent Indian musicians." />
+<meta property="og:url" content="https://indiemusicindia.com/deck/" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --pink:#FF4D8D; --orange:#FF9130; --yellow:#FFD23F; --violet:#8B5CF6;
+  --blue:#3AA0FF; --mint:#1FCF9E; --ink:#241B2E; --cream:#FFF7EE;
+  --bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478;
+  --border:rgba(36,27,46,.14); --hairline:rgba(36,27,46,.09);
+  --accent:#FF4D8D; --shadow:6px 6px 0 #241B2E;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4;
+    --border:rgba(255,247,238,.16); --hairline:rgba(255,247,238,.10); --shadow:6px 6px 0 #000;}
+}
+:root[data-theme="light"]{--bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478;
+  --border:rgba(36,27,46,.14); --hairline:rgba(36,27,46,.09); --shadow:6px 6px 0 #241B2E;}
+:root[data-theme="dark"]{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4;
+  --border:rgba(255,247,238,.16); --hairline:rgba(255,247,238,.10); --shadow:6px 6px 0 #000;}
+*{box-sizing:border-box} body{margin:0}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; line-height:1.6}
+h1,h2,h3,.disp{font-family:'Bricolage Grotesque','Inter',sans-serif; font-weight:800; letter-spacing:-.02em; text-wrap:balance; line-height:1.04}
+.mono{font-family:'Space Mono',ui-monospace,monospace}
+.eyebrow{font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--accent)}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent} a:hover{border-bottom-color:currentColor}
+:focus-visible{outline:3px solid var(--violet); outline-offset:2px; border-radius:3px}
+.container{max-width:1000px; margin:0 auto; padding:0 24px}
+section{padding:56px 0; border-top:1px solid var(--hairline)}
+.sec-head{display:flex; align-items:baseline; gap:16px; margin-bottom:26px; flex-wrap:wrap}
+.sec-num{font-family:'Space Mono',monospace; font-weight:700; color:var(--muted); font-size:13px}
+h2{font-size:clamp(27px,4.4vw,40px); margin:6px 0} h3{font-size:18px; margin:0 0 6px}
+p{margin:0 0 14px} .muted{color:var(--muted)} .lede{max-width:64ch}
+.grid{display:grid; gap:16px} .g2{grid-template-columns:repeat(2,minmax(0,1fr))} .g3{grid-template-columns:repeat(3,minmax(0,1fr))} .g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:760px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.card{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:22px}
+ul.clean{margin:0; padding-left:18px} ul.clean li{margin-bottom:7px}
+.topbar{position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--bg) 88%, transparent); backdrop-filter:blur(10px); border-bottom:1px solid var(--hairline)}
+.topbar .container{display:flex; align-items:center; gap:14px; height:56px}
+.mark{display:inline-flex; align-items:center; gap:9px; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:15px}
+.dot{width:18px;height:18px;border-radius:50%; border:3px solid var(--text); display:inline-block; position:relative}
+.dot::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--text)}
+.tgl{margin-left:auto; font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; background:none; border:1px solid var(--border); color:var(--text); border-radius:8px; padding:6px 10px; cursor:pointer}
+.hero{padding:66px 0 48px; position:relative; overflow:hidden}
+.hero h1{font-size:clamp(38px,7.5vw,74px); margin:14px 0 18px} .hero .lede{font-size:19px}
+.hero .accent{color:var(--pink)}
+.blob{position:absolute; border-radius:50%; opacity:.9; pointer-events:none; z-index:0}
+.hero .container{position:relative} .hero .container > *:not(.blob){position:relative; z-index:1}
+.callout{border-left:4px solid var(--accent); background:var(--surface); border-radius:0 14px 14px 0; padding:18px 20px}
+.person .nm{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px}
+.person .rl{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--pink);margin:3px 0 10px}
+.pill{display:inline-block;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:5px 12px}
+/* tiers */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:760px){.tiers{grid-template-columns:1fr}}
+.tier{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:24px 22px;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
+.tier .topbar-accent{height:8px;border-radius:6px;margin:-6px -4px 16px}
+.tier.a .topbar-accent{background:var(--yellow)} .tier.b .topbar-accent{background:var(--violet)} .tier.c .topbar-accent{background:var(--pink)}
+.tier.c{background:var(--ink);color:var(--cream);box-shadow:6px 6px 0 var(--pink)}
+.tier .tag{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.tier.c .tag{color:var(--yellow)}
+.tier .nm{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;margin:2px 0 8px;letter-spacing:-.02em}
+.tier .price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:36px;line-height:1}
+.tier .cad{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);margin:5px 0 14px}
+.tier.c .cad{color:#C9BEE0}
+.tier .for{font-size:13.5px;font-style:italic;color:var(--muted);border-left:3px solid var(--pink);padding-left:11px;margin-bottom:15px}
+.tier.c .for{color:#E4D9F2;border-color:var(--yellow)}
+.tier ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.tier li{font-size:13.7px;line-height:1.42;padding-left:23px;position:relative}
+.tier li::before{content:"";position:absolute;left:0;top:4px;width:12px;height:12px;border:2px solid var(--pink);border-radius:50%}
+.tier.c li::before{border-color:var(--yellow)}
+.tier .ribbon{position:absolute;top:16px;right:-2px;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);border-radius:8px 0 0 8px;padding:4px 10px}
+.term{display:flex;gap:14px;align-items:flex-start}
+.term .n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:26px;color:var(--pink);line-height:1}
+.term .t{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px}
+.btn{display:inline-block;font-family:'Space Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:700; padding:13px 20px; border-radius:10px; cursor:pointer; border:2px solid var(--ink); box-shadow:var(--shadow); background:var(--pink); color:#fff}
+footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--muted); font-size:13px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{.topbar,.tgl{display:none} body{background:#fff} .tier.c{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container">
+  <span class="mark"><span class="dot"></span>Indie Music India</span>
+  <button class="tgl" id="tgl" aria-label="Toggle theme">Theme</button>
+</div></div>
+
+<header class="hero"><div class="container">
+  <div class="blob" style="width:210px;height:210px;background:var(--yellow);top:-40px;right:-30px"></div>
+  <div class="blob" style="width:150px;height:150px;background:var(--mint);bottom:-50px;left:38%"></div>
+  <span class="eyebrow">Ways to work together</span>
+  <h1>Let's build the <span class="accent">career</span>, not just the release.</h1>
+  <p class="lede" style="font-size:19px">Artist development for independent Indian musicians. Positioning, release strategy, and audience, built with you over time. Three ways in, below.</p>
+  <p class="mono muted" style="font-size:12px;margin-top:16px">Founder-led by Siby John &amp; Karishma Changroth &middot; share this link freely, no login needed.</p>
+</div></header>
+
+<main>
+<section><div class="container">
+  <div class="sec-head"><span class="sec-num">01</span><div><span class="eyebrow">Who you'd work with</span><h2>People who've sat inside the platforms that decide what gets seen.</h2></div></div>
+  <p class="lede muted">Most artists don't stall on talent. They stall on strategy, releasing music and hoping something happens instead of building a career around it. That's the gap we close.</p>
+  <div class="grid g2" style="margin-top:22px">
+    <div class="card person"><div class="nm">Siby John</div><div class="rl">ex-YouTube India &middot; now LinkedIn</div><p class="muted" style="margin:0">Marketing Manager at YouTube India (2022&ndash;2025), working with 400+ artists and labels. Now Senior Creator Manager at LinkedIn.</p></div>
+    <div class="card person"><div class="nm">Karishma Changroth</div><div class="rl">Artist development</div><p class="muted" style="margin:0">Leads the hands-on development work with Siby: positioning, releases, and audience-building for a small roster of independent artists.</p></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <div class="sec-head"><span class="sec-num">02</span><div><span class="eyebrow">What artist development is</span><h2>The through-line that connects every release.</h2></div></div>
+  <p class="lede muted">Not a one-off campaign. It's the strategy that makes each release build on the last, instead of starting from zero every time.</p>
+  <div class="grid g4" style="margin-top:22px">
+    <div class="card"><h3>Positioning</h3><p class="muted" style="margin:0;font-size:14px">Your sound, your story, who it's for.</p></div>
+    <div class="card"><h3>Release strategy</h3><p class="muted" style="margin:0;font-size:14px">A planned body of work, not scattered singles.</p></div>
+    <div class="card"><h3>Audience</h3><p class="muted" style="margin:0;font-size:14px">Reach that converts to followers, then fans.</p></div>
+    <div class="card"><h3>Foundation</h3><p class="muted" style="margin:0;font-size:14px">Rights &amp; royalties set up so you keep what you earn.</p></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <div class="sec-head"><span class="sec-num">03</span><div><span class="eyebrow">Three ways to work together</span><h2>Pick the level of help you need.</h2></div></div>
+  <div class="tiers">
+    <div class="tier a">
+      <div class="ribbon">Best first step</div>
+      <div class="topbar-accent"></div>
+      <div class="tag">One-time</div>
+      <div class="nm">Roadmap</div>
+      <div class="price">&#8377;10,000</div>
+      <div class="cad">one-time &middot; a ready-made deck</div>
+      <div class="for">"Give me the playbook and I'll start myself."</div>
+      <ul>
+        <li>Our artist-development framework, as a deck</li>
+        <li>How to position, plan releases &amp; grow an audience</li>
+        <li>The same playbook we run, yours to apply</li>
+        <li>A clear starting point before you commit</li>
+        <li><b>Creditable</b> toward month one of Development</li>
+      </ul>
+    </div>
+    <div class="tier b">
+      <div class="topbar-accent"></div>
+      <div class="tag">Monthly</div>
+      <div class="nm">Advisory</div>
+      <div class="price">&#8377;16,000</div>
+      <div class="cad">per month &middot; 4 hours</div>
+      <div class="for">"I'll do the work, I just need the right direction."</div>
+      <ul>
+        <li>4 hours of guidance a month</li>
+        <li>Weekly calls on releases &amp; promotion</li>
+        <li>Direction on positioning as you execute</li>
+        <li>Questions answered between calls</li>
+      </ul>
+    </div>
+    <div class="tier c">
+      <div class="topbar-accent"></div>
+      <div class="tag">The full programme</div>
+      <div class="nm">Development</div>
+      <div class="price">&#8377;25,000</div>
+      <div class="cad">per month &middot; hands-on</div>
+      <div class="for">"Be the team behind my releases."</div>
+      <ul>
+        <li>Hands-on, done-with-you, month on month</li>
+        <li>Positioning, releases, audience &amp; promotion, run with you</li>
+        <li>A network of specialists on call: PR, social, video, design, legal, IPRS</li>
+        <li>You work directly with Siby &amp; Karishma</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <div class="sec-head"><span class="sec-num">04</span><div><span class="eyebrow">How it works</span><h2>Simple terms, on your side.</h2></div></div>
+  <div class="grid g2">
+    <div class="card"><div class="term"><div class="n">1</div><div><div class="t">One month to start</div><p class="muted" style="margin:4px 0 0">No lock-in, no long contract. We earn the next month.</p></div></div></div>
+    <div class="card"><div class="term"><div class="n">2</div><div><div class="t">No cut of your music</div><p class="muted" style="margin:4px 0 0">Ever. You keep 100% of your rights and royalties.</p></div></div></div>
+    <div class="card"><div class="term"><div class="n">3</div><div><div class="t">A few artists at a time</div><p class="muted" style="margin:4px 0 0">We take a small roster so the attention stays real.</p></div></div></div>
+    <div class="card"><div class="term"><div class="n">4</div><div><div class="t">The Roadmap counts</div><p class="muted" style="margin:4px 0 0">Your &#8377;10,000 Roadmap is credited toward your first month of Development.</p></div></div></div>
+  </div>
+</div></section>
+
+<section><div class="container">
+  <div class="sec-head"><span class="sec-num">05</span><div><span class="eyebrow">Next step</span><h2>Let's build it.</h2></div></div>
+  <p class="lede">Reply and tell us where you are. We'll pick the tier that fits and start with one month.</p>
+  <div style="margin-top:18px">
+    <a class="btn" href="mailto:siby@indiemusicindia.com">Email siby@indiemusicindia.com</a>
+  </div>
+  <p class="mono muted" style="font-size:13px;margin-top:20px">siby@indiemusicindia.com &nbsp;&middot;&nbsp; <a href="/programme/">indiemusicindia.com/programme</a></p>
+</div></section>
+</main>
+
+<footer><div class="container">
+  Indie Music India &middot; Ways to work together &middot; <a href="/">indiemusicindia.com</a> &middot; <a href="https://instagram.com/indiemusicindia.co" target="_blank" rel="noopener">@indiemusicindia.co</a><br>
+  Private page. Share the link with whom you like, it is not indexed and not linked from the site.
+</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement, tg=document.getElementById("tgl");
+  tg.addEventListener("click",function(){
+    var cur=root.getAttribute("data-theme"); if(!cur){cur=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";}
+    root.setAttribute("data-theme", cur==="dark"?"light":"dark");
+  });
+})();
+</script>
+</body>
+</html>
