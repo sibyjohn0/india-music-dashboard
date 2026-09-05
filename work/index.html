@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-R7EYMGZEJZ');</script>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative work — artist worlds we build | Indie Music India</title>
+  <meta name="description" content="A showcase of the creative work behind Indie Music India: artist websites, identities, and worlds we build for independent musicians, starting with Kaatan." />
+  <link rel="canonical" href="https://indiemusicindia.com/work/" />
+  <meta property="og:title" content="Creative work — Indie Music India" />
+  <meta property="og:description" content="Artist websites, identities, and worlds we build for independent musicians." />
+  <meta property="og:url" content="https://indiemusicindia.com/work/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://indiemusicindia.com/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0d0d0f;--surface:#141418;--surface2:#1c1c24;--border:#242430;--accent:#e94560;--text:#e8e8f0;--muted:#6b6b85}
+    body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    header{display:flex;align-items:center;padding:0 32px;height:52px;background:rgba(13,13,15,.96);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+    .logo{font-size:15px;font-weight:700}
+    nav{display:flex;padding:0 24px;background:var(--surface);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+    nav::-webkit-scrollbar{display:none}
+    .tab{color:#999;font:13px/1 'Inter',sans-serif;padding:0 16px;height:44px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;font-weight:500;border-bottom:2px solid transparent}
+    .wrap{max-width:980px;margin:0 auto;padding:48px 24px 90px}
+    .eyebrow{font-family:var(--font-m,'Space Mono',monospace);text-transform:uppercase;letter-spacing:1.4px;color:var(--violet,#8B5CF6);font-weight:700;font-size:13px}
+    h1{font-family:var(--font-d,'Bricolage Grotesque',sans-serif);font-weight:800;letter-spacing:-1.5px;font-size:clamp(34px,6vw,62px);line-height:1.02;margin:12px 0}
+    .lead{font-size:18px;color:var(--muted);max-width:62ch}
+    .projects{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+    @media(max-width:760px){.projects{grid-template-columns:1fr}}
+    .proj{border:2px solid var(--ink,#241B2E);border-radius:18px;overflow:hidden;box-shadow:6px 6px 0 var(--ink,#241B2E);background:var(--surface);display:flex;flex-direction:column}
+    .proj>img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:2px solid var(--ink,#241B2E);background:#0C0808}
+    .proj .pbody{padding:20px 22px 24px}
+    .proj .nm{font-family:var(--font-d,'Bricolage Grotesque',sans-serif);font-weight:800;font-size:24px;letter-spacing:-.5px;color:var(--ink,#241B2E)}
+    .proj .tagline{color:var(--muted);font-size:14.5px;margin:8px 0 14px;line-height:1.55}
+    .proj .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+    .proj .tag{font-family:var(--font-m,'Space Mono',monospace);font-size:11px;text-transform:uppercase;letter-spacing:.5px;border:1px solid var(--ink,#241B2E);border-radius:999px;padding:5px 11px;color:var(--ink,#241B2E)}
+    .proj .visit{font-family:var(--font-m,'Space Mono',monospace);font-weight:700;font-size:13px;color:var(--accent,#FF4D8D);text-transform:uppercase;letter-spacing:.5px}
+    .proj.soon{border-style:dashed;box-shadow:none;background:transparent;align-items:center;justify-content:center;min-height:230px;text-align:center;padding:34px}
+    .proj.soon .nm{color:var(--muted)}
+    .proj.soon p{color:var(--muted);font-size:14px;margin-top:6px}
+    .wk-cta{margin-top:42px;border:2px solid var(--ink,#241B2E);border-radius:16px;padding:26px 28px;box-shadow:6px 6px 0 var(--ink,#241B2E);background:var(--surface)}
+    .wk-cta h3{font-family:var(--font-d,'Bricolage Grotesque',sans-serif);font-weight:800;font-size:22px;letter-spacing:-.5px;color:var(--ink,#241B2E)}
+    .wk-cta p{color:var(--muted);font-size:15px;margin:6px 0 16px;max-width:60ch}
+    .wk-btn{display:inline-block;background:var(--ink,#241B2E);color:#fff;font-family:var(--font-m,'Space Mono',monospace);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.5px;border:2px solid var(--ink,#241B2E);border-radius:10px;padding:12px 20px}
+    footer{display:flex;flex-direction:column;gap:12px;padding:26px 32px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
+    .footer-logo{font-weight:800;font-size:13px}.footer-links{display:flex;gap:16px;flex-wrap:wrap}
+    .mnav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:rgba(19,19,26,.72);border:1px solid var(--border);border-radius:11px;cursor:pointer;padding:0 11px}
+    .mnav-burger span{display:block;height:2px;width:22px;background:var(--text);border-radius:2px}
+    @media(max-width:640px){.wrap{padding:30px 16px 64px}header,nav{padding-left:16px;padding-right:16px}
+      .mnav-burger{display:flex;position:fixed;top:9px;right:14px;z-index:300}
+      nav.js-primnav{position:fixed!important;inset:0!important;height:100dvh!important;width:100%!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:4px!important;background:rgba(10,10,15,.98)!important;transform:translateX(100%);transition:transform .34s;z-index:290!important;border:0!important}
+      body.mnav-open nav.js-primnav{transform:translateX(0)!important}
+      nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px 30px!important;height:auto!important;border:0!important}}
+  </style>
+  <link rel="stylesheet" href="/assets/poppy.css">
+</head>
+<body>
+<button class="mnav-burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('mnav-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
+<header><div class="logo"><a href="/">◉ Indie Music India</a><span style="display:block;font-weight:400;font-size:11px;letter-spacing:0;color:var(--muted);margin-top:2px;">Free tools &amp; data for India's independent music scene</span></div></header>
+<nav class="js-primnav">
+  <a class="tab" href="/">Home</a>
+  <a class="tab" href="/programme/">Programme</a>
+  <a class="tab" href="/about/">About</a>
+</nav>
+
+<div class="wrap">
+  <div class="eyebrow">Creative work</div>
+  <h1>Worlds we build for artists.</h1>
+  <p class="lead">Beyond the free tools, we build the creative around the music: artist websites, identities, and full worlds. A living look at what that can be for your project.</p>
+
+  <div class="projects">
+    <div class="proj">
+      <a href="https://tinyurl.com/kaatan" target="_blank" rel="noopener"><img src="/assets/work/kaatan.jpg" alt="Kaatan artist website: a cinematic, carnival-inspired music universe" width="1200" height="750" loading="lazy" /></a>
+      <div class="pbody">
+        <div class="nm">Kaatan</div>
+        <p class="tagline">An electronic, cinematic artist universe, built as a living website. A vintage-carnival meets South-Asian-fairground world with its own story, music, and identity.</p>
+        <div class="tags"><span class="tag">Artist website</span><span class="tag">Identity &amp; world-building</span><span class="tag">Bangalore</span></div>
+        <a class="visit" href="https://tinyurl.com/kaatan" target="_blank" rel="noopener">Visit the site &#8599;</a>
+      </div>
+    </div>
+
+    <div class="proj soon">
+      <div>
+        <div class="nm">More worlds in progress</div>
+        <p>We are building this showcase out. New artist sites and identities are on the way.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wk-cta">
+    <h3>Want this for your project?</h3>
+    <p>Building the creative, a website, an identity, a whole world, is part of what we do in the artist development programme. A few artists at a time, founder-led, no cut of your music.</p>
+    <a class="wk-btn" href="/programme/">See how the programme works &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">◉ Indie Music India</div>
+  <div class="footer-links">
+    <a href="/">Home</a><a href="/programme/">Programme</a><a href="/about/">About</a>
+    <a href="/radar.html">Radar</a><a href="/live/">Live</a><a href="/reviewers/">Reviewers</a><a href="/answers/">Answers</a>
+  </div>
+  <div>Built by Siby John and Karishma Changroth · Free to use</div>
+</footer>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});</script>
+<script src="/assets/analytics.js" defer></script>
+<script src="/assets/nav.js" defer></script>
+</body>
+</html>
