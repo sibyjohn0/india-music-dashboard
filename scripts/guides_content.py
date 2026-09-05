@@ -318,4 +318,78 @@ GUIDES = [
    ("Which distributors offer caller tunes in India?","Only distributors with direct telco relationships can deliver caller tunes, not all do. Ask specifically about Jio and Airtel caller-tune delivery before choosing a distributor if this channel matters to you."),
    ("Do artists earn money from caller tunes?","Yes. When a listener sets your song as their caller tune you earn a share of the fee. Per-set royalties are modest but add up with volume, and a set caller tune keeps earning as long as it stays set.")]
 },
+{
+ "slug":"artist-development-india","cat":"Artist development","cta_h":"Want a team on your development?",
+ "title":"Artist development in India: what it is and how it works for independent musicians",
+ "desc":"What artist development means for independent musicians in India, what a development programme actually does, when you need it, and how to find the right team to build your career.",
+ "lead":"Artist development is the work of building you, your sound, your positioning, your audience, into a career. Here is what it involves, and when it is worth getting a team on it.",
+ "tldr":"Artist development is the long game most independent Indian artists skip: shaping your identity and sound, planning releases as a body of work instead of one-offs, and building an audience that lasts. It is different from a <a href=\"/guides/artist-management-india/\">manager</a> (who runs the business) and a distributor (who ships the files). Talent is rarely the thing that stalls a career, strategy is, and that is exactly what development addresses.",
+ "sections":[
+   {"h2":"What artist development actually means","body":[
+     "Artist development is the deliberate work of turning a talented musician into a career artist: finding your sound and story, positioning you clearly, planning your releases, and building an audience over time. It is not a single service or a one-off campaign, it is the through-line that connects every release, every post, and every show into something that compounds.",
+     "Most artists who reach out to us describe the same feeling: they are releasing music but it is not going anywhere, because each release starts from zero. Development is what replaces that with a plan."]},
+   {"h2":"What a development programme does","body":[
+     {"ul":["<b>Positioning and identity.</b> Who you are as an artist, what you sound like, and who it is for, made clear and consistent. See <a href=\"/guides/artist-branding-and-positioning-india/\">artist branding and positioning</a>.",
+            "<b>Release strategy.</b> Turning scattered singles into a planned body of work, each release building on the last. See the <a href=\"/guides/12-week-release-plan-india/\">12-week release plan</a>.",
+            "<b>Audience building.</b> Growing real listeners and followers, not vanity plays. See <a href=\"/guides/how-to-get-more-listeners-india/\">how to get more listeners</a>.",
+            "<b>Promotion and press.</b> Playlists, press, and short video working together around each release.",
+            "<b>The business foundation.</b> Rights, distribution, and royalties set up correctly so you keep what you earn."]}]},
+   {"h2":"Development vs management vs a label","body":[
+     "These get confused. Artist development builds the thing: your sound, audience, and strategy. A manager runs the business day to day once there is a business to run, see <a href=\"/guides/artist-development-vs-artist-management-india/\">development vs management</a>. A label funds and distributes in exchange for rights or a cut. Early in a career, development is almost always what you actually need, not management or a deal."]},
+   {"h2":"When do you need artist development?","body":[
+     "If you are releasing music but it is not building on itself, if you have talent but no plan, or if you are about to invest a year into a catalogue and want it to land, that is the moment for development. It matters most before and across a run of releases, not after one has already underperformed."]},
+   {"h2":"How to find the right team in India","body":[
+     "Look for people who have actually built audiences and worked inside the platforms that decide what gets seen, not just marketers who will boost a post. Ask what they will do, how they measure it, and whether they take a cut of your music (a development partner should not). Our <a href=\"/programme/\">programme</a> is exactly this: hands-on development for a few independent artists at a time, founder-led, one month to start, no cut of your music."]}],
+ "faq":[
+   ("What is artist development for musicians?","Artist development is the deliberate work of building a musician into a career artist: shaping your sound and identity, positioning you, planning releases as a body of work, and growing a real audience over time, rather than treating each release as a one-off."),
+   ("Do independent artists need artist development?","Most do, more than they need a manager or a label. Talent rarely stalls a career; a lack of strategy, positioning, and audience-building does, and that is what development addresses. It matters most before and across a run of releases."),
+   ("How is artist development different from management?","Development builds the thing (your sound, audience, and strategy); management runs the business day to day once there is one. Early in a career you usually need development first. A development partner should not take a cut of your music.")]
+},
+{
+ "slug":"artist-branding-and-positioning-india","cat":"Branding","cta_h":"Want help building your artist brand?",
+ "title":"Artist branding and positioning in India: how to build a brand as an independent musician",
+ "desc":"How to build your brand and positioning as an independent artist in India: finding your identity and sound, standing out, and creating a brand that makes people follow and remember you.",
+ "lead":"Your brand is not a logo. It is what people recognise and remember about you. Here is how to build a clear artist identity and positioning that actually pulls listeners in.",
+ "tldr":"Artist branding is positioning: what you sound like, who it is for, and what you stand for, made consistent across everything you release. A muddy identity markets terribly; a clear one gives listeners a reason to follow and remember you. Start with positioning, then let your visuals, copy, and content flow from it, not the other way around.",
+ "sections":[
+   {"h2":"What artist branding really means","body":[
+     "Branding is not your logo, your colours, or your cover art. Those are expressions of it. Your brand is the clear answer to a simple question: when someone hears your music or sees your page, what do they understand and remember about you? For an independent artist, a strong brand is the difference between being background noise and being someone worth following."]},
+   {"h2":"Positioning is the foundation","body":[
+     "Before any visuals, get your positioning right: what you sound like, who it is for, and what makes you you. \"Honest Hindi indie for late-night drives\" is positioning; \"singer-songwriter\" is not. A sharp position gives listeners a reason to care and gives you a filter for every creative decision. This is the single most common thing missing when an artist says their music is not landing."]},
+   {"h2":"Building your visual and verbal identity","body":[
+     "Once positioning is clear, everything else flows from it: your artist name treatment and cover art, your bio and captions, the way you talk to listeners, the world your visuals live in. Consistency is what makes it stick, the same identity across Spotify, Instagram, and your releases so people recognise you instantly. See how this feeds your wider <a href=\"/guides/music-marketing-independent-artists-india/\">music marketing</a>."]},
+   {"h2":"How branding turns listeners into followers","body":[
+     "Reach without a brand leaks: people hear the song, like it, and forget you. A clear brand gives a first-time listener a reason to follow and come back, which is how you turn plays into an audience. See <a href=\"/guides/how-to-get-more-listeners-india/\">how to get more listeners</a> and <a href=\"/guides/build-fanbase-1000-true-fans-india/\">building a fanbase</a>."]},
+   {"h2":"Getting help with your brand","body":[
+     "Branding is hard to do on yourself, you are too close to it. An outside team can name what is distinctive about you and make it consistent. That positioning work is the starting point of our <a href=\"/programme/\">artist development programme</a>: a few artists at a time, founder-led, one month to start, no cut of your music."]}],
+ "faq":[
+   ("How do I build a brand as a musician?","Start with positioning, not visuals: nail what you sound like, who it is for, and what makes you you. Then make everything, cover art, bio, captions, visuals, flow from that and stay consistent across platforms so people recognise and remember you."),
+   ("What is artist positioning?","Positioning is the clear, specific answer to what you sound like and who your music is for, for example \"honest Hindi indie for late-night drives\" rather than just \"singer-songwriter\". A sharp position gives listeners a reason to follow and gives you a filter for every decision."),
+   ("Does branding actually get more listeners?","Branding does not create reach, but it converts it. Without a clear brand, people hear your song and forget you; with one, a first-time listener has a reason to follow and come back, which turns plays into an audience.")]
+},
+{
+ "slug":"how-to-get-more-listeners-india","cat":"Audience","cta_h":"Want more listeners on your releases?",
+ "title":"How to get more listeners for your music in India",
+ "desc":"How to get more listeners and grow your audience as an independent artist in India: turning releases into reach, promoting already-released songs, and converting listeners into followers and fans.",
+ "lead":"More listeners do not come from posting more. They come from getting your music in front of the right people and giving them a reason to stay. Here is how, including for music you have already released.",
+ "tldr":"Getting more listeners is really two jobs: reach (playlists, short video, press, features) and retention (turning a one-time listener into a follower, then a fan). Chase saves and follows, not vanity plays, and build so each release lifts the next. And you do not need a new release to grow, your already-released catalogue can keep finding listeners.",
+ "sections":[
+   {"h2":"More listeners is really two problems","body":[
+     "Artists usually ask how to get more streams, but streams are the symptom. The two real jobs are reach (getting in front of new people) and retention (getting those people to stay). Reach without retention is a leaky bucket: you get plays that never become an audience. Solve both and listeners compound."]},
+   {"h2":"Reach: getting in front of new people","body":[
+     {"ul":["<b>Playlists.</b> Pitch editorial via Spotify for Artists and independent curators, see <a href=\"/guides/submit-music-spotify-playlists-india/\">submitting to playlists</a> and our <a href=\"/reviewers/\">curator database</a>.",
+            "<b>Short video.</b> Reels and Shorts are the discovery engine, a strong hook reaches people who do not follow you.",
+            "<b>Press and features.</b> Blogs, and being reshared by other artists, borrow their audience.",
+            "<b>The full playbook.</b> See <a href=\"/guides/how-to-promote-music-in-india/\">how to promote your music</a>."]}]},
+   {"h2":"Retention: turning listeners into followers","body":[
+     "Reach is wasted if listeners do not stick. Give them a reason to follow: a clear <a href=\"/guides/artist-branding-and-positioning-india/\">brand and identity</a>, a reason to come back, and an ask to follow and save. Optimise for saves and follows, not passive plays, they signal the platforms and they build the audience that makes your next release land. See <a href=\"/guides/build-fanbase-1000-true-fans-india/\">building a fanbase</a>."]},
+   {"h2":"Growing music you have already released","body":[
+     "You do not need a new song to get more listeners. Pitch older tracks to playlists, cut fresh short video from existing songs, update your artist profile and canvas, and keep driving saves on the catalogue you already have. Released work keeps earning listeners if you keep working it, this is one of the most common things artists overlook."]},
+   {"h2":"Getting a team on it","body":[
+     "Doing reach and retention consistently, release after release, is where most artists run out of time. That steady, hands-on work is what our <a href=\"/programme/\">programme</a> does: a few artists at a time, founder-led, one month to start, no cut of your music."]}],
+ "faq":[
+   ("How do I get more listeners on Spotify in India?","Work both reach and retention: pitch editorial and independent playlists, use short video to reach non-followers, and drive saves and follows rather than passive plays. Saves and follows signal the platform and build the audience that lifts your next release."),
+   ("How do I promote songs I have already released?","You do not need a new release to grow. Pitch older tracks to playlists, cut fresh Reels and Shorts from existing songs, refresh your profile and Spotify Canvas, and keep driving saves. Released work keeps finding listeners if you keep working it."),
+   ("How do I turn listeners into fans?","Give first-time listeners a reason to follow and come back: a clear brand and identity, consistent presence, and a direct ask to follow and save. Then move engaged listeners toward something you own, like an email list or WhatsApp, so you can reach them for every release.")]
+},
 ]
