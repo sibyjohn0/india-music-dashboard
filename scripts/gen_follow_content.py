@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Follow-driving content: 'Gigs this week in <city>' carousel + a 'feature call'
-post. Both dark-brand, 1080x1350. Output: social/ (gitignored). On-demand."""
+post. Poppy brand (matches the website + social_brand.py), 1080x1350.
+Output: social/ (gitignored). On-demand."""
 import json, glob, re
 from datetime import date, timedelta
 from pathlib import Path
@@ -9,7 +10,9 @@ from PIL import Image, ImageDraw, ImageFont
 REPO = Path(__file__).resolve().parent.parent
 FONTS = REPO / "assets" / "fonts"
 W, H = 1080, 1350
-BG=(13,13,15); CARD=(20,20,26); ACC=(233,69,96); WHITE=(240,240,246); MUT=(150,150,168); MINT=(31,207,158)
+# poppy palette (see social_brand.py). WHITE/CARD are ink so headings read on cream.
+BG=(255,247,238); CARD=(36,27,46); ACC=(255,77,141); WHITE=(36,27,46)
+MUT=(107,96,118); MINT=(18,140,104)
 def F(n,s): return ImageFont.truetype(str(FONTS/n),s)
 HEAD="BricolageGrotesque.ttf"; BODY="Inter.ttf"; MONO="SpaceMono-Bold.ttf"
 
@@ -31,11 +34,11 @@ def footer(d,page=None,total=None):
 def pill(d,x,y,text,fs=26):
     """Rounded button sized to its text so it never overflows."""
     f=F(MONO,fs); tw=d.textlength(text,font=f)
-    d.rounded_rectangle([x,y,x+tw+68,y+76],radius=14,fill=ACC)
-    d.text((x+34,y+24),text,font=f,fill=WHITE)
+    d.rounded_rectangle([x,y,x+tw+68,y+76],radius=14,fill=ACC,outline=(36,27,46),width=3)
+    d.text((x+34,y+24),text,font=f,fill=(255,255,255))
     return y+76
 
-def body(d,x,y,text,fs=42,fill=(200,200,214),lh=54):
+def body(d,x,y,text,fs=42,fill=(58,49,66),lh=54):
     for ln in wrap(d,text,F(BODY,fs),W-2*x): d.text((x,y),ln,font=F(BODY,fs),fill=fill); y+=lh
     return y
 
@@ -115,7 +118,7 @@ def build_feature_call():
     for ln in ["Making music?"]:
         d.text((x,y),ln,font=F(HEAD,96),fill=WHITE); y+=110
     d.text((x,y),"Show us.",font=F(HEAD,150),fill=ACC); y+=190
-    d.text((x,y),"Drop your latest release in the comments.",font=F(BODY,44),fill=(210,210,222)); y+=60
+    d.text((x,y),"Drop your latest release in the comments.",font=F(BODY,44),fill=(36,27,46)); y+=60
     y=body(d,x,y,"We feature the ones we love on The Radar, every week. No fee, no catch. Independent Indian artists only.",fs=40,fill=MUT,lh=52)
     pill(d,x,y+40,"Follow so we can find you")
     footer(d); im.save(out/"single_feature_call.png")

@@ -463,3 +463,9 @@ hr,.divider{border-color:var(--ink)!important;opacity:.15}
 /* footer */
 footer{background:var(--cream)!important;border-top:2px solid var(--ink)!important;color:var(--ink)!important}
 footer *{color:var(--ink)!important}
+
+/* ---- "bite-sized on Instagram" homepage strip ---- */
+.ig-strip{display:flex;gap:14px;overflow-x:auto;padding:6px 2px 16px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ig-strip::-webkit-scrollbar{display:none}
+.ig-strip a{flex:0 0 auto;display:block}
+.ig-strip img{width:196px;height:245px;object-fit:cover;border:2px solid var(--ink)!important;border-radius:14px;box-shadow:4px 4px 0 var(--ink);background:var(--cream)}
