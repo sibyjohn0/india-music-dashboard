@@ -392,4 +392,35 @@ GUIDES = [
    ("How do I promote songs I have already released?","You do not need a new release to grow. Pitch older tracks to playlists, cut fresh Reels and Shorts from existing songs, refresh your profile and Spotify Canvas, and keep driving saves. Released work keeps finding listeners if you keep working it."),
    ("How do I turn listeners into fans?","Give first-time listeners a reason to follow and come back: a clear brand and identity, consistent presence, and a direct ask to follow and save. Then move engaged listeners toward something you own, like an email list or WhatsApp, so you can reach them for every release.")]
 },
+{
+ "slug":"how-spotify-royalties-work-india","cat":"Money","cta_h":"Want the money side handled?",
+ "title":"How Spotify royalties actually work in India (the stream-share model)",
+ "desc":"How Spotify pays artists in India, explained simply: why there is no fixed per-stream rate, how the stream-share model splits the pool, what actually drives your payout, and how much you really earn.",
+ "lead":"There is no fixed per-stream rate. Spotify pays out of a shared pool, and once you understand how it is split, you stop chasing the wrong number. Here is the real math, in rupees.",
+ "tldr":"Spotify does not pay a set price per play. It collects one big pool of subscription and ad money, and you earn a share of that pool equal to your share of total streams. So the figures you read online (around <b>0.03 to 0.05 rupees per stream</b> in India) are averages worked out after the fact, not a rate anyone sets. What actually grows your payout is saves, repeat listens, and a small core of dedicated fans, not raw play counts. And in India, streaming is discovery, the income comes from <a href=\"/guides/make-money-independent-artist-india/\">live, sync, and real fans</a>.",
+ "sections":[
+   {"h2":"There is no fixed per-stream rate","body":[
+     "The most common myth in music is that a platform pays a set amount per stream. It does not. When you see a figure like 0.03 to 0.05 rupees per stream in India, that is an average, calculated after the fact by dividing a total payout by a total number of streams. It is not a price Spotify sets.",
+     "That average moves with where your listeners are, what plan they are on, and how much they listen. Chasing a per-stream number tells you almost nothing; what matters is the size of the pool and your share of it. Estimate your own with the <a href=\"/tools/royalty-calculator/\">royalty calculator</a>."]},
+   {"h2":"How the stream-share model works","body":[
+     "Spotify collects all its subscription and ad money into one large royalty pool and pays a big share of it (roughly two-thirds of its revenue) out to rights holders. Your cut is your share of the total streams in that period. If your music is one in a million of all streams that month, you earn one in a million of the pool.",
+     "Spotify paid out more than eleven billion dollars to the industry last year (its Loud and Clear data). The practical takeaway: as the pool grows, the value of your share grows with it, as long as you hold or grow your share of listening."]},
+   {"h2":"Why a lower Indian rate is not bad news","body":[
+     "Indian listeners are among the most engaged in the world, streaming far more per person than many markets. High engagement pushes the calculated per-stream average down, but it grows the total pool faster than it dilutes each stream. A larger slice of a big, growing pool beats a higher rate on a small, stagnant one. The lower average is a sign of reach, not of getting cheated."]},
+   {"h2":"What actually drives your payout","body":[
+     "Spotify separates active listening from programmed listening. Active is when someone seeks you out: searching your name, playing you from their library or saved songs, or visiting your profile. Programmed is passive: autoplay, radio, and editorial playlists. What Spotify chooses to recommend follows what listeners actually do, so active listening is what compounds.",
+     {"ul":["<b>Saves and playlist adds</b> are the strongest signal that someone wants a lasting relationship with your music.",
+            "<b>Repeat listens</b> per listener show staying power, more than a pile of one-time plays.",
+            "<b>A small core of dedicated fans</b> matters most: often around 2% of your listeners can drive a large share of your streams and most of your merch and show sales. See <a href=\"/guides/build-fanbase-1000-true-fans-india/\">building a fanbase</a>.",
+            "<b>Skips and quick stops</b> are negative signals, so a strong hook and the right audience matter."]}]},
+   {"h2":"The 1,000-stream threshold","body":[
+     "A track now needs 1,000 streams in a year to start earning royalties. This is about efficiency, not exclusion. Tracks below that earn a couple of paise a month, which usually get stuck below distributor withdrawal minimums and never reach the artist. Pooling those tiny amounts redirects real money to the millions of active artists who clear the bar, and it filters out spam and mass-uploaded junk. Over three million artists already pass it."]},
+   {"h2":"The realistic path: fandom over fame","body":[
+     "Independent artists over-index here: they are about a third of the global market but around half of what Spotify pays out. You do not need a hit. The maths of a sustainable career is the old 1,000 true fans idea: a dedicated audience that seeks you out by name beats being background noise on a playlist.",
+     "But be clear-eyed for India: streaming is discovery, not the income. A million streams is roughly 30,000 to 50,000 rupees, see <a href=\"/guides/how-much-indian-artists-earn-spotify/\">what artists really earn</a>. The money comes from <a href=\"/guides/make-money-independent-artist-india/\">live shows, sync, merch, and real fans</a>. Use streaming to find the people, then build the income around them."]}],
+ "faq":[
+   ("Does Spotify pay a fixed rate per stream in India?","No. Spotify pays a share of a revenue pool, not a set price per play. The figure of about 0.03 to 0.05 rupees per stream you see quoted is an average worked out after the fact, and it changes with listener geography, plan, and how much people listen."),
+   ("How much does Spotify pay for 1 million streams in India?","Roughly 30,000 to 50,000 rupees at Indian rates, and it depends heavily on where your listeners are. International listeners pay more per stream than domestic ones. Use our royalty calculator to estimate your own mix."),
+   ("What should I optimise for on Spotify?","Saves, repeat listens, and a core of dedicated fans, not raw stream counts. Active listening, where people seek you out and come back, signals genuine demand, which is what earns you more discovery and a bigger share of the pool.")]
+},
 ]

@@ -24,7 +24,7 @@ REFERENCE = {
     "caller-tune-hello-tune-india", "spotify-pay-per-stream-india",
     "how-much-indian-artists-earn-spotify", "best-music-distributor-india",
     "free-music-distribution-india", "publish-music-in-india",
-    "music-platforms-independent-artists-india",
+    "music-platforms-independent-artists-india", "how-spotify-royalties-work-india",
     "independent-music-scene-mumbai", "independent-music-scene-bengaluru",
     "independent-music-scene-delhi",
 }
