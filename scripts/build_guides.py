@@ -12,6 +12,43 @@ TODAY = "2026-08-31"
 
 def esc(s): return html.escape(str(s), quote=True)
 
+# --- Where to set expectations, and where to stay quiet ----------------------
+# Reference pages answer a fact (what an ISRC is, what streaming pays). A reader
+# there wants the answer, not a pitch — so they get one honest line, no sales box.
+# Every other guide is a decision page (how to promote, become independent, get
+# management) where the reader is weighing whether to get help — those carry the
+# full, expectation-setting CTA. Same promise everywhere it appears: a few artists
+# at a time, founder-led, one month to start, no cut. Consistent, not scattered.
+REFERENCE = {
+    "isrc-code-india", "register-music-copyright-iprs-india",
+    "caller-tune-hello-tune-india", "spotify-pay-per-stream-india",
+    "how-much-indian-artists-earn-spotify", "best-music-distributor-india",
+    "free-music-distribution-india", "publish-music-in-india",
+    "music-platforms-independent-artists-india",
+    "independent-music-scene-mumbai", "independent-music-scene-bengaluru",
+    "independent-music-scene-delhi",
+}
+
+# The one canonical description of what the programme actually is. Mirrors the
+# home hero and /programme/ so the promise reads the same wherever it turns up.
+CTA_BODY = ("For a few artists at a time: work directly with Siby and Karishma, "
+            "plus a network of specialists for release strategy, PR, social, video, "
+            "design, legal and IPRS. One month to start, no commitment beyond that, "
+            "and no cut of your music.")
+
+def cta_block(g):
+    """Decision pages get the full expectation-setting box; reference pages get a
+    single honest line so the pitch lands where it matters and nowhere else."""
+    if g["slug"] in REFERENCE:
+        return ('  <div class="g-softcta">Free to read, no sign-up. When you want a team on '
+                'your releases, <a href="/programme/">the programme</a> is founder-led, one '
+                'month to start, and never takes a cut of your music.</div>')
+    return (f'  <div class="g-cta">\n'
+            f'    <h3>{esc(g.get("cta_h","Want a team behind your releases?"))}</h3>\n'
+            f'    <p>{CTA_BODY}</p>\n'
+            f'    <a class="g-btn" href="/programme/">See how the programme works →</a>\n'
+            f'  </div>')
+
 NAV = """<nav class="js-primnav">
   <a class="tab" href="/">Home</a>
   <a class="tab" href="/programme/">Programme</a>
@@ -83,6 +120,7 @@ def build(g):
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   {STYLE}
+  <style>.g-softcta{{margin-top:38px;font-size:14px;color:var(--muted);line-height:1.65;border-left:3px solid var(--accent);padding:2px 0 2px 15px}}.g-softcta a{{color:var(--accent);font-weight:600}}</style>
   <link rel="stylesheet" href="/assets/poppy.css">
   <script type="application/ld+json">{json.dumps(article_ld)}</script>
   <script type="application/ld+json">{json.dumps(crumb_ld)}</script>
@@ -106,11 +144,7 @@ def build(g):
     <h2>People also ask</h2>
 {render_faq_html(g['faq'])}
   </section>
-  <div class="g-cta">
-    <h3>{g.get('cta_h','Want a team behind your releases?')}</h3>
-    <p>We run a hands-on artist development programme for independent Indian artists, with a full network of specialists on call.</p>
-    <a class="g-btn" href="/programme/">See how the programme works →</a>
-  </div>
+{cta_block(g)}
   <div class="g-updated">Last updated {TODAY}. Free to read. Part of <a href="/answers/" style="color:var(--accent)">Answers</a> by Indie Music India.</div>
 </div>
 <footer>
