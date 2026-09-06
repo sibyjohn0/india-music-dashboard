@@ -610,17 +610,24 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
 
 <div class="page">
 
-  <style>.logo-anim{margin:0 0 26px}.logo-anim video{width:100%;height:auto;display:block;border-radius:16px;border:2px solid var(--ink,#241B2E);box-shadow:6px 6px 0 var(--ink,#241B2E);background:#0d0d0f}@media(max-width:640px){.logo-anim video{box-shadow:4px 4px 0 var(--ink,#241B2E);border-radius:12px}}</style>
-  <div class="logo-anim reveal">
-    <video src="/assets/logo-anim.mp4" poster="/assets/logo-anim-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Indie Music India animated logo"></video>
-  </div>
-
-  <!-- HERO -->
-  <div class="hero-visual reveal" style="--reveal-delay:60ms">
-    <div class="eyebrow">India-first &middot; independent music</div>
-    <h1 class="hero-headline">A home for India's<br>independent music scene.</h1>
-    <p class="hero-deck">The talent is here. The support around it never was. So we built it, honest, India-first help to get heard, get paid, and get on stage. Free tools and data for the whole scene, plus a hands-on team for a few. No cut of your music, no false promises.</p>
-    <p class="hero-deck hero-deck-what">The Radar tracks rising artists daily. A database of 900+ reviewers and playlist curators. An industry directory, a royalty calculator, release guides, and answers to the questions no one explains. Start anywhere below.</p>
+  <style>
+  .hero-combined{border:2px solid var(--ink,#241B2E);border-radius:18px;overflow:hidden;box-shadow:6px 6px 0 var(--ink,#241B2E);margin-bottom:26px}
+  .hero-combined .logo-anim{margin:0}
+  .hero-combined .logo-anim video{width:100%;height:auto;display:block;border:0;border-radius:0;box-shadow:none;background:#0d0d0f;border-bottom:2px solid var(--ink,#241B2E)}
+  .hero-combined .hero-visual{border:0!important;border-radius:0!important;box-shadow:none!important;margin:0!important}
+  @media(max-width:640px){.hero-combined{border-radius:14px}}
+  </style>
+  <!-- HERO (animation + text, combined) -->
+  <div class="hero-combined reveal">
+    <div class="logo-anim">
+      <video src="/assets/logo-anim.mp4" poster="/assets/logo-anim-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Indie Music India animated logo"></video>
+    </div>
+    <div class="hero-visual">
+      <div class="eyebrow">India-first &middot; independent music</div>
+      <h1 class="hero-headline">A home for India's<br>independent music scene.</h1>
+      <p class="hero-deck">The talent is here. The support around it never was. So we built it, honest, India-first help to get heard, get paid, and get on stage. Free tools and data for the whole scene, plus a hands-on team for a few. No cut of your music, no false promises.</p>
+      <p class="hero-deck hero-deck-what">The Radar tracks rising artists daily. A database of 900+ reviewers and playlist curators. An industry directory, a royalty calculator, release guides, and answers to the questions no one explains. Start anywhere below.</p>
+    </div>
   </div>
 
   <div class="cta-row reveal" style="--reveal-delay:140ms">
