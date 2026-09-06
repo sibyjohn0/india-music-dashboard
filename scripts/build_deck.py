@@ -1005,11 +1005,272 @@ def s_blank_plain():
     footer(s, "BLANK CANVAS")
     return s
 
+def _blank_head(s, title, kfill=YELLOW):
+    chip(s, MX, 0.55, "[ LABEL ]", fill=kfill)
+    text(s, MX, 0.97, 11.9, 0.9, title, font=HEAD, size=34, color=INK, bold=True)
+
+def s_blank_titlecover():
+    s = slide(bg=INK, bar=PINK)
+    chip(s, MX, 1.2, "[ KICKER ]", fill=YELLOW)
+    text(s, MX, 1.85, 11.9, 2.3, "[ Big cover title ]", font=HEAD, size=60, color=CREAM, bold=True, leading=1.0)
+    text(s, MX, 4.5, 11.0, 0.8, "[ Subtitle or one-line promise ]", font=BODY, size=20, color="D9CFE6")
+    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.1), Inches(0.42), height=Inches(0.5))
+    return s
+
+def s_blank_threecol():
+    s = slide(); _blank_head(s, "[ Three-column title ]")
+    cw=3.86; gx=0.28; x=MX
+    for _ in range(3):
+        card(s, x, 1.8, cw, 4.5, fill=CARD)
+        text(s, x+0.28, 2.05, cw-0.56, 0.4, "[ Column ]", font=BODY, size=15, color=MUT)
+        x+=cw+gx
+    footer(s, "BLANK CANVAS"); return s
+
+def s_blank_statement():
+    s = slide(bg=INK, bar=VIOLET)
+    chip(s, MX, 1.35, "[ KICKER ]", fill=VIOLET)
+    text(s, MX, 2.0, 11.9, 3.4, "[ One-sentence statement goes here. ]", font=HEAD, size=44, color=CREAM, bold=True, leading=1.1, anchor="m")
+    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.1), Inches(0.42), height=Inches(0.5))
+    return s
+
+def s_blank_quote():
+    s = slide(); _blank_head(s, "[ Quote / testimonial title ]", kfill=PINK)
+    card(s, MX, 1.9, 11.9, 4.4, fill=YELLOW, line=INK, shadow=INK)
+    text(s, MX+0.5, 2.2, 11.0, 3.0, "“[ The quote goes here. ]”", font=HEAD, size=34, color=INK, bold=True, leading=1.08, anchor="m")
+    text(s, MX+0.5, 5.55, 11.0, 0.5, "[ Name, role ]", font=MONO, size=13, color=INK)
+    footer(s, "BLANK CANVAS"); return s
+
+def s_blank_stats():
+    s = slide(); _blank_head(s, "[ Metrics / numbers title ]", kfill=MINT)
+    cw=2.78; gx=0.13; x=MX
+    for col in [PINK, VIOLET, MINT, YELLOW]:
+        card(s, x, 1.9, cw, 2.0, fill=CARD); _topbar(s, x, 1.9, cw, col)
+        text(s, x+0.24, 2.2, cw-0.4, 0.9, "[ 0 ]", font=HEAD, size=40, color=INK, bold=True)
+        text(s, x+0.24, 3.25, cw-0.4, 0.4, "[ LABEL ]", font=MONO, size=10.5, color=MUT, bold=True)
+        x+=cw+gx
+    footer(s, "BLANK CANVAS"); return s
+
+def s_blank_compare():
+    s = slide(); _blank_head(s, "[ Comparison / vs title ]", kfill=VIOLET)
+    card(s, MX, 1.9, 5.5, 4.4, fill=CARD)
+    text(s, MX+0.3, 2.15, 5.0, 0.4, "[ Option A ]", font=HEAD, size=20, color=INK, bold=True)
+    card(s, 7.1, 1.9, 5.5, 4.4, fill=CARD)
+    text(s, 7.4, 2.15, 5.0, 0.4, "[ Option B ]", font=HEAD, size=20, color=INK, bold=True)
+    vs = s.shapes.add_shape(MSO_SHAPE.OVAL, Inches(6.36), Inches(3.7), Inches(0.9), Inches(0.9))
+    vs.fill.solid(); vs.fill.fore_color.rgb=C(PINK); vs.line.color.rgb=C(INK); vs.line.width=Pt(2); _noshadow(vs)
+    text(s, 6.36, 3.88, 0.9, 0.5, "VS", font=HEAD, size=20, color=WHITE, bold=True, align="c")
+    footer(s, "BLANK CANVAS"); return s
+
+def s_blank_gallery():
+    s = slide(); _blank_head(s, "[ Gallery / moodboard title ]", kfill=PINK)
+    tw=3.86; th=2.15; gx=0.28; gy=0.2; x0,y0=MX,1.85
+    for i in range(6):
+        r,c=divmod(i,3); media(s, x0+c*(tw+gx), y0+r*(th+gy), tw, th, "IMAGE", "")
+    footer(s, "BLANK CANVAS"); return s
+
+def s_blank_fullbleed():
+    s = slide()
+    media(s, 0.3, 0.3, SW-0.6, SH-0.6, "DROP FULL-BLEED IMAGE / VIDEO: SEND TO BACK, ADD TEXT OVER", "fill the frame")
+    chip(s, MX, SH-1.15, "[ CAPTION OVER IMAGE ]", fill=YELLOW)
+    return s
+
+# =============================================================================
+# BRAND PARTNERSHIP PITCH — a second deliverable type (templatised from a real
+# title-partner deck): pitch a project/artist to brands for sponsorship.
+# =============================================================================
+def _leftbar(s, x, y, h, col):
+    b = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(0.14), Inches(h))
+    b.fill.solid(); b.fill.fore_color.rgb=C(col); b.line.fill.background(); _round(b,0.5); _noshadow(b)
+
+def _topbar(s, x, y, w, col, h=0.14):
+    b = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(h))
+    b.fill.solid(); b.fill.fore_color.rgb=C(col); b.line.fill.background(); _round(b,0.4); _noshadow(b)
+
+def s_bp_cover():
+    s = slide(bg=INK, bar=YELLOW)
+    chip(s, MX, 0.85, "PARTNER PROPOSAL  ·  CATEGORY EXCLUSIVE", fill=YELLOW)
+    text(s, MX, 1.5, 11.9, 1.5, "[ Project / film name ]", font=HEAD, size=64, color=CREAM, bold=True)
+    text(s, MX, 2.95, 11.0, 0.5, "[ Theme  ·  Theme  ·  Theme ]", font=BODY, size=22, color="D9CFE6", italic=True)
+    card(s, MX, 3.95, 8.4, 1.25, fill=INK, line=YELLOW, lw=1.75, shadow=None)
+    text(s, MX+0.3, 4.13, 7.8, 0.35, "PARTNER PROPOSAL FOR", font=MONO, size=11, color=YELLOW, bold=True, spacing=1)
+    text(s, MX+0.3, 4.5, 7.8, 0.6, "[ Brand ]", font=HEAD, size=30, color=CREAM, bold=True)
+    text(s, MX, 5.5, 11.9, 0.5, "Featuring [ talent · talent ]      Director [ name ]      DOP [ name ]", font=BODY, size=14, color="9C93A8")
+    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.1), Inches(0.42), height=Inches(0.5))
+    return s
+
+def s_bp_credibility():
+    s = slide(); head(s, "BRAND PITCH  ·  CREDIBILITY", "The act, by the numbers", accent=YELLOW)
+    stats=[("[ 0 ]","SPOTIFY MONTHLY",PINK),("[ 0 ]","YOUTUBE VIEWS",VIOLET),("[ 0 ]","INSTAGRAM",MINT),("[ 0 ]","FESTIVALS",YELLOW)]
+    cw=2.78; gx=0.13; x=MX
+    for v,k,col in stats:
+        card(s,x,1.75,cw,1.55,fill=CARD); _topbar(s,x,1.75,cw,col)
+        text(s,x+0.24,1.98,cw-0.4,0.75,v,font=HEAD,size=32,color=INK,bold=True)
+        text(s,x+0.24,2.78,cw-0.4,0.4,k,font=MONO,size=10,color=MUT,bold=True,spacing=0.3)
+        x+=cw+gx
+    q=[("“[ Pull quote that positions the act ]”","·  [ Publication, year ]"),("“[ Second credibility quote ]”","·  [ Publication ]")]
+    cw2=5.85; x=MX
+    for quote,src in q:
+        card(s,x,3.6,cw2,2.7,fill=NEUT,line=INK,shadow=INK)
+        text(s,x+0.3,3.85,cw2-0.6,1.7,quote,font=HEAD,size=20,color=INK,bold=True,leading=1.1)
+        text(s,x+0.3,5.72,cw2-0.6,0.4,src,font=MONO,size=11,color=MUT)
+        x+=cw2+0.2
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_concept():
+    s=slide(); head(s,"BRAND PITCH  ·  CREATIVE","The concept & visual language",accent=YELLOW)
+    card(s,MX,1.75,5.6,4.55,fill=INK,shadow=None,line=INK)
+    text(s,MX+0.3,1.98,5.0,0.35,"THE CONCEPT",font=MONO,size=11,color=YELLOW,bold=True,spacing=1)
+    text(s,MX+0.3,2.4,5.0,1.8,"“[ The idea in one line a brand can repeat. ]”",font=HEAD,size=25,color=CREAM,bold=True,leading=1.08)
+    text(s,MX+0.3,4.3,5.0,0.35,"THE MOTIF",font=MONO,size=11,color=YELLOW,bold=True,spacing=1)
+    text(s,MX+0.3,4.7,5.0,1.4,"[ The single visual thread that carries it from first frame to last. ]",font=BODY,size=14,color="D9CFE6",leading=1.2)
+    tiles=[("SET / WORLD","4:3"),("LIGHT / GRADE","4:3"),("TEXTURE / OBJECT","4:3"),("MOTIF DETAIL","4:3")]
+    tw=2.7; th=2.15; x0=6.6; y0=1.75
+    for i,(lbl,r) in enumerate(tiles):
+        rr,cc=divmod(i,2); media(s,x0+cc*(tw+0.14),y0+rr*(th+0.11),tw,th,lbl,r)
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_cast():
+    s=slide(); head(s,"BRAND PITCH  ·  TALENT","The cast & featured artists",accent=YELLOW)
+    cw=3.86; gx=0.28; x=MX; cols=[PINK,VIOLET,MINT]
+    for i in range(3):
+        card(s,x,1.8,cw,4.5,fill=CARD)
+        media(s,x+0.28,2.05,cw-0.56,1.85,"PORTRAIT","3:4")
+        text(s,x+0.28,4.0,cw-0.56,0.5,"[ Name ]",font=HEAD,size=19,color=INK,bold=True)
+        text(s,x+0.28,4.5,cw-0.56,0.35,"[ Role / known for ]",font=BODY,size=12,color=MUT)
+        chip(s,x+0.28,4.95,"[ HEADLINE STAT ]",fill=cols[i],size=9)
+        text(s,x+0.28,5.5,cw-0.56,0.7,"[ One credit or award line. ]",font=BODY,size=12,color=INK,leading=1.15)
+        x+=cw+gx
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_assets():
+    s=slide(); head(s,"BRAND PITCH  ·  THE OFFER","Assets, not impressions",accent=YELLOW)
+    text(s,MX,1.55,11.9,0.4,"What the brand owns outright, forever. No approval rounds, no expiry.",font=BODY,size=14,color=MUT)
+    items=[("Full photo library","Cast shoot images to run as Meta / Google / print / OOH, forever.",PINK),
+           ("3-5 brand cutdowns","Ad-ready edits to run on YouTube / Meta independently.",VIOLET),
+           ("Title card + placement","Presented by [Brand]. Product lit and framed, editorial-grade.",YELLOW),
+           ("Social at launch","Cast and artist posts and reels at release.",MINT),
+           ("EPK & press","Named as Title Partner in the press kit and release.",PINK),
+           ("Billboard creative","City OOH creative, yours to run, no approval.",VIOLET)]
+    cw=3.86; ch=1.6; gx=0.28; gy=0.22; x0,y0=MX,2.05
+    for i,(t,d,col) in enumerate(items):
+        r,cx=divmod(i,3); x=x0+cx*(cw+gx); y=y0+r*(ch+gy)
+        card(s,x,y,cw,ch,fill=CARD); _leftbar(s,x,y,ch,col)
+        text(s,x+0.32,y+0.18,cw-0.55,0.4,t,font=HEAD,size=16,color=INK,bold=True)
+        text(s,x+0.32,y+0.62,cw-0.55,ch-0.72,d,font=BODY,size=11.5,color=MUT,leading=1.14)
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_audience():
+    s=slide(); head(s,"BRAND PITCH  ·  REACH","Audience & the maths",accent=YELLOW)
+    segs=[("[ Core geography ]","[ who they are, why they buy ]",PINK),
+          ("[ Diaspora ]","[ international, high-intent cultural buyers ]",VIOLET),
+          ("[ Cultural youth ]","[ aspirational, culturally conscious ]",MINT)]
+    y=1.8
+    for t,d,col in segs:
+        card(s,MX,y,6.0,1.32,fill=CARD); _leftbar(s,MX,y,1.32,col)
+        text(s,MX+0.32,y+0.2,5.5,0.4,t,font=HEAD,size=17,color=INK,bold=True)
+        text(s,MX+0.32,y+0.68,5.5,0.5,d,font=BODY,size=12.5,color=MUT)
+        y+=1.5
+    card(s,7.05,1.8,5.55,1.55,fill=INK,shadow=None,line=INK)
+    text(s,7.3,1.98,5.0,0.3,"COMBINED REACH, YEAR 1",font=MONO,size=10.5,color=YELLOW,bold=True,spacing=0.5)
+    text(s,7.3,2.3,3.4,0.8,"[ 0M ]",font=HEAD,size=40,color=CREAM,bold=True)
+    text(s,9.9,2.55,2.6,0.7,"views\nCPV [ ₹0 ]",font=BODY,size=13,color="D9CFE6",leading=1.15)
+    comp=[("vs festival sponsor","[ ₹ ]  ·  ends Sunday, own nothing",PINK),
+          ("vs celebrity influencer","[ ₹ ]  ·  stops when the campaign stops",VIOLET),
+          ("This partnership","owned forever, compounds",MINT)]
+    y=3.55
+    for k,v,col in comp:
+        card(s,7.05,y,5.55,0.82,fill=CARD,shadow=INK,off=0.05); _leftbar(s,7.05,y,0.82,col)
+        text(s,7.35,y+0.13,5.0,0.35,k,font=HEAD,size=14,color=INK,bold=True)
+        text(s,7.35,y+0.46,5.0,0.3,v,font=MONO,size=10.5,color=MUT)
+        y+=0.94
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_deliverables():
+    s=slide(); head(s,"BRAND PITCH  ·  DELIVERABLES","Content architecture",accent=YELLOW)
+    cols=[("PRIMARY FILM",PINK,["Main film (master)","Director's cut","Trailer 90-120s","Teaser 45-60s"]),
+          ("SHORT-FORM",VIOLET,["4x 30s chapter reels","4x 15s platform reels","7-chapter still series","Social card set"]),
+          ("EDITORIAL & ARTIST",YELLOW,["Character posters","Ensemble poster","Product / costume editorial","BTS photo series"]),
+          ("PRESS & BRAND",MINT,["BTS documentary","Electronic press kit","Brand cutdowns","Press release"])]
+    cw=2.8; gx=0.12; x=MX
+    for name,col,rows in cols:
+        card(s,x,1.8,cw,4.5,fill=CARD); _topbar(s,x,1.8,cw,col,h=0.62)
+        text(s,x+0.2,1.92,cw-0.4,0.4,name,font=HEAD,size=14,color=INK if col in (YELLOW,MINT) else WHITE,bold=True,anchor="m")
+        bullets(s,x+0.24,2.65,cw-0.45,3.4,rows,size=12.5,gap=12,mfill=col)
+        x+=cw+gx
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_tiers():
+    s=slide(); head(s,"BRAND PITCH  ·  PACKAGES","Three ways to partner",accent=YELLOW)
+    text(s,MX,1.55,11.9,0.4,"Category exclusive. Choose the tier that fits the brand's ambition and budget.",font=BODY,size=14,color=MUT)
+    tiers=[("TITLE PARTNER","[ ₹ ]",PINK,["The film exists because of you","Title card + song-title option","Full photo library + 3-5 cutdowns","All film and social assets","Category exclusive, no approvals"]),
+           ("ASSOCIATE","[ ₹ ]",VIOLET,["Alongside a title partner","Secondary logo on trailer + reels","Selected images + 2 cutdowns","Cast story posts at launch","EPK credit as associate"]),
+           ("INTEGRATION","[ ₹ ]",MINT,["Product inside the film's world","Choose an integration zone","Dedicated editorial stills","Cast post if worn by talent","EPK product credit"])]
+    cw=3.86; gx=0.28; x=MX
+    for name,price,col,rows in tiers:
+        card(s,x,2.1,cw,4.2,fill=CARD); _topbar(s,x,2.1,cw,col,h=0.9)
+        text(s,x+0.28,2.22,cw-0.5,0.4,name,font=HEAD,size=17,color=INK if col in (YELLOW,MINT) else WHITE,bold=True)
+        text(s,x+0.28,2.6,cw-0.5,0.35,price,font=MONO,size=15,color=INK if col in (YELLOW,MINT) else WHITE,bold=True)
+        bullets(s,x+0.28,3.2,cw-0.55,2.9,rows,size=12.5,gap=10,mfill=col)
+        x+=cw+gx
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_next():
+    s=slide(); head(s,"BRAND PITCH  ·  CLOSE","What you provide + next step",accent=YELLOW)
+    card(s,MX,1.8,6.0,4.5,fill=CARD)
+    text(s,MX+0.3,2.0,5.5,0.35,"WHAT YOU PROVIDE (ALL TIERS)",font=MONO,size=11,color=MUT,bold=True,spacing=0.5)
+    bullets(s,MX+0.3,2.5,5.4,3.5,["High-res logo (PNG + SVG)","Exact name spelling","Brand colour hex codes","One-line descriptor (20 words max)","Product or props for the shoot"],size=14,gap=14,mfill=PINK)
+    card(s,7.05,1.8,5.55,4.5,fill=YELLOW,line=INK,shadow=INK)
+    text(s,7.35,2.0,5.0,0.35,"NEXT STEP",font=MONO,size=11,color=INK,bold=True,spacing=1)
+    text(s,7.35,2.5,5.0,1.6,"A 30-minute call with [ names / roles ] to confirm the tier, integration scope, and proceed to contract.",font=HEAD,size=21,color=INK,bold=True,leading=1.1)
+    text(s,7.35,4.6,5.0,0.35,"THE ONE NON-NEGOTIABLE",font=MONO,size=10.5,color=INK,bold=True,spacing=0.5)
+    text(s,7.35,5.0,5.0,1.1,"No approval rounds on creative, across every tier. Stated before the contract is signed.",font=BODY,size=13.5,color=INK,leading=1.18)
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_proof():
+    s=slide(); head(s,"BRAND PITCH  ·  WHY NOW","Market context & proof",accent=YELLOW)
+    cards=[("THE FESTIVAL ENDS",PINK,"[ Festival sponsorships vanish when the gates close. A film lives on digital forever. ]","REFERENCE · [ festival, source, date ]"),
+           ("THE WAVE YOU MISSED",VIOLET,"[ The cultural moment the brand was adjacent to but never inside. Name the proof: titles, streams, awards. ]","REFERENCE · [ titles, year ]"),
+           ("PLATFORMS ARE BETTING",MINT,"[ Government, YouTube, Spotify are backing independent creative. This project is that bet. ]","REFERENCE · [ MoU / payout, date ]")]
+    cw=3.86; gx=0.28; x=MX
+    for name,col,body,ref in cards:
+        card(s,x,1.85,cw,4.4,fill=CARD); _topbar(s,x,1.85,cw,col)
+        text(s,x+0.28,2.15,cw-0.55,0.5,name,font=HEAD,size=17,color=INK,bold=True)
+        text(s,x+0.28,2.75,cw-0.55,2.4,body,font=BODY,size=14,color=INK,leading=1.22)
+        text(s,x+0.28,5.55,cw-0.55,0.6,ref,font=MONO,size=9,color=MUT,leading=1.15)
+        x+=cw+gx
+    footer(s,"BRAND PITCH")
+    return s
+
+def s_bp_close():
+    s=slide(bg=INK,bar=YELLOW)
+    text(s, MX, 2.1, 11.9, 2.0, "[ Your product. Their faces. Yours forever. ]", font=HEAD, size=44, color=CREAM, bold=True, leading=1.1, anchor="m")
+    text(s, MX, 4.15, 11.9, 0.9, "[ One line on what this really is: a cultural property built to produce campaign-grade imagery a brand owns and runs forever. ]", font=BODY, size=16, color="D9CFE6", leading=1.2)
+    x=MX
+    for lbl in ["[ contact name · role ]","[ phone ]","[ email · site · @handle ]"]:
+        w=chip(s,x,5.5,lbl,fill=YELLOW,size=10); x+=w+0.18
+    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.1), Inches(0.42), height=Inches(0.5))
+    return s
+
 # =============================================================================
 def build():
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    # Section 0
+    # Section 0 — ORIENTATION
     s_cover(); s_howto(); s_brand(); s_pipeline(); s_projectcover()
+    # BLANKS & SECTIONS (up front, for quick grab)
+    divider("00","BLANKS & SECTIONS",VIOLET,"Empty branded canvases. Duplicate, retitle, build. Grab these first.",
+        ["Sections","Covers","Layouts","Statement","Quote","Stats","Compare","Gallery"])
+    s_section_template(PINK); s_section_template(MINT); s_section_template(VIOLET)
+    s_blank_titlecover(); s_blank_title(); s_blank_twocol(); s_blank_threecol()
+    s_blank_media(); s_blank_fullbleed(); s_blank_gallery()
+    s_blank_statement(); s_blank_quote(); s_blank_stats(); s_blank_compare(); s_blank_plain()
     # Section 1 — IDENTITY
     divider(*SECTIONS[0], ["Thesis","Snapshot","Origin","Moodboard","References","Audit","Takeaways"])
     s_statement("01 · IDENTITY", "Before anyone can love the music, they have to be able to describe the artist in one sentence.", PINK)
@@ -1071,14 +1332,16 @@ def build():
         ("Splits in writing, pre-release","One signed worksheet prevents most royalty disputes."),
         ("Keep stems clean","Sync is the biggest single cheque. Stay ready to say yes fast."),
         ("Stack five streams","Live, sync, merch, direct, streaming. Streaming is only one of them.")])
-    # Section 7 — COMPONENT LIBRARY
-    divider("07","COMPONENT LIBRARY",MINT,"The drag-and-drop kit. Copy any block onto your slide.", ["Blocks","Layouts","Matrix / table / media / CTA"])
+    # Section 7 — BRAND PARTNERSHIP PITCH (a second deliverable type)
+    divider("07","BRAND PARTNERSHIP",YELLOW,"Turn a project into a brand asset a partner owns forever.",
+        ["Cover","Credibility","The offer","Reach","Deliverables","Tiers","Proof"])
+    s_statement("07 · BRAND PARTNERSHIP", "Brands don't want another logo on a stage. They want an asset they own forever.", YELLOW)
+    s_bp_cover(); s_bp_credibility(); s_bp_concept(); s_bp_cast(); s_bp_assets(); s_bp_audience()
+    s_bp_deliverables(); s_bp_tiers(); s_bp_next(); s_bp_proof(); s_bp_close()
+    # Section 8 — COMPONENT LIBRARY
+    divider("08","COMPONENT LIBRARY",MINT,"The drag-and-drop kit. Copy any block onto your slide.", ["Blocks","Layouts","Matrix / table / media / CTA"])
     s_lib_1(); s_lib_2(); s_lib_3()
-    # Blanks & sections — empty canvases to build from
-    divider("08","BLANKS & SECTIONS",VIOLET,"Empty branded canvases. Duplicate, retitle, build.", ["Section template","Title","Two-column","Media-led","Plain"])
-    s_section_template(PINK); s_section_template(MINT); s_section_template(VIOLET)
-    s_blank_title(); s_blank_twocol(); s_blank_media(); s_blank_plain()
-    # Section 9 — CLOSE
+    # CLOSE
     s_next(); s_signoff()
     stamp_numbers()
     prs.save(str(OUT))
