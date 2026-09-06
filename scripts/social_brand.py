@@ -59,9 +59,20 @@ def shadow_card(d, box, radius=20, fill=PAPER, off=7):
     d.rounded_rectangle([x0+off,y0+off,x1+off,y1+off], radius=radius, fill=INK)
     d.rounded_rectangle(box, radius=radius, fill=fill, outline=INK, width=3)
 
-def footer(d, left="@indiemusicindia.co", right="indiemusicindia.com"):
-    y=H-72
-    logo_mark(d, 84+13, y+14, 13, INK)
-    d.text((84+40,y), left, font=F(MONO,26), fill=INK)
+_MARK=None
+def _mark():
+    global _MARK
+    if _MARK is None: _MARK=Image.open(REPO/"assets"/"brand"/"mark.png").convert("RGBA")
+    return _MARK
+
+def paste_mark(im, cx, cy, size=40):
+    """Paste the real record mark (replaces the old hand-drawn dot)."""
+    m=_mark().resize((size,size), Image.LANCZOS)
+    im.paste(m, (cx-size//2, cy-size//2), m)
+
+def footer(im, d, left="@indiemusicindia.co", right="indiemusicindia.com"):
+    y=H-74
+    paste_mark(im, 84+18, y+18, 40)
+    d.text((84+52,y), left, font=F(MONO,26), fill=INK)
     if right:
         d.text((W-84,y), right, font=F(MONO,24), fill=MUT, anchor="ra")

@@ -26,9 +26,10 @@ def wrap(d,t,f,mw):
     return o
 def base():
     im=Image.new("RGB",(W,H),BG); d=ImageDraw.Draw(im); d.rectangle([0,0,W,8],fill=ACC); return im,d
-def footer(d,page=None,total=None):
-    cy=H-64; d.ellipse([64,cy-13,64+26,cy+13],fill=ACC); d.ellipse([73,cy-4,73+8,cy+4],fill=BG)
-    d.text((104,H-78),"@indiemusicindia.co",font=F(MONO,26),fill=MUT)
+_MARK=Image.open(REPO/"assets"/"brand"/"mark.png").convert("RGBA")
+def footer(im,d,page=None,total=None):
+    m=_MARK.resize((46,46),Image.LANCZOS); im.paste(m,(64,H-99),m)
+    d.text((122,H-78),"@indiemusicindia.co",font=F(MONO,26),fill=MUT)
     if page: d.text((W-64,H-78),f"{page}/{total}",font=F(MONO,26),fill=MUT,anchor="ra")
 
 def pill(d,x,y,text,fs=26):
@@ -78,7 +79,7 @@ def build_gigs(city, rx):
     d.text((x,y+16),f"{len(gigs)} shows worth leaving the house for",font=F(BODY,42),fill=MINT)
     d.text((x,y+74),f"{rng}",font=F(MONO,30),fill=MUT)
     d.text((x,H-190),"Swipe the list, then save it →",font=F(BODY,38),fill=MUT)
-    footer(d,1,total); im.save(out/"slide_01.png")
+    footer(im,d,1,total); im.save(out/"slide_01.png")
     # list slides
     def dchip(dt):
         from datetime import date as D
@@ -96,7 +97,7 @@ def build_gigs(city, rx):
             if v: d.text((tx,yy),v[:40],font=F(BODY,30),fill=MUT); yy+=40
             y=max(yy,y+66)+30
             if y>H-200: break
-        footer(d,2+ci,total); im.save(out/f"slide_{2+ci:02d}.png")
+        footer(im,d,2+ci,total); im.save(out/f"slide_{2+ci:02d}.png")
     # follow CTA
     im,d=base(); x=72
     d.text((x,150),"NEVER MISS A SHOW",font=F(MONO,32),fill=ACC)
@@ -106,7 +107,7 @@ def build_gigs(city, rx):
         d.text((x,y),ln,font=F(HEAD,110),fill=col); y+=120
     yy=body(d,x,y+20,"We round up the shows worth your time in your city, every week.")
     pill(d,x,yy+24,"Follow @indiemusicindia.co")
-    footer(d,total,total); im.save(out/f"slide_{total:02d}.png")
+    footer(im,d,total,total); im.save(out/f"slide_{total:02d}.png")
     print(f"gigs-week {city}: {total} slides ({len(gigs)} gigs) -> {out}")
 
 # ---------- feature call ----------
@@ -121,7 +122,7 @@ def build_feature_call():
     d.text((x,y),"Drop your latest release in the comments.",font=F(BODY,44),fill=(36,27,46)); y+=60
     y=body(d,x,y,"We feature the ones we love on The Radar, every week. No fee, no catch. Independent Indian artists only.",fs=40,fill=MUT,lh=52)
     pill(d,x,y+40,"Follow so we can find you")
-    footer(d); im.save(out/"single_feature_call.png")
+    footer(im,d); im.save(out/"single_feature_call.png")
     print(f"feature-call: 1 slide -> {out}")
 
 def build_news():
@@ -138,7 +139,7 @@ def build_news():
         d.text((x,y),ln,font=F(HEAD,130),fill=col); y+=138
     d.text((x,y+16),"The headlines that matter, in 30 seconds.",font=F(BODY,42),fill=MINT)
     d.text((x,H-190),"Swipe, then save →",font=F(BODY,38),fill=MUT)
-    footer(d,1,total); im.save(out/"slide_01.png")
+    footer(im,d,1,total); im.save(out/"slide_01.png")
     for ci,ch in enumerate(chunks):
         im,d=base(); x=72
         d.text((x,120),"ON THE WIRE",font=F(MONO,28),fill=ACC); y=210
@@ -149,7 +150,7 @@ def build_news():
                 d.text((x,y),ln,font=F(HEAD,44),fill=WHITE); y+=52
             y+=34
             if y>H-220: break
-        footer(d,2+ci,total); im.save(out/f"slide_{2+ci:02d}.png")
+        footer(im,d,2+ci,total); im.save(out/f"slide_{2+ci:02d}.png")
     im,d=base(); x=72
     d.text((x,150),"STAY IN THE LOOP",font=F(MONO,32),fill=ACC); y=260
     for ln in ["The scene,","every week."]:
@@ -157,7 +158,7 @@ def build_news():
         d.text((x,y),ln,font=F(HEAD,110),fill=col); y+=120
     yy=body(d,x,y+20,"We track Indian music news so you don't have to.")
     pill(d,x,yy+24,"Follow @indiemusicindia.co")
-    footer(d,total,total); im.save(out/f"slide_{total:02d}.png")
+    footer(im,d,total,total); im.save(out/f"slide_{total:02d}.png")
     print(f"news-week: {total} slides ({len(arts)} headlines) -> {out}")
 
 if __name__ == "__main__":

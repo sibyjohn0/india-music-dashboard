@@ -55,7 +55,7 @@ def card(cat, q, a):
     for ln in alines:
         d.text((x+30,ay), ln, font=af, fill=DARK); ay+=52
     d.rounded_rectangle([x-3, y+22, x+9, y+ch-22], radius=6, fill=PINK)  # pink accent tab
-    footer(d)
+    footer(im, d)
     return im
 
 def main():

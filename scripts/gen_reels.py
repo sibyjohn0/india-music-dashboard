@@ -54,7 +54,7 @@ def frame(eyebrow=None, head=None, head_size=84, body=None, rows=None,
             for ln in wrap(d,text,F(BODY,38),W9-MX-(MX+tw+26))[:1]:
                 d.text((MX+tw+26,y+16),ln,font=F(BODY,38),fill=INK)
             y+=96
-    footer9(d)
+    footer9(im, d)
     return im
 
 # ---- the reels ---------------------------------------------------------------

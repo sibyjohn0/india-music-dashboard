@@ -11,7 +11,7 @@ import numpy as np, imageio.v2 as imageio
 from PIL import Image, ImageDraw
 import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from social_brand import (F, wrap, logo_mark, CREAM, INK, PINK, DARK, MUT,
+from social_brand import (F, wrap, paste_mark, CREAM, INK, PINK, DARK, MUT,
                           YELLOW, VIOLET, MINT, PAPER, HEAD, BODY, MONO)
 
 W9, H9 = 1080, 1920
@@ -23,10 +23,10 @@ def base9(bar=PINK):
     d.rectangle([0, 0, W9, 16], fill=bar)
     return im, d
 
-def footer9(d):
+def footer9(im, d):
     y = 1600
-    logo_mark(d, MX+14, y+15, 14, INK)
-    d.text((MX+44, y), "@indiemusicindia.co", font=F(MONO, 30), fill=INK)
+    paste_mark(im, MX+20, y+20, 46)
+    d.text((MX+56, y), "@indiemusicindia.co", font=F(MONO, 30), fill=INK)
 
 def chip9(d, x, y, text, fill=YELLOW, fg=INK):
     f = F(MONO, 30); tw = d.textlength(text, font=f)
