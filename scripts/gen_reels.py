@@ -21,6 +21,20 @@ from social_brand import (F, wrap, HEAD, BODY, MONO, INK, PINK, DARK, MUT,
 REPO = Path(__file__).resolve().parent.parent
 OUT = REPO/"social"/"reels"
 
+import subprocess, imageio_ffmpeg
+FF = imageio_ffmpeg.get_ffmpeg_exe()
+
+def _outro():
+    """The logo animation fit to 9:16 (centred on cream) — every reel ends on it.
+    Built once per run to /tmp."""
+    o = "/tmp/logo-outro-9x16.mp4"
+    if not Path(o).exists():
+        subprocess.run([FF,"-y","-i",str(REPO/"assets/logo-anim.mp4"),"-vf",
+            "scale=1080:-2,pad=1080:1920:(ow-iw)/2:(oh-ih)/2:color=0xFCEFE6,fps=30,format=yuv420p",
+            "-c:v","libx264","-pix_fmt","yuv420p",o],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    return o
+
 # ---- one reusable frame layout, vertically centred in the safe zone ----------
 def frame(eyebrow=None, head=None, head_size=84, body=None, rows=None,
           big=None, big_sub=None, eyebrow_fill=YELLOW):
@@ -101,20 +115,40 @@ def reel_streamshare():
         frame(eyebrow="ON THE SITE", head="Save this."),
     ], [2.8,3.4,3.2,2.2]
 
+def reel_whatpays():
+    return [
+        frame(eyebrow="THE REAL MONEY", head="Streaming won’t pay your rent in India."),
+        frame(eyebrow="THE MATH", head=None, big="₹30k–50k", big_sub="for a MILLION streams. Once."),
+        frame(eyebrow="WHAT ACTUALLY PAYS", head=None, rows=[
+            ("1","Live shows",PINK),
+            ("2","Sync: ads, film, TV",VIOLET),
+            ("3","Merch",YELLOW),
+            ("4","Real fans, direct",MINT)]),
+        frame(eyebrow="ON THE SITE", head="Streaming is discovery. Build the income around it."),
+    ], [2.6,3.0,4.2,3.0]
+
 REELS = {
     "expenses-ranked": reel_expenses,
     "budget-30k": reel_budget,
     "100k-streams": reel_streams,
     "stream-share-myth": reel_streamshare,
+    "what-pays": reel_whatpays,
 }
 
 def build(name):
     frames, holds = REELS[name]()
     d = OUT/name; d.mkdir(parents=True, exist_ok=True)
     for i,fr in enumerate(frames,1): fr.save(d/f"frame_{i:02d}.png")
-    render_mp4(frames, d/f"{name}.mp4", holds=holds)
-    dur=sum(holds)+0.35*(len(frames)-1)
-    print(f"  {name}: {len(frames)} frames, ~{dur:.1f}s -> {d}/{name}.mp4")
+    body = str(d/"_body.mp4")
+    render_mp4(frames, body, holds=holds)
+    # append the logo animation outro
+    lst = str(d/"_concat.txt"); open(lst,"w").write(f"file '{body}'\nfile '{_outro()}'\n")
+    final = str(d/f"{name}.mp4")
+    subprocess.run([FF,"-y","-f","concat","-safe","0","-i",lst,
+        "-c:v","libx264","-pix_fmt","yuv420p","-movflags","+faststart",final],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    Path(body).unlink(missing_ok=True); Path(lst).unlink(missing_ok=True)
+    print(f"  {name}: {len(frames)} frames + logo outro -> {final}")
 
 def main():
     names = [a for a in sys.argv[1:] if a in REELS] or list(REELS)
