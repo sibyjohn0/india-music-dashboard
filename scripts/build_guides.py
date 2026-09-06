@@ -122,6 +122,9 @@ def build(g):
   {STYLE}
   <style>.g-softcta{{margin-top:38px;font-size:14px;color:var(--muted);line-height:1.65;border-left:3px solid var(--accent);padding:2px 0 2px 15px}}.g-softcta a{{color:var(--accent);font-weight:600}}</style>
   <link rel="stylesheet" href="/assets/poppy.css">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script type="application/ld+json">{json.dumps(article_ld)}</script>
   <script type="application/ld+json">{json.dumps(crumb_ld)}</script>
   <script type="application/ld+json">{json.dumps(faq_ld)}</script>
