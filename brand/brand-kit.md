@@ -20,7 +20,7 @@ Clear over clever · specific (real names/numbers/steps) · India-first (rupees,
 **Lanes:** Receipts (sourced data/how-to) · Real Talk (classy motivating / insider meme) · Signal (sourced considered news take, not the hot take).
 
 ## 02 Logo
-Primary lockup: ◉ dot-mark + "Indie Music India" in Bricolage 800. The ◉ = filled circle in a ring (avatar/bullet). Handle lockup: accent dot + `@indiemusicindia.co` in Space Mono, bottom-left of every asset. Clear space ≥ the dot's height.
+Primary lockup: the ◉ record/target mark (pink `#FF4D8D` + ink concentric rings with a centre dot) + "Indie Music India" in Bricolage 800. Horizontal lockup (mark + wordmark, for headers and wide spaces) and vertical lockup (stacked, for avatars and centred use) both exist; an animated version plays once and lands on the horizontal lockup (homepage only). Handle lockup: accent dot + `@indiemusicindia.co` in Space Mono, bottom-left of every asset. Assets live in `assets/brand/` and are downloadable on `/brand/`. Clear space ≥ the dot's height. Never recolour, distort, or let AI render it: place the real PNG.
 
 ## 03 Color
 pink `#FF4D8D` · orange `#FF9130` · yellow `#FFD23F` · violet `#8B5CF6` · blue `#3AA0FF` · mint `#1FCF9E` · ink `#241B2E` · cream `#FFF7EE`.
@@ -32,7 +32,7 @@ Contrast: ink text on cream/yellow/mint; cream text on ink/violet/blue/pink. Nev
 - **Bricolage Grotesque 800** — headlines, cover lines, big numbers (axes opsz 96, wght 800, wdth 100; tracking -2%).
 - **Inter 400–600** — all body/reading; lines ~65 chars.
 - **Space Mono Bold, UPPERCASE, +14–18% tracking** — eyebrows, kickers, counters, handle, tags. Never body.
-Free on Google Fonts (OFL). Local copies in `~/Downloads/iim_instagram_assets/fonts/`.
+Free on Google Fonts (OFL). Downloadable on `/brand/`; repo copies in `assets/fonts/`. In Google Slides, add Bricolage Grotesque once via Font ▸ More fonts (Inter and Space Mono are already available).
 
 ## 05 Visual language
 2px ink borders + hard 6px offset shadow on tiles/cards · colour-blocked tiles (one accent/gradient each) · corner circles bleeding off top-right + bottom-left (never over text) · Space Mono eyebrow above every headline · "SWIPE →" on carousel covers · "link in bio ↓" only on promo, never educational.
