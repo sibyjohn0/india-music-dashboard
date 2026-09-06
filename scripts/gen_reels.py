@@ -127,12 +127,37 @@ def reel_whatpays():
         frame(eyebrow="ON THE SITE", head="Streaming is discovery. Build the income around it."),
     ], [2.6,3.0,4.2,3.0]
 
+def reel_firstgig():
+    return [
+        frame(eyebrow="YOUR FIRST GIG", head="Nobody’s booking you because nobody knows you play live."),
+        frame(eyebrow="THE FIX, IN ORDER", head=None, rows=[
+            ("1","Play 3 open mics this month",PINK),
+            ("2","Film one clean 2-min live take",VIOLET),
+            ("3","DM 5 small venues that clip",YELLOW),
+            ("4","Open for a bigger act, once",MINT)]),
+        frame(eyebrow="THE ASK", head=None, big="₹5,000", big_sub="A fair first set. Raise it every 3 shows."),
+        frame(eyebrow="THE CATCH", head="Bring 10 people who bring 10 more. That’s the whole game."),
+    ], [2.8,4.4,3.0,3.0]
+
+def reel_collab():
+    return [
+        frame(eyebrow="THE FASTEST GROWTH", head="One good collab beats six months of posting alone."),
+        frame(eyebrow="WHY", head="You borrow their audience, they borrow yours. Both lists grow.", head_size=76),
+        frame(eyebrow="WHO TO ASK", head=None, rows=[
+            ("→","An artist one step above you",VIOLET),
+            ("→","A producer building their name",MINT),
+            ("→","Someone in a nearby genre",YELLOW)]),
+        frame(eyebrow="THE MOVE", head="Bring a finished idea, not just a “let’s collab”."),
+    ], [3.0,3.2,4.0,3.0]
+
 REELS = {
     "expenses-ranked": reel_expenses,
     "budget-30k": reel_budget,
     "100k-streams": reel_streams,
     "stream-share-myth": reel_streamshare,
     "what-pays": reel_whatpays,
+    "first-gig": reel_firstgig,
+    "collab": reel_collab,
 }
 
 def build(name):
