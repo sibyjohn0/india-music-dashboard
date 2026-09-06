@@ -92,7 +92,7 @@ def text(s, x, y, w, h, body, font=BODY, size=16, color=INK, bold=False, italic=
     return tb
 
 def chip(s, x, y, label, fill=YELLOW, fg=INK, size=11):
-    w = max(0.5, len(label)*size*0.019 + 0.34)
+    w = max(0.5, len(label)*size*0.0095 + 0.36)  # tuned to Space Mono advance
     c = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(w), Inches(0.34))
     c.fill.solid(); c.fill.fore_color.rgb = C(fill); c.line.color.rgb = C(INK); c.line.width = Pt(1.5)
     _round(c, 0.5); _noshadow(c)
@@ -145,7 +145,7 @@ def divider(num, title, accent, blurb, inside):
     x = MX
     for it in inside:
         w = chip(s, x, 5.7, it, fill=accent, fg=INK, size=12); x += w + 0.18
-    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.2), Inches(SH-1.2), height=Inches(0.55))
+    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.1), Inches(0.42), height=Inches(0.5))
     return s
 
 def head(s, kicker, title, accent=PINK, y=0.55):
@@ -167,7 +167,7 @@ def s_cover():
          font=BODY, size=19, color=MUT, leading=1.15)
     x = MX
     for lbl, col in [("IDENTITY",PINK),("POSITIONING",VIOLET),("SOCIAL",YELLOW),("RELEASE",MINT),("PROMOTION",PINK),("DISTRIBUTION",VIOLET)]:
-        w = chip(s, x, 6.55, lbl, fill=col, size=11); x += w + 0.14
+        w = chip(s, x, 6.15, lbl, fill=col, size=9); x += w + 0.12
     footer(s, "COVER")
 
 def s_howto():
@@ -180,8 +180,8 @@ def s_howto():
         ("5  Delete the rest","This is a superset. Cut every slide the artist doesn't need. A tight 12-slide deck beats a padded 40."),
         ("6  Keep it on-brand","Colours and fonts are locked to the site. If a font shows as a substitute, add Bricolage Grotesque in Slides (it's a Google Font)."),
     ]
-    cw, ch, gx, gy = 3.72, 1.55, 0.28, 0.32
-    x0, y0 = MX, 1.75
+    cw, ch, gx, gy = 3.72, 1.78, 0.28, 0.28
+    x0, y0 = MX, 1.72
     cols = [PINK, VIOLET, YELLOW, MINT, PINK, VIOLET]
     for i,(t,d) in enumerate(steps):
         r, cx = divmod(i, 3)
@@ -190,7 +190,7 @@ def s_howto():
         bar = s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(x), Inches(y), Inches(0.14), Inches(ch))
         bar.fill.solid(); bar.fill.fore_color.rgb = C(cols[i]); bar.line.fill.background(); _round(bar,0.5); _noshadow(bar)
         text(s, x+0.3, y+0.18, cw-0.5, 0.5, t, font=HEAD, size=17, color=INK, bold=True)
-        text(s, x+0.3, y+0.62, cw-0.5, ch-0.7, d, font=BODY, size=12.5, color=MUT, leading=1.12)
+        text(s, x+0.3, y+0.62, cw-0.5, ch-0.72, d, font=BODY, size=12, color=MUT, leading=1.12)
     footer(s, "ORIENTATION")
 
 def s_brand():
@@ -208,8 +208,8 @@ def s_brand():
     text(s, MX, 3.9, 6.0, 0.4, "TYPE", font=MONO, size=12, color=MUT, bold=True, spacing=1)
     text(s, MX, 4.25, 6.4, 0.7, "Bricolage Grotesque", font=HEAD, size=30, color=INK, bold=True)
     text(s, MX, 4.9, 6.4, 0.4, "Display / headlines", font=BODY, size=12, color=MUT)
-    text(s, MX, 5.35, 6.4, 0.6, "Inter — body copy, the workhorse for everything you read.", font=BODY, size=16, color=INK)
-    text(s, MX, 5.95, 6.4, 0.5, "SPACE MONO — labels, chips, numbers.", font=MONO, size=13, color=INK, bold=True)
+    text(s, MX, 5.35, 6.4, 0.6, "Inter: body copy, the workhorse for everything you read.", font=BODY, size=16, color=INK)
+    text(s, MX, 5.95, 6.4, 0.5, "SPACE MONO: labels, chips, numbers.", font=MONO, size=13, color=INK, bold=True)
     # do / dont
     card(s, 7.7, 4.1, 4.9, 2.6, fill=CARD)
     text(s, 7.95, 4.28, 4.5, 0.4, "DO  /  DON'T", font=MONO, size=12, color=MUT, bold=True, spacing=1)
@@ -246,7 +246,7 @@ def s_projectcover():
         text(s, x+0.22, 4.5, 2.5, 0.3, k, font=MONO, size=10, color=YELLOW, bold=True, spacing=0.5)
         text(s, x+0.22, 4.9, 2.5, 0.7, v, font=BODY, size=15, color=CREAM)
         x += 3.02
-    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.2), Inches(SH-1.2), height=Inches(0.55))
+    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.1), Inches(0.42), height=Inches(0.5))
     return s
 
 # =============================================================================
@@ -661,11 +661,11 @@ def s_promo_curator():
     card(s, MX, 1.75, 5.2, 2.3, fill=VIOLET, line=INK, shadow=INK)
     text(s, MX+0.3, 2.0, 4.7, 0.4, "THE IIM REVIEWER DB", font=MONO, size=11, color=YELLOW, bold=True, spacing=1)
     text(s, MX+0.3, 2.45, 4.7, 0.9, "900+ curators", font=HEAD, size=40, color=WHITE, bold=True)
-    text(s, MX+0.3, 3.35, 4.7, 0.6, "Editorial, podcasts, playlists, YouTube — filter by free/paid, South-Asian, cost.",
+    text(s, MX+0.3, 3.35, 4.7, 0.6, "Editorial, podcasts, playlists, YouTube: filter by free/paid, South-Asian, cost.",
          font=BODY, size=13, color="EDE7F6", leading=1.15)
     bullets(s, 6.7, 1.85, 5.9, 2.2, ["Shortlist 15-20 that genuinely fit the lane",
         "Prioritise the 17 South-Asian curators first","Track free vs paid (SubmitHub credit ≈ ₹85)",
-        "Personalise line 1 — the DB gives you the angle"], size=14, gap=11, mfill=VIOLET)
+        "Personalise line 1, the DB gives you the angle"], size=14, gap=11, mfill=VIOLET)
     # mini tracker
     cols = ["CURATOR","TYPE","FREE/PAID","SENT","REPLY"]; widths=[3.4,2.1,2.1,2.0,2.3]; x0,y0=MX,4.35
     x=x0
@@ -692,7 +692,7 @@ def s_promo_paid():
     card(s, 7.0, 1.8, 5.6, 4.5, fill=INK, shadow=None, line=INK)
     text(s, 7.25, 2.0, 5.1, 0.4, "GUARDRAILS", font=MONO, size=11, color=YELLOW, bold=True, spacing=1)
     bullets(s, 7.25, 2.5, 5.1, 3.6, ["Never buy streams or fake followers","Start at ₹200/day, kill losers fast",
-        "Judge on cost-per-follow, not views","Creative wins, not budget — test 3 hooks","Paid amplifies a good post, it can't save a bad one"], size=14, gap=13, mfill=YELLOW, color=CREAM)
+        "Judge on cost-per-follow, not views","Creative wins, not budget: test 3 hooks","Paid amplifies a good post, it can't save a bad one"], size=14, gap=13, mfill=YELLOW, color=CREAM)
     footer(s, "PROMOTION")
 
 def s_promo_kpis():
@@ -791,7 +791,7 @@ def s_dist_splits():
 # SECTION 7 — COMPONENT LIBRARY
 # =============================================================================
 def s_lib_1():
-    s = slide(); head(s, "COMPONENT LIBRARY  ·  1 / 3", "Blocks — copy onto any slide", accent=MINT)
+    s = slide(); head(s, "COMPONENT LIBRARY  ·  1 / 3", "Blocks: copy onto any slide", accent=MINT)
     # big stat
     card(s, MX, 1.75, 3.7, 2.2, fill=CARD)
     bar=s.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(MX),Inches(1.75),Inches(3.7),Inches(0.14)); bar.fill.solid(); bar.fill.fore_color.rgb=C(PINK); bar.line.fill.background(); _round(bar,0.4); _noshadow(bar)
@@ -902,7 +902,7 @@ def s_signoff():
     text(s, MX, 4.4, 11.0, 0.6, "The playbook, the tools, and the people who use them.", font=BODY, size=20, color="D9CFE6")
     x = MX
     for lbl in ["indiemusicindia.com","@indiemusicindia.co","hello@indiemusicindia.com"]:
-        w = chip(s, x, 5.4, lbl, fill=YELLOW, size=12); x += w + 0.2
+        w = chip(s, x, 5.4, lbl, fill=YELLOW, size=10); x += w + 0.18
     return s
 
 # =============================================================================
@@ -913,7 +913,7 @@ def s_statement(kicker, line, accent):
     s = slide(bg=INK, bar=accent)
     chip(s, MX, 1.35, kicker, fill=accent)
     text(s, MX, 2.0, 11.9, 3.4, line, font=HEAD, size=44, color=CREAM, bold=True, leading=1.1, anchor="m")
-    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.15), Inches(SH-1.15), height=Inches(0.5))
+    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.1), Inches(0.42), height=Inches(0.5))
     return s
 
 def s_moodboard(kicker, title, accent, tiles, note):
@@ -955,6 +955,54 @@ def s_takeaways(section, accent, points):
         text(s, x+0.28, 4.15, cw-0.56, 1.8, d, font=BODY, size=13.5, color=MUT, leading=1.2)
         x += cw+gx
     footer(s, section)
+    return s
+
+# =============================================================================
+# BLANKS & SECTIONS — empty branded canvases to build from
+# =============================================================================
+def s_section_template(accent):
+    """A generic, retitle-able section divider. Duplicate and relabel per client."""
+    s = slide(bg=INK, bar=accent)
+    text(s, MX, 1.5, 4.5, 2.0, "00", font=HEAD, size=150, color=accent, bold=True, wrap=False)
+    text(s, MX, 3.55, 11.0, 1.4, "[ SECTION TITLE ]", font=HEAD, size=68, color=CREAM, bold=True)
+    text(s, MX, 4.85, 9.0, 0.6, "[ one-line purpose of this section ]", font=BODY, size=20, color="D9CFE6")
+    x = MX
+    for _ in range(3):
+        w = chip(s, x, 5.7, "[ WHAT'S INSIDE ]", fill=accent, fg=INK, size=12); x += w + 0.18
+    if MARK.exists(): s.shapes.add_picture(str(MARK), Inches(SW-1.1), Inches(0.42), height=Inches(0.5))
+    return s
+
+def s_blank_title():
+    s = slide(); chip(s, MX, 0.55, "[ LABEL ]", fill=PINK)
+    text(s, MX, 0.97, 11.9, 0.9, "[ Slide title ]", font=HEAD, size=34, color=INK, bold=True)
+    card(s, MX, 1.8, 11.9, 4.5, fill=CARD)
+    text(s, MX+0.35, 2.05, 11.2, 0.4, "[ Body: type here, or paste a block from the Component Library ]", font=BODY, size=15, color=MUT)
+    footer(s, "BLANK CANVAS")
+    return s
+
+def s_blank_twocol():
+    s = slide(); chip(s, MX, 0.55, "[ LABEL ]", fill=VIOLET)
+    text(s, MX, 0.97, 11.9, 0.9, "[ Two-column title ]", font=HEAD, size=34, color=INK, bold=True)
+    card(s, MX, 1.8, 5.85, 4.5, fill=CARD)
+    text(s, MX+0.3, 2.05, 5.3, 0.4, "[ Left column ]", font=BODY, size=15, color=MUT)
+    card(s, 6.75, 1.8, 5.85, 4.5, fill=CARD)
+    text(s, 7.05, 2.05, 5.3, 0.4, "[ Right column ]", font=BODY, size=15, color=MUT)
+    footer(s, "BLANK CANVAS")
+    return s
+
+def s_blank_media():
+    s = slide(); chip(s, MX, 0.55, "[ LABEL ]", fill=MINT)
+    text(s, MX, 0.97, 11.9, 0.9, "[ Media-led title ]", font=HEAD, size=34, color=INK, bold=True)
+    media(s, MX, 1.8, 7.4, 4.5, "DROP IMAGE / VIDEO", "16:9")
+    card(s, 8.3, 1.8, 4.3, 4.5, fill=CARD)
+    text(s, 8.6, 2.05, 3.7, 0.4, "[ Caption / notes ]", font=BODY, size=15, color=MUT)
+    footer(s, "BLANK CANVAS")
+    return s
+
+def s_blank_plain():
+    s = slide()
+    text(s, MX, 0.5, 6.0, 0.4, "[ blank canvas, number stays for reference ]", font=MONO, size=11, color=MUT)
+    footer(s, "BLANK CANVAS")
     return s
 
 # =============================================================================
@@ -1026,7 +1074,11 @@ def build():
     # Section 7 — COMPONENT LIBRARY
     divider("07","COMPONENT LIBRARY",MINT,"The drag-and-drop kit. Copy any block onto your slide.", ["Blocks","Layouts","Matrix / table / media / CTA"])
     s_lib_1(); s_lib_2(); s_lib_3()
-    # Section 8 — CLOSE
+    # Blanks & sections — empty canvases to build from
+    divider("08","BLANKS & SECTIONS",VIOLET,"Empty branded canvases. Duplicate, retitle, build.", ["Section template","Title","Two-column","Media-led","Plain"])
+    s_section_template(PINK); s_section_template(MINT); s_section_template(VIOLET)
+    s_blank_title(); s_blank_twocol(); s_blank_media(); s_blank_plain()
+    # Section 9 — CLOSE
     s_next(); s_signoff()
     stamp_numbers()
     prs.save(str(OUT))

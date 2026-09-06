@@ -19,6 +19,7 @@ REPO = Path(__file__).resolve().parent.parent
 PPTX = Path(sys.argv[1]) if len(sys.argv) > 1 else REPO/"social"/"decks"/"IIM-Artist-Working-Deck.pptx"
 CLIENT = Path.home()/".google-mcp"/"credentials.json"
 TOKEN = Path.home()/".google-mcp"/"tokens"/"deck_push.json"
+IDFILE = Path.home()/".google-mcp"/"tokens"/"deck_file_id.txt"
 SCOPES = ["https://www.googleapis.com/auth/drive.file"]
 SLIDES_MIME = "application/vnd.google-apps.presentation"
 PPTX_MIME = "application/vnd.openxmlformats-officedocument.presentationml.presentation"
@@ -41,12 +42,19 @@ def main():
     if not PPTX.exists():
         sys.exit(f"Not found: {PPTX}  (run build_deck.py first)")
     drive = build("drive", "v3", credentials=creds())
-    meta = {"name": "IIM — Artist Working Deck (Template Kit)", "mimeType": SLIDES_MIME}
     media = MediaFileUpload(str(PPTX), mimetype=PPTX_MIME, resumable=True)
-    f = drive.files().create(body=meta, media_body=media, fields="id,webViewLink").execute()
+    existing = IDFILE.read_text().strip() if IDFILE.exists() else None
+    if existing:  # update in place, keeps the same link
+        f = drive.files().update(fileId=existing, media_body=media, fields="id,webViewLink").execute()
+        action = "updated"
+    else:
+        meta = {"name": "IIM — Artist Working Deck (Template Kit)", "mimeType": SLIDES_MIME}
+        f = drive.files().create(body=meta, media_body=media, fields="id,webViewLink").execute()
+        drive.permissions().create(fileId=f["id"], body={"type": "anyone", "role": "writer"}).execute()
+        action = "created"
     fid = f["id"]
-    drive.permissions().create(fileId=fid, body={"type": "anyone", "role": "writer"}).execute()
-    print("\n✅ Google Slides ready (anyone with link can edit):")
+    IDFILE.write_text(fid)
+    print(f"\n✅ Google Slides {action} (anyone with link can edit):")
     print(f"   {f.get('webViewLink') or f'https://docs.google.com/presentation/d/{fid}/edit'}\n")
 
 if __name__ == "__main__":
