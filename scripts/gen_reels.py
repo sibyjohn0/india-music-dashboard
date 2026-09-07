@@ -153,14 +153,14 @@ def reel_collab():
 def reel_gigwords():
     # A human observation, not a fact: the vocabulary of an Indian indie gig offer.
     return [
-        frame(eyebrow="THE DM", head="“It's a great opportunity!”", eyebrow_fill=PINK),
-        frame(eyebrow="TRANSLATED", head="In Indian indie, the word tells you the fee before they do."),
-        frame(eyebrow="THE DICTIONARY", head=None, rows=[
+        frame(eyebrow="TRANSLATED", head="There's a hidden price tag in every gig offer.", eyebrow_fill=PINK, head_size=96),
+        frame(eyebrow="THE CODE", head=None, rows=[
             ("GIG","means money.",MINT),
             ("FEATURE","maybe. ask twice.",YELLOW),
             ("OPPORTUNITY","you're paying for parking.",PINK)]),
-        frame(eyebrow="WHAT WE LEARNED", head="Learn the vocabulary before you learn the setlist."),
-    ], [2.8,3.0,4.6,3.0]
+        frame(eyebrow="WHAT WE LEARNED", head="Nobody taught us this. We each got burned once and passed the code down the group chat.", head_size=72),
+        frame(head="Learn the vocabulary before you learn the setlist.", head_size=92),
+    ], [3.0,4.4,3.6,2.8]
 
 REELS = {
     "gig-words": reel_gigwords,
