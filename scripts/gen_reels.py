@@ -150,7 +150,20 @@ def reel_collab():
         frame(eyebrow="THE MOVE", head="Bring a finished idea, not just a “let’s collab”."),
     ], [3.0,3.2,4.0,3.0]
 
+def reel_gigwords():
+    # A human observation, not a fact: the vocabulary of an Indian indie gig offer.
+    return [
+        frame(eyebrow="THE DM", head="“It's a great opportunity!”", eyebrow_fill=PINK),
+        frame(eyebrow="TRANSLATED", head="In Indian indie, the word tells you the fee before they do."),
+        frame(eyebrow="THE DICTIONARY", head=None, rows=[
+            ("GIG","means money.",MINT),
+            ("FEATURE","maybe. ask twice.",YELLOW),
+            ("OPPORTUNITY","you're paying for parking.",PINK)]),
+        frame(eyebrow="WHAT WE LEARNED", head="Learn the vocabulary before you learn the setlist."),
+    ], [2.8,3.0,4.6,3.0]
+
 REELS = {
+    "gig-words": reel_gigwords,
     "expenses-ranked": reel_expenses,
     "budget-30k": reel_budget,
     "100k-streams": reel_streams,
