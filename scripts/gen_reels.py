@@ -162,7 +162,17 @@ def reel_gigwords():
         frame(head="Learn the vocabulary before you learn the setlist.", head_size=92),
     ], [3.0,4.4,3.6,2.8]
 
+def reel_dayone():
+    # A human observation: the silence after you release a song.
+    return [
+        frame(eyebrow="RELEASE DAY", head="The scariest part of dropping a song isn't a bad review.", head_size=80),
+        frame(head="It's the silence.", head_size=130),
+        frame(eyebrow="THE MATH AT MIDNIGHT", head=None, big="6 streams", big_sub="4 are you, checking the link works."),
+        frame(eyebrow="WHAT WE LEARNED", head="The song isn't failing. Day one was never the finish line. It's the starting gun.", head_size=72),
+    ], [3.2,2.4,4.0,3.4]
+
 REELS = {
+    "day-one": reel_dayone,
     "gig-words": reel_gigwords,
     "expenses-ranked": reel_expenses,
     "budget-30k": reel_budget,
