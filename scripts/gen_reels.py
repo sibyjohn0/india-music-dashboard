@@ -129,16 +129,17 @@ def reel_whatpays():
 
 def reel_thousandfans():
     # collab-formula: aspirational, concrete contrast, universal. We-voice.
+    # Vivid "show up in the rain" line leads as the hook.
     return [
-        frame(eyebrow="THE MATH THAT MATTERS", head="1,000 real fans beats a million streams.", head_size=88),
-        frame(head="A million streams is a number. It pays once, then forgets you.", head_size=76),
+        frame(eyebrow="THE MATH THAT MATTERS", head="Count the fans who’d show up in the rain.", head_size=90),
+        frame(head="1,000 of them beats a million streams.", head_size=84),
         frame(eyebrow="1,000 FANS IS", head=None, rows=[
             ("→","a sold-out room",PINK),
             ("→","a tour that funds itself",VIOLET),
             ("→","merch that actually moves",YELLOW),
             ("→","a career you own",MINT)]),
-        frame(head="Stop counting streams. Start counting the ones who’d show up in the rain.", head_size=72),
-    ], [3.0,3.2,4.4,3.4]
+        frame(head="A million streams pays once, then forgets you. Build for the 1,000.", head_size=74),
+    ], [3.0,3.0,4.4,3.4]
 
 def reel_firstgig():
     return [
