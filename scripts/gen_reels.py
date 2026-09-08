@@ -127,6 +127,19 @@ def reel_whatpays():
         frame(eyebrow="ON THE SITE", head="Streaming is discovery. Build the income around it."),
     ], [2.6,3.0,4.2,3.0]
 
+def reel_thousandfans():
+    # collab-formula: aspirational, concrete contrast, universal. We-voice.
+    return [
+        frame(eyebrow="THE MATH THAT MATTERS", head="1,000 real fans beats a million streams.", head_size=88),
+        frame(head="A million streams is a number. It pays once, then forgets you.", head_size=76),
+        frame(eyebrow="1,000 FANS IS", head=None, rows=[
+            ("→","a sold-out room",PINK),
+            ("→","a tour that funds itself",VIOLET),
+            ("→","merch that actually moves",YELLOW),
+            ("→","a career you own",MINT)]),
+        frame(head="Stop counting streams. Start counting the ones who’d show up in the rain.", head_size=72),
+    ], [3.0,3.2,4.4,3.4]
+
 def reel_firstgig():
     return [
         frame(eyebrow="YOUR FIRST GIG", head="Nobody’s booking you because nobody knows you play live."),
@@ -172,6 +185,7 @@ def reel_dayone():
     ], [3.2,2.4,4.0,3.4]
 
 REELS = {
+    "thousand-fans": reel_thousandfans,
     "day-one": reel_dayone,
     "gig-words": reel_gigwords,
     "expenses-ranked": reel_expenses,
