@@ -43,7 +43,7 @@ OUT.mkdir(parents=True,exist_ok=True)
 # ---- Slide 1: cover / hook ----
 im,d=base(); x=72
 d.text((x,150),"THE MATH NO ONE SHOWS YOU",font=F(MONO,30),fill=ACC)
-d.text((x,250),"₹50.",font=F(HEAD,300),fill=ACC)
+d.text((x,250),"₹70.",font=F(HEAD,300),fill=ACC)
 y=620
 y=para(d,x,y,"That's roughly what 1,000 streams pays",F(HEAD,50),WHITE,W-140,62)
 y=para(d,x,y,"an independent Indian artist.",F(HEAD,50),WHITE,W-140,62)
@@ -70,7 +70,7 @@ def rowcard(d,y,label,val,sub,col):
     d.text((W-104,y+64),sub,font=F(BODY,30),fill=MUT,anchor="ra")
     return y+178
 y=250
-y=rowcard(d,y,"INDIAN LISTENERS","₹0.03 – ₹0.10","per stream",ACC)
+y=rowcard(d,y,"INDIAN LISTENERS","₹0.05 – ₹0.08","per stream",ACC)
 y=rowcard(d,y,"INTERNATIONAL LISTENERS","₹0.25 – ₹0.42","per stream",MINT)
 d.text((x,y+16),"Apple Music pays the most.",font=F(BODY,38),fill=WHITE)
 d.text((x,y+64),"YouTube pays the least. Spotify sits between.",font=F(BODY,38),fill=(200,200,214))
@@ -126,7 +126,7 @@ footer(d,7,TOTAL); im.save(OUT/"slide_07.png")
 # ---- Standalone single post (self-contained, no swipe cue) ----
 im,d=base(); x=72
 d.text((x,150),"THE MATH NO ONE SHOWS YOU",font=F(MONO,30),fill=ACC)
-d.text((x,250),"₹50.",font=F(HEAD,300),fill=ACC)
+d.text((x,250),"₹70.",font=F(HEAD,300),fill=ACC)
 y=620
 y=para(d,x,y,"That's roughly what 1,000 streams pays",F(HEAD,50),WHITE,W-140,62)
 y=para(d,x,y,"an independent Indian artist.",F(HEAD,50),WHITE,W-140,62)

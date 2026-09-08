@@ -1,4 +1,4 @@
-# Indie Music India — Brand Toolkit (v1, Aug 2026)
+# Indie Music India — Brand Toolkit (v1.1, Sept 2026)
 
 Single source of truth for anything made for Indie Music India. When in doubt, this wins.
 Live version: Claude artifact "Indie Music India — Brand Toolkit".
@@ -62,7 +62,7 @@ Discovery: 90% value, indirect funnel, never a hard sell and never a dead end (b
 ## 09 Content guidelines
 Sourcing standard: every factual claim names a verifiable source; ranges not false precision; "last verified" date on evergreen numbers; fact-check gate before anything factual ships; AI drafts, human verifies every stat and India claim.
 What earns a post: save-worthy (checklist/comparison/real number/genuine laugh); India-specific > generic; one idea per post; show don't claim.
-**LOCKED FACT — Spotify India payout (verified Aug 2026):** ~₹0.03–0.05/stream → 1,000 India streams ≈ ₹30–50; 1M ≈ ₹30,000–50,000. International ≈ ₹0.25–0.42 (global $0.003–0.005). Sources: Ditto, TuneCore, Chartlex, India reporting. Never quote a per-stream number that contradicts this.
+**LOCKED FACT — Spotify India payout (verified Sept 2026):** ~₹0.05–0.08/stream → 1,000 India streams ≈ ₹50–80; 1M ≈ ₹50,000–80,000. Other India platforms per stream: Apple ₹0.55–0.85, YouTube Music ₹0.40–0.60, JioSaavn ₹0.05–0.10. International (Spotify) ≈ ₹0.25–0.42. Sources: Ditto, Chartlex, Grootin, TuneCore. Never quote a per-stream number that contradicts this.
 Hashtags — core: #independentartist #indianmusic #musicbusiness #indieindia #musicianlife · money: #spotifyforartists #musicroyalties #spotifyindia #iprs #musicdistribution · promo: #playlistpitching #musicpr #epk #synclicensing #livemusic
 
 ## 10 Do & Don't

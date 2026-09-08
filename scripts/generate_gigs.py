@@ -143,7 +143,7 @@ def build(picks):
     # --- Back-the-scene beat (gradient) ---
     img = R.grad([R.PINK, R.VIOLET, R.BLUE]); d = ImageDraw.Draw(img)
     R.trk(d, (M, 300), "WHY IT MATTERS", R.mono(28), R.YELLOW, 3)
-    beat = ["1,000 streams pays", "an artist about ₹40.", "A ticket pays them", "tonight. Go."]
+    beat = ["1,000 streams pays", "an artist about ₹70.", "A ticket pays them", "tonight. Go."]
     for j, ln in enumerate(beat):
         d.text((M, 440 + j*130), ln, font=R.bric(88), fill=(R.YELLOW if j == 3 else R.WHITE))
     R.footer(d, R.YELLOW, R.WHITE); img.save(OUT / f"slide_{total:02d}.png")
