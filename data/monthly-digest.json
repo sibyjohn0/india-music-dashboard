@@ -647,13 +647,13 @@
   },
   "2026-09": {
     "month": "2026-09",
-    "snapshots": 7,
-    "last_snapshot_at": "2026-09-07T05:53:45.619405+00:00",
+    "snapshots": 8,
+    "last_snapshot_at": "2026-09-08T05:47:46.779285+00:00",
     "total_videos": 225,
-    "total_artists": 226,
-    "new_artists_seen": 192,
+    "total_artists": 236,
+    "new_artists_seen": 204,
     "median_score": 52,
-    "median_views": 3566,
+    "median_views": 4911,
     "top_artists": [
       {
         "name": "Sanathan Shree Krishnan",
@@ -728,33 +728,33 @@
     ],
     "fastest_growing": [
       {
+        "name": "Phenom",
+        "views_gained": 1878108,
+        "genre": "Electronic",
+        "language": "English"
+      },
+      {
         "name": "Balu Belagundi Singer",
-        "views_gained": 343936,
+        "views_gained": 398191,
         "genre": "Folk / Acoustic",
         "language": "Kannada"
       },
       {
         "name": "SRD AUDIOS&VIDEOS",
-        "views_gained": 258901,
+        "views_gained": 269926,
         "genre": "Indie",
         "language": "Telugu"
       },
       {
         "name": "JalRaj",
-        "views_gained": 182260,
+        "views_gained": 246589,
         "genre": "R&B / Soul",
         "language": "Hindi"
       },
       {
         "name": "Rare.78",
-        "views_gained": 166493,
+        "views_gained": 196129,
         "genre": "Hip Hop / Rap",
-        "language": "English"
-      },
-      {
-        "name": "Mithun Beatz",
-        "views_gained": 125391,
-        "genre": "Rock / Alt",
         "language": "English"
       }
     ],
@@ -765,7 +765,7 @@
       ],
       [
         "Folk / Acoustic",
-        46
+        45
       ],
       [
         "Hip Hop / Rap",
@@ -773,7 +773,7 @@
       ],
       [
         "R&B / Soul",
-        22
+        25
       ],
       [
         "Electronic",
@@ -781,7 +781,7 @@
       ],
       [
         "Classical/Fusion",
-        15
+        17
       ],
       [
         "Lo-Fi",
@@ -789,7 +789,7 @@
       ],
       [
         "Rock / Alt",
-        10
+        6
       ],
       [
         "Indie Pop",
@@ -802,7 +802,7 @@
         25
       ],
       [
-        "Kannada",
+        "Telugu",
         25
       ],
       [
@@ -822,7 +822,7 @@
         25
       ],
       [
-        "English",
+        "Kannada",
         25
       ],
       [
@@ -830,22 +830,22 @@
         25
       ],
       [
-        "Telugu",
+        "English",
         25
       ]
     ],
     "city_shows": {
-      "Mumbai": 41,
-      "Bangalore": 70,
-      "Delhi": 36,
-      "Goa": 21,
-      "Hyderabad": 19,
-      "Chennai": 23,
-      "Koramangala": 1,
-      "Pune": 30,
+      "Goa": 23,
+      "Hyderabad": 29,
+      "Bangalore": 85,
+      "Chennai": 26,
+      "Delhi": 38,
+      "Pune": 33,
+      "Mumbai": 40,
       "Kolkata": 30,
-      "Uppal": 1,
-      "Pune.": 1,
+      "Gachibowli": 1,
+      "Pune.": 2,
+      "NCPA.": 1,
       "NCPA": 1,
       "Guwahati": 2,
       "Salem": 1,
@@ -857,6 +857,6 @@
       "Ahmedabad": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 284
+    "total_shows": 319
   }
 }
