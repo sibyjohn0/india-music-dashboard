@@ -127,6 +127,28 @@ def reel_whatpays():
         frame(eyebrow="ON THE SITE", head="Streaming is discovery. Build the income around it."),
     ], [2.6,3.0,4.2,3.0]
 
+def reel_wrongplatform():
+    # HELP + India data only IIM has: the payout spread across platforms.
+    return [
+        frame(eyebrow="THE PAYOUT NOBODY CHECKS", head="You're chasing the platform that pays the least.", head_size=84),
+        frame(eyebrow="PER 1,000 STREAMS, IN INDIA", head=None, rows=[
+            ("SPOTIFY","₹50–80",PINK),
+            ("JIOSAAVN","₹50–80",VIOLET),
+            ("YT MUSIC","₹400–600",YELLOW),
+            ("APPLE","₹550–850",MINT)]),
+        frame(eyebrow="SAME SONG", head=None, big="10×", big_sub="Apple pays about 10x what Spotify does."),
+        frame(eyebrow="THE MOVE", head="Discover on Spotify. Get paid on Apple. Push both on purpose.", head_size=76),
+    ], [3.0,4.6,3.0,3.2]
+
+def reel_the17():
+    # HELP + the reviewer DB: stop spraying, focus. Drives to a real free tool.
+    return [
+        frame(eyebrow="PLAYLIST PITCHING", head="You're pitching your song to the wrong 900 people.", head_size=84),
+        frame(eyebrow="WE COUNTED", head=None, big="17", big_sub="of 1,100+ curators actually prioritise Indian music."),
+        frame(eyebrow="SO STOP SPRAYING", head="Pitch the 17 who might care. Not the 900 who never will.", head_size=76),
+        frame(eyebrow="ON THE SITE", head="The full filterable list is free. We built it so you don't fly blind.", head_size=72),
+    ], [3.0,3.4,3.2,3.2]
+
 def reel_thousandfans():
     # collab-formula: aspirational, concrete contrast, universal. We-voice.
     # Vivid "show up in the rain" line leads as the hook.
@@ -186,6 +208,8 @@ def reel_dayone():
     ], [3.2,2.4,4.0,3.4]
 
 REELS = {
+    "wrong-platform": reel_wrongplatform,
+    "the-17": reel_the17,
     "thousand-fans": reel_thousandfans,
     "day-one": reel_dayone,
     "gig-words": reel_gigwords,
