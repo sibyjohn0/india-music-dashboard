@@ -647,13 +647,13 @@
   },
   "2026-09": {
     "month": "2026-09",
-    "snapshots": 10,
-    "last_snapshot_at": "2026-09-10T05:46:28.763930+00:00",
+    "snapshots": 11,
+    "last_snapshot_at": "2026-09-11T05:45:36.143003+00:00",
     "total_videos": 225,
-    "total_artists": 250,
-    "new_artists_seen": 223,
-    "median_score": 59,
-    "median_views": 4366,
+    "total_artists": 255,
+    "new_artists_seen": 232,
+    "median_score": 57,
+    "median_views": 4840,
     "top_artists": [
       {
         "name": "Sanathan Shree Krishnan",
@@ -729,33 +729,33 @@
     "fastest_growing": [
       {
         "name": "Patange Music ",
-        "views_gained": 670649,
+        "views_gained": 675803,
         "genre": "Hip Hop / Rap",
         "language": "Marathi"
       },
       {
-        "name": "Mashuq Haque",
-        "views_gained": 521782,
-        "genre": "R&B / Soul",
-        "language": "English"
-      },
-      {
         "name": "Balu Belagundi Singer",
-        "views_gained": 509316,
+        "views_gained": 546762,
         "genre": "Folk / Acoustic",
         "language": "Kannada"
       },
       {
-        "name": "JalRaj",
-        "views_gained": 335306,
+        "name": "Sounds of Isha",
+        "views_gained": 364413,
         "genre": "R&B / Soul",
-        "language": "Hindi"
+        "language": "Marathi"
       },
       {
         "name": "SRD AUDIOS&VIDEOS",
-        "views_gained": 289642,
+        "views_gained": 299875,
         "genre": "Indie",
         "language": "Telugu"
+      },
+      {
+        "name": "Rare.78",
+        "views_gained": 287544,
+        "genre": "Hip Hop / Rap",
+        "language": "English"
       }
     ],
     "genre_breakdown": [
@@ -764,36 +764,40 @@
         54
       ],
       [
-        "Folk / Acoustic",
-        46
+        "Hip Hop / Rap",
+        47
       ],
       [
-        "Hip Hop / Rap",
-        46
+        "Folk / Acoustic",
+        45
       ],
       [
         "R&B / Soul",
-        24
-      ],
-      [
-        "Lo-Fi",
-        15
+        21
       ],
       [
         "Electronic",
-        14
+        18
+      ],
+      [
+        "Lo-Fi",
+        16
       ],
       [
         "Classical/Fusion",
-        13
+        12
       ],
       [
         "Rock / Alt",
-        11
+        9
       ],
       [
         "Indie Pop",
         2
+      ],
+      [
+        "Jazz / Blues",
+        1
       ]
     ],
     "language_breakdown": [
@@ -810,15 +814,7 @@
         25
       ],
       [
-        "Malayalam",
-        25
-      ],
-      [
         "Bengali",
-        25
-      ],
-      [
-        "Punjabi",
         25
       ],
       [
@@ -830,20 +826,29 @@
         25
       ],
       [
+        "Punjabi",
+        25
+      ],
+      [
+        "Malayalam",
+        25
+      ],
+      [
         "English",
         25
       ]
     ],
     "city_shows": {
-      "Chennai": 24,
-      "Delhi": 38,
-      "Goa": 23,
-      "Hyderabad": 29,
-      "Pune": 32,
-      "Bangalore": 76,
-      "Mumbai": 43,
-      "Kolkata": 29,
+      "Mumbai": 44,
+      "Goa": 21,
+      "Hyderabad": 26,
+      "Kolkata": 26,
+      "Delhi": 34,
+      "Pune": 28,
+      "Bangalore": 78,
+      "Chennai": 27,
       "Uppal": 1,
+      "Pune.": 1,
       "Gachibowli": 1,
       "Whitefield, Bengaluru": 1,
       "NCPA": 1,
@@ -851,13 +856,12 @@
       "Salem": 1,
       "Ahmedabad": 1,
       "India": 1,
-      "Kochi": 2,
+      "Kochi": 3,
       "Jaipur": 1,
       "Kullu": 1,
-      "Bhubaneshwar": 1,
-      "Shillong": 1
+      "Bhubaneshwar": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 308
+    "total_shows": 299
   }
 }
