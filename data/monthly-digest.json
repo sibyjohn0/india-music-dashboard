@@ -647,13 +647,13 @@
   },
   "2026-09": {
     "month": "2026-09",
-    "snapshots": 14,
-    "last_snapshot_at": "2026-09-14T05:59:48.236494+00:00",
+    "snapshots": 15,
+    "last_snapshot_at": "2026-09-15T06:00:57.576868+00:00",
     "total_videos": 225,
-    "total_artists": 284,
-    "new_artists_seen": 262,
+    "total_artists": 292,
+    "new_artists_seen": 270,
     "median_score": 56,
-    "median_views": 3243,
+    "median_views": 3174,
     "top_artists": [
       {
         "name": "Sanathan Shree Krishnan",
@@ -729,33 +729,33 @@
     "fastest_growing": [
       {
         "name": "Balu Belagundi Singer",
-        "views_gained": 626279,
+        "views_gained": 642094,
         "genre": "Folk / Acoustic",
         "language": "Kannada"
       },
       {
         "name": "Sounds of Isha",
-        "views_gained": 394868,
+        "views_gained": 405223,
         "genre": "R&B / Soul",
         "language": "Marathi"
       },
       {
         "name": "Sanidhapa Originals ",
-        "views_gained": 266728,
+        "views_gained": 336682,
         "genre": "R&B / Soul",
         "language": "Marathi"
       },
       {
-        "name": "SAMBATA__ 00",
-        "views_gained": 114466,
-        "genre": "Rock / Alt",
-        "language": "Marathi"
-      },
-      {
         "name": "Anushka Gautam",
-        "views_gained": 87536,
+        "views_gained": 105030,
         "genre": "Indie",
         "language": "Punjabi"
+      },
+      {
+        "name": "Shiv Edits",
+        "views_gained": 85676,
+        "genre": "Indie",
+        "language": "Malayalam"
       }
     ],
     "genre_breakdown": [
@@ -773,11 +773,11 @@
       ],
       [
         "R&B / Soul",
-        20
+        21
       ],
       [
         "Electronic",
-        20
+        17
       ],
       [
         "Lo-Fi",
@@ -785,7 +785,7 @@
       ],
       [
         "Classical/Fusion",
-        14
+        15
       ],
       [
         "Rock / Alt",
@@ -793,7 +793,7 @@
       ],
       [
         "Indie Pop",
-        2
+        3
       ]
     ],
     "language_breakdown": [
@@ -807,6 +807,10 @@
       ],
       [
         "Kannada",
+        25
+      ],
+      [
+        "Malayalam",
         25
       ],
       [
@@ -828,28 +832,23 @@
       [
         "English",
         25
-      ],
-      [
-        "Malayalam",
-        25
       ]
     ],
     "city_shows": {
-      "Mumbai": 39,
-      "Goa": 17,
-      "Hyderabad": 25,
-      "Bangalore": 77,
-      "Chennai": 25,
+      "Bangalore": 84,
+      "Goa": 20,
+      "Hyderabad": 31,
+      "Mumbai": 42,
+      "NCPA.": 2,
+      "Chennai": 28,
+      "Kolkata": 24,
       "Gachibowli": 2,
       "Pune": 29,
-      "Kolkata": 26,
-      "NCPA": 1,
-      "NCPA.": 1,
+      "Pune.": 1,
       "Guwahati": 2,
-      "Vizag": 1,
-      "Malad, Mumbai": 1,
+      "Salem": 1,
       "Ahmedabad": 1,
-      "Delhi": 11,
+      "Delhi": 13,
       "India": 1,
       "Kochi": 3,
       "Siliguri": 1,
@@ -858,6 +857,6 @@
       "Bhubaneshwar": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 266
+    "total_shows": 288
   }
 }
