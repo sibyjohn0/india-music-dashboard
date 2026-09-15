@@ -10,6 +10,7 @@ Run:  python3 scripts/fetch_gsc_coverage.py
 """
 import csv, sys
 from pathlib import Path
+from google_auth_oauthlib.flow import InstalledAppFlow
 from google.oauth2.credentials import Credentials
 from google.auth.transport.requests import Request
 from googleapiclient.discovery import build
@@ -19,10 +20,17 @@ TOKEN = Path.home()/".google-mcp"/"tokens"/"gsc_read.json"
 PAGES_CSV = Path.home()/"Downloads"/"iim_gsc"/"pages.csv"
 SCOPES = ["https://www.googleapis.com/auth/webmasters.readonly"]
 
+CLIENT = Path.home()/".google-mcp"/"credentials.json"
 def creds():
-    c = Credentials.from_authorized_user_file(str(TOKEN), SCOPES)
-    if c.expired and c.refresh_token:
-        c.refresh(Request())
+    c = Credentials.from_authorized_user_file(str(TOKEN), SCOPES) if TOKEN.exists() else None
+    if not c or not c.valid:
+        ok=False
+        if c and c.expired and c.refresh_token:
+            try: c.refresh(Request()); ok=True
+            except Exception: c=None
+        if not ok:
+            c = InstalledAppFlow.from_client_secrets_file(str(CLIENT), SCOPES).run_local_server(port=0)
+        TOKEN.write_text(c.to_json())
     return c
 
 def urls():

@@ -25,9 +25,13 @@ SCOPES = ["https://www.googleapis.com/auth/webmasters.readonly"]
 def creds():
     c = Credentials.from_authorized_user_file(str(TOKEN), SCOPES) if TOKEN.exists() else None
     if not c or not c.valid:
+        refreshed = False
         if c and c.expired and c.refresh_token:
-            c.refresh(Request())
-        else:
+            try:
+                c.refresh(Request()); refreshed = True
+            except Exception:
+                c = None  # token revoked/expired -> fall through to browser consent
+        if not refreshed:
             c = InstalledAppFlow.from_client_secrets_file(str(CLIENT), SCOPES).run_local_server(port=0)
         TOKEN.parent.mkdir(parents=True, exist_ok=True); TOKEN.write_text(c.to_json())
     return c
