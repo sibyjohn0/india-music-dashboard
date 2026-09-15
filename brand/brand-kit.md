@@ -1,7 +1,7 @@
-# Indie Music India — Brand Toolkit (v1.1, Sept 2026)
+# Indie Music India · Brand Toolkit (v1.1, Sept 2026)
 
 Single source of truth for anything made for Indie Music India. When in doubt, this wins.
-Live version: Claude artifact "Indie Music India — Brand Toolkit".
+Live version: Claude artifact "Indie Music India · Brand Toolkit".
 
 Handle **@indiemusicindia.co** · Site **indiemusicindia.com** · Name **Indie Music India**
 Contact sibyjohn0@gmail.com · WhatsApp +91 99600 25559
@@ -30,9 +30,9 @@ Gradients (diagonal, 3-stop): sunset(pink→violet→blue) · grape(orange→pin
 Contrast: ink text on cream/yellow/mint; cream text on ink/violet/blue/pink. Never yellow-on-cream or ink-on-violet.
 
 ## 04 Type
-- **Bricolage Grotesque 800** — headlines, cover lines, big numbers (axes opsz 96, wght 800, wdth 100; tracking -2%).
-- **Inter 400–600** — all body/reading; lines ~65 chars.
-- **Space Mono Bold, UPPERCASE, +14–18% tracking** — eyebrows, kickers, counters, handle, tags. Never body.
+- **Bricolage Grotesque 800** · headlines, cover lines, big numbers (axes opsz 96, wght 800, wdth 100; tracking -2%).
+- **Inter 400–600** · all body/reading; lines ~65 chars.
+- **Space Mono Bold, UPPERCASE, +14–18% tracking** · eyebrows, kickers, counters, handle, tags. Never body.
 Free on Google Fonts (OFL). Downloadable on `/brand/`; repo copies in `assets/fonts/`. In Google Slides, add Bricolage Grotesque once via Font ▸ More fonts (Inter and Space Mono are already available).
 
 ## 05 Visual language
@@ -40,8 +40,8 @@ Free on Google Fonts (OFL). Downloadable on `/brand/`; repo copies in `assets/fo
 Three archetypes: bright promo tile · dark "FREE GUIDE" carousel cover · gradient CTA.
 
 ## 06 Image spec
-- **1080×1440 (3:4)** — matches IG profile-grid preview.
-- **165px side safe margins** (content in central ~750px) — survives grid, feed, and the 9:16 boost/story crop. (1:1 loses ~12.5%/side, 4:5 ~3%; only 3:4 is clean.)
+- **1080×1440 (3:4)** · matches IG profile-grid preview.
+- **165px side safe margins** (content in central ~750px) · survives grid, feed, and the 9:16 boost/story crop. (1:1 loses ~12.5%/side, 4:5 ~3%; only 3:4 is clean.)
 - Headline Bricolage 64–96px (auto-fit, max 3 lines) · body Inter ~40px · labels Space Mono ~30px.
 - Footer bottom-left: ◉ @indiemusicindia.co, ~120px from bottom.
 - Carousel: dark cover (kicker + headline + INSIDE list + SWIPE) → cream teaching slides (LABEL · counter · title · body · handle) → gradient CTA close.
@@ -62,8 +62,8 @@ Discovery: 90% value, indirect funnel, never a hard sell and never a dead end (b
 ## 09 Content guidelines
 Sourcing standard: every factual claim names a verifiable source; ranges not false precision; "last verified" date on evergreen numbers; fact-check gate before anything factual ships; AI drafts, human verifies every stat and India claim.
 What earns a post: save-worthy (checklist/comparison/real number/genuine laugh); India-specific > generic; one idea per post; show don't claim.
-**LOCKED FACT — Spotify India payout (verified Sept 2026):** ~₹0.05–0.08/stream → 1,000 India streams ≈ ₹50–80; 1M ≈ ₹50,000–80,000. Other India platforms per stream: Apple ₹0.55–0.85, YouTube Music ₹0.40–0.60, JioSaavn ₹0.05–0.10. International (Spotify) ≈ ₹0.25–0.42. Sources: Ditto, Chartlex, Grootin, TuneCore. Never quote a per-stream number that contradicts this.
-Hashtags — core: #independentartist #indianmusic #musicbusiness #indieindia #musicianlife · money: #spotifyforartists #musicroyalties #spotifyindia #iprs #musicdistribution · promo: #playlistpitching #musicpr #epk #synclicensing #livemusic
+**LOCKED FACT · Spotify India payout (verified Sept 2026):** ~₹0.05–0.08/stream → 1,000 India streams ≈ ₹50–80; 1M ≈ ₹50,000–80,000. Other India platforms per stream: Apple ₹0.55–0.85, YouTube Music ₹0.40–0.60, JioSaavn ₹0.05–0.10. International (Spotify) ≈ ₹0.25–0.42. Sources: Ditto, Chartlex, Grootin, TuneCore. Never quote a per-stream number that contradicts this.
+Hashtags · core: #independentartist #indianmusic #musicbusiness #indieindia #musicianlife · money: #spotifyforartists #musicroyalties #spotifyindia #iprs #musicdistribution · promo: #playlistpitching #musicpr #epk #synclicensing #livemusic
 
 ## 10 Do & Don't
 **Do:** design 3:4 with 165px margins · lead captions with the search phrase, close educational with "Save this" · cite a source, date evergreen numbers · one accent/gradient per tile, high-contrast type · classy scene-smart memes · feature real artists + sourced data · overlay brand text yourself (AI = visuals only) · add trending audio in-app.
