@@ -33,20 +33,14 @@ def creds():
         TOKEN.write_text(c.to_json())
     return c
 
+import re
+SITEMAP = Path(__file__).resolve().parent.parent / "sitemap.xml"
 def urls():
-    # pages already surfacing in GSC + the core set, deduped
-    seen = []
-    if PAGES_CSV.exists():
-        for row in csv.reader(open(PAGES_CSV)):
-            if row and row[0].startswith("http"):
-                seen.append(row[0])
-    core = ["https://indiemusicindia.com/","https://indiemusicindia.com/reviewers/",
-            "https://indiemusicindia.com/tools/royalty-calculator/","https://indiemusicindia.com/programme/",
-            "https://indiemusicindia.com/resources/","https://indiemusicindia.com/answers/",
-            "https://indiemusicindia.com/live/","https://indiemusicindia.com/venues/mumbai/"]
+    # every URL in the sitemap (complete indexing picture), deduped, order preserved
     out = []
-    for u in seen + core:
-        if u not in out: out.append(u)
+    if SITEMAP.exists():
+        for u in re.findall(r"<loc>(.*?)</loc>", SITEMAP.read_text()):
+            if u not in out: out.append(u)
     return out
 
 def main():
@@ -63,7 +57,8 @@ def main():
         except Exception as e:
             rows.append((u, "ERROR", str(e)[:60], "", "", ""))
     # report
-    notindexed = [r for r in rows if "indexed" not in r[2].lower() or r[1]=="FAIL"]
+    def is_indexed(cov): c=cov.lower(); return "indexed" in c and "not indexed" not in c
+    notindexed = [r for r in rows if not is_indexed(r[2]) or r[1]=="FAIL"]
     print(f"URL INDEX COVERAGE  ({len(rows)} pages)\n"+"="*70)
     for u,v,cov,rob,crawl,canon in rows:
         flag = "  <-- CHECK" if ("indexed" not in cov.lower() or v=="FAIL") else ""
