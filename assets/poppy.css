@@ -465,7 +465,18 @@ footer{background:var(--cream)!important;border-top:2px solid var(--ink)!importa
 footer *{color:var(--ink)!important}
 
 /* ---- guide hero image (India art, decorative) ---- */
-.g-hero{position:relative;margin:0 0 22px;border:2px solid var(--ink)!important;border-radius:16px;overflow:hidden;box-shadow:5px 5px 0 var(--ink);aspect-ratio:1300/340;background:var(--surface2)}
+.g-hero{position:relative;margin:0 0 22px;border:2px solid var(--ink)!important;border-radius:16px;overflow:hidden;box-shadow:5px 5px 0 var(--ink);aspect-ratio:1300/520;background:var(--surface2)}
 .g-hero img{width:100%;height:100%;object-fit:cover;display:block}
 .g-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(36,27,46,0) 52%,rgba(36,27,46,.16));pointer-events:none}
-@media(max-width:640px){.g-hero{aspect-ratio:1300/430}}
+@media(max-width:640px){.g-hero{aspect-ratio:1300/520}}
+
+/* comparison table: stack into labelled cards on mobile so no column is hidden off-screen */
+@media(max-width:560px){
+  table.cmp{min-width:0!important;font-size:14px}
+  table.cmp thead{display:none}
+  table.cmp,table.cmp tbody,table.cmp tr,table.cmp td{display:block;width:auto}
+  table.cmp tr{border:2px solid var(--ink);border-radius:12px;background:#fff;box-shadow:3px 3px 0 var(--ink);margin:0 0 14px;padding:4px 12px 8px;overflow:hidden}
+  table.cmp td{border:0!important;padding:8px 0!important;display:flex;justify-content:space-between;gap:14px;align-items:baseline;text-align:right}
+  table.cmp td.rl{display:block;text-align:left;font-weight:800!important;font-size:15px;border-bottom:1px solid var(--border)!important;padding:8px 0 6px!important;margin-bottom:2px}
+  table.cmp td:not(.rl)::before{content:attr(data-col);flex:0 0 43%;text-align:left;color:var(--muted);font-weight:700;font-size:12px;letter-spacing:.2px}
+}

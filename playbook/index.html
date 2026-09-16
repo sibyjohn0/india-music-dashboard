@@ -176,7 +176,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,Bl
 .stage-emerging{background:#1a0a0a;color:var(--accent);border:1px solid var(--accent)}
 .stage-growing{background:#1a1500;color:var(--amber);border:1px solid var(--amber)}
 .stage-established{background:#0a1a0a;color:var(--success);border:1px solid var(--success)}
-.stage-professional{background:#0a0a1a;color:#8b5cf6;border:1px solid #8b5cf6}
+.stage-professional{background:#0a0a1a;color:#7C3AED;border:1px solid #8b5cf6}
 
 @media(max-width:768px){
   #phase-view .pb-inner,#section-view .pb-inner{padding:24px 16px 60px}
@@ -3488,7 +3488,7 @@ function renderLiveEvents(city) {
     grid.style.display = 'grid';
     grid.innerHTML = events.map(e => {
       const srcLabel = e.source === 'skillboxes.com' ? '<span style="font-size:9px;background:rgba(78,205,196,.12);color:#4ecdc4;border:1px solid rgba(78,205,196,.3);border-radius:8px;padding:1px 6px;margin-left:4px">SB</span>'
-                     : e.source === 'townscript.com'  ? '<span style="font-size:9px;background:rgba(167,139,250,.12);color:#a78bfa;border:1px solid rgba(167,139,250,.3);border-radius:8px;padding:1px 6px;margin-left:4px">TC</span>'
+                     : e.source === 'townscript.com'  ? '<span style="font-size:9px;background:rgba(167,139,250,.12);color:#7C3AED;border:1px solid rgba(167,139,250,.3);border-radius:8px;padding:1px 6px;margin-left:4px">TC</span>'
                      : e.source === 'bookmyshow.com'  ? '<span style="font-size:9px;background:rgba(255,90,90,.12);color:#ff5a5a;border:1px solid rgba(255,90,90,.3);border-radius:8px;padding:1px 6px;margin-left:4px">BM</span>'
                      : '<span style="font-size:9px;background:rgba(247,183,49,.1);color:var(--amber);border:1px solid rgba(247,183,49,.25);border-radius:8px;padding:1px 6px;margin-left:4px">DI</span>';
       return `<a class="live-event-card" href="${e.url || '#'}" target="_blank" rel="noopener">

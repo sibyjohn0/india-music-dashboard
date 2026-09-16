@@ -306,7 +306,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 .artist-card-fit { border-width: 2px; }
 .artist-card-both  { border-color: #fbbf2466; }
 .artist-card-both:hover  { border-color: #fbbf24; }
-.artist-card-genre { border-color: #a78bfa55; }
+.artist-card-genre { border-color: #7C3AED55; }
 .artist-card-genre:hover { border-color: var(--accent); }
 .artist-card-lang  { border-color: #34d39955; }
 .artist-card-lang:hover  { border-color: var(--green); }
@@ -326,7 +326,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 .action-btn-spotify:hover { background: #1db95415; color: #1db954; }
 .collab-fit-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
 .collab-both  { background: rgba(251,191,36,.15); color: #fbbf24; }
-.collab-genre { background: rgba(167,139,250,.15); color: #c4b5fd; }
+.collab-genre { background: rgba(167,139,250,.15); color: #7C3AED; }
 .collab-lang  { background: rgba(52,211,153,.12); color: #6ee7b7; }
 .artist-card-meta { font-size: 11px; color: var(--muted); margin-top: 6px; }
 
@@ -346,7 +346,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 
 /* ── Pills ── */
 .pill { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
-.pill-genre { background: rgba(167,139,250,.15); color: #c4b5fd; }
+.pill-genre { background: rgba(167,139,250,.15); color: #7C3AED; }
 .pill-lang  { background: rgba(52,211,153,.12); color: #6ee7b7; }
 .pill-new   { background: rgba(251,191,36,.15); color: var(--yellow); }
 
@@ -544,7 +544,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   transition: border-color .15s, color .15s;
 }
 .buzz-show-more:hover {
-  border-color: #a78bfa55;
+  border-color: #7C3AED55;
   color: var(--text);
 }
 .buzz-count {
@@ -609,7 +609,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   transition: border-color .15s, background .15s;
 }
 .buzz-card:hover {
-  border-color: #a78bfa55;
+  border-color: #7C3AED55;
   background: #1c1040;
 }
 .buzz-title {
@@ -894,7 +894,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
   display: block;
   margin-bottom: 4px;
 }
-.toolkit-banner-tagline { font-size: 12px; color: #8888a8; display: block; line-height: 1.4; }
+.toolkit-banner-tagline { font-size: 12px; color: #574C63; display: block; line-height: 1.4; }
 .toolkit-banner-tools {
   display: flex;
   gap: 7px;
@@ -963,7 +963,7 @@ main { max-width: 1320px; margin: 0 auto; padding: 32px 32px 80px; }
 .cross-nav-link {
   font-size: 12px;
   font-weight: 500;
-  color: #b0b0c8;
+  color: #574C63;
   text-decoration: none;
   padding: 7px 14px;
   background: var(--surface2);
