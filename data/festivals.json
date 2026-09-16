@@ -1,45 +1,14 @@
 {
-  "generated_at": "2026-09-15T06:13:14.270064+00:00",
+  "generated_at": "2026-09-16T06:01:03.205768+00:00",
   "counts": {
-    "festivals": 24,
-    "tours": 23,
+    "festivals": 29,
+    "tours": 21,
     "marquee": 14,
-    "international": 11,
+    "international": 14,
     "indian": 36,
-    "new_this_run": 7
+    "new_this_run": 18
   },
   "festivals": [
-    {
-      "title": "Ziro Festival of Music",
-      "type": "festival",
-      "key": "synergy",
-      "cities": [
-        "Arunachal"
-      ],
-      "dates": [
-        {
-          "date": "2026-09-25",
-          "date_obj": "2026-09-25",
-          "city": "Arunachal",
-          "venue": "",
-          "time": "10:00 PM",
-          "price": "₹800–₹4,750",
-          "url": "https://www.skillboxes.com/events/synergy-the-ziro-festival-afters-sbgnkimi",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-09-25",
-      "marquee": true,
-      "official_url": "https://zirofestival.com/",
-      "ig": "zirofestival",
-      "season": "September",
-      "tags": [
-        "indie",
-        "outdoor"
-      ],
-      "home_city": "Ziro, Arunachal Pradesh",
-      "origin": "indian"
-    },
     {
       "title": "Echoes of Earth",
       "type": "festival",
@@ -117,8 +86,8 @@
           "city": "Mumbai",
           "venue": "Mahalaxmi Race Course",
           "time": "",
-          "price": "from ₹24,999",
-          "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027-rupay-amplified-access/ET00514942",
+          "price": "from ₹8,499",
+          "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
           "source": "bookmyshow"
         },
         {
@@ -127,8 +96,8 @@
           "city": "Mumbai",
           "venue": "Mahalaxmi Race Course",
           "time": "",
-          "price": "from ₹8,499",
-          "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
+          "price": "from ₹24,999",
+          "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027-rupay-amplified-access/ET00514942",
           "source": "bookmyshow"
         }
       ],
@@ -356,6 +325,52 @@
       "origin": "international"
     },
     {
+      "title": "Ziro Festival of Music",
+      "type": "festival",
+      "key": "ziro festival of music",
+      "cities": [
+        "Ziro, Arunachal Pradesh"
+      ],
+      "dates": [],
+      "soonest": null,
+      "marquee": true,
+      "status": "dates TBA",
+      "official_url": "https://zirofestival.com/",
+      "ig": "zirofestival",
+      "season": "September",
+      "tags": [
+        "indie",
+        "outdoor"
+      ],
+      "home_city": "Ziro, Arunachal Pradesh",
+      "origin": "indian"
+    },
+    {
+      "title": "AUTUMN FESTIVAL",
+      "type": "festival",
+      "key": "autumn festival",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-09-17",
+          "date_obj": "2026-09-17",
+          "city": "",
+          "venue": "EDM Hostel",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-09-17",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "Jazztober Fest 2026",
       "type": "festival",
       "key": "jazztober fest",
@@ -369,7 +384,7 @@
           "city": "Chennai",
           "venue": "365 A.S",
           "time": "",
-          "price": "from ₹4,999",
+          "price": "from ₹199",
           "url": "https://in.bookmyshow.com/events/jazztober-fest-2026/ET00516229",
           "source": "bookmyshow"
         }
@@ -410,52 +425,25 @@
       "origin": "indian"
     },
     {
-      "title": "Radha Rani Ka Janam Mahotsav",
+      "title": "The carnival Saturdays Nights Vapour Indiranagar",
       "type": "festival",
-      "key": "radha rani ka janam mahotsav",
-      "cities": [
-        "Gurugram"
-      ],
-      "dates": [
-        {
-          "date": "2026-09-20",
-          "date_obj": "2026-09-20",
-          "city": "Gurugram",
-          "venue": "The Magnolias Club",
-          "time": "",
-          "price": "from ₹2,500",
-          "url": "https://in.bookmyshow.com/events/radha-rani-ka-janam-mahotsav/ET00513394",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-09-20",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Flying Fox presents Oktobeer Fest",
-      "type": "festival",
-      "key": "flying fox presents oktobeer fest",
+      "key": "the carnival saturdays nights vapour indiranagar",
       "cities": [
         "Bangalore"
       ],
       "dates": [
         {
-          "date": "2026-09-25",
-          "date_obj": "2026-09-25",
+          "date": "2026-09-19",
+          "date_obj": "2026-09-19",
           "city": "Bangalore",
-          "venue": "46 Ounces Brewgarden",
+          "venue": "Vapour Pub And Brewery,  Indiranagar",
           "time": "",
-          "price": "from ₹199",
-          "url": "https://in.bookmyshow.com/events/flying-fox-presents-oktoberfest-fest/ET00515392",
+          "price": "",
+          "url": "https://in.bookmyshow.com/events/the-carnival-saturdays-nights-vapour-indiranagar/ET00473747",
           "source": "bookmyshow"
         }
       ],
-      "soonest": "2026-09-25",
+      "soonest": "2026-09-19",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -491,6 +479,33 @@
       "origin": "indian"
     },
     {
+      "title": "Music Festival",
+      "type": "festival",
+      "key": "music festival",
+      "cities": [
+        "Mumbai"
+      ],
+      "dates": [
+        {
+          "date": "2026-09-26",
+          "date_obj": "2026-09-26",
+          "city": "Mumbai",
+          "venue": "",
+          "time": "06:00 PM",
+          "price": "from ₹499",
+          "url": "https://www.skillboxes.com/events/music-festival-sbgppftz",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-09-26",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "HEYA ! Music Festival",
       "type": "festival",
       "key": "heya music festival",
@@ -504,7 +519,7 @@
           "city": "Goa",
           "venue": "Salud",
           "time": "",
-          "price": "from ₹999",
+          "price": "from ₹1,499",
           "url": "https://in.bookmyshow.com/events/heya-music-festival/ET00517024",
           "source": "bookmyshow"
         }
@@ -545,17 +560,71 @@
       "origin": "indian"
     },
     {
-      "title": "Nykaaland India's Biggest Beauty Festival In Delhi",
+      "title": "INNELLEA LIVE AT SUNBURN UNION",
       "type": "festival",
-      "key": "nykaaland india s biggest beauty festival in",
+      "key": "innellea live at sunburn union",
       "cities": [
         "Bangalore"
       ],
       "dates": [
         {
+          "date": "2026-10-03",
+          "date_obj": "2026-10-03",
+          "city": "Bangalore",
+          "venue": "Sunburn Union Bangalore",
+          "time": "",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/innellea-live-at-sunburn-union/ET00516298",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-03",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "international"
+    },
+    {
+      "title": "CAMPERS MUSIC FESTIVAL 8",
+      "type": "festival",
+      "key": "campers music festival 8",
+      "cities": [
+        "Solan"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-10",
+          "date_obj": "2026-10-10",
+          "city": "Solan",
+          "venue": "",
+          "time": "02:00 PM",
+          "price": "₹800–₹4,199",
+          "url": "https://www.skillboxes.com/events/campers-music-festival-8-sbifegjk",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-10-10",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Nykaaland India's Biggest Beauty Festival In Delhi",
+      "type": "festival",
+      "key": "nykaaland india s biggest beauty festival in",
+      "cities": [
+        "Pune"
+      ],
+      "dates": [
+        {
           "date": "2026-10-23",
           "date_obj": "2026-10-23",
-          "city": "Bangalore",
+          "city": "Pune",
           "venue": "NSIC Exhibition Ground, Okhla",
           "time": "",
           "price": "from ₹1,299",
@@ -599,6 +668,33 @@
       "origin": "indian"
     },
     {
+      "title": "SAJANKA LIVE AT SUNBURN UNION",
+      "type": "festival",
+      "key": "sajanka live at sunburn union",
+      "cities": [
+        "Bangalore"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-24",
+          "date_obj": "2026-10-24",
+          "city": "Bangalore",
+          "venue": "Sunburn Union Bangalore",
+          "time": "",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/sajanka-live-at-sunburn-union/ET00514676",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-24",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "international"
+    },
+    {
       "title": "Sunburn Arena ft. DJ Snake",
       "type": "festival",
       "key": "sunburn arena ft dj snake",
@@ -618,6 +714,33 @@
         }
       ],
       "soonest": "2026-12-18",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "international"
+    },
+    {
+      "title": "Sunburn Arena Ft. The Chainsmokers",
+      "type": "festival",
+      "key": "sunburn arena ft the chainsmokers",
+      "cities": [
+        "Bangalore"
+      ],
+      "dates": [
+        {
+          "date": "2026-12-20",
+          "date_obj": "2026-12-20",
+          "city": "Bangalore",
+          "venue": "NICE Grounds",
+          "time": "",
+          "price": "from ₹1,500",
+          "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-the-chainsmokers/ET00498933",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-12-20",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -731,6 +854,33 @@
       "origin": "indian"
     },
     {
+      "title": "Sukoon Tour",
+      "type": "tour",
+      "key": "sukoon tour",
+      "cities": [
+        "Delhi"
+      ],
+      "dates": [
+        {
+          "date": "2026-09-20",
+          "date_obj": "2026-09-20",
+          "city": "Delhi",
+          "venue": "Hall 1, Bharat Mandapam",
+          "time": "",
+          "price": "from ₹3,245",
+          "url": "https://in.bookmyshow.com/events/sukoon-tour/ET00503116",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-09-20",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "Rhythm Shaw Live Nothing To Lose India Tour 2026",
       "type": "tour",
       "key": "rhythm shaw live nothing to lose india tour",
@@ -788,33 +938,6 @@
         }
       ],
       "soonest": "2026-09-25",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Fungus Funk Live In Bangalore",
-      "type": "tour",
-      "key": "fungus funk live in",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "2026-09-26",
-          "date_obj": "2026-09-26",
-          "city": "Bangalore",
-          "venue": "ZOZO The Club",
-          "time": "",
-          "price": "from ₹699",
-          "url": "https://in.bookmyshow.com/events/fungus-funk-live-in-bangalore/ET00516227",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-09-26",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -891,13 +1014,13 @@
       "type": "tour",
       "key": "bismil ki mehfil",
       "cities": [
-        "Hyderabad"
+        "Delhi"
       ],
       "dates": [
         {
           "date": "2026-10-01",
           "date_obj": "2026-10-01",
-          "city": "Hyderabad",
+          "city": "Delhi",
           "venue": "Multiple Venues",
           "time": "",
           "price": "from ₹1,000",
@@ -906,33 +1029,6 @@
         }
       ],
       "soonest": "2026-10-01",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Gurdas Maan Live in Concert",
-      "type": "tour",
-      "key": "gurdas maan live in concert",
-      "cities": [
-        "Delhi"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-03",
-          "date_obj": "2026-10-03",
-          "city": "Delhi",
-          "venue": "Plenary Hall Bharat Mandapam",
-          "time": "",
-          "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/gurdas-maan-live-in-concert/ET00481727",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-10-03",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -995,36 +1091,69 @@
       "origin": "international"
     },
     {
-      "title": "Sukoon Bharat Tour",
+      "title": "Papon Live In Concert",
       "type": "tour",
-      "key": "sukoon bharat tour",
+      "key": "papon live in concert",
       "cities": [
-        "Chennai",
-        "Delhi"
+        "Bangalore",
+        "Hyderabad",
+        "Kolkata",
+        "Mumbai",
+        "Pune"
       ],
       "dates": [
         {
-          "date": "2026-10-08",
-          "date_obj": "2026-10-08",
-          "city": "Delhi",
-          "venue": "The Piano Man, Eldeco Centre",
+          "date": "2026-10-10",
+          "date_obj": "2026-10-10",
+          "city": "Pune",
+          "venue": "Oasis, Amanora Mall",
           "time": "",
-          "price": "from ₹600",
-          "url": "https://in.bookmyshow.com/events/sukoon-bharat-tour-delhi/ET00508716",
+          "price": "from ₹1,199",
+          "url": "https://in.bookmyshow.com/events/papon-live-in-concert-pune/ET00448303",
           "source": "bookmyshow"
         },
         {
-          "date": "2026-11-07",
-          "date_obj": "2026-11-07",
-          "city": "Chennai",
-          "venue": "Venue To Be Announced",
-          "time": "",
-          "price": "from ₹349",
-          "url": "https://in.bookmyshow.com/events/sukoon-bharat-tour-chennai/ET00508718",
-          "source": "bookmyshow"
+          "date": "2026-11-14",
+          "date_obj": "2026-11-14",
+          "city": "Bangalore",
+          "venue": "District Arena @ Terraform",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-bengaluru-2026",
+          "source": "district"
+        },
+        {
+          "date": "2026-11-28",
+          "date_obj": "2026-11-28",
+          "city": "Hyderabad",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-hyderabad-2026",
+          "source": "district"
+        },
+        {
+          "date": "2026-12-12",
+          "date_obj": "2026-12-12",
+          "city": "Mumbai",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-mumbai-2026",
+          "source": "district"
+        },
+        {
+          "date": "2027-01-23",
+          "date_obj": "2027-01-23",
+          "city": "Kolkata",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-kolkata-2027",
+          "source": "district"
         }
       ],
-      "soonest": "2026-10-08",
+      "soonest": "2026-10-10",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1033,21 +1162,21 @@
       "origin": "indian"
     },
     {
-      "title": "LEGACY WORLD TOUR - UDIT NARAYAN X ADITYA NARAYAN",
+      "title": "Rajesh Krishnan Live in Concert",
       "type": "tour",
-      "key": "legacy world tour",
+      "key": "rajesh krishnan live in concert",
       "cities": [
-        "Mumbai"
+        "Bangalore"
       ],
       "dates": [
         {
           "date": "2026-10-10",
           "date_obj": "2026-10-10",
-          "city": "Mumbai",
-          "venue": "Dublin Square, Phoenix Marketcity",
+          "city": "Bangalore",
+          "venue": "Phoenix Mall Of Asia",
           "time": "",
-          "price": "from ₹1,199",
-          "url": "https://in.bookmyshow.com/events/udit-narayan-live-in-concert/ET00511865",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/rajesh-krishnan-live-in-concert/ET00511416",
           "source": "bookmyshow"
         }
       ],
@@ -1090,33 +1219,6 @@
         }
       ],
       "soonest": "2026-10-16",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Aarzu India Tour Bengaluru",
-      "type": "tour",
-      "key": "aarzu india tour",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-17",
-          "date_obj": "2026-10-17",
-          "city": "Bangalore",
-          "venue": "The Golden Circle Brewery",
-          "time": "",
-          "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/aarzu-india-tour-bengaluru/ET00512747",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-10-17",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1185,6 +1287,33 @@
       "origin": "indian"
     },
     {
+      "title": "OG TOUR INDIA WITH THAMAN - LIVE IN HYDERABAD",
+      "type": "tour",
+      "key": "og tour india with thaman",
+      "cities": [
+        "Hyderabad"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-24",
+          "date_obj": "2026-10-24",
+          "city": "Hyderabad",
+          "venue": "Gachibowli Stadium",
+          "time": "",
+          "price": "from ₹999",
+          "url": "https://in.bookmyshow.com/events/og-tour-india-with-thaman-live-in-hyderabad/ET00494783",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-24",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "Sonu Nigam - The Revolution India Tour",
       "type": "tour",
       "key": "sonu nigam",
@@ -1215,44 +1344,6 @@
         }
       ],
       "soonest": "2026-10-24",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Quick Style India Tour",
-      "type": "tour",
-      "key": "quick style india tour",
-      "cities": [
-        "Hyderabad",
-        "Pune"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-25",
-          "date_obj": "2026-10-25",
-          "city": "Pune",
-          "venue": "Liberty Square, Phoenix Avenue of Stars",
-          "time": "",
-          "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-pune/ET00495695",
-          "source": "bookmyshow"
-        },
-        {
-          "date": "2026-11-01",
-          "date_obj": "2026-11-01",
-          "city": "Hyderabad",
-          "venue": "Venue To Be Announced",
-          "time": "",
-          "price": "from ₹1,499",
-          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-hyderabad/ET00495698",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-10-25",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1425,26 +1516,39 @@
     }
   ],
   "new_this_run": [
-    "Ziro Festival of Music",
-    "Bollywood Unplugged Live",
-    "Radha Rani Ka Janam Mahotsav",
-    "Flying Fox presents Oktobeer Fest",
-    "Isha Malviya Live : Shaky Shaky India Tour",
-    "Fungus Funk Live In Bangalore",
-    "Gurdas Maan Live in Concert"
+    "CAMPERS MUSIC FESTIVAL 8",
+    "Structure Music Festival",
+    "Music Festival",
+    "AUTUMN FESTIVAL",
+    "The carnival Saturdays Nights Vapour Indiranagar",
+    "Sukoon Tour",
+    "INNELLEA LIVE AT SUNBURN UNION",
+    "Rajesh Krishnan Live in Concert",
+    "SAJANKA LIVE AT SUNBURN UNION",
+    "OG TOUR INDIA WITH THAMAN - LIVE IN HYDERABAD",
+    "Dhvani Bhanushali Live In Bengaluru",
+    "ANOTR - Live in Delhi",
+    "JAMMERS - BORDERLESS TOUR",
+    "ENCHANTED ERAS : ERAS TOUR BIRTHDAY EDITION",
+    "Shankar Ehsaan Loy Live In Concert Pune",
+    "Sunburn Arena Ft. The Chainsmokers",
+    "Yohani Live in concert",
+    "A R Rahman The Wonderment Tour Live"
   ],
   "_all_keys": [
     "privilege presents azyr india tour",
     "chet faker",
     "rhythm shaw live nothing to lose india tour",
     "opeth live in",
+    "campers music festival 8",
     "sajanka india tour",
     "domi jd beck who asked tour",
     "khalid live in",
     "vendex",
     "cloud temple boutique music festival",
-    "synergy",
+    "structure music festival",
     "higher ground music festival",
+    "music festival",
     "akhil sachdeva",
     "sean roldan s kodi aruvi",
     "the yellow diary",
@@ -1453,37 +1557,45 @@
     "papon live in concert",
     "echoes of earth",
     "gorillaz the mountain tour",
+    "autumn festival",
     "jazztober fest",
+    "the carnival saturdays nights vapour indiranagar",
     "suchitra mitra festival",
     "bollywood unplugged live",
-    "radha rani ka janam mahotsav",
-    "flying fox presents oktobeer fest",
+    "sukoon tour",
     "isha malviya live shaky shaky india tour",
-    "fungus funk live in",
     "bismil ki mehfil",
     "heya music festival",
     "the tradition festival",
-    "gurdas maan live in concert",
-    "sukoon bharat tour",
-    "legacy world tour",
-    "aarzu india tour",
+    "innellea live at sunburn union",
+    "rajesh krishnan live in concert",
     "nykaaland india s biggest beauty festival in",
+    "sajanka live at sunburn union",
+    "og tour india with thaman",
     "quick style india tour",
     "lakhwinder wadali india tour",
-    "diwali pahat with mahesh kale live in",
+    "dhvani bhanushali live in",
+    "sukoon bharat tour",
     "keinemusik presents adam port",
+    "anotr",
     "madhubanti bagchi india tour",
     "bangtanverse carnival",
+    "jammers",
+    "yuvan shankar raja live in concert",
     "fred again india tour",
+    "enchanted eras eras tour birthday edition",
     "sunburn arena ft dj snake",
     "sunburn festival",
-    "yuvan shankar raja live in concert",
-    "kumar sanu live in concert",
+    "shankar ehsaan loy live in concert",
+    "sunburn arena ft the chainsmokers",
+    "yohani live in concert",
     "lollapalooza india",
     "foo fighters india tour",
-    "ar rahman the wonderment tour live",
+    "a r rahman the wonderment tour live",
+    "kumar sanu live in concert",
     "nh7 weekender",
     "magnetic fields festival",
+    "ziro festival of music",
     "mahindra blues festival",
     "vh1 supersonic",
     "mahindra independence rock",
