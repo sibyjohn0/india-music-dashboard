@@ -12772,5 +12772,149 @@
         "error": null
       }
     }
+  },
+  {
+    "run_at": "2026-09-18T05:39:26.380051+00:00",
+    "overall": "ok",
+    "sources": {
+      "youtube": {
+        "status": "ok",
+        "records": 225,
+        "ms": 185064,
+        "error": null
+      },
+      "lastfm": {
+        "status": "ok",
+        "records": 143,
+        "ms": 63721,
+        "error": null
+      },
+      "radar": {
+        "status": "ok",
+        "records": 138,
+        "ms": 27,
+        "error": null
+      },
+      "insights": {
+        "status": "ok",
+        "records": null,
+        "ms": 358,
+        "error": null
+      },
+      "venue_analysis": {
+        "status": "ok",
+        "records": null,
+        "ms": 44,
+        "error": null
+      },
+      "monthly_digest": {
+        "status": "ok",
+        "records": null,
+        "ms": 90,
+        "error": null
+      },
+      "spotify": {
+        "status": "ok",
+        "records": 70,
+        "ms": 65088,
+        "error": null
+      },
+      "radar_social": {
+        "status": "ok",
+        "records": null,
+        "ms": 178,
+        "error": null
+      },
+      "social": {
+        "status": "ok",
+        "records": 385,
+        "ms": 22841,
+        "error": null
+      },
+      "playboard": {
+        "status": "ok",
+        "records": null,
+        "ms": 50827,
+        "error": null
+      },
+      "jiosaavn": {
+        "status": "ok",
+        "records": null,
+        "ms": 1184,
+        "error": null
+      },
+      "events_paytm": {
+        "status": "ok",
+        "records": null,
+        "ms": 56,
+        "error": null
+      },
+      "news_rss": {
+        "status": "ok",
+        "records": null,
+        "ms": 8125,
+        "error": null
+      },
+      "news_page": {
+        "status": "ok",
+        "records": null,
+        "ms": 28,
+        "error": null
+      },
+      "events_district": {
+        "status": "ok",
+        "records": 92,
+        "ms": 105684,
+        "error": null
+      },
+      "spotify_playwright": {
+        "status": "ok",
+        "records": 0,
+        "ms": 195601,
+        "error": null
+      },
+      "bookmyshow": {
+        "status": "ok",
+        "records": 170,
+        "ms": 44989,
+        "error": null
+      },
+      "skillboxes": {
+        "status": "ok",
+        "records": 91,
+        "ms": 39883,
+        "error": null
+      },
+      "events_thumpn": {
+        "status": "ok",
+        "records": 3,
+        "ms": 6825,
+        "error": null
+      },
+      "festivals_build": {
+        "status": "ok",
+        "records": null,
+        "ms": 40,
+        "error": null
+      },
+      "festivals_page": {
+        "status": "ok",
+        "records": null,
+        "ms": 29,
+        "error": null
+      },
+      "venues_build": {
+        "status": "ok",
+        "records": null,
+        "ms": 58,
+        "error": null
+      },
+      "venues_pages": {
+        "status": "ok",
+        "records": null,
+        "ms": 30,
+        "error": null
+      }
+    }
   }
 ]
