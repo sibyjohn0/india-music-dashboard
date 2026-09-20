@@ -647,13 +647,13 @@
   },
   "2026-09": {
     "month": "2026-09",
-    "snapshots": 19,
-    "last_snapshot_at": "2026-09-19T05:38:05.323233+00:00",
+    "snapshots": 20,
+    "last_snapshot_at": "2026-09-20T05:56:49.101307+00:00",
     "total_videos": 225,
-    "total_artists": 319,
-    "new_artists_seen": 304,
-    "median_score": 59,
-    "median_views": 3598,
+    "total_artists": 323,
+    "new_artists_seen": 310,
+    "median_score": 60,
+    "median_views": 3850,
     "top_artists": [
       {
         "name": "Sanathan Shree Krishnan",
@@ -729,33 +729,33 @@
     "fastest_growing": [
       {
         "name": "Sanidhapa Originals ",
-        "views_gained": 606071,
+        "views_gained": 667804,
         "genre": "R&B / Soul",
         "language": "Marathi"
       },
       {
         "name": "Sounds of Isha",
-        "views_gained": 441451,
+        "views_gained": 450047,
         "genre": "R&B / Soul",
         "language": "Marathi"
       },
       {
         "name": "Nihar Shembekar",
-        "views_gained": 272862,
+        "views_gained": 357066,
         "genre": "Indie",
         "language": "Marathi"
       },
       {
         "name": "ANJI VAYUPUTRA",
-        "views_gained": 164444,
+        "views_gained": 266318,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
-        "name": "SAMBATA__ 00",
-        "views_gained": 150646,
+        "name": "Anushka Gautam",
+        "views_gained": 174105,
         "genre": "Rock / Alt",
-        "language": "Marathi"
+        "language": "Punjabi"
       }
     ],
     "genre_breakdown": [
@@ -765,35 +765,39 @@
       ],
       [
         "Folk / Acoustic",
-        48
+        44
       ],
       [
         "Hip Hop / Rap",
-        45
-      ],
-      [
-        "Electronic",
-        19
-      ],
-      [
-        "Lo-Fi",
-        19
+        43
       ],
       [
         "R&B / Soul",
-        14
+        18
+      ],
+      [
+        "Lo-Fi",
+        17
+      ],
+      [
+        "Electronic",
+        17
       ],
       [
         "Classical/Fusion",
-        13
+        16
       ],
       [
         "Rock / Alt",
-        10
+        9
       ],
       [
         "Indie Pop",
-        4
+        6
+      ],
+      [
+        "Jazz / Blues",
+        2
       ]
     ],
     "language_breakdown": [
@@ -803,10 +807,6 @@
       ],
       [
         "Telugu",
-        25
-      ],
-      [
-        "Kannada",
         25
       ],
       [
@@ -830,33 +830,38 @@
         25
       ],
       [
+        "Kannada",
+        25
+      ],
+      [
         "Marathi",
         25
       ]
     ],
     "city_shows": {
-      "Bangalore": 82,
-      "Chennai": 24,
-      "Goa": 22,
-      "Kolkata": 30,
-      "Pune": 37,
-      "Mumbai": 47,
-      "NCPA": 1,
+      "Bangalore": 73,
+      "Chennai": 23,
+      "Delhi": 36,
+      "Goa": 21,
+      "Exhibition Ground, Gate 6 Okhla": 1,
       "Mazgaon": 1,
       "Guwahati": 1,
-      "Ahmedabad": 1,
+      "Mumbai": 19,
+      "Salem": 1,
       "Hyderabad": 4,
-      "Delhi": 16,
+      "Kolkata": 3,
+      "Pune": 7,
       "India": 1,
-      "Kochi": 3,
+      "Kochi": 4,
       "Siliguri": 1,
-      "Thachumi": 1,
       "Jaipur": 1,
+      "Mandawa": 1,
       "Bhubaneshwar": 1,
+      "Chandigarh": 1,
       "Dehradun": 1,
       "Lonavala": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 276
+    "total_shows": 202
   }
 }
