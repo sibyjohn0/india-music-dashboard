@@ -17,6 +17,7 @@
     { label: 'Programme', href: '/programme/' },
     { label: 'Discover', children: [
       { label: 'Radar', href: '/radar.html' },
+      { label: 'Featured Artists', href: '/artists/' },
       { label: 'Live', href: '/live/' },
       { label: 'Venues', href: '/venues/' },
       { label: 'News', href: '/news/' }
