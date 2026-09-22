@@ -21,8 +21,11 @@ TOKEN = Path.home()/".google-mcp"/"tokens"/"forms_write.json"
 OUT = Path.home()/"Downloads"/"iim_intake_form.json"
 SCOPES = ["https://www.googleapis.com/auth/forms.body"]
 
-ROUTING = ["Working with you (the programme)", "A specific question or advice",
-           "Partnership or brand", "Press, feature, or curator", "Something else"]
+ROUTING = ["Working with you (the programme)", "Get my music featured or promoted",
+           "A specific question or advice", "Partnership or brand", "Press or curator",
+           "Something else"]
+# these routes go into the deep-dive (music section); the rest skip to the final ask
+MUSIC_ROUTES = {"Working with you (the programme)", "Get my music featured or promoted"}
 
 def creds():
     c = Credentials.from_authorized_user_file(str(TOKEN), SCOPES) if TOKEN.exists() else None
@@ -180,9 +183,12 @@ def main():
     try:
         routing_item = replies[routing_reqpos]["createItem"]["itemId"]
         last_section = replies[last_reqpos]["createItem"]["itemId"]
-        opts = [{"value": ROUTING[0], "goToAction": "NEXT_SECTION"}]
-        for v in ROUTING[1:]:
-            opts.append({"value": v, "goToSectionId": last_section})
+        opts = []
+        for v in ROUTING:
+            if v in MUSIC_ROUTES:
+                opts.append({"value": v, "goToAction": "NEXT_SECTION"})
+            else:
+                opts.append({"value": v, "goToSectionId": last_section})
         svc.forms().batchUpdate(formId=fid, body={"requests": [{"updateItem": {
             "item": {"itemId": routing_item, "questionItem": {"question": {
                 "required": True, "choiceQuestion": {"type": "RADIO", "options": opts}}}},
