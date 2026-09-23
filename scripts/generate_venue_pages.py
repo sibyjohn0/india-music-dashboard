@@ -172,15 +172,15 @@ def build():
     tot_s = sum(c["show_count"] for c in cities.values())
     hub_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Live music venues in India","url":"https://indiemusicindia.com/venues/","isPartOf":{{"@type":"WebSite","name":"Indie Music India","url":"https://indiemusicindia.com/"}}}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}}]}}</script>'''
-    hub = head("Live music venues in India: gig venues by city — Indie Music India",
-               "The venues hosting live music across India's metros, with upcoming gigs and ticket links. Mumbai, Delhi, Bengaluru, Hyderabad, Pune and Goa.",
+    hub = head("Concerts & live music in India: upcoming gigs and venues by city — Indie Music India",
+               "Upcoming concerts, gigs and live music across India's metros, with venues and ticket links. Mumbai, Delhi, Bengaluru, Hyderabad, Pune and Goa.",
                "https://indiemusicindia.com/venues/", hub_ld)
     hub += f'''
 <div class="page">
   <div class="crumb"><a href="/">Home</a> / Venues</div>
-  <div class="eyebrow">Venues</div>
-  <h1>Live music venues across India</h1>
-  <p class="lead">Where the gigs actually happen: the rooms hosting live music in each metro, ranked by what's on, with upcoming shows and ticket links. Built from the ticketing feeds and updated daily.</p>
+  <div class="eyebrow">Concerts &amp; live music</div>
+  <h1>Concerts and live music across India</h1>
+  <p class="lead">Every upcoming concert, gig and live show across India, city by city: the rooms hosting live music in each metro, ranked by what's on, with ticket links. Built from the ticketing feeds and updated daily.</p>
   <div class="stat">{tot_v} venues · {tot_s} upcoming shows · updated {updated}</div>
   <div class="cities">
 {cards}

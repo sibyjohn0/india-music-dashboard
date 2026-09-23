@@ -110,11 +110,11 @@ def build():
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-R7EYMGZEJZ');</script>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Indian music festivals &amp; tours 2026–27: dates, venues, lineups — Indie Music India</title>
-  <meta name="description" content="Live dates, venues and ticket links for India's music festivals and artist tours — NH7 Weekender, Lollapalooza India, Sunburn, Echoes of Earth, plus international acts touring India. Updated daily." />
+  <title>Upcoming concerts, festivals &amp; tours in India 2026–27: dates, venues, tickets — Indie Music India</title>
+  <meta name="description" content="Upcoming concerts, festival and tour dates across India — NH7 Weekender, Lollapalooza India, Sunburn, Echoes of Earth, plus international acts touring India. Venues, lineups and ticket links, updated daily." />
   <link rel="canonical" href="https://indiemusicindia.com/live/" />
-  <meta property="og:title" content="Indian music festivals & tours: dates, venues, lineups" />
-  <meta property="og:description" content="Live festival and tour dates across India, updated daily. Tickets, venues and official links in one place." />
+  <meta property="og:title" content="Upcoming concerts, festivals & tours in India: dates, venues, tickets" />
+  <meta property="og:description" content="Upcoming concert, festival and tour dates across India, updated daily. Tickets, venues and official links in one place." />
   <meta property="og:url" content="https://indiemusicindia.com/live/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://indiemusicindia.com/og-image.png" />
@@ -190,8 +190,8 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
 <div class="page">
   <div class="crumb"><a href="/">Home</a> / Live</div>
   <div class="eyebrow">Festivals &amp; tours</div>
-  <h1>Live music across India</h1>
-  <p class="lead">Every festival and tour worth knowing about, in one place: dates, cities, venues and ticket links, from India's marquee festivals to the international acts touring here. Deduped from the ticketing platforms and updated daily.</p>
+  <h1>Concerts, festivals and tours across India</h1>
+  <p class="lead">Every upcoming concert, festival and tour worth knowing about, in one place: dates, cities, venues and ticket links, from India's marquee festivals to the international acts touring here. Deduped from the ticketing platforms and updated daily.</p>
   <div class="stat">{c.get("festivals",0)} festivals · {c.get("tours",0)} tours · {c.get("international",0)} international acts · updated {updated}</div>
 
   <h2 class="sec">Festivals</h2>
