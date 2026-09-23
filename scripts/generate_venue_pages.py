@@ -201,11 +201,11 @@ def build():
         cards = "\n".join(venue_card(v) for v in venues) or '<p style="color:var(--muted)">Venue listings for this city land here as shows are announced.</p>'
         items = ",".join('{"@type":"ListItem","position":%d,"item":%s}' % (i + 1, venue_schema(v, c["name"]))
                          for i, v in enumerate(venues))
-        city_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Live music venues in {esc(c["name"])}","url":"https://indiemusicindia.com/venues/{esc(slug)}/"}}</script>
+        city_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Concerts and live music in {esc(c["name"])}","url":"https://indiemusicindia.com/venues/{esc(slug)}/"}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ItemList","name":"Live music venues in {esc(c["name"])}","numberOfItems":{len(venues)},"itemListElement":[{items}]}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}},{{"@type":"ListItem","position":3,"name":"{esc(c["name"])}","item":"https://indiemusicindia.com/venues/{esc(slug)}/"}}]}}</script>'''
-        page = head(f"Live music venues in {c['name']}: gigs, addresses & tickets — Indie Music India",
-                    f"The best live music venues in {c['name']} with upcoming gigs, localities and ticket links. {c['venue_count']} venues, {c['show_count']} shows, updated daily.",
+        page = head(f"Concerts & live music in {c['name']}: upcoming gigs, venues & tickets — Indie Music India",
+                    f"Upcoming concerts, gigs and live music in {c['name']}: who's playing, at which venues, and where to get tickets. {c['show_count']} shows across {c['venue_count']} venues, updated daily.",
                     f"https://indiemusicindia.com/venues/{slug}/", city_ld)
         # Only these three metros have a scene guide to link back to.
         scene_link = (f' New here? Read the <a href="/guides/independent-music-scene-{slug}/" '
@@ -214,11 +214,11 @@ def build():
         page += f'''
 <div class="page">
   <div class="crumb"><a href="/">Home</a> / <a href="/venues/">Venues</a> / {esc(c["name"])}</div>
-  <div class="eyebrow">Venues · {esc(c["name"])}</div>
-  <h1>Live music venues in {esc(c["name"])}</h1>
-  <p class="lead">The rooms hosting live music in {esc(c["name"])} right now, ranked by what's on. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--accent);font-weight:700">festivals &amp; tours calendar</a>.{scene_link}</p>
+  <div class="eyebrow">Concerts &amp; live music · {esc(c["name"])}</div>
+  <h1>Concerts and live music in {esc(c["name"])}</h1>
+  <p class="lead">Every upcoming concert, gig and live show in {esc(c["name"])} right now, ranked by what's on. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--accent);font-weight:700">festivals &amp; tours calendar</a>.{scene_link}</p>
   <div class="stat">{c["venue_count"]} venues · {c["show_count"]} upcoming shows · updated {updated}</div>
-  <h2 class="sec">Venues by what's on</h2>
+  <h2 class="sec">Live music venues in {esc(c["name"])}, by what's on</h2>
 {cards}
   <div class="cta">
     <h3>Run a venue, or play one?</h3>
