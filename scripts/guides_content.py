@@ -183,6 +183,66 @@ GUIDES = [
    ("How do independent artists get noticed in Mumbai?","A mix of playing the small rooms consistently, releasing on a real plan, and getting your music to curators and blogs that cover the Indian scene. Live reputation and release momentum compound.")]
 },
 {
+ "slug":"independent-music-scene-hyderabad","cat":"Scene · Hyderabad","cta_h":"Building something in Hyderabad?",
+ "title":"The independent music scene in Hyderabad: venues, gigs and artists",
+ "desc":"A guide to Hyderabad's independent music scene, the live venues, where to find gigs, and how to get heard as an independent musician in the city.",
+ "lead":"Hyderabad's independent scene is younger than Mumbai's or Bengaluru's, but it's growing fast, across indie, hip-hop and a strong Telugu-language wave. Here's how to plug into it.",
+ "tldr":"Hyderabad is an emerging live city, with a rising hip-hop and indie scene alongside a busy Telugu-language music economy. The way in is the same as anywhere: play the rooms that book new acts (see the <a href=\"/venues/hyderabad/\">Hyderabad venues list</a>), track touring shows on the <a href=\"/live/\">festivals and tours calendar</a>, and get your releases to the <a href=\"/reviewers/\">curators and blogs</a> that cover the scene.",
+ "sections":[
+   {"h2":"Where the gigs happen","body":[
+     "Hyderabad's live rooms run from cafes and pubs to larger club stages, and the scene has expanded noticeably in the last few years. The venues hosting the most live music right now, ranked by what's on, are on our <a href=\"/venues/hyderabad/\">live music venues in Hyderabad</a> page, updated daily. As everywhere, the smaller rooms are where new acts get their first stages."]},
+   {"h2":"What's on this week","body":[
+     "Touring artists and festivals increasingly route through Hyderabad. Our <a href=\"/live/\">concerts, festivals and tours calendar</a> tracks dates, venues and tickets so you can see who's playing and where the audiences are."]},
+   {"h2":"Getting heard as a Hyderabad artist","body":[
+     "In a growing scene, consistency stands out fast. Play out regularly, release on a real <a href=\"/guides/12-week-release-plan-india/\">plan</a> instead of dropping singles into silence, and get your music to the blogs, playlists and curators who cover Indian independent music through our <a href=\"/reviewers/\">reviewer database</a>. If live is the goal, the <a href=\"/guides/book-live-gigs-independent-band-india/\">guide to booking gigs</a> applies here too."]},
+   {"h2":"Who's rising","body":[
+     "Our <a href=\"/radar.html\">Radar</a> tracks independent Indian artists gaining momentum daily. It's a good way to see who's breaking, including acts coming out of Hyderabad and the wider South."]}],
+ "faq":[
+   ("Where can I play live music in Hyderabad as an independent artist?","Start with the cafes, pubs and club stages that book new acts. Our Hyderabad venues page ranks the rooms hosting the most live music right now, with what's on and ticket links."),
+   ("Is there an independent music scene in Hyderabad?","Yes, and it's growing, across indie, hip-hop and a strong Telugu-language wave. It's younger than Mumbai's or Bengaluru's, which means consistency gets you noticed faster."),
+   ("How do I find gigs and concerts in Hyderabad?","Use our live concerts, festivals and tours calendar, which tracks dates, venues and tickets across the city as shows are announced.")]
+},
+{
+ "slug":"independent-music-scene-pune","cat":"Scene · Pune","cta_h":"Building something in Pune?",
+ "title":"The independent music scene in Pune: venues, gigs and artists",
+ "desc":"A guide to Pune's independent music scene, the live venues, where to find gigs, the rising artists, and how to get heard as an independent musician in the city.",
+ "lead":"Pune punches well above its size: a college city with a real live circuit, a strong indie and rock streak, and its own festival history. Here's how the scene works.",
+ "tldr":"Pune has one of India's most active live circuits for its size, powered by a huge student population and a genuine indie and rock culture, it's where NH7 Weekender began. Play the rooms that book new acts (see the <a href=\"/venues/pune/\">Pune venues list</a>), track shows on the <a href=\"/live/\">festivals and tours calendar</a>, and get releases to the <a href=\"/reviewers/\">curators</a> who cover the scene.",
+ "sections":[
+   {"h2":"Where the gigs happen","body":[
+     "Pune's live scene is built on pubs, cafes and mid-size venues with a steady gig calendar, fed by a young, music-hungry student crowd. The rooms hosting the most live music right now, ranked by what's on, are on our <a href=\"/venues/pune/\">live music venues in Pune</a> page, updated daily. The smaller stages book new acts and are where a following starts."]},
+   {"h2":"What's on this week","body":[
+     "Pune has real festival history, it's the original home of NH7 Weekender, and touring acts route through regularly. Our <a href=\"/live/\">concerts, festivals and tours calendar</a> tracks dates, venues and tickets so you can see who's playing and where the crowds are."]},
+   {"h2":"Getting heard as a Pune artist","body":[
+     "The student audience rewards artists who play out consistently and build a local following. Pair that with a real <a href=\"/guides/12-week-release-plan-india/\">release plan</a> and get your music to the blogs, playlists and curators through our <a href=\"/reviewers/\">reviewer database</a>. For live specifically, the <a href=\"/guides/book-live-gigs-independent-band-india/\">guide to booking gigs</a> is built for exactly this kind of circuit."]},
+   {"h2":"Who's rising","body":[
+     "Our <a href=\"/radar.html\">Radar</a> tracks independent Indian artists gaining momentum daily, a good way to see who's breaking, including acts out of Pune and Maharashtra."]}],
+ "faq":[
+   ("Where can I play live music in Pune as an independent artist?","Start with the pubs, cafes and mid-size venues that book new acts, Pune has an unusually active circuit for its size. Our Pune venues page ranks the rooms with the most live music right now."),
+   ("Why is Pune's music scene so active?","A large student population and a strong indie and rock culture give Pune a live circuit that punches above its size. It's also the original home of NH7 Weekender."),
+   ("How do I find gigs and concerts in Pune?","Use our live concerts, festivals and tours calendar, which tracks dates, venues and tickets across the city as shows are announced.")]
+},
+{
+ "slug":"independent-music-scene-goa","cat":"Scene · Goa","cta_h":"Building something in Goa?",
+ "title":"The independent music scene in Goa: venues, gigs and artists",
+ "desc":"A guide to Goa's independent music scene, the clubs and beach venues, the electronic and festival culture, and how to get heard as an independent musician in the state.",
+ "lead":"Goa's scene is unlike anywhere else in India: electronic-first, festival-driven, international, and highly seasonal. Here's how it actually works.",
+ "tldr":"Goa is India's electronic and festival capital, built on beach clubs, psytrance roots and a season (roughly November to March) that draws international DJs and big crowds. If you make electronic music especially, it's a real market. See the <a href=\"/venues/goa/\">Goa venues list</a>, track shows on the <a href=\"/live/\">festivals and tours calendar</a>, and get releases to the <a href=\"/reviewers/\">curators</a> who cover the scene.",
+ "sections":[
+   {"h2":"Where the gigs happen","body":[
+     "Goa's live map is beach clubs, open-air and hilltop venues, and clubs concentrated in the north, and it's strongly electronic. The venues hosting the most live music right now, ranked by what's on, are on our <a href=\"/venues/goa/\">live music venues in Goa</a> page, updated daily. The scene peaks sharply in season."]},
+   {"h2":"What's on this week","body":[
+     "Goa's calendar is festival-heavy, from Sunburn to a constant flow of club nights and international DJ tours in season. Our <a href=\"/live/\">concerts, festivals and tours calendar</a> tracks dates, venues and tickets so you can see who's playing and when the crowds are there."]},
+   {"h2":"Getting heard as a Goa artist","body":[
+     "Goa rewards electronic and DJ-led acts, but the fundamentals still hold: play out, release on a real <a href=\"/guides/12-week-release-plan-india/\">plan</a>, and get your music to the curators and blogs through our <a href=\"/reviewers/\">reviewer database</a>. Because the scene is seasonal and tourist-driven, timing releases and shows around the season matters more here than anywhere else."]},
+   {"h2":"Who's rising","body":[
+     "Our <a href=\"/radar.html\">Radar</a> tracks independent Indian artists gaining momentum daily, useful for spotting who's breaking, including the electronic acts that Goa's scene tends to surface."]}],
+ "faq":[
+   ("Where can I play live music in Goa as an independent artist?","Goa's live scene is concentrated in beach clubs, open-air and hilltop venues, and clubs in the north, and it's strongly electronic. Our Goa venues page ranks the rooms with the most live music right now."),
+   ("Is Goa's music scene only electronic?","It leans heavily electronic, psytrance, house, techno and festival culture, which is what makes it distinct in India. Other genres exist, but the audience and economy are built around electronic and DJ-led acts, especially in season."),
+   ("When is Goa's music season?","Roughly November to March, when the weather, tourism and international touring line up. The scene peaks sharply in those months, which shapes when it's worth releasing and playing there.")]
+},
+{
  "slug":"independent-music-scene-bengaluru","cat":"Scene · Bengaluru","cta_h":"Building something in Bengaluru?",
  "title":"The independent music scene in Bengaluru: venues, gigs and artists",
  "desc":"A guide to Bengaluru's independent music scene, the live venues and listening rooms, where to find gigs, the rising artists, and how to get heard as an independent musician in the city.",

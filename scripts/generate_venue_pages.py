@@ -207,10 +207,10 @@ def build():
         page = head(f"Concerts & live music in {c['name']}: upcoming gigs, venues & tickets — Indie Music India",
                     f"Upcoming concerts, gigs and live music in {c['name']}: who's playing, at which venues, and where to get tickets. {c['show_count']} shows across {c['venue_count']} venues, updated daily.",
                     f"https://indiemusicindia.com/venues/{slug}/", city_ld)
-        # Only these three metros have a scene guide to link back to.
+        # All six metros now have a scene guide to link back to.
         scene_link = (f' New here? Read the <a href="/guides/independent-music-scene-{slug}/" '
                       f'style="color:var(--accent);font-weight:700">{esc(c["name"])} scene guide</a>.'
-                      if slug in ("mumbai", "bengaluru", "delhi") else "")
+                      if slug in ("mumbai", "bengaluru", "delhi", "hyderabad", "pune", "goa") else "")
         page += f'''
 <div class="page">
   <div class="crumb"><a href="/">Home</a> / <a href="/venues/">Venues</a> / {esc(c["name"])}</div>
