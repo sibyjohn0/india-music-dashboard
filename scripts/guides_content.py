@@ -34,6 +34,37 @@ GUIDES = [
    ("How long before release should I upload?","Upload and schedule at least two to four weeks ahead so you can pitch Spotify editorial and reach curators while the song is still unreleased.")]
 },
 {
+ "slug":"how-to-release-and-promote-punjabi-music-india","cat":"Promotion",
+ "title":"How to release and promote Punjabi music independently",
+ "desc":"A guide for independent Punjabi artists: how to release, distribute and grow your music the way the new wave actually did it, YouTube-first, no film and no major label. Honest and India-first.",
+ "lead":"Punjabi went from a regional genre to the biggest independent sound on the planet, and most of the new wave did it without a Bollywood film or a major label. Here is how the lane actually works.",
+ "tldr":"To build as an independent Punjabi artist: get a sound that is unmistakably yours instead of a copy of whoever is hot, go <b>YouTube-first</b> (Punjabi music lives on YouTube more than any other Indian genre), release consistently, and let the diaspora and collaborations carry it. Register your composition with <a href=\"/guides/register-music-copyright-iprs-india/\">IPRS</a> and set up YouTube Content ID so you actually get paid, and remember the money is in shows, weddings, sync and YouTube, not Spotify streams. You do not need a label; the biggest names built their own.",
+ "sections":[
+   {"h2":"Why Punjabi is the biggest independent lane right now","body":[
+     "No other Indian genre travels like Punjabi. Songs from Punjab regularly sit in global YouTube charts, and the artists driving it, from Sidhu Moose Wala to Karan Aujla, AP Dhillon, Shubh and Diljit Dosanjh, built most of it outside Bollywood and often outside the traditional label system. AP Dhillon's label is his own. That is the important part: the ceiling for an independent Punjabi artist is genuinely global.",
+     "It works because Punjabi music has a built-in worldwide audience, the diaspora across Canada, the UK, Australia and the US, who actively seek out and share new Punjabi music. You are not starting from zero the way an English-language indie artist in India is. The demand is already there; the job is to make something worth its attention."]},
+   {"h2":"Get a sound that is yours, not a clone","body":[
+     "The single biggest mistake new Punjabi artists make is trying to sound like whoever is number one that month. The market is flooded with imitators, and a copy is invisible, listeners already have the original. Everyone who broke through did it with something identifiable: Sidhu's storytelling and street realism, Diljit's crossover polish, Karan Aujla's pen. Your distinctiveness is the asset, not your resemblance to a star.",
+     "Practically: lean into what only you have, your dialect, your subject matter, your production choices, and make that loud. Reference the greats for standards, not for sound."]},
+   {"h2":"Release YouTube-first","body":[
+     "Punjabi music breaks on <b>YouTube</b> before anywhere else, more than any other Indian genre. A proper music video is not optional here; it is the release. Put your best money into a video with a strong visual identity, that is what gets shared across the diaspora and picked up by the Punjabi music channels.",
+     "You still need a distributor to put the audio on Spotify, Apple and JioSaavn, our <a href=\"/guides/best-music-distributor-india/\">distributor breakdown</a> applies, but for Punjabi the video and the YouTube upload are the main event, with streaming as the tail. Get your <a href=\"/guides/isrc-code-india/\">ISRC</a> and register with IPRS so the composition earns too."]},
+   {"h2":"Promotion that actually works for Punjabi","body":[
+     "The engine is YouTube plus Instagram Reels plus the diaspora. Cut the strongest 15 to 30 seconds of the song into vertical clips and post relentlessly; Punjabi hooks travel on Reels and Shorts. Get the track to the Punjabi playlist and channel curators who cover the scene, use <a href=\"/reviewers/\">the reviewer database</a> to find the ones open to new artists.",
+     {"ul":["<b>Collaborate.</b> Features and producer tags cross audiences faster than anything else in Punjabi music.",
+            "<b>Play live.</b> Melas, college shows and diaspora events build a real fanbase and pay well, more below.",
+            "<b>Consistency over one big swing.</b> Regular releases keep you in the feed; one video rarely does it."]}]},
+   {"h2":"Where the money actually is","body":[
+     "Streaming is the smallest part. For Punjabi artists the real income is, roughly in order: <b>live shows, weddings and melas</b> (Punjabi live demand is enormous, at home and in the diaspora), <b>YouTube</b> (ad revenue plus Content ID, which is significant given the view counts), <b>sync</b> (film, ads, series), and then streaming. Set up Content ID and IPRS/PPL so you actually collect all of it, most independent artists leave YouTube and royalty money on the table. See <a href=\"/guides/make-money-independent-artist-india/\">how independent artists make money in India</a>."]},
+   {"h2":"The reality check","body":[
+     "The wave is real, but so is the survivorship bias. For every AP Dhillon there are thousands doing everything right and still grinding. Do not benchmark your month-two numbers against artists with labels, budgets and years behind them. Build the machine, a distinct sound, YouTube-first, consistent output, real collaborations, and let it compound. That is a career, not a lottery ticket."]}],
+ "faq":[
+   ("How do Punjabi artists get famous without a label?","YouTube-first releases with strong videos, a distinct sound, consistent output, and the built-in diaspora audience. Most of the current wave, including AP Dhillon, built their own setups rather than signing to a major."),
+   ("Is YouTube or Spotify better for Punjabi music?","YouTube, by a distance. Punjabi music lives on YouTube more than any other Indian genre, for both discovery and income (ad revenue and Content ID). Spotify and Apple matter, but treat them as secondary to the video."),
+   ("How much do Punjabi artists earn?","The money is mostly in live shows, weddings and melas, then YouTube, then sync, with streaming last. A working independent Punjabi artist earns far more from stages and YouTube than from streams."),
+   ("Do I need to sound like AP Dhillon or Shubh to break through?","No, and copying them is the fastest way to stay invisible. Listeners already have the originals. Everyone who broke out did it with a sound that was recognisably their own.")]
+},
+{
  "slug":"isrc-code-india","cat":"Rights",
  "title":"How to get an ISRC code in India (free, step by step)",
  "desc":"What an ISRC code is, why every Indian artist needs one, and how to get an ISRC in India for free through your distributor, or directly from IFPI, without paying a middleman.",
