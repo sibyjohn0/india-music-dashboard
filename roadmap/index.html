@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Your Roadmap · Indie Music India</title>
-  <meta name="description" content="Your step-by-step plan to release and grow your music. Built for you." />
+  <meta name="description" content="Your interactive artist workbook. Build your plan, section by section." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,524 +16,363 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
     --cream:#FFF7EE; --ink:#241B2E; --pink:#FF4D8D; --yellow:#FFD23F; --softyellow:#FFF3CE;
-    --mint:#1FCF9E; --violet:#8B5CF6; --blue:#DCEEFF; --muted:#6B6076; --line:#241B2E;
-    --shadow:5px 5px 0 var(--ink);
+    --mint:#1FCF9E; --violet:#8B5CF6; --blue:#DCEEFF; --muted:#6B6076;
+    --shadow:5px 5px 0 var(--ink); --shadow-sm:3px 3px 0 var(--ink);
   }
   html{-webkit-text-size-adjust:100%}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;min-height:100dvh;overflow-x:hidden}
-  a{color:inherit}
+  a{color:var(--pink);font-weight:700}
   .mono{font-family:'Space Mono',monospace;letter-spacing:.5px;text-transform:uppercase}
-  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.08;letter-spacing:-.02em}
+  h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.1;letter-spacing:-.02em}
 
-  /* top bar + progress */
-  .topbar{position:sticky;top:0;z-index:20;background:var(--cream);border-bottom:2px solid var(--ink)}
-  .topbar-in{max-width:640px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px}
-  .brand{font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink)}
-  .brand .dot{width:13px;height:13px;border-radius:50%;background:var(--pink);border:2px solid var(--ink);flex:0 0 auto}
-  .saved{font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;white-space:nowrap;opacity:0;transition:opacity .3s}
+  .topbar{position:sticky;top:0;z-index:30;background:var(--cream);border-bottom:2px solid var(--ink)}
+  .topbar-in{max-width:660px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:11px 18px}
+  .brand{font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);flex:0 0 auto}
+  .brand .dot{width:13px;height:13px;border-radius:50%;background:var(--pink);border:2px solid var(--ink)}
+  .crumb{font-size:13px;font-weight:700;color:var(--muted);margin-left:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .saved{margin-left:auto;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;white-space:nowrap;opacity:0;transition:opacity .3s;flex:0 0 auto}
   .saved.show{opacity:1}
-  .saved .tick{width:15px;height:15px;border-radius:50%;background:var(--mint);border:1.5px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:9px;color:var(--ink);font-weight:800}
-  .pbar{height:8px;background:var(--softyellow);border-bottom:2px solid var(--ink)}
+  .saved .tick{width:15px;height:15px;border-radius:50%;background:var(--mint);border:1.5px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:800}
+  .pbar{height:7px;background:var(--softyellow);border-bottom:2px solid var(--ink)}
   .pbar-fill{height:100%;background:var(--pink);width:0;transition:width .35s cubic-bezier(.4,0,.2,1)}
 
-  /* stage */
-  .stage{max-width:640px;margin:0 auto;padding:26px 18px 150px;min-height:calc(100dvh - 62px)}
-  .stepmeta{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-  .stepmeta .eyebrow{font-size:11px;font-weight:700;color:var(--pink)}
-  .stepmeta .count{font-size:11px;color:var(--muted);margin-left:auto}
-  .q-title{font-size:clamp(25px,6.4vw,34px);font-weight:800;margin:0 0 10px;text-wrap:balance}
-  .q-help{font-size:16px;color:var(--muted);margin:0 0 22px;max-width:520px}
+  .stage{max-width:660px;margin:0 auto;padding:22px 18px 150px}
 
-  /* chips */
-  .chips{display:flex;flex-wrap:wrap;gap:10px}
-  .chip{display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:600;padding:13px 17px;background:#fff;border:2px solid var(--ink);border-radius:13px;cursor:pointer;user-select:none;transition:transform .08s, box-shadow .12s, background .12s;line-height:1.25}
+  /* home */
+  .hero{background:var(--ink);color:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:28px 24px;box-shadow:6px 6px 0 var(--pink);margin-bottom:20px}
+  .hero .kick{font-size:12px;font-weight:700;color:var(--yellow);margin-bottom:11px}
+  .hero h1{font-size:clamp(28px,7.5vw,40px);font-weight:800;color:#fff;margin-bottom:12px}
+  .hero p{font-size:16px;color:#E7DEF2;max-width:520px}
+  .ovr{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--ink);border-radius:15px;padding:16px 18px;margin-bottom:8px;box-shadow:var(--shadow-sm)}
+  .ovr .big{font-family:'Bricolage Grotesque';font-size:30px;font-weight:800;line-height:1}
+  .ovr .lbl{font-size:13px;color:var(--muted);font-weight:600}
+  .ovr .track{flex:1;height:12px;background:var(--softyellow);border:2px solid var(--ink);border-radius:20px;overflow:hidden}
+  .ovr .track i{display:block;height:100%;background:var(--mint)}
+  .sec-h{font-size:13px;font-weight:800;margin:22px 2px 12px;color:var(--muted)}
+  .seccard{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:15px;padding:15px 16px;margin-bottom:11px;cursor:pointer;transition:transform .08s, box-shadow .12s}
+  .seccard:active{transform:translateY(1px)}
+  .seccard:hover{box-shadow:var(--shadow-sm)}
+  .seccard .num{width:34px;height:34px;flex:0 0 auto;border-radius:10px;border:2px solid var(--ink);background:var(--yellow);font-family:'Bricolage Grotesque';font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+  .seccard.done .num{background:var(--mint)}
+  .seccard .body{flex:1;min-width:0}
+  .seccard .nm{display:block;font-weight:800;font-size:16px;line-height:1.25}
+  .seccard .tg{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+  .seccard .mini{display:block;margin-top:9px;height:7px;background:var(--softyellow);border:1.5px solid var(--ink);border-radius:10px;overflow:hidden}
+  .seccard .mini i{display:block;height:100%;background:var(--pink)}
+  .seccard .cnt{font-size:11px;color:var(--muted);font-weight:700;margin-top:5px;display:block}
+  .seccard .arw{font-size:20px;color:var(--muted);flex:0 0 auto}
+
+  /* section stepper */
+  .subhead{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .subhead .eyebrow{font-size:11px;font-weight:700;color:var(--pink)}
+  .subhead .of{font-size:11px;color:var(--muted);margin-left:auto}
+  .sec-intro{background:var(--blue);border:2px solid var(--ink);border-radius:16px;padding:20px;box-shadow:var(--shadow-sm);margin-bottom:6px}
+  .sec-intro h1{font-size:clamp(24px,6vw,32px);font-weight:800;margin-bottom:8px}
+  .sec-intro p{font-size:16px}
+  .block h2{font-size:22px;font-weight:800;margin:0 0 6px;text-wrap:balance}
+  .block .help{font-size:15px;color:var(--muted);margin:0 0 18px;max-width:560px}
+
+  .card{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px;margin-bottom:12px}
+  .qtext{font-size:16px;font-weight:700;margin-bottom:10px;line-height:1.4}
+  .flabel{font-size:14px;font-weight:700;margin:0 0 8px;display:block;line-height:1.4}
+  .tin{width:100%;font-family:inherit;font-size:16px;font-weight:500;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:11px;padding:12px 13px;outline:none}
+  .tin::placeholder{color:#B8B0C2}
+  .tin:focus{box-shadow:var(--shadow-sm)}
+  textarea.tin{resize:vertical;min-height:88px;line-height:1.5}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:600;padding:11px 15px;background:#fff;border:2px solid var(--ink);border-radius:12px;cursor:pointer;user-select:none;transition:transform .08s, box-shadow .12s, background .12s;line-height:1.25}
   .chip:active{transform:translateY(1px)}
-  .chip .box{width:20px;height:20px;border:2px solid var(--ink);border-radius:6px;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:#fff}
-  .chip.sel{background:var(--yellow);box-shadow:3px 3px 0 var(--ink)}
-  .chip.sel .box{background:var(--ink);color:var(--yellow)}
-  .chips.single .chip .box{border-radius:50%}
+  .chip.sel{background:var(--yellow);box-shadow:var(--shadow-sm)}
+  .chip.mini{padding:9px 13px;font-size:14px}
+  .chip .cdesc{display:block;font-weight:500;font-size:12px;color:var(--muted);margin-top:2px}
+  .chip.sel .cdesc{color:var(--ink)}
 
-  /* stacked (single-choice big rows) */
-  .stack{display:flex;flex-direction:column;gap:11px}
-  .row{display:flex;align-items:flex-start;gap:13px;text-align:left;width:100%;background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px;cursor:pointer;transition:transform .08s, box-shadow .12s, background .12s}
-  .row:active{transform:translateY(1px)}
-  .row.sel{background:var(--blue);box-shadow:var(--shadow)}
-  .row .rdot{width:22px;height:22px;border-radius:50%;border:2px solid var(--ink);flex:0 0 auto;margin-top:1px;display:inline-flex;align-items:center;justify-content:center;background:#fff}
-  .row.sel .rdot{background:var(--ink)}
-  .row.sel .rdot::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--yellow)}
-  .row .rtxt b{display:block;font-size:17px;font-weight:700}
-  .row .rtxt span{display:block;font-size:14px;color:var(--muted);margin-top:2px}
+  /* single-choice big rows (archetype) */
+  .optrow{display:flex;align-items:flex-start;gap:12px;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:13px;padding:14px;cursor:pointer;margin-bottom:10px;transition:transform .08s, box-shadow .12s, background .12s}
+  .optrow:active{transform:translateY(1px)}
+  .optrow.sel{background:var(--blue);box-shadow:var(--shadow-sm)}
+  .optrow .dot{width:22px;height:22px;flex:0 0 auto;border-radius:50%;border:2px solid var(--ink);margin-top:1px;display:inline-flex;align-items:center;justify-content:center;background:#fff}
+  .optrow.sel .dot{background:var(--ink)}
+  .optrow.sel .dot::after{content:"";width:9px;height:9px;border-radius:50%;background:var(--yellow)}
+  .optrow b{font-size:16px;font-weight:800;display:block}
+  .optrow span{font-size:14px;color:var(--muted)}
 
-  /* text input */
-  .tin{width:100%;font-family:inherit;font-size:19px;font-weight:600;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:13px;padding:16px;outline:none}
-  .tin::placeholder{color:#B8B0C2;font-weight:500}
-  .tin:focus{box-shadow:var(--shadow)}
-  textarea.tin{resize:vertical;min-height:96px;line-height:1.5}
-  .field+.field{margin-top:16px}
-  .flabel{font-size:13px;font-weight:700;margin:0 0 7px;display:block}
+  /* scale 1-10 */
+  .scale{display:flex;gap:5px;flex-wrap:wrap}
+  .scale button{font-family:'Bricolage Grotesque';font-weight:700;font-size:15px;width:100%;max-width:34px;flex:1 1 26px;aspect-ratio:1;border:2px solid var(--ink);border-radius:9px;background:#fff;cursor:pointer;color:var(--ink)}
+  .scale button.on{background:var(--pink);color:#fff}
 
-  /* info note */
-  .note{background:var(--softyellow);border:2px solid var(--ink);border-radius:13px;padding:15px 16px;font-size:15px;margin-top:20px}
-  .note b{font-weight:800}
+  /* checklist / check rows */
+  .check{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:14px;cursor:pointer;margin-bottom:9px;transition:background .12s}
+  .check.on{background:#EAFBF4}
+  .check .box{width:23px;height:23px;flex:0 0 auto;border:2px solid var(--ink);border-radius:7px;background:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:transparent;margin-top:1px}
+  .check.on .box{background:var(--mint);color:var(--ink)}
+  .check .ctxt{font-size:15px;line-height:1.45}
+  .check.on .ctxt{color:var(--muted)}
 
-  /* footer nav */
-  .navbar{position:fixed;bottom:0;left:0;right:0;z-index:20;background:var(--cream);border-top:2px solid var(--ink)}
-  .navbar-in{max-width:640px;margin:0 auto;display:flex;gap:12px;align-items:center;padding:13px 18px calc(13px + env(safe-area-inset-bottom))}
-  .btn{font-family:inherit;font-weight:800;font-size:16px;border:2px solid var(--ink);border-radius:12px;padding:14px 22px;cursor:pointer;transition:transform .08s, box-shadow .12s;background:#fff;color:var(--ink)}
+  /* info */
+  .info{background:var(--softyellow);border:2px solid var(--ink);border-radius:14px;padding:18px}
+  .info h2{font-size:19px;margin-bottom:10px}
+  .info p{font-size:15px;margin-bottom:9px}
+  .info p:last-child{margin-bottom:0}
+  .info p b{font-weight:800}
+
+  /* table -> stacked row cards */
+  .trow{background:#fff;border:2px solid var(--ink);border-radius:13px;padding:15px;margin-bottom:11px}
+  .trow .rhead{font-size:15px;font-weight:800;line-height:1.35;margin-bottom:3px}
+  .trow .rsub{font-size:13px;color:var(--muted);margin-bottom:11px;line-height:1.4}
+  .trow .rsub.pill{display:inline-block;background:var(--blue);border:2px solid var(--ink);border-radius:8px;padding:3px 9px;font-weight:700;color:var(--ink);margin-bottom:11px}
+  .tfield{margin-top:11px}
+  .tfield:first-child{margin-top:0}
+  .trow .check{margin:2px 0 0}
+
+  /* nav */
+  .navbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--cream);border-top:2px solid var(--ink)}
+  .navbar-in{max-width:660px;margin:0 auto;display:flex;gap:11px;align-items:center;padding:12px 18px calc(12px + env(safe-area-inset-bottom))}
+  .btn{font-family:inherit;font-weight:800;font-size:16px;border:2px solid var(--ink);border-radius:12px;padding:13px 20px;cursor:pointer;transition:transform .08s, box-shadow .12s;background:#fff;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
   .btn:active{transform:translateY(1px)}
   .btn.primary{background:var(--pink);color:#fff;box-shadow:var(--shadow);flex:1}
-  .btn.primary:disabled{background:#F0D9E3;color:#fff;box-shadow:none;cursor:not-allowed}
-  .btn.ghost{background:transparent;border-color:transparent;color:var(--muted);padding:14px 8px}
   .btn.back{flex:0 0 auto}
+  .btn.wide{width:100%}
 
-  /* intro / welcome */
-  .hero{background:var(--ink);color:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:30px 24px;box-shadow:6px 6px 0 var(--pink);margin-bottom:22px}
-  .hero .kick{font-size:12px;font-weight:700;color:var(--yellow);margin-bottom:12px}
-  .hero h1{font-size:clamp(30px,8vw,42px);font-weight:800;color:#fff;margin-bottom:14px}
-  .hero p{font-size:17px;color:#E7DEF2;max-width:520px}
-  .stepslist{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:12px}
-  .stepslist li{display:flex;gap:13px;align-items:flex-start;font-size:16px}
-  .stepslist .n{width:28px;height:28px;flex:0 0 auto;border-radius:50%;background:var(--yellow);border:2px solid var(--ink);color:var(--ink);font-weight:800;font-size:14px;display:inline-flex;align-items:center;justify-content:center}
-  .stepslist b{font-weight:700}
-  .stepslist span{color:var(--muted);display:block;font-size:14px}
+  .privacy{font-size:12px;color:var(--muted);text-align:center;margin-top:22px;padding:0 10px}
+  .exportrow{display:flex;gap:11px;margin-top:18px}
+  .exportrow .btn{flex:1}
 
-  /* summary / roadmap */
-  .rm-hd{background:var(--yellow);border:2px solid var(--ink);border-radius:18px;padding:24px;box-shadow:var(--shadow);margin-bottom:22px}
-  .rm-hd .kick{font-size:12px;font-weight:700;color:var(--ink);opacity:.7}
-  .rm-hd h1{font-size:clamp(27px,7vw,38px);font-weight:800;margin:8px 0 8px}
-  .rm-hd p{font-size:16px;font-weight:600}
-  .rm-sec{margin-bottom:26px}
-  .rm-sec h2{font-size:20px;font-weight:800;margin:0 0 4px}
-  .rm-sec .sub{font-size:14px;color:var(--muted);margin:0 0 14px}
-  .task{display:flex;gap:13px;align-items:flex-start;background:#fff;border:2px solid var(--ink);border-radius:13px;padding:15px;cursor:pointer;margin-bottom:11px;transition:background .12s}
-  .task.done{background:#EAFBF4}
-  .task .tbox{width:24px;height:24px;flex:0 0 auto;border:2px solid var(--ink);border-radius:7px;background:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:transparent;margin-top:1px}
-  .task.done .tbox{background:var(--mint);color:var(--ink)}
-  .task .ttxt{font-size:16px;line-height:1.45}
-  .task.done .ttxt{text-decoration:line-through;text-decoration-color:var(--muted);color:var(--muted)}
-  .task .ttxt small{display:block;text-decoration:none;color:var(--muted);font-size:13px;margin-top:3px;line-height:1.4}
-  .task .ttxt a{color:var(--pink);font-weight:700}
-  .chipline{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
-  .tag{font-size:13px;font-weight:700;background:#fff;border:2px solid var(--ink);border-radius:9px;padding:6px 11px}
-  .rm-actions{display:flex;flex-direction:column;gap:11px;margin-top:8px}
-  .linkcard{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fff;border:2px solid var(--ink);border-radius:13px;padding:15px 17px;text-decoration:none;font-weight:700;font-size:16px;transition:transform .08s, box-shadow .12s}
-  .linkcard:active{transform:translateY(1px)}
-  .linkcard:hover{box-shadow:3px 3px 0 var(--ink)}
-  .linkcard small{display:block;font-weight:500;color:var(--muted);font-size:13px;margin-top:2px}
-  .linkcard .arw{font-size:20px;flex:0 0 auto}
-  .printrow{display:flex;gap:11px;flex-wrap:wrap;margin-top:22px}
-  .printrow .btn{flex:1;min-width:150px}
-  .startover{text-align:center;margin-top:26px}
-  .startover button{background:none;border:none;color:var(--muted);font-size:14px;font-weight:600;text-decoration:underline;cursor:pointer;font-family:inherit}
-
-  .privacy{font-size:12px;color:var(--muted);text-align:center;margin-top:26px;padding:0 10px}
+  /* export view */
+  .ex-sec{margin-bottom:26px}
+  .ex-sec h2{font-size:20px;border-bottom:2px solid var(--ink);padding-bottom:6px;margin-bottom:12px}
+  .ex-item{margin-bottom:12px}
+  .ex-item .q{font-size:13px;font-weight:800;color:var(--muted)}
+  .ex-item .a{font-size:15px;white-space:pre-wrap}
+  .ex-empty{color:var(--muted);font-style:italic;font-size:14px}
 
   @media(max-width:480px){
-    .stage{padding:22px 15px 150px}
-    .topbar-in,.navbar-in{padding-left:15px;padding-right:15px}
-    .q-title{font-size:26px}
+    .stage{padding:20px 14px 150px}
+    .topbar-in,.navbar-in{padding-left:14px;padding-right:14px}
+    .crumb{max-width:150px}
   }
-
-  /* print */
   @media print{
-    .topbar,.navbar,.pbar,.printrow,.startover,.privacy,.rm-actions{display:none !important}
+    .topbar,.navbar,.pbar,.exportrow,.privacy,.btn{display:none!important}
     body{background:#fff}
     .stage{padding:0;max-width:100%}
-    .task{break-inside:avoid;box-shadow:none}
-    .rm-hd{box-shadow:none}
+    .ex-sec,.ex-item{break-inside:avoid}
   }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-in">
-      <a class="brand" href="/"><span class="dot"></span> Indie Music India</a>
-      <span class="saved" id="saved"><span class="tick">✓</span> Saved on this phone</span>
+      <a class="brand" href="/"><span class="dot"></span> <span class="bt">Indie Music India</span></a>
+      <span class="crumb" id="crumb"></span>
+      <span class="saved" id="saved"><span class="tick">✓</span> Saved</span>
     </div>
   </header>
   <div class="pbar"><div class="pbar-fill" id="pfill"></div></div>
-
-  <main class="stage" id="stage"><!-- rendered by JS --></main>
-
-  <nav class="navbar" id="navbar">
+  <main class="stage" id="stage"></main>
+  <nav class="navbar" id="navbar" style="display:none">
     <button class="btn back" id="backBtn" type="button">Back</button>
     <button class="btn primary" id="nextBtn" type="button">Next</button>
   </nav>
 
+  <script src="/roadmap/content.js"></script>
   <script>
   (function(){
     "use strict";
-    var KEY = "iim_roadmap_v1";
-
-    /* ---------- default state ---------- */
-    function fresh(){
-      return {
-        step: 0,
-        a: {
-          artist:"", makes:[], languages:[], city:"",
-          goal:[], songStatus:"",
-          releaseName:"", releaseType:"", releaseWhen:"",
-          distributor:"",
-          platforms:[], prePosts:[], pitch:[],
-          team:"", splitNote:""
-        },
-        checks: {}
-      };
-    }
+    var WB = window.WORKBOOK, KEY="iim_roadmap_wb_v1";
     var S = load();
-    function load(){
-      try{ var raw = localStorage.getItem(KEY); if(raw){ var o = JSON.parse(raw); o.a = Object.assign(fresh().a, o.a||{}); o.checks = o.checks||{}; return o; } }catch(e){}
-      return fresh();
+    function fresh(){ return { nav:{view:"home"}, ans:{}, seen:false }; }
+    function load(){ try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);o.ans=o.ans||{};o.nav=o.nav||{view:"home"};return o;}}catch(e){} return fresh(); }
+    var saveT;
+    function save(){ try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
+      var el=document.getElementById("saved"); if(el){el.classList.add("show");clearTimeout(saveT);saveT=setTimeout(function(){el.classList.remove("show");},1400);} }
+    function esc(s){ return (s==null?"":String(s)).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+    function val(k){ return S.ans[k]; }
+    function setVal(k,v){ if(v===""||v==null){delete S.ans[k];} else {S.ans[k]=v;} save(); }
+
+    /* ---- field keys owned by a block (for progress) ---- */
+    function blockKeys(b){
+      var ks=[];
+      if(b.type==="pillars"){ WB.pillars.forEach(function(_,i){ ks.push(b.id+"."+i+".rating"); if(b.mode!=="review"){ks.push(b.id+"."+i+".strength");ks.push(b.id+"."+i+".gap");}else{ks.push(b.id+"."+i+".now");ks.push(b.id+"."+i+".goal");} }); }
+      else if(b.type==="qa"||b.type==="fill"){ b.items.forEach(function(it){ ks.push(b.id+"."+it.id); }); }
+      else if(b.type==="chips"){ ks.push(b.id); }
+      else if(b.type==="checklist"){ b.items.forEach(function(it){ ks.push(b.id+"."+it.id); }); }
+      else if(b.type==="note"){ ks.push(b.id); }
+      else if(b.type==="table"){ tableRows(b).forEach(function(r){ b.columns.forEach(function(c){ if(c.type!=="readonly") ks.push(b.id+"."+r.id+"."+c.key); }); }); }
+      return ks;
     }
-    var saveTimer;
-    function save(){
-      try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){}
-      var el = document.getElementById("saved");
-      if(el){ el.classList.add("show"); clearTimeout(saveTimer); saveTimer=setTimeout(function(){el.classList.remove("show");},1600); }
-    }
+    function isInputBlock(b){ return b.type!=="info"; }
+    function blockStarted(b){ return blockKeys(b).some(function(k){ var v=val(k); return v!==undefined&&v!==""&&v!==false; }); }
+    function tableRows(b){ if(typeof b.rows==="number"){ var a=[]; for(var i=1;i<=b.rows;i++) a.push({id:"n"+i,cells:{},_n:i}); return a; } return b.rows; }
+    function secProgress(sec){ var blocks=sec.blocks.filter(isInputBlock); var done=blocks.filter(blockStarted).length; return {done:done,total:blocks.length}; }
+    function overall(){ var d=0,t=0; WB.sections.forEach(function(s){ var p=secProgress(s); d+=p.done; t+=p.total; }); return {done:d,total:t,pct:t?Math.round(d/t*100):0}; }
 
-    /* ---------- step definitions ---------- */
-    var STEPS = [
-      { kind:"intro" },
-      { id:"artist", kind:"text", req:true, eyebrow:"About you", title:"First up, what do you go by?",
-        help:"Your artist name, or your real name if you haven't picked one yet.", placeholder:"e.g. your artist name" },
-      { id:"makes", kind:"chips", multi:true, req:true, eyebrow:"About you", title:"What kind of music do you make?",
-        help:"Tap all that fit. Not sure? Pick the closest one.",
-        options:["Rap / hip-hop","Punjabi","Pop","Singer-songwriter","R&B / soul","Indie / alternative","Electronic / DJ","Folk / acoustic","Desi fusion","Something else"] },
-      { id:"languages", kind:"chips", multi:true, eyebrow:"About you", title:"Which languages do you sing or rap in?",
-        help:"Tap all you use.",
-        options:["Punjabi","Hindi","English","Tamil","Telugu","Malayalam","Bengali","Marathi","No words (instrumental)","Other"] },
-      { id:"city", kind:"text", eyebrow:"About you", title:"Where are you based?",
-        help:"Just your city or town. This helps us point you to the right local shows and scenes.", placeholder:"e.g. Ludhiana" },
-      { id:"goal", kind:"chips", multi:true, req:true, eyebrow:"Your goal", title:"In the next 6 months, what would make you happy?",
-        help:"Pick up to two. This is what your whole plan will aim at.", max:2,
-        options:["Get my first 1,000 listeners","Play my first live show","Land on a Spotify playlist","Make my first money from music","Get better and release more","Get noticed by a label or manager"] },
-      { id:"songStatus", kind:"stack", req:true, eyebrow:"Your music", title:"Where's your next song right now?",
-        help:"Be honest, this decides your first move.",
-        options:[
-          {v:"ready", t:"It's finished and ready", d:"Recorded, mixed and mastered. Good to go."},
-          {v:"recorded", t:"Recorded, but not mixed", d:"The take is done but it doesn't sound polished yet."},
-          {v:"demo", t:"Just a demo or idea", d:"Something on your phone, not properly recorded."},
-          {v:"nothing", t:"Nothing yet", d:"You're starting from zero. That's fine."}
-        ] },
-      { id:"release", kind:"release", eyebrow:"Your next drop", title:"Tell us about the song you'll put out next",
-        help:"Don't overthink it. You can change all of this later." },
-      { id:"distributor", kind:"stack", eyebrow:"Getting it out", title:"How will your song get onto Spotify & Apple Music?",
-        help:"You can't upload directly. A distributor puts your song on every app for you. Which one?",
-        note:"A distributor is just a delivery service. Most cost around ₹1,000–2,000 a year and you keep 100% of your earnings.",
-        options:[
-          {v:"distrokid", t:"DistroKid", d:"The usual first pick. Cheap, simple, unlimited songs."},
-          {v:"believe", t:"Believe / TuneCore / others", d:"Also fine. Compare before you pay."},
-          {v:"have", t:"I already have one", d:"Great, you're ahead."},
-          {v:"help", t:"No idea, help me pick", d:"We'll point you to a plain-English guide."}
-        ] },
-      { id:"platforms", kind:"chips", multi:true, eyebrow:"Your people", title:"Where do the people who'd like your music hang out?",
-        help:"Tap all that apply. This is where you'll build your crowd.",
-        options:["Instagram","YouTube","Snapchat","WhatsApp","Spotify","Facebook"] },
-      { id:"prePosts", kind:"chips", multi:true, eyebrow:"The plan", title:"Before the song drops, what could you post?",
-        help:"Pick a few you'd actually do. These become your countdown.", max:4,
-        options:["A studio / recording clip","A snippet of the hook","The story behind the song","A 'coming soon' with the date","Behind-the-scenes of the art","You just talking to camera","A rough video / reel"] },
-      { id:"pitch", kind:"chips", multi:true, eyebrow:"Getting heard", title:"How will you get people to actually hear it?",
-        help:"Tap the ones you'll try. We'll hand you the tools for each.",
-        options:["Pitch to playlist curators","Ask friends to add it to playlists","Send it to reviewers / blogs","Share to every WhatsApp group","Post reels using the song","Pitch Spotify from your artist profile"] },
-      { id:"team", kind:"stack", eyebrow:"Money & rights", title:"Who made this song with you?",
-        help:"This matters: it decides who owns a share of the money later.",
-        options:[
-          {v:"solo", t:"Just me", d:"You wrote and made all of it."},
-          {v:"beat", t:"Me + a beatmaker / producer", d:"Someone gave you the beat or produced it."},
-          {v:"group", t:"A few of us", d:"Co-writers, a featured singer, a band."}
-        ] },
-      { kind:"summary" }
-    ];
-
-    /* ---------- helpers ---------- */
-    function firstName(){ var n=(S.a.artist||"").trim(); return n ? n.split(" ")[0] : "there"; }
-    function activeSteps(){ return STEPS; }
-    function progressPct(){
-      var total = STEPS.length - 1; // exclude intro from the bar feel
-      var cur = Math.min(S.step, total);
-      return Math.round((cur/total)*100);
-    }
-    function esc(s){ return (s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
-
-    /* ---------- render ---------- */
-    var stage = document.getElementById("stage");
-    var backBtn = document.getElementById("backBtn");
-    var nextBtn = document.getElementById("nextBtn");
-    var navbar = document.getElementById("navbar");
-
+    /* ---- render dispatch ---- */
+    var stage=document.getElementById("stage"), navbar=document.getElementById("navbar"),
+        backBtn=document.getElementById("backBtn"), nextBtn=document.getElementById("nextBtn"),
+        crumb=document.getElementById("crumb");
     function render(){
-      var step = STEPS[S.step];
-      document.getElementById("pfill").style.width = progressPct()+"%";
+      var v=S.nav.view;
+      document.getElementById("pfill").style.width=overall().pct+"%";
       window.scrollTo(0,0);
-      if(step.kind==="intro"){ renderIntro(); return; }
-      if(step.kind==="summary"){ renderSummary(); return; }
-
-      navbar.style.display="";
-      var human = S.step; // number among non-intro
-      var totalQ = STEPS.length - 2; // exclude intro + summary
-      var html = '<div class="stepmeta"><span class="eyebrow mono">'+esc(step.eyebrow||"")+'</span>'+
-        '<span class="count mono">'+human+' / '+totalQ+'</span></div>'+
-        '<h1 class="q-title">'+esc(step.title)+'</h1>'+
-        (step.help?'<p class="q-help">'+esc(step.help)+'</p>':"");
-
-      if(step.kind==="text") html += renderText(step);
-      else if(step.kind==="chips") html += renderChips(step);
-      else if(step.kind==="stack") html += renderStack(step);
-      else if(step.kind==="release") html += renderRelease(step);
-
-      if(step.note) html += '<div class="note">'+esc(step.note)+'</div>';
-      stage.innerHTML = html;
-      wire(step);
-      updateNav(step);
+      if(v==="section") return renderSection();
+      if(v==="export") return renderExport();
+      return renderHome();
     }
 
-    function renderText(step){
-      var v = S.a[step.id]||"";
-      return '<input class="tin" id="in_'+step.id+'" type="text" value="'+esc(v)+'" placeholder="'+esc(step.placeholder||"")+'" autocomplete="off" />';
-    }
-    function renderChips(step){
-      var sel = S.a[step.id]||[];
-      var cls = "chips"+(step.multi?"":" single");
-      var h = '<div class="'+cls+'">';
-      step.options.forEach(function(o){
-        var on = sel.indexOf(o)>-1;
-        h += '<div class="chip'+(on?" sel":"")+'" data-v="'+esc(o)+'"><span class="box">'+(on?"✓":"")+'</span>'+esc(o)+'</div>';
+    function renderHome(){
+      navbar.style.display="none"; crumb.textContent="";
+      var o=overall(), started=o.done>0;
+      var h="";
+      h+='<div class="hero"><div class="kick mono">Your Roadmap · artist workbook</div>'+
+         '<h1>'+(started?"Welcome back.":"Let's build your career, section by section.")+'</h1>'+
+         '<p>This is your workbook. Twelve short sections take you from who you are to a real 90-day plan. Do one at a time, in any order. Everything saves as you go.</p></div>';
+      h+='<div class="ovr"><div><div class="big">'+o.pct+'%</div><div class="lbl">'+o.done+' of '+o.total+' done</div></div>'+
+         '<div class="track"><i style="width:'+o.pct+'%"></i></div></div>';
+      h+='<div class="sec-h">THE SECTIONS</div>';
+      WB.sections.forEach(function(sec,i){
+        var p=secProgress(sec), pct=p.total?Math.round(p.done/p.total*100):0, done=p.done===p.total;
+        h+='<button class="seccard'+(done?" done":"")+'" data-sec="'+i+'"><span class="num">'+(done?"✓":(i+1))+'</span>'+
+           '<span class="body"><span class="nm">'+esc(sec.name)+'</span><span class="tg">'+esc(sec.tag)+'</span>'+
+           '<span class="mini"><i style="width:'+pct+'%"></i></span><span class="cnt">'+p.done+' / '+p.total+' done</span></span>'+
+           '<span class="arw">→</span></button>';
       });
-      return h+'</div>';
-    }
-    function renderStack(step){
-      var sel = S.a[step.id]||"";
-      var h = '<div class="stack">';
-      step.options.forEach(function(o){
-        var on = sel===o.v;
-        h += '<div class="row'+(on?" sel":"")+'" data-v="'+esc(o.v)+'"><span class="rdot"></span>'+
-             '<span class="rtxt"><b>'+esc(o.t)+'</b><span>'+esc(o.d)+'</span></span></div>';
-      });
-      return h+'</div>';
-    }
-    function renderRelease(step){
-      var a=S.a;
-      var types=["Single","EP","Album","A music video"];
-      var whens=["In a few weeks","1–2 months away","Later this year","Not sure yet"];
-      var h='<div class="field"><label class="flabel">What\'s it called? <span style="color:var(--muted);font-weight:500">(a working title is fine)</span></label>'+
-        '<input class="tin" id="in_releaseName" type="text" value="'+esc(a.releaseName)+'" placeholder="e.g. song name" autocomplete="off" /></div>';
-      h+='<div class="field"><label class="flabel">What is it?</label><div class="chips single" id="rel_type">';
-      types.forEach(function(t){ h+='<div class="chip'+(a.releaseType===t?" sel":"")+'" data-v="'+esc(t)+'"><span class="box">'+(a.releaseType===t?"✓":"")+'</span>'+esc(t)+'</div>'; });
-      h+='</div></div>';
-      h+='<div class="field"><label class="flabel">When are you hoping to drop it?</label><div class="chips single" id="rel_when">';
-      whens.forEach(function(t){ h+='<div class="chip'+(a.releaseWhen===t?" sel":"")+'" data-v="'+esc(t)+'"><span class="box">'+(a.releaseWhen===t?"✓":"")+'</span>'+esc(t)+'</div>'; });
-      h+='</div></div>';
-      return h;
+      h+='<div class="exportrow"><button class="btn primary wide" id="exportBtn" type="button">See &amp; print my workbook</button></div>';
+      h+='<p class="privacy">Saved on this device. Soon you\'ll be able to log in and pick it up anywhere.</p>';
+      stage.innerHTML=h;
+      S.seen=true; save();
     }
 
-    function renderIntro(){
+    function renderSection(){
+      var sec=WB.sections[S.nav.sec], bi=S.nav.block||0;
+      crumb.textContent=sec.name;
       navbar.style.display="";
-      var resumed = S.a.artist || (S.a.makes&&S.a.makes.length);
-      stage.innerHTML =
-        '<div class="hero"><div class="kick mono">Your Roadmap · self-serve</div>'+
-        '<h1>Let\'s build your plan.</h1>'+
-        '<p>Answer a few quick questions about you and your music. At the end you get your own step-by-step plan: exactly what to do next, in order. No jargon. Takes about 5 minutes.</p></div>'+
-        '<ul class="stepslist">'+
-        '<li><span class="n">1</span><div><b>Tell us about you & your music</b><span>Who you are, what you make.</span></div></li>'+
-        '<li><span class="n">2</span><div><b>Your next song and how it gets out</b><span>Where it stands, and getting it on the apps.</span></div></li>'+
-        '<li><span class="n">3</span><div><b>Your crowd, your plan, your money</b><span>Who hears it, and keeping what\'s yours.</span></div></li>'+
-        '<li><span class="n">4</span><div><b>Your Roadmap</b><span>A checklist made just for you. Tick things off as you go.</span></div></li>'+
-        '</ul>'+
-        '<p class="privacy">Your answers save automatically on this phone. Nothing is shared. You can come back any time and pick up where you left off.</p>';
-      backBtn.style.visibility="hidden";
-      nextBtn.textContent = resumed ? "Continue" : "Start →";
-      nextBtn.disabled=false;
+      var h='<div class="subhead"><span class="eyebrow mono">'+esc(sec.name)+'</span><span class="of mono">'+(bi+1)+' / '+sec.blocks.length+'</span></div>';
+      if(bi===0){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>'; }
+      h+='<div class="block">'+renderBlock(sec.blocks[bi])+'</div>';
+      stage.innerHTML=h;
+      backBtn.textContent = bi===0 ? "Contents" : "Back";
+      nextBtn.textContent = bi===sec.blocks.length-1 ? "Done · back to contents" : "Next";
     }
 
-    /* ---------- wiring ---------- */
-    function wire(step){
-      if(step.kind==="text"){
-        var inp=document.getElementById("in_"+step.id);
-        inp.addEventListener("input",function(){ S.a[step.id]=inp.value; save(); updateNav(step); });
-        inp.addEventListener("keydown",function(e){ if(e.key==="Enter"&&!nextBtn.disabled){ e.preventDefault(); goNext(); } });
-      }
-      if(step.kind==="chips"){
-        stage.querySelectorAll(".chip").forEach(function(c){
-          c.addEventListener("click",function(){ toggleChip(step,c.getAttribute("data-v")); });
-        });
-      }
-      if(step.kind==="stack"){
-        stage.querySelectorAll(".row").forEach(function(r){
-          r.addEventListener("click",function(){ S.a[step.id]=r.getAttribute("data-v"); save(); render(); });
-        });
-      }
-      if(step.kind==="release"){
-        var nm=document.getElementById("in_releaseName");
-        nm.addEventListener("input",function(){ S.a.releaseName=nm.value; save(); });
-        stage.querySelector("#rel_type").querySelectorAll(".chip").forEach(function(c){
-          c.addEventListener("click",function(){ S.a.releaseType=c.getAttribute("data-v"); save(); render(); });
-        });
-        stage.querySelector("#rel_when").querySelectorAll(".chip").forEach(function(c){
-          c.addEventListener("click",function(){ S.a.releaseWhen=c.getAttribute("data-v"); save(); render(); });
-        });
-      }
+    /* ---- block renderers ---- */
+    function renderBlock(b){
+      var head = b.title?'<h2>'+esc(b.title)+'</h2>':"";
+      head += b.help?'<p class="help">'+esc(b.help)+'</p>':"";
+      var body="";
+      if(b.type==="info") return '<div class="info">'+(b.title?'<h2>'+esc(b.title)+'</h2>':"")+b.body.map(function(p){
+          var m=String(p).match(/^([^:]{2,40}):\s(.+)$/); return m?'<p><b>'+esc(m[1])+':</b> '+esc(m[2])+'</p>':'<p>'+esc(p)+'</p>'; }).join("")+'</div>';
+      if(b.type==="pillars") body=renderPillars(b);
+      else if(b.type==="qa") body=b.items.map(function(it){ return '<div class="card"><div class="qtext">'+esc(it.q)+'</div>'+ta(b.id+"."+it.id,"Type your answer")+'</div>'; }).join("");
+      else if(b.type==="fill") body=b.items.map(function(it){ var k=b.id+"."+it.id; return '<div class="card">'+(it.label?'<label class="flabel">'+esc(it.label)+'</label>':"")+(it.long?ta(k,it.ph||""):ti(k,it.ph||""))+'</div>'; }).join("");
+      else if(b.type==="chips") body=renderChoice(b);
+      else if(b.type==="checklist") body=b.items.map(function(it){ return chk(b.id+"."+it.id, it.text); }).join("");
+      else if(b.type==="note") body='<div class="card"><label class="flabel">Your notes</label>'+ta(b.id,"Anything you want to remember from this section")+'</div>';
+      else if(b.type==="table") body=renderTable(b);
+      return head+body;
     }
-    function toggleChip(step, val){
-      var arr = S.a[step.id]||[];
-      var i = arr.indexOf(val);
-      if(step.multi){
-        if(i>-1) arr.splice(i,1);
-        else { if(step.max && arr.length>=step.max){ arr.shift(); } arr.push(val); }
-      } else {
-        arr = (i>-1)?[]:[val];
-      }
-      S.a[step.id]=arr; save(); render();
+    function ti(k,ph){ return '<input class="tin" data-k="'+k+'" type="text" value="'+esc(val(k)||"")+'" placeholder="'+esc(ph||"")+'" autocomplete="off">'; }
+    function ta(k,ph){ return '<textarea class="tin" data-k="'+k+'" placeholder="'+esc(ph||"")+'">'+esc(val(k)||"")+'</textarea>'; }
+    function chk(k,text){ var on=!!val(k); return '<div class="check'+(on?" on":"")+'" data-check="'+k+'"><span class="box">✓</span><span class="ctxt">'+esc(text)+'</span></div>'; }
+    function scale(k){ var cur=val(k); var h='<div class="scale">'; for(var i=1;i<=10;i++){ h+='<button type="button" data-scale="'+k+'" data-v="'+i+'" class="'+(String(cur)===String(i)?"on":"")+'">'+i+'</button>'; } return h+'</div>'; }
+
+    function renderPillars(b){
+      return WB.pillars.map(function(name,i){
+        var base=b.id+"."+i;
+        if(b.mode==="review"){
+          var was=val("baseline."+i+".rating");
+          return '<div class="trow"><div class="rhead">'+esc(name)+'</div>'+
+            '<div class="rsub pill">Week 1 rating: '+(was?was+"/10":"-")+'</div>'+
+            '<div class="tfield"><label class="flabel">Where I am now</label>'+scale(base+".now")+'</div>'+
+            '<div class="tfield"><label class="flabel">90-day goal</label>'+ti(base+".goal","")+'</div></div>';
+        }
+        return '<div class="trow"><div class="rhead">'+esc(name)+'</div>'+
+          '<div class="tfield"><label class="flabel">Rating (1–10)</label>'+scale(base+".rating")+'</div>'+
+          '<div class="tfield"><label class="flabel">My biggest strength here</label>'+ti(base+".strength","")+'</div>'+
+          '<div class="tfield"><label class="flabel">My biggest gap here</label>'+ti(base+".gap","")+'</div></div>';
+      }).join("");
     }
 
-    /* ---------- nav ---------- */
-    function stepComplete(step){
-      if(!step.req) return true;
-      var v=S.a[step.id];
-      if(step.kind==="text") return !!(v&&v.trim());
-      if(step.kind==="chips") return !!(v&&v.length);
-      if(step.kind==="stack") return !!v;
-      return true;
+    function renderChoice(b){
+      // big option rows if descriptions present, else chips
+      var cur=val(b.id);
+      if(b.options.some(function(o){return o.desc;})){
+        return b.options.map(function(o){ var on=cur===o.v; return '<div class="optrow'+(on?" sel":"")+'" data-choice="'+b.id+'" data-v="'+esc(o.v)+'"><span class="dot"></span><span><b>'+esc(o.label)+'</b><span>'+esc(o.desc||"")+'</span></span></div>'; }).join("");
+      }
+      return '<div class="chips">'+b.options.map(function(o){ var on=(b.single?cur===o.v:(cur||[]).indexOf(o.v)>-1); return '<div class="chip'+(on?" sel":"")+'" data-choice="'+b.id+'" data-v="'+esc(o.v)+'" data-single="'+(b.single?1:0)+'">'+esc(o.label)+'</div>'; }).join("")+'</div>';
     }
-    function updateNav(step){
-      backBtn.style.visibility = (S.step===0)?"hidden":"visible";
-      var last = S.step===STEPS.length-2;
-      nextBtn.textContent = last ? "See my Roadmap →" : "Next";
-      nextBtn.disabled = !stepComplete(step);
+
+    function renderTable(b){
+      var ro=b.columns.filter(function(c){return c.type==="readonly";});
+      var inp=b.columns.filter(function(c){return c.type!=="readonly";});
+      return tableRows(b).map(function(r){
+        var head="", subs=[];
+        if(r._n){ head='<div class="rhead">'+r._n+'.</div>'; }
+        else {
+          ro.forEach(function(c,idx){ var t=r.cells[c.key]||""; if(idx===0) head='<div class="rhead">'+esc(t)+'</div>'; else if(t) subs.push(esc(t)); });
+        }
+        var sub = subs.length?'<div class="rsub">'+subs.join(" · ")+'</div>':"";
+        var fields=inp.map(function(c){ var k=b.id+"."+r.id+"."+c.key;
+          if(c.type==="check") return '<div class="tfield">'+chk(k, c.label)+'</div>';
+          if(c.type==="chips"){ var cur=val(k); return '<div class="tfield"><label class="flabel">'+esc(c.label)+'</label><div class="chips">'+c.options.map(function(op){ return '<div class="chip mini'+(cur===op?" sel":"")+'" data-choice="'+k+'" data-v="'+esc(op)+'" data-single="1">'+esc(op)+'</div>'; }).join("")+'</div></div>'; }
+          return '<div class="tfield"><label class="flabel">'+esc(c.label)+'</label>'+ti(k,"")+'</div>';
+        }).join("");
+        return '<div class="trow">'+head+sub+fields+'</div>';
+      }).join("");
     }
-    function goNext(){
-      if(S.step < STEPS.length-1){ S.step++; save(); render(); }
+
+    /* ---- export / print ---- */
+    function renderExport(){
+      navbar.style.display="none"; crumb.textContent="Your workbook";
+      var h='<div class="hero" style="box-shadow:6px 6px 0 var(--mint)"><div class="kick mono">Your workbook</div><h1>Everything you\'ve filled in.</h1><p>Only your answers show here. Print it or save as PDF to keep a copy, or hand it to someone helping you.</p></div>';
+      h+='<div class="exportrow"><button class="btn back" id="homeBtn" type="button">← Back</button><button class="btn primary" id="printBtn" type="button">Print / save as PDF</button></div>';
+      WB.sections.forEach(function(sec){
+        var rows=exportSection(sec);
+        if(!rows) return;
+        h+='<div class="ex-sec"><h2>'+esc(sec.name)+'</h2>'+rows+'</div>';
+      });
+      h+='<p class="privacy">Tip: in the print dialog, choose "Save as PDF".</p>';
+      stage.innerHTML=h;
     }
-    function goBack(){
-      if(S.step>0){ S.step--; save(); render(); }
+    function fmt(v){ if(v===true)return "✓ done"; return esc(v); }
+    function exportSection(sec){
+      var out="";
+      sec.blocks.forEach(function(b){
+        if(b.type==="info") return;
+        var items="";
+        if(b.type==="pillars"){ WB.pillars.forEach(function(nm,i){ var r=b.mode==="review"?val(b.id+"."+i+".now"):val(b.id+"."+i+".rating"); if(r) items+=exq(nm, r+"/10"); }); }
+        else if(b.type==="qa"){ b.items.forEach(function(it){ var v=val(b.id+"."+it.id); if(v) items+=exq(it.q,v); }); }
+        else if(b.type==="fill"){ b.items.forEach(function(it){ var v=val(b.id+"."+it.id); if(v) items+=exq(it.label||it.id,v); }); }
+        else if(b.type==="chips"){ var v=val(b.id); if(v){ var lbl=function(x){var o=b.options.filter(function(op){return op.v===x;})[0];return o?o.label:x;}; items+=exq(b.title, Array.isArray(v)?v.map(lbl).join(", "):lbl(v)); } }
+        else if(b.type==="note"){ var v=val(b.id); if(v) items+=exq("Notes",v); }
+        else if(b.type==="checklist"){ var done=b.items.filter(function(it){return val(b.id+"."+it.id);}); if(done.length) items+=exq(b.title||"Checklist", done.length+" of "+b.items.length+" ticked"); }
+        else if(b.type==="table"){ tableRows(b).forEach(function(r){ var parts=[]; b.columns.forEach(function(c){ if(c.type==="readonly")return; var v=val(b.id+"."+r.id+"."+c.key); if(v) parts.push(c.label+": "+(v===true?"✓":v)); }); if(parts.length){ var lbl=r._n?(b.title+" #"+r._n):(r.cells[(b.columns[0]||{}).key]||b.title); items+=exq(lbl, parts.join(" · ")); } }); }
+        if(items) out+=items;
+      });
+      return out;
     }
-    backBtn.addEventListener("click",goBack);
-    nextBtn.addEventListener("click",function(){
-      var step=STEPS[S.step];
-      if(step.kind==="intro"||step.kind==="summary"||stepComplete(step)) goNext();
+    function exq(q,a){ return '<div class="ex-item"><div class="q">'+esc(q)+'</div><div class="a">'+fmt(a)+'</div></div>'; }
+
+    /* ---- events ---- */
+    stage.addEventListener("input",function(e){ var t=e.target; if(t.dataset&&t.dataset.k!=null){ setVal(t.dataset.k, t.value); } });
+    stage.addEventListener("click",function(e){
+      var el;
+      if((el=e.target.closest("[data-sec]"))){ S.nav={view:"section",sec:+el.dataset.sec,block:0}; save(); render(); return; }
+      if(e.target.closest("#exportBtn")){ S.nav={view:"export"}; save(); render(); return; }
+      if(e.target.closest("#homeBtn")){ S.nav={view:"home"}; save(); render(); return; }
+      if(e.target.closest("#printBtn")){ window.print(); return; }
+      if((el=e.target.closest("[data-check]"))){ var k=el.dataset.check; setVal(k, !val(k)); el.classList.toggle("on"); el.querySelector(".box").textContent=val(k)?"✓":""; return; }
+      if((el=e.target.closest("[data-scale]"))){ var sk=el.dataset.scale, sv=+el.dataset.v; setVal(sk, String(val(sk))===String(sv)?"":sv); el.parentNode.querySelectorAll("button").forEach(function(bn){bn.classList.toggle("on",bn===el&&String(val(sk))===String(sv));}); return; }
+      if((el=e.target.closest("[data-choice]"))){
+        var ck=el.dataset.choice, cv=el.dataset.v, single=el.dataset.single!=="0";
+        if(el.classList.contains("chip")&&!single){ var arr=val(ck)||[]; var idx=arr.indexOf(cv); if(idx>-1)arr.splice(idx,1); else arr.push(cv); setVal(ck, arr.length?arr.slice():""); render(); }
+        else { setVal(ck, val(ck)===cv?"":cv); render(); }
+        return;
+      }
     });
-
-    /* ---------- ROADMAP GENERATION ---------- */
-    function goalLine(){
-      var g=S.a.goal||[];
-      if(!g.length) return "get your music out and grow.";
-      var map={
-        "Get my first 1,000 listeners":"reach your first 1,000 listeners",
-        "Play my first live show":"play your first live show",
-        "Land on a Spotify playlist":"land on a Spotify playlist",
-        "Make my first money from music":"make your first money from music",
-        "Get better and release more":"release consistently and level up",
-        "Get noticed by a label or manager":"get on a label or manager's radar"
-      };
-      var parts=g.map(function(x){return map[x]||x.toLowerCase();});
-      return parts.join(" and ")+".";
-    }
-    function tasks(){
-      var a=S.a, t=[], songName = a.releaseName?('"'+a.releaseName+'"'):"your song";
-      // 1. first move by status
-      if(a.songStatus==="ready"){
-        t.push({id:"t_deliver", txt:"Get "+songName+" to a distributor this week", sub: a.distributor==="distrokid"?"You picked DistroKid. Set a release date 3–4 weeks out so you have time to pitch.":"Set your release date 3–4 weeks out, you need that gap to pitch."});
-      } else if(a.songStatus==="recorded"){
-        t.push({id:"t_mix", txt:"Get "+songName+" mixed and mastered first", sub:"This is the difference between sounding home-made and sounding pro. Find a mixing engineer or use an online master."});
-      } else if(a.songStatus==="demo"){
-        t.push({id:"t_record", txt:"Record "+songName+" properly in the next 2–3 weeks", sub:"A clean recording beats a great idea stuck on your phone. A local studio or a good mic setup works."});
-      } else {
-        t.push({id:"t_pick", txt:"Pick one song idea and commit to finishing it in 3 weeks", sub:"Don't wait for the perfect one. Momentum beats perfection."});
-      }
-      // 2. cover art
-      t.push({id:"t_art", txt:"Make your cover art, 3000×3000, no blurry text", sub:"This is the first thing anyone sees. Keep it simple and bold."});
-      // 3. distributor pick if needed
-      if(a.songStatus!=="nothing" && (a.distributor===""||a.distributor==="help")){
-        t.push({id:"t_distro", txt:"Choose a distributor to put your music on every app", sub:'Start here: <a href="/toolkit/">our free release toolkit</a>. DistroKid is the usual first pick.'});
-      }
-      // 4. content countdown
-      var pre=a.prePosts||[];
-      if(pre.length){
-        t.push({id:"t_content", txt:"Line up your countdown posts before drop day", sub:"You chose: "+pre.join(" · ")+". Post 3 of these in the two weeks before release.", tags:pre.slice(0,4)});
-      } else {
-        t.push({id:"t_content", txt:"Plan 3 posts for the 2 weeks before your song drops", sub:"A snippet, the story behind it, and a 'coming soon' with the date works every time."});
-      }
-      // 5. drop day
-      t.push({id:"t_dropday", txt:"On drop day: post it everywhere at once", sub:"Reel with the song, story with the link, and share to every WhatsApp group you're in."});
-      // 6. pitching / getting heard
-      var wantsPlaylist = (a.goal||[]).indexOf("Land on a Spotify playlist")>-1 || (a.pitch||[]).indexOf("Pitch to playlist curators")>-1;
-      t.push({id:"t_reviewers", txt:"Pitch playlist curators and reviewers, start free", sub:'Use our <a href="/reviewers/">free reviewer list</a> (900+ curators). Send a short, personal note with your link.'});
-      if((a.pitch||[]).indexOf("Pitch Spotify from your artist profile")>-1 || wantsPlaylist){
-        t.push({id:"t_spotifypitch", txt:"Pitch Spotify's editors from Spotify for Artists", sub:"Do it at least 7 days before release, or you miss the window. It's free and takes 10 minutes."});
-      }
-      // 7. money & rights
-      if(a.team==="beat" || a.team==="group"){
-        t.push({id:"t_splits", txt:"Write down who gets what %, before the song is out", sub:"Even a WhatsApp message everyone agrees to counts. Sort it now, not after money shows up."});
-      } else {
-        t.push({id:"t_rights", txt:"Register as the songwriter so you get all your royalties", sub:'See <a href="/toolkit/">the toolkit</a> for how publishing and royalties work in plain English.'});
-      }
-      // 8. after
-      t.push({id:"t_thanks", txt:"The week after: thank everyone who shared you", sub:"Message every person who reposted or added you to a playlist. This is how a real fanbase starts."});
-      // 9. live show if goal
-      if((a.goal||[]).indexOf("Play my first live show")>-1){
-        t.push({id:"t_live", txt:"Find one open-mic or small gig near you"+(a.city?(" in "+a.city):""), sub:'Check <a href="/live/">upcoming shows</a> and <a href="/venues/">venues</a>. Email a venue and offer to play a short set.'});
-      }
-      return t;
-    }
-
-    function renderSummary(){
-      navbar.style.display="none";
-      backBtn.style.visibility="visible";
-      var a=S.a;
-      var makesLine = (a.makes&&a.makes.length)? a.makes.join(", ").toLowerCase() : "your music";
-      var T = tasks();
-      var doneCount = T.filter(function(x){return S.checks[x.id];}).length;
-
-      var html = '<div class="rm-hd"><div class="kick mono">Your Roadmap</div>'+
-        '<h1>'+esc(firstName())+", here's your plan.</h1>"+
-        '<p>Next 6 months, aimed at one thing: '+esc(goalLine())+'</p></div>';
-
-      html += '<div class="rm-sec"><h2>Do these, in order</h2>'+
-        '<p class="sub">'+doneCount+' of '+T.length+' done · tap to tick off · your progress saves automatically.</p>';
-      T.forEach(function(x){
-        var done=!!S.checks[x.id];
-        html += '<div class="task'+(done?" done":"")+'" data-id="'+x.id+'"><span class="tbox">✓</span>'+
-          '<span class="ttxt">'+esc(x.txt)+ (x.sub?'<small>'+x.sub+'</small>':"") + (x.tags?'<span class="chipline">'+x.tags.map(function(tg){return '<span class="tag">'+esc(tg)+'</span>';}).join("")+'</span>':"") +'</span></div>';
-      });
-      html += '</div>';
-
-      html += '<div class="rm-sec"><h2>Free tools that do the heavy lifting</h2>'+
-        '<p class="sub">Everything above is easier with these. All free.</p><div class="rm-actions">'+
-        linkcard("/reviewers/","900+ curators & reviewers","Find people who'll actually listen and share")+
-        linkcard("/toolkit/","The release toolkit","Step-by-step guides, checklists and templates")+
-        linkcard("/tools/royalty-calculator/","Royalty calculator","See what your streams are really worth")+
-        linkcard("/live/","Live shows & venues","Where to play near you")+
-        '</div></div>';
-
-      html += '<div class="printrow">'+
-        '<button class="btn primary" id="printBtn" type="button">Save / print my plan</button>'+
-        '<button class="btn" id="editBtn" type="button">Edit my answers</button></div>';
-
-      html += '<div class="rm-sec" style="margin-top:26px"><h2>Want us in your corner?</h2>'+
-        '<p class="sub">This plan is yours to run. If you\'d rather have a team building it with you on positioning, releases, month on month, that\'s the programme.</p>'+
-        '<div class="rm-actions">'+linkcard("/tiers/","See how we work with artists","Roadmap, Advisory or full Artist Development")+'</div></div>';
-
-      html += '<div class="startover"><button id="resetBtn" type="button">Start over from scratch</button></div>';
-      html += '<p class="privacy">Saved on this phone. Soon you\'ll be able to log in and pick this up on any device.</p>';
-
-      stage.innerHTML=html;
-      document.getElementById("pfill").style.width="100%";
-
-      stage.querySelectorAll(".task").forEach(function(el){
-        el.addEventListener("click",function(){
-          var id=el.getAttribute("data-id");
-          S.checks[id]=!S.checks[id]; save(); renderSummary();
-        });
-      });
-      document.getElementById("printBtn").addEventListener("click",function(){ window.print(); });
-      document.getElementById("editBtn").addEventListener("click",function(){ S.step=1; save(); render(); });
-      document.getElementById("resetBtn").addEventListener("click",function(){
-        if(confirm("Start over? This clears all your answers on this phone.")){ S=fresh(); save(); render(); }
-      });
-    }
-    function linkcard(href,title,sub){
-      return '<a class="linkcard" href="'+href+'"><span>'+esc(title)+'<small>'+esc(sub)+'</small></span><span class="arw">→</span></a>';
-    }
+    backBtn.addEventListener("click",function(){ var bi=S.nav.block||0; if(bi===0){ S.nav={view:"home"}; } else { S.nav.block=bi-1; } save(); render(); });
+    nextBtn.addEventListener("click",function(){ var sec=WB.sections[S.nav.sec], bi=S.nav.block||0; if(bi>=sec.blocks.length-1){ S.nav={view:"home"}; } else { S.nav.block=bi+1; } save(); render(); });
 
     render();
   })();
