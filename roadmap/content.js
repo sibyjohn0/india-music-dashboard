@@ -28,8 +28,11 @@ window.WORKBOOK = {
           "The action items in each section are the minimum you commit to before moving on.",
           "Come back and change earlier answers as you grow. Your identity, your plan, your numbers, all of it will shift. That's the point."
         ]},
+        { type:"chips", id:"artist_lang", single:true, title:"What language do you mostly make music in?", help:"This tunes the videos, artists and news we show you across the workbook.", options:[{v:"Punjabi",label:"Punjabi"},{v:"Hindi",label:"Hindi"},{v:"English",label:"English"},{v:"Tamil",label:"Tamil"},{v:"Telugu",label:"Telugu"},{v:"Malayalam",label:"Malayalam"},{v:"Kannada",label:"Kannada"},{v:"Bengali",label:"Bengali"},{v:"Marathi",label:"Marathi"},{v:"Other",label:"Other"}] },
+        { type:"chips", id:"artist_city", single:true, title:"Which city are you closest to?", help:"So we can point you to the right venues, shows and local scene.", options:[{v:"mumbai",label:"Mumbai"},{v:"delhi",label:"Delhi"},{v:"bengaluru",label:"Bengaluru"},{v:"hyderabad",label:"Hyderabad"},{v:"pune",label:"Pune"},{v:"goa",label:"Goa"},{v:"other",label:"Somewhere else"}] },
         { type:"pillars", id:"baseline", title:"Your baseline self-assessment",
-          help:"Rate yourself 1–10 on each pillar, then note your biggest strength and biggest gap. This is your 'before' picture. You'll compare against it at the end." },
+          help:"Rate yourself 1–10 on each pillar, then note your biggest strength and biggest gap. This is your 'before' picture. You'll compare against it at the end.",
+          gloss:"Quick translations: Distribution = getting your songs onto Spotify and Apple. Rights = registering so you actually get paid. Revenue diversity = more than one way money comes in. Infrastructure = the people and tools around you. New to all this? Rate low and move on, that's the point." },
         { type:"fill", id:"baseline_top", title:"Sum it up", items:[
           {id:"strengths3", label:"My top 3 strengths right now", ph:"e.g. melodies, consistency, my live energy", long:true},
           {id:"gaps3", label:"My top 3 gaps right now", ph:"e.g. distribution, no press, no email list", long:true},
@@ -49,12 +52,14 @@ window.WORKBOOK = {
     {
       id: "context", name: "Big picture & your archetype", tag: "Where you sit, and what kind of artist you actually are.",
       plain: "Before tactics, get honest about what winning means for YOU. Answer these 8 questions, then find your archetype. It changes what you should double down on.",
+      deepen:{ compare:true, watch:true, news:true },
       blocks: [
-        { type:"qa", id:"diagnostic", title:"The 8-question diagnostic", help:"No wrong answers. Write what's true, not what sounds good.", items:[
+        { type:"qa", id:"diagnostic", title:"The 8-question diagnostic", help:"No wrong answers. Write what's true, not what sounds good.",
+          gloss:"If a word is new: 'sync' means your music used in a film, ad or show. 'Brand' means paid work with a company. Just answer in your own words.", items:[
           {id:"d1", q:"When you imagine your career in 3 years, what does a good week look like?"},
           {id:"d2", q:"Would you still make music if no one listened?"},
           {id:"d3", q:"What do people most ask you for? (Performances / lessons / content / other)"},
-          {id:"d4", q:"What have you actually been paid for in the last 12 months?"},
+          {id:"d4", q:"What have you actually been paid for in the last 12 months?", ph:"e.g. one wedding gig, or nothing yet, both are fine"},
           {id:"d5", q:"Where do you spend creative time that does not feel like work?"},
           {id:"d6", q:"Do you care how many strangers know your name? (Deeply / Somewhat / Not really)"},
           {id:"d7", q:"Is your instinct to release music or to use it (sync, brand, education)?"},
@@ -70,7 +75,8 @@ window.WORKBOOK = {
         { type:"info", title:"What to double down on, by archetype", body:[
           "Commercial Artist: Live circuit every month, 3–4 Reels/week, 6–8 singles/year, playlist pitching.",
           "Non-Commercial Artist: IPRS/PPL registration, sync catalogue, teaching roster, grant applications.",
-          "Creator-Artist: Content consistency, platform SEO, brand media kit, engagement quality."
+          "Creator-Artist: Content consistency, platform SEO, brand media kit, engagement quality.",
+          "In plain words: playlist pitching = asking curators to add your song. Sync catalogue = songs ready for films and ads to license. Media kit = a one-page pack about you. Don't stress about all of these now, just note the two that fit you."
         ]},
         { type:"fill", id:"context_change", title:"", items:[
           {id:"change12", label:"The one thing I most want to change about my career in 12 weeks", ph:"One sentence", long:true}
@@ -89,6 +95,7 @@ window.WORKBOOK = {
     {
       id: "identity", name: "Identity", tag: "What you stand for, who you're for, how it shows up everywhere.",
       plain: "This is the most important section. If you can say who you are in one sentence, every other decision gets easier.",
+      deepen:{ compare:true },
       blocks: [
         { type:"fill", id:"identity_sentence", title:"Write your identity sentence", help:"Fill in the blanks. Don't overthink the first pass.", items:[
           {id:"is_sound", label:"Your sound: I make ___ for ___.", ph:"e.g. moody Punjabi R&B for late-night drives"},
@@ -96,7 +103,7 @@ window.WORKBOOK = {
           {id:"is_listener", label:"Your listener: My listener is ___ who feels ___.", ph:"e.g. a 19-year-old far from home who feels homesick"}
         ]},
         { type:"qa", id:"territory", title:"Your storytelling territory", help:"Where your realest songs come from. Take your time.", items:[
-          {id:"t1", q:"What have you thought about most in the last 5 years that you've never fully explained to another person?"},
+          {id:"t1", q:"What have you thought about most in the last 5 years that you've never fully explained to another person?", ph:"e.g. leaving my town, a friendship that ended, faith, money at home"},
           {id:"t2", q:"What specific place, relationship, or period do you return to in unguarded moments?"},
           {id:"t3", q:"What do you understand about your language, city, community or generation that you don't hear other artists describing accurately?"}
         ]},
@@ -108,6 +115,7 @@ window.WORKBOOK = {
         ]},
         { type:"table", id:"ladder", title:"Where are you on the credibility ladder?",
           help:"Tick the rung you're on now, then set your target for 12 weeks below.",
+          gloss:"Quick words: support / opening act = you play before the main artist. Headline = the show is under your name. Cap = how many people the venue holds. Monthly listeners = the number on your Spotify profile. Not sure? Pick the lowest rung that sounds like you.",
           columns:[
             {key:"rung", label:"Rung", type:"readonly"},
             {key:"desc", label:"What it looks like", type:"readonly"},
@@ -139,6 +147,7 @@ window.WORKBOOK = {
     {
       id: "production", name: "Production", tag: "A release workflow that matches your ambition.",
       plain: "Great songs stuck on your phone don't count. This is about finishing, and making the first 30 seconds impossible to skip.",
+      deepen:{ watch:true, read:[{label:"New-release checklist",href:"/toolkit/new-release-checklist/"}] },
       blocks: [
         { type:"table", id:"anatomy", title:"Anatomy of your next song",
           help:"Streaming rewards songs that hook fast. Fill in your track's timestamps against the targets.",
@@ -174,7 +183,7 @@ window.WORKBOOK = {
         { type:"checklist", id:"production_actions", title:"Your action items", items:[
           {id:"pr_30", text:"Run the 30-second test: play each track from 0:00. Would you skip it at 0:30 on a playlist? Fix the intro first."},
           {id:"pr_map", text:"Map your full release pipeline above"},
-          {id:"pr_cadence", text:"Set a release cadence goal for the next 6 months"},
+          {id:"pr_cadence", text:"Set how often you'll release, for example one song every 6 weeks"},
           {id:"pr_prod", text:"Research 2 producers in your genre you respect, reach out to one"},
           {id:"pr_cost", text:"Calculate the full cost of your last track (production, mix, master, art, distribution). Value for money?"}
         ]},
@@ -186,9 +195,11 @@ window.WORKBOOK = {
     {
       id: "distribution", name: "Distribution", tag: "Everywhere it needs to be, with the right metadata.",
       plain: "Getting on Spotify is the easy part. Doing it with clean metadata, a real launch plan, and a plugged funnel is what separates you.",
+      deepen:{ read:[{label:"Build your EPK (guide)",href:"/guides/electronic-press-kit-epk-india/"},{label:"12-week release plan",href:"/guides/12-week-release-plan-india/"},{label:"Get on Spotify editorial playlists",href:"/guides/spotify-editorial-playlists-india/"},{label:"Playlist target sheet",href:"/toolkit/streaming-playlist-target-sheet-india/"}] },
       blocks: [
         { type:"table", id:"epk", title:"Your EPK (electronic press kit) checklist",
           help:"The pack you send to curators, press and venues. Mark each element.",
+          gloss:"An EPK is just a one-page pack about you: a short bio, your best songs, 2 photos, a live video, and how to reach you. That's it. Don't have one yet? This list is how you build it.",
           columns:[
             {key:"el", label:"Element", type:"readonly"},
             {key:"status", label:"Status", type:"chips", options:["Done","In progress","Missing"]},
@@ -205,21 +216,22 @@ window.WORKBOOK = {
         { type:"fill", id:"epk_q", title:"", items:[
           {id:"epk_block", label:"Would you send this EPK to Wild City right now without editing? If no, what's the one thing blocking you?", long:true}
         ]},
-        { type:"fill", id:"plan_release", title:"Plan your next release", items:[
+        { type:"fill", id:"plan_release", title:"Plan your next release", gloss:"A few words you'll see a lot: DSP = a streaming app (Spotify, Apple, JioSaavn, Amazon). Pre-save = a link fans tap before release day so the song auto-saves when it drops. Editorial = a real person at a streaming app choosing to playlist you. UGC = posts fans make that you can re-share.", items:[
           {id:"nr_title", label:"Track title"},
           {id:"nr_writers", label:"Composer / lyricist"},
           {id:"nr_date", label:"Target release date"},
           {id:"nr_distro", label:"Distributor"},
           {id:"nr_hook", label:"15–30 second hook moment (timestamp)"}
         ]},
-        { type:"checklist", id:"prerelease", title:"Pre-release checklist", items:[
+        { type:"checklist", id:"prerelease", title:"Pre-release checklist",
+          gloss:"Quick words: ISRC is a free ID code your distributor gives each song. Metadata is the song's info: title, credits, language, genre. Content ID is what claims your song on YouTube so you get paid for it.", items:[
           {id:"x1", text:"Instrumental version ready"},
           {id:"x2", text:"ISRC code confirmed"},
           {id:"x3", text:"Composer / lyricist credits in distributor"},
           {id:"x4", text:"Language tag set correctly"},
           {id:"x5", text:"Mood and genre tags added"},
           {id:"x6", text:"Spotify editorial pitch submitted (at least 7 days before release)"},
-          {id:"x7", text:"3 Reels / Shorts assets created from the 15–30 second hook"},
+          {id:"x7", text:"3 Reels / Shorts / Moj assets created from the 15–30 second hook"},
           {id:"x8", text:"YouTube video scheduled for release day"},
           {id:"x9", text:"Email list announcement drafted"},
           {id:"x10", text:"IPRS registration includes this composition"},
@@ -236,7 +248,7 @@ window.WORKBOOK = {
             {id:"l6w", cells:{when:"6 weeks before", do:"Metadata complete. Distributor upload submitted. Instrumental uploaded."}},
             {id:"l4w", cells:{when:"4 weeks before", do:"3–5 Reels/Shorts created. Press note written. Email draft ready."}},
             {id:"l2w", cells:{when:"2 weeks before", do:"Press note sent to Rolling Stone India, Wild City, Indian Music Diaries. Pre-save link posted."}},
-            {id:"l7d", cells:{when:"7 days before", do:"Spotify editorial pitch submitted. JioSaavn ArtistOne done. YouTube scheduled."}},
+            {id:"l7d", cells:{when:"7 days before", do:"Spotify editorial pitch submitted. JioSaavn ArtistOne done. Amazon Music for Artists pitch submitted. YouTube scheduled."}},
             {id:"l3d", cells:{when:"3 days before", do:"Pre-save Reel posted. Stories countdown begins. Email to list sent."}},
             {id:"lday", cells:{when:"Release day", do:"YouTube live. Release Reel posted. Stories with Spotify link. Reply to every comment."}},
             {id:"l25", cells:{when:"Days 2–5", do:"3 more Reels from different angles (BTS, lyric breakdown, process). Repost all UGC."}},
@@ -244,6 +256,7 @@ window.WORKBOOK = {
           ]},
         { type:"table", id:"funnel", title:"Your fan funnel: where are you losing listeners?",
           help:"Fill in your real numbers. The leak is usually between 'heard it once' and 'came back'.",
+          gloss:"Brand new? Most of these will be zero or blank, and that's completely normal. Put a real number where you have one, and treat the blanks as your first targets.",
           columns:[
             {key:"metric", label:"Metric", type:"readonly"},
             {key:"num", label:"Your number", type:"text"},
@@ -251,7 +264,7 @@ window.WORKBOOK = {
           ],
           rows:[
             {id:"f1", cells:{metric:"Monthly Reel / Short views", bench:"-"}},
-            {id:"f2", cells:{metric:"Monthly Spotify / JioSaavn streams", bench:"-"}},
+            {id:"f2", cells:{metric:"Monthly Spotify / JioSaavn / Amazon streams", bench:"-"}},
             {id:"f3", cells:{metric:"Instagram followers", bench:"-"}},
             {id:"f4", cells:{metric:"Email list subscribers", bench:"5% of your follower count"}},
             {id:"f5", cells:{metric:"Paying fans (Patreon / merch / tickets)", bench:"1–5% of your email list"}}
@@ -259,7 +272,7 @@ window.WORKBOOK = {
         { type:"checklist", id:"distribution_actions", title:"Your action items", items:[
           {id:"di_epk", text:"Complete the EPK checklist and identify the single missing element"},
           {id:"di_pre", text:"Complete the pre-release checklist for your next track"},
-          {id:"di_compare", text:"Compare your distributor's terms with 2 alternatives"},
+          {id:"di_compare", text:"Compare your distributor's terms (DistroKid/Madverse) with 2 others: e.g. Believe, TuneCore or RouteNote. Check the cut, payout speed and India support."},
           {id:"di_meta", text:"Audit metadata on existing releases, are composer/lyricist credits correct on all?"},
           {id:"di_funnel", text:"Fill in your fan funnel numbers and find where you're losing listeners"}
         ]},
@@ -271,14 +284,16 @@ window.WORKBOOK = {
     {
       id: "rights", name: "Rights", tag: "Own what you create. Collect what you're owed.",
       plain: "This is the boring section that quietly pays you for years. Every week you delay registering is money gone for good.",
+      deepen:{ read:[{label:"IPRS & PPL registration guide",href:"/toolkit/iprs-ppl-registration-guide/"},{label:"Register your copyright (IPRS)",href:"/guides/register-music-copyright-iprs-india/"},{label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"}] },
       blocks: [
-        { type:"checklist", id:"iprs", title:"IPRS · composition royalties (iprs.org)", items:[
+        { type:"checklist", id:"iprs", title:"IPRS · composition royalties (iprs.org)",
+          gloss:"IPRS pays you when your song is performed or played in public. PPL (next) pays you for the actual recording. Both are one-time to join and then pay you for years. Do it even if it feels too early.", items:[
           {id:"ip1", text:"Go to iprs.org and start the membership application"},
           {id:"ip2", text:"Gather documents: Aadhaar/passport, PAN, bank details, sample compositions"},
           {id:"ip3", text:"Pay one-time membership fee (~₹2,000–5,000)"},
           {id:"ip4", text:"Register each composition: title, co-writers + splits, ISRC, language"}
         ]},
-        { type:"checklist", id:"ppl", title:"PPL · master rights (pplindia.org)", items:[
+        { type:"checklist", id:"ppl", title:"PPL · master rights (pplindia.org)", gloss:"UPC is a barcode-style ID for a whole release (a single or EP); your distributor generates it for you.", items:[
           {id:"pp1", text:"Register as a master rights owner at pplindia.org"},
           {id:"pp2", text:"Gather: recording metadata, UPC codes, release dates for all tracks"},
           {id:"pp3", text:"Confirm fee structure and submit"}
@@ -286,7 +301,7 @@ window.WORKBOOK = {
         { type:"checklist", id:"contentid", title:"Distributor · Content ID", items:[
           {id:"ci1", text:"Log in to your distributor dashboard"},
           {id:"ci2", text:"Confirm Content ID is active for all released tracks"},
-          {id:"ci3", text:"Confirm regional claiming is on (JioSaavn, Wynk, Gaana, YouTube Music)"}
+          {id:"ci3", text:"Confirm regional claiming is on (JioSaavn, Amazon Music, YouTube Music)"}
         ]},
         { type:"table", id:"lawyer", title:"When you must get a music lawyer",
           help:"If any of these is live for you, don't sign before someone qualified reads it.",
@@ -328,8 +343,10 @@ window.WORKBOOK = {
     {
       id: "revenue", name: "Revenue", tag: "Multiple income streams that compound over time.",
       plain: "Streaming alone won't pay you. This maps the 7 ways artists actually earn, and which two you could switch on in 90 days.",
+      deepen:{ read:[{label:"Royalty calculator",href:"/tools/royalty-calculator/"},{label:"How Spotify royalties work in India",href:"/guides/how-spotify-royalties-work-india/"},{label:"Revenue streams checklist",href:"/toolkit/revenue-streams-checklist/"},{label:"Sync licensing in India",href:"/guides/sync-licensing-music-ads-film-india/"}] },
       blocks: [
         { type:"table", id:"rev_audit", title:"Revenue audit: which streams are you running?",
+          gloss:"Two that trip people up: 'Sync licensing' = your song placed in a film, ad, show or game. 'Direct fan' = money straight from fans, like Patreon, merch or tickets.",
           columns:[
             {key:"stream", label:"Stream", type:"readonly"},
             {key:"status", label:"Status", type:"chips", options:["Active","Possible","Not yet"]},
@@ -347,6 +364,7 @@ window.WORKBOOK = {
           ]},
         { type:"table", id:"income_audit", title:"Income audit: what has actually paid",
           help:"Real numbers from the last 12 months. Log barter at market rate.",
+          gloss:"Haven't earned from music yet? Write 0 and move on. This is your starting line, not a score.",
           columns:[
             {key:"cat", label:"Category", type:"readonly"},
             {key:"measure", label:"What to measure", type:"readonly"},
@@ -382,9 +400,11 @@ window.WORKBOOK = {
     {
       id: "social", name: "Social media", tag: "Platforms as distribution, not performance.",
       plain: "You're not 'posting content'. You're choosing how your music spreads. Figure out which engine you're underusing.",
+      deepen:{ watch:true, read:[{label:"Pitch music blogs & press",href:"/guides/pitch-music-blogs-press-india/"}] },
       blocks: [
         { type:"table", id:"spread", title:"How music actually spreads",
           help:"Six ways songs travel. Which are you actually using?",
+          gloss:"'Algorithm push' = Spotify or YouTube recommending you automatically. 'Editorial' = a real human putting you on a playlist or writing about you. 'Peer' = one person sending your song to another.",
           columns:[
             {key:"mech", label:"Mechanism", type:"readonly"},
             {key:"using", label:"Using it?", type:"chips", options:["Yes","A bit","No"]},
@@ -403,6 +423,7 @@ window.WORKBOOK = {
           {id:"underinvested", label:"Which mechanism am I most underinvested in?"}
         ]},
         { type:"table", id:"content_audit", title:"Content audit: your last 20 posts",
+          gloss:"Don't have 20 posts yet? Fill in whatever you've got, even 2 or 3, and leave the rest.",
           columns:[
             {key:"post", label:"Post", type:"readonly"},
             {key:"desc", label:"Describe it + platform", type:"text"},
@@ -431,13 +452,13 @@ window.WORKBOOK = {
             {id:"cm2", cells:{act:"Share another artist's post with genuine commentary (a comment that shows you listened)"}},
             {id:"cm3", cells:{act:"Identify 5 artists at your stage. Reach out to one, not to ask for anything, to start a peer relationship."}},
             {id:"cm4", cells:{act:"Propose one collab with an artist whose audience overlaps yours but doesn't know you yet"}},
-            {id:"cm5", cells:{act:"Start a mailing list, even 10 subscribers. Email bypasses algorithmic gatekeeping."}}
+            {id:"cm5", cells:{act:"Start a mailing list or a WhatsApp Channel, even 10 subscribers. Email and WhatsApp reach fans directly, past the algorithm."}}
           ]},
         { type:"checklist", id:"social_actions", title:"Your action items", items:[
           {id:"so_mech", text:"Complete the mechanics table, find your most underused mechanism"},
           {id:"so_audit", text:"Audit your last 20 posts, note which content gets saved vs just liked"},
           {id:"so_one", text:"Choose 1 platform to go deeper on this month"},
-          {id:"so_cal", text:"Build a 4-week content calendar: 3 post types, specific days and times"},
+          {id:"so_cal", text:"Build a 4-week content calendar: 3 post types, specific days and times, across Instagram Reels, YouTube Shorts and one India-first app (ShareChat/Moj, Josh or WhatsApp Channels) if it fits your language"},
           {id:"so_email", text:"Start your email list today (Mailchimp or ConvertKit free tier)"}
         ]},
         { type:"note", id:"social_notes" }
@@ -448,8 +469,9 @@ window.WORKBOOK = {
     {
       id: "live", name: "Live & networking", tag: "Perform strategically. Build relationships that compound.",
       plain: "One good show and one real relationship can move your career more than 50 posts. Plan both deliberately.",
+      deepen:{ cityLinks:true, compare:true, read:[{label:"Upcoming shows & festivals",href:"/live/"},{label:"Book live gigs (guide)",href:"/guides/book-live-gigs-independent-band-india/"},{label:"Show-booking email template",href:"/toolkit/show-booking-email-template/"}] },
       blocks: [
-        { type:"fill", id:"live_review", title:"Your live strategy: last 12 months", items:[
+        { type:"fill", id:"live_review", title:"Your live strategy: last 12 months", gloss:"No shows yet? Put 0 and skip to the plan below. Everyone starts at zero.", items:[
           {id:"lv_shows", label:"Total live shows played"},
           {id:"lv_fee", label:"Average fee per show (₹)"},
           {id:"lv_income", label:"Total live income this year (₹)"},
@@ -500,6 +522,7 @@ window.WORKBOOK = {
     {
       id: "team", name: "Scale & team", tag: "Infrastructure to grow beyond what you can do alone.",
       plain: "You can't do everything forever. Map who's on your team, who's missing, and what you can hand off first.",
+      deepen:{ read:[{label:"Media 101",href:"/toolkit/media-101-guide-india/"},{label:"Working with publicists",href:"/toolkit/publicists-101-guide-india/"}] },
       blocks: [
         { type:"table", id:"team_state", title:"Your team: current state",
           columns:[
@@ -545,9 +568,11 @@ window.WORKBOOK = {
     {
       id: "advanced", name: "Advanced revenue & positioning", tag: "Sync, a contact pipeline, long-term career architecture.",
       plain: "This is how careers stop being random. Turn your contacts into a pipeline you work 15 minutes a day.",
+      deepen:{ read:[{label:"Sync licensing in India",href:"/guides/sync-licensing-music-ads-film-india/"}] },
       blocks: [
         { type:"table", id:"contact_audit", title:"Contact audit: your network by category",
           help:"Sort real people into these buckets. Warm contacts convert 5–10x better than cold.",
+          gloss:"'Warm' = people who already know you. 'Cold' = people you've never met. Always start with warm, they're far more likely to say yes.",
           columns:[
             {key:"cat", label:"Category", type:"readonly"},
             {key:"who", label:"Who belongs here (names)", type:"text"},
@@ -569,6 +594,7 @@ window.WORKBOOK = {
             {key:"next", label:"Next action", type:"text"}
           ], rows:5 },
         { type:"table", id:"weekly_pipeline", title:"Weekly pipeline actions (15 min/day)",
+          gloss:"The 'Transactional to Pipeline to Architectural' line below means: Transactional = chasing one-off gigs. Pipeline = a steady flow of conversations on the go. Architectural = income that keeps coming without chasing each one.",
           columns:[
             {key:"day", label:"Day", type:"readonly"},
             {key:"act", label:"Action", type:"readonly"},
@@ -598,6 +624,7 @@ window.WORKBOOK = {
     {
       id: "plan", name: "Your 90-day plan", tag: "What you've built, and exactly what comes next.",
       plain: "This is the payoff. A concrete 3-month plan with verifiable milestones. Tick these off in real life over the next 90 days.",
+      deepen:{ read:[{label:"12-week release plan",href:"/guides/12-week-release-plan-india/"}], news:true },
       blocks: [
         { type:"checklist", id:"m1_identity", title:"Month 1 · Foundation · Weeks 1–2: Identity", items:[
           {id:"m1a", text:"Complete the identity sentence, share with 3 people outside music for feedback"},
@@ -608,9 +635,9 @@ window.WORKBOOK = {
           {id:"m1f", text:"Write a new bio using the identity sentence as the opening line"}
         ]},
         { type:"checklist", id:"m1_setup", title:"Month 1 · Weeks 3–4: Production setup + Rights", items:[
-          {id:"m1g", text:"Audit your setup, which tier are you at? What's missing?"},
-          {id:"m1h", text:"Buy one missing Tier 1 item if under ₹15,000"},
-          {id:"m1i", text:"Record one demo in your treated space, compare to untreated"},
+          {id:"m1g", text:"Audit your recording setup: mic, interface, headphones, room. List what's missing."},
+          {id:"m1h", text:"Buy one missing basic if it's under ₹15,000 (a mic, interface or headphones)"},
+          {id:"m1i", text:"Record one demo, then hang a blanket or duvet behind you to soften echo and record again. Hear the difference."},
           {id:"m1j", text:"Message 3 mixing engineers on SoundBetter, get quotes"},
           {id:"m1k", text:"iprs.org, start membership and gather documents"},
           {id:"m1l", text:"pplindia.org, start master rights registration"},
@@ -678,12 +705,17 @@ window.WORKBOOK = {
             {id:"to3", cells:{tool:"DistroKid / Madverse", purpose:"Distribution to all DSPs"}},
             {id:"to4", cells:{tool:"Spotify for Artists", purpose:"Pitch to editorial, view analytics"}},
             {id:"to5", cells:{tool:"JioSaavn ArtistOne", purpose:"Pitch to JioSaavn editorial"}},
+            {id:"to5b", cells:{tool:"Amazon Music for Artists", purpose:"Pitch to Amazon editorial, claim your profile"}},
+            {id:"to5c", cells:{tool:"YouTube for Artists / Studio", purpose:"Claim your official artist channel, see analytics"}},
             {id:"to6", cells:{tool:"Mailchimp / ConvertKit", purpose:"Email list, your owned audience"}},
             {id:"to7", cells:{tool:"songsplit.com", purpose:"Free split-sheet template for collaborations"}},
             {id:"to8", cells:{tool:"SoundBetter / AirGigs", purpose:"Find remote session musicians and engineers"}},
-            {id:"to9", cells:{tool:"India Indie Music Radar", purpose:"indiemusicindia.com/reviewers, 900+ curator database"}}
+            {id:"to9", cells:{tool:"India Indie Music Radar", purpose:"[900+ curators & reviewers](/reviewers/) and [the artist radar](/radar.html)"}},
+            {id:"to10", cells:{tool:"Venues & live shows", purpose:"[Venues by city](/venues/) and [upcoming shows](/live/)"}},
+            {id:"to11", cells:{tool:"The toolkit & royalty calculator", purpose:"[Guides & templates](/toolkit/) and the [royalty calculator](/tools/royalty-calculator/)"}}
           ]},
         { type:"table", id:"press", title:"Media and press contacts",
+          help:"Tip: our [reviewer list](/reviewers/) already has 900+ curators with submission info.",
           columns:[
             {key:"pub", label:"Publication", type:"readonly"},
             {key:"link", label:"Submission link / email", type:"text"},
@@ -706,7 +738,7 @@ window.WORKBOOK = {
           ], rows:6 },
         { type:"checklist", id:"resources_actions", title:"Your action items", items:[
           {id:"rs_links", text:"Fill in your current account links for each platform above"},
-          {id:"rs_radar", text:"Use indiemusicindia.com/reviewers to find 10 free press curators to pitch"},
+          {id:"rs_radar", text:"Use the [reviewer list](/reviewers/) to find 10 free press curators to pitch"},
           {id:"rs_log", text:"Log every industry contact you make in the table above"}
         ]},
         { type:"note", id:"resources_notes" }

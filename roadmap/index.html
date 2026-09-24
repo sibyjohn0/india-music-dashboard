@@ -71,6 +71,9 @@
   .sec-intro p{font-size:16px}
   .block h2{font-size:22px;font-weight:800;margin:0 0 6px;text-wrap:balance}
   .block .help{font-size:15px;color:var(--muted);margin:0 0 18px;max-width:560px}
+  .gloss{background:#EAFBF4;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5;margin:0 0 18px}
+  .gloss b{display:block;font-size:10px;letter-spacing:.5px;margin-bottom:4px;color:#0E8f6c}
+  .hint{font-size:13px;color:var(--muted);margin:2px 2px 4px;line-height:1.5}
 
   .card{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px;margin-bottom:12px}
   .qtext{font-size:16px;font-weight:700;margin-bottom:10px;line-height:1.4}
@@ -147,6 +150,32 @@
   .ex-item .q{font-size:13px;font-weight:800;color:var(--muted)}
   .ex-item .a{font-size:15px;white-space:pre-wrap}
   .ex-empty{color:var(--muted);font-style:italic;font-size:14px}
+  .ex-item .a{overflow-wrap:anywhere;word-break:break-word}
+  .tin{overflow-wrap:anywhere}
+
+  /* live feeds (scene + go-deeper) */
+  .scene{background:var(--softyellow);border:2px solid var(--ink);border-radius:16px;padding:16px;margin:14px 0 4px;box-shadow:var(--shadow-sm)}
+  .deepen{background:var(--blue);border:2px solid var(--ink);border-radius:16px;padding:16px;margin:18px 0 4px;box-shadow:var(--shadow-sm)}
+  .scene-h{display:flex;align-items:center;gap:8px;margin-bottom:13px}
+  .scene-h .mono{font-size:12px;font-weight:700;color:var(--pink)}
+  .scene-date{margin-left:auto;font-size:11px;color:var(--muted)}
+  .feedgrp{margin-bottom:15px}
+  .feedgrp:last-child{margin-bottom:0}
+  .fg-h{font-size:13px;font-weight:800;margin:0 0 9px}
+  .fg-list{display:flex;flex-direction:column;gap:8px}
+  .feedcard{display:block;background:#fff;border:2px solid var(--ink);border-radius:11px;padding:11px 13px;text-decoration:none;color:var(--ink);font-weight:400;transition:transform .08s, box-shadow .12s}
+  .feedcard:active{transform:translateY(1px)}
+  .feedcard:hover{box-shadow:var(--shadow-sm)}
+  .fc-t{font-weight:700;font-size:14px;line-height:1.35;overflow-wrap:anywhere}
+  .fc-m{font-size:12px;color:var(--muted);margin-top:3px}
+  .fc-empty{font-size:13px;color:var(--muted);padding:5px 0}
+  .feedmore{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--pink);text-decoration:none}
+  .vidrow{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch}
+  .vidrow::-webkit-scrollbar{display:none}
+  .vidcard{flex:0 0 150px;background:#fff;border:2px solid var(--ink);border-radius:11px;overflow:hidden;text-decoration:none;color:var(--ink)}
+  .vidcard img,.vc-noimg{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#EADFF2;border-bottom:2px solid var(--ink)}
+  .vc-t{font-weight:700;font-size:12.5px;line-height:1.3;padding:8px 9px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .vidcard .fc-m{padding:2px 9px 9px}
 
   @media(max-width:480px){
     .stage{padding:20px 14px 150px}
@@ -176,20 +205,26 @@
     <button class="btn primary" id="nextBtn" type="button">Next</button>
   </nav>
 
-  <script src="/roadmap/content.js"></script>
+  <script src="content.js"></script>
   <script>
   (function(){
     "use strict";
     var WB = window.WORKBOOK, KEY="iim_roadmap_wb_v1";
+    if(!WB){ document.getElementById("stage").innerHTML='<p style="padding:24px">Could not load your workbook. Please refresh the page.</p>'; return; }
     var S = load();
     function fresh(){ return { nav:{view:"home"}, ans:{}, seen:false }; }
-    function load(){ try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);o.ans=o.ans||{};o.nav=o.nav||{view:"home"};return o;}}catch(e){} return fresh(); }
+    function load(){ try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);o.ans=o.ans||{};o.nav=o.nav||{view:"home"};
+      if(o.nav.view==="section"){ var sec=WB.sections[o.nav.sec]; if(!sec){o.nav={view:"home"};} else { var bi=o.nav.block||0; if(bi<0||bi>=sec.blocks.length) o.nav.block=0; } }
+      return o;}}catch(e){} return fresh(); }
     var saveT;
     function save(){ try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
       var el=document.getElementById("saved"); if(el){el.classList.add("show");clearTimeout(saveT);saveT=setTimeout(function(){el.classList.remove("show");},1400);} }
-    function esc(s){ return (s==null?"":String(s)).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+    function esc(s){ return (s==null?"":String(s)).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+    // turn author-written [label](href) tokens into real links, AFTER esc (content is trusted, not user input)
+    function linkify(s){ return String(s).replace(/\[([^\]]+)\]\((\/[^)]*|https?:\/\/[^)]*)\)/g,function(_,t,h){ var ext=/^https?:/.test(h); return '<a href="'+h+'"'+(ext?' target="_blank" rel="noopener"':'')+'>'+t+'</a>'; }); }
+    function esl(s){ return linkify(esc(s)); }  // esc + linkify for author strings that may contain links
     function val(k){ return S.ans[k]; }
-    function setVal(k,v){ if(v===""||v==null){delete S.ans[k];} else {S.ans[k]=v;} save(); }
+    function setVal(k,v){ if(v===""||v==null||v===false){delete S.ans[k];} else {S.ans[k]=v;} save(); }
 
     /* ---- field keys owned by a block (for progress) ---- */
     function blockKeys(b){
@@ -205,42 +240,164 @@
     function isInputBlock(b){ return b.type!=="info"; }
     function blockStarted(b){ return blockKeys(b).some(function(k){ var v=val(k); return v!==undefined&&v!==""&&v!==false; }); }
     function tableRows(b){ if(typeof b.rows==="number"){ var a=[]; for(var i=1;i<=b.rows;i++) a.push({id:"n"+i,cells:{},_n:i}); return a; } return b.rows; }
-    function secProgress(sec){ var blocks=sec.blocks.filter(isInputBlock); var done=blocks.filter(blockStarted).length; return {done:done,total:blocks.length}; }
+    function secProgress(sec){ var blocks=sec.blocks.filter(function(b){return isInputBlock(b)&&blockKeys(b).length>0;}); var done=blocks.filter(blockStarted).length; return {done:done,total:blocks.length}; }
     function overall(){ var d=0,t=0; WB.sections.forEach(function(s){ var p=secProgress(s); d+=p.done; t+=p.total; }); return {done:d,total:t,pct:t?Math.round(d/t*100):0}; }
 
     /* ---- render dispatch ---- */
+    var lastNavKey="";
     var stage=document.getElementById("stage"), navbar=document.getElementById("navbar"),
         backBtn=document.getElementById("backBtn"), nextBtn=document.getElementById("nextBtn"),
         crumb=document.getElementById("crumb");
+    /* ---- live feeds: news to read, videos to watch, artists to compare ---- */
+    var FEEDS={loaded:false,_l:false,_cbs:[],news:[],newsAt:null,artists:[],videos:[]};
+    function loadFeeds(cb){
+      if(FEEDS.loaded){ if(cb)cb(); return; }
+      if(cb)FEEDS._cbs.push(cb);
+      if(FEEDS._l) return; FEEDS._l=true;
+      function g(u){ return fetch(u).then(function(r){return r.ok?r.json():null;}).catch(function(){return null;}); }
+      Promise.all([g("/data/news-rss.json"),g("/data/tracked_artists.json"),g("/data/latest.json")]).then(function(res){
+        FEEDS.news=(res[0]&&res[0].articles)||[]; FEEDS.newsAt=(res[0]&&res[0].fetched_at)||null;
+        FEEDS.artists=(res[1]&&res[1].artists)||[];
+        FEEDS.videos=(res[2]&&res[2].videos)||[];
+        FEEDS.loaded=true; FEEDS._l=false;
+        var cbs=FEEDS._cbs; FEEDS._cbs=[]; cbs.forEach(function(f){ try{f();}catch(e){} });
+      });
+    }
+    var CITY_OK={mumbai:1,delhi:1,bengaluru:1,hyderabad:1,pune:1,goa:1};
+    function myLang(){ return val("artist_lang")||""; }
+    function myCity(){ return val("artist_city")||""; }
+    function cap(s){ return s?s.charAt(0).toUpperCase()+s.slice(1):s; }
+    function fmtDate(s){ if(!s)return""; try{return new Date(s).toLocaleDateString("en-IN",{day:"numeric",month:"short"});}catch(e){return"";} }
+    function nfmt(n){ try{return Number(n).toLocaleString("en-IN");}catch(e){return n;} }
+    function pick(arr,n,fn){ arr=arr||[]; var a=fn?arr.filter(fn):arr.slice(); if(a.length<n){ arr.forEach(function(x){ if(a.indexOf(x)<0)a.push(x); }); } return a.slice(0,n); }
+
+    function newsCards(n){
+      var a=FEEDS.news||[]; if(!a.length) return '<div class="fc-empty">Nothing new right now.</div>';
+      return a.slice(0,n||3).map(function(x){
+        return '<a class="feedcard" href="'+esc(x.url)+'" target="_blank" rel="noopener"><div class="fc-t">'+esc(x.title)+'</div>'+
+          '<div class="fc-m">'+esc(x.publication||"")+(x.published_at?' · '+fmtDate(x.published_at):"")+'</div></a>';
+      }).join("");
+    }
+    function videoCards(n){
+      var lang=myLang();
+      var vids=pick(FEEDS.videos,n||4,lang?function(v){return v.language===lang;}:null);
+      if(!vids.length) return '<div class="fc-empty">Loading…</div>';
+      return vids.map(function(v){
+        var id=v.videoId||v.video_id||v.id||"";
+        return '<a class="vidcard" href="https://www.youtube.com/watch?v='+esc(id)+'" target="_blank" rel="noopener">'+
+          (v.thumbnail?'<img loading="lazy" src="'+esc(v.thumbnail)+'" alt="">':'<div class="vc-noimg"></div>')+
+          '<div class="vc-t">'+esc(v.title||"")+'</div><div class="fc-m">'+esc([v.language,v.genre].filter(Boolean).join(" · "))+'</div></a>';
+      }).join("");
+    }
+    function artistCards(n){
+      var lang=myLang(), all=FEEDS.artists||[];
+      var list=lang?all.filter(function(a){return a.language===lang;}):all;
+      if(list.length<(n||3)) list=all;
+      if(!list.length) return '<div class="fc-empty">Loading…</div>';
+      return list.slice(0,n||3).map(function(a){
+        var l=a.latest_global_listeners||a.latest_india_listeners||0;
+        return '<a class="feedcard" href="https://www.youtube.com/channel/'+esc(a.channel_id||"")+'" target="_blank" rel="noopener"><div class="fc-t">'+esc(a.name||"")+'</div>'+
+          '<div class="fc-m">'+esc([a.language,a.genre].filter(Boolean).join(" · "))+(l?' · '+nfmt(l)+' listeners':"")+'</div></a>';
+      }).join("");
+    }
+
+    function sceneInner(){
+      if(!FEEDS.loaded) return '<div class="fc-empty">Loading the scene…</div>';
+      var lg=myLang()?' · '+esc(myLang()):"";
+      return '<div class="scene-h"><span class="mono">Live from the scene</span>'+(FEEDS.newsAt?'<span class="scene-date">updated '+fmtDate(FEEDS.newsAt)+'</span>':"")+'</div>'+
+        '<div class="feedgrp"><div class="fg-h">In the news</div><div class="fg-list">'+newsCards(3)+'</div></div>'+
+        '<div class="feedgrp"><div class="fg-h">Fresh indie drops to study'+lg+'</div><div class="vidrow">'+videoCards(4)+'</div></div>'+
+        '<div class="feedgrp"><div class="fg-h">Artists on the radar'+lg+'</div><div class="fg-list">'+artistCards(3)+'</div>'+
+        '<a class="feedmore" href="/radar.html" target="_blank" rel="noopener">See the full radar →</a></div>';
+    }
+    function fillScene(){ loadFeeds(function(){ var el=document.getElementById("scenePanel"); if(el) el.innerHTML=sceneInner(); }); }
+
+    function deepenHTML(sec){
+      var d=sec.deepen; if(!d) return "";
+      var h='<div class="deepen"><div class="scene-h"><span class="mono">Go deeper</span><span class="scene-date">live from the site</span></div>';
+      var reads=[];
+      if(d.cityLinks && CITY_OK[myCity()]){ var c=myCity();
+        reads.push({label:"Venues in "+cap(c)+" (booking-ready list)",href:"/venues/"+c+"/"});
+        reads.push({label:"The "+cap(c)+" scene guide",href:"/guides/independent-music-scene-"+c+"/"});
+      }
+      (d.read||[]).forEach(function(r){ reads.push(r); });
+      if(reads.length){ h+='<div class="fg-h">Read</div><div class="fg-list">'+reads.map(function(r){
+        return '<a class="feedcard" href="'+esc(r.href)+'"'+(/^https?:/.test(r.href)?' target="_blank" rel="noopener"':"")+'><div class="fc-t">'+esc(r.label)+'</div></a>'; }).join("")+'</div>'; }
+      if(d.watch){ h+='<div class="fg-h">Watch'+(myLang()?' · '+esc(myLang()):"")+'</div><div class="vidrow" id="deepVids"><div class="fc-empty">Loading…</div></div>'; }
+      if(d.compare){ h+='<div class="fg-h">Artists to compare to'+(myLang()?' · '+esc(myLang()):"")+'</div><div class="fg-list" id="deepArt"><div class="fc-empty">Loading…</div></div>'; }
+      if(d.news){ h+='<div class="fg-h">In the news</div><div class="fg-list" id="deepNews"><div class="fc-empty">Loading…</div></div>'; }
+      return h+'</div>';
+    }
+    function fillDeepen(){ loadFeeds(function(){
+      var v=document.getElementById("deepVids"); if(v) v.innerHTML=videoCards(4);
+      var a=document.getElementById("deepArt"); if(a) a.innerHTML=artistCards(3);
+      var n=document.getElementById("deepNews"); if(n) n.innerHTML=newsCards(3);
+    }); }
+
     function render(){
       var v=S.nav.view;
       document.getElementById("pfill").style.width=overall().pct+"%";
-      window.scrollTo(0,0);
+      var navKey=v+"|"+(S.nav.sec)+"|"+(S.nav.block);
+      if(navKey!==lastNavKey){ window.scrollTo(0,0); lastNavKey=navKey; }
       if(v==="section") return renderSection();
       if(v==="export") return renderExport();
       return renderHome();
     }
 
+    function idxById(id){ for(var i=0;i<WB.sections.length;i++){ if(WB.sections[i].id===id) return i; } return -1; }
+    function secCard(i){
+      var sec=WB.sections[i], p=secProgress(sec), pct=p.total?Math.round(p.done/p.total*100):0, done=p.total>0&&p.done===p.total;
+      return '<button class="seccard'+(done?" done":"")+'" data-sec="'+i+'"><span class="num">'+(done?"✓":(i+1))+'</span>'+
+        '<span class="body"><span class="nm">'+esc(sec.name)+'</span><span class="tg">'+esc(sec.tag)+'</span>'+
+        '<span class="mini"><i style="width:'+pct+'%"></i></span><span class="cnt">'+(done?"done":p.done+' / '+p.total+' started')+'</span></span>'+
+        '<span class="arw">→</span></button>';
+    }
+    // beginner-first ordering, grouped; established artists see the natural order
+    var BEGINNER_GROUPS=[
+      {label:"START WITH THESE", ids:["start","context","identity","production"]},
+      {label:"NEXT · ONCE YOU'RE READY TO RELEASE", ids:["distribution","rights","social","revenue"]},
+      {label:"LATER · AS YOU GROW", ids:["live","team","advanced"]},
+      {label:"WRAP-UP & REFERENCE", ids:["plan","resources"]}
+    ];
     function renderHome(){
       navbar.style.display="none"; crumb.textContent="";
       var o=overall(), started=o.done>0;
+      var rung=val("ladder_now"), beginner=!rung||rung==="1"||rung==="2";
       var h="";
       h+='<div class="hero"><div class="kick mono">Your Roadmap · artist workbook</div>'+
          '<h1>'+(started?"Welcome back.":"Let's build your career, section by section.")+'</h1>'+
-         '<p>This is your workbook. Twelve short sections take you from who you are to a real 90-day plan. Do one at a time, in any order. Everything saves as you go.</p></div>';
+         '<p>This is your workbook. These sections take you from who you are to a real 90-day plan. Do one at a time, in any order. Everything saves as you go.</p></div>';
       h+='<div class="ovr"><div><div class="big">'+o.pct+'%</div><div class="lbl">'+o.done+' of '+o.total+' done</div></div>'+
          '<div class="track"><i style="width:'+o.pct+'%"></i></div></div>';
-      h+='<div class="sec-h">THE SECTIONS</div>';
-      WB.sections.forEach(function(sec,i){
-        var p=secProgress(sec), pct=p.total?Math.round(p.done/p.total*100):0, done=p.done===p.total;
-        h+='<button class="seccard'+(done?" done":"")+'" data-sec="'+i+'"><span class="num">'+(done?"✓":(i+1))+'</span>'+
-           '<span class="body"><span class="nm">'+esc(sec.name)+'</span><span class="tg">'+esc(sec.tag)+'</span>'+
-           '<span class="mini"><i style="width:'+pct+'%"></i></span><span class="cnt">'+p.done+' / '+p.total+' done</span></span>'+
-           '<span class="arw">→</span></button>';
+
+      // groups + start-here button
+      var groups = beginner ? BEGINNER_GROUPS : [{label:"THE SECTIONS", ids:WB.sections.map(function(s){return s.id;})}];
+      var order=[]; groups.forEach(function(g){ g.ids.forEach(function(id){ order.push(id); }); });
+      var firstInc=-1;
+      for(var oi=0;oi<order.length;oi++){ var ix=idxById(order[oi]); if(ix<0) continue; var pp=secProgress(WB.sections[ix]); if(pp.done<pp.total){ firstInc=ix; break; } }
+      if(firstInc>=0){
+        h+='<button class="btn primary wide" style="margin:12px 0 4px" data-sec="'+firstInc+'">'+
+           (started?"Jump back in":"Start here")+' · '+esc(WB.sections[firstInc].name)+' →</button>';
+      } else {
+        h+='<button class="btn primary wide" style="margin:12px 0 4px" id="exportBtn2" type="button">You did it · see your workbook →</button>';
+      }
+      h+='<div class="hint">'+(beginner
+          ? "This order is tuned for artists near the start. Set your level on the Credibility Ladder (in Identity) and it re-tunes."
+          : "You're set to rung "+rung+", so everything's in play. Work top to bottom or jump around.")+'</div>';
+
+      h+='<div class="scene" id="scenePanel">'+sceneInner()+'</div>';
+
+      groups.forEach(function(g){
+        var ids=g.ids.filter(function(id){return idxById(id)>=0;});
+        if(!ids.length) return;
+        h+='<div class="sec-h">'+esc(g.label)+'</div>';
+        ids.forEach(function(id){ h+=secCard(idxById(id)); });
       });
+
       h+='<div class="exportrow"><button class="btn primary wide" id="exportBtn" type="button">See &amp; print my workbook</button></div>';
       h+='<p class="privacy">Saved on this device. Soon you\'ll be able to log in and pick it up anywhere.</p>';
       stage.innerHTML=h;
+      fillScene();
       S.seen=true; save();
     }
 
@@ -251,20 +408,24 @@
       var h='<div class="subhead"><span class="eyebrow mono">'+esc(sec.name)+'</span><span class="of mono">'+(bi+1)+' / '+sec.blocks.length+'</span></div>';
       if(bi===0){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>'; }
       h+='<div class="block">'+renderBlock(sec.blocks[bi])+'</div>';
+      var last=bi===sec.blocks.length-1;
+      if(last && sec.deepen) h+=deepenHTML(sec);
       stage.innerHTML=h;
+      if(last && sec.deepen) fillDeepen();
       backBtn.textContent = bi===0 ? "Contents" : "Back";
-      nextBtn.textContent = bi===sec.blocks.length-1 ? "Done · back to contents" : "Next";
+      nextBtn.textContent = last ? "Done · back to contents" : "Next";
     }
 
     /* ---- block renderers ---- */
     function renderBlock(b){
       var head = b.title?'<h2>'+esc(b.title)+'</h2>':"";
-      head += b.help?'<p class="help">'+esc(b.help)+'</p>':"";
+      head += b.help?'<p class="help">'+esl(b.help)+'</p>':"";
+      head += b.gloss?'<div class="gloss"><b class="mono">In plain words</b>'+esl(b.gloss)+'</div>':"";
       var body="";
       if(b.type==="info") return '<div class="info">'+(b.title?'<h2>'+esc(b.title)+'</h2>':"")+b.body.map(function(p){
-          var m=String(p).match(/^([^:]{2,40}):\s(.+)$/); return m?'<p><b>'+esc(m[1])+':</b> '+esc(m[2])+'</p>':'<p>'+esc(p)+'</p>'; }).join("")+'</div>';
+          var m=String(p).match(/^([^:]{2,40}):\s(.+)$/); return m?'<p><b>'+esc(m[1])+':</b> '+esl(m[2])+'</p>':'<p>'+esl(p)+'</p>'; }).join("")+'</div>';
       if(b.type==="pillars") body=renderPillars(b);
-      else if(b.type==="qa") body=b.items.map(function(it){ return '<div class="card"><div class="qtext">'+esc(it.q)+'</div>'+ta(b.id+"."+it.id,"Type your answer")+'</div>'; }).join("");
+      else if(b.type==="qa") body=b.items.map(function(it){ return '<div class="card"><div class="qtext">'+esc(it.q)+'</div>'+ta(b.id+"."+it.id,it.ph||"Type your answer")+'</div>'; }).join("");
       else if(b.type==="fill") body=b.items.map(function(it){ var k=b.id+"."+it.id; return '<div class="card">'+(it.label?'<label class="flabel">'+esc(it.label)+'</label>':"")+(it.long?ta(k,it.ph||""):ti(k,it.ph||""))+'</div>'; }).join("");
       else if(b.type==="chips") body=renderChoice(b);
       else if(b.type==="checklist") body=b.items.map(function(it){ return chk(b.id+"."+it.id, it.text); }).join("");
@@ -274,7 +435,7 @@
     }
     function ti(k,ph){ return '<input class="tin" data-k="'+k+'" type="text" value="'+esc(val(k)||"")+'" placeholder="'+esc(ph||"")+'" autocomplete="off">'; }
     function ta(k,ph){ return '<textarea class="tin" data-k="'+k+'" placeholder="'+esc(ph||"")+'">'+esc(val(k)||"")+'</textarea>'; }
-    function chk(k,text){ var on=!!val(k); return '<div class="check'+(on?" on":"")+'" data-check="'+k+'"><span class="box">✓</span><span class="ctxt">'+esc(text)+'</span></div>'; }
+    function chk(k,text){ var on=!!val(k); return '<div class="check'+(on?" on":"")+'" data-check="'+k+'"><span class="box">✓</span><span class="ctxt">'+esl(text)+'</span></div>'; }
     function scale(k){ var cur=val(k); var h='<div class="scale">'; for(var i=1;i<=10;i++){ h+='<button type="button" data-scale="'+k+'" data-v="'+i+'" class="'+(String(cur)===String(i)?"on":"")+'">'+i+'</button>'; } return h+'</div>'; }
 
     function renderPillars(b){
@@ -310,7 +471,7 @@
         var head="", subs=[];
         if(r._n){ head='<div class="rhead">'+r._n+'.</div>'; }
         else {
-          ro.forEach(function(c,idx){ var t=r.cells[c.key]||""; if(idx===0) head='<div class="rhead">'+esc(t)+'</div>'; else if(t) subs.push(esc(t)); });
+          ro.forEach(function(c,idx){ var t=r.cells[c.key]||""; if(idx===0) head='<div class="rhead">'+esl(t)+'</div>'; else if(t) subs.push(esl(t)); });
         }
         var sub = subs.length?'<div class="rsub">'+subs.join(" · ")+'</div>':"";
         var fields=inp.map(function(c){ var k=b.id+"."+r.id+"."+c.key;
@@ -359,7 +520,7 @@
     stage.addEventListener("click",function(e){
       var el;
       if((el=e.target.closest("[data-sec]"))){ S.nav={view:"section",sec:+el.dataset.sec,block:0}; save(); render(); return; }
-      if(e.target.closest("#exportBtn")){ S.nav={view:"export"}; save(); render(); return; }
+      if(e.target.closest("#exportBtn")||e.target.closest("#exportBtn2")){ S.nav={view:"export"}; save(); render(); return; }
       if(e.target.closest("#homeBtn")){ S.nav={view:"home"}; save(); render(); return; }
       if(e.target.closest("#printBtn")){ window.print(); return; }
       if((el=e.target.closest("[data-check]"))){ var k=el.dataset.check; setVal(k, !val(k)); el.classList.toggle("on"); el.querySelector(".box").textContent=val(k)?"✓":""; return; }
