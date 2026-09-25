@@ -21,6 +21,7 @@ window.WORKBOOK = {
     {
       id: "start", name: "Start here", tag: "How this works, and your honest starting point.",
       plain: "Two things before you dive in: understand how to use this, and rate where you are today. Be honest here, it makes everything after it work.",
+      lesson:{ idea:"You can't fix what you won't measure. Start by telling the truth about where you are.", points:["This isn't a test. A low score just shows you where the biggest wins are hiding.","The artists who grow fastest are honest on day one, not the ones who look good on paper.","You'll re-rate these at the end. Watching the numbers move is the reward."] },
       blocks: [
         { type:"info", title:"How to use this workbook", body:[
           "Work through one section at a time. You don't have to finish it in one sitting, everything saves as you go.",
@@ -52,6 +53,7 @@ window.WORKBOOK = {
     {
       id: "context", name: "Big picture & your archetype", tag: "Where you sit, and what kind of artist you actually are.",
       plain: "Before tactics, get honest about what winning means for YOU. Answer these 8 questions, then find your archetype. It changes what you should double down on.",
+      lesson:{ idea:"'Making it' means different things for different artists. Copying the wrong role model is the most common way to waste years.", points:["There are broadly four kinds of artist: Commercial (reach and releases), Non-Commercial (sync, teaching, catalogue), Creator-Artist (audience and content), and Mixed.","Your archetype decides what you double down on. A Creator-Artist chasing playlists, or a Commercial artist ignoring live, both stall.","Study 2 Indian artists 2 years ahead of you in YOUR lane, not the biggest names in a different one."] },
       deepen:{ compare:true, watch:true, news:true },
       blocks: [
         { type:"qa", id:"diagnostic", title:"The 8-question diagnostic", help:"No wrong answers. Write what's true, not what sounds good.",
@@ -95,6 +97,7 @@ window.WORKBOOK = {
     {
       id: "identity", name: "Identity", tag: "What you stand for, who you're for, how it shows up everywhere.",
       plain: "This is the most important section. If you can say who you are in one sentence, every other decision gets easier.",
+      lesson:{ idea:"If you can't say who you are in one sentence, no algorithm, curator or fan can either.", points:["Your identity sentence is simple: I make ___ for ___. Specific beats broad. Music for everyone reaches no one.","Your strongest songs come from your territory: the places, people and years you keep returning to. Mine that, don't borrow someone else's.","The test: 3 songs back to back, 9 posts in a grid. Do they feel like one artist? Consistency is what makes you recognisable.","Know your rung on the credibility ladder. You climb it one clear step at a time, not in one jump."] },
       deepen:{ compare:true },
       blocks: [
         { type:"fill", id:"identity_sentence", title:"Write your identity sentence", help:"Fill in the blanks. Don't overthink the first pass.", items:[
@@ -147,6 +150,7 @@ window.WORKBOOK = {
     {
       id: "production", name: "Production", tag: "A release workflow that matches your ambition.",
       plain: "Great songs stuck on your phone don't count. This is about finishing, and making the first 30 seconds impossible to skip.",
+      lesson:{ idea:"On streaming, the first 30 seconds decide everything. A great song no one finishes doesn't count.", points:["Hook before 0:45, keep it under 3:30. Play every track from 0:00 and ask: would I skip this at 0:30 on a playlist?","The first 5 seconds should be unmistakably you. Name the exact moment that is your hook.","Finished and out beats perfect and stuck. Set a release cadence, say one song every 6 weeks, and protect it.","Know the full cost of a track (production, mix, master, art, distribution) so you can tell what's worth it."] },
       deepen:{ watch:true, read:[{label:"New-release checklist",href:"/toolkit/new-release-checklist/"}] },
       blocks: [
         { type:"table", id:"anatomy", title:"Anatomy of your next song",
@@ -195,6 +199,7 @@ window.WORKBOOK = {
     {
       id: "distribution", name: "Distribution", tag: "Everywhere it needs to be, with the right metadata.",
       plain: "Getting on Spotify is the easy part. Doing it with clean metadata, a real launch plan, and a plugged funnel is what separates you.",
+      lesson:{ idea:"Getting on Spotify is easy. Getting found, and keeping the listeners you get, is the real game.", points:["A distributor puts you everywhere; clean metadata (credits, language, tags, ISRC) is what makes you discoverable and paid.","Your EPK is the one pack that opens doors with curators, venues and press. Build it once, keep it sharp.","A release is a sequence, not a day. Work the launch plan from 6 weeks out so pitching windows aren't missed.","Watch your fan funnel: the leak is usually between heard-it-once and came-back. An email list or WhatsApp Channel is how you own the relationship."] },
       deepen:{ read:[{label:"Build your EPK (guide)",href:"/guides/electronic-press-kit-epk-india/"},{label:"12-week release plan",href:"/guides/12-week-release-plan-india/"},{label:"Get on Spotify editorial playlists",href:"/guides/spotify-editorial-playlists-india/"},{label:"Playlist target sheet",href:"/toolkit/streaming-playlist-target-sheet-india/"}] },
       blocks: [
         { type:"table", id:"epk", title:"Your EPK (electronic press kit) checklist",
@@ -284,6 +289,7 @@ window.WORKBOOK = {
     {
       id: "rights", name: "Rights", tag: "Own what you create. Collect what you're owed.",
       plain: "This is the boring section that quietly pays you for years. Every week you delay registering is money gone for good.",
+      lesson:{ idea:"The boring paperwork is where artists quietly lose, or keep, real money for years.", points:["IPRS pays you for the composition, PPL for the recording. Register early: every month you wait is royalties gone for good.","Content ID claims your song across YouTube and regional apps so you get paid when it's used.","Sign a split sheet BEFORE a collab is released, never after. A 10-minute job that prevents the ugliest fights.","Know the moments you must not sign without a music lawyer: any label deal, any management contract, any big sync."] },
       deepen:{ read:[{label:"IPRS & PPL registration guide",href:"/toolkit/iprs-ppl-registration-guide/"},{label:"Register your copyright (IPRS)",href:"/guides/register-music-copyright-iprs-india/"},{label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"}] },
       blocks: [
         { type:"checklist", id:"iprs", title:"IPRS · composition royalties (iprs.org)",
@@ -343,6 +349,7 @@ window.WORKBOOK = {
     {
       id: "revenue", name: "Revenue", tag: "Multiple income streams that compound over time.",
       plain: "Streaming alone won't pay you. This maps the 7 ways artists actually earn, and which two you could switch on in 90 days.",
+      lesson:{ idea:"Streaming alone won't pay your rent. Careers are built on several income streams that compound.", points:["There are 7 realistic streams: live, brand, YouTube, sync, direct-fan, teaching, and beat or session work.","Profit-first: know the minimum music must earn you and your yearly cost base, then close the gap on purpose.","You don't need all 7. Pick the 2 you earn nothing from today but could switch on in 90 days.","Measure return per hour, not just rupees. The stream that pays best for your effort is where to lean."] },
       deepen:{ read:[{label:"Royalty calculator",href:"/tools/royalty-calculator/"},{label:"How Spotify royalties work in India",href:"/guides/how-spotify-royalties-work-india/"},{label:"Revenue streams checklist",href:"/toolkit/revenue-streams-checklist/"},{label:"Sync licensing in India",href:"/guides/sync-licensing-music-ads-film-india/"}] },
       blocks: [
         { type:"table", id:"rev_audit", title:"Revenue audit: which streams are you running?",
@@ -400,6 +407,7 @@ window.WORKBOOK = {
     {
       id: "social", name: "Social media", tag: "Platforms as distribution, not performance.",
       plain: "You're not 'posting content'. You're choosing how your music spreads. Figure out which engine you're underusing.",
+      lesson:{ idea:"Treat platforms as distribution, not performance. You're not posting for applause, you're choosing how your music travels.", points:["Music spreads six ways: algorithm, editorial, social trends, peer word-of-mouth, media, and live conversion. Find the one you're most underusing.","Saves and shares matter more than likes. Study which posts got saved, and make more of those.","In India, don't default to Instagram-only. ShareChat, Moj, Josh and WhatsApp Channels carry real regional-language reach.","Community beats broadcast: genuine comments, peer relationships and a mailing list outlast any single viral moment."] },
       deepen:{ watch:true, read:[{label:"Pitch music blogs & press",href:"/guides/pitch-music-blogs-press-india/"}] },
       blocks: [
         { type:"table", id:"spread", title:"How music actually spreads",
@@ -469,6 +477,7 @@ window.WORKBOOK = {
     {
       id: "live", name: "Live & networking", tag: "Perform strategically. Build relationships that compound.",
       plain: "One good show and one real relationship can move your career more than 50 posts. Plan both deliberately.",
+      lesson:{ idea:"One great show and one real relationship can move your career more than fifty posts.", points:["Play strategically. Which past show actually opened doors, and why? Do more of that, not just any gig.","Relationships compound: follow up within 48 hours, referencing the real conversation, or the moment is wasted.","Before any collaboration, agree credits, splits, promo and who owns the master. In writing, up front.","Warm rooms convert: give a live audience one clear next step, follow, save, or join the mailing list."] },
       deepen:{ cityLinks:true, compare:true, read:[{label:"Upcoming shows & festivals",href:"/live/"},{label:"Book live gigs (guide)",href:"/guides/book-live-gigs-independent-band-india/"},{label:"Show-booking email template",href:"/toolkit/show-booking-email-template/"}] },
       blocks: [
         { type:"fill", id:"live_review", title:"Your live strategy: last 12 months", gloss:"No shows yet? Put 0 and skip to the plan below. Everyone starts at zero.", items:[
@@ -522,6 +531,7 @@ window.WORKBOOK = {
     {
       id: "team", name: "Scale & team", tag: "Infrastructure to grow beyond what you can do alone.",
       plain: "You can't do everything forever. Map who's on your team, who's missing, and what you can hand off first.",
+      lesson:{ idea:"You can't do everything forever. Growth comes from building the infrastructure to do less of the wrong work.", points:["Map your team and the gaps. The first hire is usually whatever admin task steals the most music-making time.","Know where each person is found: engineers via credits and test tracks, collaborators via shows and DMs, managers usually find you when you're visible and consistent.","With a manager, check: are you a priority artist on their roster, or portfolio filler?","One system that saves you 2+ hours a week (templates, a scheduler, an asset folder) buys back creative time."] },
       deepen:{ read:[{label:"Media 101",href:"/toolkit/media-101-guide-india/"},{label:"Working with publicists",href:"/toolkit/publicists-101-guide-india/"}] },
       blocks: [
         { type:"table", id:"team_state", title:"Your team: current state",
@@ -568,6 +578,7 @@ window.WORKBOOK = {
     {
       id: "advanced", name: "Advanced revenue & positioning", tag: "Sync, a contact pipeline, long-term career architecture.",
       plain: "This is how careers stop being random. Turn your contacts into a pipeline you work 15 minutes a day.",
+      lesson:{ idea:"Careers stop being random when your contacts become a pipeline you work a little every day.", points:["Sort your network into warm advocates, warm potentials, referral nodes, cold targets and latent contacts. Warm converts 5 to 10 times better than cold.","Work it 15 minutes a day: follow up Monday, one warm reach Wednesday, one new pitch Friday.","Move from Transactional (chasing one-off gigs) to Pipeline (a steady flow) to Architectural (income that keeps coming).","Build a sync catalogue: instrumental versions of your most placeable songs, ready when an opportunity lands."] },
       deepen:{ read:[{label:"Sync licensing in India",href:"/guides/sync-licensing-music-ads-film-india/"}] },
       blocks: [
         { type:"table", id:"contact_audit", title:"Contact audit: your network by category",
@@ -624,6 +635,7 @@ window.WORKBOOK = {
     {
       id: "plan", name: "Your 90-day plan", tag: "What you've built, and exactly what comes next.",
       plain: "This is the payoff. A concrete 3-month plan with verifiable milestones. Tick these off in real life over the next 90 days.",
+      lesson:{ idea:"A plan you can't verify is just a wish. This turns everything above into 90 days of concrete moves.", points:["Month 1 is foundation: identity, recording setup and rights. Month 2 is build: release, distribution, social. Month 3 is revenue: first income streams.","Every milestone is checkable: a confirmation email, a booking, 50 subscribers, not a vibe.","Pick one accountability partner and a single most-important focus. Focus beats a long to-do list.","Re-rate your 8 pillars against week one. Seeing the movement is the proof it worked."] },
       deepen:{ read:[{label:"12-week release plan",href:"/guides/12-week-release-plan-india/"}], news:true },
       blocks: [
         { type:"checklist", id:"m1_identity", title:"Month 1 · Foundation · Weeks 1–2: Identity", items:[
@@ -692,6 +704,7 @@ window.WORKBOOK = {
     {
       id: "resources", name: "Resources", tag: "The tools and contacts you'll keep coming back to.",
       plain: "Bookmark this. Fill in your own account links as you set each one up.",
+      lesson:{ idea:"Keep this shelf close. The tools and contacts here are the ones you'll come back to for years.", points:["Fill in your own account links as you set each one up, so your whole setup lives in one place.","Our reviewer list, venue pages, radar and royalty calculator do a lot of the legwork for free.","Log every industry contact you make. Future-you will thank present-you."] },
       blocks: [
         { type:"table", id:"tools", title:"Key platforms and tools",
           columns:[

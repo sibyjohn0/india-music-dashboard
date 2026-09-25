@@ -69,6 +69,13 @@
   .sec-intro{background:var(--blue);border:2px solid var(--ink);border-radius:16px;padding:20px;box-shadow:var(--shadow-sm);margin-bottom:6px}
   .sec-intro h1{font-size:clamp(24px,6vw,32px);font-weight:800;margin-bottom:8px}
   .sec-intro p{font-size:16px}
+  .lesson{background:#fff;border:2px solid var(--ink);border-left:8px solid var(--violet);border-radius:14px;padding:18px;margin:12px 0 6px;box-shadow:var(--shadow-sm)}
+  .lesson-k{font-size:11px;font-weight:700;color:var(--violet);margin-bottom:7px}
+  .lesson-idea{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;line-height:1.28;margin-bottom:13px;text-wrap:balance}
+  .lesson-pts{list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0}
+  .lesson-pts li{position:relative;padding-left:22px;font-size:14.5px;line-height:1.5}
+  .lesson-pts li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:9px;background:var(--violet);border:2px solid var(--ink);border-radius:50%}
+  .lesson-pts a{color:var(--pink);font-weight:700}
   .block h2{font-size:22px;font-weight:800;margin:0 0 6px;text-wrap:balance}
   .block .help{font-size:15px;color:var(--muted);margin:0 0 18px;max-width:560px}
   .gloss{background:#EAFBF4;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5;margin:0 0 18px}
@@ -312,6 +319,11 @@
     }
     function fillScene(){ loadFeeds(function(){ var el=document.getElementById("scenePanel"); if(el) el.innerHTML=sceneInner(); }); }
 
+    function lessonHTML(l){
+      return '<div class="lesson"><div class="lesson-k mono">The idea</div>'+
+        '<div class="lesson-idea">'+esl(l.idea)+'</div>'+
+        (l.points&&l.points.length?'<ul class="lesson-pts">'+l.points.map(function(p){return '<li>'+esl(p)+'</li>';}).join("")+'</ul>':"")+'</div>';
+    }
     function deepenHTML(sec){
       var d=sec.deepen; if(!d) return "";
       var h='<div class="deepen"><div class="scene-h"><span class="mono">Go deeper</span><span class="scene-date">live from the site</span></div>';
@@ -406,7 +418,8 @@
       crumb.textContent=sec.name;
       navbar.style.display="";
       var h='<div class="subhead"><span class="eyebrow mono">'+esc(sec.name)+'</span><span class="of mono">'+(bi+1)+' / '+sec.blocks.length+'</span></div>';
-      if(bi===0){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>'; }
+      if(bi===0){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>';
+        if(sec.lesson) h+=lessonHTML(sec.lesson); }
       h+='<div class="block">'+renderBlock(sec.blocks[bi])+'</div>';
       var last=bi===sec.blocks.length-1;
       if(last && sec.deepen) h+=deepenHTML(sec);
