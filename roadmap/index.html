@@ -36,7 +36,9 @@
   .pbar{height:7px;background:var(--softyellow);border-bottom:2px solid var(--ink)}
   .pbar-fill{height:100%;background:var(--pink);width:0;transition:width .35s cubic-bezier(.4,0,.2,1)}
 
-  .stage{max-width:660px;margin:0 auto;padding:22px 18px 150px}
+  .stage{max-width:660px;margin:0 auto;padding:22px 18px 44px}
+  body.in-section .stage{padding-bottom:150px}
+  .pill-ctx{font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--muted);margin-bottom:8px}
 
   /* home */
   .hero{background:var(--ink);color:var(--cream);border:2px solid var(--ink);border-radius:20px;padding:28px 24px;box-shadow:6px 6px 0 var(--pink);margin-bottom:20px}
@@ -48,15 +50,15 @@
   .ovr .lbl{font-size:13px;color:var(--muted);font-weight:600}
   .ovr .track{flex:1;height:12px;background:var(--softyellow);border:2px solid var(--ink);border-radius:20px;overflow:hidden}
   .ovr .track i{display:block;height:100%;background:var(--mint)}
-  .focus{background:#EDE7FB;border:2px solid var(--ink);border-radius:15px;padding:16px 18px;margin:10px 0 4px;box-shadow:var(--shadow-sm)}
-  .focus-k{font-size:11px;font-weight:700;color:var(--violet);margin-bottom:8px}
+  .focus{background:#EDE4FF;border:2px solid var(--ink);border-radius:15px;padding:16px 18px;margin:10px 0 4px;box-shadow:var(--shadow-sm)}
+  .focus-k{font-size:11px;font-weight:700;color:#6D28D9;margin-bottom:8px}
   .focus-line{font-size:15px;line-height:1.5;margin-bottom:9px}
   .focus-line:last-child{margin-bottom:0}
   .focus-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
   .focus-chip{font-family:inherit;font-weight:800;font-size:13px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;cursor:pointer;box-shadow:var(--shadow-sm);color:var(--ink)}
   .focus-chip:active{transform:translateY(1px)}
   .foryou{display:inline-block;font-size:9px;background:var(--pink);color:#fff;border:1.5px solid var(--ink);border-radius:6px;padding:1px 5px 0;vertical-align:middle;margin-left:3px;letter-spacing:.3px}
-  .sec-h{font-size:13px;font-weight:800;margin:22px 2px 12px;color:var(--muted)}
+  .sec-h{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.5px;margin:22px 2px 12px;color:var(--muted)}
   .seccard{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:15px;padding:15px 16px;margin-bottom:11px;cursor:pointer;transition:transform .08s, box-shadow .12s}
   .seccard:active{transform:translateY(1px)}
   .seccard:hover{box-shadow:var(--shadow-sm)}
@@ -86,8 +88,8 @@
   .lesson-pts a{color:var(--pink);font-weight:700}
   .block h2{font-size:22px;font-weight:800;margin:0 0 6px;text-wrap:balance}
   .block .help{font-size:15px;color:var(--muted);margin:0 0 18px;max-width:560px}
-  .gloss{background:#EAFBF4;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5;margin:0 0 18px}
-  .gloss b{display:block;font-size:10px;letter-spacing:.5px;margin-bottom:4px;color:#0E8f6c}
+  .gloss{background:#D2F6EC;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5;margin:0 0 18px}
+  .gloss b{display:block;font-size:10px;letter-spacing:.5px;margin-bottom:4px;color:#0E8F6C}
   .hint{font-size:13px;color:var(--muted);margin:2px 2px 4px;line-height:1.5}
 
   .card{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px;margin-bottom:12px}
@@ -117,13 +119,13 @@
   .optrow span{font-size:14px;color:var(--muted)}
 
   /* scale 1-10 */
-  .scale{display:flex;gap:5px;flex-wrap:wrap}
-  .scale button{font-family:'Bricolage Grotesque';font-weight:700;font-size:15px;width:100%;max-width:34px;flex:1 1 26px;aspect-ratio:1;border:2px solid var(--ink);border-radius:9px;background:#fff;cursor:pointer;color:var(--ink)}
+  .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;max-width:310px}
+  .scale button{font-family:'Bricolage Grotesque';font-weight:700;font-size:15px;width:100%;min-height:42px;border:2px solid var(--ink);border-radius:9px;background:#fff;cursor:pointer;color:var(--ink)}
   .scale button.on{background:var(--pink);color:#fff}
 
   /* checklist / check rows */
   .check{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:14px;cursor:pointer;margin-bottom:9px;transition:background .12s}
-  .check.on{background:#EAFBF4}
+  .check.on{background:#D2F6EC}
   .check .box{width:23px;height:23px;flex:0 0 auto;border:2px solid var(--ink);border-radius:7px;background:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:transparent;margin-top:1px}
   .check.on .box{background:var(--mint);color:var(--ink)}
   .check .ctxt{font-size:15px;line-height:1.45}
@@ -146,8 +148,10 @@
   .trow .check{margin:2px 0 0}
 
   /* nav */
-  .navbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--cream);border-top:2px solid var(--ink)}
-  .navbar-in{max-width:660px;margin:0 auto;display:flex;gap:11px;align-items:center;padding:12px 18px calc(12px + env(safe-area-inset-bottom))}
+  .navbar{position:fixed;bottom:0;left:0;right:0;z-index:30;background:transparent}
+  .navbar-in{max-width:660px;margin:0 auto;display:flex;gap:11px;align-items:center;padding:12px 18px calc(12px + env(safe-area-inset-bottom));background:var(--cream);border-top:2px solid var(--ink)}
+  @media(min-width:700px){ .navbar-in{border:2px solid var(--ink);border-bottom:0;border-radius:14px 14px 0 0} }
+  @media(hover:hover){ .vidrow{scrollbar-width:thin} .vidrow::-webkit-scrollbar{display:block;height:8px} .vidrow::-webkit-scrollbar-thumb{background:var(--ink);border-radius:8px} }
   .btn{font-family:inherit;font-weight:800;font-size:16px;border:2px solid var(--ink);border-radius:12px;padding:13px 20px;cursor:pointer;transition:transform .08s, box-shadow .12s;background:#fff;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
   .btn:active{transform:translateY(1px)}
   .btn.primary{background:var(--pink);color:#fff;box-shadow:var(--shadow);flex:1}
@@ -192,6 +196,26 @@
   .vc-t{font-weight:700;font-size:12.5px;line-height:1.3;padding:8px 9px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .vidcard .fc-m{padding:2px 9px 9px}
 
+  /* grab-this (templates, contracts, outreach, venues at point of need) */
+  .grab{background:#D2F6EC;border:2px solid var(--ink);border-radius:13px;padding:13px 14px;margin:14px 0 4px}
+  .grab-k{font-size:10px;font-weight:700;color:#0E8F6C;margin-bottom:9px;letter-spacing:.5px}
+  .grabcard{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);margin-bottom:8px;transition:transform .08s,box-shadow .12s}
+  .grabcard:last-child{margin-bottom:0}
+  .grabcard:active{transform:translateY(1px)}
+  .grabcard:hover{box-shadow:var(--shadow-sm)}
+  .grab-kind{flex:0 0 auto;font-family:'Space Mono',monospace;font-size:9px;text-transform:uppercase;letter-spacing:.3px;background:var(--yellow);border:2px solid var(--ink);border-radius:6px;padding:2px 6px;font-weight:700}
+  .gk-contract{background:#FFD9E7}.gk-outreach{background:var(--blue)}.gk-venues{background:#CFF6EA}.gk-tool{background:#E7DEFB}.gk-guide{background:var(--softyellow)}
+  .grab-l{flex:1;font-weight:700;font-size:14px;line-height:1.3}
+  .grab-arw{flex:0 0 auto;font-size:16px;color:var(--muted)}
+
+  /* document builder */
+  .doc{background:#fff;border:2px solid var(--ink);border-radius:14px;margin-top:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .doc-h{background:var(--ink);padding:11px 14px}
+  .doc-h .mono{font-size:11px;font-weight:700;color:var(--yellow)}
+  .doc-body{font-family:'Space Mono',monospace;font-size:12.5px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;padding:15px;margin:0;color:var(--ink)}
+  .doc-actions{display:flex;gap:10px;padding:0 14px 14px}
+  .doc-actions .btn{flex:1;padding:12px}
+
   @media(max-width:480px){
     .stage{padding:20px 14px 150px}
     .topbar-in,.navbar-in{padding-left:14px;padding-right:14px}
@@ -229,7 +253,7 @@
     var S = load();
     function fresh(){ return { nav:{view:"home"}, ans:{}, seen:false }; }
     function load(){ try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);o.ans=o.ans||{};o.nav=o.nav||{view:"home"};
-      if(o.nav.view==="section"){ var sec=WB.sections[o.nav.sec]; if(!sec){o.nav={view:"home"};} else { var bi=o.nav.block||0; if(bi<0||bi>=sec.blocks.length) o.nav.block=0; } }
+      if(o.nav.view==="section"){ var sec=WB.sections[o.nav.sec]; if(!sec){o.nav={view:"home"};} else { var bi=o.nav.block||0; if(bi<0||bi>=sec.blocks.length) o.nav.block=0; if(!(o.nav.step>=0)) o.nav.step=0; } }
       return o;}}catch(e){} return fresh(); }
     var saveT;
     function save(){ try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
@@ -249,6 +273,7 @@
       else if(b.type==="chips"){ ks.push(b.id); }
       else if(b.type==="checklist"){ b.items.forEach(function(it){ ks.push(b.id+"."+it.id); }); }
       else if(b.type==="note"){ ks.push(b.id); }
+      else if(b.type==="builder"){ b.fields.forEach(function(f){ ks.push(b.id+"."+f.id); }); }
       else if(b.type==="table"){ tableRows(b).forEach(function(r){ b.columns.forEach(function(c){ if(c.type!=="readonly") ks.push(b.id+"."+r.id+"."+c.key); }); }); }
       return ks;
     }
@@ -296,7 +321,7 @@
     function videoCards(n){
       var lang=myLang();
       var vids=pick(FEEDS.videos,n||4,lang?function(v){return v.language===lang;}:null);
-      if(!vids.length) return '<div class="fc-empty">Loading…</div>';
+      if(!vids.length) return '<div class="fc-empty">No fresh drops to show right now.</div>';
       return vids.map(function(v){
         var id=v.videoId||v.video_id||v.id||"";
         return '<a class="vidcard" href="https://www.youtube.com/watch?v='+esc(id)+'" target="_blank" rel="noopener">'+
@@ -308,7 +333,7 @@
       var lang=myLang(), all=FEEDS.artists||[];
       var list=lang?all.filter(function(a){return a.language===lang;}):all;
       if(list.length<(n||3)) list=all;
-      if(!list.length) return '<div class="fc-empty">Loading…</div>';
+      if(!list.length) return '<div class="fc-empty">No artists to show right now.</div>';
       return list.slice(0,n||3).map(function(a){
         var l=a.latest_global_listeners||a.latest_india_listeners||0;
         return '<a class="feedcard" href="https://www.youtube.com/channel/'+esc(a.channel_id||"")+'" target="_blank" rel="noopener"><div class="fc-t">'+esc(a.name||"")+'</div>'+
@@ -357,7 +382,8 @@
     function render(){
       var v=S.nav.view;
       document.getElementById("pfill").style.width=overall().pct+"%";
-      var navKey=v+"|"+(S.nav.sec)+"|"+(S.nav.block);
+      document.body.classList.toggle("in-section", v==="section");
+      var navKey=v+"|"+S.nav.sec+"|"+S.nav.block+"|"+S.nav.step;
       if(navKey!==lastNavKey){ window.scrollTo(0,0); lastNavKey=navKey; }
       if(v==="section") return renderSection();
       if(v==="export") return renderExport();
@@ -421,15 +447,13 @@
       for(var oi=0;oi<order.length;oi++){ var ix=idxById(order[oi]); if(ix<0) continue; var pp=secProgress(WB.sections[ix]); if(pp.done<pp.total){ firstInc=ix; break; } }
       if(firstInc>=0){
         h+='<button class="btn primary wide" style="margin:12px 0 4px" data-sec="'+firstInc+'">'+
-           (started?"Jump back in":"Start here")+' · '+esc(WB.sections[firstInc].name)+' →</button>';
+           (started?("Jump back in · "+esc(WB.sections[firstInc].name)):"Start here")+' →</button>';
       } else {
         h+='<button class="btn primary wide" style="margin:12px 0 4px" id="exportBtn2" type="button">You did it · see your workbook →</button>';
       }
       h+='<div class="hint">'+(beginner
           ? "This order is tuned for artists near the start. Set your level on the Credibility Ladder (in Identity) and it re-tunes."
           : "You're set to rung "+rung+", so everything's in play. Work top to bottom or jump around.")+'</div>';
-
-      h+='<div class="scene" id="scenePanel">'+sceneInner()+'</div>';
 
       groups.forEach(function(g){
         var ids=g.ids.filter(function(id){return idxById(id)>=0;});
@@ -438,7 +462,8 @@
         ids.forEach(function(id){ h+=secCard(idxById(id)); });
       });
 
-      h+='<div class="exportrow"><button class="btn primary wide" id="exportBtn" type="button">See &amp; print my workbook</button></div>';
+      h+='<div class="exportrow"><button class="btn wide" id="exportBtn" type="button">See &amp; print my workbook</button></div>';
+      h+='<div class="scene" id="scenePanel">'+sceneInner()+'</div>';
       h+='<p class="privacy">Saved on this device. Soon you\'ll be able to log in and pick it up anywhere.</p>';
       stage.innerHTML=h;
       fillScene();
@@ -446,58 +471,103 @@
     }
 
     function renderSection(){
-      var sec=WB.sections[S.nav.sec], bi=S.nav.block||0;
+      var sec=WB.sections[S.nav.sec], bi=S.nav.block||0, st=S.nav.step||0;
+      var blk=sec.blocks[bi], sc=stepCount(blk);
+      if(st>=sc){ st=sc-1; S.nav.step=st; }
       crumb.textContent=sec.name;
       navbar.style.display="";
-      var h='<div class="subhead"><span class="eyebrow mono">'+esc(sec.name)+'</span><span class="of mono">'+(bi+1)+' / '+sec.blocks.length+'</span></div>';
-      if(bi===0){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>';
+      var totalSteps=0, idx=0;
+      sec.blocks.forEach(function(b,i){ var c=stepCount(b); if(i<bi) idx+=c; totalSteps+=c; });
+      idx+=st;
+      var pct=totalSteps?Math.round((idx+1)/totalSteps*100):100;
+      document.getElementById("pfill").style.width=pct+"%";
+      var h='<div class="subhead"><span class="eyebrow mono">'+esc(sec.name)+'</span><span class="of mono">'+(idx+1)+' / '+totalSteps+'</span></div>';
+      if(bi===0 && st===0){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>';
         if(sec.lesson) h+=lessonHTML(sec.lesson); }
-      h+='<div class="block">'+renderBlock(sec.blocks[bi])+'</div>';
-      var last=bi===sec.blocks.length-1;
-      if(last && sec.deepen) h+=deepenHTML(sec);
+      h+='<div class="block">'+renderBlock(blk, st)+'</div>';
+      var sectionEnd = (bi===sec.blocks.length-1) && (st===sc-1);
+      if(sectionEnd && sec.deepen) h+=deepenHTML(sec);
       stage.innerHTML=h;
-      if(last && sec.deepen) fillDeepen();
-      backBtn.textContent = bi===0 ? "Contents" : "Back";
-      nextBtn.textContent = last ? "Done · back to contents" : "Next";
+      if(sectionEnd && sec.deepen) fillDeepen();
+      backBtn.textContent = (bi===0&&st===0) ? "Contents" : "Back";
+      nextBtn.textContent = sectionEnd ? "Done · back to contents" : "Next";
     }
 
     /* ---- block renderers ---- */
-    function renderBlock(b){
-      var head = b.title?'<h2>'+esc(b.title)+'</h2>':"";
-      head += b.help?'<p class="help">'+esl(b.help)+'</p>':"";
-      head += b.gloss?'<div class="gloss"><b class="mono">In plain words</b>'+esl(b.gloss)+'</div>':"";
+    function renderBlock(b, step){
+      step=step||0;
+      var multi = b.type==="pillars"||b.type==="qa"||b.type==="fill"||b.type==="builder";
+      var head="";
+      if(!multi || step===0){
+        head = b.title?'<h2>'+esc(b.title)+'</h2>':"";
+        head += b.help?'<p class="help">'+esl(b.help)+'</p>':"";
+        head += b.gloss?'<div class="gloss"><b class="mono">In plain words</b>'+esl(b.gloss)+'</div>':"";
+      }
       var body="";
       if(b.type==="info") return '<div class="info">'+(b.title?'<h2>'+esc(b.title)+'</h2>':"")+b.body.map(function(p){
           var m=String(p).match(/^([^:]{2,40}):\s(.+)$/); return m?'<p><b>'+esc(m[1])+':</b> '+esl(m[2])+'</p>':'<p>'+esl(p)+'</p>'; }).join("")+'</div>';
-      if(b.type==="pillars") body=renderPillars(b);
-      else if(b.type==="qa") body=b.items.map(function(it){ return '<div class="card"><div class="qtext">'+esc(it.q)+'</div>'+ta(b.id+"."+it.id,it.ph||"Type your answer")+'</div>'; }).join("");
-      else if(b.type==="fill") body=b.items.map(function(it){ var k=b.id+"."+it.id; return '<div class="card">'+(it.label?'<label class="flabel">'+esc(it.label)+'</label>':"")+(it.long?ta(k,it.ph||""):ti(k,it.ph||""))+'</div>'; }).join("");
+      else if(b.type==="pillars") body=renderPillarOne(b, step);
+      else if(b.type==="qa"){ var q=b.items[step]; body='<div class="card"><div class="qtext">'+esc(q.q)+'</div>'+ta(b.id+"."+q.id,q.ph||"Type your answer")+'</div>'; }
+      else if(b.type==="fill"){ var it=b.items[step]; var k=b.id+"."+it.id; body='<div class="card">'+(it.label?'<label class="flabel">'+esc(it.label)+'</label>':"")+(it.long?ta(k,it.ph||""):ti(k,it.ph||""))+'</div>'; }
       else if(b.type==="chips") body=renderChoice(b);
       else if(b.type==="checklist") body=b.items.map(function(it){ return chk(b.id+"."+it.id, it.text); }).join("");
       else if(b.type==="note") body='<div class="card"><label class="flabel">Your notes</label>'+ta(b.id,"Anything you want to remember from this section")+'</div>';
       else if(b.type==="table") body=renderTable(b);
-      return head+body;
+      else if(b.type==="builder") body=renderBuilderStep(b, step);
+      var showTools = b.tools && step===stepCount(b)-1;
+      return head+body+(showTools?grabHTML(b.tools):"");
+    }
+    var curBuilder=null;
+    function visFields(b){ return b.fields.filter(function(f){ return !f.showIf || f.showIf.is.indexOf(val(b.id+"."+f.showIf.f))>-1; }); }
+    function fieldCard(b,f){ var k=b.id+"."+f.id;
+      if(f.kind==="chips") return '<div class="card"><label class="flabel">'+esc(f.label)+'</label><div class="chips">'+f.options.map(function(o){var on=val(k)===o;return '<div class="chip mini'+(on?" sel":"")+'" data-choice="'+k+'" data-v="'+esc(o)+'" data-single="1">'+esc(o)+'</div>';}).join("")+'</div></div>';
+      return '<div class="card"><label class="flabel">'+esc(f.label)+'</label>'+ti(k,f.ph||"")+'</div>';
+    }
+    function renderBuilderStep(b, step){
+      curBuilder=b; var vis=visFields(b);
+      if(step<vis.length) return fieldCard(b, vis[step]);
+      return '<div class="doc"><div class="doc-h"><span class="mono">Your document, ready to use</span></div>'+
+        '<pre class="doc-body" id="docPreview">'+esc(buildDoc(b))+'</pre>'+
+        '<div class="doc-actions"><button class="btn primary" id="docCopy" type="button">Copy</button><button class="btn" id="docDl" type="button">Save as .txt</button></div></div>';
+    }
+    function buildDoc(b){
+      return b.template.filter(function(line){ if(line&&typeof line==="object"&&line.when){ return line.when.is.indexOf(val(b.id+"."+line.when.f))>-1; } return true; })
+        .map(function(line){ var t=(line&&typeof line==="object")?line.text:line; return t.replace(/\{(\w+)\}/g,function(_,id){ var v=val(b.id+"."+id); return v||"_____"; }); }).join("\n");
+    }
+    function updatePreview(){ var pv=document.getElementById("docPreview"); if(pv&&curBuilder) pv.textContent=buildDoc(curBuilder); }
+    // Duolingo-style: how many one-thing-per-screen steps a block has
+    function stepCount(b){
+      if(b.type==="pillars") return WB.pillars.length;
+      if(b.type==="qa"||b.type==="fill") return b.items.length;
+      if(b.type==="builder") return visFields(b).length+1;
+      return 1;
+    }
+    function grabHTML(tools){
+      return '<div class="grab"><div class="grab-k mono">Grab this, ready to use</div>'+tools.map(function(t){
+        var href=t.href.indexOf("{city}")>-1 ? (CITY_OK[myCity()]?t.href.replace("{city}",myCity()):"/venues/") : t.href;
+        var kind=t.kind||"template";
+        return '<a class="grabcard" href="'+esc(href)+'"'+(/^https?:/.test(href)?' target="_blank" rel="noopener"':"")+'><span class="grab-kind gk-'+esc(kind)+'">'+esc(kind)+'</span><span class="grab-l">'+esc(t.label)+'</span><span class="grab-arw">→</span></a>';
+      }).join("")+'</div>';
     }
     function ti(k,ph){ return '<input class="tin" data-k="'+k+'" type="text" value="'+esc(val(k)||"")+'" placeholder="'+esc(ph||"")+'" autocomplete="off">'; }
     function ta(k,ph){ return '<textarea class="tin" data-k="'+k+'" placeholder="'+esc(ph||"")+'">'+esc(val(k)||"")+'</textarea>'; }
     function chk(k,text){ var on=!!val(k); return '<div class="check'+(on?" on":"")+'" data-check="'+k+'"><span class="box">✓</span><span class="ctxt">'+esl(text)+'</span></div>'; }
     function scale(k){ var cur=val(k); var h='<div class="scale">'; for(var i=1;i<=10;i++){ h+='<button type="button" data-scale="'+k+'" data-v="'+i+'" class="'+(String(cur)===String(i)?"on":"")+'">'+i+'</button>'; } return h+'</div>'; }
 
-    function renderPillars(b){
-      return WB.pillars.map(function(name,i){
-        var base=b.id+"."+i;
-        if(b.mode==="review"){
-          var was=val("baseline."+i+".rating");
-          return '<div class="trow"><div class="rhead">'+esc(name)+'</div>'+
-            '<div class="rsub pill">Week 1 rating: '+(was?was+"/10":"-")+'</div>'+
-            '<div class="tfield"><label class="flabel">Where I am now</label>'+scale(base+".now")+'</div>'+
-            '<div class="tfield"><label class="flabel">90-day goal</label>'+ti(base+".goal","")+'</div></div>';
-        }
-        return '<div class="trow"><div class="rhead">'+esc(name)+'</div>'+
-          '<div class="tfield"><label class="flabel">Rating (1–10)</label>'+scale(base+".rating")+'</div>'+
-          '<div class="tfield"><label class="flabel">My biggest strength here</label>'+ti(base+".strength","")+'</div>'+
-          '<div class="tfield"><label class="flabel">My biggest gap here</label>'+ti(base+".gap","")+'</div></div>';
-      }).join("");
+    function renderPillarOne(b, i){
+      var name=WB.pillars[i], base=b.id+"."+i;
+      var ctx='<div class="pill-ctx mono">Pillar '+(i+1)+' of '+WB.pillars.length+'</div>';
+      if(b.mode==="review"){
+        var was=val("baseline."+i+".rating");
+        return '<div class="trow">'+ctx+'<div class="rhead">'+esc(name)+'</div>'+
+          '<div class="rsub pill">Week 1 rating: '+(was?was+"/10":"not set")+'</div>'+
+          '<div class="tfield"><label class="flabel">Where I am now</label>'+scale(base+".now")+'</div>'+
+          '<div class="tfield"><label class="flabel">90-day goal</label>'+ti(base+".goal","")+'</div></div>';
+      }
+      return '<div class="trow">'+ctx+'<div class="rhead">'+esc(name)+'</div>'+
+        '<div class="tfield"><label class="flabel">Rate yourself, 1 to 10</label>'+scale(base+".rating")+'</div>'+
+        '<div class="tfield"><label class="flabel">My biggest strength here</label>'+ti(base+".strength","")+'</div>'+
+        '<div class="tfield"><label class="flabel">My biggest gap here</label>'+ti(base+".gap","")+'</div></div>';
     }
 
     function renderChoice(b){
@@ -547,11 +617,15 @@
       sec.blocks.forEach(function(b){
         if(b.type==="info") return;
         var items="";
-        if(b.type==="pillars"){ WB.pillars.forEach(function(nm,i){ var r=b.mode==="review"?val(b.id+"."+i+".now"):val(b.id+"."+i+".rating"); if(r) items+=exq(nm, r+"/10"); }); }
+        if(b.type==="pillars"){ WB.pillars.forEach(function(nm,i){
+          if(b.mode==="review"){ var rn=val(b.id+"."+i+".now"), g=val(b.id+"."+i+".goal"); if(rn) items+=exq(nm, rn+"/10"); if(g) items+=exq(nm+", 90-day goal", g); }
+          else { var r=val(b.id+"."+i+".rating"), stt=val(b.id+"."+i+".strength"), gp=val(b.id+"."+i+".gap"); if(r) items+=exq(nm, r+"/10"); if(stt) items+=exq(nm+", strength", stt); if(gp) items+=exq(nm+", gap", gp); }
+        }); }
         else if(b.type==="qa"){ b.items.forEach(function(it){ var v=val(b.id+"."+it.id); if(v) items+=exq(it.q,v); }); }
         else if(b.type==="fill"){ b.items.forEach(function(it){ var v=val(b.id+"."+it.id); if(v) items+=exq(it.label||it.id,v); }); }
         else if(b.type==="chips"){ var v=val(b.id); if(v){ var lbl=function(x){var o=b.options.filter(function(op){return op.v===x;})[0];return o?o.label:x;}; items+=exq(b.title, Array.isArray(v)?v.map(lbl).join(", "):lbl(v)); } }
         else if(b.type==="note"){ var v=val(b.id); if(v) items+=exq("Notes",v); }
+        else if(b.type==="builder"){ if(b.fields.some(function(f){return val(b.id+"."+f.id);})) items+=exq(b.title||"Document", buildDoc(b)); }
         else if(b.type==="checklist"){ var done=b.items.filter(function(it){return val(b.id+"."+it.id);}); if(done.length) items+=exq(b.title||"Checklist", done.length+" of "+b.items.length+" ticked"); }
         else if(b.type==="table"){ tableRows(b).forEach(function(r){ var parts=[]; b.columns.forEach(function(c){ if(c.type==="readonly")return; var v=val(b.id+"."+r.id+"."+c.key); if(v) parts.push(c.label+": "+(v===true?"✓":v)); }); if(parts.length){ var lbl=r._n?(b.title+" #"+r._n):(r.cells[(b.columns[0]||{}).key]||b.title); items+=exq(lbl, parts.join(" · ")); } }); }
         if(items) out+=items;
@@ -561,13 +635,15 @@
     function exq(q,a){ return '<div class="ex-item"><div class="q">'+esc(q)+'</div><div class="a">'+fmt(a)+'</div></div>'; }
 
     /* ---- events ---- */
-    stage.addEventListener("input",function(e){ var t=e.target; if(t.dataset&&t.dataset.k!=null){ setVal(t.dataset.k, t.value); } });
+    stage.addEventListener("input",function(e){ var t=e.target; if(t.dataset&&t.dataset.k!=null){ setVal(t.dataset.k, t.value); if(document.getElementById("docPreview")) updatePreview(); } });
     stage.addEventListener("click",function(e){
       var el;
       if((el=e.target.closest("[data-sec]"))){ S.nav={view:"section",sec:+el.dataset.sec,block:0}; save(); render(); return; }
       if(e.target.closest("#exportBtn")||e.target.closest("#exportBtn2")){ S.nav={view:"export"}; save(); render(); return; }
       if(e.target.closest("#homeBtn")){ S.nav={view:"home"}; save(); render(); return; }
       if(e.target.closest("#printBtn")){ window.print(); return; }
+      if((el=e.target.closest("#docCopy"))){ var tx=buildDoc(curBuilder); try{navigator.clipboard.writeText(tx);}catch(e2){} el.textContent="Copied ✓"; setTimeout(function(){el.textContent="Copy";},1500); return; }
+      if(e.target.closest("#docDl")){ var t2=buildDoc(curBuilder); var bl=new Blob([t2],{type:"text/plain"}); var u=URL.createObjectURL(bl); var a=document.createElement("a"); a.href=u; a.download=(curBuilder.file||"agreement")+".txt"; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(u); return; }
       if((el=e.target.closest("[data-check]"))){ var k=el.dataset.check; setVal(k, !val(k)); el.classList.toggle("on"); el.querySelector(".box").textContent=val(k)?"✓":""; return; }
       if((el=e.target.closest("[data-scale]"))){ var sk=el.dataset.scale, sv=+el.dataset.v; setVal(sk, String(val(sk))===String(sv)?"":sv); el.parentNode.querySelectorAll("button").forEach(function(bn){bn.classList.toggle("on",bn===el&&String(val(sk))===String(sv));}); return; }
       if((el=e.target.closest("[data-choice]"))){
@@ -577,8 +653,20 @@
         return;
       }
     });
-    backBtn.addEventListener("click",function(){ var bi=S.nav.block||0; if(bi===0){ S.nav={view:"home"}; } else { S.nav.block=bi-1; } save(); render(); });
-    nextBtn.addEventListener("click",function(){ var sec=WB.sections[S.nav.sec], bi=S.nav.block||0; if(bi>=sec.blocks.length-1){ S.nav={view:"home"}; } else { S.nav.block=bi+1; } save(); render(); });
+    backBtn.addEventListener("click",function(){
+      var bi=S.nav.block||0, st=S.nav.step||0;
+      if(st>0){ S.nav.step=st-1; }
+      else if(bi>0){ S.nav.block=bi-1; S.nav.step=stepCount(WB.sections[S.nav.sec].blocks[bi-1])-1; }
+      else { S.nav={view:"home"}; }
+      save(); render();
+    });
+    nextBtn.addEventListener("click",function(){
+      var sec=WB.sections[S.nav.sec], bi=S.nav.block||0, st=S.nav.step||0, sc=stepCount(sec.blocks[bi]);
+      if(st<sc-1){ S.nav.step=st+1; }
+      else if(bi<sec.blocks.length-1){ S.nav.block=bi+1; S.nav.step=0; }
+      else { S.nav={view:"home"}; }
+      save(); render();
+    });
 
     render();
   })();

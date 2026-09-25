@@ -52,7 +52,7 @@ window.WORKBOOK = {
     /* 1 · CONTEXT & DIAGNOSTIC -------------------------------------------- */
     {
       id: "context", name: "Big picture & your archetype", tag: "Where you sit, and what kind of artist you actually are.",
-      plain: "Before tactics, get honest about what winning means for YOU. Answer these 8 questions, then find your archetype. It changes what you should double down on.",
+      plain: "Before tactics, get honest about what winning means for you. Answer these 8 questions, then find your archetype. It changes what you should double down on.",
       lesson:{ idea:"'Making it' means different things for different artists. Copying the wrong role model is the most common way to waste years.", points:["There are broadly four kinds of artist: Commercial (reach and releases), Non-Commercial (sync, teaching, catalogue), Creator-Artist (audience and content), and Mixed.","Your archetype decides what you double down on. A Creator-Artist chasing playlists, or a Commercial artist ignoring live, both stall.","Study 2 Indian artists 2 years ahead of you in YOUR lane, not the biggest names in a different one."] },
       deepen:{ compare:true, watch:true, news:true },
       blocks: [
@@ -77,7 +77,7 @@ window.WORKBOOK = {
         { type:"info", title:"What to double down on, by archetype", body:[
           "Commercial Artist: Live circuit every month, 3–4 Reels/week, 6–8 singles/year, playlist pitching.",
           "Non-Commercial Artist: IPRS/PPL registration, sync catalogue, teaching roster, grant applications.",
-          "Creator-Artist: Content consistency, platform SEO, brand media kit, engagement quality.",
+          "Creator-Artist: content consistency, getting found in search on YouTube and Spotify, a brand media kit, and quality engagement.",
           "In plain words: playlist pitching = asking curators to add your song. Sync catalogue = songs ready for films and ads to license. Media kit = a one-page pack about you. Don't stress about all of these now, just note the two that fit you."
         ]},
         { type:"fill", id:"context_change", title:"", items:[
@@ -202,7 +202,7 @@ window.WORKBOOK = {
       lesson:{ idea:"Getting on Spotify is easy. Getting found, and keeping the listeners you get, is the real game.", points:["A distributor puts you everywhere; clean metadata (credits, language, tags, ISRC) is what makes you discoverable and paid.","Your EPK is the one pack that opens doors with curators, venues and press. Build it once, keep it sharp.","A release is a sequence, not a day. Work the launch plan from 6 weeks out so pitching windows aren't missed.","Watch your fan funnel: the leak is usually between heard-it-once and came-back. An email list or WhatsApp Channel is how you own the relationship."] },
       deepen:{ read:[{label:"Build your EPK (guide)",href:"/guides/electronic-press-kit-epk-india/"},{label:"12-week release plan",href:"/guides/12-week-release-plan-india/"},{label:"Get on Spotify editorial playlists",href:"/guides/spotify-editorial-playlists-india/"},{label:"Playlist target sheet",href:"/toolkit/streaming-playlist-target-sheet-india/"}] },
       blocks: [
-        { type:"table", id:"epk", title:"Your EPK (electronic press kit) checklist",
+        { type:"table", id:"epk", tools:[{kind:"template",label:"EPK / one-sheet template",href:"/toolkit/one-sheet-example/"},{kind:"template",label:"Label copy template",href:"/toolkit/label-copy-template/"}], title:"Your EPK (electronic press kit) checklist",
           help:"The pack you send to curators, press and venues. Mark each element.",
           gloss:"An EPK is just a one-page pack about you: a short bio, your best songs, 2 photos, a live video, and how to reach you. That's it. Don't have one yet? This list is how you build it.",
           columns:[
@@ -221,14 +221,14 @@ window.WORKBOOK = {
         { type:"fill", id:"epk_q", title:"", items:[
           {id:"epk_block", label:"Would you send this EPK to Wild City right now without editing? If no, what's the one thing blocking you?", long:true}
         ]},
-        { type:"fill", id:"plan_release", title:"Plan your next release", gloss:"A few words you'll see a lot: DSP = a streaming app (Spotify, Apple, JioSaavn, Amazon). Pre-save = a link fans tap before release day so the song auto-saves when it drops. Editorial = a real person at a streaming app choosing to playlist you. UGC = posts fans make that you can re-share.", items:[
+        { type:"fill", id:"plan_release", tools:[{kind:"template",label:"Release plan example",href:"/toolkit/release-plan-example/"}], title:"Plan your next release", gloss:"A few words you'll see a lot: DSP = a streaming app (Spotify, Apple, JioSaavn, Amazon). Pre-save = a link fans tap before release day so the song auto-saves when it drops. Editorial = a real person at a streaming app choosing to playlist you. UGC = posts fans make that you can re-share.", items:[
           {id:"nr_title", label:"Track title"},
           {id:"nr_writers", label:"Composer / lyricist"},
           {id:"nr_date", label:"Target release date"},
           {id:"nr_distro", label:"Distributor"},
           {id:"nr_hook", label:"15–30 second hook moment (timestamp)"}
         ]},
-        { type:"checklist", id:"prerelease", title:"Pre-release checklist",
+        { type:"checklist", id:"prerelease", tools:[{kind:"template",label:"New release checklist",href:"/toolkit/new-release-checklist/"},{kind:"template",label:"Song metadata sheet",href:"/toolkit/song-master-metadata-sheet/"},{kind:"template",label:"Playlist target sheet",href:"/toolkit/streaming-playlist-target-sheet-india/"}], title:"Pre-release checklist",
           gloss:"Quick words: ISRC is a free ID code your distributor gives each song. Metadata is the song's info: title, credits, language, genre. Content ID is what claims your song on YouTube so you get paid for it.", items:[
           {id:"x1", text:"Instrumental version ready"},
           {id:"x2", text:"ISRC code confirmed"},
@@ -242,7 +242,7 @@ window.WORKBOOK = {
           {id:"x10", text:"IPRS registration includes this composition"},
           {id:"x11", text:"Content ID confirmed active via distributor"}
         ]},
-        { type:"table", id:"launch", title:"Your launch sequence",
+        { type:"table", id:"launch", tools:[{kind:"template",label:"Social media calendar",href:"/toolkit/social-media-calendar/"}], title:"Your launch sequence",
           help:"The countdown. Tick each as you complete it.",
           columns:[
             {key:"when", label:"Timeline", type:"readonly"},
@@ -259,7 +259,7 @@ window.WORKBOOK = {
             {id:"l25", cells:{when:"Days 2–5", do:"3 more Reels from different angles (BTS, lyric breakdown, process). Repost all UGC."}},
             {id:"lw2", cells:{when:"Week 2", do:"Check Spotify for Artists: saves, playlists, listener cities. Adjust spend to what's working."}}
           ]},
-        { type:"table", id:"funnel", title:"Your fan funnel: where are you losing listeners?",
+        { type:"table", id:"funnel", tools:[{kind:"template",label:"Email sign-up sheet",href:"/toolkit/email-sign-up-sheet/"}], title:"Your fan funnel: where are you losing listeners?",
           help:"Fill in your real numbers. The leak is usually between 'heard it once' and 'came back'.",
           gloss:"Brand new? Most of these will be zero or blank, and that's completely normal. Put a real number where you have one, and treat the blanks as your first targets.",
           columns:[
@@ -292,11 +292,11 @@ window.WORKBOOK = {
       lesson:{ idea:"The boring paperwork is where artists quietly lose, or keep, real money for years.", points:["IPRS pays you for the composition, PPL for the recording. Register early: every month you wait is royalties gone for good.","Content ID claims your song across YouTube and regional apps so you get paid when it's used.","Sign a split sheet BEFORE a collab is released, never after. A 10-minute job that prevents the ugliest fights.","Know the moments you must not sign without a music lawyer: any label deal, any management contract, any big sync."] },
       deepen:{ read:[{label:"IPRS & PPL registration guide",href:"/toolkit/iprs-ppl-registration-guide/"},{label:"Register your copyright (IPRS)",href:"/guides/register-music-copyright-iprs-india/"},{label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"}] },
       blocks: [
-        { type:"checklist", id:"iprs", title:"IPRS · composition royalties (iprs.org)",
+        { type:"checklist", id:"iprs", tools:[{kind:"guide",label:"IPRS & PPL registration guide",href:"/toolkit/iprs-ppl-registration-guide/"},{kind:"guide",label:"ISRC & UPC code guide",href:"/toolkit/isrc-upc-code-guide/"}], title:"IPRS · composition royalties (iprs.org)",
           gloss:"IPRS pays you when your song is performed or played in public. PPL (next) pays you for the actual recording. Both are one-time to join and then pay you for years. Do it even if it feels too early.", items:[
           {id:"ip1", text:"Go to iprs.org and start the membership application"},
           {id:"ip2", text:"Gather documents: Aadhaar/passport, PAN, bank details, sample compositions"},
-          {id:"ip3", text:"Pay one-time membership fee (~₹2,000–5,000)"},
+          {id:"ip3", text:"Pay the one-time join fee (~₹1,200 as an author or composer, ₹2,200 as a publisher)"},
           {id:"ip4", text:"Register each composition: title, co-writers + splits, ISRC, language"}
         ]},
         { type:"checklist", id:"ppl", title:"PPL · master rights (pplindia.org)", gloss:"UPC is a barcode-style ID for a whole release (a single or EP); your distributor generates it for you.", items:[
@@ -309,7 +309,7 @@ window.WORKBOOK = {
           {id:"ci2", text:"Confirm Content ID is active for all released tracks"},
           {id:"ci3", text:"Confirm regional claiming is on (JioSaavn, Amazon Music, YouTube Music)"}
         ]},
-        { type:"table", id:"lawyer", title:"When you must get a music lawyer",
+        { type:"table", id:"lawyer", tools:[{kind:"contract",label:"Producer agreement",href:"/toolkit/producer-agreement-india/"},{kind:"contract",label:"Artist management agreement",href:"/toolkit/artist-management-agreement/"},{kind:"contract",label:"Sync licensing agreement",href:"/toolkit/sync-licensing-agreement-india/"},{kind:"contract",label:"Publishing admin agreement",href:"/toolkit/publishing-admin-agreement-india/"}], title:"When you must get a music lawyer",
           help:"If any of these is live for you, don't sign before someone qualified reads it.",
           columns:[
             {key:"sit", label:"Situation", type:"readonly"},
@@ -322,7 +322,7 @@ window.WORKBOOK = {
             {id:"lw3", cells:{sit:"Any sync deal above ₹50,000, check: rights granted, territory, exclusivity period"}},
             {id:"lw4", cells:{sit:"Co-writer / co-producer split disputes. Sign a split sheet BEFORE release, not after."}}
           ]},
-        { type:"table", id:"rights_audit", title:"Rights audit, your releases",
+        { type:"table", id:"rights_audit", tools:[{kind:"contract",label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"}], title:"Rights audit, your releases",
           columns:[
             {key:"track", label:"Track", type:"text"},
             {key:"iprs", label:"IPRS?", type:"chips", options:["Yes","No"]},
@@ -334,11 +334,45 @@ window.WORKBOOK = {
           {id:"r_unclaimed", label:"Rights I have not yet claimed", long:true},
           {id:"r_uncollected", label:"Estimated uncollected royalties"}
         ]},
+        { type:"builder", id:"remix_deal", title:"Draft a simple remix or sample agreement", file:"remix-sample-agreement",
+          help:"Answer a few taps and you get a plain, ready-to-send agreement you can copy or save. This is for a remix or someone sampling your song. A cover, a paid feature, or any label deal needs its own agreement and a lawyer.",
+          fields:[
+            {id:"orig", kind:"text", label:"Your artist name (the original artist)", ph:"Your name"},
+            {id:"other", kind:"text", label:"The other person's name", ph:"Their name"},
+            {id:"track", kind:"text", label:"Which track is this about?", ph:"Track title"},
+            {id:"use", kind:"chips", label:"What are they making?", options:["A remix","A sample of my song"]},
+            {id:"platforms", kind:"chips", label:"Where are they allowed to post it?", options:["Instagram only","Instagram and YouTube","All streaming platforms","Anywhere"]},
+            {id:"monet", kind:"chips", label:"Can it be monetised?", options:["No, not on any platform","Yes, and we split earnings","Yes, they keep the earnings"]},
+            {id:"split", kind:"chips", label:"If it earns money, my share is", options:["50%","60%","70%","80%","100%"], showIf:{f:"monet", is:["Yes, and we split earnings"]}},
+            {id:"credit", kind:"chips", label:"How am I credited?", options:["Full credit to me on every post","Co-credit, both names","Producer-style credit"]},
+            {id:"revoke", kind:"chips", label:"Can I pull it down later?", options:["Yes, with 14 days notice","No, permanent once posted"]}
+          ],
+          template:[
+            "REMIX / SAMPLE AGREEMENT",
+            "",
+            "Between {orig} (the original artist) and {other}.",
+            "Track: {track}",
+            "What is being made: {use}",
+            "",
+            "Where it can be posted: {platforms}.",
+            "Monetisation: {monet}.",
+            {when:{f:"monet", is:["Yes, and we split earnings"]}, text:"If it earns money, {orig} receives {split} of net earnings."},
+            "Credit: {credit}.",
+            "Ownership: {orig} owns the original song. This permission covers the use described above only and transfers no rights in the original.",
+            "Ending it: {revoke}.",
+            "",
+            "Both people agree to the above.",
+            "",
+            "{orig}: ______________   Date: ________",
+            "{other}: ______________   Date: ________",
+            "",
+            "This is a plain-language starting point, not legal advice. It assumes {orig} owns or controls the original song and does not clear anyone else's rights. For any paid, exclusive, or label deal, get a music lawyer."
+          ] },
         { type:"checklist", id:"rights_actions", title:"Your action items", items:[
           {id:"ra_iprs", text:"Register with IPRS if not done (iprs.org). Every week of delay is royalties lost."},
           {id:"ra_ppl", text:"Register with PPL India if not done (pplindia.org)"},
           {id:"ra_cid", text:"Confirm Content ID active on all released tracks"},
-          {id:"ra_split", text:"Create a standard split-sheet template for future collabs (free at songsplit.com)"},
+          {id:"ra_split", text:"Create a standard split-sheet template for future collabs (free at songsplits.com)"},
           {id:"ra_audit", text:"Complete the rights audit table for all existing releases"}
         ]},
         { type:"note", id:"rights_notes" }
@@ -352,7 +386,7 @@ window.WORKBOOK = {
       lesson:{ idea:"Streaming alone won't pay your rent. Careers are built on several income streams that compound.", points:["There are 7 realistic streams: live, brand, YouTube, sync, direct-fan, teaching, and beat or session work.","Profit-first: know the minimum music must earn you and your yearly cost base, then close the gap on purpose.","You don't need all 7. Pick the 2 you earn nothing from today but could switch on in 90 days.","Measure return per hour, not just rupees. The stream that pays best for your effort is where to lean."] },
       deepen:{ read:[{label:"Royalty calculator",href:"/tools/royalty-calculator/"},{label:"How Spotify royalties work in India",href:"/guides/how-spotify-royalties-work-india/"},{label:"Revenue streams checklist",href:"/toolkit/revenue-streams-checklist/"},{label:"Sync licensing in India",href:"/guides/sync-licensing-music-ads-film-india/"}] },
       blocks: [
-        { type:"table", id:"rev_audit", title:"Revenue audit: which streams are you running?",
+        { type:"table", id:"rev_audit", tools:[{kind:"template",label:"Revenue streams checklist",href:"/toolkit/revenue-streams-checklist/"},{kind:"template",label:"Artist finances template",href:"/toolkit/artist-finances-template/"}], title:"Revenue audit: which streams are you running?",
           gloss:"Two that trip people up: 'Sync licensing' = your song placed in a film, ad, show or game. 'Direct fan' = money straight from fans, like Patreon, merch or tickets.",
           columns:[
             {key:"stream", label:"Stream", type:"readonly"},
@@ -369,7 +403,7 @@ window.WORKBOOK = {
             {id:"rv6", cells:{stream:"06 · Teaching / Workshops"}},
             {id:"rv7", cells:{stream:"07 · Beat Licensing / Session work"}}
           ]},
-        { type:"table", id:"income_audit", title:"Income audit: what has actually paid",
+        { type:"table", id:"income_audit", tools:[{kind:"tool",label:"Royalty calculator",href:"/tools/royalty-calculator/"},{kind:"template",label:"Annual profit & loss template",href:"/toolkit/annual-profit-loss-template/"}], title:"Income audit: what has actually paid",
           help:"Real numbers from the last 12 months. Log barter at market rate.",
           gloss:"Haven't earned from music yet? Write 0 and move on. This is your starting line, not a score.",
           columns:[
@@ -449,7 +483,7 @@ window.WORKBOOK = {
           {id:"top_common", label:"What do my top posts have in common?", long:true},
           {id:"low_common", label:"What do my lowest posts have in common?", long:true}
         ]},
-        { type:"table", id:"community", title:"5 community actions this week",
+        { type:"table", id:"community", tools:[{kind:"template",label:"Social media calendar",href:"/toolkit/social-media-calendar/"},{kind:"template",label:"Marketing routine checklist",href:"/toolkit/marketing-routine-checklist/"}], title:"5 community actions this week",
           columns:[
             {key:"act", label:"Action", type:"readonly"},
             {key:"done", label:"Done?", type:"check"},
@@ -487,14 +521,14 @@ window.WORKBOOK = {
           {id:"lv_open", label:"Which shows opened new opportunities, and why?", long:true},
           {id:"lv_impact", label:"Which show had the most career impact so far, and why?", long:true}
         ]},
-        { type:"table", id:"live_plan", title:"Next 6 months: your live plan",
+        { type:"table", id:"live_plan", tools:[{kind:"venues",label:"Browse venues in your city",href:"/venues/{city}/"},{kind:"outreach",label:"Show-booking email template",href:"/toolkit/show-booking-email-template/"},{kind:"template",label:"Booking advance sheet",href:"/toolkit/booking-advance-sheet/"}], title:"Next 6 months: your live plan",
           columns:[
             {key:"venue", label:"Venue / festival", type:"text"},
             {key:"type", label:"Type", type:"chips", options:["open mic","support","headline","festival"]},
             {key:"date", label:"Target date", type:"text"},
             {key:"angle", label:"Your pitch angle", type:"text"}
           ], rows:3 },
-        { type:"table", id:"collab", title:"Before you collaborate: what to agree",
+        { type:"table", id:"collab", tools:[{kind:"contract",label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"},{kind:"contract",label:"Producer agreement",href:"/toolkit/producer-agreement-india/"}], title:"Before you collaborate: what to agree",
           help:"Agree these BEFORE you start, not after the song is done.",
           columns:[
             {key:"item", label:"Item to agree", type:"readonly"},
@@ -502,12 +536,12 @@ window.WORKBOOK = {
           ],
           rows:[
             {id:"co1", cells:{item:"Credits, how it's billed ('ft.' vs '×' vs co-production)"}},
-            {id:"co2", cells:{item:"Royalty split, default 50/50, adjust for real contribution. Use songsplit.com."}},
+            {id:"co2", cells:{item:"Royalty split, default 50/50, adjust for real contribution. Use songsplits.com."}},
             {id:"co3", cells:{item:"Promo commitment, both post, both tag, agreed platforms and date"}},
             {id:"co4", cells:{item:"Who owns the master, usually producer / lead artist unless agreed"}},
             {id:"co5", cells:{item:"Release timeline, agree a date range before you start"}}
           ]},
-        { type:"table", id:"followup", title:"Networking follow-up system",
+        { type:"table", id:"followup", tools:[{kind:"template",label:"Contact directory template",href:"/toolkit/contact-directory-template/"}], title:"Networking follow-up system",
           help:"The follow-up is where the value is. Log every meaningful contact.",
           columns:[
             {key:"name", label:"Contact", type:"text"},
@@ -534,7 +568,7 @@ window.WORKBOOK = {
       lesson:{ idea:"You can't do everything forever. Growth comes from building the infrastructure to do less of the wrong work.", points:["Map your team and the gaps. The first hire is usually whatever admin task steals the most music-making time.","Know where each person is found: engineers via credits and test tracks, collaborators via shows and DMs, managers usually find you when you're visible and consistent.","With a manager, check: are you a priority artist on their roster, or portfolio filler?","One system that saves you 2+ hours a week (templates, a scheduler, an asset folder) buys back creative time."] },
       deepen:{ read:[{label:"Media 101",href:"/toolkit/media-101-guide-india/"},{label:"Working with publicists",href:"/toolkit/publicists-101-guide-india/"}] },
       blocks: [
-        { type:"table", id:"team_state", title:"Your team: current state",
+        { type:"table", id:"team_state", tools:[{kind:"contract",label:"Artist management agreement",href:"/toolkit/artist-management-agreement/"},{kind:"template",label:"Personnel / team doc",href:"/toolkit/personnel-doc/"}], title:"Your team: current state",
           columns:[
             {key:"role", label:"Role", type:"readonly"},
             {key:"person", label:"Person (or vacant)", type:"text"},
@@ -576,12 +610,12 @@ window.WORKBOOK = {
 
     /* 10 · ADVANCED REVENUE & POSITIONING -------------------------------- */
     {
-      id: "advanced", name: "Advanced revenue & positioning", tag: "Sync, a contact pipeline, long-term career architecture.",
+      id: "advanced", name: "Advanced revenue & positioning", tag: "Sync, a contact pipeline, and a career that lasts.",
       plain: "This is how careers stop being random. Turn your contacts into a pipeline you work 15 minutes a day.",
       lesson:{ idea:"Careers stop being random when your contacts become a pipeline you work a little every day.", points:["Sort your network into warm advocates, warm potentials, referral nodes, cold targets and latent contacts. Warm converts 5 to 10 times better than cold.","Work it 15 minutes a day: follow up Monday, one warm reach Wednesday, one new pitch Friday.","Move from Transactional (chasing one-off gigs) to Pipeline (a steady flow) to Architectural (income that keeps coming).","Build a sync catalogue: instrumental versions of your most placeable songs, ready when an opportunity lands."] },
       deepen:{ read:[{label:"Sync licensing in India",href:"/guides/sync-licensing-music-ads-film-india/"}] },
       blocks: [
-        { type:"table", id:"contact_audit", title:"Contact audit: your network by category",
+        { type:"table", id:"contact_audit", tools:[{kind:"template",label:"Contact directory template",href:"/toolkit/contact-directory-template/"},{kind:"template",label:"Competition analysis template",href:"/toolkit/competition-analysis-template/"}], title:"Contact audit: your network by category",
           help:"Sort real people into these buckets. Warm contacts convert 5–10x better than cold.",
           gloss:"'Warm' = people who already know you. 'Cold' = people you've never met. Always start with warm, they're far more likely to say yes.",
           columns:[
@@ -721,7 +755,7 @@ window.WORKBOOK = {
             {id:"to5b", cells:{tool:"Amazon Music for Artists", purpose:"Pitch to Amazon editorial, claim your profile"}},
             {id:"to5c", cells:{tool:"YouTube for Artists / Studio", purpose:"Claim your official artist channel, see analytics"}},
             {id:"to6", cells:{tool:"Mailchimp / ConvertKit", purpose:"Email list, your owned audience"}},
-            {id:"to7", cells:{tool:"songsplit.com", purpose:"Free split-sheet template for collaborations"}},
+            {id:"to7", cells:{tool:"songsplits.com", purpose:"Free split-sheet template for collaborations"}},
             {id:"to8", cells:{tool:"SoundBetter / AirGigs", purpose:"Find remote session musicians and engineers"}},
             {id:"to9", cells:{tool:"India Indie Music Radar", purpose:"[900+ curators & reviewers](/reviewers/) and [the artist radar](/radar.html)"}},
             {id:"to10", cells:{tool:"Venues & live shows", purpose:"[Venues by city](/venues/) and [upcoming shows](/live/)"}},
