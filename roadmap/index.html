@@ -48,6 +48,14 @@
   .ovr .lbl{font-size:13px;color:var(--muted);font-weight:600}
   .ovr .track{flex:1;height:12px;background:var(--softyellow);border:2px solid var(--ink);border-radius:20px;overflow:hidden}
   .ovr .track i{display:block;height:100%;background:var(--mint)}
+  .focus{background:#EDE7FB;border:2px solid var(--ink);border-radius:15px;padding:16px 18px;margin:10px 0 4px;box-shadow:var(--shadow-sm)}
+  .focus-k{font-size:11px;font-weight:700;color:var(--violet);margin-bottom:8px}
+  .focus-line{font-size:15px;line-height:1.5;margin-bottom:9px}
+  .focus-line:last-child{margin-bottom:0}
+  .focus-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+  .focus-chip{font-family:inherit;font-weight:800;font-size:13px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;cursor:pointer;box-shadow:var(--shadow-sm);color:var(--ink)}
+  .focus-chip:active{transform:translateY(1px)}
+  .foryou{display:inline-block;font-size:9px;background:var(--pink);color:#fff;border:1.5px solid var(--ink);border-radius:6px;padding:1px 5px 0;vertical-align:middle;margin-left:3px;letter-spacing:.3px}
   .sec-h{font-size:13px;font-weight:800;margin:22px 2px 12px;color:var(--muted)}
   .seccard{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:15px;padding:15px 16px;margin-bottom:11px;cursor:pointer;transition:transform .08s, box-shadow .12s}
   .seccard:active{transform:translateY(1px)}
@@ -357,10 +365,33 @@
     }
 
     function idxById(id){ for(var i=0;i<WB.sections.length;i++){ if(WB.sections[i].id===id) return i; } return -1; }
+
+    /* ---- tailoring: archetype + weakest pillars drive the path ---- */
+    var PILLAR_SECTION=["identity","production","distribution","rights","revenue","social","live","team"];
+    var ARCHETYPE_FOCUS={
+      commercial:{label:"Commercial Artist",sections:["production","distribution","live","social"],play:"a monthly live circuit, 3 to 4 Reels a week, 6 to 8 singles a year, and playlist pitching."},
+      noncommercial:{label:"Non-Commercial Artist",sections:["rights","revenue","team","advanced"],play:"IPRS and PPL registration, a sync catalogue, a teaching roster, and grant applications."},
+      creator:{label:"Creator-Artist",sections:["social","identity","distribution","revenue"],play:"content consistency, platform SEO, a brand media kit, and engagement quality."},
+      mixed:{label:"Mixed",sections:["identity","distribution","social","revenue"],play:"identity and distribution first, then lean into whatever starts working."}
+    };
+    function weakPillars(){ var r=[]; WB.pillars.forEach(function(nm,i){ var v=val("baseline."+i+".rating"); if(v) r.push({r:+v,nm:nm,sec:PILLAR_SECTION[i]}); }); r.sort(function(a,b){return a.r-b.r;}); return r.slice(0,2); }
+    var FORYOU={};
+    function computeForYou(){ FORYOU={}; var a=val("archetype"); if(a&&ARCHETYPE_FOCUS[a]) ARCHETYPE_FOCUS[a].sections.forEach(function(s){FORYOU[s]=1;}); weakPillars().forEach(function(w){FORYOU[w.sec]=1;}); }
+    function focusCardHTML(){
+      var a=val("archetype"), rung=val("ladder_now"), weak=weakPillars();
+      if(!a && !weak.length){
+        return '<div class="focus"><div class="focus-k mono">Your focus</div><div class="focus-line">Do <b>Start here</b> and <b>Big picture</b> first: rate your 8 pillars and pick your archetype, and this page re-tunes to you.</div></div>';
+      }
+      var h='<div class="focus"><div class="focus-k mono">Made for you</div>';
+      if(a&&ARCHETYPE_FOCUS[a]) h+='<div class="focus-line">You\'re a <b>'+esc(ARCHETYPE_FOCUS[a].label)+'</b>'+(rung?' on rung '+esc(rung):"")+'. Double down on '+esc(ARCHETYPE_FOCUS[a].play)+'</div>';
+      if(weak.length) h+='<div class="focus-line">Weakest right now: '+weak.map(function(w){return '<b>'+esc(w.nm)+'</b> ('+w.r+'/10)';}).join(" and ")+'. Start here:</div>'+
+        '<div class="focus-chips">'+weak.map(function(w){var i=idxById(w.sec); return i>=0?'<button class="focus-chip" data-sec="'+i+'">'+esc(WB.sections[i].name)+' →</button>':"";}).join("")+'</div>';
+      return h+'</div>';
+    }
     function secCard(i){
       var sec=WB.sections[i], p=secProgress(sec), pct=p.total?Math.round(p.done/p.total*100):0, done=p.total>0&&p.done===p.total;
       return '<button class="seccard'+(done?" done":"")+'" data-sec="'+i+'"><span class="num">'+(done?"✓":(i+1))+'</span>'+
-        '<span class="body"><span class="nm">'+esc(sec.name)+'</span><span class="tg">'+esc(sec.tag)+'</span>'+
+        '<span class="body"><span class="nm">'+esc(sec.name)+(FORYOU[sec.id]?' <span class="foryou mono">for you</span>':"")+'</span><span class="tg">'+esc(sec.tag)+'</span>'+
         '<span class="mini"><i style="width:'+pct+'%"></i></span><span class="cnt">'+(done?"done":p.done+' / '+p.total+' started')+'</span></span>'+
         '<span class="arw">→</span></button>';
     }
@@ -372,7 +403,7 @@
       {label:"WRAP-UP & REFERENCE", ids:["plan","resources"]}
     ];
     function renderHome(){
-      navbar.style.display="none"; crumb.textContent="";
+      navbar.style.display="none"; crumb.textContent=""; computeForYou();
       var o=overall(), started=o.done>0;
       var rung=val("ladder_now"), beginner=!rung||rung==="1"||rung==="2";
       var h="";
@@ -381,6 +412,7 @@
          '<p>This is your workbook. These sections take you from who you are to a real 90-day plan. Do one at a time, in any order. Everything saves as you go.</p></div>';
       h+='<div class="ovr"><div><div class="big">'+o.pct+'%</div><div class="lbl">'+o.done+' of '+o.total+' done</div></div>'+
          '<div class="track"><i style="width:'+o.pct+'%"></i></div></div>';
+      h+=focusCardHTML();
 
       // groups + start-here button
       var groups = beginner ? BEGINNER_GROUPS : [{label:"THE SECTIONS", ids:WB.sections.map(function(s){return s.id;})}];
