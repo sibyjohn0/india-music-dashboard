@@ -29,7 +29,8 @@ window.WORKBOOK = {
           "The action items in each section are the minimum you commit to before moving on.",
           "Come back and change earlier answers as you grow. Your identity, your plan, your numbers, all of it will shift. That's the point."
         ]},
-        { type:"chips", id:"artist_lang", single:true, title:"What language do you mostly make music in?", help:"This tunes the videos, artists and news we show you across the workbook.", options:[{v:"Punjabi",label:"Punjabi"},{v:"Hindi",label:"Hindi"},{v:"English",label:"English"},{v:"Tamil",label:"Tamil"},{v:"Telugu",label:"Telugu"},{v:"Malayalam",label:"Malayalam"},{v:"Kannada",label:"Kannada"},{v:"Bengali",label:"Bengali"},{v:"Marathi",label:"Marathi"},{v:"Other",label:"Other"}] },
+        { type:"fill", id:"you", title:"First, what do we call you?", items:[{id:"name", label:"Your name or artist name", ph:"e.g. Rohit"}] },
+        { type:"chips", id:"artist_lang", single:true, title:"What language do you mostly make music in?", help:"This tunes the videos, artists and news we show you across the workbook.", options:[{v:"Punjabi",label:"Punjabi"},{v:"Hindi",label:"Hindi"},{v:"English",label:"English"},{v:"Tamil",label:"Tamil"},{v:"Telugu",label:"Telugu"},{v:"Malayalam",label:"Malayalam"},{v:"Kannada",label:"Kannada"},{v:"Bengali",label:"Bengali"},{v:"Marathi",label:"Marathi"},{v:"Instrumental",label:"Instrumental / no words"},{v:"Other",label:"Other"}] },
         { type:"chips", id:"artist_city", single:true, title:"Which city are you closest to?", help:"So we can point you to the right venues, shows and local scene.", options:[{v:"mumbai",label:"Mumbai"},{v:"delhi",label:"Delhi"},{v:"bengaluru",label:"Bengaluru"},{v:"hyderabad",label:"Hyderabad"},{v:"pune",label:"Pune"},{v:"goa",label:"Goa"},{v:"other",label:"Somewhere else"}] },
         { type:"pillars", id:"baseline", title:"Your baseline self-assessment",
           help:"Rate yourself 1–10 on each pillar, then note your biggest strength and biggest gap. This is your 'before' picture. You'll compare against it at the end.",
@@ -43,7 +44,8 @@ window.WORKBOOK = {
           {id:"a_baseline", text:"Complete the baseline self-assessment above"},
           {id:"a_bio", text:"Write a 2-sentence artist bio you can share anywhere"},
           {id:"a_goals", text:"Set 3 goals for the next 12 weeks and write them down"},
-          {id:"a_intro", text:"Share your bio in one community or group you're part of"}
+          {id:"a_intro", text:"Share your bio in one community or group you're part of"},
+          {id:"a_handles", text:"Grab the same @handle everywhere you can (Instagram, YouTube, Spotify, JioSaavn) and your name, before someone else takes it"}
         ]},
         { type:"note", id:"start_notes" }
       ]
@@ -204,7 +206,7 @@ window.WORKBOOK = {
       blocks: [
         { type:"table", id:"epk", tools:[{kind:"template",label:"EPK / one-sheet template",href:"/toolkit/one-sheet-example/"},{kind:"template",label:"Label copy template",href:"/toolkit/label-copy-template/"}], title:"Your EPK (electronic press kit) checklist",
           help:"The pack you send to curators, press and venues. Mark each element.",
-          gloss:"An EPK is just a one-page pack about you: a short bio, your best songs, 2 photos, a live video, and how to reach you. That's it. Don't have one yet? This list is how you build it.",
+          gloss:"An EPK is just a one-page pack about you: a short bio, your best songs, 2 photos, a live video, and how to reach you. That's it. Only have rough tracks, mp3s and no logo yet? Totally normal, build these pieces one at a time.",
           columns:[
             {key:"el", label:"Element", type:"readonly"},
             {key:"status", label:"Status", type:"chips", options:["Done","In progress","Missing"]},

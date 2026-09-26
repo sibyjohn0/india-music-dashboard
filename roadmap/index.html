@@ -52,7 +52,7 @@
   .ovr .track i{display:block;height:100%;background:var(--mint)}
   .focus{background:#EDE4FF;border:2px solid var(--ink);border-radius:15px;padding:16px 18px;margin:10px 0 4px;box-shadow:var(--shadow-sm)}
   .focus-k{font-size:11px;font-weight:700;color:#6D28D9;margin-bottom:8px}
-  .focus-line{font-size:15px;line-height:1.5;margin-bottom:9px}
+  .focus-line{font-size:15px;line-height:1.5;margin-bottom:9px;overflow-wrap:anywhere}
   .focus-line:last-child{margin-bottom:0}
   .focus-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
   .focus-chip{font-family:inherit;font-weight:800;font-size:13px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;cursor:pointer;box-shadow:var(--shadow-sm);color:var(--ink)}
@@ -86,6 +86,11 @@
   .lesson-pts li{position:relative;padding-left:22px;font-size:14.5px;line-height:1.5}
   .lesson-pts li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:9px;background:var(--violet);border:2px solid var(--ink);border-radius:50%}
   .lesson-pts a{color:var(--pink);font-weight:700}
+  .coach{background:var(--softyellow);border:2px solid var(--ink);border-left:8px solid var(--pink);border-radius:14px;padding:15px 16px;margin:12px 0 6px;box-shadow:var(--shadow-sm)}
+  .coach-k{font-size:11px;font-weight:700;color:#A80042;margin-bottom:7px}
+  .coach-line{font-size:14.5px;line-height:1.5;margin-bottom:7px;overflow-wrap:anywhere}
+  .coach-line:last-child{margin-bottom:0}
+  .coach-line b{font-weight:800}
   .block h2{font-size:22px;font-weight:800;margin:0 0 6px;text-wrap:balance}
   .block .help{font-size:15px;color:var(--muted);margin:0 0 18px;max-width:560px}
   .gloss{background:#D2F6EC;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5;margin:0 0 18px}
@@ -248,7 +253,7 @@
   <script>
   (function(){
     "use strict";
-    var WB = window.WORKBOOK, KEY="iim_roadmap_wb_v1";
+    var WB = window.WORKBOOK, KEY="iim_roadmap_wb_v2";
     if(!WB){ document.getElementById("stage").innerHTML='<p style="padding:24px">Could not load your workbook. Please refresh the page.</p>'; return; }
     var S = load();
     function fresh(){ return { nav:{view:"home"}, ans:{}, seen:false }; }
@@ -357,21 +362,45 @@
         '<div class="lesson-idea">'+esl(l.idea)+'</div>'+
         (l.points&&l.points.length?'<ul class="lesson-pts">'+l.points.map(function(p){return '<li>'+esl(p)+'</li>';}).join("")+'</ul>':"")+'</div>';
     }
+    var WATCH_TOPICS={
+      start:["independent musician getting started india"],
+      context:["indian indie music career advice","how to grow as an independent artist"],
+      identity:["how to find your sound as an artist","artist branding basics for musicians"],
+      production:["record a song at home on a budget","cheap home studio setup india","mixing and mastering basics"],
+      distribution:["how to release music on spotify india","spotify editorial pitch tutorial","distrokid tutorial"],
+      rights:["iprs ppl registration india explained","music royalties explained india","how to split songwriting credits"],
+      revenue:["how independent musicians make money","music sync licensing explained","selling merch as a musician"],
+      social:["instagram reels for musicians","how to promote your music on instagram india","short video music marketing"],
+      live:["how to book your first gig as a musician","live performance tips for beginners","open mic tips"],
+      team:["does a musician need a manager","how to get a music manager"],
+      advanced:["how to pitch music for sync licensing","networking in the music industry"],
+      plan:["independent musician 90 day plan","music release plan tutorial"],
+      resources:["best free tools for independent musicians"]
+    };
+    function ytSearch(q){ return "https://www.youtube.com/results?search_query="+encodeURIComponent(q); }
     function deepenHTML(sec){
-      var d=sec.deepen; if(!d) return "";
-      var h='<div class="deepen"><div class="scene-h"><span class="mono">Go deeper</span><span class="scene-date">live from the site</span></div>';
+      var d=sec.deepen||{};
+      var arch=val("archetype"), isFocus=arch&&ARCHETYPE_FOCUS[arch]&&ARCHETYPE_FOCUS[arch].sections.indexOf(sec.id)>-1;
       var reads=[];
       if(d.cityLinks && CITY_OK[myCity()]){ var c=myCity();
         reads.push({label:"Venues in "+cap(c)+" (booking-ready list)",href:"/venues/"+c+"/"});
         reads.push({label:"The "+cap(c)+" scene guide",href:"/guides/independent-music-scene-"+c+"/"});
       }
       (d.read||[]).forEach(function(r){ reads.push(r); });
-      if(reads.length){ h+='<div class="fg-h">Read</div><div class="fg-list">'+reads.map(function(r){
-        return '<a class="feedcard" href="'+esc(r.href)+'"'+(/^https?:/.test(r.href)?' target="_blank" rel="noopener"':"")+'><div class="fc-t">'+esc(r.label)+'</div></a>'; }).join("")+'</div>'; }
-      if(d.watch){ h+='<div class="fg-h">Watch'+(myLang()?' · '+esc(myLang()):"")+'</div><div class="vidrow" id="deepVids"><div class="fc-empty">Loading…</div></div>'; }
-      if(d.compare){ h+='<div class="fg-h">Artists to compare to'+(myLang()?' · '+esc(myLang()):"")+'</div><div class="fg-list" id="deepArt"><div class="fc-empty">Loading…</div></div>'; }
-      if(d.news){ h+='<div class="fg-h">In the news</div><div class="fg-list" id="deepNews"><div class="fc-empty">Loading…</div></div>'; }
-      return h+'</div>';
+      if(!reads.length) reads.push({label:"Guides & templates on our site",href:"/toolkit/"});
+      var topics=WATCH_TOPICS[sec.id]||[];
+      var body="";
+      body+='<div class="fg-h">Read</div><div class="fg-list">'+reads.map(function(r){
+        return '<a class="feedcard" href="'+esc(r.href)+'"'+(/^https?:/.test(r.href)?' target="_blank" rel="noopener"':"")+'><div class="fc-t">'+esc(r.label)+'</div></a>'; }).join("")+'</div>';
+      if(d.watch||topics.length){
+        body+='<div class="fg-h">Watch'+(d.watch&&myLang()?' · '+esc(myLang()):"")+'</div>';
+        if(d.watch) body+='<div class="vidrow" id="deepVids"><div class="fc-empty">Loading…</div></div>';
+        if(topics.length) body+='<div class="fg-list">'+topics.map(function(q){ return '<a class="feedcard" href="'+esc(ytSearch(q))+'" target="_blank" rel="noopener"><div class="fc-t">▶ '+esc(q)+'</div></a>'; }).join("")+'</div>';
+      }
+      if(d.compare) body+='<div class="fg-h">Artists to compare to'+(myLang()?' · '+esc(myLang()):"")+'</div><div class="fg-list" id="deepArt"><div class="fc-empty">Loading…</div></div>';
+      if(d.news) body+='<div class="fg-h">In the news</div><div class="fg-list" id="deepNews"><div class="fc-empty">Loading…</div></div>';
+      if(!body) return "";
+      return '<div class="deepen"><div class="scene-h"><span class="mono">Go deeper · read &amp; watch</span><span class="scene-date">'+(isFocus?"matters most for you":"")+'</span></div>'+body+'</div>';
     }
     function fillDeepen(){ loadFeeds(function(){
       var v=document.getElementById("deepVids"); if(v) v.innerHTML=videoCards(4);
@@ -397,19 +426,47 @@
     var ARCHETYPE_FOCUS={
       commercial:{label:"Commercial Artist",sections:["production","distribution","live","social"],play:"a monthly live circuit, 3 to 4 Reels a week, 6 to 8 singles a year, and playlist pitching."},
       noncommercial:{label:"Non-Commercial Artist",sections:["rights","revenue","team","advanced"],play:"IPRS and PPL registration, a sync catalogue, a teaching roster, and grant applications."},
-      creator:{label:"Creator-Artist",sections:["social","identity","distribution","revenue"],play:"content consistency, platform SEO, a brand media kit, and engagement quality."},
+      creator:{label:"Creator-Artist",sections:["social","identity","distribution","revenue"],play:"content consistency, getting found in YouTube and Spotify search, a media kit, and real comments not just likes."},
       mixed:{label:"Mixed",sections:["identity","distribution","social","revenue"],play:"identity and distribution first, then lean into whatever starts working."}
     };
     function weakPillars(){ var r=[]; WB.pillars.forEach(function(nm,i){ var v=val("baseline."+i+".rating"); if(v) r.push({r:+v,nm:nm,sec:PILLAR_SECTION[i]}); }); r.sort(function(a,b){return a.r-b.r;}); return r.slice(0,2); }
     var FORYOU={};
     function computeForYou(){ FORYOU={}; var a=val("archetype"); if(a&&ARCHETYPE_FOCUS[a]) ARCHETYPE_FOCUS[a].sections.forEach(function(s){FORYOU[s]=1;}); weakPillars().forEach(function(w){FORYOU[w.sec]=1;}); }
+    function firstName(){ var n=(val("you.name")||"").trim(); return n?n.split(" ")[0]:""; }
+    function goalText(){ return val("baseline_top.goal1")||val("context_change.change12")||""; }
+    var SECTION_PILLAR={identity:0,production:1,distribution:2,rights:3,revenue:4,social:5,live:6,team:7};
+    var SECTION_ARCH_NUDGE={
+      commercial:{ production:"Your engine is releases and shows. Aim for 6 to 8 singles a year and nail this pipeline.", distribution:"Reach is everything for you. Get the launch sequence and playlist pitching tight.", live:"The live circuit is your biggest lever. Plan a show every month.", social:"Post 3 to 4 Reels a week from your hooks. Consistency beats perfection.", revenue:"Live fees and brand deals pay you first. Come back to sync and the rest later.", advanced:"The contact pipeline matters later. Focus on releases and shows first.", team:"You need a booking contact before a manager." },
+      noncommercial:{ rights:"This is your core. Register everything and build a clean, licensable catalogue.", revenue:"Sync, teaching and grants are your lanes, not chasing streams. Build the catalogue.", team:"A sync agent and the right publishing relationships move you more than a manager.", advanced:"Your sync catalogue and contact pipeline are the whole game. Go deep here.", live:"Shows matter less than your core work here. Do them for relationships, not reach.", social:"You don't need to be a content machine. Enough presence to be found is fine." },
+      creator:{ social:"This is your engine. Study what gets saved and shared, and go deep on one platform.", identity:"Your audience follows a clear person. Make your identity sentence razor sharp.", distribution:"Turn the people who watch your posts into people who actually play your songs.", revenue:"Brand deals and direct-fan income pay you first. Build the media kit.", live:"Live is a nice-to-have for you. Do it if it feeds content and community.", rights:"Still register your work, but this is not where your growth comes from." },
+      mixed:{ identity:"Start here. A sharp identity makes every other choice easier while you find your lane.", distribution:"Get one clean release out well, then see what pulls.", social:"Test a couple of platforms and double down on what works.", revenue:"Keep your options open and watch which stream responds first." }
+    };
+    function sectionBanner(sec){
+      var parts=[], arch=val("archetype"), rung=val("ladder_now"), beginner=!rung||rung==="1"||rung==="2";
+      if(SECTION_PILLAR[sec.id]!=null){ var pi=SECTION_PILLAR[sec.id], r=val("baseline."+pi+".rating"), isWeak=weakPillars().some(function(w){return w.sec===sec.id;}); if(isWeak&&r&&(+r)<=6) parts.push('<b>One of your weaker areas ('+r+'/10).</b> Worth extra time here.'); }
+      if(arch&&SECTION_ARCH_NUDGE[arch]&&SECTION_ARCH_NUDGE[arch][sec.id]) parts.push('Because you\'re a <b>'+esc(ARCHETYPE_FOCUS[arch].label)+'</b>: '+esc(SECTION_ARCH_NUDGE[arch][sec.id]));
+      var inFocus=arch&&ARCHETYPE_FOCUS[arch]&&ARCHETYPE_FOCUS[arch].sections.indexOf(sec.id)>-1;
+      if(beginner&&!inFocus&&(sec.id==="revenue"||sec.id==="advanced"||sec.id==="team")) parts.push('You\'re early on the ladder, so skim this now and come back as you grow.');
+      if(!parts.length) return "";
+      return '<div class="coach"><div class="coach-k mono">For you</div>'+parts.map(function(p){return '<div class="coach-line">'+p+'</div>';}).join("")+'</div>';
+    }
+    function planCard(){
+      var arch=val("archetype"), nm=firstName(), goal=goalText(), weak=weakPillars(), parts=[];
+      if(nm) parts.push("<b>"+esc(nm)+", here's what to focus on.</b>");
+      if(arch&&ARCHETYPE_FOCUS[arch]) parts.push('As a <b>'+esc(ARCHETYPE_FOCUS[arch].label)+'</b>, double down on '+esc(ARCHETYPE_FOCUS[arch].play));
+      if(goal) parts.push('Keep your goal in front of you: <b>'+esc(goal)+'</b>');
+      if(weak.length) parts.push('Fix your weak spots first: <b>'+weak.map(function(w){return esc(w.nm);}).join('</b> and <b>')+'</b>.');
+      if(!parts.length) return "";
+      return '<div class="coach"><div class="coach-k mono">Your 90 days, tuned to you</div>'+parts.map(function(p){return '<div class="coach-line">'+p+'</div>';}).join("")+'</div>';
+    }
     function focusCardHTML(){
-      var a=val("archetype"), rung=val("ladder_now"), weak=weakPillars();
+      var a=val("archetype"), rung=val("ladder_now"), weak=weakPillars(), nm=firstName(), goal=goalText();
       if(!a && !weak.length){
-        return '<div class="focus"><div class="focus-k mono">Your focus</div><div class="focus-line">Do <b>Start here</b> and <b>Big picture</b> first: rate your 8 pillars and pick your archetype, and this page re-tunes to you.</div></div>';
+        return '<div class="focus"><div class="focus-k mono">Your focus</div><div class="focus-line">'+(nm?esc(nm)+', do':'Do')+' <b>Start here</b> and <b>Big picture</b> first: rate your 8 pillars and pick your archetype, and this page re-tunes to you.</div></div>';
       }
-      var h='<div class="focus"><div class="focus-k mono">Made for you</div>';
+      var h='<div class="focus"><div class="focus-k mono">Made for you'+(nm?', '+esc(nm):'')+'</div>';
       if(a&&ARCHETYPE_FOCUS[a]) h+='<div class="focus-line">You\'re a <b>'+esc(ARCHETYPE_FOCUS[a].label)+'</b>'+(rung?' on rung '+esc(rung):"")+'. Double down on '+esc(ARCHETYPE_FOCUS[a].play)+'</div>';
+      if(goal) h+='<div class="focus-line">Your goal: <b>'+esc(goal)+'</b></div>';
       if(weak.length) h+='<div class="focus-line">Weakest right now: '+weak.map(function(w){return '<b>'+esc(w.nm)+'</b> ('+w.r+'/10)';}).join(" and ")+'. Start here:</div>'+
         '<div class="focus-chips">'+weak.map(function(w){var i=idxById(w.sec); return i>=0?'<button class="focus-chip" data-sec="'+i+'">'+esc(WB.sections[i].name)+' →</button>':"";}).join("")+'</div>';
       return h+'</div>';
@@ -434,7 +491,7 @@
       var rung=val("ladder_now"), beginner=!rung||rung==="1"||rung==="2";
       var h="";
       h+='<div class="hero"><div class="kick mono">Your Roadmap · artist workbook</div>'+
-         '<h1>'+(started?"Welcome back.":"Let's build your career, section by section.")+'</h1>'+
+         '<h1>'+(started?("Welcome back"+(firstName()?", "+esc(firstName()):"")+"."):("Let's build your career"+(firstName()?", "+esc(firstName()):"")+"."))+'</h1>'+
          '<p>This is your workbook. These sections take you from who you are to a real 90-day plan. Do one at a time, in any order. Everything saves as you go.</p></div>';
       h+='<div class="ovr"><div><div class="big">'+o.pct+'%</div><div class="lbl">'+o.done+' of '+o.total+' done</div></div>'+
          '<div class="track"><i style="width:'+o.pct+'%"></i></div></div>';
@@ -483,12 +540,13 @@
       document.getElementById("pfill").style.width=pct+"%";
       var h='<div class="subhead"><span class="eyebrow mono">'+esc(sec.name)+'</span><span class="of mono">'+(idx+1)+' / '+totalSteps+'</span></div>';
       if(bi===0 && st===0){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>';
-        if(sec.lesson) h+=lessonHTML(sec.lesson); }
+        if(sec.lesson) h+=lessonHTML(sec.lesson);
+        h+= (sec.id==="plan"?planCard():sectionBanner(sec)); }
       h+='<div class="block">'+renderBlock(blk, st)+'</div>';
       var sectionEnd = (bi===sec.blocks.length-1) && (st===sc-1);
-      if(sectionEnd && sec.deepen) h+=deepenHTML(sec);
+      if(sectionEnd) h+=deepenHTML(sec);
       stage.innerHTML=h;
-      if(sectionEnd && sec.deepen) fillDeepen();
+      if(sectionEnd) fillDeepen();
       backBtn.textContent = (bi===0&&st===0) ? "Contents" : "Back";
       nextBtn.textContent = sectionEnd ? "Done · back to contents" : "Next";
     }
