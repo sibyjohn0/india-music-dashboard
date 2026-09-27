@@ -32,8 +32,9 @@ window.WORKBOOK = {
         { type:"fill", id:"you", title:"First, what do we call you?", items:[{id:"name", label:"Your name or artist name", ph:"e.g. Rohit"}] },
         { type:"chips", id:"artist_lang", single:true, title:"What language do you mostly make music in?", help:"This tunes the videos, artists and news we show you across the workbook.", options:[{v:"Punjabi",label:"Punjabi"},{v:"Hindi",label:"Hindi"},{v:"English",label:"English"},{v:"Tamil",label:"Tamil"},{v:"Telugu",label:"Telugu"},{v:"Malayalam",label:"Malayalam"},{v:"Kannada",label:"Kannada"},{v:"Bengali",label:"Bengali"},{v:"Marathi",label:"Marathi"},{v:"Instrumental",label:"Instrumental / no words"},{v:"Other",label:"Other"}] },
         { type:"chips", id:"artist_city", single:true, title:"Which city are you closest to?", help:"So we can point you to the right venues, shows and local scene.", options:[{v:"mumbai",label:"Mumbai"},{v:"delhi",label:"Delhi"},{v:"bengaluru",label:"Bengaluru"},{v:"hyderabad",label:"Hyderabad"},{v:"pune",label:"Pune"},{v:"goa",label:"Goa"},{v:"other",label:"Somewhere else"}] },
+        { type:"chips", id:"act_type", single:true, title:"Are you solo, a band, or a collective?", help:"This changes the advice on splits, decisions and money.", options:[{v:"solo",label:"Solo artist"},{v:"band",label:"A band"},{v:"collective",label:"A collective or crew"}] },
         { type:"pillars", id:"baseline", title:"Your baseline self-assessment",
-          help:"Rate yourself 1–10 on each pillar, then note your biggest strength and biggest gap. This is your 'before' picture. You'll compare against it at the end.",
+          help:"Rate yourself 1 to 10 on each pillar, then note your biggest strength and biggest gap. This is your 'before' picture. You'll compare against it at the end.",
           gloss:"Quick translations: Distribution = getting your songs onto Spotify and Apple. Rights = registering so you actually get paid. Revenue diversity = more than one way money comes in. Infrastructure = the people and tools around you. New to all this? Rate low and move on, that's the point." },
         { type:"fill", id:"baseline_top", title:"Sum it up", items:[
           {id:"strengths3", label:"My top 3 strengths right now", ph:"e.g. melodies, consistency, my live energy", long:true},
@@ -45,7 +46,7 @@ window.WORKBOOK = {
           {id:"a_bio", text:"Write a 2-sentence artist bio you can share anywhere"},
           {id:"a_goals", text:"Set 3 goals for the next 12 weeks and write them down"},
           {id:"a_intro", text:"Share your bio in one community or group you're part of"},
-          {id:"a_handles", text:"Grab the same @handle everywhere you can (Instagram, YouTube, Spotify, JioSaavn) and your name, before someone else takes it"}
+          {id:"a_handles", text:"Grab the same @handle everywhere you can (Instagram, YouTube), and claim your artist profile on Spotify and JioSaavn, before someone else takes your name"}
         ]},
         { type:"note", id:"start_notes" }
       ]
@@ -77,7 +78,7 @@ window.WORKBOOK = {
             {v:"mixed", label:"Mixed", desc:"A blend, and that's fine."}
           ]},
         { type:"info", title:"What to double down on, by archetype", body:[
-          "Commercial Artist: Live circuit every month, 3–4 Reels/week, 6–8 singles/year, playlist pitching.",
+          "Commercial Artist: Live circuit every month, 3 to 4 Reels a week, 6 to 8 singles a year, playlist pitching.",
           "Non-Commercial Artist: IPRS/PPL registration, sync catalogue, teaching roster, grant applications.",
           "Creator-Artist: content consistency, getting found in search on YouTube and Spotify, a brand media kit, and quality engagement.",
           "In plain words: playlist pitching = asking curators to add your song. Sync catalogue = songs ready for films and ads to license. Media kit = a one-page pack about you. Don't stress about all of these now, just note the two that fit you."
@@ -200,7 +201,7 @@ window.WORKBOOK = {
     /* 4 · DISTRIBUTION ---------------------------------------------------- */
     {
       id: "distribution", name: "Distribution", tag: "Everywhere it needs to be, with the right metadata.",
-      plain: "Getting on Spotify is the easy part. Doing it with clean metadata, a real launch plan, and a plugged funnel is what separates you.",
+      plain: "Getting on Spotify is the easy part. Doing it with clean metadata, a real launch plan, and a way to keep the listeners you get is what separates you.",
       lesson:{ idea:"Getting on Spotify is easy. Getting found, and keeping the listeners you get, is the real game.", points:["A distributor puts you everywhere; clean metadata (credits, language, tags, ISRC) is what makes you discoverable and paid.","Your EPK is the one pack that opens doors with curators, venues and press. Build it once, keep it sharp.","A release is a sequence, not a day. Work the launch plan from 6 weeks out so pitching windows aren't missed.","Watch your fan funnel: the leak is usually between heard-it-once and came-back. An email list or WhatsApp Channel is how you own the relationship."] },
       deepen:{ read:[{label:"Build your EPK (guide)",href:"/guides/electronic-press-kit-epk-india/"},{label:"12-week release plan",href:"/guides/12-week-release-plan-india/"},{label:"Get on Spotify editorial playlists",href:"/guides/spotify-editorial-playlists-india/"},{label:"Playlist target sheet",href:"/toolkit/streaming-playlist-target-sheet-india/"}] },
       blocks: [
@@ -309,7 +310,7 @@ window.WORKBOOK = {
         { type:"checklist", id:"contentid", title:"Distributor · Content ID", items:[
           {id:"ci1", text:"Log in to your distributor dashboard"},
           {id:"ci2", text:"Confirm Content ID is active for all released tracks"},
-          {id:"ci3", text:"Confirm regional claiming is on (JioSaavn, Amazon Music, YouTube Music)"}
+          {id:"ci3", text:"Confirm Content ID is active for YouTube, and for UGC platforms (Instagram, Facebook) if your distributor offers it"}
         ]},
         { type:"table", id:"lawyer", tools:[{kind:"contract",label:"Producer agreement",href:"/toolkit/producer-agreement-india/"},{kind:"contract",label:"Artist management agreement",href:"/toolkit/artist-management-agreement/"},{kind:"contract",label:"Sync licensing agreement",href:"/toolkit/sync-licensing-agreement-india/"},{kind:"contract",label:"Publishing admin agreement",href:"/toolkit/publishing-admin-agreement-india/"}], title:"When you must get a music lawyer",
           help:"If any of these is live for you, don't sign before someone qualified reads it.",
@@ -360,7 +361,8 @@ window.WORKBOOK = {
             "Monetisation: {monet}.",
             {when:{f:"monet", is:["Yes, and we split earnings"]}, text:"If it earns money, {orig} receives {split} of net earnings."},
             "Credit: {credit}.",
-            "Ownership: {orig} owns the original song. This permission covers the use described above only and transfers no rights in the original.",
+            "The new {use} that {other} makes is owned by {other} as a separate recording, and this permission is non-exclusive and personal to {other}.",
+            "Ownership: {orig} owns the original song. This permission covers the use described above only and transfers no rights in {orig}'s original song, lyrics or recording.",
             "Ending it: {revoke}.",
             "",
             "Both people agree to the above.",
@@ -373,6 +375,7 @@ window.WORKBOOK = {
         { type:"checklist", id:"rights_actions", title:"Your action items", items:[
           {id:"ra_iprs", text:"Register with IPRS if not done (iprs.org). Every week of delay is royalties lost."},
           {id:"ra_ppl", text:"Register with PPL India if not done (pplindia.org)"},
+          {id:"ra_isra", text:"If you sing or perform on recordings, join ISAMRA (formerly ISRA) for your performer royalty (isamracopyright.com)"},
           {id:"ra_cid", text:"Confirm Content ID active on all released tracks"},
           {id:"ra_split", text:"Create a standard split-sheet template for future collabs (free at songsplits.com)"},
           {id:"ra_audit", text:"Complete the rights audit table for all existing releases"}
@@ -383,9 +386,9 @@ window.WORKBOOK = {
 
     /* 6 · REVENUE --------------------------------------------------------- */
     {
-      id: "revenue", name: "Revenue", tag: "Multiple income streams that compound over time.",
+      id: "revenue", name: "Revenue", tag: "Multiple income streams that stack up over time.",
       plain: "Streaming alone won't pay you. This maps the 7 ways artists actually earn, and which two you could switch on in 90 days.",
-      lesson:{ idea:"Streaming alone won't pay your rent. Careers are built on several income streams that compound.", points:["There are 7 realistic streams: live, brand, YouTube, sync, direct-fan, teaching, and beat or session work.","Profit-first: know the minimum music must earn you and your yearly cost base, then close the gap on purpose.","You don't need all 7. Pick the 2 you earn nothing from today but could switch on in 90 days.","Measure return per hour, not just rupees. The stream that pays best for your effort is where to lean."] },
+      lesson:{ idea:"Streaming alone won't pay your rent. Careers are built on several income streams that build on each other.", points:["There are 7 realistic streams: live, brand, YouTube, sync, direct-fan, teaching, and beat or session work.","Profit-first: know the minimum music must earn you and your yearly cost base, then close the gap on purpose.","You don't need all 7. Pick the 2 you earn nothing from today but could switch on in 90 days.","Measure return per hour, not just rupees. The stream that pays best for your effort is where to lean."] },
       deepen:{ read:[{label:"Royalty calculator",href:"/tools/royalty-calculator/"},{label:"How Spotify royalties work in India",href:"/guides/how-spotify-royalties-work-india/"},{label:"Revenue streams checklist",href:"/toolkit/revenue-streams-checklist/"},{label:"Sync licensing in India",href:"/guides/sync-licensing-music-ads-film-india/"}] },
       blocks: [
         { type:"table", id:"rev_audit", tools:[{kind:"template",label:"Revenue streams checklist",href:"/toolkit/revenue-streams-checklist/"},{kind:"template",label:"Artist finances template",href:"/toolkit/artist-finances-template/"}], title:"Revenue audit: which streams are you running?",
@@ -538,7 +541,7 @@ window.WORKBOOK = {
           ],
           rows:[
             {id:"co1", cells:{item:"Credits, how it's billed ('ft.' vs '×' vs co-production)"}},
-            {id:"co2", cells:{item:"Royalty split, default 50/50, adjust for real contribution. Use songsplits.com."}},
+            {id:"co2", cells:{item:"Royalty split: default 50/50, adjusted for real contribution. Use songsplits.com."}},
             {id:"co3", cells:{item:"Promo commitment, both post, both tag, agreed platforms and date"}},
             {id:"co4", cells:{item:"Who owns the master, usually producer / lead artist unless agreed"}},
             {id:"co5", cells:{item:"Release timeline, agree a date range before you start"}}
@@ -614,7 +617,7 @@ window.WORKBOOK = {
     {
       id: "advanced", name: "Advanced revenue & positioning", tag: "Sync, a contact pipeline, and a career that lasts.",
       plain: "This is how careers stop being random. Turn your contacts into a pipeline you work 15 minutes a day.",
-      lesson:{ idea:"Careers stop being random when your contacts become a pipeline you work a little every day.", points:["Sort your network into warm advocates, warm potentials, referral nodes, cold targets and latent contacts. Warm converts 5 to 10 times better than cold.","Work it 15 minutes a day: follow up Monday, one warm reach Wednesday, one new pitch Friday.","Move from Transactional (chasing one-off gigs) to Pipeline (a steady flow) to Architectural (income that keeps coming).","Build a sync catalogue: instrumental versions of your most placeable songs, ready when an opportunity lands."] },
+      lesson:{ idea:"Careers stop being random when your contacts become a pipeline you work a little every day.", points:["Sort your network into warm advocates, warm potentials, referral nodes, cold targets and latent contacts. Warm converts 5 to 10 times better than cold.","Work it 15 minutes a day: follow up Monday, one warm reach Wednesday, one new pitch Friday.","Grow from chasing one-off gigs, to keeping a steady flow of conversations going, to income that keeps coming without chasing each one.","Build a sync catalogue: instrumental versions of your most placeable songs, ready when an opportunity lands."] },
       deepen:{ read:[{label:"Sync licensing in India",href:"/guides/sync-licensing-music-ads-film-india/"}] },
       blocks: [
         { type:"table", id:"contact_audit", tools:[{kind:"template",label:"Contact directory template",href:"/toolkit/contact-directory-template/"},{kind:"template",label:"Competition analysis template",href:"/toolkit/competition-analysis-template/"}], title:"Contact audit: your network by category",
@@ -627,10 +630,10 @@ window.WORKBOOK = {
             {key:"when", label:"When to activate", type:"readonly"}
           ],
           rows:[
-            {id:"na1", cells:{cat:"Warm advocates, have hired/booked/recommended you", ask:"Re-hire, referral, testimonial", when:"First, they already trust you"}},
+            {id:"na1", cells:{cat:"Warm advocates: people who've hired, booked or recommended you", ask:"Re-hire, referral, testimonial", when:"First, they already trust you"}},
             {id:"na2", cells:{cat:"Warm potentials, know your work, never hired you", ask:"An intro chat, not a pitch, ask what they're working on", when:"Second, reactivate before cold"}},
             {id:"na3", cells:{cat:"Referral nodes, connectors with wide networks", ask:"A specific intro, not 'keep me in mind'", when:"When you have something specific to pitch"}},
-            {id:"na4", cells:{cat:"Cold targets, brands/venues/press you've never met", ask:"A compelling cold approach with social proof", when:"Last"}},
+            {id:"na4", cells:{cat:"Cold targets: brands, venues or press you've never met", ask:"A compelling cold approach with social proof", when:"Last"}},
             {id:"na5", cells:{cat:"Latent contacts, silent 12+ months, remember you", ask:"A genuine reconnect, 'how's your project?' first", when:"Ongoing"}}
           ]},
         { type:"table", id:"pipeline_active", title:"Your current pipeline: active conversations",
@@ -641,7 +644,7 @@ window.WORKBOOK = {
             {key:"next", label:"Next action", type:"text"}
           ], rows:5 },
         { type:"table", id:"weekly_pipeline", title:"Weekly pipeline actions (15 min/day)",
-          gloss:"The 'Transactional to Pipeline to Architectural' line below means: Transactional = chasing one-off gigs. Pipeline = a steady flow of conversations on the go. Architectural = income that keeps coming without chasing each one.",
+          gloss:"In plain words: grow from chasing one-off gigs, to keeping a steady flow of conversations going, to income that keeps coming in without chasing each one.",
           columns:[
             {key:"day", label:"Day", type:"readonly"},
             {key:"act", label:"Action", type:"readonly"},
@@ -654,7 +657,7 @@ window.WORKBOOK = {
             {id:"wp4", cells:{day:"End of month", act:"Income audit + pipeline review: what closed? what stalled? what needs a new approach?"}}
           ]},
         { type:"fill", id:"adv_q", title:"", items:[
-          {id:"adv_stage", label:"My goal: move from Transactional → Pipeline → Architectural revenue. Current stage:"}
+          {id:"adv_stage", label:"Where am I now: chasing one-off gigs, a steady flow of conversations, or income that keeps coming without chasing?"}
         ]},
         { type:"checklist", id:"advanced_actions", title:"Your action items", items:[
           {id:"ad_audit", text:"Run the 10-minute contact audit: phone contacts + Instagram + email, sort into the 5 categories"},
@@ -667,7 +670,58 @@ window.WORKBOOK = {
       ]
     },
 
-    /* 11 · 90-DAY PLAN ---------------------------------------------------- */
+    /* 11 · SUPPORT & LEVERAGE -------------------------------------------- */
+    {
+      id: "support", name: "Support & leverage", tag: "Grants, bodies and doors most artists never use.",
+      plain: "There is free money, rights royalties and open doors out there that most independent artists never claim. This is where you find them.",
+      deepen:{ read:[{label:"India music grants & funding guide",href:"/toolkit/india-music-grants-funding-guide/"},{label:"Music grants & residencies in India (Rolling Stone)",href:"https://rollingstoneindia.com/music-grants-residencies-india-indie-musicians/"}], news:true },
+      lesson:{ idea:"You don't have to fund and fight for everything alone. Grants, rights bodies and open calls exist for exactly you, most artists just never apply.", points:[
+        "Grants are non-dilutive: free money you don't pay back and don't give up any rights for. Indian and international ones fund releases, travel and collaborations.",
+        "Rights bodies pay you for years: IPRS for the song, PPL for the recording, and ISAMRA (formerly ISRA) for you as the performer. Join every one that applies to you.",
+        "Open calls, competitions and residencies are how unknown artists get discovered and funded. Applying is free.",
+        "You grow faster inside a community than alone. Find your collective, your scene, and the people two steps ahead of you."
+      ]},
+      blocks: [
+        { type:"table", id:"grants", title:"Grants & funding to apply for",
+          gloss:"Non-dilutive means free money you keep all the rights to. Most take one application. Apply even if you think you won't get it.",
+          columns:[{key:"g",label:"Grant / fund",type:"readonly"},{key:"what",label:"What it's for",type:"readonly"},{key:"status",label:"Will you apply?",type:"chips",options:["Applied","Shortlisted","To do","Not for me"]}],
+          rows:[
+            {id:"g1",cells:{g:"Serendipity Arts, Independent Music Production Grant",what:"Up to ₹1.5L to make and release original music. Open to solo, band or collective."}},
+            {id:"g2",cells:{g:"India Foundation for the Arts (IFA)",what:"Arts practice, research and collaboration grants, up to ₹3L (varies by programme)."}},
+            {id:"g3",cells:{g:"British Council programmes",what:"India-UK collaboration and exchange funding, when India is in the current round. Eligibility rotates, so check the live call."}},
+            {id:"g4",cells:{g:"Goethe-Institut / Max Mueller Bhavan",what:"Indo-German collaboration, mobility and residency grants."}},
+            {id:"g5",cells:{g:"Your state cultural body or an embassy cultural arm",what:"Local grants, showcase slots and travel support (Alliance Française, Japan Foundation, Pro Helvetia and more)."}}
+          ] },
+        { type:"checklist", id:"bodies", title:"Rights bodies & unions to join",
+          gloss:"Each one pays you a different royalty. Joining is one-time and then pays you for years.",
+          items:[
+            {id:"b_iprs",text:"IPRS, for the composition and lyrics if you write (iprs.org)"},
+            {id:"b_ppl",text:"PPL India, for the sound recording you own (pplindia.org)"},
+            {id:"b_isra",text:"ISAMRA (formerly ISRA), for you as the singer or session performer, the Section 38A performer royalty (isamracopyright.com)"},
+            {id:"b_find",text:"Find any association for your scene (film music, folk, classical, regional) and see what support it offers"}
+          ] },
+        { type:"table", id:"opencalls", title:"Open calls, competitions & residencies",
+          gloss:"Where unknown artists get discovered and funded. Applying is free. Track a few and apply on repeat.",
+          columns:[{key:"o",label:"Opportunity",type:"text"},{key:"type",label:"Type",type:"chips",options:["Grant","Competition","Residency","Festival call","Label call"]},{key:"deadline",label:"Deadline",type:"text"},{key:"applied",label:"Applied?",type:"chips",options:["Yes","No"]}],
+          rows:4 },
+        { type:"qa", id:"community", title:"Your community & collective",
+          gloss:"You grow faster with peers than alone. This maps the people and scene around you.",
+          items:[
+            {id:"cm_scene",q:"Who are 5 artists at your stage, in your city or genre, you could actually build with?"},
+            {id:"cm_collective",q:"Is there a collective, label camp or online community you could join or start? Which one, and what's the first step?"},
+            {id:"cm_ahead",q:"Who is 2 steps ahead of you that you could learn from, and how will you reach them this month?"}
+          ]},
+        { type:"checklist", id:"support_actions", title:"Your action items", items:[
+          {id:"sa_grants",text:"Shortlist 3 grants or open calls you're eligible for and note their deadlines"},
+          {id:"sa_apply",text:"Apply to at least 1 this month, even if you think it's a long shot"},
+          {id:"sa_bodies",text:"Join every rights body that applies to you (IPRS, PPL, ISRA)"},
+          {id:"sa_community",text:"Reach out to 2 artists at your stage and 1 who is ahead of you"}
+        ]},
+        { type:"note", id:"support_notes" }
+      ]
+    },
+
+    /* 12 · 90-DAY PLAN ---------------------------------------------------- */
     {
       id: "plan", name: "Your 90-day plan", tag: "What you've built, and exactly what comes next.",
       plain: "This is the payoff. A concrete 3-month plan with verifiable milestones. Tick these off in real life over the next 90 days.",

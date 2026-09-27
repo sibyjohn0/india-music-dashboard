@@ -16,12 +16,12 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   :root{
     --cream:#FFF7EE; --ink:#241B2E; --pink:#FF4D8D; --yellow:#FFD23F; --softyellow:#FFF3CE;
-    --mint:#1FCF9E; --violet:#8B5CF6; --blue:#DCEEFF; --muted:#6B6076;
+    --mint:#1FCF9E; --violet:#8B5CF6; --blue:#DCEEFF; --muted:#6B6076; --pinkd:#D8005E;
     --shadow:5px 5px 0 var(--ink); --shadow-sm:3px 3px 0 var(--ink);
   }
   html{-webkit-text-size-adjust:100%}
   body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;min-height:100dvh;overflow-x:hidden}
-  a{color:var(--pink);font-weight:700}
+  a{color:var(--pinkd);font-weight:700}
   .mono{font-family:'Space Mono',monospace;letter-spacing:.5px;text-transform:uppercase}
   h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.1;letter-spacing:-.02em}
 
@@ -57,7 +57,7 @@
   .focus-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
   .focus-chip{font-family:inherit;font-weight:800;font-size:13px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;cursor:pointer;box-shadow:var(--shadow-sm);color:var(--ink)}
   .focus-chip:active{transform:translateY(1px)}
-  .foryou{display:inline-block;font-size:9px;background:var(--pink);color:#fff;border:1.5px solid var(--ink);border-radius:6px;padding:1px 5px 0;vertical-align:middle;margin-left:3px;letter-spacing:.3px}
+  .foryou{display:inline-block;font-size:9px;background:var(--pinkd);color:#fff;border:1.5px solid var(--ink);border-radius:6px;padding:1px 5px 0;vertical-align:middle;margin-left:3px;letter-spacing:.3px}
   .sec-h{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.5px;margin:22px 2px 12px;color:var(--muted)}
   .seccard{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:15px;padding:15px 16px;margin-bottom:11px;cursor:pointer;transition:transform .08s, box-shadow .12s}
   .seccard:active{transform:translateY(1px)}
@@ -74,19 +74,19 @@
 
   /* section stepper */
   .subhead{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-  .subhead .eyebrow{font-size:11px;font-weight:700;color:var(--pink)}
+  .subhead .eyebrow{font-size:11px;font-weight:700;color:var(--pinkd)}
   .subhead .of{font-size:11px;color:var(--muted);margin-left:auto}
   .sec-intro{background:var(--blue);border:2px solid var(--ink);border-radius:16px;padding:20px;box-shadow:var(--shadow-sm);margin-bottom:6px}
   .sec-intro h1{font-size:clamp(24px,6vw,32px);font-weight:800;margin-bottom:8px}
   .sec-intro p{font-size:16px}
   .lesson{background:#fff;border:2px solid var(--ink);border-left:8px solid var(--violet);border-radius:14px;padding:18px;margin:12px 0 6px;box-shadow:var(--shadow-sm)}
-  .lesson-k{font-size:11px;font-weight:700;color:var(--violet);margin-bottom:7px}
+  .lesson-k{font-size:11px;font-weight:700;color:#6D28D9;margin-bottom:7px}
   .lesson-idea{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;line-height:1.28;margin-bottom:13px;text-wrap:balance}
   .lesson-pts{list-style:none;display:flex;flex-direction:column;gap:9px;margin:0;padding:0}
   .lesson-pts li{position:relative;padding-left:22px;font-size:14.5px;line-height:1.5}
   .lesson-pts li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:9px;background:var(--violet);border:2px solid var(--ink);border-radius:50%}
-  .lesson-pts a{color:var(--pink);font-weight:700}
-  .coach{background:var(--softyellow);border:2px solid var(--ink);border-left:8px solid var(--pink);border-radius:14px;padding:15px 16px;margin:12px 0 6px;box-shadow:var(--shadow-sm)}
+  .lesson-pts a{color:var(--pinkd);font-weight:700}
+  .coach{background:#fff;border:2px solid var(--ink);border-left:8px solid var(--pinkd);border-radius:14px;padding:15px 16px;margin:12px 0 6px;box-shadow:var(--shadow-sm)}
   .coach-k{font-size:11px;font-weight:700;color:#A80042;margin-bottom:7px}
   .coach-line{font-size:14.5px;line-height:1.5;margin-bottom:7px;overflow-wrap:anywhere}
   .coach-line:last-child{margin-bottom:0}
@@ -94,19 +94,25 @@
   .block h2{font-size:22px;font-weight:800;margin:0 0 6px;text-wrap:balance}
   .block .help{font-size:15px;color:var(--muted);margin:0 0 18px;max-width:560px}
   .gloss{background:#D2F6EC;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.5;margin:0 0 18px}
-  .gloss b{display:block;font-size:10px;letter-spacing:.5px;margin-bottom:4px;color:#0E8F6C}
+  .gloss b{display:block;font-size:10px;letter-spacing:.5px;margin-bottom:4px;color:#0A6B50}
   .hint{font-size:13px;color:var(--muted);margin:2px 2px 4px;line-height:1.5}
 
   .card{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:16px;margin-bottom:12px}
   .qtext{font-size:16px;font-weight:700;margin-bottom:10px;line-height:1.4}
   .flabel{font-size:14px;font-weight:700;margin:0 0 8px;display:block;line-height:1.4}
   .tin{width:100%;font-family:inherit;font-size:16px;font-weight:500;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:11px;padding:12px 13px;outline:none}
-  .tin::placeholder{color:#B8B0C2}
+  .tin::placeholder{color:#8A8194}
   .tin:focus{box-shadow:var(--shadow-sm)}
   textarea.tin{resize:vertical;min-height:88px;line-height:1.5}
 
   .chips{display:flex;flex-wrap:wrap;gap:9px}
   .chip{display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:600;padding:11px 15px;background:#fff;border:2px solid var(--ink);border-radius:12px;cursor:pointer;user-select:none;transition:transform .08s, box-shadow .12s, background .12s;line-height:1.25}
+  .chip,.optrow,.check{font-family:inherit;color:var(--ink);text-align:left;-webkit-appearance:none;appearance:none}
+  .check,.optrow{width:100%}
+  .chip.sel::after{content:"✓";font-weight:800;margin-left:1px}
+  :is(.chip,.optrow,.check,.seccard,.focus-chip,.feedcard,.grabcard,.scale button,.btn) :focus-visible,
+  .chip:focus-visible,.optrow:focus-visible,.check:focus-visible,.seccard:focus-visible,.focus-chip:focus-visible,.feedcard:focus-visible,.grabcard:focus-visible,.scale button:focus-visible,.btn:focus-visible,.tin:focus-visible{outline:3px solid #6D28D9;outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
   .chip:active{transform:translateY(1px)}
   .chip.sel{background:var(--yellow);box-shadow:var(--shadow-sm)}
   .chip.mini{padding:9px 13px;font-size:14px}
@@ -126,7 +132,7 @@
   /* scale 1-10 */
   .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;max-width:310px}
   .scale button{font-family:'Bricolage Grotesque';font-weight:700;font-size:15px;width:100%;min-height:42px;border:2px solid var(--ink);border-radius:9px;background:#fff;cursor:pointer;color:var(--ink)}
-  .scale button.on{background:var(--pink);color:#fff}
+  .scale button.on{background:var(--pinkd);color:#fff;box-shadow:inset 0 0 0 2px var(--ink)}
 
   /* checklist / check rows */
   .check{display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:14px;cursor:pointer;margin-bottom:9px;transition:background .12s}
@@ -159,7 +165,7 @@
   @media(hover:hover){ .vidrow{scrollbar-width:thin} .vidrow::-webkit-scrollbar{display:block;height:8px} .vidrow::-webkit-scrollbar-thumb{background:var(--ink);border-radius:8px} }
   .btn{font-family:inherit;font-weight:800;font-size:16px;border:2px solid var(--ink);border-radius:12px;padding:13px 20px;cursor:pointer;transition:transform .08s, box-shadow .12s;background:#fff;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
   .btn:active{transform:translateY(1px)}
-  .btn.primary{background:var(--pink);color:#fff;box-shadow:var(--shadow);flex:1}
+  .btn.primary{background:var(--pinkd);color:#fff;box-shadow:var(--shadow);flex:1}
   .btn.back{flex:0 0 auto}
   .btn.wide{width:100%}
 
@@ -181,7 +187,7 @@
   .scene{background:var(--softyellow);border:2px solid var(--ink);border-radius:16px;padding:16px;margin:14px 0 4px;box-shadow:var(--shadow-sm)}
   .deepen{background:var(--blue);border:2px solid var(--ink);border-radius:16px;padding:16px;margin:18px 0 4px;box-shadow:var(--shadow-sm)}
   .scene-h{display:flex;align-items:center;gap:8px;margin-bottom:13px}
-  .scene-h .mono{font-size:12px;font-weight:700;color:var(--pink)}
+  .scene-h .mono{font-size:12px;font-weight:700;color:var(--pinkd)}
   .scene-date{margin-left:auto;font-size:11px;color:var(--muted)}
   .feedgrp{margin-bottom:15px}
   .feedgrp:last-child{margin-bottom:0}
@@ -193,7 +199,7 @@
   .fc-t{font-weight:700;font-size:14px;line-height:1.35;overflow-wrap:anywhere}
   .fc-m{font-size:12px;color:var(--muted);margin-top:3px}
   .fc-empty{font-size:13px;color:var(--muted);padding:5px 0}
-  .feedmore{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--pink);text-decoration:none}
+  .feedmore{display:inline-block;margin-top:10px;font-size:13px;font-weight:700;color:var(--pinkd);text-decoration:underline}
   .vidrow{display:flex;gap:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px;-webkit-overflow-scrolling:touch}
   .vidrow::-webkit-scrollbar{display:none}
   .vidcard{flex:0 0 150px;background:#fff;border:2px solid var(--ink);border-radius:11px;overflow:hidden;text-decoration:none;color:var(--ink)}
@@ -203,7 +209,7 @@
 
   /* grab-this (templates, contracts, outreach, venues at point of need) */
   .grab{background:#D2F6EC;border:2px solid var(--ink);border-radius:13px;padding:13px 14px;margin:14px 0 4px}
-  .grab-k{font-size:10px;font-weight:700;color:#0E8F6C;margin-bottom:9px;letter-spacing:.5px}
+  .grab-k{font-size:10px;font-weight:700;color:#0A6B50;margin-bottom:9px;letter-spacing:.5px}
   .grabcard{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:10px 12px;text-decoration:none;color:var(--ink);margin-bottom:8px;transition:transform .08s,box-shadow .12s}
   .grabcard:last-child{margin-bottom:0}
   .grabcard:active{transform:translateY(1px)}
@@ -226,7 +232,7 @@
     .topbar-in,.navbar-in{padding-left:14px;padding-right:14px}
     .crumb{max-width:150px}
   }
-  @media print{
+  @media print{ .hero{display:none!important}
     .topbar,.navbar,.pbar,.exportrow,.privacy,.btn{display:none!important}
     body{background:#fff}
     .stage{padding:0;max-width:100%}
@@ -239,10 +245,10 @@
     <div class="topbar-in">
       <a class="brand" href="/"><span class="dot"></span> <span class="bt">Indie Music India</span></a>
       <span class="crumb" id="crumb"></span>
-      <span class="saved" id="saved"><span class="tick">✓</span> Saved</span>
+      <span class="saved" id="saved" aria-live="polite"><span class="tick" aria-hidden="true">✓</span> Saved</span>
     </div>
   </header>
-  <div class="pbar"><div class="pbar-fill" id="pfill"></div></div>
+  <div class="pbar" role="progressbar" aria-label="Your progress through this section"><div class="pbar-fill" id="pfill"></div></div>
   <main class="stage" id="stage"></main>
   <nav class="navbar" id="navbar" style="display:none">
     <button class="btn back" id="backBtn" type="button">Back</button>
@@ -254,10 +260,10 @@
   (function(){
     "use strict";
     var WB = window.WORKBOOK, KEY="iim_roadmap_wb_v2";
-    if(!WB){ document.getElementById("stage").innerHTML='<p style="padding:24px">Could not load your workbook. Please refresh the page.</p>'; return; }
+    if(!WB){ document.getElementById("stage").innerHTML='<p style="padding:24px">We couldn\'t load your workbook just now. Give the page a refresh and it should come back.</p>'; return; }
     var S = load();
     function fresh(){ return { nav:{view:"home"}, ans:{}, seen:false }; }
-    function load(){ try{var r=localStorage.getItem(KEY);if(r){var o=JSON.parse(r);o.ans=o.ans||{};o.nav=o.nav||{view:"home"};
+    function load(){ try{var r=localStorage.getItem(KEY); if(!r){ var old=localStorage.getItem("iim_roadmap_wb_v1"); if(old){ r=old; try{localStorage.setItem(KEY,old);}catch(e){} } } if(r){var o=JSON.parse(r);o.ans=o.ans||{};o.nav=o.nav||{view:"home"};
       if(o.nav.view==="section"){ var sec=WB.sections[o.nav.sec]; if(!sec){o.nav={view:"home"};} else { var bi=o.nav.block||0; if(bi<0||bi>=sec.blocks.length) o.nav.block=0; if(!(o.nav.step>=0)) o.nav.step=0; } }
       return o;}}catch(e){} return fresh(); }
     var saveT;
@@ -375,6 +381,7 @@
       team:["does a musician need a manager","how to get a music manager"],
       advanced:["how to pitch music for sync licensing","networking in the music industry"],
       plan:["independent musician 90 day plan","music release plan tutorial"],
+      support:["music grants for independent artists india","how to apply for arts grants musician","how to join a music collective"],
       resources:["best free tools for independent musicians"]
     };
     function ytSearch(q){ return "https://www.youtube.com/results?search_query="+encodeURIComponent(q); }
@@ -425,7 +432,7 @@
     var PILLAR_SECTION=["identity","production","distribution","rights","revenue","social","live","team"];
     var ARCHETYPE_FOCUS={
       commercial:{label:"Commercial Artist",sections:["production","distribution","live","social"],play:"a monthly live circuit, 3 to 4 Reels a week, 6 to 8 singles a year, and playlist pitching."},
-      noncommercial:{label:"Non-Commercial Artist",sections:["rights","revenue","team","advanced"],play:"IPRS and PPL registration, a sync catalogue, a teaching roster, and grant applications."},
+      noncommercial:{label:"Non-Commercial Artist",sections:["rights","revenue","team","advanced","support"],play:"IPRS and PPL registration, a sync catalogue, a teaching roster, and grant applications."},
       creator:{label:"Creator-Artist",sections:["social","identity","distribution","revenue"],play:"content consistency, getting found in YouTube and Spotify search, a media kit, and real comments not just likes."},
       mixed:{label:"Mixed",sections:["identity","distribution","social","revenue"],play:"identity and distribution first, then lean into whatever starts working."}
     };
@@ -436,15 +443,22 @@
     function goalText(){ return val("baseline_top.goal1")||val("context_change.change12")||""; }
     var SECTION_PILLAR={identity:0,production:1,distribution:2,rights:3,revenue:4,social:5,live:6,team:7};
     var SECTION_ARCH_NUDGE={
-      commercial:{ production:"Your engine is releases and shows. Aim for 6 to 8 singles a year and nail this pipeline.", distribution:"Reach is everything for you. Get the launch sequence and playlist pitching tight.", live:"The live circuit is your biggest lever. Plan a show every month.", social:"Post 3 to 4 Reels a week from your hooks. Consistency beats perfection.", revenue:"Live fees and brand deals pay you first. Come back to sync and the rest later.", advanced:"The contact pipeline matters later. Focus on releases and shows first.", team:"You need a booking contact before a manager." },
-      noncommercial:{ rights:"This is your core. Register everything and build a clean, licensable catalogue.", revenue:"Sync, teaching and grants are your lanes, not chasing streams. Build the catalogue.", team:"A sync agent and the right publishing relationships move you more than a manager.", advanced:"Your sync catalogue and contact pipeline are the whole game. Go deep here.", live:"Shows matter less than your core work here. Do them for relationships, not reach.", social:"You don't need to be a content machine. Enough presence to be found is fine." },
-      creator:{ social:"This is your engine. Study what gets saved and shared, and go deep on one platform.", identity:"Your audience follows a clear person. Make your identity sentence razor sharp.", distribution:"Turn the people who watch your posts into people who actually play your songs.", revenue:"Brand deals and direct-fan income pay you first. Build the media kit.", live:"Live is a nice-to-have for you. Do it if it feeds content and community.", rights:"Still register your work, but this is not where your growth comes from." },
-      mixed:{ identity:"Start here. A sharp identity makes every other choice easier while you find your lane.", distribution:"Get one clean release out well, then see what pulls.", social:"Test a couple of platforms and double down on what works.", revenue:"Keep your options open and watch which stream responds first." }
+      commercial:{ production:"Your engine is releases and shows. Aim for 6 to 8 singles a year and nail this pipeline.", distribution:"Reach is everything for you. Get the launch sequence and playlist pitching tight.", live:"The live circuit is your biggest lever. Plan a show every month.", social:"Post 3 to 4 Reels a week from your hooks. Consistency beats perfection.", revenue:"Live fees and brand deals pay you first. Come back to sync and the rest later.", advanced:"The contact pipeline matters later. Focus on releases and shows first.", team:"You need a booking contact before a manager.", support:"Grants can fund your next release or video. Worth a few applications between drops." },
+      noncommercial:{ rights:"This is your core. Register everything and build a clean, licensable catalogue.", revenue:"Sync, teaching and grants are your lanes, not chasing streams. Build the catalogue.", team:"A sync agent and the right publishing relationships move you more than a manager.", advanced:"Your sync catalogue and contact pipeline are the whole game. Go deep here.", live:"Shows matter less than your core work here. Do them for relationships, not reach.", social:"You don't need to be a content machine. Enough presence to be found is fine.", support:"This is a core lane for you. Grants, institutions and a sync-ready catalogue are how non-commercial careers get funded." },
+      creator:{ social:"This is your engine. Study what gets saved and shared, and go deep on one platform.", identity:"Your audience follows a clear person. Make your identity sentence razor sharp.", distribution:"Turn the people who watch your posts into people who actually play your songs.", revenue:"Brand deals and direct-fan income pay you first. Build the media kit.", live:"Live is a nice-to-have for you. Do it if it feeds content and community.", rights:"Still register your work, but this is not where your growth comes from.", support:"Brand and collaboration grants and open calls can fund content and travel. Apply to a few." },
+      mixed:{ identity:"Start here. A sharp identity makes every other choice easier while you find your lane.", distribution:"Get one clean release out well, then see what pulls.", social:"Test a couple of platforms and double down on what works.", revenue:"Keep your options open and watch which stream responds first.", support:"Free money and open doors. Apply to a couple while you find your lane." }
+    };
+    function actType(){ return val("act_type")||""; }
+    var ACT_NUDGE={
+      band:{ rights:"You're a band, so split sheets are not optional. Agree who owns what and the % before anything is released.", revenue:"Decide how band money is split and who tracks it, before the first rupee comes in.", team:"Bands need clear roles: who books, who posts, who handles money. Write it down.", identity:"A band still needs one clear identity. Agree the sound and story together so you don't pull in five directions.", live:"Bands live or die on the live show. Tighten the set and agree fees and splits per gig.", support:"Many grants, like Serendipity, are open to bands. Apply as the band, not as five solo acts." },
+      collective:{ identity:"A collective needs a shared identity and a clear way to make decisions. Agree both early.", rights:"With a collective, every release needs clear splits and a written agreement on who owns the master, whether one named owner, the collective as an entity, or defined shares. Sort governance now.", revenue:"Decide how the collective's money is shared and reinvested before it arrives.", team:"A collective is a mini-organisation. Name who owns each function so nothing falls through.", support:"Collectives are ideal for collaboration grants like IFA Arts Platforms. Apply as the collective." },
+      solo:{ team:"You're solo, so you wear every hat. The win here is deciding what to hand off first.", support:"Solo grants exist too (Serendipity is open to solo artists). Apply, don't wait for a band." }
     };
     function sectionBanner(sec){
       var parts=[], arch=val("archetype"), rung=val("ladder_now"), beginner=!rung||rung==="1"||rung==="2";
       if(SECTION_PILLAR[sec.id]!=null){ var pi=SECTION_PILLAR[sec.id], r=val("baseline."+pi+".rating"), isWeak=weakPillars().some(function(w){return w.sec===sec.id;}); if(isWeak&&r&&(+r)<=6) parts.push('<b>One of your weaker areas ('+r+'/10).</b> Worth extra time here.'); }
       if(arch&&SECTION_ARCH_NUDGE[arch]&&SECTION_ARCH_NUDGE[arch][sec.id]) parts.push('Because you\'re a <b>'+esc(ARCHETYPE_FOCUS[arch].label)+'</b>: '+esc(SECTION_ARCH_NUDGE[arch][sec.id]));
+      var act=actType(); if(act&&ACT_NUDGE[act]&&ACT_NUDGE[act][sec.id]) parts.push(esc(ACT_NUDGE[act][sec.id]));
       var inFocus=arch&&ARCHETYPE_FOCUS[arch]&&ARCHETYPE_FOCUS[arch].sections.indexOf(sec.id)>-1;
       if(beginner&&!inFocus&&(sec.id==="revenue"||sec.id==="advanced"||sec.id==="team")) parts.push('You\'re early on the ladder, so skim this now and come back as you grow.');
       if(!parts.length) return "";
@@ -466,6 +480,7 @@
       }
       var h='<div class="focus"><div class="focus-k mono">Made for you'+(nm?', '+esc(nm):'')+'</div>';
       if(a&&ARCHETYPE_FOCUS[a]) h+='<div class="focus-line">You\'re a <b>'+esc(ARCHETYPE_FOCUS[a].label)+'</b>'+(rung?' on rung '+esc(rung):"")+'. Double down on '+esc(ARCHETYPE_FOCUS[a].play)+'</div>';
+      var act=actType(); if(act==="band"||act==="collective") h+='<div class="focus-line">You\'re a <b>'+(act==="band"?"band":"collective")+'</b>, so splits and shared decisions matter more. We\'ve flagged those in the sections that need them.</div>';
       if(goal) h+='<div class="focus-line">Your goal: <b>'+esc(goal)+'</b></div>';
       if(weak.length) h+='<div class="focus-line">Weakest right now: '+weak.map(function(w){return '<b>'+esc(w.nm)+'</b> ('+w.r+'/10)';}).join(" and ")+'. Start here:</div>'+
         '<div class="focus-chips">'+weak.map(function(w){var i=idxById(w.sec); return i>=0?'<button class="focus-chip" data-sec="'+i+'">'+esc(WB.sections[i].name)+' →</button>':"";}).join("")+'</div>';
@@ -481,8 +496,8 @@
     // beginner-first ordering, grouped; established artists see the natural order
     var BEGINNER_GROUPS=[
       {label:"START WITH THESE", ids:["start","context","identity","production"]},
-      {label:"NEXT · ONCE YOU'RE READY TO RELEASE", ids:["distribution","rights","social","revenue"]},
-      {label:"LATER · AS YOU GROW", ids:["live","team","advanced"]},
+      {label:"NEXT · ONCE YOU'RE READY TO RELEASE", ids:["distribution","rights","revenue","social"]},
+      {label:"LATER · AS YOU GROW", ids:["live","team","advanced","support"]},
       {label:"WRAP-UP & REFERENCE", ids:["plan","resources"]}
     ];
     function renderHome(){
@@ -493,7 +508,7 @@
       h+='<div class="hero"><div class="kick mono">Your Roadmap · artist workbook</div>'+
          '<h1>'+(started?("Welcome back"+(firstName()?", "+esc(firstName()):"")+"."):("Let's build your career"+(firstName()?", "+esc(firstName()):"")+"."))+'</h1>'+
          '<p>This is your workbook. These sections take you from who you are to a real 90-day plan. Do one at a time, in any order. Everything saves as you go.</p></div>';
-      h+='<div class="ovr"><div><div class="big">'+o.pct+'%</div><div class="lbl">'+o.done+' of '+o.total+' done</div></div>'+
+      h+='<div class="ovr"><div><div class="big">'+o.pct+'%</div><div class="lbl">'+o.done+' of '+o.total+' started</div></div>'+
          '<div class="track"><i style="width:'+o.pct+'%"></i></div></div>';
       h+=focusCardHTML();
 
@@ -520,34 +535,36 @@
       });
 
       h+='<div class="exportrow"><button class="btn wide" id="exportBtn" type="button">See &amp; print my workbook</button></div>';
-      h+='<div class="scene" id="scenePanel">'+sceneInner()+'</div>';
+      h+='<div class="scene" id="scenePanel" aria-live="polite">'+sceneInner()+'</div>';
       h+='<p class="privacy">Saved on this device. Soon you\'ll be able to log in and pick it up anywhere.</p>';
       stage.innerHTML=h;
       fillScene();
       S.seen=true; save();
     }
 
+    function effSteps(sec, bi){ return stepCount(sec.blocks[bi]) + (bi===0?1:0); }
     function renderSection(){
       var sec=WB.sections[S.nav.sec], bi=S.nav.block||0, st=S.nav.step||0;
-      var blk=sec.blocks[bi], sc=stepCount(blk);
+      var blk=sec.blocks[bi], sc=effSteps(sec, bi);
       if(st>=sc){ st=sc-1; S.nav.step=st; }
       crumb.textContent=sec.name;
       navbar.style.display="";
       var totalSteps=0, idx=0;
-      sec.blocks.forEach(function(b,i){ var c=stepCount(b); if(i<bi) idx+=c; totalSteps+=c; });
+      sec.blocks.forEach(function(b,i){ var c=effSteps(sec,i); if(i<bi) idx+=c; totalSteps+=c; });
       idx+=st;
       var pct=totalSteps?Math.round((idx+1)/totalSteps*100):100;
       document.getElementById("pfill").style.width=pct+"%";
       var h='<div class="subhead"><span class="eyebrow mono">'+esc(sec.name)+'</span><span class="of mono">'+(idx+1)+' / '+totalSteps+'</span></div>';
-      if(bi===0 && st===0){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>';
+      var isCover=(bi===0 && st===0);
+      if(isCover){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>';
         if(sec.lesson) h+=lessonHTML(sec.lesson);
         h+= (sec.id==="plan"?planCard():sectionBanner(sec)); }
-      h+='<div class="block">'+renderBlock(blk, st)+'</div>';
+      else { h+='<div class="block">'+renderBlock(blk, (bi===0?st-1:st))+'</div>'; }
       var sectionEnd = (bi===sec.blocks.length-1) && (st===sc-1);
       if(sectionEnd) h+=deepenHTML(sec);
       stage.innerHTML=h;
       if(sectionEnd) fillDeepen();
-      backBtn.textContent = (bi===0&&st===0) ? "Contents" : "Back";
+      backBtn.textContent = isCover ? "Contents" : "Back";
       nextBtn.textContent = sectionEnd ? "Done · back to contents" : "Next";
     }
 
@@ -565,11 +582,11 @@
       if(b.type==="info") return '<div class="info">'+(b.title?'<h2>'+esc(b.title)+'</h2>':"")+b.body.map(function(p){
           var m=String(p).match(/^([^:]{2,40}):\s(.+)$/); return m?'<p><b>'+esc(m[1])+':</b> '+esl(m[2])+'</p>':'<p>'+esl(p)+'</p>'; }).join("")+'</div>';
       else if(b.type==="pillars") body=renderPillarOne(b, step);
-      else if(b.type==="qa"){ var q=b.items[step]; body='<div class="card"><div class="qtext">'+esc(q.q)+'</div>'+ta(b.id+"."+q.id,q.ph||"Type your answer")+'</div>'; }
-      else if(b.type==="fill"){ var it=b.items[step]; var k=b.id+"."+it.id; body='<div class="card">'+(it.label?'<label class="flabel">'+esc(it.label)+'</label>':"")+(it.long?ta(k,it.ph||""):ti(k,it.ph||""))+'</div>'; }
+      else if(b.type==="qa"){ var q=b.items[step]; body='<div class="card"><div class="qtext">'+esc(q.q)+'</div>'+ta(b.id+"."+q.id,q.ph||"Type your answer",q.q)+'</div>'; }
+      else if(b.type==="fill"){ var it=b.items[step]; var k=b.id+"."+it.id; body='<div class="card">'+(it.label?'<label class="flabel">'+esc(it.label)+'</label>':"")+(it.long?ta(k,it.ph||"",it.label):ti(k,it.ph||"",it.label))+'</div>'; }
       else if(b.type==="chips") body=renderChoice(b);
       else if(b.type==="checklist") body=b.items.map(function(it){ return chk(b.id+"."+it.id, it.text); }).join("");
-      else if(b.type==="note") body='<div class="card"><label class="flabel">Your notes</label>'+ta(b.id,"Anything you want to remember from this section")+'</div>';
+      else if(b.type==="note") body='<div class="card"><label class="flabel">Your notes</label>'+ta(b.id,"Anything you want to remember from this section","Your notes")+'</div>';
       else if(b.type==="table") body=renderTable(b);
       else if(b.type==="builder") body=renderBuilderStep(b, step);
       var showTools = b.tools && step===stepCount(b)-1;
@@ -578,14 +595,14 @@
     var curBuilder=null;
     function visFields(b){ return b.fields.filter(function(f){ return !f.showIf || f.showIf.is.indexOf(val(b.id+"."+f.showIf.f))>-1; }); }
     function fieldCard(b,f){ var k=b.id+"."+f.id;
-      if(f.kind==="chips") return '<div class="card"><label class="flabel">'+esc(f.label)+'</label><div class="chips">'+f.options.map(function(o){var on=val(k)===o;return '<div class="chip mini'+(on?" sel":"")+'" data-choice="'+k+'" data-v="'+esc(o)+'" data-single="1">'+esc(o)+'</div>';}).join("")+'</div></div>';
-      return '<div class="card"><label class="flabel">'+esc(f.label)+'</label>'+ti(k,f.ph||"")+'</div>';
+      if(f.kind==="chips") return '<div class="card"><label class="flabel">'+esc(f.label)+'</label><div class="chips">'+f.options.map(function(o){var on=val(k)===o;return '<button type="button" class="chip mini'+(on?" sel":"")+'" data-choice="'+k+'" data-v="'+esc(o)+'" data-single="1" aria-pressed="'+(on?"true":"false")+'">'+esc(o)+'</button>';}).join("")+'</div></div>';
+      return '<div class="card"><label class="flabel">'+esc(f.label)+'</label>'+ti(k,f.ph||"",f.label)+'</div>';
     }
     function renderBuilderStep(b, step){
       curBuilder=b; var vis=visFields(b);
       if(step<vis.length) return fieldCard(b, vis[step]);
       return '<div class="doc"><div class="doc-h"><span class="mono">Your document, ready to use</span></div>'+
-        '<pre class="doc-body" id="docPreview">'+esc(buildDoc(b))+'</pre>'+
+        '<pre class="doc-body" id="docPreview" aria-live="polite" aria-label="Your document">'+esc(buildDoc(b))+'</pre>'+
         '<div class="doc-actions"><button class="btn primary" id="docCopy" type="button">Copy</button><button class="btn" id="docDl" type="button">Save as .txt</button></div></div>';
     }
     function buildDoc(b){
@@ -607,9 +624,9 @@
         return '<a class="grabcard" href="'+esc(href)+'"'+(/^https?:/.test(href)?' target="_blank" rel="noopener"':"")+'><span class="grab-kind gk-'+esc(kind)+'">'+esc(kind)+'</span><span class="grab-l">'+esc(t.label)+'</span><span class="grab-arw">→</span></a>';
       }).join("")+'</div>';
     }
-    function ti(k,ph){ return '<input class="tin" data-k="'+k+'" type="text" value="'+esc(val(k)||"")+'" placeholder="'+esc(ph||"")+'" autocomplete="off">'; }
-    function ta(k,ph){ return '<textarea class="tin" data-k="'+k+'" placeholder="'+esc(ph||"")+'">'+esc(val(k)||"")+'</textarea>'; }
-    function chk(k,text){ var on=!!val(k); return '<div class="check'+(on?" on":"")+'" data-check="'+k+'"><span class="box">✓</span><span class="ctxt">'+esl(text)+'</span></div>'; }
+    function ti(k,ph,lab){ return '<input class="tin" data-k="'+k+'" type="text" value="'+esc(val(k)||"")+'" placeholder="'+esc(ph||"")+'"'+(lab?' aria-label="'+esc(lab)+'"':'')+' autocomplete="off">'; }
+    function ta(k,ph,lab){ return '<textarea class="tin" data-k="'+k+'" placeholder="'+esc(ph||"")+'"'+(lab?' aria-label="'+esc(lab)+'"':'')+'>'+esc(val(k)||"")+'</textarea>'; }
+    function chk(k,text){ var on=!!val(k); return '<button type="button" class="check'+(on?" on":"")+'" data-check="'+k+'" aria-pressed="'+(on?"true":"false")+'"><span class="box" aria-hidden="true">✓</span><span class="ctxt">'+esl(text)+'</span></button>'; }
     function scale(k){ var cur=val(k); var h='<div class="scale">'; for(var i=1;i<=10;i++){ h+='<button type="button" data-scale="'+k+'" data-v="'+i+'" class="'+(String(cur)===String(i)?"on":"")+'">'+i+'</button>'; } return h+'</div>'; }
 
     function renderPillarOne(b, i){
@@ -620,21 +637,21 @@
         return '<div class="trow">'+ctx+'<div class="rhead">'+esc(name)+'</div>'+
           '<div class="rsub pill">Week 1 rating: '+(was?was+"/10":"not set")+'</div>'+
           '<div class="tfield"><label class="flabel">Where I am now</label>'+scale(base+".now")+'</div>'+
-          '<div class="tfield"><label class="flabel">90-day goal</label>'+ti(base+".goal","")+'</div></div>';
+          '<div class="tfield"><label class="flabel">90-day goal</label>'+ti(base+".goal","","90-day goal for "+name)+'</div></div>';
       }
       return '<div class="trow">'+ctx+'<div class="rhead">'+esc(name)+'</div>'+
         '<div class="tfield"><label class="flabel">Rate yourself, 1 to 10</label>'+scale(base+".rating")+'</div>'+
-        '<div class="tfield"><label class="flabel">My biggest strength here</label>'+ti(base+".strength","")+'</div>'+
-        '<div class="tfield"><label class="flabel">My biggest gap here</label>'+ti(base+".gap","")+'</div></div>';
+        '<div class="tfield"><label class="flabel">My biggest strength here</label>'+ti(base+".strength","","Biggest strength in "+name)+'</div>'+
+        '<div class="tfield"><label class="flabel">My biggest gap here</label>'+ti(base+".gap","","Biggest gap in "+name)+'</div></div>';
     }
 
     function renderChoice(b){
       // big option rows if descriptions present, else chips
       var cur=val(b.id);
       if(b.options.some(function(o){return o.desc;})){
-        return b.options.map(function(o){ var on=cur===o.v; return '<div class="optrow'+(on?" sel":"")+'" data-choice="'+b.id+'" data-v="'+esc(o.v)+'"><span class="dot"></span><span><b>'+esc(o.label)+'</b><span>'+esc(o.desc||"")+'</span></span></div>'; }).join("");
+        return b.options.map(function(o){ var on=cur===o.v; return '<button type="button" class="optrow'+(on?" sel":"")+'" data-choice="'+b.id+'" data-v="'+esc(o.v)+'" aria-pressed="'+(on?"true":"false")+'"><span class="dot" aria-hidden="true"></span><span><b>'+esc(o.label)+'</b><span>'+esc(o.desc||"")+'</span></span></button>'; }).join("");
       }
-      return '<div class="chips">'+b.options.map(function(o){ var on=(b.single?cur===o.v:(cur||[]).indexOf(o.v)>-1); return '<div class="chip'+(on?" sel":"")+'" data-choice="'+b.id+'" data-v="'+esc(o.v)+'" data-single="'+(b.single?1:0)+'">'+esc(o.label)+'</div>'; }).join("")+'</div>';
+      return '<div class="chips">'+b.options.map(function(o){ var on=(b.single?cur===o.v:(cur||[]).indexOf(o.v)>-1); return '<button type="button" class="chip'+(on?" sel":"")+'" data-choice="'+b.id+'" data-v="'+esc(o.v)+'" data-single="'+(b.single?1:0)+'" aria-pressed="'+(on?"true":"false")+'">'+esc(o.label)+'</button>'; }).join("")+'</div>';
     }
 
     function renderTable(b){
@@ -649,8 +666,8 @@
         var sub = subs.length?'<div class="rsub">'+subs.join(" · ")+'</div>':"";
         var fields=inp.map(function(c){ var k=b.id+"."+r.id+"."+c.key;
           if(c.type==="check") return '<div class="tfield">'+chk(k, c.label)+'</div>';
-          if(c.type==="chips"){ var cur=val(k); return '<div class="tfield"><label class="flabel">'+esc(c.label)+'</label><div class="chips">'+c.options.map(function(op){ return '<div class="chip mini'+(cur===op?" sel":"")+'" data-choice="'+k+'" data-v="'+esc(op)+'" data-single="1">'+esc(op)+'</div>'; }).join("")+'</div></div>'; }
-          return '<div class="tfield"><label class="flabel">'+esc(c.label)+'</label>'+ti(k,"")+'</div>';
+          if(c.type==="chips"){ var cur=val(k); return '<div class="tfield"><label class="flabel">'+esc(c.label)+'</label><div class="chips">'+c.options.map(function(op){ return '<button type="button" class="chip mini'+(cur===op?" sel":"")+'" data-choice="'+k+'" data-v="'+esc(op)+'" data-single="1" aria-pressed="'+(cur===op?"true":"false")+'">'+esc(op)+'</button>'; }).join("")+'</div></div>'; }
+          return '<div class="tfield"><label class="flabel">'+esc(c.label)+'</label>'+ti(k,"",c.label)+'</div>';
         }).join("");
         return '<div class="trow">'+head+sub+fields+'</div>';
       }).join("");
@@ -714,12 +731,12 @@
     backBtn.addEventListener("click",function(){
       var bi=S.nav.block||0, st=S.nav.step||0;
       if(st>0){ S.nav.step=st-1; }
-      else if(bi>0){ S.nav.block=bi-1; S.nav.step=stepCount(WB.sections[S.nav.sec].blocks[bi-1])-1; }
+      else if(bi>0){ S.nav.block=bi-1; S.nav.step=effSteps(WB.sections[S.nav.sec], bi-1)-1; }
       else { S.nav={view:"home"}; }
       save(); render();
     });
     nextBtn.addEventListener("click",function(){
-      var sec=WB.sections[S.nav.sec], bi=S.nav.block||0, st=S.nav.step||0, sc=stepCount(sec.blocks[bi]);
+      var sec=WB.sections[S.nav.sec], bi=S.nav.block||0, st=S.nav.step||0, sc=effSteps(sec, bi);
       if(st<sc-1){ S.nav.step=st+1; }
       else if(bi<sec.blocks.length-1){ S.nav.block=bi+1; S.nav.step=0; }
       else { S.nav={view:"home"}; }
