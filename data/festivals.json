@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-09-26T06:12:25.134695+00:00",
+  "generated_at": "2026-09-27T06:38:47.923899+00:00",
   "counts": {
-    "festivals": 23,
-    "tours": 21,
+    "festivals": 24,
+    "tours": 19,
     "marquee": 14,
     "international": 8,
-    "indian": 36,
-    "new_this_run": 5
+    "indian": 35,
+    "new_this_run": 0
   },
   "festivals": [
     {
@@ -587,63 +587,36 @@
       "season": "",
       "tags": [],
       "origin": "indian"
-    }
-  ],
-  "tours": [
+    },
     {
-      "title": "Fuzulu - Nitin - Anna Breathe (Live in Bengaluru)",
-      "type": "tour",
-      "key": "fuzulu",
+      "title": "Horn OK Please - The Happiest Food Festival 17.0",
+      "type": "festival",
+      "key": "horn ok please",
       "cities": [
-        "Bangalore"
+        "Delhi"
       ],
       "dates": [
         {
-          "date": "2026-09-26",
-          "date_obj": "2026-09-26",
-          "city": "Bangalore",
+          "date": "28 Novembe",
+          "date_obj": null,
+          "city": "Delhi",
           "venue": "",
-          "time": "05:00 PM",
-          "price": "₹499–₹3,499",
-          "url": "https://www.skillboxes.com/events/fuzulu-nitin-anna-breathe-live-in-bengaluru-sbdtjpsu",
+          "time": "12:00 PM",
+          "price": "₹299–₹1,199",
+          "url": "https://www.skillboxes.com/events/horn-ok-please-the-happiest-food-festival-17-0-sblmnevx",
           "source": "skillboxes"
         }
       ],
-      "soonest": "2026-09-26",
+      "soonest": null,
       "marquee": false,
       "official_url": "",
       "ig": "",
       "season": "",
       "tags": [],
       "origin": "indian"
-    },
-    {
-      "title": "Sean Roldan’s Kodi Aruvi – Live in Concert",
-      "type": "tour",
-      "key": "sean roldan s kodi aruvi",
-      "cities": [
-        "Chennai"
-      ],
-      "dates": [
-        {
-          "date": "2026-09-26",
-          "date_obj": "2026-09-26",
-          "city": "Chennai",
-          "venue": "EVP Trade & Convention Centre",
-          "time": "10:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/sean-roldans-kodi-aruvi-live-in-concert-aug29-2026",
-          "source": "district"
-        }
-      ],
-      "soonest": "2026-09-26",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
+    }
+  ],
+  "tours": [
     {
       "title": "Akhil Sachdeva - Homecoming India Tour",
       "type": "tour",
@@ -1378,13 +1351,7 @@
       "origin": "indian"
     }
   ],
-  "new_this_run": [
-    "HEYA ! Music Festival",
-    "The Kolkata Tradition Festival",
-    "Nykaaland India's Biggest Beauty Festival In Delhi",
-    "Diljit Dosanjh - RuPay Aura India Tour, Ahmedabad",
-    "Swarazankar Music Festival"
-  ],
+  "new_this_run": [],
   "_all_keys": [
     "the singularity",
     "opeth live in",
@@ -1395,7 +1362,6 @@
     "gaia 3 day festival pass",
     "cloud temple boutique music festival",
     "structure music festival",
-    "fuzulu",
     "last minute india on tour",
     "horn ok please",
     "heya music festival",
@@ -1412,7 +1378,6 @@
     "lakhwinder wadali india tour",
     "lollapalooza india",
     "foo fighters india tour",
-    "sean roldan s kodi aruvi",
     "the yellow diary",
     "akhil sachdeva",
     "krishna das india tour",
