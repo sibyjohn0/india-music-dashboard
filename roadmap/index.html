@@ -172,6 +172,11 @@
   .privacy{font-size:12px;color:var(--muted);text-align:center;margin-top:22px;padding:0 10px}
   .exportrow{display:flex;gap:11px;margin-top:18px}
   .exportrow .btn{flex:1}
+  .sitelinks{margin:22px 0 4px;padding:16px 18px;background:var(--softyellow);border:2px solid var(--ink);border-radius:16px;box-shadow:var(--shadow-sm)}
+  .sitelinks .sl-h{font-size:11px;font-weight:700;color:var(--muted);margin-bottom:11px}
+  .sitelinks a{display:inline-block;margin:0 7px 8px 0;font-size:14px;font-weight:700;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;text-decoration:none}
+  .sitelinks a:active{transform:translateY(1px)}
+  .sitelinks a:hover{box-shadow:var(--shadow-sm)}
 
   /* export view */
   .ex-sec{margin-bottom:26px}
@@ -567,6 +572,8 @@
 
       h+='<div class="exportrow"><button class="btn wide" id="exportBtn" type="button">See &amp; print my workbook</button></div>';
       h+='<div class="scene" id="scenePanel" aria-live="polite">'+sceneInner()+'</div>';
+      var slinks=[['/programme/','Programme'],['/resources/','Free tools'],['/reviewers/','Reviewers'],['/radar.html','Artist radar'],['/live/','Live shows'],['/venues/','Venues'],['/answers/','Guides'],['/tools/royalty-calculator/','Royalty calculator'],['/about/','About']];
+      h+='<div class="sitelinks"><div class="sl-h mono">Explore Indie Music India</div>'+slinks.map(function(l){return '<a href="'+l[0]+'" target="_blank" rel="noopener">'+esc(l[1])+'</a>';}).join("")+'</div>';
       h+='<p class="privacy">Saved on this device. Soon you\'ll be able to log in and pick it up anywhere.</p>';
       stage.innerHTML=h;
       whenVisible(document.getElementById("scenePanel"), fillScene);
