@@ -132,7 +132,8 @@ nav,.js-primnav{background:var(--cream)!important;border-bottom:2px solid var(--
 .mnav-burger{background:#fff!important;border:2px solid var(--ink)!important;box-shadow:2px 2px 0 var(--ink)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 .mnav-burger span{background:var(--ink)!important}
 /* mobile full-screen menu: cream bg so nav links are visible (was dark) */
-body.mnav-open .js-primnav{background:var(--cream)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.mnav-burger{-webkit-appearance:none;appearance:none;font:inherit}
+body.mnav-open .js-primnav{background:var(--cream)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;overflow-y:auto!important;justify-content:flex-start!important;padding-top:64px!important;padding-bottom:40px!important}
 body.mnav-open .js-primnav .tab{color:var(--ink)!important;font-size:20px!important}
 body.mnav-open .js-primnav .tab.active{background:var(--ink)!important;color:#fff!important}
 
@@ -249,7 +250,7 @@ html,body{overflow-x:hidden!important;max-width:100%}
   .contact-item{padding:11px 14px!important}
   .contact-left p{font-size:13.5px!important;line-height:1.55!important}
   /* reviewer summary chips → one swipe row instead of a tall grid */
-  .stats-bar{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;gap:8px!important;margin:0 -16px!important;padding:2px 16px 10px!important;scrollbar-width:none}
+  .stats-bar{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;gap:8px!important;margin:0!important;padding:2px 0 10px!important;scrollbar-width:none}
   .stats-bar::-webkit-scrollbar{display:none}
   .stat-chip{flex:0 0 auto!important;white-space:nowrap!important}
   .pg-cta{padding:28px 20px!important;margin-top:48px!important}

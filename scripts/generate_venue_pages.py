@@ -125,7 +125,7 @@ FOOT = f'''<footer>
 </footer>
 {SCRIPTJS}
 <script src="/assets/analytics.js" defer></script>
-</body>
+  <script src="/assets/nav.js" defer></script>\n</body>
 </html>'''
 
 

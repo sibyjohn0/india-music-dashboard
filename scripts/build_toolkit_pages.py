@@ -164,7 +164,7 @@ def page(doc):
 </head>
 <body>
   <header><div class="logo">◉ Indie Music India</div></header>
-  <div class="mnav-burger" aria-label="Menu"><span></span><span></span><span></span></div>
+  <button type="button" class="mnav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   <nav class="js-primnav"><a class="tab" href="/">Home</a></nav>
   <div class="page">
     <div class="crumb"><a href="/">Home</a> › <a href="/resources/">Resources</a> › <a href="/resources/#toolkit">Toolkit</a> › {esc(title)}</div>

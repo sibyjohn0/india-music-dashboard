@@ -68,7 +68,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
 </head>
 <body>
   <header><div class="logo">◉ Indie Music India</div></header>
-  <div class="mnav-burger" aria-label="Menu"><span></span><span></span><span></span></div>
+  <button type="button" class="mnav-burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   <nav class="js-primnav"><a class="tab" href="/">Home</a></nav>
   <div class="page">
     <div class="crumb"><a href="/">Home</a> › <a href="/resources/">Resources</a> › <a href="/resources/#toolkit">Toolkit</a> › Social Media Calendar</div>
@@ -138,7 +138,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
   <script>
   document.querySelectorAll('.ck li').forEach(function(li){li.addEventListener('click',function(){li.classList.toggle('done');});});
   var b=document.querySelector('.mnav-burger');
-  if(b)b.addEventListener('click',function(){document.body.classList.toggle('mnav-open');});
+  if(b)b.addEventListener('click',function(){var o=document.body.classList.toggle('mnav-open');b.setAttribute('aria-expanded',o);});
   document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});
   </script>
   <script src="/assets/nav.js" defer></script>
