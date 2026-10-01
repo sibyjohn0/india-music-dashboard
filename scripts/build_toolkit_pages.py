@@ -186,7 +186,7 @@ def page(doc):
   </div>
   <footer>
     <div class="footer-logo">◉ Indie Music India</div>
-    <div class="footer-links"><a href="/">Home</a><a href="/resources/">Resources</a><a href="/reviewers/">Reviewers</a><a href="/tools/royalty-calculator/">Royalty calculator</a><a href="/about/">About</a></div>
+    <div class="footer-links"><a href="/">Home</a><a href="/resources/">Resources</a><a href="/reviewers/">Reviewers</a><a href="/tools/royalty-calculator/">Royalty calculator</a><a href="/about/">About</a><a href="https://instagram.com/indiemusicindia.co" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/919960025559" target="_blank" rel="noopener">WhatsApp</a></div>
   </footer>
   <script>
   document.querySelectorAll('.ck li').forEach(function(li){{li.addEventListener('click',function(){{li.classList.toggle('done');}});}});

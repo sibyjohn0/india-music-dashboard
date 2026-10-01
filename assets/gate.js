@@ -52,6 +52,7 @@
         '<p>Your branded '+esc(type)+' is downloading. '+
         (copy?'Prefer to fill it in online? <a href="'+esc(copy)+'" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Open an editable copy →</a>':'')+
         '</p>'+
+        '<p>Follow the scene on <a href="https://instagram.com/indiemusicindia.co" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Instagram</a>, or <a href="https://wa.me/919960025559" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">WhatsApp us</a> if you want a hand.</p>'+
         '<p style="font-size:13px;color:var(--muted)">It is free to use. Please share the page, not the file.</p>';
     });
   });
