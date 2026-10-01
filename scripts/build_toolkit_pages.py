@@ -20,6 +20,9 @@ OUT = REPO/"toolkit"
 def esc(s):
     s=str(s).replace(' — ', ', ').replace('—', ', ').replace('–','-')
     return html.escape(s, quote=False)
+def clean_head(v):
+    v=re.sub(r'^[^0-9A-Za-z]+|[^0-9A-Za-z)\"\']+$','',v).strip()
+    return v
 def slugify(t): return re.sub(r"[^a-z0-9]+","-",t.lower()).strip("-")[:60]
 
 SMALL = {"a","an","the","and","or","but","of","to","in","on","for","at","by","with","vs","via","from","your","you"}
@@ -91,6 +94,8 @@ def render_blocks(blocks, as_checklist):
     for typ, val in blocks:
         if typ=="h2":
             if _noise(val): continue
+            val=clean_head(val)
+            if len(re.sub(r'[^A-Za-z]','',val))<2: continue
             out.append(f'      <h2>{esc(val)}</h2>')
         elif typ=="p":
             if _noise(val): continue
@@ -128,6 +133,8 @@ def page(doc):
         for typ,val in blocks:
             if typ=="h2":
                 if "|" in val or "_" in val: continue  # table-footer rows misdetected as headings
+                val=clean_head(val)
+                if len(re.sub(r'[^A-Za-z]','',val))<2: continue  # divider junk
                 parts.append(f'      <h2>{esc(val)}</h2>')
             elif typ=="p":
                 if "|" in val or "_" in val or (val.endswith(":") and len(val)<48) or len(val)<25:
