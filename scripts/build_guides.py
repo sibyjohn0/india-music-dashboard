@@ -8,7 +8,7 @@ for the long-tail keyword batch. Re-runnable; overwrites its own pages only.
 import json, html, os
 from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
-TODAY = "2026-08-31"
+TODAY = "2026-10-01"
 
 def esc(s): return html.escape(str(s), quote=True)
 
@@ -65,7 +65,7 @@ NAV = """<nav class="js-primnav">
 AUTHOR = ('By <a href="/about/" style="color:var(--accent);font-weight:600">Siby John</a>, '
           'thirteen years inside the platforms that decide which music gets seen: Marketing '
           'Manager at YouTube India from 2022 to 2025, working with 400+ artists and labels, '
-          'now Senior Creator Manager at LinkedIn. Reviewed 31 August 2026.')
+          'now Senior Creator Manager at LinkedIn. Reviewed October 2026.')
 
 STYLE = open(REPO/"guides/best-music-distributor-india/index.html").read()
 STYLE = STYLE[STYLE.index("<style>"):STYLE.index('<link rel="stylesheet" href="/assets/poppy.css">')]
@@ -77,6 +77,16 @@ def render_body(sections):
         for item in s["body"]:
             if isinstance(item, dict) and "ul" in item:
                 out.append("<ul>" + "".join(f"<li>{li}</li>" for li in item["ul"]) + "</ul>")
+            elif isinstance(item, dict) and "table" in item:
+                t = item["table"]
+                th = 'padding:9px 12px;font-weight:800'
+                td = 'padding:9px 12px;border-top:1px solid rgba(36,27,46,.12);vertical-align:top'
+                head = "".join(f'<th style="{th}">{esc(h)}</th>' for h in t["headers"])
+                body = "".join("<tr>" + "".join(f'<td style="{td}">{c}</td>' for c in row) + "</tr>" for row in t["rows"])
+                out.append('<div style="overflow-x:auto;margin:18px 0">'
+                           '<table style="width:100%;border-collapse:collapse;font-size:14px;min-width:560px">'
+                           f'<thead><tr style="text-align:left;border-bottom:2px solid var(--border)">{head}</tr></thead>'
+                           f'<tbody>{body}</tbody></table></div>')
             else:
                 out.append(f"<p>{item}</p>")
     return "\n".join(out)
@@ -92,7 +102,7 @@ def build(g):
     article_ld = {"@context":"https://schema.org","@type":"Article","headline":g["title"],
         "description":g["desc"],"image":"https://indiemusicindia.com/og-image.png",
         "datePublished":TODAY,"dateModified":TODAY,
-        "author":{"@type":"Organization","name":"Indie Music India"},
+        "author":{"@type":"Person","name":"Siby John","url":"https://indiemusicindia.com/about/","sameAs":["https://linkedin.com/in/sibyjohn"],"jobTitle":"Senior Creator Manager, LinkedIn (ex-YouTube India)"},
         "publisher":{"@type":"Organization","name":"Indie Music India","logo":{"@type":"ImageObject","url":"https://indiemusicindia.com/og-image.png"}},
         "mainEntityOfPage":url}
     crumb_ld = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
