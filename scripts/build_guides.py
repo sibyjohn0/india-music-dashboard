@@ -69,7 +69,7 @@ AUTHOR = ('By <a href="/about/" style="color:var(--accent);font-weight:600">Siby
           'now Senior Creator Manager at LinkedIn. Reviewed October 2026.')
 
 STYLE = open(REPO/"guides/best-music-distributor-india/index.html").read()
-STYLE = STYLE[STYLE.index("<style>"):STYLE.index('<link rel="stylesheet" href="/assets/poppy.css">')]
+STYLE = STYLE[STYLE.index("<style>"):STYLE.index('<link rel="stylesheet" href="/assets/poppy.css?v=20261001">')]
 
 def render_body(sections):
     out = []
@@ -132,7 +132,7 @@ def build(g):
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   {STYLE}
   <style>.g-softcta{{margin-top:38px;font-size:14px;color:var(--muted);line-height:1.65;border-left:3px solid var(--accent);padding:2px 0 2px 15px}}.g-softcta a{{color:var(--accent);font-weight:600}}</style>
-  <link rel="stylesheet" href="/assets/poppy.css">
+  <link rel="stylesheet" href="/assets/poppy.css?v=20261001">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -172,7 +172,7 @@ def build(g):
 </footer>
 <script>document.addEventListener('click',function(e){{var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');}});document.addEventListener('keydown',function(e){{if(e.key==='Escape')document.body.classList.remove('mnav-open');}});</script>
   <script src="/assets/analytics.js" defer></script>
-  <script src="/assets/nav.js" defer></script>
+  <script src="/assets/nav.js?v=20261001" defer></script>
 </body>
 </html>"""
     d = REPO/"guides"/g['slug']

@@ -496,3 +496,10 @@ img{max-width:100%;height:auto}
   body::after{background-image:none!important;animation:none!important}
   .confetti-accent,.confetti-full{background-image:none!important}
 }
+@media (max-width:640px){
+  /* closed mobile nav must not be keyboard/SR reachable (was focusable off-screen) */
+  body:not(.mnav-open) nav.js-primnav{visibility:hidden}
+  body.mnav-open nav.js-primnav{visibility:visible}
+  /* nav tap targets >=44px */
+  nav.js-primnav a,nav.js-primnav .navgrp-btn{min-height:44px;display:flex;align-items:center}
+}

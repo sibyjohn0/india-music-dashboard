@@ -107,7 +107,7 @@ def render_blocks(blocks, as_checklist):
 HEAD_CSS = open(REPO/"toolkit"/"new-release-checklist"/"index.html").read()
 # pull the two <style> blocks + poppy link from the proof page to stay identical
 STYLE = re.search(r'(<style>.*?</style>\s*<style id="mnav-css">.*?</style>)', HEAD_CSS, re.S).group(1)
-POPPY = '<link rel="stylesheet" href="/assets/poppy.css">'
+POPPY = '<link rel="stylesheet" href="/assets/poppy.css?v=20261001">'
 
 def page(doc):
     title=html.unescape(doc["title"]); did=doc["id"]; k=kind(title)
@@ -196,7 +196,7 @@ def page(doc):
   if(b)b.addEventListener('click',function(){{document.body.classList.toggle('mnav-open');}});
   document.addEventListener('click',function(e){{var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');}});
   </script>
-  <script src="/assets/nav.js" defer></script>
+  <script src="/assets/nav.js?v=20261001" defer></script>
   <script src="/assets/gate.js" defer></script>
 </body>
 </html>

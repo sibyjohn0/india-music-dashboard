@@ -106,7 +106,7 @@ def head(title, desc, canonical, extra_ld=""):
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>{STYLE}</style>
-  <link rel="stylesheet" href="/assets/poppy.css">
+  <link rel="stylesheet" href="/assets/poppy.css?v=20261001">
   {extra_ld}
 </head>
 <body>
@@ -125,7 +125,7 @@ FOOT = f'''<footer>
 </footer>
 {SCRIPTJS}
 <script src="/assets/analytics.js" defer></script>
-  <script src="/assets/nav.js" defer></script>\n</body>
+  <script src="/assets/nav.js?v=20261001" defer></script>\n</body>
 </html>'''
 
 

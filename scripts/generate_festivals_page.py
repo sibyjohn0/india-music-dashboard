@@ -166,7 +166,7 @@ footer{{display:flex;flex-direction:column;gap:12px;padding:26px 32px;border-top
 nav.js-primnav{{position:fixed!important;inset:0!important;height:100dvh!important;width:100%!important;flex-direction:column!important;justify-content:center!important;align-items:center!important;gap:4px!important;background:rgba(10,10,15,.98)!important;transform:translateX(100%);transition:transform .34s;z-index:290!important;border:0!important}}
 body.mnav-open nav.js-primnav{{transform:translateX(0)!important}}
 nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14px 30px!important;height:auto!important}}}}</style>
-  <link rel="stylesheet" href="/assets/poppy.css">
+  <link rel="stylesheet" href="/assets/poppy.css?v=20261001">
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Indian music festivals & tours","url":"https://indiemusicindia.com/live/","description":"Live dates, venues and tickets for music festivals and artist tours across India.","isPartOf":{{"@type":"WebSite","name":"Indie Music India","url":"https://indiemusicindia.com/"}}}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ItemList","name":"Upcoming music events in India","numberOfItems":{n_events},"itemListElement":[{schema}]}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Live","item":"https://indiemusicindia.com/live/"}}]}}</script>
@@ -219,7 +219,7 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
 </footer>
 <script>document.addEventListener('click',function(e){{var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');}});document.addEventListener('keydown',function(e){{if(e.key==='Escape')document.body.classList.remove('mnav-open');}});</script>
 <script src="/assets/analytics.js" defer></script>
-  <script src="/assets/nav.js" defer></script>\n</body>
+  <script src="/assets/nav.js?v=20261001" defer></script>\n</body>
 </html>'''
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(page)
