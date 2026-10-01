@@ -85,17 +85,22 @@ def parse(txt, title):
         blocks=blocks[1:]
     return blocks
 
+def _noise(x): return "|" in x or "___" in x  # table rows / fill-in blanks
 def render_blocks(blocks, as_checklist):
     out=[]
     for typ, val in blocks:
         if typ=="h2":
+            if _noise(val): continue
             out.append(f'      <h2>{esc(val)}</h2>')
         elif typ=="p":
+            if _noise(val): continue
             if len(val)<80 and val.endswith(":"):   # a field/label line
                 out.append(f'      <p><b>{esc(val)}</b></p>')
             else:
                 out.append(f'      <p>{esc(val)}</p>')
         elif typ=="ul":
+            val=[x for x in val if not _noise(x)]
+            if not val: continue
             if as_checklist:
                 items="".join(f'<li><span class="box">✓</span><span class="txt">{esc(x)}</span></li>' for x in val)
                 out.append(f'      <ul class="ck">{items}</ul>')
@@ -114,26 +119,41 @@ def page(doc):
     slug=slugify(title)                        # clean URL slug (from unescaped title)
     txt=(SRC/f"{doc['slug']}.txt").read_text(encoding="utf-8", errors="ignore")  # file uses original slug
     blocks=parse(txt, title)
+    first_para=""
     if k=="template":
-        # template docs are table-based fill-in forms; the text export collapses tables into
-        # run-on walls. Show a clean intro + "what's inside" section list, drive to the copy button.
-        intro=[]; sections=[]
+        # Unpack the doc's explanatory content (headings, real paragraphs, lists) for SEO and
+        # for the reader, but skip the fill-in noise: pipe-table rows, "Label:" fields, blank-line
+        # placeholders. The editable copy + branded download carry the actual fill-in form.
+        parts=[]
         for typ,val in blocks:
-            if typ=="h2": sections.append(val)
-            elif typ=="p" and not sections and len(intro)<2 and len(val)>25: intro.append(val)
-        body="\n".join(f'      <p>{esc(x)}</p>' for x in intro)
-        sections=[s for s in sections if "₹" not in s and "_" not in s]  # drop field/total rows
-        if sections:
-            lis="".join(f'<li>{esc(s)}</li>' for s in sections)
-            body+=f'\n      <h2>What\'s inside this template</h2>\n      <ul>{lis}</ul>'
+            if typ=="h2":
+                if "|" in val or "_" in val: continue  # table-footer rows misdetected as headings
+                parts.append(f'      <h2>{esc(val)}</h2>')
+            elif typ=="p":
+                if "|" in val or "_" in val or (val.endswith(":") and len(val)<48) or len(val)<25:
+                    continue
+                if not first_para: first_para=val
+                parts.append(f'      <p>{esc(val)}</p>')
+            elif typ=="ul":
+                clean=[x for x in val if "|" not in x and "_" not in x and len(x.strip())>2]
+                if clean:
+                    items="".join(f'<li>{esc(x)}</li>' for x in clean)
+                    parts.append(f'      <ul>{items}</ul>')
+        body="\n".join(parts)
     else:
+        for typ,val in blocks:
+            if typ=="p" and len(val)>40: first_para=val; break
         body=render_blocks(blocks, as_checklist=(k=="checklist"))
     url=f"https://indiemusicindia.com/toolkit/{slug}/"
     lead=("A free, ready-to-use template for independent Indian artists. Read it here, or make your own copy to fill in."
           if k=="template" else
           "A free, practical guide for independent Indian artists. Part of the Indie Music India toolkit.")
     eyebrow={"checklist":"Toolkit · Checklist","template":"Toolkit · Template","guide":"Toolkit · Guide"}[k]
-    desc=f"{title}. A free {k} for independent Indian musicians, part of the Indie Music India toolkit."
+    if first_para:
+        d=first_para.strip()
+        desc=(d[:150].rsplit(" ",1)[0]+".") if len(d)>155 else d
+    else:
+        desc=f"{title}. A free {k} for independent Indian musicians, part of the Indie Music India toolkit."
     _ext = "xlsx" if is_sheet(slug) else "pdf"
     _dtype = "spreadsheet" if is_sheet(slug) else "PDF"
     copybtn=(f'''    <div class="g-cta dl-gate" data-slug="{slug}" data-file="/toolkit/{slug}/{slug}.{_ext}" data-type="{_dtype}" data-copy="https://docs.google.com/document/d/{did}/copy" data-title="{esc(title)}">

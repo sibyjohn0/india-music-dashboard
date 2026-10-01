@@ -56,7 +56,7 @@ ul.clean{margin:0; padding-left:18px} ul.clean li{margin-bottom:7px}
 .topnav{margin-left:auto; display:flex; gap:15px; flex-wrap:wrap}
 .topnav a{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); border:none} .topnav a:hover{color:var(--text)}
 .tgl{font-family:'Space Mono',monospace; font-size:11px; text-transform:uppercase; letter-spacing:.1em; background:none; border:1px solid var(--border); color:var(--text); border-radius:8px; padding:6px 10px; cursor:pointer}
-@media(max-width:960px){.topnav{display:none}}
+@media(max-width:960px){.topnav{display:flex;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;scrollbar-width:none}}
 .hero{padding:70px 0 54px; position:relative; overflow:hidden}
 .hero h1{font-size:clamp(38px,8vw,80px); margin:14px 0 18px} .hero .lede{font-size:19px}
 .blob{position:absolute; border-radius:50%; opacity:.9; pointer-events:none; z-index:0}
