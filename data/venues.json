@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-30T06:41:09.765129+00:00",
+  "generated_at": "2026-10-01T07:25:46.255041+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
-      "venue_count": 5,
-      "show_count": 8,
+      "venue_count": 6,
+      "show_count": 9,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -16,13 +16,6 @@
               "date": "2026-11-21",
               "url": "https://in.bookmyshow.com/events/anyma-presents-aeden-mumbai/ET00480995",
               "price": "from ₹4,250",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Sunburn Festival 2026",
-              "date": "2026-12-18",
-              "url": "https://in.bookmyshow.com/events/sunburn-festival-2026/ET00498558",
-              "price": "from ₹2,500",
               "source": "bookmyshow"
             },
             {
@@ -38,26 +31,33 @@
               "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
               "price": "from ₹4,499",
               "source": "bookmyshow"
+            },
+            {
+              "name": "Foo Fighters India Tour 2027 - Mumbai",
+              "date": "2027-01-31",
+              "url": "https://in.bookmyshow.com/events/foo-fighters-india-tour-2027-mumbai/ET00502947",
+              "price": "from ₹4,000",
+              "source": "bookmyshow"
             }
           ],
           "shows": 4,
           "next_date": "2026-11-21"
         },
         {
-          "name": "Raasta Bombay, Khar, Mumbai.",
+          "name": "Little Theatre",
           "city": "Mumbai",
-          "area": "Bombay",
+          "area": "",
           "gigs": [
             {
-              "name": "F1 Bahrain Grand Prix | Live Screening |  Raasta Bombay, Khar, Mumbai.",
-              "date": "2026-10-04",
-              "url": "https://www.skillboxes.com/events/f1-bahrain-grand-prix-live-screening-raasta-bombay-khar-mumbai-sbqfgfho",
-              "price": "from ₹300",
-              "source": "skillboxes"
+              "name": "Page to Stage - Kehan",
+              "date": "2026-10-01",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
             }
           ],
           "shows": 1,
-          "next_date": "2026-10-04"
+          "next_date": "2026-10-01"
         },
         {
           "name": "Dome SVP Stadium",
@@ -74,6 +74,22 @@
           ],
           "shows": 1,
           "next_date": "2026-10-25"
+        },
+        {
+          "name": "Live Electronic Dance Funk",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Dark Circle Factory | Live Electronic Dance Funk",
+              "date": "2026-10-29",
+              "url": "https://www.skillboxes.com/events/dark-circle-factory-live-electronic-dance-funk-sbuxujue",
+              "price": "from ₹499",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-29"
         },
         {
           "name": "antiSOCIAL",
@@ -111,9 +127,273 @@
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 3,
-      "show_count": 3,
+      "venue_count": 18,
+      "show_count": 26,
       "venues": [
+        {
+          "name": "Studio XO",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Studio XO presents The One Note",
+              "date": "2026-10-01",
+              "url": "https://in.bookmyshow.com/events/studio-xo-presents-the-one-note/ET00490768",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Studio XO Presents Nizami Brothers IGT Live",
+              "date": "2026-10-04",
+              "url": "https://in.bookmyshow.com/events/pokerbaazi-presents-nizami-brothers-igt-live/ET00371174",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Studio XO Presents Naman Live",
+              "date": "2026-10-05",
+              "url": "https://in.bookmyshow.com/events/studio-xo-presents-naman-live/ET00490456",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Studio XO Presents Madhuram Live",
+              "date": "2026-10-08",
+              "url": "https://in.bookmyshow.com/events/studio-xo-presents-madhuram-live/ET00493407",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Studio XO Presents Sahil Tiwari Live",
+              "date": "2026-10-26",
+              "url": "https://in.bookmyshow.com/events/studio-xo-presents-sahil-tiwari-live/ET00503087",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Studio XO Presents Harsh Arora Live",
+              "date": "2026-10-30",
+              "url": "https://in.bookmyshow.com/events/studio-xo-presents-harsh-arora/ET00505228",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 6,
+          "next_date": "2026-10-01"
+        },
+        {
+          "name": "The Laugh Casa, Rcube Monad Mall",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Bhaj Mann Bhajan Clubbing Ft Sadhvi Pragya Bharti",
+              "date": "2026-10-04",
+              "url": "https://in.bookmyshow.com/events/bhajan-clubbing-ft-sadhvi-pragya-bharti/ET00498412",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Ye Jo Hans Rahi Hai Dunia by Rahgir",
+              "date": "2026-10-09",
+              "url": "https://in.bookmyshow.com/events/ye-jo-hans-rahi-hai-duniya/ET00500649",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-10-04"
+        },
+        {
+          "name": "The Piano Man, Eldeco Centre",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Sukoon Bharat Tour - Delhi",
+              "date": "2026-10-08",
+              "url": "https://in.bookmyshow.com/events/sukoon-bharat-tour-delhi/ET00508716",
+              "price": "from ₹699",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Cassettes and CDs Nostalgia By Avinash Gupta",
+              "date": "2026-10-17",
+              "url": "https://in.bookmyshow.com/events/cassettes-and-cds-nostalgia-by-avinash-gupta/ET00428417",
+              "price": "from ₹2,358",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-10-08"
+        },
+        {
+          "name": "Shri Ram Centre for Performing Arts",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Carvaan Live: Rock with RD Burman at SRCPA",
+              "date": "2026-10-25",
+              "url": "https://in.bookmyshow.com/events/carvaan-live-rock-with-rd-burman-at-srcpa/ET00519795",
+              "price": "from ₹1,199",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Carvaan Live: Swagger of Bachchan at SRCPA",
+              "date": "2026-10-25",
+              "url": "https://in.bookmyshow.com/events/carvaan-live-swagger-of-bachchan-at-srcpa/ET00519798",
+              "price": "from ₹1,099",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-10-25"
+        },
+        {
+          "name": "Big Pitcher",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Filmy Friday's",
+              "date": "2026-10-02",
+              "url": "https://in.bookmyshow.com/events/clubbers-friday-by-big-pitcher/ET00350920",
+              "price": "from ₹1,000",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-02"
+        },
+        {
+          "name": "Ambassador New Delhi, IHCL SeleQtions",
+          "city": "Delhi",
+          "area": "New Delhi",
+          "gigs": [
+            {
+              "name": "Carvaan Live: Magic of Rafi at Ambassador",
+              "date": "2026-10-04",
+              "url": "https://in.bookmyshow.com/events/carvaan-live-magic-of-rafi-at-ambassador/ET00511828",
+              "price": "from ₹1,099",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-04"
+        },
+        {
+          "name": "ShellBeacon Cafe",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Mehfil - e- Sufi Baithak",
+              "date": "2026-10-04",
+              "url": "https://in.bookmyshow.com/events/mehfil-e-sufi-baithak/ET00519703",
+              "price": "from ₹149",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-04"
+        },
+        {
+          "name": "The Country Club - Saket",
+          "city": "Delhi",
+          "area": "Saket",
+          "gigs": [
+            {
+              "name": "Shukrana-2",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/shukrana-2/ET00505124",
+              "price": "from ₹2,500",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-10"
+        },
+        {
+          "name": "The Laugh Store",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Ye Jo Hans Rahi Hai Dunia By Rahgir",
+              "date": "2026-10-11",
+              "url": "https://in.bookmyshow.com/events/ye-jo-hans-rahi-hai-dunia-by-rahgir/ET00146878",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-11"
+        },
+        {
+          "name": "Nimantrana Hotel",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Navratri Dandiya Night",
+              "date": "2026-10-16",
+              "url": "https://in.bookmyshow.com/events/navratri-dandiya-night/ET00518590",
+              "price": "from ₹199",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-16"
+        },
+        {
+          "name": "Vegas Mall",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Max Urbn Unmute Delhi x Spotify RAP 91",
+              "date": "2026-10-17",
+              "url": "https://in.bookmyshow.com/events/max-urbn-unmute-delhi-x-spotify-rap-91/ET00514450",
+              "price": "from ₹899",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-17"
+        },
+        {
+          "name": "Rcube Monad",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "RCUBE MALL DANDIYA NIGHT",
+              "date": "2026-10-17",
+              "url": "https://in.bookmyshow.com/events/rcube-mall-dandiya-night/ET00516444",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-17"
+        },
+        {
+          "name": "Punjabi Bagh Club",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "RHYTHM & RAAS",
+              "date": "2026-10-18",
+              "url": "https://in.bookmyshow.com/events/rhythm-raas/ET00517093",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-18"
+        },
         {
           "name": "Kamani Auditorium",
           "city": "Delhi",
@@ -161,14 +441,69 @@
           ],
           "shows": 1,
           "next_date": "2026-10-23"
+        },
+        {
+          "name": "HuHaHo",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "DIWALI MUSICAL NIGHT",
+              "date": "2026-10-24",
+              "url": "https://in.bookmyshow.com/events/diwali-musical-night/ET00518518",
+              "price": "from ₹999",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-24"
+        },
+        {
+          "name": "JLN Stadium, Gate No. 1",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "ANOTR - Live in Delhi",
+              "date": "2026-11-14",
+              "url": "https://in.bookmyshow.com/events/anotr-live-in-delhi/ET00509190",
+              "price": "from ₹3,000",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-14"
         }
       ]
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 8,
-      "show_count": 9,
+      "venue_count": 9,
+      "show_count": 11,
       "venues": [
+        {
+          "name": "NICE Grounds",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Guns N' Roses: India 2026 - Bengaluru",
+              "date": "2026-11-14",
+              "url": "https://in.bookmyshow.com/events/guns-n-roses-india-2026-bengaluru/ET00501962",
+              "price": "from ₹4,000",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Sunburn Arena ft. DJ Snake",
+              "date": "2026-12-18",
+              "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-dj-snake/ET00514999",
+              "price": "from ₹1,500",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-11-14"
+        },
         {
           "name": "District Arena @ Terraform",
           "city": "Bengaluru",
@@ -249,7 +584,7 @@
               "name": "Opeth Live in Bengaluru | Bighorn Arena",
               "date": "2026-10-04",
               "url": "https://www.skillboxes.com/events/opeth-live-in-bengaluru-bighorn-arena",
-              "price": "₹2,999–₹6,999",
+              "price": "₹2,999–₹7,499",
               "source": "skillboxes"
             }
           ],
@@ -289,157 +624,117 @@
           "next_date": "2026-11-01"
         },
         {
-          "name": "NICE Grounds",
+          "name": "Bengaluru LIVE, Bengaluru",
           "city": "Bengaluru",
           "area": "",
           "gigs": [
             {
-              "name": "Sunburn Arena ft. DJ Snake",
-              "date": "2026-12-18",
-              "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-dj-snake/ET00514999",
-              "price": "from ₹1,500",
+              "name": "Foo Fighters India Tour 2027 - Bengaluru",
+              "date": "2027-01-29",
+              "url": "https://in.bookmyshow.com/events/foo-fighters-india-tour-2027-bengaluru/ET00502948",
+              "price": "from ₹4,000",
               "source": "bookmyshow"
             }
           ],
           "shows": 1,
-          "next_date": "2026-12-18"
+          "next_date": "2027-01-29"
         }
       ]
     },
     "hyderabad": {
       "name": "Hyderabad",
-      "venue_count": 19,
+      "venue_count": 0,
+      "show_count": 0,
+      "venues": []
+    },
+    "pune": {
+      "name": "Pune",
+      "venue_count": 23,
       "show_count": 29,
       "venues": [
         {
-          "name": "Big Bull Club",
-          "city": "Hyderabad",
+          "name": "Yashwantrao Chavan Natyagruha",
+          "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Lineup Thursdays - Loop On at Big Bull",
-              "date": "2026-10-01",
-              "url": "https://in.bookmyshow.com/events/lineup-thursdays-loop-on-at-big-bull/ET00519600",
-              "price": "from ₹299",
+              "name": "Classically Pure",
+              "date": "2026-10-02",
+              "url": "https://in.bookmyshow.com/events/classically-pure/etz43ip403",
+              "price": "from ₹500",
               "source": "bookmyshow"
             },
             {
-              "name": "Desi Drip Sundays : Pro Bros at Sunday",
-              "date": "2026-10-04",
-              "url": "https://in.bookmyshow.com/events/desi-drip-sundays-pro-bros-at-sunday/ET00519531",
-              "price": "from ₹299",
+              "name": "Shahenshah",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/shahenshah/et232q7o21",
+              "price": "from ₹300",
               "source": "bookmyshow"
             },
             {
-              "name": "Quick Style India Tour - Hyderabad",
+              "name": "GAYE LATA",
+              "date": "2026-10-16",
+              "url": "https://in.bookmyshow.com/events/gaye-lata/et8ojcfb42",
+              "price": "from ₹300",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Trendsetters - A Bollywood Musical",
               "date": "2026-11-01",
-              "url": "https://in.bookmyshow.com/events/quick-style-india-tour-hyderabad/ET00495698",
-              "price": "from ₹1,499",
+              "url": "https://in.bookmyshow.com/events/trendsetters-a-bollywood-musical/ET00516339",
+              "price": "from ₹200",
               "source": "bookmyshow"
             }
           ],
-          "shows": 3,
-          "next_date": "2026-10-01"
+          "shows": 4,
+          "next_date": "2026-10-02"
         },
         {
-          "name": "Silaa The Garden Cafe Jubilee Hills",
-          "city": "Hyderabad",
-          "area": "Jubilee Hills",
-          "gigs": [
-            {
-              "name": "Silaa Saturday Hindi Jamming Hyderabad",
-              "date": "2026-10-03",
-              "url": "https://in.bookmyshow.com/events/silaa-saturday-hindi-jamming-hyderabad/ET00499711",
-              "price": "from ₹399",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Silaa Sunday Telugu Live Jamming Hyderabad",
-              "date": "2026-10-04",
-              "url": "https://in.bookmyshow.com/events/silaa-saturday-telugu-and-hindi-jamming-hyderabad/ET00500481",
-              "price": "from ₹399",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Silaa Sunday Hindi Jamming Hyderabad",
-              "date": "2026-10-04",
-              "url": "https://in.bookmyshow.com/events/silaa-sunday-hindi-jamming-hyderabad/ET00500472",
-              "price": "from ₹399",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 3,
-          "next_date": "2026-10-03"
-        },
-        {
-          "name": "Hard Rock Cafe",
-          "city": "Hyderabad",
+          "name": "Phoenix Avenue Of Stars",
+          "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Jai Ho - A.R. Rahman Revival Ft. Trisha Vox LIve",
-              "date": "2026-10-03",
-              "url": "https://in.bookmyshow.com/events/jai-ho-a-r-rahman-revival-ft-trisha-vox-live/ET00519008",
-              "price": "from ₹249",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Sunday Tunes Ft. Arpit and Chuba",
-              "date": "2026-10-04",
-              "url": "https://in.bookmyshow.com/events/sunday-tunes-ft-arpit-and-chuba/ET00496800",
+              "name": "Unstoppable by Dino James",
+              "date": "2026-10-24",
+              "url": "https://in.bookmyshow.com/events/unstoppable/ET00510175",
               "price": "from ₹499",
               "source": "bookmyshow"
             },
             {
-              "name": "The Iron Maiden Experience Ft. Maiden Voyage",
-              "date": "2026-10-31",
-              "url": "https://in.bookmyshow.com/events/the-iron-maiden-experience-ft-maiden-voyage/ET00519623",
-              "price": "from ₹249",
+              "name": "INDIAN OCEAN AT PHOENIX AVENUE OF STARS - PUNE",
+              "date": "2026-11-21",
+              "url": "https://in.bookmyshow.com/events/indian-ocean-live-at-phoenix-marketcity/ET00146444",
+              "price": "from ₹799",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Lakhwinder Wadali India Tour - Pune",
+              "date": "2027-01-16",
+              "url": "https://in.bookmyshow.com/events/lakhwinder-wadali-india-tour-pune/ET00514012",
+              "price": "from ₹499",
               "source": "bookmyshow"
             }
           ],
           "shows": 3,
-          "next_date": "2026-10-03"
+          "next_date": "2026-10-24"
         },
         {
-          "name": "Vault Brewery",
-          "city": "Hyderabad",
+          "name": "Buntara Bhavana",
+          "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Wednesday with Teja Live",
-              "date": "2026-09-30",
-              "url": "https://in.bookmyshow.com/events/friday-regional-live-ft-band-arohi/ET00476854",
-              "price": "from ₹999",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Thursday Live with Sandeep",
-              "date": "2026-10-01",
-              "url": "https://in.bookmyshow.com/events/live-regional-music-with-band-maracas/ET00506215",
-              "price": "from ₹999",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 2,
-          "next_date": "2026-09-30"
-        },
-        {
-          "name": "Phoenix Arena",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Sitara- Rewind 80's",
+              "name": "Roohani Safar",
               "date": "2026-10-03",
-              "url": "https://in.bookmyshow.com/events/sitara-rewind-80-s/ET00517561",
-              "price": "from ₹2,999",
+              "url": "https://in.bookmyshow.com/events/roohani-safar/ET00502815",
+              "price": "from ₹299",
               "source": "bookmyshow"
             },
             {
               "name": "Bhajan Jamming",
-              "date": "2026-10-07",
-              "url": "https://in.bookmyshow.com/events/bhajan-jamming/ET00517616",
+              "date": "2026-10-09",
+              "url": "https://in.bookmyshow.com/events/bhajan-jamming/etaekwa78d",
               "price": "from ₹399",
               "source": "bookmyshow"
             }
@@ -448,61 +743,15 @@
           "next_date": "2026-10-03"
         },
         {
-          "name": "Heart Cup Coffee",
-          "city": "Hyderabad",
+          "name": "Ram Krishna More Auditorium",
+          "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Kasyap ft. Vinuthna Live at HCC Gachibowli",
-              "date": "2026-10-10",
-              "url": "https://in.bookmyshow.com/events/kasyap-ft-vinuthna-first-ever-live-performance/ET00518032",
-              "price": "from ₹299",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Ayaan Live at HCC",
-              "date": "2026-10-23",
-              "url": "https://in.bookmyshow.com/events/ayaan-live-at-hcc/ET00519316",
-              "price": "from ₹699",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 2,
-          "next_date": "2026-10-10"
-        },
-        {
-          "name": "Quake Arena",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Bismil ki Mehfil - Hyderabad",
-              "date": "2026-11-28",
-              "url": "https://in.bookmyshow.com/events/bismil-ki-mehfil-hyderabad/et9d4383jm",
-              "price": "from ₹999",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Francis Mercier  - Live in Hyderabad",
-              "date": "2026-12-26",
-              "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-francis-mercier-hyderabad/ete01x7d8q",
-              "price": "from ₹1,500",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 2,
-          "next_date": "2026-11-28"
-        },
-        {
-          "name": "HITEX Exhibition Center",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "JAIKAAR - The Spiritual Concert",
+              "name": "Ek Shaam Sitaaron Ke Naam",
               "date": "2026-10-02",
-              "url": "https://in.bookmyshow.com/events/jaikaar-the-spiritual-concert/ET00515819",
-              "price": "from ₹1,500",
+              "url": "https://in.bookmyshow.com/events/ek-shaam-sitaaron-ke-naam/ets071a6e6",
+              "price": "from ₹250",
               "source": "bookmyshow"
             }
           ],
@@ -510,188 +759,101 @@
           "next_date": "2026-10-02"
         },
         {
-          "name": "Rumor - Sky Lounge",
-          "city": "Hyderabad",
+          "name": "Jawaharlal Nehru Memorial Hall",
+          "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "DANCE TEMPLE - Ecstatic dance & Cacao ceremony",
+              "name": "Bhajan Jamming with Muskan & Pragnay (Bhakti Duo)",
               "date": "2026-10-02",
-              "url": "https://in.bookmyshow.com/events/dance-temple-ecstatic-dance-cacao-ceremony/ET00518694",
-              "price": "from ₹799",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-02"
-        },
-        {
-          "name": "Carpe Diem - Best Night Club & Cafe",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "PRABHAS MANIA -The Birthday Month Celebration",
-              "date": "2026-10-02",
-              "url": "https://in.bookmyshow.com/events/prabhas-mania-the-birthday-month-celebration/ET00518672",
-              "price": "from ₹799",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-02"
-        },
-        {
-          "name": "Krishna Studio",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Hyderabad Music Jamming Session LIVE",
-              "date": "2026-10-04",
-              "url": "https://in.bookmyshow.com/events/hyderabad-music-jamming-with-live-band/ET00407151",
-              "price": "from ₹149",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-04"
-        },
-        {
-          "name": "Knox Club and Kitchen",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "A Hindi Jam - Suron ka safar by Ananda Music Club",
-              "date": "2026-10-04",
-              "url": "https://in.bookmyshow.com/events/a-hindi-jam-suron-ka-safar-by-ananda-music-club/ET00519899",
+              "url": "https://in.bookmyshow.com/events/bhajan-fusion-by-bhakti-jukebox/ET00515217",
               "price": "from ₹299",
               "source": "bookmyshow"
             }
           ],
           "shows": 1,
-          "next_date": "2026-10-04"
+          "next_date": "2026-10-02"
         },
         {
-          "name": "Red Rhino-Craft Brewery and Kitchen",
-          "city": "Hyderabad",
+          "name": "Filament Bar (Wakad)",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "SHAAM-E-SUFIYANA",
+              "date": "2026-10-03",
+              "url": "https://in.bookmyshow.com/events/shaam-e-sufiyana/ET00518610",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-03"
+        },
+        {
+          "name": "KOPA Mall",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Akhil Sachdeva Live",
+              "date": "2026-10-03",
+              "url": "https://in.bookmyshow.com/events/akhil-sachdeva-live/ET00518840",
+              "price": "from ₹799",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-03"
+        },
+        {
+          "name": "FC Road Social",
+          "city": "Pune",
           "area": "",
           "gigs": [
             {
               "name": "Jamming Night",
-              "date": "2026-10-04",
+              "date": "2026-10-03",
               "url": "https://in.bookmyshow.com/events/pookie-jams-the-premium-jamming-experience/ET00461172",
               "price": "from ₹299",
               "source": "bookmyshow"
             }
           ],
           "shows": 1,
-          "next_date": "2026-10-04"
+          "next_date": "2026-10-03"
         },
         {
-          "name": "Amnesia Sky Bar",
-          "city": "Hyderabad",
+          "name": "S.M.Joshi Socialist Foundation, Navi Peth",
+          "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "JAMURATHRI Telugu Jamming ft. Band Sakhi",
-              "date": "2026-10-04",
-              "url": "https://in.bookmyshow.com/events/jamurathri-telugu-jamming-ft-band-sakhi/ET00519352",
-              "price": "from ₹249",
+              "name": "Dev-Shashi - Melodies of Dev Anand & Shashi Kapoor",
+              "date": "2026-10-05",
+              "url": "https://in.bookmyshow.com/events/dev-shashi-songs-of-dev-anand-shashi-kapoor/ET00519924",
+              "price": "from ₹100",
               "source": "bookmyshow"
             }
           ],
           "shows": 1,
-          "next_date": "2026-10-04"
+          "next_date": "2026-10-05"
         },
         {
-          "name": "Kingdome Klub and Kitchen",
-          "city": "Hyderabad",
+          "name": "Oasis, Amanora Mall",
+          "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "AYESHA KHAN LIVE AT KINGDOME",
+              "name": "Papon Live In Concert - Pune",
               "date": "2026-10-10",
-              "url": "https://in.bookmyshow.com/events/ayesha-khan-live-at-kingdome/ET00518098",
-              "price": "from ₹399",
+              "url": "https://in.bookmyshow.com/events/papon-live-in-concert-pune/ET00448303",
+              "price": "from ₹1,999",
               "source": "bookmyshow"
             }
           ],
           "shows": 1,
           "next_date": "2026-10-10"
         },
-        {
-          "name": "Akan",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Yatra with Aanchal",
-              "date": "2026-10-11",
-              "url": "https://in.bookmyshow.com/events/yatra-with-aanchal/ET00509879",
-              "price": "from ₹2,399",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-11"
-        },
-        {
-          "name": "Kalyana Lakshmi Gardens",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Naacho Navratri",
-              "date": "2026-10-17",
-              "url": "https://in.bookmyshow.com/events/naacho-navaratri/ET00519189",
-              "price": "from ₹199",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-17"
-        },
-        {
-          "name": "Saptaparni",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Dial 9 For Devi",
-              "date": "2026-10-17",
-              "url": "https://in.bookmyshow.com/events/dial-9-for-devi/ET00519346",
-              "price": "from ₹449",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-17"
-        },
-        {
-          "name": "Tavaro Resorts and Events",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Religious India",
-              "date": "2026-11-14",
-              "url": "https://in.bookmyshow.com/events/religious-india/ET00518858",
-              "price": "from ₹1,499",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-14"
-        }
-      ]
-    },
-    "pune": {
-      "name": "Pune",
-      "venue_count": 4,
-      "show_count": 4,
-      "venues": [
         {
           "name": "Mahalakshmi Lawns",
           "city": "Pune",
@@ -733,12 +895,44 @@
               "name": "PSYLAB Presents : Sajanka — Live in Ballr, Pune",
               "date": "2026-10-23",
               "url": "https://www.skillboxes.com/events/sajanka-india-tour-2026-pune-sbdmqbwu",
-              "price": "₹999–₹2,000",
+              "price": "₹999–₹2,499",
               "source": "skillboxes"
             }
           ],
           "shows": 1,
           "next_date": "2026-10-23"
+        },
+        {
+          "name": "The Bierhaus",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "October fest : Malayalam Jamming by MakeSomeOchha",
+              "date": "2026-10-24",
+              "url": "https://in.bookmyshow.com/events/october-fest-malayalam-jamming-by-makesomeochha/ET00520047",
+              "price": "from ₹399",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-24"
+        },
+        {
+          "name": "Liberty Square, Phoenix Avenue of Stars",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Quick Style India Tour - Pune",
+              "date": "2026-10-25",
+              "url": "https://in.bookmyshow.com/events/quick-style-india-tour-pune/ET00495695",
+              "price": "from ₹999",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-25"
         },
         {
           "name": "Mayfield Yash Garden",
@@ -755,6 +949,118 @@
           ],
           "shows": 1,
           "next_date": "2026-10-30"
+        },
+        {
+          "name": "Tilak Smarak Mandir",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Diwali Pahat",
+              "date": "2026-11-08",
+              "url": "https://in.bookmyshow.com/events/diwali-pahat/ET00516066",
+              "price": "from ₹500",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-08"
+        },
+        {
+          "name": "Pandit Farms",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Nakshtranche Dene Pu La Deshpande Diwali Sandhya",
+              "date": "2026-11-09",
+              "url": "https://in.bookmyshow.com/events/nakshtranche-dene-pu-la-deshpande-diwali-sandhya/ET00519655",
+              "price": "from ₹500",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-09"
+        },
+        {
+          "name": "Shubharambh Lawns",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Geet Ramayan",
+              "date": "2026-11-10",
+              "url": "https://in.bookmyshow.com/events/geet-ramayan/ET00519720",
+              "price": "from ₹300",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-10"
+        },
+        {
+          "name": "Amanora Mall",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Aditya Rikhari's Meri Paro India Tour - Pune",
+              "date": "2026-11-21",
+              "url": "https://in.bookmyshow.com/events/aditya-rikhari-s-meri-paro-india-tour-pune/ett6228myd",
+              "price": "from ₹999",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-21"
+        },
+        {
+          "name": "Suryakant Kakade Farms, Kothrud",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Jasmine Sandlas Live in Concert",
+              "date": "2026-11-28",
+              "url": "https://in.bookmyshow.com/events/jasmine-sandlas-live-in-concert/ET00517820",
+              "price": "from ₹1,499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-28"
+        },
+        {
+          "name": "Liberty Square Phoenix Mall, Viman Nagar",
+          "city": "Pune",
+          "area": "Viman Nagar",
+          "gigs": [
+            {
+              "name": "Madhubanti Bagchi India Tour- THIS IS WHO WE ARE",
+              "date": "2026-11-28",
+              "url": "https://in.bookmyshow.com/events/madhubanti-bagchi-india-tour-this-is-who-we-are/ET00515137",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-28"
+        },
+        {
+          "name": "Mahalakshmi Lawns, Kharadi",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Karma Burn (A Sacred Symphony) - Ameya Dabli",
+              "date": "2026-12-19",
+              "url": "https://in.bookmyshow.com/events/karma-burn-a-sacred-symphony-ameya-dabli/ET00513538",
+              "price": "from ₹1,250",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-12-19"
         }
       ]
     },
