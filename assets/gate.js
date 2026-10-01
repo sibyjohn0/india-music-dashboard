@@ -34,6 +34,8 @@
       '<form class="dl-form" novalidate>'+
         '<input name="name" type="text" placeholder="Your name" autocomplete="name" required>'+
         '<input name="email" type="email" placeholder="Email" autocomplete="email" required>'+
+        '<input name="instagram" type="text" placeholder="Instagram handle (so we can find your music)" autocomplete="off">'+
+        '<input name="phone" type="tel" placeholder="Phone / WhatsApp (optional)" autocomplete="tel">'+
         '<input name="city" type="text" placeholder="City (optional)" autocomplete="address-level2">'+
         '<button type="submit" class="g-btn">Get the template →</button>'+
         '<p class="dl-err" role="alert" style="color:#D8005E;font-size:13px;display:none"></p>'+
@@ -41,11 +43,12 @@
     var form=g.querySelector(".dl-form"), err=g.querySelector(".dl-err");
     form.addEventListener("submit",function(ev){
       ev.preventDefault();
-      var name=form.name.value.trim(), email=form.email.value.trim(), city=form.city.value.trim();
+      var name=form.name.value.trim(), email=form.email.value.trim(), city=form.city.value.trim(),
+          instagram=form.instagram.value.trim(), phone=form.phone.value.trim();
       if(!name){ err.textContent="Please add your name."; err.style.display="block"; return; }
       if(!EMAIL.test(email)){ err.textContent="Please enter a valid email."; err.style.display="block"; return; }
       err.style.display="none";
-      capture({name:name,email:email,city:city,resource:title,type:type});
+      capture({Name:name,Email:email,Instagram:instagram,Phone:phone,City:city,Resource:title,Type:type});
       download(file);
       g.innerHTML =
         '<h3>Done. Check your downloads.</h3>'+
