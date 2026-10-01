@@ -2,7 +2,7 @@
 <html lang="en-IN">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spotify royalty calculator (India) — Indie Music India</title>
+  <title>Spotify royalty calculator (India), Indie Music India</title>
   <meta name="description" content="Estimate what your music streams are worth in rupees. Free embeddable calculator by Indie Music India." />
   <link rel="canonical" href="https://indiemusicindia.com/tools/royalty-calculator/" />
   <style>
@@ -50,11 +50,11 @@
     <input type="number" id="streams" min="0" step="1000" value="100000" inputmode="numeric" />
   </div>
   <div class="field">
-    <label for="indiamix">Listeners from India <span class="val" id="indiamixval">80%</span> <span class="hint">— the rest are international (they pay more)</span></label>
+    <label for="indiamix">Listeners from India <span class="val" id="indiamixval">80%</span> <span class="hint">, the rest are international (they pay more)</span></label>
     <input type="range" id="indiamix" min="0" max="100" step="5" value="80" />
   </div>
   <div class="field">
-    <label for="cut">Distributor takes <span class="val" id="cutval">0%</span> <span class="hint">— flat-fee = 0%, revenue-split = 9-30%</span></label>
+    <label for="cut">Distributor takes <span class="val" id="cutval">0%</span> <span class="hint">, flat-fee = 0%, revenue-split = 9-30%</span></label>
     <input type="range" id="cut" min="0" max="30" step="1" value="0" />
   </div>
   <div class="result">
@@ -66,7 +66,7 @@
   <p class="credit">Free calculator by <a href="https://indiemusicindia.com/tools/royalty-calculator/" target="_blank" rel="noopener">Indie Music India</a></p>
 </div>
 <script>
-  var RATE={india:{low:0.03,high:0.05}, intl:{low:0.25,high:0.42}};
+  var RATE={india:{low:0.05,high:0.08}, intl:{low:0.25,high:0.42}};
   var PLATS={spotify:{name:'Spotify',pf:1.0}, apple:{name:'Apple Music',pf:1.3}, jiosaavn:{name:'JioSaavn',pf:0.5}, youtube:{name:'YouTube Music',pf:0.4}};
   function inr(n){return '₹'+Math.round(n).toLocaleString('en-IN');}
   function calc(){

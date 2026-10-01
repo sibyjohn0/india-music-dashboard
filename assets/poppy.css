@@ -481,3 +481,18 @@ footer *{color:var(--ink)!important}
   table.cmp td.rl{display:block;text-align:left;font-weight:800!important;font-size:15px;border-bottom:1px solid var(--border)!important;padding:8px 0 6px!important;margin-bottom:2px}
   table.cmp td:not(.rl)::before{content:attr(data-col);flex:0 0 43%;text-align:left;color:var(--muted);font-weight:700;font-size:12px;letter-spacing:.2px}
 }
+
+/* ── Accessibility AA overrides (audit 2026-10-01) ─────────────────────────
+   Violet #8B5CF6 (3.99:1) and pink #FF4D8D (2.95:1) fail AA as text; darken
+   the label/link uses to #6A2BD9 / #D8005E (verified ≥4.5:1 on cream & white).
+   Keep the original hexes for large/decorative fills only. */
+.pg-label,.section-label,.kicker,.contact-label,.doc-num,.res-section-label,
+.group-header-label,.pb-phase-eyebrow,.badge-global,.status-major-only,
+.status-closed,.pg-email,.tool-link,.res-jump{color:#6A2BD9}
+.feat-num,.doc-arrow,.read-arrow{color:#D8005E}
+:focus-visible{outline:3px solid #241B2E;outline-offset:2px}
+img{max-width:100%;height:auto}
+@media (prefers-reduced-motion:reduce){
+  body::after{background-image:none!important;animation:none!important}
+  .confetti-accent,.confetti-full{background-image:none!important}
+}

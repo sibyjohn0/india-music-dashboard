@@ -17,7 +17,9 @@ REPO = Path(__file__).resolve().parent.parent
 SRC = Path.home()/"Downloads"/"iim_toolkit"
 OUT = REPO/"toolkit"
 
-def esc(s): return html.escape(s, quote=False)
+def esc(s):
+    s=str(s).replace(' — ', ', ').replace('—', ', ').replace('–','-')
+    return html.escape(s, quote=False)
 def slugify(t): return re.sub(r"[^a-z0-9]+","-",t.lower()).strip("-")[:60]
 
 SMALL = {"a","an","the","and","or","but","of","to","in","on","for","at","by","with","vs","via","from","your","you"}

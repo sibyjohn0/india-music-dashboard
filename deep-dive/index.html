@@ -11,7 +11,7 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Indian Indie Music Data: Artists, Trends &amp; Events — Indie Music India</title>
+  <title>Indian Indie Music Data: Artists, Trends &amp; Events, Indie Music India</title>
   <meta name="description" content="Full data view for labels, curators, and power users. All artists, all trends, all events, pipeline status." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -307,7 +307,7 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
       document.getElementById("dd-artists-body").innerHTML = cs.map(c => {
         const badge = c.trend
           ? `<span class="trend-badge ${TREND_CLS[c.trend]}">${TREND_ICON[c.trend]} ${c.trend}</span>`
-          : `<span style="color:var(--muted)">—</span>`;
+          : `<span style="color:var(--muted)">, </span>`;
         return `<tr>
           <td><a href="https://youtube.com/channel/${esc(c.id)}" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;font-weight:600">${esc(c.name)}</a></td>
           <td><span class="pill pill-lang">${esc(c.top_lang)}</span></td>
@@ -384,24 +384,24 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
       body.style.display = "";
 
       if (!events.length) {
-        body.innerHTML = `<div style="color:var(--muted);padding:20px 0">No events in data — check <a href="https://insider.in" target="_blank" rel="noopener" style="color:var(--accent)">Insider.in</a> or <a href="https://in.bookmyshow.com" target="_blank" rel="noopener" style="color:var(--accent)">BookMyShow</a>.</div>`;
+        body.innerHTML = `<div style="color:var(--muted);padding:20px 0">No events in data, check <a href="https://insider.in" target="_blank" rel="noopener" style="color:var(--accent)">Insider.in</a> or <a href="https://in.bookmyshow.com" target="_blank" rel="noopener" style="color:var(--accent)">BookMyShow</a>.</div>`;
         return;
       }
 
       body.innerHTML = `<table class="data-table">
         <thead><tr><th>Event</th><th>City</th><th>Date</th><th>Venue</th><th>Link</th></tr></thead>
         <tbody>${events.map(e => {
-          const name  = e.name || e.title || e.event || "—";
-          const city  = e.city || e._city || e.venue_city || "—";
-          const date  = e.date ? new Date(e.date).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}) : "—";
-          const venue = e.venue || e.venue_name || "—";
+          const name  = e.name || e.title || e.event || ", ";
+          const city  = e.city || e._city || e.venue_city || ", ";
+          const date  = e.date ? new Date(e.date).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}) : ", ";
+          const venue = e.venue || e.venue_name || ", ";
           const url   = e.url || e.link || null;
           return `<tr>
             <td style="font-weight:600">${esc(name)}</td>
             <td>${esc(city)}</td>
             <td style="white-space:nowrap">${esc(date)}</td>
             <td style="color:var(--muted)">${esc(venue)}</td>
-            <td>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener" style="color:var(--accent);font-size:12px">View →</a>` : "—"}</td>
+            <td>${url ? `<a href="${esc(url)}" target="_blank" rel="noopener" style="color:var(--accent);font-size:12px">View →</a>` : ", "}</td>
           </tr>`;
         }).join("")}</tbody>
       </table>`;
@@ -418,7 +418,7 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
         : Object.entries(data.sources).map(([name, s]) => ({ name, ...s }));
       const runTs = data.last_run
         ? new Date(data.last_run).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})
-        : "—";
+        : ", ";
       if (!rows.length) {
         body.innerHTML = `<tr><td colspan="4" style="color:var(--muted);padding:16px 0">Pipeline status refreshing. Check back shortly.</td></tr>`;
         return;
@@ -429,10 +429,10 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
           ? new Date(s.last_updated).toLocaleDateString("en-IN",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})
           : runTs;
         return `<tr>
-          <td style="font-weight:600">${esc(s.name||s.source||"—")}</td>
+          <td style="font-weight:600">${esc(s.name||s.source||", ")}</td>
           <td style="color:var(--muted)">${esc(updated)}</td>
-          <td style="text-align:right">${s.records ?? "—"}</td>
-          <td class="${statusCls}">${esc(s.status||"—")}</td>
+          <td style="text-align:right">${s.records ?? ", "}</td>
+          <td class="${statusCls}">${esc(s.status||", ")}</td>
         </tr>`;
       }).join("");
     }

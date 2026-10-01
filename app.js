@@ -124,7 +124,7 @@ async function init() {
   // Reviewer count on the Discover quick-link (same source as the Reviewers page)
   const _rc = document.getElementById("reviewer-count");
   if (_rc && _reviewersData && Array.isArray(_reviewersData.reviewers)) {
-    _rc.textContent = _reviewersData.reviewers.length;
+    _rc.textContent = (Math.floor(_reviewersData.reviewers.length / 100) * 100).toLocaleString("en-IN") + "+";
   }
 
   // Tracking count banner

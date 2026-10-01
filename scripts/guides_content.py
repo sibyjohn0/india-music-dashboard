@@ -298,7 +298,7 @@ GUIDES = [
             "<b>WhatsApp and community.</b> In India, WhatsApp is underrated. Share the link directly, ask close fans to save the track. A hundred real saves on day one signals the platforms more than a thousand passive plays.",
             "<b>Playlists and press, pitched early.</b> Use our <a href=\"/reviewers/\">database of 1,100+ curators and blogs</a> and Spotify for Artists, before release."]}]},
    {"h2":"How to get more streams organically","body":[
-     "Saves and playlist adds tell the algorithm your song has legs, which earns you Release Radar and Discover Weekly placement. So optimise for saves, not vanity plays. Ask for saves explicitly. Pitch every unreleased track to <a href=\"/guides/submit-music-spotify-playlists-india/\">Spotify playlists</a>. Keep releasing on a rhythm so each song lifts the last."]},
+     "Saves and playlist adds tell Spotify your song has legs, which earns you Release Radar and Discover Weekly placement. So optimise for saves, not vanity plays. Ask for saves explicitly. Pitch every unreleased track to <a href=\"/guides/submit-music-spotify-playlists-india/\">Spotify playlists</a>. Keep releasing on a rhythm so each song lifts the last."]},
    {"h2":"Paid vs organic: when to spend","body":[
      "Don't run ads until the organic version works. Boosting a weak post wastes money. Once a reel is genuinely landing, a small spend targeted at Indian indie-music interests can amplify real reach. Never buy followers, they tank your engagement and credibility. The full picture is in <a href=\"/guides/music-marketing-independent-artists-india/\">music marketing for independent artists</a>."]},
    {"h2":"The promotion checklist for every release","body":[
@@ -308,7 +308,7 @@ GUIDES = [
             "After: keep the video engine running, don't stop at day one."]}]}],
  "faq":[
    ("How can I promote my music for free in India?","Use short video (Reels, Shorts) as your discovery engine, get featured or reshared by other artists and pages, pitch playlists and press before release, and drive close fans to save the track on WhatsApp. Consistency matters more than spend."),
-   ("How do I get more streams on Spotify in India?","Optimise for saves and playlist adds, not passive plays, they signal the algorithm and unlock Release Radar and Discover Weekly. Pitch every unreleased track through Spotify for Artists and to independent curators."),
+   ("How do I get more streams on Spotify in India?","Optimise for saves and playlist adds, not passive plays, they signal Spotify and unlock Release Radar and Discover Weekly. Pitch every unreleased track through Spotify for Artists and to independent curators."),
    ("Is it worth paying to promote music?","Only once your organic content is working. Boosting a genuinely strong reel to a targeted Indian indie audience can help; buying followers or paid-stream playlists hurts you.")]
 },
 {
