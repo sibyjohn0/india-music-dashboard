@@ -503,3 +503,7 @@ img{max-width:100%;height:auto}
   /* nav tap targets >=44px */
   nav.js-primnav a,nav.js-primnav .navgrp-btn{min-height:44px;display:flex;align-items:center}
 }
+/* Toolkit/guide CTA button + card -> poppy neo-brutalist spec (was flat) */
+.g-btn{background:#D8005E;border:2px solid var(--ink);border-radius:14px;box-shadow:3px 3px 0 var(--ink)}
+.g-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+.g-cta{border:2px solid var(--ink);box-shadow:6px 6px 0 var(--ink)}

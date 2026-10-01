@@ -45,7 +45,7 @@ let _eventsData=null, _reviewersData=null, _venueInsights=null, _sourceData=null
 async function init() {
   let data, insightsData = null, socialData = null;
   try {
-    const NC = {cache:"no-cache"};
+    const NC = {};
     const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes, venueInsightsRes, statusRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
@@ -351,7 +351,7 @@ async function renderBreakingThisWeek() {
 
   let latestSnap = null, oldSnap = null;
   for (const dateStr of candidates) {
-    const r = await fetch(`data/history/${dateStr}.json`, {cache:"no-cache"}).catch(()=>null);
+    const r = await fetch(`data/history/${dateStr}.json`, {}).catch(()=>null);
     if (r && r.ok) { try { latestSnap = await r.json(); break; } catch {} }
   }
 
@@ -359,7 +359,7 @@ async function renderBreakingThisWeek() {
   for (let daysBack = 6; daysBack <= 9; daysBack++) {
     const d = new Date(now - daysBack * 864e5);
     const dateStr = d.toISOString().slice(0,10);
-    const r = await fetch(`data/history/${dateStr}.json`, {cache:"no-cache"}).catch(()=>null);
+    const r = await fetch(`data/history/${dateStr}.json`, {}).catch(()=>null);
     if (r && r.ok) { try { oldSnap = await r.json(); break; } catch {} }
   }
 
