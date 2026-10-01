@@ -5,7 +5,7 @@
    endpoint is unset or fails, the download still works (never trap the user). */
 (function () {
   // 1) Paste your deployed Apps Script web-app URL here (ends in /exec). See scripts/toolkit_capture.gs.
-  var ENDPOINT = "REPLACE_WITH_APPS_SCRIPT_WEB_APP_URL";
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbzl5_Gh0YPEQRy4eH4trTeWUMy1qAMYpMoWzoAcIs7jwMH4sj9kKwlMxF9trJFZgjtl/exec";
 
   var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
