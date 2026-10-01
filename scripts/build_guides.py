@@ -9,6 +9,7 @@ import json, html, os
 from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 TODAY = "2026-10-01"
+PUBDATE = "2026-08-01"   # stable original publish date; only dateModified tracks the build
 
 def esc(s): return html.escape(str(s), quote=True)
 
@@ -101,7 +102,7 @@ def build(g):
     url = f"https://indiemusicindia.com/guides/{g['slug']}/"
     article_ld = {"@context":"https://schema.org","@type":"Article","headline":g["title"],
         "description":g["desc"],"image":"https://indiemusicindia.com/og-image.png",
-        "datePublished":TODAY,"dateModified":TODAY,
+        "datePublished":PUBDATE,"dateModified":TODAY,
         "author":{"@type":"Person","name":"Siby John","url":"https://indiemusicindia.com/about/","sameAs":["https://linkedin.com/in/sibyjohn"],"jobTitle":"Senior Creator Manager, LinkedIn (ex-YouTube India)"},
         "publisher":{"@type":"Organization","name":"Indie Music India","logo":{"@type":"ImageObject","url":"https://indiemusicindia.com/og-image.png"}},
         "mainEntityOfPage":url}
@@ -176,7 +177,7 @@ def build(g):
 </html>"""
     d = REPO/"guides"/g['slug']
     d.mkdir(parents=True, exist_ok=True)
-    (d/"index.html").write_text(page)
+    (d/"index.html").write_text(page.replace(" — ", ", ").replace("—", ", ").replace(" – ", ", ").replace("–", "-"))
     return g['slug']
 
 def strip(h):
