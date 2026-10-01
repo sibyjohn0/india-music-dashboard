@@ -81,9 +81,10 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
       <ul><li>Artist Name</li><li>Section 1: Bank Accounts and Financial Accounts</li><li>Section 2: Monthly Income Tracker</li><li>Section 3: Monthly Expense Tracker</li><li>Section 4: Tax Tracking</li><li>TDS Deducted from your Income</li><li>Advance Tax Payments Made</li><li>Section 5: Royalty Tracking</li><li>Section 6: Outstanding Invoices and Payments Due</li><li>Payments Due by you</li><li>Section 7: Financial Health Metrics</li><li>Notes and CA Review Comments</li></ul>
       <p class="g-updated">Free to use · Part of the Indie Music India toolkit · Updated September 2026</p>
     </article>
-    <div class="g-cta"><h3>Use this template</h3>
-      <p>Make your own editable copy in Google Docs, fill it in, and keep it.</p>
-      <a class="g-btn" href="https://docs.google.com/document/d/1Zp7xxHBhZLVelBi8-ljiNvrEC2q6oOxXniqYls8Zw08/copy" target="_blank" rel="noopener">Make your own copy →</a></div>
+    <div class="g-cta dl-gate" data-slug="artist-finances-template" data-file="/toolkit/artist-finances-template/artist-finances-template.xlsx" data-type="spreadsheet" data-copy="https://docs.google.com/document/d/1Zp7xxHBhZLVelBi8-ljiNvrEC2q6oOxXniqYls8Zw08/copy" data-title="Artist Finances Template">
+      <h3>Download this template</h3>
+      <p>Free, as a neat branded spreadsheet. <a class="g-btn" href="/toolkit/artist-finances-template/artist-finances-template.xlsx" download>Download the spreadsheet →</a></p>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px">Prefer to fill it in online? <a href="https://docs.google.com/document/d/1Zp7xxHBhZLVelBi8-ljiNvrEC2q6oOxXniqYls8Zw08/copy" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Open an editable copy →</a></p></div>
   </div>
   <footer>
     <div class="footer-logo">◉ Indie Music India</div>
@@ -92,9 +93,10 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
   <script>
   document.querySelectorAll('.ck li').forEach(function(li){li.addEventListener('click',function(){li.classList.toggle('done');});});
   var b=document.querySelector('.mnav-burger');
-  if(b)b.addEventListener('click',function(){var o=document.body.classList.toggle('mnav-open');b.setAttribute('aria-expanded',o);});
+  if(b)b.addEventListener('click',function(){document.body.classList.toggle('mnav-open');});
   document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});
   </script>
   <script src="/assets/nav.js" defer></script>
+  <script src="/assets/gate.js" defer></script>
 </body>
 </html>

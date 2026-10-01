@@ -40,6 +40,10 @@ def smart_title(s):
         else: out.append(cap(w))
     return " ".join(out)
 
+SHEET_KW = ("budget","profit","loss","p-l","cashflow","cash-flow","expense","revenue",
+            "forecast","tracker","matrix","net-worth","finances","bookkeeping","inventory","cost-")
+def is_sheet(slug): return any(k in slug for k in SHEET_KW)
+
 def kind(title):
     t = title.lower()
     if "checklist" in t: return "checklist"
@@ -128,9 +132,12 @@ def page(doc):
           "A free, practical guide for independent Indian artists. Part of the Indie Music India toolkit.")
     eyebrow={"checklist":"Toolkit · Checklist","template":"Toolkit · Template","guide":"Toolkit · Guide"}[k]
     desc=f"{title}. A free {k} for independent Indian musicians, part of the Indie Music India toolkit."
-    copybtn=(f'''    <div class="g-cta"><h3>Use this template</h3>
-      <p>Make your own editable copy in Google Docs, fill it in, and keep it.</p>
-      <a class="g-btn" href="https://docs.google.com/document/d/{did}/copy" target="_blank" rel="noopener">Make your own copy →</a></div>'''
+    _ext = "xlsx" if is_sheet(slug) else "pdf"
+    _dtype = "spreadsheet" if is_sheet(slug) else "PDF"
+    copybtn=(f'''    <div class="g-cta dl-gate" data-slug="{slug}" data-file="/toolkit/{slug}/{slug}.{_ext}" data-type="{_dtype}" data-copy="https://docs.google.com/document/d/{did}/copy" data-title="{esc(title)}">
+      <h3>Download this template</h3>
+      <p>Free, as a neat branded {_dtype}. <a class="g-btn" href="/toolkit/{slug}/{slug}.{_ext}" download>Download the {_dtype} →</a></p>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px">Prefer to fill it in online? <a href="https://docs.google.com/document/d/{did}/copy" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Open an editable copy →</a></p></div>'''
       if k=="template" else
       '''    <div class="g-cta"><h3>Want a second pair of hands?</h3>
       <p>We work with a few independent Indian artists at a time, hands-on, one month to start, no cut of your music.</p>
@@ -188,6 +195,7 @@ def page(doc):
   document.addEventListener('click',function(e){{var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');}});
   </script>
   <script src="/assets/nav.js" defer></script>
+  <script src="/assets/gate.js" defer></script>
 </body>
 </html>
 '''

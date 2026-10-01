@@ -81,9 +81,10 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
       <ul><li>Artist / Entity Name</li><li>Section 1: Income</li><li>Live Performance Income</li><li>Recording / Streaming Income</li><li>Sync and Licensing Income</li><li>Merchandise Income</li><li>Other Income</li><li>Section 2: Expenses</li><li>Recording Expenses</li><li>Marketing Expenses</li><li>Touring Expenses</li><li>Merchandise Cost of Goods</li><li>Professional Fees</li><li>Other Expenses</li><li>Section 3: P&amp;L Summary</li><li>Section 4: Tax Notes</li><li>GST</li></ul>
       <p class="g-updated">Free to use · Part of the Indie Music India toolkit · Updated September 2026</p>
     </article>
-    <div class="g-cta"><h3>Use this template</h3>
-      <p>Make your own editable copy in Google Docs, fill it in, and keep it.</p>
-      <a class="g-btn" href="https://docs.google.com/document/d/1oifSOkHSP3gnnicz6KqoueVvZ6aeXcUxBDN1onJEj0c/copy" target="_blank" rel="noopener">Make your own copy →</a></div>
+    <div class="g-cta dl-gate" data-slug="annual-profit-loss-template" data-file="/toolkit/annual-profit-loss-template/annual-profit-loss-template.xlsx" data-type="spreadsheet" data-copy="https://docs.google.com/document/d/1oifSOkHSP3gnnicz6KqoueVvZ6aeXcUxBDN1onJEj0c/copy" data-title="Annual Profit &amp; Loss Template">
+      <h3>Download this template</h3>
+      <p>Free, as a neat branded spreadsheet. <a class="g-btn" href="/toolkit/annual-profit-loss-template/annual-profit-loss-template.xlsx" download>Download the spreadsheet →</a></p>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px">Prefer to fill it in online? <a href="https://docs.google.com/document/d/1oifSOkHSP3gnnicz6KqoueVvZ6aeXcUxBDN1onJEj0c/copy" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Open an editable copy →</a></p></div>
   </div>
   <footer>
     <div class="footer-logo">◉ Indie Music India</div>
@@ -92,9 +93,10 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
   <script>
   document.querySelectorAll('.ck li').forEach(function(li){li.addEventListener('click',function(){li.classList.toggle('done');});});
   var b=document.querySelector('.mnav-burger');
-  if(b)b.addEventListener('click',function(){var o=document.body.classList.toggle('mnav-open');b.setAttribute('aria-expanded',o);});
+  if(b)b.addEventListener('click',function(){document.body.classList.toggle('mnav-open');});
   document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});
   </script>
   <script src="/assets/nav.js" defer></script>
+  <script src="/assets/gate.js" defer></script>
 </body>
 </html>

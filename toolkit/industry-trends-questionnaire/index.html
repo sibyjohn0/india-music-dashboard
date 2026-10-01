@@ -81,9 +81,10 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
       <ul><li>Industry Trends Questionnaire — India Indie Music</li><li>Streaming and Discovery</li><li>Live Music</li><li>Labels and Deals</li><li>Brand Partnerships</li><li>Sync and Licensing</li><li>Regulatory and Policy</li><li>What We Are Changing This Quarter</li></ul>
       <p class="g-updated">Free to use · Part of the Indie Music India toolkit · Updated September 2026</p>
     </article>
-    <div class="g-cta"><h3>Use this template</h3>
-      <p>Make your own editable copy in Google Docs, fill it in, and keep it.</p>
-      <a class="g-btn" href="https://docs.google.com/document/d/1ZvS7w4C0dRsN1x_TCx6o2isbxmw_TjfNZsmL2LXd8lI/copy" target="_blank" rel="noopener">Make your own copy →</a></div>
+    <div class="g-cta dl-gate" data-slug="industry-trends-questionnaire" data-file="/toolkit/industry-trends-questionnaire/industry-trends-questionnaire.pdf" data-type="PDF" data-copy="https://docs.google.com/document/d/1ZvS7w4C0dRsN1x_TCx6o2isbxmw_TjfNZsmL2LXd8lI/copy" data-title="Industry Trends Questionnaire">
+      <h3>Download this template</h3>
+      <p>Free, as a neat branded PDF. <a class="g-btn" href="/toolkit/industry-trends-questionnaire/industry-trends-questionnaire.pdf" download>Download the PDF →</a></p>
+      <p style="font-size:13px;color:var(--muted);margin-top:8px">Prefer to fill it in online? <a href="https://docs.google.com/document/d/1ZvS7w4C0dRsN1x_TCx6o2isbxmw_TjfNZsmL2LXd8lI/copy" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Open an editable copy →</a></p></div>
   </div>
   <footer>
     <div class="footer-logo">◉ Indie Music India</div>
@@ -92,9 +93,10 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
   <script>
   document.querySelectorAll('.ck li').forEach(function(li){li.addEventListener('click',function(){li.classList.toggle('done');});});
   var b=document.querySelector('.mnav-burger');
-  if(b)b.addEventListener('click',function(){var o=document.body.classList.toggle('mnav-open');b.setAttribute('aria-expanded',o);});
+  if(b)b.addEventListener('click',function(){document.body.classList.toggle('mnav-open');});
   document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});
   </script>
   <script src="/assets/nav.js" defer></script>
+  <script src="/assets/gate.js" defer></script>
 </body>
 </html>
