@@ -131,7 +131,6 @@ def build(g):
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   {STYLE}
-  <style>.g-softcta{{margin-top:38px;font-size:14px;color:var(--muted);line-height:1.65;border-left:3px solid var(--accent);padding:2px 0 2px 15px}}.g-softcta a{{color:var(--accent);font-weight:600}}</style>
   <link rel="stylesheet" href="/assets/poppy.css?v=20261001">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

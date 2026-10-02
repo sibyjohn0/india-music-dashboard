@@ -351,26 +351,21 @@ async function renderBreakingThisWeek() {
   const todayStr = now.toISOString().slice(0,10);
   const weekAgo  = new Date(now - 7 * 864e5);
 
-  // Find available history files: today and nearest older file
-  const candidates = [];
-  for (let i=0; i<=2; i++) {
-    const d = new Date(now - i*864e5);
-    candidates.push(d.toISOString().slice(0,10));
-  }
-
-  let latestSnap = null, oldSnap = null;
-  for (const dateStr of candidates) {
-    const r = await fetch(`data/history/${dateStr}.json`, {}).catch(()=>null);
-    if (r && r.ok) { try { latestSnap = await r.json(); break; } catch {} }
-  }
-
-  // Try to get a snapshot from ~7 days ago
-  for (let daysBack = 6; daysBack <= 9; daysBack++) {
-    const d = new Date(now - daysBack * 864e5);
-    const dateStr = d.toISOString().slice(0,10);
-    const r = await fetch(`data/history/${dateStr}.json`, {}).catch(()=>null);
-    if (r && r.ok) { try { oldSnap = await r.json(); break; } catch {} }
-  }
+  // Find the newest snapshot (today..2 days back) and one from ~7 days ago.
+  // Each is a find-first-available; run the two searches concurrently so they
+  // do not waterfall (each file is ~400KB).
+  const _findSnap = async (daysList) => {
+    for (const db of daysList) {
+      const dateStr = new Date(now - db * 864e5).toISOString().slice(0,10);
+      const r = await fetch(`data/history/${dateStr}.json`, {}).catch(()=>null);
+      if (r && r.ok) { try { return await r.json(); } catch {} }
+    }
+    return null;
+  };
+  const [latestSnap, oldSnap] = await Promise.all([
+    _findSnap([0,1,2]),
+    _findSnap([6,7,8,9]),
+  ]);
 
   // Build growth map from channels.json data by comparing video counts or use latest.json
   // History files contain videos array — compute per-channel view totals
