@@ -46,7 +46,7 @@ async function init() {
   let data, insightsData = null, socialData = null;
   try {
     const NC = {};
-    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, reviewersRes, venueInsightsRes, statusRes] = await Promise.allSettled([
+    const [ytRes, lfmRes, trackerRes, insightsRes, socialRes, spotifyRes, eventsRes, eventsSkRes, eventsDtRes, eventsBmsRes, eventsSbxRes, eventsFbRes, venueInsightsRes, statusRes] = await Promise.allSettled([
       fetch(DATA_URL, NC).then(r=>r.json()),
       fetch(LFM_URL,  NC).then(r=>r.json()).catch(()=>null),
       fetch(TRACKER_URL, NC).then(r=>r.json()).catch(()=>null),
@@ -59,7 +59,6 @@ async function init() {
       fetch(EVENTS_URL_BMS, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_SBX, NC).then(r=>r.json()).catch(()=>null),
       fetch(EVENTS_URL_FB, NC).then(r=>r.json()).catch(()=>null),
-      fetch(REVIEWERS_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(VENUE_INSIGHTS_URL, NC).then(r=>r.json()).catch(()=>null),
       fetch(STATUS_URL, NC).then(r=>r.json()).catch(()=>null),
     ]);
@@ -105,7 +104,7 @@ async function init() {
       return true;
     });
     _eventsData = _merged.length > 0 ? { events: _merged } : null;
-    _reviewersData   = (reviewersRes.status==="fulfilled"     && reviewersRes.value) ? reviewersRes.value     : null;
+    // reviewers.json (~2.3MB) is loaded separately after render, see loadReviewers() below.
     _venueInsights   = (venueInsightsRes.status==="fulfilled" && venueInsightsRes.value) ? venueInsightsRes.value : null;
     _pipelineStatus  = (statusRes.status==="fulfilled"        && statusRes.value)        ? statusRes.value        : null;
   } catch {
@@ -159,6 +158,16 @@ async function init() {
   renderDiscoverShowsStrip(_eventsData);
   renderTrendsEvents(_eventsData, _venueInsights, _sourceData);
   renderTodayReviewers(_reviewersData);
+  // Deferred: reviewers.json is ~2.3MB, so load it after the initial render instead of
+  // blocking the page on it. The count shows its "1,100+" HTML fallback until this lands.
+  fetch(REVIEWERS_URL).then(function(r){return r.json();}).then(function(rd){
+    _reviewersData = rd;
+    var rc = document.getElementById("reviewer-count");
+    if (rc && rd && Array.isArray(rd.reviewers)) {
+      rc.textContent = (Math.floor(rd.reviewers.length / 100) * 100).toLocaleString("en-IN") + "+";
+    }
+    renderTodayReviewers(rd);
+  }).catch(function(){});
   renderTrendingGenre(allVideos);
   // breakdown bars removed — data lives in Trends tab
   renderArtistGrid(allChannels);
