@@ -146,7 +146,7 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
   <div class="cta">
     <h3>Want to be on our radar?</h3>
     <p>The Radar tracks rising independent Indian artists daily, and we run a hands-on development programme for a few.</p>
-    <a class="btn" href="/programme/">See how the programme works →</a>
+    <a class="btn" href="/programme/">Get a real team behind your music →</a>
   </div>
 </div>
 <footer>

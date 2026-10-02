@@ -47,7 +47,7 @@ def cta_block(g):
     return (f'  <div class="g-cta">\n'
             f'    <h3>{esc(g.get("cta_h","Want a team behind your releases?"))}</h3>\n'
             f'    <p>{CTA_BODY}</p>\n'
-            f'    <a class="g-btn" href="/programme/">See how the programme works →</a>\n'
+            f'    <a class="g-btn" href="/programme/">Get a real team behind your music →</a>\n'
             f'  </div>')
 
 NAV = """<nav class="js-primnav">

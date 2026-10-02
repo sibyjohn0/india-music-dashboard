@@ -205,7 +205,7 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
   <div class="cta">
     <h3>Playing one of these? Or want to be?</h3>
     <p>We help independent Indian artists get heard, get paid and get on stage. The Radar tracks who's rising, and the programme is hands-on.</p>
-    <a class="btn" href="/programme/">See how the programme works →</a>
+    <a class="btn" href="/programme/">Get a real team behind your music →</a>
   </div>
 </div>
 <footer>

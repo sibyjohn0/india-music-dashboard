@@ -170,7 +170,7 @@ def page(doc):
       if k=="template" else
       '''    <div class="g-cta"><h3>Want a second pair of hands?</h3>
       <p>We work with a few independent Indian artists at a time, hands-on, one month to start, no cut of your music.</p>
-      <a class="g-btn" href="/programme/">See how the programme works →</a></div>''')
+      <a class="g-btn" href="/programme/">Get a real team behind your music →</a></div>''')
     ld1='{"@context":"https://schema.org","@type":"Article","headline":%s,"description":%s,"image":"https://indiemusicindia.com/og-image.png","datePublished":"2026-09-15","dateModified":"2026-09-15","author":{"@type":"Organization","name":"Indie Music India"},"publisher":{"@type":"Organization","name":"Indie Music India","logo":{"@type":"ImageObject","url":"https://indiemusicindia.com/og-image.png"}},"mainEntityOfPage":%s}' % (json.dumps(title),json.dumps(desc),json.dumps(url))
     ld2='{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://indiemusicindia.com/resources/"},{"@type":"ListItem","position":3,"name":%s,"item":%s}]}' % (json.dumps(title),json.dumps(url))
     return f'''<!DOCTYPE html>
