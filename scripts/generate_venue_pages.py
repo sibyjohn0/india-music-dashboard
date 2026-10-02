@@ -172,8 +172,8 @@ def build():
     tot_s = sum(c["show_count"] for c in cities.values())
     hub_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Live music venues in India","url":"https://indiemusicindia.com/venues/","isPartOf":{{"@type":"WebSite","name":"Indie Music India","url":"https://indiemusicindia.com/"}}}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}}]}}</script>'''
-    hub = head("Live Music Venues in India: Gig Venues by City, Shows & Tickets — Indie Music India",
-               "Live music venues across India's metros, with who's playing and ticket links. Gig venues in Mumbai, Delhi, Bengaluru, Hyderabad, Pune and Goa, updated daily.",
+    hub = head("Live Music Venues in India: Gig Venues by City, Shows & Tickets, Indie Music India",
+               "Live music venues across India by city: the rooms hosting gigs in Mumbai, Delhi, Bengaluru, Hyderabad, Pune and Goa, with shows and tickets.",
                "https://indiemusicindia.com/venues/", hub_ld)
     hub += f'''
 <div class="page">
@@ -193,7 +193,7 @@ def build():
 </div>
 {FOOT}'''
     (VDIR).mkdir(parents=True, exist_ok=True)
-    (VDIR / "index.html").write_text(hub)
+    (VDIR / "index.html").write_text(hub.replace(" — ", ", ").replace("—", ", ").replace(" – ", ", ").replace("–", "-"))
 
     # ---- per-city pages ----
     for slug, c in cities.items():
@@ -204,7 +204,7 @@ def build():
         city_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Concerts and live music in {esc(c["name"])}","url":"https://indiemusicindia.com/venues/{esc(slug)}/"}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ItemList","name":"Live music venues in {esc(c["name"])}","numberOfItems":{len(venues)},"itemListElement":[{items}]}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}},{{"@type":"ListItem","position":3,"name":"{esc(c["name"])}","item":"https://indiemusicindia.com/venues/{esc(slug)}/"}}]}}</script>'''
-        page = head(f"Live Music Venues in {c['name']}: Gigs, Concerts & Tickets — Indie Music India",
+        page = head(f"Live Music Venues in {c['name']}: Gigs, Concerts & Tickets, Indie Music India",
                     f"Live music venues in {c['name']}: the rooms hosting gigs and concerts, who's playing, and where to get tickets. {c['show_count']} shows across {c['venue_count']} venues, updated daily.",
                     f"https://indiemusicindia.com/venues/{slug}/", city_ld)
         # All six metros now have a scene guide to link back to.
@@ -230,7 +230,7 @@ def build():
 {FOOT}'''
         d = VDIR / slug
         d.mkdir(parents=True, exist_ok=True)
-        (d / "index.html").write_text(page)
+        (d / "index.html").write_text(page.replace(" — ", ", ").replace("—", ", ").replace(" – ", ", ").replace("–", "-"))
 
     n_pages = 1 + len(cities)
     print(f"generate_venue_pages: wrote {n_pages} pages ({tot_v} venues) to {VDIR}")

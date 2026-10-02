@@ -111,7 +111,7 @@ def build():
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-R7EYMGZEJZ');</script>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Upcoming concerts, festivals &amp; tours in India 2026–27: dates, venues, tickets — Indie Music India</title>
-  <meta name="description" content="Upcoming concerts, festival and tour dates across India — NH7 Weekender, Lollapalooza India, Sunburn, Echoes of Earth, plus international acts touring India. Venues, lineups and ticket links, updated daily." />
+  <meta name="description" content="Upcoming concerts, festivals and tours across India: dates, venues, lineups and ticket links for the independent music scene, updated daily." />
   <link rel="canonical" href="https://indiemusicindia.com/live/" />
   <meta property="og:title" content="Upcoming concerts, festivals & tours in India: dates, venues, tickets" />
   <meta property="og:description" content="Upcoming concert, festival and tour dates across India, updated daily. Tickets, venues and official links in one place." />
@@ -222,7 +222,7 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
   <script src="/assets/nav.js?v=20261001" defer></script>\n</body>
 </html>'''
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(page)
+    OUT.write_text(page.replace(" — ", ", ").replace("—", ", ").replace(" – ", ", ").replace("–", "-"))
     print(f"generate_festivals_page: wrote {OUT} ({len(festivals)} festivals, {len(tours)} tours, {n_events} schema events)")
 
 if __name__ == "__main__":

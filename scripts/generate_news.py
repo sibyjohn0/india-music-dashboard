@@ -163,7 +163,7 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
 </body>
 </html>'''
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(page)
+    OUT.write_text(page.replace(" — ", ", ").replace("—", ", ").replace(" – ", ", ").replace("–", "-"))
     print(f"generate_news: wrote {OUT} ({len(arts)} items)")
 
 if __name__ == "__main__":

@@ -101,7 +101,7 @@ p,.pg-p,.pg-lead,.pg-both,.hero-deck,.builder-text,.tool-desc,.problem-body,
 .fact-label,.m1-t,.pg-person-bio{color:var(--ink)!important}
 .muted,.pg-price-sub,.fact-source,.stat-label,.problem-nudge{color:var(--muted)!important}
 .contact-value,.contact-item .contact-value{color:var(--ink)!important;font-weight:600!important}
-.contact-label{color:var(--violet)!important;font-family:var(--font-m)!important}
+.contact-label{color:#6A2BD9!important;font-family:var(--font-m)!important}
 a{color:inherit}
 
 /* mono labels */
@@ -109,7 +109,7 @@ a{color:inherit}
 .fact-source,.contact-label{
   font-family:var(--font-m)!important;text-transform:uppercase;letter-spacing:.6px;
 }
-.pg-label,.section-label,.pg-eyebrow,.kicker{color:var(--violet)!important;font-weight:700!important}
+.pg-label,.section-label,.pg-eyebrow,.kicker{color:#6A2BD9!important;font-weight:700!important}
 
 /* eyebrow as a tilted sticker where it sits alone at the top of a hero */
 .pg-eyebrow{
@@ -314,7 +314,7 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .pg-wa:hover,.cta-primary:hover,.contact-cta:hover,.btn:hover{
   transform:translate(-2px,-2px)!important;box-shadow:7px 7px 0 var(--ink)!important;filter:none!important;
 }
-.pg-email,.tool-link{color:var(--violet)!important;font-family:var(--font-m)!important;font-weight:700!important}
+.pg-email,.tool-link{color:#6A2BD9!important;font-family:var(--font-m)!important;font-weight:700!important}
 /* radar footer quick-links: give them the poppy button pop */
 .disc-link,.deep-dive-cta,.discover-filter-toggle,.show-more-btn{
   background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;
@@ -378,7 +378,7 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .feat-card:nth-child(4n+4),.stat-card:nth-child(4n+4){background:var(--blue-s)!important}
 .feat-card:hover,.stat-card:hover{transform:translate(-3px,-3px)!important;box-shadow:7px 7px 0 var(--pink)!important;border-color:var(--pink)!important}
 .feat-num,.feat-name{color:var(--ink)!important}
-.feat-num{color:var(--pink)!important;font-family:var(--font-d)!important}
+.feat-num{color:#D8005E!important;font-family:var(--font-d)!important}
 .feat-num{font-family:var(--font-d)!important}
 .artist-chip,.chip,.tag,.token,.roster-tag{
   background:var(--tag-bg)!important;border:1.5px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;
@@ -399,9 +399,9 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .search-input{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:12px!important}
 .filter-bar{background:rgba(255,247,238,.92)!important;backdrop-filter:none!important}
 .pitch-note,.how-to,.approach{background:var(--yellow-s)!important;color:var(--ink)!important;border-radius:0 10px 10px 0!important}
-.badge-global,.status-major-only,.status-closed{background:var(--violet-s)!important;color:var(--violet)!important}
+.badge-global,.status-major-only,.status-closed{background:var(--violet-s)!important;color:#6A2BD9!important}
 .show-more-btn{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important;font-family:var(--font-m)!important}
-.group-header-label{color:var(--violet)!important;font-family:var(--font-m)!important}
+.group-header-label{color:#6A2BD9!important;font-family:var(--font-m)!important}
 
 /* resources page specifics */
 .res-hero{background:linear-gradient(180deg,rgba(16,10,28,.30),rgba(16,10,28,.30)),linear-gradient(120deg,#7A46E0,#2E7FD6)!important;border:2px solid var(--ink)!important;border-radius:20px!important;box-shadow:6px 6px 0 var(--ink)!important}
@@ -425,7 +425,7 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .doc-item:nth-child(6n+6){background:var(--orange-s)!important}
 .doc-item,.read-item{cursor:pointer}
 .doc-item:hover,.read-item:hover{background:var(--yellow-s)!important;transform:translate(-3px,-3px)!important;box-shadow:7px 7px 0 var(--pink)!important;border-color:var(--pink)!important}
-.doc-item:hover .doc-title,.read-item:hover .read-title{color:var(--pink)!important}
+.doc-item:hover .doc-title,.read-item:hover .read-title{color:#D8005E!important}
 /* reading-list rows: colour-blocked left edge so they pop without over-saturating */
 .read-item{background:#fff!important}
 .read-item:nth-child(4n+1){border-left:8px solid var(--pink)!important}
@@ -433,9 +433,9 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .read-item:nth-child(4n+3){border-left:8px solid var(--mint)!important}
 .read-item:nth-child(4n+4){border-left:8px solid var(--violet)!important}
 /* pop the index numbers + arrows */
-.doc-num,.read-num{color:var(--violet)!important;font-family:var(--font-m)!important;font-size:13px!important;font-weight:700!important}
-.doc-arrow,.read-arrow{color:var(--pink)!important}
-.res-section-label,.res-kicker{color:var(--violet)!important;font-family:var(--font-m)!important}
+.doc-num,.read-num{color:#6A2BD9!important;font-family:var(--font-m)!important;font-size:13px!important;font-weight:700!important}
+.doc-arrow,.read-arrow{color:#D8005E!important}
+.res-section-label,.res-kicker{color:#6A2BD9!important;font-family:var(--font-m)!important}
 
 /* playbook page specifics */
 #phase-nav{background:var(--cream)!important;border-bottom:2px solid var(--ink)!important}
@@ -443,7 +443,7 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .phase-tab{background:#fff!important;border:2px solid var(--ink)!important;border-radius:999px!important;color:var(--ink)!important;font-family:var(--font-m)!important;margin:6px 3px!important;padding:6px 14px!important;height:auto!important;font-weight:700!important}
 .phase-tab.active,.phase-tab[aria-selected="true"]{background:var(--ink)!important;color:#fff!important}
 .pb-section-card{background:#fff!important;border:2px solid var(--ink)!important;border-radius:14px!important;box-shadow:4px 4px 0 var(--ink)!important}
-.pb-phase-eyebrow{color:var(--violet)!important;font-family:var(--font-m)!important}
+.pb-phase-eyebrow{color:#6A2BD9!important;font-family:var(--font-m)!important}
 .pb-back-btn{background:#fff!important;border:2px solid var(--ink)!important;color:var(--ink)!important;border-radius:999px!important}
 .income-bar-track{background:var(--cream2)!important}
 #phase-context{background:transparent!important;border:none!important}
@@ -488,8 +488,6 @@ footer *{color:var(--ink)!important}
    Keep the original hexes for large/decorative fills only. */
 .pg-label,.section-label,.kicker,.contact-label,.doc-num,.res-section-label,
 .group-header-label,.pb-phase-eyebrow,.badge-global,.status-major-only,
-.status-closed,.pg-email,.tool-link,.res-jump{color:#6A2BD9}
-.feat-num,.doc-arrow,.read-arrow{color:#D8005E}
 :focus-visible{outline:3px solid #241B2E;outline-offset:2px}
 img{max-width:100%;height:auto}
 @media (prefers-reduced-motion:reduce){
