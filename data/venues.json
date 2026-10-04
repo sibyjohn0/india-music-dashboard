@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-03T06:25:43.493094+00:00",
+  "generated_at": "2026-10-04T06:54:52.456972+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
       "venue_count": 4,
-      "show_count": 6,
+      "show_count": 5,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -19,13 +19,6 @@
               "source": "bookmyshow"
             },
             {
-              "name": "Sunburn Festival 2026",
-              "date": "2026-12-18",
-              "url": "https://in.bookmyshow.com/events/sunburn-festival-2026/ET00498558",
-              "price": "from ₹2,500",
-              "source": "bookmyshow"
-            },
-            {
               "name": "Lollapalooza India 2027",
               "date": "2027-01-23",
               "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
@@ -33,7 +26,7 @@
               "source": "bookmyshow"
             }
           ],
-          "shows": 3,
+          "shows": 2,
           "next_date": "2026-11-21"
         },
         {
@@ -88,8 +81,8 @@
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 3,
-      "show_count": 3,
+      "venue_count": 2,
+      "show_count": 2,
       "venues": [
         {
           "name": "Kamani Auditorium",
@@ -106,22 +99,6 @@
           ],
           "shows": 1,
           "next_date": "2026-10-19"
-        },
-        {
-          "name": "NSIC Exhibition Ground, Okhla",
-          "city": "Delhi",
-          "area": "Okhla",
-          "gigs": [
-            {
-              "name": "Nykaaland India's Biggest Beauty Festival In Delhi",
-              "date": "2026-10-23",
-              "url": "https://in.bookmyshow.com/events/nykaaland-india-s-biggest-beauty-festival/ET00515765",
-              "price": "from ₹1,299",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-23"
         },
         {
           "name": "Brahmkamal Hall - Auditorium",
@@ -143,8 +120,8 @@
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 8,
-      "show_count": 9,
+      "venue_count": 10,
+      "show_count": 11,
       "venues": [
         {
           "name": "District Arena @ Terraform",
@@ -280,6 +257,38 @@
           ],
           "shows": 1,
           "next_date": "2026-12-18"
+        },
+        {
+          "name": "Gatecrash",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Gatecrash presents CKRAFT and ManeatingOrchid",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/gatecrash-presents-ckraft-and-maneatingorchid-sbckoczj",
+              "price": "from ₹499",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
+        },
+        {
+          "name": "The Humming Tree",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "The Humming Tree presents Bawari Basanti",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/tht-presents-bawari-basanti-sbcvmplq",
+              "price": "from ₹2,000",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
         }
       ]
     },

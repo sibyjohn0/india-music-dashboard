@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-03T06:16:59.288351+00:00",
-  "snapshot_date": "2026-10-03",
+  "generated_at": "2026-10-04T06:45:39.916810+00:00",
+  "snapshot_date": "2026-10-04",
   "cities": {
     "Kolkata": {
-      "total_shows": 26,
+      "total_shows": 23,
       "venues": [
         {
           "name": "Kala Mandir Auditorium",
@@ -11,7 +11,7 @@
           "price_min": 300,
           "price_max": 999,
           "next_date": "2026-10-25",
-          "growth": 1
+          "growth": 0
         },
         {
           "name": "Venue To Be Announced",
@@ -19,22 +19,6 @@
           "price_min": 399,
           "price_max": 1500,
           "next_date": "2026-10-23",
-          "growth": 0
-        },
-        {
-          "name": "Mahajati Sadan",
-          "shows": 2,
-          "price_min": 149,
-          "price_max": 199,
-          "next_date": "2026-10-03",
-          "growth": 0
-        },
-        {
-          "name": "Rabindra Sadan",
-          "shows": 2,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-10-03",
           "growth": 0
         },
         {
@@ -46,20 +30,28 @@
           "growth": 0
         },
         {
-          "name": "The Knockout Sports Bar and Lounge",
-          "shows": 1,
-          "price_min": 150,
-          "price_max": 150,
-          "next_date": "2026-10-03",
-          "growth": null
-        },
-        {
           "name": "Reality",
           "shows": 1,
           "price_min": 200,
           "price_max": 200,
           "next_date": "2026-10-04",
           "growth": 0
+        },
+        {
+          "name": "Rabindra Sadan",
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "2026-10-04",
+          "growth": -1
+        },
+        {
+          "name": "Mahajati Sadan",
+          "shows": 1,
+          "price_min": 199,
+          "price_max": 199,
+          "next_date": "2026-10-09",
+          "growth": -1
         },
         {
           "name": "Rabindra Sadan,Cathedral Road",
@@ -75,7 +67,7 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "2026-10-18",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "NSIC Exhibition Ground, Okhla",
@@ -91,7 +83,7 @@
           "price_min": 160,
           "price_max": 160,
           "next_date": "2026-12-11",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "JW Marriott Hotel",
@@ -135,7 +127,7 @@
       "unlisted_shows": 0
     },
     "Ahmedabad": {
-      "total_shows": 1,
+      "total_shows": 2,
       "venues": [
         {
           "name": "Narendra Modi Stadium, Motera",
@@ -146,10 +138,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 0
+      "unlisted_shows": 1
     },
     "Mumbai": {
-      "total_shows": 16,
+      "total_shows": 14,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -157,7 +149,7 @@
           "price_min": 2500,
           "price_max": 4499,
           "next_date": "2026-11-21",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "Venue to be announced",
@@ -184,14 +176,6 @@
           "growth": 0
         },
         {
-          "name": "Live Electronic Dance Funk",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-10-29",
-          "growth": 0
-        },
-        {
           "name": "antiSOCIAL",
           "shows": 1,
           "price_min": 799,
@@ -200,10 +184,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 7
+      "unlisted_shows": 6
     },
     "Bangalore": {
-      "total_shows": 40,
+      "total_shows": 37,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -227,7 +211,7 @@
           "price_min": 1500,
           "price_max": 1500,
           "next_date": "2026-12-18",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "Kalyani Kala Mandir",
@@ -278,33 +262,11 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 28
-    },
-    "Hyderabad": {
-      "total_shows": 3,
-      "venues": [
-        {
-          "name": "Venue to be announced",
-          "shows": 2,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-10-03",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 1
+      "unlisted_shows": 25
     },
     "Pune": {
-      "total_shows": 6,
+      "total_shows": 5,
       "venues": [
-        {
-          "name": "Venue to be announced",
-          "shows": 2,
-          "price_min": 1499,
-          "price_max": 2999,
-          "next_date": "2026-10-03",
-          "growth": 0
-        },
         {
           "name": "Mahalakshmi Lawns",
           "shows": 1,
@@ -330,6 +292,14 @@
           "growth": 0
         },
         {
+          "name": "Venue to be announced",
+          "shows": 1,
+          "price_min": 1499,
+          "price_max": 1499,
+          "next_date": "2026-10-31",
+          "growth": -1
+        },
+        {
           "name": "PSYLAB",
           "shows": 1,
           "price_min": 999,
@@ -341,7 +311,7 @@
       "unlisted_shows": 0
     },
     "Delhi": {
-      "total_shows": 7,
+      "total_shows": 8,
       "venues": [
         {
           "name": "Kamani Auditorium",
@@ -360,7 +330,21 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 5
+      "unlisted_shows": 6
+    },
+    "Hyderabad": {
+      "total_shows": 2,
+      "venues": [
+        {
+          "name": "Venue to be announced",
+          "shows": 1,
+          "price_min": 999,
+          "price_max": 999,
+          "next_date": "2026-11-28",
+          "growth": -1
+        }
+      ],
+      "unlisted_shows": 1
     },
     "Goa": {
       "total_shows": 4,
@@ -405,7 +389,7 @@
       "unlisted_shows": 4
     },
     "Kochi": {
-      "total_shows": 1,
+      "total_shows": 2,
       "venues": [
         {
           "name": "Watson's Kochi.",
@@ -416,7 +400,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 0
+      "unlisted_shows": 1
     },
     "Siliguri": {
       "total_shows": 1,
@@ -438,11 +422,31 @@
       "unlisted_shows": 1
     },
     "Jaipur": {
+      "total_shows": 2,
+      "venues": [],
+      "unlisted_shows": 2
+    },
+    "Vadodara": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
     },
     "Mandawa": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
+    },
+    "Jalandhar": {
+      "total_shows": 2,
+      "venues": [],
+      "unlisted_shows": 2
+    },
+    "Surat": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
+    },
+    "Udaipur": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
@@ -457,7 +461,7 @@
       "venues": [],
       "unlisted_shows": 1
     },
-    "Jaipur City": {
+    "Mangalore": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1

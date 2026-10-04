@@ -6821,32 +6821,26 @@
   },
   {
     "week": "2026-W40",
-    "date": "2026-10-03",
+    "date": "2026-10-04",
     "cities": {
       "Kolkata": {
-        "Mahajati Sadan": {
-          "shows": 2,
-          "price_min": 149,
-          "price_max": 199,
-          "next_date": "2026-10-03"
-        },
-        "The Knockout Sports Bar and Lounge": {
-          "shows": 1,
-          "price_min": 150,
-          "price_max": 150,
-          "next_date": "2026-10-03"
-        },
-        "Rabindra Sadan": {
-          "shows": 2,
-          "price_min": 300,
-          "price_max": 300,
-          "next_date": "2026-10-03"
-        },
         "Reality": {
           "shows": 1,
           "price_min": 200,
           "price_max": 200,
           "next_date": "2026-10-04"
+        },
+        "Rabindra Sadan": {
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "2026-10-04"
+        },
+        "Mahajati Sadan": {
+          "shows": 1,
+          "price_min": 199,
+          "price_max": 199,
+          "next_date": "2026-10-09"
         },
         "GD Birla Sabhaghar": {
           "shows": 2,
@@ -6929,6 +6923,12 @@
           "price_min": 2499,
           "price_max": 2499,
           "next_date": "2026-11-21"
+        },
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "23 Oct Fri"
         }
       },
       "Mumbai": {
@@ -6957,16 +6957,10 @@
           "next_date": "2027-01-27"
         },
         "Venue TBC": {
-          "shows": 7,
+          "shows": 6,
           "price_min": 499,
           "price_max": 7500,
           "next_date": "2026-10-04"
-        },
-        "Live Electronic Dance Funk": {
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-10-29"
         },
         "antiSOCIAL": {
           "shows": 1,
@@ -7000,12 +6994,6 @@
           "price_max": 5000,
           "next_date": "2026-11-14"
         },
-        "Venue TBC": {
-          "shows": 28,
-          "price_min": 200,
-          "price_max": 12000,
-          "next_date": "2026-10-03"
-        },
         "Paradox": {
           "shows": 1,
           "price_min": 1000,
@@ -7030,6 +7018,12 @@
           "price_max": 7499,
           "next_date": "2026-10-04"
         },
+        "Venue TBC": {
+          "shows": 25,
+          "price_min": 200,
+          "price_max": 15000,
+          "next_date": "2026-10-07"
+        },
         "Privilege": {
           "shows": 1,
           "price_min": 999,
@@ -7037,27 +7031,7 @@
           "next_date": "2026-11-01"
         }
       },
-      "Hyderabad": {
-        "Venue to be announced": {
-          "shows": 2,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-10-03"
-        },
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 249,
-          "price_max": 249,
-          "next_date": "2026-10-24"
-        }
-      },
       "Pune": {
-        "Venue to be announced": {
-          "shows": 2,
-          "price_min": 1499,
-          "price_max": 2999,
-          "next_date": "2026-10-03"
-        },
         "Mahalakshmi Lawns": {
           "shows": 1,
           "price_min": 249,
@@ -7075,6 +7049,12 @@
           "price_min": 1999,
           "price_max": 1999,
           "next_date": "2026-10-30"
+        },
+        "Venue to be announced": {
+          "shows": 1,
+          "price_min": 1499,
+          "price_max": 1499,
+          "next_date": "2026-10-31"
         },
         "PSYLAB": {
           "shows": 1,
@@ -7097,10 +7077,24 @@
           "next_date": "2026-10-23"
         },
         "Venue TBC": {
-          "shows": 5,
+          "shows": 6,
           "price_min": 299,
           "price_max": 550000,
           "next_date": "2026-10-09"
+        }
+      },
+      "Hyderabad": {
+        "Venue to be announced": {
+          "shows": 1,
+          "price_min": 999,
+          "price_max": 999,
+          "next_date": "2026-11-28"
+        },
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 249,
+          "price_max": 249,
+          "next_date": "2026-10-24"
         }
       },
       "Goa": {
@@ -7145,6 +7139,12 @@
           "price_min": 300,
           "price_max": 300,
           "next_date": "2026-10-04"
+        },
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 399,
+          "price_max": 999,
+          "next_date": "31 Oct Sat"
         }
       },
       "Siliguri": {
@@ -7165,9 +7165,17 @@
       },
       "Jaipur": {
         "Venue TBC": {
-          "shows": 1,
-          "price_min": 1000,
+          "shows": 2,
+          "price_min": 499,
           "price_max": 20000,
+          "next_date": "24 Oct Sat"
+        }
+      },
+      "Vadodara": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
           "next_date": "24 Oct Sat"
         }
       },
@@ -7179,27 +7187,51 @@
           "next_date": "25 Dec Fri"
         }
       },
+      "Jalandhar": {
+        "Venue TBC": {
+          "shows": 2,
+          "price_min": 1999,
+          "price_max": 7999,
+          "next_date": "25 Oct Sun"
+        }
+      },
+      "Surat": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "25 Oct Sun"
+        }
+      },
+      "Udaipur": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 1299,
+          "price_max": 1299,
+          "next_date": "28 Oct Wed"
+        }
+      },
       "Chandigarh": {
         "Venue TBC": {
           "shows": 1,
-          "price_min": 1499,
-          "price_max": 9999,
-          "next_date": "26 Februar"
+          "price_min": 699,
+          "price_max": 1499,
+          "next_date": "31 Oct Sat"
         }
       },
       "Dehradun": {
         "Venue TBC": {
           "shows": 1,
-          "price_min": 449,
-          "price_max": 1969,
+          "price_min": 499,
+          "price_max": 499,
           "next_date": "31 Oct Sat"
         }
       },
-      "Jaipur City": {
+      "Mangalore": {
         "Venue TBC": {
           "shows": 1,
-          "price_min": 999,
-          "price_max": 8999,
+          "price_min": 499,
+          "price_max": 1499,
           "next_date": "31 Oct Sat"
         }
       }
