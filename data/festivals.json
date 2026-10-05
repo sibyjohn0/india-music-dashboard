@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-04T06:54:52.402756+00:00",
+  "generated_at": "2026-10-05T06:54:01.255530+00:00",
   "counts": {
-    "festivals": 20,
-    "tours": 17,
+    "festivals": 21,
+    "tours": 22,
     "marquee": 14,
     "international": 7,
-    "indian": 30,
-    "new_this_run": 4
+    "indian": 36,
+    "new_this_run": 13
   },
   "festivals": [
     {
@@ -44,19 +44,19 @@
     {
       "title": "Sunburn Festival",
       "type": "festival",
-      "key": "sunburn arena ft dj snake",
+      "key": "sunburn festival",
       "cities": [
-        "Bangalore"
+        "Mumbai"
       ],
       "dates": [
         {
           "date": "2026-12-18",
           "date_obj": "2026-12-18",
-          "city": "Bangalore",
-          "venue": "NICE Grounds",
+          "city": "Mumbai",
+          "venue": "Mahalaxmi Race Course",
           "time": "",
-          "price": "from ₹1,500",
-          "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-dj-snake/ET00514999",
+          "price": "from ₹2,500",
+          "url": "https://in.bookmyshow.com/events/sunburn-festival-2026/ET00498558",
           "source": "bookmyshow"
         }
       ],
@@ -86,8 +86,8 @@
           "city": "Mumbai",
           "venue": "Mahalaxmi Race Course",
           "time": "",
-          "price": "from ₹4,499",
-          "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
+          "price": "from ₹24,999",
+          "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027-rupay-amplified-access/ET00514942",
           "source": "bookmyshow"
         }
       ],
@@ -336,48 +336,21 @@
       "origin": "indian"
     },
     {
-      "title": "The Kolkata Tradition Festival",
+      "title": "Nykaaland India's Biggest Beauty Festival In Delhi",
       "type": "festival",
-      "key": "the tradition festival",
+      "key": "nykaaland india s biggest beauty festival in",
       "cities": [
-        "Kolkata"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-04",
-          "date_obj": "2026-10-04",
-          "city": "Kolkata",
-          "venue": "South City International School",
-          "time": "",
-          "price": "from ₹300",
-          "url": "https://in.bookmyshow.com/events/the-kolkata-tradition-festival/ET00512575",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-10-04",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "BANGTANVERSE CARNIVAL - FAN TOUR",
-      "type": "festival",
-      "key": "bangtanverse carnival",
-      "cities": [
-        "Kolkata"
+        "Pune"
       ],
       "dates": [
         {
           "date": "2026-10-23",
           "date_obj": "2026-10-23",
-          "city": "Kolkata",
-          "venue": "Venue To Be Announced",
+          "city": "Pune",
+          "venue": "NSIC Exhibition Ground, Okhla",
           "time": "",
-          "price": "from ₹499",
-          "url": "https://in.bookmyshow.com/events/bangtan-carnival-fan-tour/ET00449698",
+          "price": "from ₹1,299",
+          "url": "https://in.bookmyshow.com/events/nykaaland-india-s-biggest-beauty-festival/ET00515765",
           "source": "bookmyshow"
         }
       ],
@@ -417,6 +390,87 @@
       "origin": "indian"
     },
     {
+      "title": "BANGTANVERSE CARNIVAL - FAN TOUR",
+      "type": "festival",
+      "key": "bangtanverse carnival",
+      "cities": [
+        "Hyderabad"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-15",
+          "date_obj": "2026-11-15",
+          "city": "Hyderabad",
+          "venue": "Venue To Be Announced",
+          "time": "",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/bangtan-carnival-fan-tour/ET00449698",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-11-15",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Mitra Mahotsav",
+      "type": "festival",
+      "key": "mitra mahotsav",
+      "cities": [
+        "Pune"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-29",
+          "date_obj": "2026-11-29",
+          "city": "Pune",
+          "venue": "Pandit Farms",
+          "time": "",
+          "price": "from ₹100",
+          "url": "https://in.bookmyshow.com/events/mitra-mahotsav/ET00520528",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-11-29",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Sunburn Arena ft. DJ Snake",
+      "type": "festival",
+      "key": "sunburn arena ft dj snake",
+      "cities": [
+        "Bangalore"
+      ],
+      "dates": [
+        {
+          "date": "2026-12-18",
+          "date_obj": "2026-12-18",
+          "city": "Bangalore",
+          "venue": "NICE Grounds",
+          "time": "",
+          "price": "from ₹1,500",
+          "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-dj-snake/ET00514999",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-12-18",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "international"
+    },
+    {
       "title": "Structure Music Festival",
       "type": "festival",
       "key": "structure music festival",
@@ -444,52 +498,25 @@
       "origin": "indian"
     },
     {
-      "title": "GAIA 3 Day Festival Pass",
+      "title": "Swarazankar Music Festival",
       "type": "festival",
-      "key": "gaia 3 day festival pass",
+      "key": "swarazankar music festival",
       "cities": [
-        "Hoshiarpur"
+        "Pune"
       ],
       "dates": [
         {
-          "date": "2027-01-22",
-          "date_obj": "2027-01-22",
-          "city": "Hoshiarpur",
-          "venue": "",
-          "time": "11:00 AM",
-          "price": "from ₹7,999",
-          "url": "https://www.skillboxes.com/events/gaia-festival-2027-pass",
-          "source": "skillboxes"
+          "date": "2027-01-07",
+          "date_obj": "2027-01-07",
+          "city": "Pune",
+          "venue": "MIT - WPU Campus",
+          "time": "",
+          "price": "from ₹500",
+          "url": "https://in.bookmyshow.com/events/swarazankar-music-festival/ET00516365",
+          "source": "bookmyshow"
         }
       ],
-      "soonest": "2027-01-22",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Horn OK Please - The Happiest Food Festival 17.0",
-      "type": "festival",
-      "key": "horn ok please",
-      "cities": [
-        "Delhi"
-      ],
-      "dates": [
-        {
-          "date": "28 Novembe",
-          "date_obj": null,
-          "city": "Delhi",
-          "venue": "",
-          "time": "12:00 PM",
-          "price": "₹299–₹1,499",
-          "url": "https://www.skillboxes.com/events/horn-ok-please-the-happiest-food-festival-17-0-sblmnevx",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": null,
+      "soonest": "2027-01-07",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -500,37 +527,109 @@
   ],
   "tours": [
     {
-      "title": "Opeth Live in Bengaluru",
+      "title": "Papon Live In Concert",
       "type": "tour",
-      "key": "opeth live in",
+      "key": "papon live in concert",
       "cities": [
-        "Bangalore"
+        "Bangalore",
+        "Hyderabad",
+        "Kolkata",
+        "Mumbai",
+        "Pune"
       ],
       "dates": [
         {
-          "date": "2026-10-04",
-          "date_obj": "2026-10-04",
+          "date": "2026-10-10",
+          "date_obj": "2026-10-10",
+          "city": "Pune",
+          "venue": "Oasis, Amanora Mall",
+          "time": "",
+          "price": "from ₹1,999",
+          "url": "https://in.bookmyshow.com/events/papon-live-in-concert-pune/ET00448303",
+          "source": "bookmyshow"
+        },
+        {
+          "date": "2026-11-14",
+          "date_obj": "2026-11-14",
           "city": "Bangalore",
-          "venue": "Bighorn Arena",
-          "time": "06:00 PM",
-          "price": "₹2,999–₹7,499",
-          "url": "https://www.skillboxes.com/events/opeth-live-in-bengaluru-bighorn-arena",
-          "source": "skillboxes"
+          "venue": "District Arena @ Terraform",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-bengaluru-2026",
+          "source": "district"
+        },
+        {
+          "date": "2026-11-28",
+          "date_obj": "2026-11-28",
+          "city": "Hyderabad",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-hyderabad-2026",
+          "source": "district"
+        },
+        {
+          "date": "2026-12-12",
+          "date_obj": "2026-12-12",
+          "city": "Mumbai",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-mumbai-2026",
+          "source": "district"
+        },
+        {
+          "date": "2027-01-23",
+          "date_obj": "2027-01-23",
+          "city": "Kolkata",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-kolkata-2027",
+          "source": "district"
         }
       ],
-      "soonest": "2026-10-04",
+      "soonest": "2026-10-10",
       "marquee": false,
       "official_url": "",
       "ig": "",
       "season": "",
       "tags": [],
-      "origin": "international"
+      "origin": "indian"
+    },
+    {
+      "title": "Sajanka - Live in Chennai",
+      "type": "tour",
+      "key": "sajanka",
+      "cities": [
+        "Chennai"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-10",
+          "date_obj": "2026-10-10",
+          "city": "Chennai",
+          "venue": "Secret Story",
+          "time": "",
+          "price": "from ₹1,499",
+          "url": "https://in.bookmyshow.com/events/sajanka-live-in-chennai/ET00517979",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-10",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
     },
     {
       "title": "Sajanka India Tour 2026",
       "type": "tour",
       "key": "sajanka india tour",
       "cities": [
+        "Goa",
         "Mumbai",
         "Siliguri"
       ],
@@ -553,6 +652,16 @@
           "time": "08:00 PM",
           "price": "₹1,500–₹7,500",
           "url": "https://www.skillboxes.com/events/sajanka-india-tour-2026-mumbai-sbutaxgu",
+          "source": "skillboxes"
+        },
+        {
+          "date": "2026-10-22",
+          "date_obj": "2026-10-22",
+          "city": "Goa",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "₹1,000–₹2,000",
+          "url": "https://www.skillboxes.com/events/sajanka-india-tour-2026-goa-sbpwmqcy",
           "source": "skillboxes"
         }
       ],
@@ -641,6 +750,16 @@
           "price": "from ₹249",
           "url": "https://www.skillboxes.com/events/one-girl-shy-we-should-probably-tell-you-tour-sbtbqrhu",
           "source": "skillboxes"
+        },
+        {
+          "date": "2026-10-23",
+          "date_obj": "2026-10-23",
+          "city": "Chennai",
+          "venue": "Hard Rock Cafe, Nungabakkam",
+          "time": "",
+          "price": "from ₹249",
+          "url": "https://in.bookmyshow.com/events/one-girl-shy-we-should-probably-tell-you-tour/ET00519632",
+          "source": "bookmyshow"
         }
       ],
       "soonest": "2026-10-23",
@@ -881,55 +1000,152 @@
       "origin": "indian"
     },
     {
-      "title": "Papon Live In Concert",
+      "title": "Thaikkudam Bridge Live In Hyderabad",
       "type": "tour",
-      "key": "papon live in concert",
+      "key": "thaikkudam bridge live in",
       "cities": [
-        "Bangalore",
+        "Hyderabad"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-24",
+          "date_obj": "2026-10-24",
+          "city": "Hyderabad",
+          "venue": "Kingdome Klub and Kitchen",
+          "time": "",
+          "price": "from ₹699",
+          "url": "https://in.bookmyshow.com/events/thaikkudam-bridge-live-in-hyderabad/ET00518307",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-24",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Quick Style India Tour",
+      "type": "tour",
+      "key": "quick style india tour",
+      "cities": [
         "Hyderabad",
-        "Kolkata",
-        "Mumbai"
+        "Pune"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-25",
+          "date_obj": "2026-10-25",
+          "city": "Pune",
+          "venue": "Liberty Square, Phoenix Avenue of Stars",
+          "time": "",
+          "price": "from ₹999",
+          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-pune/ET00495695",
+          "source": "bookmyshow"
+        },
+        {
+          "date": "2026-11-01",
+          "date_obj": "2026-11-01",
+          "city": "Hyderabad",
+          "venue": "Big Bull Club",
+          "time": "",
+          "price": "from ₹1,499",
+          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-hyderabad/ET00495698",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-25",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Lakhwinder Wadali India Tour",
+      "type": "tour",
+      "key": "lakhwinder wadali india tour",
+      "cities": [
+        "Hyderabad"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-31",
+          "date_obj": "2026-10-31",
+          "city": "Hyderabad",
+          "venue": "Nexus Hyderabad Mall, Kukatpally",
+          "time": "",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/lakhwinder-wadali-india-tour-hyderabad/ET00514005",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-31",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Sukoon Bharat Tour",
+      "type": "tour",
+      "key": "sukoon bharat tour",
+      "cities": [
+        "Chennai"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-07",
+          "date_obj": "2026-11-07",
+          "city": "Chennai",
+          "venue": "Venue To Be Announced",
+          "time": "",
+          "price": "from ₹349",
+          "url": "https://in.bookmyshow.com/events/sukoon-bharat-tour-chennai/ET00508718",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-11-07",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Madhubanti Bagchi India Tour- THIS IS WHO WE ARE",
+      "type": "tour",
+      "key": "madhubanti bagchi india tour",
+      "cities": [
+        "Hyderabad",
+        "Pune"
       ],
       "dates": [
         {
           "date": "2026-11-14",
           "date_obj": "2026-11-14",
-          "city": "Bangalore",
-          "venue": "District Arena @ Terraform",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-bengaluru-2026",
-          "source": "district"
+          "city": "Hyderabad",
+          "venue": "Nexus Hyderabad Mall",
+          "time": "",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/madhubanti-bagchi-india-tour-this-is-who-we-are/ET00515139",
+          "source": "bookmyshow"
         },
         {
           "date": "2026-11-28",
           "date_obj": "2026-11-28",
-          "city": "Hyderabad",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-hyderabad-2026",
-          "source": "district"
-        },
-        {
-          "date": "2026-12-12",
-          "date_obj": "2026-12-12",
-          "city": "Mumbai",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-mumbai-2026",
-          "source": "district"
-        },
-        {
-          "date": "2027-01-23",
-          "date_obj": "2027-01-23",
-          "city": "Kolkata",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-kolkata-2027",
-          "source": "district"
+          "city": "Pune",
+          "venue": "Liberty Square Phoenix Mall, Viman Nagar",
+          "time": "",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/madhubanti-bagchi-india-tour-this-is-who-we-are/ET00515137",
+          "source": "bookmyshow"
         }
       ],
       "soonest": "2026-11-14",
@@ -988,6 +1204,71 @@
       "season": "",
       "tags": [],
       "origin": "international"
+    },
+    {
+      "title": "Aditya Rikhari's Meri Paro India Tour",
+      "type": "tour",
+      "key": "aditya rikhari s meri paro india tour",
+      "cities": [
+        "Pune"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-21",
+          "date_obj": "2026-11-21",
+          "city": "Pune",
+          "venue": "Amanora Mall",
+          "time": "",
+          "price": "from ₹999",
+          "url": "https://in.bookmyshow.com/events/aditya-rikhari-s-meri-paro-india-tour-pune/ett6228myd",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-11-21",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Diljit Dosanjh - RuPay Aura India Tour, Ahmedabad",
+      "type": "tour",
+      "key": "diljit dosanjh",
+      "cities": [
+        "Ahmedabad",
+        "Bangalore"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-21",
+          "date_obj": "2026-11-21",
+          "city": "Ahmedabad",
+          "venue": "Narendra Modi Stadium, Motera",
+          "time": "",
+          "price": "from ₹2,499",
+          "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-ahmedabad/et1st97khg",
+          "source": "bookmyshow"
+        },
+        {
+          "date": "2026-11-29",
+          "date_obj": "2026-11-29",
+          "city": "Bangalore",
+          "venue": "NICE Grounds",
+          "time": "",
+          "price": "from ₹1,000",
+          "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-bengaluru/et5n79c287",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-11-21",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
     },
     {
       "title": "BENNY DAYAL Live in BENGALURU",
@@ -1066,21 +1347,48 @@
       "origin": "international"
     },
     {
-      "title": "Aditya Rikhari's Meri Paro India Tour",
+      "title": "Yuvan Shankar Raja Live in Concert - Salem",
       "type": "tour",
-      "key": "aditya rikhari s meri paro india tour",
+      "key": "yuvan shankar raja live in concert",
       "cities": [
-        "Kolkata"
+        "Salem"
+      ],
+      "dates": [
+        {
+          "date": "2026-12-19",
+          "date_obj": "2026-12-19",
+          "city": "Salem",
+          "venue": "Sona Valliappa Campus, Gajjalnaickenpatti",
+          "time": "",
+          "price": "from ₹899",
+          "url": "https://in.bookmyshow.com/events/yuvan-shankar-raja-live-in-concert-salem/ET00507765",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-12-19",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Francis Mercier  - Live in Hyderabad",
+      "type": "tour",
+      "key": "francis mercier",
+      "cities": [
+        "Hyderabad"
       ],
       "dates": [
         {
           "date": "2026-12-26",
           "date_obj": "2026-12-26",
-          "city": "Kolkata",
-          "venue": "JW Marriott Hotel",
+          "city": "Hyderabad",
+          "venue": "Quake Arena",
           "time": "",
-          "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/aditya-rikhari-s-meri-paro-india-tour-kolkata/et3p28prw7",
+          "price": "from ₹1,500",
+          "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-francis-mercier-hyderabad/ete01x7d8q",
           "source": "bookmyshow"
         }
       ],
@@ -1129,97 +1437,24 @@
       "season": "",
       "tags": [],
       "origin": "international"
-    },
-    {
-      "title": "Madhubanti Bagchi  india Tour - This Is Who We Are",
-      "type": "tour",
-      "key": "madhubanti bagchi india tour",
-      "cities": [
-        "Kolkata"
-      ],
-      "dates": [
-        {
-          "date": "2027-01-30",
-          "date_obj": "2027-01-30",
-          "city": "Kolkata",
-          "venue": "Netaji In-Door Stadium",
-          "time": "",
-          "price": "from ₹499",
-          "url": "https://in.bookmyshow.com/events/madhubanti-bagchi-india-tour-this-is-who-we-are/ET00515965",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2027-01-30",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Lakhwinder Wadali India Tour",
-      "type": "tour",
-      "key": "lakhwinder wadali india tour",
-      "cities": [
-        "Kolkata"
-      ],
-      "dates": [
-        {
-          "date": "2027-03-27",
-          "date_obj": "2027-03-27",
-          "city": "Kolkata",
-          "venue": "Venue To Be Announced",
-          "time": "",
-          "price": "from ₹499",
-          "url": "https://in.bookmyshow.com/events/lakhwinder-wadali-india-tour-kolkata/ET00514014",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2027-03-27",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Last Minute India on Tour",
-      "type": "tour",
-      "key": "last minute india on tour",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "TBA",
-          "date_obj": null,
-          "city": "Bangalore",
-          "venue": "",
-          "time": "08:00 PM",
-          "price": "from ₹499",
-          "url": "https://www.skillboxes.com/events/last-minute-india-on-tour-bangalore-sbfrsfmv",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": null,
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
     }
   ],
   "new_this_run": [
-    "Revol India Tour 2026",
-    "BENNY DAYAL Live in BENGALURU",
-    "The Kolkata Tradition Festival",
-    "Lakhwinder Wadali India Tour"
+    "Sajanka - Live in Chennai",
+    "Nykaaland India's Biggest Beauty Festival In Delhi",
+    "Thaikkudam Bridge Live In Hyderabad",
+    "Quick Style India Tour",
+    "Sukoon Bharat Tour",
+    "Diljit Dosanjh - RuPay Aura India Tour, Ahmedabad",
+    "Mitra Mahotsav",
+    "Sunburn Festival",
+    "Yuvan Shankar Raja Live in Concert - Salem",
+    "Francis Mercier  - Live in Hyderabad",
+    "Swarazankar Music Festival",
+    "A R Rahman The Wonderment Tour Live",
+    "Foo Fighters India Tour 2027"
   ],
   "_all_keys": [
-    "opeth live in",
     "sajanka india tour",
     "one girl shy",
     "psylab presents sajanka",
@@ -1233,16 +1468,28 @@
     "horn ok please",
     "benny dayal live in",
     "last minute india on tour",
-    "the tradition festival",
-    "bangtanverse carnival",
-    "sunburn arena ft dj snake",
-    "aditya rikhari s meri paro india tour",
-    "lollapalooza india",
-    "madhubanti bagchi india tour",
+    "sajanka",
+    "papon live in concert",
+    "nykaaland india s biggest beauty festival in",
+    "thaikkudam bridge live in",
+    "quick style india tour",
     "lakhwinder wadali india tour",
+    "sukoon bharat tour",
+    "madhubanti bagchi india tour",
+    "bangtanverse carnival",
+    "diljit dosanjh",
+    "aditya rikhari s meri paro india tour",
+    "mitra mahotsav",
+    "sunburn arena ft dj snake",
+    "sunburn festival",
+    "yuvan shankar raja live in concert",
+    "francis mercier",
+    "swarazankar music festival",
+    "lollapalooza india",
+    "a r rahman the wonderment tour live",
+    "foo fighters india tour",
     "krishna das india tour",
     "sonu nigam",
-    "papon live in concert",
     "echoes of earth",
     "gorillaz the mountain tour",
     "nh7 weekender",
