@@ -190,6 +190,17 @@ window.WORKBOOK = {
           {id:"p_ready6", label:"How many releases do I have ready in the next 6 months?"},
           {id:"p_block", label:"What is blocking the tracks in early stages?", long:true}
         ]},
+        { type:"info", id:"rec_phone", showIf:{f:"gear",is:["phone"]}, title:"Recording on just your phone is completely fine", body:[
+          "Plenty of tracks that chart were cut on a phone. Your room matters more than your gear.",
+          "Record in the smallest soft space you have, a cupboard or under a blanket, to kill the echo.",
+          "Hold the phone a hand-span away and slightly off to the side so hard consonants do not pop. Do a few takes.",
+          "A ₹500 to ₹1,500 clip-on mic plus a free app like BandLab gets you most of the way. Spend on a mix and master before you spend on gear."
+        ]},
+        { type:"info", id:"rec_studio", showIf:{f:"gear",is:["studio","producer"]}, title:"You have the gear. Now the bottleneck is shipping", body:[
+          "Your setup is not what is holding you back. Consistency is.",
+          "Pick a release rhythm you can actually sustain: a single every 4 to 6 weeks beats a perfect album once a year.",
+          "Use the quality you have to nail the first 15 seconds and a clean, competitive master, then move straight to the next one."
+        ]},
         { type:"checklist", id:"production_actions", title:"Your action items", items:[
           {id:"pr_30", text:"Run the 30-second test: play each track from 0:00. Would you skip it at 0:30 on a playlist? Fix the intro first."},
           {id:"pr_map", text:"Map your full release pipeline above"},
@@ -344,7 +355,13 @@ window.WORKBOOK = {
             {id:"lw3", cells:{sit:"Any sync deal above ₹50,000, check: rights granted, territory, exclusivity period"}},
             {id:"lw4", cells:{sit:"Co-writer / co-producer split disputes. Sign a split sheet BEFORE release, not after."}}
           ]},
-        { type:"table", id:"rights_audit", tools:[{kind:"contract",label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"}], title:"Rights audit, your releases",
+        { type:"checklist", id:"first_rights", showIf:{f:"release_stage",is:["nothing"]}, title:"Before your first release, set rights up right", help:"You have nothing out yet, which is the best possible time to do this: get it right once and every future release inherits it.", tools:[{kind:"contract",label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"}], items:[
+          {id:"fr1", text:"If anyone helped write or produce it, agree the split in writing before you release"},
+          {id:"fr2", text:"Lock your artist name spelling now and keep it identical everywhere"},
+          {id:"fr3", text:"Plan to register the composition with IPRS and the recording with PPL after release"},
+          {id:"fr4", text:"Keep your master. A distributor takes a fee or a share, never ownership"}
+        ]},
+        { type:"table", id:"rights_audit", showIf:{f:"release_stage",not:["nothing"]}, tools:[{kind:"contract",label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"}], title:"Rights audit, your releases",
           columns:[
             {key:"track", label:"Track", type:"text"},
             {key:"iprs", label:"IPRS?", type:"chips", options:["Yes","No"]},

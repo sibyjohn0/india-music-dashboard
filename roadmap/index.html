@@ -271,7 +271,7 @@
     var S = load();
     function fresh(){ return { nav:{view:"home"}, ans:{}, seen:false }; }
     function load(){ try{var r=localStorage.getItem(KEY); if(!r){ var old=localStorage.getItem("iim_roadmap_wb_v1"); if(old){ r=old; try{localStorage.setItem(KEY,old);}catch(e){} } } if(r){var o=JSON.parse(r);o.ans=o.ans||{};o.nav=o.nav||{view:"home"};
-      if(o.nav.view==="section"){ var sec=WB.sections[o.nav.sec]; if(!sec){o.nav={view:"home"};} else { var bi=o.nav.block||0; if(bi<0||bi>=sec.blocks.length) o.nav.block=0; if(!(o.nav.step>=0)) o.nav.step=0; } }
+      if(o.nav.view==="section"){ var sec=WB.sections[o.nav.sec]; if(!sec){o.nav={view:"home"};} else { var bi=o.nav.block||0; if(bi<0||bi>=visBlocks(sec).length) o.nav.block=0; if(!(o.nav.step>=0)) o.nav.step=0; } }
       return o;}}catch(e){} return fresh(); }
     var saveT;
     function save(){ try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
@@ -298,7 +298,7 @@
     function isInputBlock(b){ return b.type!=="info"; }
     function blockStarted(b){ return blockKeys(b).some(function(k){ var v=val(k); return v!==undefined&&v!==""&&v!==false; }); }
     function tableRows(b){ if(typeof b.rows==="number"){ var a=[]; for(var i=1;i<=b.rows;i++) a.push({id:"n"+i,cells:{},_n:i}); return a; } return b.rows; }
-    function secProgress(sec){ var blocks=sec.blocks.filter(function(b){return isInputBlock(b)&&blockKeys(b).length>0;}); var done=blocks.filter(blockStarted).length; return {done:done,total:blocks.length}; }
+    function secProgress(sec){ var blocks=visBlocks(sec).filter(function(b){return isInputBlock(b)&&blockKeys(b).length>0;}); var done=blocks.filter(blockStarted).length; return {done:done,total:blocks.length}; }
     function overall(){ var d=0,t=0; WB.sections.forEach(function(s){ var p=secProgress(s); d+=p.done; t+=p.total; }); return {done:d,total:t,pct:t?Math.round(d/t*100):0}; }
 
     /* ---- render dispatch ---- */
@@ -581,15 +581,18 @@
       S.seen=true; save();
     }
 
-    function effSteps(sec, bi){ return stepCount(sec.blocks[bi]) + (bi===0?1:0); }
+    function blockShown(b){ if(!b.showIf) return true; var v=val(b.showIf.f); if(b.showIf.not) return b.showIf.not.indexOf(v)===-1; return b.showIf.is.indexOf(v)>-1; }
+    function visBlocks(sec){ return sec.blocks.filter(blockShown); }
+    function effSteps(sec, bi){ return stepCount(visBlocks(sec)[bi]) + (bi===0?1:0); }
     function renderSection(){
       var sec=WB.sections[S.nav.sec], bi=S.nav.block||0, st=S.nav.step||0;
-      var blk=sec.blocks[bi], sc=effSteps(sec, bi);
+      var vb=visBlocks(sec); if(bi>=vb.length){ bi=0; S.nav.block=0; }
+      var blk=vb[bi], sc=effSteps(sec, bi);
       if(st>=sc){ st=sc-1; S.nav.step=st; }
       crumb.textContent=sec.name;
       navbar.style.display="";
       var totalSteps=0, idx=0;
-      sec.blocks.forEach(function(b,i){ var c=effSteps(sec,i); if(i<bi) idx+=c; totalSteps+=c; });
+      vb.forEach(function(b,i){ var c=effSteps(sec,i); if(i<bi) idx+=c; totalSteps+=c; });
       idx+=st;
       var pct=totalSteps?Math.round((idx+1)/totalSteps*100):100;
       document.getElementById("pfill").style.width=pct+"%";
@@ -599,7 +602,7 @@
         if(sec.lesson) h+=lessonHTML(sec.lesson);
         h+= (sec.id==="plan"?planCard():sectionBanner(sec)); }
       else { h+='<div class="block">'+renderBlock(blk, (bi===0?st-1:st))+'</div>'; }
-      var sectionEnd = (bi===sec.blocks.length-1) && (st===sc-1);
+      var sectionEnd = (bi===vb.length-1) && (st===sc-1);
       if(sectionEnd) h+=deepenHTML(sec);
       stage.innerHTML=h;
       if(sectionEnd) whenVisible(stage.querySelector(".deepen"), fillDeepen);
@@ -728,7 +731,7 @@
     function fmt(v){ if(v===true)return "✓ done"; return esc(v); }
     function exportSection(sec){
       var out="";
-      sec.blocks.forEach(function(b){
+      visBlocks(sec).forEach(function(b){
         if(b.type==="info") return;
         var items="";
         if(b.type==="pillars"){ WB.pillars.forEach(function(nm,i){
@@ -777,7 +780,7 @@
     nextBtn.addEventListener("click",function(){
       var sec=WB.sections[S.nav.sec], bi=S.nav.block||0, st=S.nav.step||0, sc=effSteps(sec, bi);
       if(st<sc-1){ S.nav.step=st+1; }
-      else if(bi<sec.blocks.length-1){ S.nav.block=bi+1; S.nav.step=0; }
+      else if(bi<visBlocks(sec).length-1){ S.nav.block=bi+1; S.nav.step=0; }
       else { S.nav={view:"home"}; }
       save(); render();
     });
