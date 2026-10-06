@@ -274,16 +274,32 @@ window.WORKBOOK = {
             {key:"bench", label:"Aim for", type:"readonly"}
           ],
           rows:[
-            {id:"f1", cells:{metric:"Monthly Reel / Short views", bench:"-"}},
-            {id:"f2", cells:{metric:"Monthly Spotify / JioSaavn / Amazon streams", bench:"-"}},
-            {id:"f3", cells:{metric:"Instagram followers", bench:"-"}},
+            {id:"f1", cells:{metric:"Monthly Reel / Short views", bench:"More than your follower count. Reaching past your followers means reels are working."}},
+            {id:"f2", cells:{metric:"Monthly Spotify / JioSaavn / Amazon streams", bench:"Watch the save rate, not the raw number. A 5% or higher save rate is the real signal."}},
+            {id:"f3", cells:{metric:"Instagram followers", bench:"A number, not a goal. Reach and saves tell you more than the follower count."}},
             {id:"f4", cells:{metric:"Email list subscribers", bench:"5% of your follower count"}},
             {id:"f5", cells:{metric:"Paying fans (Patreon / merch / tickets)", bench:"1–5% of your email list"}}
+          ]},
+        { type:"table", id:"distributors", title:"Distributors compared, so you do not have to go hunting",
+          help:"Fees change often, so treat these as rough ranges and check current pricing before you sign. None of these should ever take ownership of your master or your publishing.",
+          columns:[
+            {key:"name", label:"Distributor", type:"readonly"},
+            {key:"cost", label:"Cost in India", type:"readonly"},
+            {key:"cut", label:"Takes a cut?", type:"readonly"},
+            {key:"best", label:"Best for", type:"readonly"}
+          ],
+          rows:[
+            {id:"ds1", cells:{name:"DistroKid", cost:"~\u20b91,500 to \u20b92,000 a year, unlimited uploads", cut:"No, keep 100%", best:"Artists who release often"}},
+            {id:"ds2", cells:{name:"CD Baby", cost:"One-time fee per release", cut:"A small cut on some stores", best:"Rare releasers who want a permanent listing"}},
+            {id:"ds3", cells:{name:"TuneCore", cost:"Annual fee per single or album", cut:"No cut on streaming", best:"Album-focused artists"}},
+            {id:"ds4", cells:{name:"Amuse", cost:"Free tier, plus paid tiers", cut:"Free tier keeps 100%", best:"Starting with no upfront cost"}},
+            {id:"ds5", cells:{name:"RouteNote", cost:"Free rev-share tier or a paid keep-all tier", cut:"Free tier takes a revenue share", best:"Testing the waters for free"}},
+            {id:"ds6", cells:{name:"Believe / Madverse (India)", cost:"Varies, often per release", cut:"Varies", best:"Caller tunes plus JioSaavn and Gaana focus"}}
           ]},
         { type:"checklist", id:"distribution_actions", title:"Your action items", items:[
           {id:"di_epk", text:"Complete the EPK checklist and identify the single missing element"},
           {id:"di_pre", text:"Complete the pre-release checklist for your next track"},
-          {id:"di_compare", text:"Compare your distributor's terms (DistroKid/Madverse) with 2 others: e.g. Believe, TuneCore or RouteNote. Check the cut, payout speed and India support."},
+          {id:"di_compare", text:"Pick your distributor from the table above, based on how often you release and whether you need caller tunes."},
           {id:"di_meta", text:"Audit metadata on existing releases, are composer/lyricist credits correct on all?"},
           {id:"di_funnel", text:"Fill in your fan funnel numbers and find where you're losing listeners"}
         ]},
@@ -445,6 +461,47 @@ window.WORKBOOK = {
       ]
     },
 
+    /* 6b · MONEY & TAX -------------------------------------------------- */
+    {
+      id: "money", name: "Money & tax in India", tag: "Get paid properly, bill it right, keep what you earn.",
+      plain: "Earning is half the job. Billing it correctly and not losing it to avoidable tax mistakes is the other half.",
+      lesson:{ idea:"The artists who keep their money are the ones with a boring, simple system, not the ones who earn the most.", points:["Your money arrives from distributors, brands, venues and rights bodies. Each needs a clean invoice and a record, or it gets messy fast.","GST and TDS are not optional once you cross the thresholds, and getting them wrong costs more than getting help.","One bank account for music, one sheet, and saved invoices now saves you a painful year-end later."] },
+      blocks: [
+        { type:"info", title:"The money basics nobody teaches Indian artists", body:[
+          "You get paid two ways: platforms and rights bodies deposit royalties to your linked bank account, and brands, venues and labels pay you against an invoice.",
+          "To receive money you need a PAN and a bank account in your artist or legal name. Distributors, IPRS and PPL all ask for these.",
+          "Brands and labels often deduct TDS (tax deducted at source, around 10% on professional fees and royalties) before paying you. That is not lost money. You claim it back when you file your return, so always keep the TDS certificate or the Form 26AS entry.",
+          "GST is separate. You register for GST once your income from services crosses about ₹20 lakh in a year. Below that you usually do not charge it. Once registered, you add GST to your invoices to brands and venues.",
+          "None of this needs a CA on day one. It needs a habit: invoice every paid job, save every invoice, and log every payment in one place."
+        ]},
+        { type:"checklist", id:"money_setup", title:"Set yourself up to get paid", tools:[{kind:"template",label:"Invoice template",href:"/toolkit/invoice-template-india/"},{kind:"template",label:"Artist finances template",href:"/toolkit/artist-finances-template/"}], items:[
+          {id:"mo1", text:"PAN linked to a bank account in your artist or legal name"},
+          {id:"mo2", text:"Bank details added to your distributor, IPRS and PPL accounts"},
+          {id:"mo3", text:"A simple invoice template ready: your name, PAN, their details, amount, GST if registered, an invoice number and date"},
+          {id:"mo4", text:"One place to log every payment in and out (a sheet is enough)"},
+          {id:"mo5", text:"A folder for every invoice you send and every TDS certificate you receive"}
+        ]},
+        { type:"table", id:"tax_thresholds", title:"GST and TDS: the thresholds that matter",
+          help:"Thresholds and rates change, so confirm with a CA once you earn consistently. This is the shape of it, not tax advice.",
+          columns:[
+            {key:"thing", label:"What", type:"readonly"},
+            {key:"rule", label:"The rough rule", type:"readonly"},
+            {key:"do", label:"What you do", type:"readonly"}
+          ],
+          rows:[
+            {id:"tx1", cells:{thing:"GST registration", rule:"Register once service income crosses about ₹20 lakh a year", do:"Below it, do not charge GST. Above it, register and add GST to brand and venue invoices"}},
+            {id:"tx2", cells:{thing:"TDS on your payments", rule:"Brands and labels deduct around 10% before paying", do:"Keep the certificate and claim it back when you file your return"}},
+            {id:"tx3", cells:{thing:"Income tax", rule:"All your music income is taxable, royalties included", do:"File a return every year once you earn; a CA is worth it once income is steady"}},
+            {id:"tx4", cells:{thing:"Records", rule:"You must be able to show what you earned and spent", do:"Keep invoices, bank statements and receipts for at least six years"}}
+          ]},
+        { type:"checklist", id:"money_actions", title:"Your action items", items:[
+          {id:"mo_inv", text:"Make your invoice template now, even if you have not billed anyone yet"},
+          {id:"mo_log", text:"Start one money sheet and enter your last three payments"},
+          {id:"mo_ca", text:"If you earned over a few lakh last year, book one call with a CA"}
+        ]}
+      ]
+    },
+
     /* 7 · SOCIAL ---------------------------------------------------------- */
     {
       id: "social", name: "Social media", tag: "Platforms as distribution, not performance.",
@@ -512,6 +569,44 @@ window.WORKBOOK = {
           {id:"so_email", text:"Start your email list today (Mailchimp or ConvertKit free tier)"}
         ]},
         { type:"note", id:"social_notes" }
+      ]
+    },
+
+    /* 7b · SPENDING TO GROW --------------------------------------------- */
+    {
+      id: "spend", name: "Spending to grow", tag: "When and how to put money behind your music, without wasting it.",
+      plain: "Ads do not make a weak song work. They pour fuel on a song that is already connecting. Spend only when you have signal.",
+      lesson:{ idea:"Paid promotion is an amplifier, not a plan. If a song is not getting saved and shared for free, money will not fix it.", points:["Promote the song people already save and send to friends, never the one you are hoping will catch.","Start tiny, measure the cost of each save or follower, and never put more money behind a loser.","Most of your growth should still be free. Treat paid as the last 20%, not the first move."] },
+      blocks: [
+        { type:"info", title:"Where artist ad money actually goes", body:[
+          "You told us your promo budget at the start, so here is the honest version of what it can and cannot do.",
+          "Paid promotion is for amplifying proof. First you find a song that earns saves and shares on its own, then you spend to put it in front of more of the right people.",
+          "The one rule that saves the most money: never scale a loser. If a small test spends badly, stop and change the song or the creative. Do not spend more into it."
+        ]},
+        { type:"table", id:"spend_options", title:"Where to spend, and what to expect",
+          help:"Start with a tiny test on each before committing. Watch cost per save or per new follower, not raw reach.",
+          columns:[
+            {key:"where", label:"Where", type:"readonly"},
+            {key:"for", label:"Good for", type:"readonly"},
+            {key:"watch", label:"What to watch", type:"readonly"}
+          ],
+          rows:[
+            {id:"sp1", cells:{where:"Instagram and Facebook ads", for:"Pushing your best reel to new listeners, driving pre-saves and profile visits", watch:"Cost per save or per profile visit; kill it if it climbs"}},
+            {id:"sp2", cells:{where:"YouTube ads", for:"Music videos and lyric videos, building long-term search and views", watch:"Cost per view and whether watch-through holds up"}},
+            {id:"sp3", cells:{where:"Playlist pitch services (SubmitHub, Groover)", for:"Getting your track in front of curators quickly", watch:"Pitch our free reviewer database first, pay only to go wider"}},
+            {id:"sp4", cells:{where:"Boosting a proven reel", for:"A reel that already beat your follower count for free", watch:"Only boost what already worked organically"}}
+          ]},
+        { type:"check", id:"spend_ready", title:"Only spend when you can tick all of these", items:[
+          {id:"sr1", text:"The song is already getting saves and shares with no money behind it"},
+          {id:"sr2", text:"Your profile and pre-save link are set up so new people have somewhere to land"},
+          {id:"sr3", text:"You can afford to lose the test amount and still learn from it"},
+          {id:"sr4", text:"You know which number tells you it worked (cost per save or per follower)"}
+        ]},
+        { type:"checklist", id:"spend_actions", title:"Your action items", items:[
+          {id:"sp_pick", text:"Pick the one song that already earns saves for free"},
+          {id:"sp_test", text:"Run one small test on Instagram ads to pre-saves, with a tiny daily cap"},
+          {id:"sp_stop", text:"Write down your cost-per-save target and your stop number before you start"}
+        ]}
       ]
     },
 
