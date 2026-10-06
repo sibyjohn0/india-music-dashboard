@@ -50,6 +50,19 @@
   .ovr .lbl{font-size:13px;color:var(--muted);font-weight:600}
   .ovr .track{flex:1;height:12px;background:var(--softyellow);border:2px solid var(--ink);border-radius:20px;overflow:hidden}
   .ovr .track i{display:block;height:100%;background:var(--mint)}
+  /* section-complete celebration (calm: a check + the numbers moving) */
+  .done-cel{text-align:center;padding:26px 16px 8px;max-width:460px;margin:0 auto}
+  .done-badge{width:66px;height:66px;margin:0 auto 16px;border-radius:50%;background:var(--mint);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;box-shadow:4px 4px 0 var(--ink);animation:donepop .42s ease-out}
+  .done-k{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:1px;color:#0B6B4F;margin-bottom:8px;text-transform:uppercase}
+  .done-cel h1{font-size:clamp(25px,6vw,33px);font-weight:800;margin-bottom:18px;text-wrap:balance}
+  .done-prog{background:#fff;border:2px solid var(--ink);border-radius:16px;padding:16px 18px;margin-bottom:18px;box-shadow:var(--shadow-sm)}
+  .done-pct{font-family:'Bricolage Grotesque';font-size:30px;font-weight:800;line-height:1;margin-bottom:10px}
+  .done-prog .track{height:12px;background:var(--softyellow);border:2px solid var(--ink);border-radius:20px;overflow:hidden}
+  .done-prog .track i{display:block;height:100%;background:var(--mint);transition:width .6s cubic-bezier(.4,0,.2,1)}
+  .done-lbl{font-size:13px;color:var(--muted);font-weight:600;margin-top:10px}
+  .done-msg{font-size:15px;line-height:1.5;margin-bottom:16px}
+  @keyframes donepop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+  @media(prefers-reduced-motion:reduce){.done-badge{animation:none}.done-prog .track i{transition:none}}
   .focus{background:#EDE4FF;border:2px solid var(--ink);border-radius:16px;padding:16px 18px;margin:10px 0 4px;box-shadow:var(--shadow-sm)}
   .focus-k{font-size:11px;font-weight:700;color:#6D28D9;margin-bottom:8px}
   .focus-line{font-size:15px;line-height:1.5;margin-bottom:9px;overflow-wrap:anywhere}
@@ -448,6 +461,7 @@
       var navKey=v+"|"+S.nav.sec+"|"+S.nav.block+"|"+S.nav.step;
       if(navKey!==lastNavKey){ window.scrollTo(0,0); lastNavKey=navKey; }
       if(v==="section") return renderSection();
+      if(v==="secdone") return renderSecDone();
       if(v==="export") return renderExport();
       return renderHome();
     }
@@ -599,6 +613,36 @@
       S.seen=true; save();
     }
 
+    function orderedSecIdx(){
+      var rung=val("ladder_now"), beginner=!rung||rung==="1"||rung==="2";
+      var groups = beginner ? BEGINNER_GROUPS : [{ids:WB.sections.map(function(s){return s.id;})}];
+      var order=[]; groups.forEach(function(g){ g.ids.forEach(function(id){ var ix=idxById(id); if(ix>=0) order.push(ix); }); });
+      return order;
+    }
+    function nextIncomplete(fromIdx){
+      var order=orderedSecIdx(), pos=order.indexOf(fromIdx), i;
+      for(i=pos+1;i<order.length;i++){ var p=secProgress(WB.sections[order[i]]); if(p.done<p.total) return order[i]; }
+      for(i=0;i<order.length;i++){ if(order[i]===fromIdx) continue; var q=secProgress(WB.sections[order[i]]); if(q.done<q.total) return order[i]; }
+      return -1;
+    }
+    function renderSecDone(){
+      navbar.style.display="none"; crumb.textContent="";
+      var sec=WB.sections[S.nav.sec], o=overall(), nextIdx=nextIncomplete(S.nav.sec), allDone=o.done>=o.total;
+      var h='<div class="done-cel"><div class="done-badge">✓</div>'+
+        '<div class="done-k">Section complete</div><h1>'+esc(sec.name)+'</h1>'+
+        '<div class="done-prog"><div class="done-pct">'+o.pct+'%</div><div class="track"><i style="width:0"></i></div>'+
+        '<div class="done-lbl">'+o.done+' of '+o.total+' started across your workbook</div></div>';
+      if(allDone){
+        h+='<p class="done-msg">That\'s every section. Time to see your full workbook and 90-day plan.</p>'+
+           '<button class="btn primary wide" id="exportBtn2" type="button">See your workbook →</button>';
+      } else if(nextIdx>=0){
+        h+='<p class="done-msg">Nice work'+(firstName()?(", "+esc(firstName())):"")+'. One step closer to your 90-day plan.</p>'+
+           '<button class="btn primary wide" data-sec="'+nextIdx+'">Next · '+esc(WB.sections[nextIdx].name)+' →</button>';
+      }
+      h+='<button class="btn wide" id="homeBtn" type="button" style="margin-top:10px">Back to contents</button></div>';
+      stage.innerHTML=h;
+      requestAnimationFrame(function(){ var el=stage.querySelector(".done-prog .track i"); if(el) el.style.width=o.pct+"%"; });
+    }
     function blockShown(b){ if(!b.showIf) return true; var v=val(b.showIf.f); if(b.showIf.not) return b.showIf.not.indexOf(v)===-1; return b.showIf.is.indexOf(v)>-1; }
     function visBlocks(sec){ return sec.blocks.filter(blockShown); }
     function effSteps(sec, bi){ return stepCount(visBlocks(sec)[bi]) + (bi===0?1:0); }
@@ -799,7 +843,7 @@
       var sec=WB.sections[S.nav.sec], bi=S.nav.block||0, st=S.nav.step||0, sc=effSteps(sec, bi);
       if(st<sc-1){ S.nav.step=st+1; }
       else if(bi<visBlocks(sec).length-1){ S.nav.block=bi+1; S.nav.step=0; }
-      else { S.nav={view:"home"}; }
+      else { S.nav={view:"secdone", sec:S.nav.sec}; }
       save(); render();
     });
 
