@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-05T06:54:01.305489+00:00",
+  "generated_at": "2026-10-06T07:37:26.762345+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
-      "venue_count": 4,
-      "show_count": 7,
+      "venue_count": 6,
+      "show_count": 9,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -42,6 +42,22 @@
           ],
           "shows": 4,
           "next_date": "2026-11-21"
+        },
+        {
+          "name": "All Saints Mumbai",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "All Saints Presents MADOC",
+              "date": "2026-10-07",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-07"
         },
         {
           "name": "Dome SVP Stadium",
@@ -90,6 +106,22 @@
           ],
           "shows": 1,
           "next_date": "2027-01-27"
+        },
+        {
+          "name": "Pink Floyd Experience - Halloween Special Ft. RLA - Retro",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Saturday Night Live | Pink Floyd Experience - Halloween Special Ft. RLA - Retro",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/saturday-night-live-pink-floyd-experience-halloween-special-ft-rla-retro-sbiuwfjb",
+              "price": "from ₹499",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
         }
       ]
     },
@@ -150,8 +182,8 @@
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 7,
-      "show_count": 9,
+      "venue_count": 9,
+      "show_count": 11,
       "venues": [
         {
           "name": "District Arena @ Terraform",
@@ -198,6 +230,38 @@
           ],
           "shows": 2,
           "next_date": "2026-11-29"
+        },
+        {
+          "name": "Glorify Pub and Kitchen",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "TUESDAY THUMKAS",
+              "date": "2026-10-06",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-06"
+        },
+        {
+          "name": "Underdoggs Whitefield",
+          "city": "Bengaluru",
+          "area": "Whitefield",
+          "gigs": [
+            {
+              "name": "Her side Wednesdays",
+              "date": "2026-10-07",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-07"
         },
         {
           "name": "Kalyani Kala Mandir",
@@ -283,8 +347,8 @@
     },
     "hyderabad": {
       "name": "Hyderabad",
-      "venue_count": 20,
-      "show_count": 26,
+      "venue_count": 23,
+      "show_count": 29,
       "venues": [
         {
           "name": "Silaa The Garden Cafe Jubilee Hills",
@@ -407,6 +471,54 @@
           ],
           "shows": 2,
           "next_date": "2026-10-11"
+        },
+        {
+          "name": "Gachibowli Stadium",
+          "city": "Hyderabad",
+          "area": "Gachibowli",
+          "gigs": [
+            {
+              "name": "THE SPRING EDIT 2.0",
+              "date": "2026-10-09",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-09"
+        },
+        {
+          "name": "Skanda International School",
+          "city": "Hyderabad",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Dil Sey Dandiya",
+              "date": "2026-10-09",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-09"
+        },
+        {
+          "name": "Sri Sarathi Studios Pvt. Ltd",
+          "city": "Hyderabad",
+          "area": "",
+          "gigs": [
+            {
+              "name": "DANDIYA NIGHTS WITH CELEBRITIES SARADHI STUDIO",
+              "date": "2026-10-09",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-09"
         },
         {
           "name": "Illuzion Club & Kitchen",
@@ -1030,6 +1142,22 @@
       "show_count": 2,
       "venues": [
         {
+          "name": "The Westin Goa",
+          "city": "Goa",
+          "area": "",
+          "gigs": [
+            {
+              "name": "India Beach Fashion Week | Season 12 - Goa",
+              "date": "2026-10-09",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-09"
+        },
+        {
           "name": "Thalassa Beach Boutique Resort",
           "city": "Goa",
           "area": "",
@@ -1044,22 +1172,6 @@
           ],
           "shows": 1,
           "next_date": "2027-01-16"
-        },
-        {
-          "name": "The Decade Ritual",
-          "city": "Goa",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Vanaghotra || The Decade Ritual",
-              "date": null,
-              "url": "https://www.skillboxes.com/events/vanaghotra-the-decade-ritual",
-              "price": "₹1,999–₹3,500",
-              "source": "skillboxes"
-            }
-          ],
-          "shows": 1,
-          "next_date": null
         }
       ]
     }
