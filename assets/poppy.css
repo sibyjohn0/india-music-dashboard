@@ -295,19 +295,19 @@ html,body{overflow-x:hidden!important;max-width:100%}
 
 /* ---- stat strips / number tiles ---- */
 .stats-strip,.facts-strip{gap:14px!important;border:none!important;background:transparent!important;overflow:visible!important}
-.stat-block,.fact{border-radius:18px!important;border:2px solid var(--ink)!important;color:#fff!important}
+.stat-block,.fact{border-radius:18px!important;border:2px solid var(--ink)!important;color:var(--ink)!important}
 .stat-block{box-shadow:none!important}
 .stat-block:nth-child(3n+1),.fact:nth-child(4n+1){background:var(--g-sunset)!important}
 .stat-block:nth-child(3n+2),.fact:nth-child(4n+2){background:var(--g-grape)!important}
 .stat-block:nth-child(3n+3),.fact:nth-child(4n+3){background:var(--g-mint)!important}
 .fact:nth-child(4n+4){background:var(--g-candy)!important}
-.stat-num,.fact-num,.stat-label,.fact-label,.fact-num span{color:#fff!important}
-.fact-source,.fact-source a{color:rgba(255,255,255,.85)!important}
+.stat-num,.fact-num,.stat-label,.fact-label,.fact-num span{color:var(--ink)!important}
+.fact-source,.fact-source a{color:rgba(36,27,46,.82)!important}
 
 /* ---- buttons ---- */
 .pg-wa,.cta-primary,.contact-cta,.btn,.hero-cta,button.primary{
   font-family:var(--font-d)!important;font-weight:700!important;
-  background:var(--pink)!important;color:#fff!important;
+  background:var(--pink)!important;color:var(--ink)!important;
   border:2px solid var(--ink)!important;border-radius:14px!important;
   box-shadow:5px 5px 0 var(--ink)!important;transition:transform .15s, box-shadow .15s!important;
 }
@@ -335,6 +335,7 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .stat-block,.stat-num,.stat-label,.fact-num,.fact-label,.fact,.poppy-band,.poppy-band *,.band-top,.band-top *,.deep-dive-cta{text-shadow:0 1px 2px rgba(0,0,0,.25)}
 .fact-source,.fact-source a{color:#fff!important}
 .pg-hero>*,.hero-visual>*{position:relative;z-index:2}
+.fact-source,.fact-source a{color:rgba(36,27,46,.82)!important}
 .pg-hero .pg-eyebrow{background:var(--yellow)!important;color:var(--ink)!important}
 /* decorative candy shapes peeking from the corners (kept out of the text) */
 .pg-hero::before,.hero-visual::before{
@@ -412,7 +413,7 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .kit-title,.kit-toggle .kit-title{color:var(--ink)!important;font-family:var(--font-d)!important}
 .kit-desc,.kit-count{color:var(--ink)!important}
 .res-jump a,.res-jump .tab{background:#fff!important;border:2px solid var(--ink)!important;border-radius:999px!important;color:var(--ink)!important;font-family:var(--font-m)!important}
-.res-jump a.active,.res-jump .active{background:var(--pink)!important;color:#fff!important}
+.res-jump a.active,.res-jump .active{background:var(--pink)!important;color:var(--ink)!important}
 /* drop the outer frame that boxed + clipped the doc cards */
 .doc-list{border:none!important;overflow:visible!important;background:transparent!important;padding:0!important;gap:14px!important}
 .doc-item,.read-item{border:2px solid var(--ink)!important;border-radius:14px!important;box-shadow:4px 4px 0 var(--ink)!important;margin-bottom:0!important}
@@ -487,7 +488,7 @@ footer *{color:var(--ink)!important}
    the label/link uses to #6A2BD9 / #D8005E (verified ≥4.5:1 on cream & white).
    Keep the original hexes for large/decorative fills only. */
 .pg-label,.section-label,.kicker,.contact-label,.doc-num,.res-section-label,
-.group-header-label,.pb-phase-eyebrow,.badge-global,.status-major-only,
+.group-header-label,.pb-phase-eyebrow,.badge-global,.status-major-only{color:#6A2BD9!important}
 :focus-visible{outline:3px solid #241B2E;outline-offset:2px}
 img{max-width:100%;height:auto}
 @media (prefers-reduced-motion:reduce){
