@@ -49,7 +49,7 @@ window.WORKBOOK = {
           {id:"a_bio", text:"Write a 2-sentence artist bio you can share anywhere"},
           {id:"a_goals", text:"Set 3 goals for the next 12 weeks and write them down"},
           {id:"a_intro", text:"Share your bio in one community or group you're part of"},
-          {id:"a_handles", text:"Grab the same @handle everywhere you can (Instagram, YouTube), and claim your artist profile on Spotify and JioSaavn, before someone else takes your name"}
+          {id:"a_handles", text:"Grab the same @handle everywhere you can (Instagram, YouTube), before someone else takes your name"}, {id:"a_handles2", text:"Claim your Spotify and JioSaavn artist profiles once your first release is live (you cannot before then)"}
         ]},
         { type:"note", id:"start_notes" }
       ]
@@ -58,7 +58,7 @@ window.WORKBOOK = {
     /* 1 · CONTEXT & DIAGNOSTIC -------------------------------------------- */
     {
       id: "context", name: "Big picture & your archetype", tag: "Where you sit, and what kind of artist you actually are.",
-      plain: "Before tactics, get honest about what winning means for you. Answer these 8 questions, then find your archetype. It changes what you should double down on.",
+      plain: "Before tactics, get honest about what winning means for you. Answer these 8 questions, then find your archetype (just the kind of artist you are). It changes what you should double down on.",
       lesson:{ idea:"'Making it' means different things for different artists. Copying the wrong role model is the most common way to waste years.", points:["There are broadly four kinds of artist: Commercial (reach and releases), Non-Commercial (sync, teaching, catalogue), Creator-Artist (audience and content), and Mixed.","Your archetype decides what you double down on. A Creator-Artist chasing playlists, or a Commercial artist ignoring live, both stall.","Study 2 Indian artists 2 years ahead of you in YOUR lane, not the biggest names in a different one."] },
       deepen:{ compare:true, watch:true, news:true },
       blocks: [
@@ -82,8 +82,8 @@ window.WORKBOOK = {
           ]},
         { type:"info", title:"What to double down on, by archetype", body:[
           "Commercial Artist: Live circuit every month, 3 to 4 Reels a week, 6 to 8 singles a year, playlist pitching.",
-          "Non-Commercial Artist: IPRS/PPL registration, sync catalogue, teaching roster, grant applications.",
-          "Creator-Artist: content consistency, getting found in search on YouTube and Spotify, a brand media kit, and quality engagement.",
+          "Non-Commercial Artist: IPRS/PPL registration (the bodies that pay your royalties), sync catalogue, teaching roster, grant applications.",
+          "Creator-Artist: content consistency, getting found in search on YouTube and Spotify, a brand media kit, and real comments and replies.",
           "In plain words: playlist pitching = asking curators to add your song. Sync catalogue = songs ready for films and ads to license. Media kit = a one-page pack about you. Don't stress about all of these now, just note the two that fit you."
         ]},
         { type:"fill", id:"context_change", title:"", items:[
@@ -103,7 +103,7 @@ window.WORKBOOK = {
     {
       id: "identity", name: "Identity", tag: "What you stand for, who you're for, how it shows up everywhere.",
       plain: "This is the most important section. If you can say who you are in one sentence, every other decision gets easier.",
-      lesson:{ idea:"If you can't say who you are in one sentence, no algorithm, curator or fan can either.", points:["Your identity sentence is simple: I make ___ for ___. Specific beats broad. Music for everyone reaches no one.","Your strongest songs come from your territory: the places, people and years you keep returning to. Mine that, don't borrow someone else's.","The test: 3 songs back to back, 9 posts in a grid. Do they feel like one artist? Consistency is what makes you recognisable.","Know your rung on the credibility ladder. You climb it one clear step at a time, not in one jump."] },
+      lesson:{ idea:"If you can't say who you are in one sentence, no platform, curator or fan can either.", points:["Your identity sentence is simple: I make ___ for ___. Specific beats broad. Music for everyone reaches no one.","Your strongest songs come from your territory: the places, people and years you keep returning to. Mine that, don't borrow someone else's.","The test: 3 songs back to back, 9 posts in a grid. Do they feel like one artist? Consistency is what makes you recognisable.","Know your rung on the credibility ladder. You climb it one clear step at a time, not in one jump."] },
       deepen:{ compare:true },
       blocks: [
         { type:"fill", id:"identity_sentence", title:"Write your identity sentence", help:"Fill in the blanks. Don't overthink the first pass.", items:[
@@ -195,6 +195,12 @@ window.WORKBOOK = {
           "Record in the smallest soft space you have, a cupboard or under a blanket, to kill the echo.",
           "Hold the phone a hand-span away and slightly off to the side so hard consonants do not pop. Do a few takes.",
           "A ₹500 to ₹1,500 clip-on mic plus a free app like BandLab gets you most of the way. Spend on a mix and master before you spend on gear."
+        ]},
+        { type:"info", id:"rec_home", showIf:{f:"gear",is:["home"]}, title:"A little home gear: the mix is where it usually breaks", body:[
+          "A cheap mic and a laptop are enough to make a release-ready song. The weak link is almost never the mic, it is the room and the mix.",
+          "Fix the room first, for free: record in a small soft space, hang a blanket or duvet behind you, and keep the mic away from hard, bare walls.",
+          "Get one song mixed properly, by a freelancer or by learning it yourself, before you buy any more gear. A good mix on cheap gear beats a bad mix on expensive gear.",
+          "Master free on BandLab to finish, and hold your cadence: one solid single every 4 to 6 weeks."
         ]},
         { type:"info", id:"rec_studio", showIf:{f:"gear",is:["studio","producer"]}, title:"You have the gear. Now the bottleneck is shipping", body:[
           "Your setup is not what is holding you back. Consistency is.",
@@ -325,19 +331,19 @@ window.WORKBOOK = {
       lesson:{ idea:"The boring paperwork is where artists quietly lose, or keep, real money for years.", points:["IPRS pays you for the composition, PPL for the recording. Register early: every month you wait is royalties gone for good.","Content ID claims your song across YouTube and regional apps so you get paid when it's used.","Sign a split sheet BEFORE a collab is released, never after. A 10-minute job that prevents the ugliest fights.","Know the moments you must not sign without a music lawyer: any label deal, any management contract, any big sync."], example:{ k:"The nearly-free, do-it-today version", lead:"A split sheet costs nothing, and registering is close to free: IPRS charges a one-time joining fee of about ₹1,200 for authors, PPL has none. Royalties from radio, TV sync and app plays are owed to you whether you registered or not, the only difference is whether you can actually collect them. Every month you wait is money gone for good, so this is a week-one job, not a someday job. It is one of the highest-return afternoons in the whole workbook." } },
       deepen:{ read:[{label:"IPRS & PPL registration guide",href:"/toolkit/iprs-ppl-registration-guide/"},{label:"Register your copyright (IPRS)",href:"/guides/register-music-copyright-iprs-india/"},{label:"Co-writer split sheet",href:"/toolkit/co-writer-split-sheet/"}] },
       blocks: [
-        { type:"checklist", id:"iprs", tools:[{kind:"guide",label:"IPRS & PPL registration guide",href:"/toolkit/iprs-ppl-registration-guide/"},{kind:"guide",label:"ISRC & UPC code guide",href:"/toolkit/isrc-upc-code-guide/"}], title:"IPRS · composition royalties (iprs.org)",
-          gloss:"IPRS pays you when your song is performed or played in public. PPL (next) pays you for the actual recording. Both are one-time to join and then pay you for years. Do it even if it feels too early.", items:[
+        { type:"checklist", id:"iprs", showIf:{f:"release_stage",not:["nothing"]}, tools:[{kind:"guide",label:"IPRS & PPL registration guide",href:"/toolkit/iprs-ppl-registration-guide/"},{kind:"guide",label:"ISRC & UPC code guide",href:"/toolkit/isrc-upc-code-guide/"}], title:"IPRS · composition royalties (iprs.org)",
+          gloss:"IPRS pays you when your song is performed or played in public. PPL (next) pays you for the actual recording. IPRS has a small one-time joining fee, PPL has none, and both then pay you for years. Under 18 or no PAN yet? You can still keep split sheets and credits now, and register in your own name once you have PAN and a bank account.", items:[
           {id:"ip1", text:"Go to iprs.org and start the membership application"},
           {id:"ip2", text:"Gather documents: Aadhaar/passport, PAN, bank details, sample compositions"},
           {id:"ip3", text:"Pay the one-time join fee (~₹1,200 as an author or composer, ₹2,200 as a publisher)"},
           {id:"ip4", text:"Register each composition: title, co-writers + splits, ISRC, language"}
         ]},
-        { type:"checklist", id:"ppl", title:"PPL · master rights (pplindia.org)", gloss:"UPC is a barcode-style ID for a whole release (a single or EP); your distributor generates it for you.", items:[
+        { type:"checklist", id:"ppl", showIf:{f:"release_stage",not:["nothing"]}, title:"PPL · master rights (pplindia.org)", gloss:"UPC is a barcode-style ID for a whole release (a single or EP); your distributor generates it for you.", items:[
           {id:"pp1", text:"Register as a master rights owner at pplindia.org"},
           {id:"pp2", text:"Gather: recording metadata, UPC codes, release dates for all tracks"},
-          {id:"pp3", text:"Confirm fee structure and submit"}
+          {id:"pp3", text:"Complete the KYC form and sign the Transfer Agreement (PPL has no joining fee)"}
         ]},
-        { type:"checklist", id:"contentid", title:"Distributor · Content ID", items:[
+        { type:"checklist", id:"contentid", showIf:{f:"release_stage",not:["nothing"]}, title:"Distributor · Content ID", items:[
           {id:"ci1", text:"Log in to your distributor dashboard"},
           {id:"ci2", text:"Confirm Content ID is active for all released tracks"},
           {id:"ci3", text:"Confirm Content ID is active for YouTube, and for UGC platforms (Instagram, Facebook) if your distributor offers it"}
@@ -523,12 +529,12 @@ window.WORKBOOK = {
     {
       id: "social", name: "Social media", tag: "Platforms as distribution, not performance.",
       plain: "You're not 'posting content'. You're choosing how your music spreads. Figure out which engine you're underusing.",
-      lesson:{ idea:"Treat platforms as distribution, not performance. You're not posting for applause, you're choosing how your music travels.", points:["Music spreads six ways: algorithm, editorial, social trends, peer word-of-mouth, media, and live conversion. Find the one you're most underusing.","Saves and shares matter more than likes. Study which posts got saved, and make more of those.","In India, don't default to Instagram-only. ShareChat, Moj, Josh and WhatsApp Channels carry real regional-language reach.","Community beats broadcast: genuine comments, peer relationships and a mailing list outlast any single viral moment."] },
+      lesson:{ idea:"Treat platforms as distribution, not performance. You're not posting for applause, you're choosing how your music travels.", points:["Music spreads six ways: platform recommendations, editorial, social trends, peer word-of-mouth, media, and live conversion. Find the one you're most underusing.","Saves and shares matter more than likes. Study which posts got saved, and make more of those.","In India, don't default to Instagram-only. ShareChat, Moj, Josh and WhatsApp Channels carry real regional-language reach.","Community beats broadcast: genuine comments, peer relationships and a mailing list outlast any single viral moment."] },
       deepen:{ watch:true, read:[{label:"Pitch music blogs & press",href:"/guides/pitch-music-blogs-press-india/"}] },
       blocks: [
         { type:"table", id:"spread", title:"How music actually spreads",
           help:"Six ways songs travel. Which are you actually using?",
-          gloss:"'Algorithm push' = Spotify or YouTube recommending you automatically. 'Editorial' = a real human putting you on a playlist or writing about you. 'Peer' = one person sending your song to another.",
+          gloss:"'Platform recommendations' = Spotify or YouTube suggesting you to new listeners automatically. 'Editorial' = a real human putting you on a playlist or writing about you. 'Peer' = one person sending your song to another.",
           columns:[
             {key:"mech", label:"Mechanism", type:"readonly"},
             {key:"using", label:"Using it?", type:"chips", options:["Yes","A bit","No"]},
@@ -536,9 +542,9 @@ window.WORKBOOK = {
             {key:"change", label:"One change", type:"text"}
           ],
           rows:[
-            {id:"m1", cells:{mech:"Algorithm push (Spotify / YouTube recommendation)"}},
+            {id:"m1", cells:{mech:"Platform recommendations (Spotify / YouTube suggesting you)"}},
             {id:"m2", cells:{mech:"Editorial placement (playlist, press feature)"}},
-            {id:"m3", cells:{mech:"Social virality (Reel audio trend, meme)"}},
+            {id:"m3", cells:{mech:"A trend catches on (Reel audio, meme)"}},
             {id:"m4", cells:{mech:"Peer recommendation (word of mouth, WhatsApp)"}},
             {id:"m5", cells:{mech:"Media coverage (Wild City, Rolling Stone India)"}},
             {id:"m6", cells:{mech:"Live conversion (show attendee → fan)"}}
@@ -576,13 +582,13 @@ window.WORKBOOK = {
             {id:"cm2", cells:{act:"Share another artist's post with genuine commentary (a comment that shows you listened)"}},
             {id:"cm3", cells:{act:"Identify 5 artists at your stage. Reach out to one, not to ask for anything, to start a peer relationship."}},
             {id:"cm4", cells:{act:"Propose one collab with an artist whose audience overlaps yours but doesn't know you yet"}},
-            {id:"cm5", cells:{act:"Start a mailing list or a WhatsApp Channel, even 10 subscribers. Email and WhatsApp reach fans directly, past the algorithm."}}
+            {id:"cm5", cells:{act:"Start a mailing list or a WhatsApp Channel, even 10 subscribers. Email and WhatsApp reach fans directly, not waiting to be recommended."}}
           ]},
         { type:"checklist", id:"social_actions", title:"Your action items", items:[
           {id:"so_mech", text:"Complete the mechanics table, find your most underused mechanism"},
           {id:"so_audit", text:"Audit your last 20 posts, note which content gets saved vs just liked"},
           {id:"so_one", text:"Choose 1 platform to go deeper on this month"},
-          {id:"so_cal", text:"Build a 4-week content calendar: 3 post types, specific days and times, across Instagram Reels, YouTube Shorts and one India-first app (ShareChat/Moj, Josh or WhatsApp Channels) if it fits your language"},
+          {id:"so_cal", text:"Pick 3 post types and the days and times you will post them for the next 4 weeks"}, {id:"so_cal2", text:"Add one India-first app that fits your language (ShareChat, Moj, Josh or WhatsApp Channels) alongside Reels and Shorts"},
           {id:"so_email", text:"Start your email list today (Mailchimp or ConvertKit free tier)"}
         ]},
         { type:"note", id:"social_notes" }
@@ -613,7 +619,7 @@ window.WORKBOOK = {
             {id:"sp3", cells:{where:"Playlist pitch services (SubmitHub, Groover)", for:"Getting your track in front of curators quickly", watch:"Pitch our free reviewer database first, pay only to go wider"}},
             {id:"sp4", cells:{where:"Boosting a proven reel", for:"A reel that already beat your follower count for free", watch:"Only boost what already worked organically"}}
           ]},
-        { type:"check", id:"spend_ready", title:"Only spend when you can tick all of these", items:[
+        { type:"checklist", id:"spend_ready", title:"Only spend when you can tick all of these", items:[
           {id:"sr1", text:"The song is already getting saves and shares with no money behind it"},
           {id:"sr2", text:"Your profile and pre-save link are set up so new people have somewhere to land"},
           {id:"sr3", text:"You can afford to lose the test amount and still learn from it"},
@@ -801,8 +807,8 @@ window.WORKBOOK = {
           gloss:"Non-dilutive means free money you keep all the rights to. Most take one application. Apply even if you think you won't get it.",
           columns:[{key:"g",label:"Grant / fund",type:"readonly"},{key:"what",label:"What it's for",type:"readonly"},{key:"status",label:"Will you apply?",type:"chips",options:["Applied","Shortlisted","To do","Not for me"]}],
           rows:[
-            {id:"g1",cells:{g:"Serendipity Arts, Independent Music Production Grant",what:"Up to ₹1.5L to make and release original music. Open to solo, band or collective."}},
-            {id:"g2",cells:{g:"India Foundation for the Arts (IFA)",what:"Arts practice, research and collaboration grants, up to ₹3L (varies by programme)."}},
+            {id:"g1",cells:{g:"Serendipity Arts, Independent Music Production Grant",what:"Up to ₹1.5 lakh to make and release original music. Open to solo, band or collective."}},
+            {id:"g2",cells:{g:"India Foundation for the Arts (IFA)",what:"Arts practice, research and collaboration grants, up to ₹3 lakh (varies by programme)."}},
             {id:"g3",cells:{g:"British Council programmes",what:"India-UK collaboration and exchange funding, when India is in the current round. Eligibility rotates, so check the live call."}},
             {id:"g4",cells:{g:"Goethe-Institut / Max Mueller Bhavan",what:"Indo-German collaboration, mobility and residency grants."}},
             {id:"g5",cells:{g:"Your state cultural body or an embassy cultural arm",what:"Local grants, showcase slots and travel support (Alliance Française, Japan Foundation, Pro Helvetia and more)."}}
@@ -829,7 +835,7 @@ window.WORKBOOK = {
         { type:"checklist", id:"support_actions", title:"Your action items", items:[
           {id:"sa_grants",text:"Shortlist 3 grants or open calls you're eligible for and note their deadlines"},
           {id:"sa_apply",text:"Apply to at least 1 this month, even if you think it's a long shot"},
-          {id:"sa_bodies",text:"Join every rights body that applies to you (IPRS, PPL, ISRA)"},
+          {id:"sa_bodies",text:"Join every rights body that applies to you (IPRS, PPL, ISAMRA)"},
           {id:"sa_community",text:"Reach out to 2 artists at your stage and 1 who is ahead of you"}
         ]},
         { type:"note", id:"support_notes" }
@@ -853,7 +859,7 @@ window.WORKBOOK = {
         ]},
         { type:"checklist", id:"m1_setup", title:"Month 1 · Weeks 3–4: Production setup + Rights", items:[
           {id:"m1g", text:"Audit your recording setup: mic, interface, headphones, room. List what's missing."},
-          {id:"m1h", text:"Buy one missing basic if it's under ₹15,000 (a mic, interface or headphones)"},
+          {id:"m1h", text:"Only if you have the money, buy one missing basic (a mic or headphones). If not, your phone is enough to start, so skip this."},
           {id:"m1i", text:"Record one demo, then hang a blanket or duvet behind you to soften echo and record again. Hear the difference."},
           {id:"m1j", text:"Message 3 mixing engineers on SoundBetter, get quotes"},
           {id:"m1k", text:"iprs.org, start membership and gather documents"},
@@ -862,7 +868,7 @@ window.WORKBOOK = {
           {id:"m1n", text:"Verify composer/lyricist credits on all existing releases"}
         ]},
         { type:"checklist", id:"m2", title:"Month 2 · Build · Release, distribution, social", items:[
-          {id:"m2a", text:"Choose your distributor, DistroKid or Madverse for most emerging artists"},
+          {id:"m2a", text:"Choose your distributor: free with RouteNote (you keep 85%), or paid and unlimited with DistroKid or Madverse"},
           {id:"m2b", text:"Set up distributor with correct royalty recipient details"},
           {id:"m2c", text:"Plan your next release, a single, 4–6 weeks from today"},
           {id:"m2d", text:"Complete pre-release metadata checklist for the single"},
@@ -920,7 +926,7 @@ window.WORKBOOK = {
           rows:[
             {id:"to1", cells:{tool:"IPRS · iprs.org", purpose:"Register compositions, collect performance royalties"}},
             {id:"to2", cells:{tool:"PPL India · pplindia.org", purpose:"Register masters, collect neighbouring rights"}},
-            {id:"to3", cells:{tool:"DistroKid / Madverse", purpose:"Distribution to all DSPs"}},
+            {id:"to3", cells:{tool:"RouteNote (free), DistroKid / Madverse (paid)", purpose:"Distribution to all DSPs"}},
             {id:"to4", cells:{tool:"Spotify for Artists", purpose:"Pitch to editorial, view analytics"}},
             {id:"to5", cells:{tool:"JioSaavn ArtistOne", purpose:"Pitch to JioSaavn editorial"}},
             {id:"to5b", cells:{tool:"Amazon Music for Artists", purpose:"Pitch to Amazon editorial, claim your profile"}},

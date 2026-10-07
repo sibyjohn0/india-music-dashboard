@@ -127,7 +127,7 @@
   .qtext{font-size:16px;font-weight:700;margin-bottom:10px;line-height:1.4}
   .flabel{font-size:14px;font-weight:700;margin:0 0 8px;display:block;line-height:1.4}
   .tin{width:100%;font-family:inherit;font-size:16px;font-weight:500;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:12px;padding:12px 13px;outline:none}
-  .tin::placeholder{color:#8A8194}
+  .tin::placeholder{color:#6B6076}
   .tin:focus{box-shadow:var(--shadow-sm)}
   textarea.tin{resize:vertical;min-height:88px;line-height:1.5}
 
@@ -510,7 +510,7 @@
     };
     var BUDGET_NUDGE={
       none:{ distribution:"No promo budget? Everything here is free: Reels, DMs, curator pitches, a mailing list. Skip ads entirely for now.", social:"With no budget, organic is your whole game. Consistency and community beat any ad you can't afford.", revenue:"Let your first income fund the next release. Don't spend money you don't have.", support:"With no budget, grants and free open calls are your funding. Apply to a few this month." },
-      small:{ distribution:"Put your small budget behind one song only, and only after it shows organic traction.", social:"Spend small, on boosting the post that's already working, never a cold one." },
+      small:{ distribution:"Put your small budget behind one song only, and only after it shows organic traction.", social:"Spend small, on boosting the post that's already working, never a cold one.", revenue:"A few thousand rupees goes furthest on one good mix or master, not on ads. Spend on the song, not on reach.", spend:"With a small budget, put it behind the one song already getting saved for free, and stop the moment the cost per save climbs." },
       real:{ distribution:"You can test paid ads: spend on your strongest track, watch cost per save, and never scale a loser.", revenue:"Track return on every rupee. A budget only helps if you measure what it brings back." }
     };
     var GEAR_NUDGE={
@@ -529,7 +529,7 @@
       var bg=budgetLvl(); if(bg&&rs!=="burnt"&&BUDGET_NUDGE[bg]&&BUDGET_NUDGE[bg][sec.id]) add(4,esc(BUDGET_NUDGE[bg][sec.id]));
       var gr=gearLvl(); if(gr&&GEAR_NUDGE[gr]&&GEAR_NUDGE[gr][sec.id]) add(4,esc(GEAR_NUDGE[gr][sec.id]));
       var inFocus=arch&&ARCHETYPE_FOCUS[arch]&&ARCHETYPE_FOCUS[arch].sections.indexOf(sec.id)>-1;
-      if(beginner&&!inFocus&&(sec.id==="revenue"||sec.id==="advanced"||sec.id==="team")) add(6,'You\'re early on the ladder, so skim this now and come back as you grow.');
+      if(beginner&&!inFocus&&!weakPillars().some(function(w){return w.sec===sec.id;})&&(sec.id==="revenue"||sec.id==="advanced"||sec.id==="team")) add(6,'You\'re early on the ladder, so skim this now and come back as you grow.');
       cand.sort(function(a,b){return a.p-b.p;});
       var parts=cand.slice(0,3).map(function(c){return c.t;});
       if(!parts.length) return "";
@@ -555,6 +555,7 @@
       var rs=releaseStage(), bg=budgetLvl();
       if(rs==="burnt") h+='<div class="focus-line">You have spent before without results, so this plan is <b>free-first and measured</b>.</div>';
       else if(bg==="none") h+='<div class="focus-line">No promo budget, so everything we point you to is <b>free and organic</b>.</div>';
+      else if(bg==="small") h+='<div class="focus-line">A small budget, so we help you spend it on <b>the one thing that moves the needle</b>, not on ads for a song people aren\'t saving yet.</div>';
       if(goal) h+='<div class="focus-line">Your goal: <b>'+esc(goal)+'</b></div>';
       if(weak.length) h+='<div class="focus-line">Weakest right now: '+weak.map(function(w){return '<b>'+esc(w.nm)+'</b> ('+w.r+'/10)';}).join(" and ")+'. Start here:</div>'+
         '<div class="focus-chips">'+weak.map(function(w){var i=idxById(w.sec); return i>=0?'<button class="focus-chip" data-sec="'+i+'">'+esc(WB.sections[i].name)+' →</button>':"";}).join("")+'</div>';
