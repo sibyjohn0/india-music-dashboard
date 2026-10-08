@@ -649,7 +649,34 @@
       stage.innerHTML=h;
       requestAnimationFrame(function(){ var el=stage.querySelector(".done-prog .track i"); if(el) el.style.width=o.pct+"%"; });
     }
-    function blockShown(b){ if(!b.showIf) return true; var v=val(b.showIf.f); if(b.showIf.not) return b.showIf.not.indexOf(v)===-1; return b.showIf.is.indexOf(v)>-1; }
+    // General condition evaluator: supports AND (array), OR ({any:[...]}),
+    // is / not (membership), and numeric lte / gte (for pillar ratings).
+    function oneCond(c){
+      if(!c) return true;
+      if(Array.isArray(c)) return c.every(oneCond);
+      if(c.any) return c.any.some(oneCond);
+      var v=val(c.f);
+      if(c.lte!=null) return v!==undefined&&v!==""&&(+v)<=c.lte;
+      if(c.gte!=null) return v!==undefined&&v!==""&&(+v)>=c.gte;
+      if(c.not) return c.not.indexOf(v)===-1;
+      if(c.is)  return c.is.indexOf(v)>-1;
+      return v!==undefined&&v!==""&&v!==false;
+    }
+    // Fill {tokens} in author text from the user's own answers.
+    function interp(text){
+      if(!text || text.indexOf("{")<0) return text;
+      var w=weakPillars(), bg=budgetLvl(), a=val("archetype");
+      var T={
+        firstName: firstName(),
+        goal: goalText(),
+        weak1: w[0]?w[0].nm:"", weak2: w[1]?w[1].nm:"",
+        distributor: (bg==="none"||bg==="burnt") ? "RouteNote (free, you keep 85%)" : "DistroKid or Madverse",
+        archetype: (a&&ARCHETYPE_FOCUS[a])?ARCHETYPE_FOCUS[a].label:"",
+        play: (a&&ARCHETYPE_FOCUS[a])?ARCHETYPE_FOCUS[a].play:""
+      };
+      return text.replace(/\{(\w+)\}/g, function(m,k){ return (k in T) ? T[k] : m; });
+    }
+    function blockShown(b){ return !b.showIf || oneCond(b.showIf); }
     function visBlocks(sec){ return sec.blocks.filter(blockShown); }
     function effSteps(sec, bi){ return stepCount(visBlocks(sec)[bi]) + (bi===0?1:0); }
     function renderSection(){
@@ -689,13 +716,13 @@
         head += b.gloss?'<div class="gloss"><b class="mono">In plain words</b>'+esl(b.gloss)+'</div>':"";
       }
       var body="";
-      if(b.type==="info") return '<div class="info">'+(b.title?'<h2>'+esc(b.title)+'</h2>':"")+b.body.map(function(p){
-          var m=String(p).match(/^([^:]{2,40}):\s(.+)$/); return m?'<p><b>'+esc(m[1])+':</b> '+esl(m[2])+'</p>':'<p>'+esl(p)+'</p>'; }).join("")+'</div>';
+      if(b.type==="info") return '<div class="info">'+(b.title?'<h2>'+esc(b.title)+'</h2>':"")+b.body.filter(function(p){ return !(p&&typeof p==="object") || oneCond(p.showIf); }).map(function(p){
+          var t=interp((p&&typeof p==="object")?p.text:p); var m=String(t).match(/^([^:]{2,40}):\s(.+)$/); return m?'<p><b>'+esc(m[1])+':</b> '+esl(m[2])+'</p>':'<p>'+esl(t)+'</p>'; }).join("")+'</div>';
       else if(b.type==="pillars") body=renderPillarOne(b, step);
-      else if(b.type==="qa"){ var q=b.items[step]; body='<div class="card"><div class="qtext">'+esc(q.q)+'</div>'+ta(b.id+"."+q.id,q.ph||"Type your answer",q.q)+'</div>'; }
+      else if(b.type==="qa"){ var q=b.items[step]; body='<div class="card"><div class="qtext">'+esc(interp(q.q))+'</div>'+ta(b.id+"."+q.id,q.ph||"Type your answer",q.q)+'</div>'; }
       else if(b.type==="fill"){ var it=b.items[step]; var k=b.id+"."+it.id; body='<div class="card">'+(it.label?'<label class="flabel">'+esc(it.label)+'</label>':"")+(it.long?ta(k,it.ph||"",it.label):ti(k,it.ph||"",it.label))+'</div>'; }
       else if(b.type==="chips") body=renderChoice(b);
-      else if(b.type==="checklist") body=b.items.map(function(it){ return chk(b.id+"."+it.id, it.text); }).join("");
+      else if(b.type==="checklist") body=b.items.filter(function(it){ return oneCond(it.showIf); }).map(function(it){ return chk(b.id+"."+it.id, interp(it.text)); }).join("");
       else if(b.type==="note") body='<div class="card"><label class="flabel">Your notes</label>'+ta(b.id,"Anything you want to remember from this section","Your notes")+'</div>';
       else if(b.type==="table") body=renderTable(b);
       else if(b.type==="builder") body=renderBuilderStep(b, step);
