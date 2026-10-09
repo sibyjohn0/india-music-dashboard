@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-10-08T07:23:12.998877+00:00",
+  "generated_at": "2026-10-09T07:27:06.585829+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
       "venue_count": 5,
-      "show_count": 6,
+      "show_count": 8,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -12,22 +12,36 @@
           "area": "",
           "gigs": [
             {
-              "name": "ANYMA presents AEDEN - Mumbai",
-              "date": "2026-11-21",
-              "url": "https://in.bookmyshow.com/events/anyma-presents-aeden-mumbai/ET00480995",
-              "price": "from ₹4,250",
+              "name": "Diljit Dosanjh - RuPay Aura India Tour, Mumbai",
+              "date": "2026-11-27",
+              "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-mumbai/et977163q4",
+              "price": "from ₹3,499",
               "source": "bookmyshow"
             },
             {
-              "name": "Lollapalooza India 2027",
+              "name": "Sunburn Festival 2026",
+              "date": "2026-12-18",
+              "url": "https://in.bookmyshow.com/events/sunburn-festival-2026/ET00498558",
+              "price": "from ₹2,500",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Lollapalooza India 2027 - RuPay Amplified Access",
               "date": "2027-01-23",
-              "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
-              "price": "from ₹4,499",
+              "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027-rupay-amplified-access/ET00514942",
+              "price": "from ₹24,999",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Foo Fighters India Tour 2027 - Mumbai",
+              "date": "2027-01-31",
+              "url": "https://in.bookmyshow.com/events/foo-fighters-india-tour-2027-mumbai/ET00502947",
+              "price": "from ₹4,000",
               "source": "bookmyshow"
             }
           ],
-          "shows": 2,
-          "next_date": "2026-11-21"
+          "shows": 4,
+          "next_date": "2026-11-27"
         },
         {
           "name": "Dome SVP Stadium",
@@ -97,8 +111,8 @@
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 4,
-      "show_count": 4,
+      "venue_count": 3,
+      "show_count": 3,
       "venues": [
         {
           "name": "Kamani Auditorium",
@@ -115,22 +129,6 @@
           ],
           "shows": 1,
           "next_date": "2026-10-19"
-        },
-        {
-          "name": "NSIC Exhibition Ground, Okhla",
-          "city": "Delhi",
-          "area": "Okhla",
-          "gigs": [
-            {
-              "name": "Nykaaland India's Biggest Beauty Festival In Delhi",
-              "date": "2026-10-23",
-              "url": "https://in.bookmyshow.com/events/nykaaland-india-s-biggest-beauty-festival/ET00515765",
-              "price": "from ₹1,299",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-23"
         },
         {
           "name": "Brahmkamal Hall - Auditorium",
@@ -157,7 +155,7 @@
               "name": "Diljit Dosanjh - RuPay Aura India Tour, Delhi",
               "date": "2026-11-01",
               "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-delhi/et5j39w09n",
-              "price": "from ₹3,999",
+              "price": "from ₹1,999",
               "source": "bookmyshow"
             }
           ],
@@ -168,9 +166,39 @@
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 6,
-      "show_count": 7,
+      "venue_count": 7,
+      "show_count": 10,
       "venues": [
+        {
+          "name": "NICE Grounds",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Guns N' Roses: India 2026 - Bengaluru",
+              "date": "2026-11-14",
+              "url": "https://in.bookmyshow.com/events/guns-n-roses-india-2026-bengaluru/ET00501962",
+              "price": "from ₹4,000",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Diljit Dosanjh - RuPay Aura India Tour, Bengaluru",
+              "date": "2026-11-29",
+              "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-bengaluru/etc71lx3ak",
+              "price": "from ₹3,299",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Sunburn Arena ft. DJ Snake",
+              "date": "2026-12-18",
+              "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-dj-snake/ET00514999",
+              "price": "from ₹1,500",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 3,
+          "next_date": "2026-11-14"
+        },
         {
           "name": "District Arena @ Terraform",
           "city": "Bengaluru",
@@ -216,7 +244,7 @@
           "area": "",
           "gigs": [
             {
-              "name": "Privilege Presents World #22 Reinier Zonneveld || Bengaluru",
+              "name": "Privilege Presents World #21 Reinier Zonneveld || Bengaluru",
               "date": "2026-11-01",
               "url": "https://www.skillboxes.com/events/privilege-presents-world-22-reinier-zonneveld-bengaluru-sbzwnofr",
               "price": "₹999–₹2,999",
@@ -227,20 +255,20 @@
           "next_date": "2026-11-01"
         },
         {
-          "name": "NICE Grounds",
+          "name": "Bengaluru LIVE, Bengaluru",
           "city": "Bengaluru",
           "area": "",
           "gigs": [
             {
-              "name": "Sunburn Arena ft. DJ Snake",
-              "date": "2026-12-18",
-              "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-dj-snake/ET00514999",
-              "price": "from ₹1,500",
+              "name": "Foo Fighters India Tour 2027 - Bengaluru",
+              "date": "2027-01-29",
+              "url": "https://in.bookmyshow.com/events/foo-fighters-india-tour-2027-bengaluru/ET00502948",
+              "price": "from ₹4,000",
               "source": "bookmyshow"
             }
           ],
           "shows": 1,
-          "next_date": "2026-12-18"
+          "next_date": "2027-01-29"
         },
         {
           "name": "Gatecrash",
@@ -278,8 +306,8 @@
     },
     "hyderabad": {
       "name": "Hyderabad",
-      "venue_count": 3,
-      "show_count": 3,
+      "venue_count": 1,
+      "show_count": 1,
       "venues": [
         {
           "name": "Gachibowli Stadium",
@@ -296,46 +324,154 @@
           ],
           "shows": 1,
           "next_date": "2026-10-09"
-        },
-        {
-          "name": "Skanda International School",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Dil Sey Dandiya",
-              "date": "2026-10-09",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-09"
-        },
-        {
-          "name": "Sri Sarathi Studios Pvt. Ltd",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "DANDIYA NIGHTS WITH CELEBRITIES SARADHI STUDIO",
-              "date": "2026-10-09",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-09"
         }
       ]
     },
     "pune": {
       "name": "Pune",
-      "venue_count": 4,
-      "show_count": 4,
+      "venue_count": 19,
+      "show_count": 23,
       "venues": [
+        {
+          "name": "Phoenix Avenue Of Stars",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Max Urbn Unmute Pune x Spotify RAP 91",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/max-urbn-unmute-pune-x-spotify-rap-91/ET00516294",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Unstoppable by Dino James",
+              "date": "2026-10-24",
+              "url": "https://in.bookmyshow.com/events/unstoppable/ET00510175",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "INDIAN OCEAN AT PHOENIX AVENUE OF STARS - PUNE",
+              "date": "2026-11-21",
+              "url": "https://in.bookmyshow.com/events/indian-ocean-live-at-phoenix-marketcity/ET00146444",
+              "price": "from ₹799",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 3,
+          "next_date": "2026-10-10"
+        },
+        {
+          "name": "Yashwantrao Chavan Natyagruha",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Shahenshah",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/shahenshah/et232q7o21",
+              "price": "from ₹300",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Trendsetters - A Bollywood Musical",
+              "date": "2026-11-01",
+              "url": "https://in.bookmyshow.com/events/trendsetters-a-bollywood-musical/ET00516339",
+              "price": "from ₹200",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Sagun Nirgun",
+              "date": "2026-11-07",
+              "url": "https://in.bookmyshow.com/events/sagun-nirgun/et1svl4x1d",
+              "price": "from ₹300",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 3,
+          "next_date": "2026-10-10"
+        },
+        {
+          "name": "Jawaharlal Nehru Memorial Hall",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Carvaan Live: Sing with Kishore at Nehru Hall",
+              "date": "2026-10-09",
+              "url": "https://in.bookmyshow.com/events/carvaan-live-sing-with-kishore-at-nehru-hall/ET00516626",
+              "price": "from ₹999",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-09"
+        },
+        {
+          "name": "Mahalunge, Balewadi",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Sets on the Beats by Powerup Fitness",
+              "date": "2026-10-09",
+              "url": "https://in.bookmyshow.com/events/sets-on-the-beats-by-powerup-fitness/ET00520230",
+              "price": "from ₹249",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-09"
+        },
+        {
+          "name": "Club Mexo",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Sunny Leone Performing Live At Club Mexo",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/sunny-leone-performing-live-at-club-mexo/ET00519775",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-10"
+        },
+        {
+          "name": "FC Road Social",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Jamming Night",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/pookie-jams-the-premium-jamming-experience/ET00461172",
+              "price": "from ₹299",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-10"
+        },
+        {
+          "name": "S.M.Joshi Socialist Foundation, Navi Peth",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "AB's Day Out",
+              "date": "2026-10-11",
+              "url": "https://in.bookmyshow.com/events/ab-s-day-out/ET00519593",
+              "price": "from ₹250",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-11"
+        },
         {
           "name": "Mahalakshmi Lawns",
           "city": "Pune",
@@ -369,6 +505,38 @@
           "next_date": "2026-10-16"
         },
         {
+          "name": "Pune International Centre",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Zindagi",
+              "date": "2026-10-17",
+              "url": "https://in.bookmyshow.com/events/zindagi/etr55324uq",
+              "price": "from ₹500",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-17"
+        },
+        {
+          "name": "Hari om sangeet kala academy",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Swarnim Musicals",
+              "date": "2026-10-21",
+              "url": "https://in.bookmyshow.com/events/swarnim-musicals/ET00411614",
+              "price": "from ₹10,001",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-21"
+        },
+        {
           "name": "PSYLAB",
           "city": "Pune",
           "area": "",
@@ -385,6 +553,22 @@
           "next_date": "2026-10-23"
         },
         {
+          "name": "The Bierhaus",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "October fest : Malayalam Jamming by MakeSomeOchha",
+              "date": "2026-10-24",
+              "url": "https://in.bookmyshow.com/events/october-fest-malayalam-jamming-by-makesomeochha/ET00520047",
+              "price": "from ₹399",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-24"
+        },
+        {
           "name": "Mayfield Yash Garden",
           "city": "Pune",
           "area": "",
@@ -399,14 +583,205 @@
           ],
           "shows": 1,
           "next_date": "2026-10-30"
+        },
+        {
+          "name": "S. M. Joshi Sabhagruha",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Classic Rafi and Romantic Kishore",
+              "date": "2026-10-31",
+              "url": "https://in.bookmyshow.com/events/classic-rafi-and-romantic-kishore/ET00520634",
+              "price": "from ₹100",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-31"
+        },
+        {
+          "name": "Tilak Smarak Mandir",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Diwali Pahat",
+              "date": "2026-11-08",
+              "url": "https://in.bookmyshow.com/events/diwali-pahat/ET00516066",
+              "price": "from ₹500",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-08"
+        },
+        {
+          "name": "Pandit Farms",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Nakshtranche Dene Pu La Deshpande Diwali Sandhya",
+              "date": "2026-11-09",
+              "url": "https://in.bookmyshow.com/events/nakshtranche-dene-pu-la-deshpande-diwali-sandhya/ET00519655",
+              "price": "from ₹500",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-09"
+        },
+        {
+          "name": "Shubharambh Lawns",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Geet Ramayan",
+              "date": "2026-11-10",
+              "url": "https://in.bookmyshow.com/events/geet-ramayan/ET00519720",
+              "price": "from ₹300",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-10"
+        },
+        {
+          "name": "Amanora Mall",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Aditya Rikhari's Meri Paro India Tour - Pune",
+              "date": "2026-11-21",
+              "url": "https://in.bookmyshow.com/events/aditya-rikhari-s-meri-paro-india-tour-pune/ett6228myd",
+              "price": "from ₹999",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-21"
         }
       ]
     },
     "goa": {
       "name": "Goa",
-      "venue_count": 2,
-      "show_count": 2,
+      "venue_count": 10,
+      "show_count": 19,
       "venues": [
+        {
+          "name": "HOUSE OF CHAPORA",
+          "city": "Goa",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Crystal Clear Sounds 12.0 ft.Starlab Live",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/crystal-clear-sounds-12-0-ft-starlab-live/ET00519328",
+              "price": "from ₹1,100",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Bassline Travellers 64.0 Night To Sunrise",
+              "date": "2026-10-11",
+              "url": "https://in.bookmyshow.com/events/bassline-travellers-64-0-night-to-sunrise/ET00519698",
+              "price": "from ₹1,100",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Harmonic Decibels 13.0 ft.Astrida live",
+              "date": "2026-10-17",
+              "url": "https://in.bookmyshow.com/events/harmonic-decibels-13-0-ft-astrida-live/ET00521405",
+              "price": "from ₹1,000",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Bassline Travellers 66.0 Night To Sunrise",
+              "date": "2026-10-25",
+              "url": "https://in.bookmyshow.com/events/bassline-travellers-66-0-night-to-sunrise/ET00519697",
+              "price": "from ₹1,100",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Crystal Clear Sounds Halloween Edition",
+              "date": "2026-10-31",
+              "url": "https://in.bookmyshow.com/events/crystal-clear-sounds-halloween-edition/ET00519722",
+              "price": "from ₹1,100",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Bassline Travellers 67.0 Night To Sunrise",
+              "date": "2026-11-01",
+              "url": "https://in.bookmyshow.com/events/bassline-travellers-67-0-night-to-sunrise/ET00519702",
+              "price": "from ₹1,100",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 6,
+          "next_date": "2026-10-10"
+        },
+        {
+          "name": "UNVRS Club, Vagator",
+          "city": "Goa",
+          "area": "Vagator",
+          "gigs": [
+            {
+              "name": "DJ CHETAS LIVE AT UNVRS GOA",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/dj-chetas-live-at-unvrs-goa/ET00515434",
+              "price": "from ₹2,000",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "DJ Ganesh Live Performance - UNVRS Goa",
+              "date": "2026-10-11",
+              "url": "https://in.bookmyshow.com/events/dj-ganesh-live-performance-unvrs-goa/ET00506507",
+              "price": "from ₹1,000",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Dj AERREO Live at UNVRS Goa",
+              "date": "2026-10-22",
+              "url": "https://in.bookmyshow.com/events/electric-friday-ft-aerreo-live-at-unvrs-goa/ET00504416",
+              "price": "from ₹1,000",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Madhur Sharma Live at UNVRS Goa - 31 October",
+              "date": "2026-10-31",
+              "url": "https://in.bookmyshow.com/events/madhur-sharma-live-at-unvrs-goa-31-october/ET00520572",
+              "price": "from ₹1,000",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 4,
+          "next_date": "2026-10-10"
+        },
+        {
+          "name": "Savara",
+          "city": "Goa",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Ashish Kapoor Live at Savara - Bollywood Pop Night",
+              "date": "2026-10-09",
+              "url": "https://in.bookmyshow.com/events/ashish-kapoor-live-at-savara-bollywood-pop-night/ET00520764",
+              "price": "from ₹2,000",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Glam Night with Akanksha Choudhary - Savara Goa",
+              "date": "2026-10-10",
+              "url": "https://in.bookmyshow.com/events/glam-night-with-akanksha-choudhary-savara-goa/ET00520770",
+              "price": "from ₹2,000",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-10-09"
+        },
         {
           "name": "The Westin Goa",
           "city": "Goa",
@@ -424,6 +799,86 @@
           "next_date": "2026-10-09"
         },
         {
+          "name": "Hammerzz Makarena",
+          "city": "Goa",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Madoc Live at Hammerzz Makarena",
+              "date": "2026-10-11",
+              "url": "https://in.bookmyshow.com/events/madoc-live-at-hammerzz-makarena/ET00519617",
+              "price": "from ₹1,000",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-11"
+        },
+        {
+          "name": "Saltamontes - Garden Cafe and Bar",
+          "city": "Goa",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Joopy Rooster Live",
+              "date": "2026-10-11",
+              "url": "https://in.bookmyshow.com/events/joopy-rooster-live/ET00521024",
+              "price": "from ₹300",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-11"
+        },
+        {
+          "name": "Terra",
+          "city": "Goa",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Bangalore Open Air - Official After Party - Goa",
+              "date": "2026-10-11",
+              "url": "https://in.bookmyshow.com/events/bangalore-open-air-official-after-party-goa/ET00520632",
+              "price": "from ₹349",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-11"
+        },
+        {
+          "name": "Boat Goa",
+          "city": "Goa",
+          "area": "",
+          "gigs": [
+            {
+              "name": "House Affairs Sundowner Yatch party",
+              "date": "2026-12-12",
+              "url": "https://in.bookmyshow.com/events/house-affairs-sundowner-yatch-party/ET00519934",
+              "price": "from ₹4,999",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-12-12"
+        },
+        {
+          "name": "RROV",
+          "city": "Goa",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Francis Mercier @ RROV Goa",
+              "date": "2026-12-27",
+              "url": "https://in.bookmyshow.com/events/francis-mercier-rrov-goa/et00lu07q3",
+              "price": "from ₹3,000",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-12-27"
+        },
+        {
           "name": "Thalassa Beach Boutique Resort",
           "city": "Goa",
           "area": "",
@@ -431,9 +886,9 @@
             {
               "name": "Goa Sunsplash 2027",
               "date": "2027-01-16",
-              "url": "https://www.district.in/events/goa-sunsplash-2027-jan15-2027",
+              "url": "https://in.bookmyshow.com/events/goa-sunsplash-2027/ET00516534",
               "price": "from ₹4,999",
-              "source": "district"
+              "source": "bookmyshow"
             }
           ],
           "shows": 1,
