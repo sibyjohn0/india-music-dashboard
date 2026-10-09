@@ -484,6 +484,7 @@
     function weakPillars(){ var r=[]; WB.pillars.forEach(function(nm,i){ var v=val("baseline."+i+".rating"); if(v) r.push({r:+v,nm:nm,sec:PILLAR_SECTION[i]}); }); r.sort(function(a,b){return a.r-b.r;}); return r.slice(0,2); }
     var FORYOU={};
     function computeForYou(){ FORYOU={}; var a=val("archetype"); if(a&&ARCHETYPE_FOCUS[a]) ARCHETYPE_FOCUS[a].sections.forEach(function(s){FORYOU[s]=1;}); weakPillars().forEach(function(w){FORYOU[w.sec]=1;}); }
+    function advancedUser(){ var r=val("ladder_now"); return !!r && (+r)>=4; }
     function firstName(){ var n=(val("you.name")||"").trim(); return n?n.split(" ")[0]:""; }
     function goalText(){ return val("baseline_top.goal1")||val("context_change.change12")||""; }
     var SECTION_PILLAR={identity:0,production:1,distribution:2,rights:3,revenue:4,social:5,live:6,team:7};
@@ -586,10 +587,11 @@
       h+='<div class="ovr"><div><div class="big">'+o.pct+'%</div><div class="lbl">'+o.done+' of '+o.total+' started</div></div>'+
          '<div class="track"><i style="width:'+o.pct+'%"></i></div></div>';
       h+=focusCardHTML();
+      if(advancedUser()) h+='<div class="focus"><div class="focus-k mono">You may be past self-serve</div><div class="focus-line">You\'re on rung '+esc(rung)+', so a lot of this is review. If your gaps are the strategic ones, positioning, rights, revenue, sync, artists at your level usually get more from a hands-on plan than a workbook. <a href="/tiers/" target="_blank" rel="noopener" style="color:var(--pinkd);font-weight:700">See Advisory and Development →</a></div></div>';
 
       // groups + start-here button
       var groups = beginner ? BEGINNER_GROUPS : [{label:"THE SECTIONS", ids:WB.sections.map(function(s){return s.id;})}];
-      var order=[]; groups.forEach(function(g){ g.ids.forEach(function(id){ order.push(id); }); });
+      var order=[]; groups.forEach(function(g){ g.ids.slice().sort(function(a,b){return (FORYOU[b]?1:0)-(FORYOU[a]?1:0);}).forEach(function(id){ order.push(id); }); });
       var firstInc=-1;
       for(var oi=0;oi<order.length;oi++){ var ix=idxById(order[oi]); if(ix<0) continue; var pp=secProgress(WB.sections[ix]); if(pp.done<pp.total){ firstInc=ix; break; } }
       if(firstInc>=0){
@@ -603,7 +605,7 @@
           : "You're set to rung "+rung+", so everything's in play. Work top to bottom or jump around.")+'</div>';
 
       groups.forEach(function(g){
-        var ids=g.ids.filter(function(id){return idxById(id)>=0;});
+        var ids=g.ids.filter(function(id){return idxById(id)>=0;}).sort(function(a,b){return (FORYOU[b]?1:0)-(FORYOU[a]?1:0);});
         if(!ids.length) return;
         h+='<div class="sec-h">'+esc(g.label)+'</div>';
         ids.forEach(function(id){ h+=secCard(idxById(id)); });
@@ -622,7 +624,8 @@
     function orderedSecIdx(){
       var rung=val("ladder_now"), beginner=!rung||rung==="1"||rung==="2";
       var groups = beginner ? BEGINNER_GROUPS : [{ids:WB.sections.map(function(s){return s.id;})}];
-      var order=[]; groups.forEach(function(g){ g.ids.forEach(function(id){ var ix=idxById(id); if(ix>=0) order.push(ix); }); });
+      computeForYou();
+      var order=[]; groups.forEach(function(g){ g.ids.slice().sort(function(a,b){return (FORYOU[b]?1:0)-(FORYOU[a]?1:0);}).forEach(function(id){ var ix=idxById(id); if(ix>=0) order.push(ix); }); });
       return order;
     }
     function nextIncomplete(fromIdx){
@@ -713,7 +716,7 @@
       if(!multi || step===0){
         head = b.title?'<h2>'+esc(b.title)+'</h2>':"";
         head += b.help?'<p class="help">'+esl(b.help)+'</p>':"";
-        head += b.gloss?'<div class="gloss"><b class="mono">In plain words</b>'+esl(b.gloss)+'</div>':"";
+        head += (b.gloss && !advancedUser())?'<div class="gloss"><b class="mono">In plain words</b>'+esl(b.gloss)+'</div>':"";
       }
       var body="";
       if(b.type==="info") return '<div class="info">'+(b.title?'<h2>'+esc(b.title)+'</h2>':"")+b.body.filter(function(p){ return !(p&&typeof p==="object") || oneCond(p.showIf); }).map(function(p){
