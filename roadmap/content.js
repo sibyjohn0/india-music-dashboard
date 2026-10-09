@@ -473,6 +473,15 @@ window.WORKBOOK = {
           {id:"pf3", label:"Which income stream gives the best return per hour of effort?"},
           {id:"pf4", label:"If you need ₹___ / year and currently earn ₹___, the gap is ₹___. What closes it?", long:true}
         ]},
+        { type:"info", id:"teaching_how", showIf:{f:"archetype",is:["noncommercial"]}, title:"Teaching and session work: the steady income most composers ignore", body:[
+          "For a non-commercial artist, teaching and session or composing work is usually the reliable monthly income that funds the art. Treat it as a stream, not a side thing.",
+          "Set a clear rate: per hour for teaching, per track or per day for sessions. Price for your time, and raise it as you book out.",
+          "Where it comes from: your own network and socials, music schools, local studios needing session players, and other artists needing a composer or arranger. One steady student or a regular session client beats chasing virality."
+        ]},
+        { type:"fill", id:"teaching_plan", showIf:{f:"archetype",is:["noncommercial"]}, title:"", items:[
+          {id:"teach_rate", label:"My teaching or session rate (per hour, or per track)"},
+          {id:"teach_where", label:"3 places I can find students or session work this month", long:true}
+        ]},
         { type:"checklist", id:"revenue_actions", title:"Your action items", items:[
           {id:"re_audit", text:"Complete the revenue audit, mark each of the 7 streams Active / Possible / Not yet"},
           {id:"re_calc", text:"Calculate your total music income for the last 12 months"},
@@ -780,6 +789,21 @@ window.WORKBOOK = {
         { type:"fill", id:"adv_q", title:"", items:[
           {id:"adv_stage", label:"Where am I now: chasing one-off gigs, a steady flow of conversations, or income that keeps coming without chasing?"}
         ]},
+        { type:"info", id:"sync_how", showIf:{f:"archetype",is:["noncommercial"]}, title:"Sync: how your music earns without you performing", body:[
+          "Sync is your music licensed into a film, ad, series, game or branded video. For a non-commercial artist it is often the biggest earner, and it rewards a clean, ready catalogue over a big audience.",
+          "What a supervisor needs: a track that fits the brief, an instrumental version, clean stems, and clear ownership (a signed split sheet so there is no dispute later).",
+          "Where to pitch in India: music supervisors and ad agencies directly, sync libraries, and briefs that come through IPRS and festival networks. One placement can pay more than a year of streams."
+        ]},
+        { type:"table", id:"sync_catalogue", showIf:{f:"archetype",is:["noncommercial"]}, title:"Your sync catalogue",
+          help:"List what is ready to pitch. The more Yes columns, the faster you can say yes to a brief.",
+          columns:[
+            {key:"track", label:"Track", type:"text"},
+            {key:"mood", label:"Mood / tempo", type:"text"},
+            {key:"inst", label:"Instrumental ready?", type:"chips", options:["Yes","No"]},
+            {key:"stems", label:"Clean stems ready?", type:"chips", options:["Yes","No"]},
+            {key:"cleared", label:"Rights cleared?", type:"chips", options:["Yes","Needs a split sheet"]},
+            {key:"pitched", label:"Pitched to", type:"text"}
+          ], rows:4 },
         { type:"checklist", id:"advanced_actions", title:"Your action items", items:[
           {id:"ad_audit", text:"Run the 10-minute contact audit: phone contacts + Instagram + email, sort into the 5 categories"},
           {id:"ad_warm", text:"Identify your 3 warmest advocates, reach out to one this week with a specific ask"},
