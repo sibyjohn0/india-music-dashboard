@@ -288,7 +288,7 @@
     <button class="btn primary" id="nextBtn" type="button">Next</button>
   </nav>
 
-  <script src="content.js?v=20261009"></script>
+  <script src="content.js?v=20261009b"></script>
   <script>
   (function(){
     "use strict";
@@ -404,7 +404,7 @@
            (e.lead?'<div class="lesson-ex-lead">'+esl(e.lead)+'</div>':"")+
            (e.rows&&e.rows.length?'<div class="lesson-ex-rows">'+e.rows.map(function(r){return '<div class="lesson-ex-row"><span>'+esc(r[0])+'</span><b>'+esc(r[1])+'</b></div>';}).join("")+'</div>':"")+
            (e.take?'<div class="lesson-ex-take">'+esl(e.take)+'</div>':"")+
-           (e.alt?'<div class="lesson-ex-alt"><b>IF YOU HAVE ₹0</b>'+esl(e.alt)+'</div>':"")+
+           ((e.altSmall&&budgetLvl()==="small")?'<div class="lesson-ex-alt"><b>IF YOU HAVE A SMALL BUDGET</b>'+esl(e.altSmall)+'</div>':(e.alt?'<div class="lesson-ex-alt"><b>IF YOU HAVE ₹0</b>'+esl(e.alt)+'</div>':""))+
            (e.src?'<div class="lesson-ex-src">'+esl(e.src)+'</div>':"")+'</div>';
       }
       return '<div class="lesson"><div class="lesson-k mono">The idea</div>'+
