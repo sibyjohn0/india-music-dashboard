@@ -30,6 +30,8 @@
   .brand{font-weight:800;font-size:14px;display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink);flex:0 0 auto}
   .brand .dot{width:13px;height:13px;border-radius:50%;background:var(--pink);border:2px solid var(--ink)}
   .crumb{font-size:13px;font-weight:700;color:var(--muted);margin-left:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tophome{display:none;font-family:inherit;font-weight:700;font-size:12px;color:var(--ink);background:#fff;border:1.5px solid var(--ink);border-radius:8px;padding:9px 11px;cursor:pointer;white-space:nowrap;flex:0 0 auto;min-height:44px}
+  .tophome.show{display:inline-flex;align-items:center}
   .saved{margin-left:auto;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:5px;white-space:nowrap;opacity:0;transition:opacity .3s;flex:0 0 auto}
   .saved.show{opacity:1}
   .saved .tick{width:15px;height:15px;border-radius:50%;background:var(--mint);border:1.5px solid var(--ink);display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:800}
@@ -50,6 +52,7 @@
   .ovr .lbl{font-size:13px;color:var(--muted);font-weight:600}
   .ovr .track{flex:1;height:12px;background:var(--softyellow);border:2px solid var(--ink);border-radius:20px;overflow:hidden}
   .ovr .track i{display:block;height:100%;background:var(--mint)}
+  .streak{font-size:11.5px;font-weight:700;color:#0B6B4F;background:#EAFBF4;border:1.5px solid var(--ink);border-radius:9px;padding:7px 11px;margin-bottom:10px;display:inline-block}
   /* section-complete celebration (calm: a check + the numbers moving) */
   .done-cel{text-align:center;padding:26px 16px 8px;max-width:460px;margin:0 auto}
   .done-badge{width:66px;height:66px;margin:0 auto 16px;border-radius:50%;background:var(--mint);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;box-shadow:4px 4px 0 var(--ink);animation:donepop .42s ease-out}
@@ -70,6 +73,7 @@
   .focus-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
   .focus-chip{font-family:inherit;font-weight:800;font-size:13px;background:#fff;border:2px solid var(--ink);border-radius:8px;padding:8px 12px;cursor:pointer;box-shadow:var(--shadow-sm);color:var(--ink)}
   .focus-chip:active{transform:translateY(1px)}
+  .focus-teaser{font-size:13px;line-height:1.5;margin-top:11px;padding-top:11px;border-top:1px dashed rgba(36,27,46,.25);font-style:italic;color:#4A4057}
   .foryou{display:inline-block;font-size:9px;background:var(--pinkd);color:#fff;border:1.5px solid var(--ink);border-radius:8px;padding:1px 5px 0;vertical-align:middle;margin-left:3px;letter-spacing:.3px}
   .sec-h{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.5px;margin:22px 2px 12px;color:var(--muted)}
   .seccard{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:16px;padding:15px 16px;margin-bottom:11px;cursor:pointer;transition:transform .08s, box-shadow .12s}
@@ -89,6 +93,7 @@
   .subhead{display:flex;align-items:center;gap:10px;margin-bottom:16px}
   .subhead .eyebrow{font-size:11px;font-weight:700;color:var(--pinkd)}
   .subhead .of{font-size:11px;color:var(--muted);margin-left:auto}
+  .midnudge{font-size:11.5px;font-weight:700;color:#6D28D9;background:#EDE4FF;border:1.5px solid var(--ink);border-radius:9px;padding:7px 11px;margin:-8px 0 14px;display:inline-block}
   .sec-intro{background:var(--blue);border:2px solid var(--ink);border-radius:16px;padding:20px;box-shadow:var(--shadow-sm);margin-bottom:6px}
   .sec-intro h1{font-size:clamp(24px,6vw,32px);font-weight:800;margin-bottom:8px}
   .sec-intro p{font-size:16px}
@@ -278,6 +283,7 @@
     <div class="topbar-in">
       <a class="brand" href="/"><span class="dot"></span> <span class="bt">Indie Music India</span></a>
       <span class="crumb" id="crumb"></span>
+      <button type="button" id="topHomeBtn" class="tophome" aria-label="Back to your workbook contents">⌂ Contents</button>
       <span class="saved" id="saved" aria-live="polite"><span class="tick" aria-hidden="true">✓</span> Saved</span>
     </div>
   </header>
@@ -295,6 +301,14 @@
     var WB = window.WORKBOOK, KEY="iim_roadmap_wb_v2";
     if(!WB){ document.getElementById("stage").innerHTML='<p style="padding:24px">We couldn\'t load your workbook just now. Give the page a refresh and it should come back.</p>'; return; }
     var S = load();
+    (function touchStreak(){
+      var today=new Date().toISOString().slice(0,10);
+      var days = S.lastVisit ? Math.round((new Date(today+"T00:00:00")-new Date(S.lastVisit+"T00:00:00"))/86400000) : null;
+      if(days===1) S.streak=(S.streak||0)+1;
+      else if(days===null || days>1) S.streak=1;
+      S.lastVisit=today;
+      try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}
+    })();
     function fresh(){ return { nav:{view:"home"}, ans:{}, seen:false }; }
     function load(){ try{var r=localStorage.getItem(KEY); if(!r){ var old=localStorage.getItem("iim_roadmap_wb_v1"); if(old){ r=old; try{localStorage.setItem(KEY,old);}catch(e){} } } if(r){var o=JSON.parse(r);o.ans=o.ans||{};o.nav=o.nav||{view:"home"};
       if(o.nav.view==="section"){ var sec=WB.sections[o.nav.sec]; if(!sec){o.nav={view:"home"};} else { var bi=o.nav.block||0; if(bi<0||bi>=visBlocks(sec).length) o.nav.block=0; if(!(o.nav.step>=0)) o.nav.step=0; } }
@@ -463,6 +477,7 @@
       var v=S.nav.view;
       document.getElementById("pfill").style.width=overall().pct+"%";
       document.body.classList.toggle("in-section", v==="section");
+      document.getElementById("topHomeBtn").classList.toggle("show", v!=="home");
       var navKey=v+"|"+S.nav.sec+"|"+S.nav.block+"|"+S.nav.step;
       if(navKey!==lastNavKey){ window.scrollTo(0,0); lastNavKey=navKey; }
       if(v==="section") return renderSection();
@@ -560,6 +575,11 @@
       if(goal) h+='<div class="focus-line">Your goal: <b>'+esc(goal)+'</b></div>';
       if(weak.length) h+='<div class="focus-line">Weakest right now: '+weak.map(function(w){return '<b>'+esc(w.nm)+'</b> ('+w.r+'/10)';}).join(" and ")+'. Start here:</div>'+
         '<div class="focus-chips">'+weak.map(function(w){var i=idxById(w.sec); return i>=0?'<button class="focus-chip" data-sec="'+i+'">'+esc(WB.sections[i].name)+' →</button>':"";}).join("")+'</div>';
+      var ov=overall();
+      if(ov.done>0 && ov.done<ov.total){
+        var teaser = (a&&ARCHETYPE_FOCUS[a]) ? esc(ARCHETYPE_FOCUS[a].play) : (weak.length?('fixing '+esc(weak[0].nm)+' first'):'what you told us');
+        h+='<div class="focus-teaser">Finish up and your 90-day plan opens already built around '+teaser+'.</div>';
+      }
       return h+'</div>';
     }
     function secCard(i){
@@ -586,6 +606,7 @@
          '<p>This is your workbook. These sections take you from who you are to a real 90-day plan. Do one at a time, in any order. Everything saves as you go.</p></div>';
       h+='<div class="ovr"><div><div class="big">'+o.pct+'%</div><div class="lbl">'+o.done+' of '+o.total+' started</div></div>'+
          '<div class="track"><i style="width:'+o.pct+'%"></i></div></div>';
+      if(started && (S.streak||0)>=2) h+='<div class="streak mono">Day '+S.streak+' in a row. Keep it going.</div>';
       h+=focusCardHTML();
       if(advancedUser()) h+='<div class="focus"><div class="focus-k mono">You may be past self-serve</div><div class="focus-line">You\'re on rung '+esc(rung)+', so a lot of this is review. If your gaps are the strategic ones, positioning, rights, revenue, sync, artists at your level usually get more from a hands-on plan than a workbook. <a href="/tiers/" target="_blank" rel="noopener" style="color:var(--pinkd);font-weight:700">See Advisory and Development →</a></div></div>';
 
@@ -696,6 +717,7 @@
       document.getElementById("pfill").style.width=pct+"%";
       var h='<div class="subhead"><span class="eyebrow mono">'+esc(sec.name)+'</span><span class="of mono">'+(idx+1)+' / '+totalSteps+'</span></div>';
       var isCover=(bi===0 && st===0);
+      if(!isCover && totalSteps>=6 && (idx+1)===Math.ceil(totalSteps/2)) h+='<div class="midnudge mono">Halfway through '+esc(sec.name)+'.</div>';
       if(isCover){ h+='<div class="sec-intro"><h1>'+esc(sec.name)+'</h1><p>'+esc(sec.plain)+'</p></div>';
         if(sec.lesson) h+=lessonHTML(sec.lesson);
         h+= (sec.id==="plan"?planCard():sectionBanner(sec)); }
@@ -868,6 +890,7 @@
         return;
       }
     });
+    document.getElementById("topHomeBtn").addEventListener("click",function(){ S.nav={view:"home"}; save(); render(); });
     backBtn.addEventListener("click",function(){
       var bi=S.nav.block||0, st=S.nav.step||0;
       if(st>0){ S.nav.step=st-1; }
