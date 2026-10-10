@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-09T07:27:06.585829+00:00",
+  "generated_at": "2026-10-10T07:04:06.028952+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
@@ -111,8 +111,8 @@
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 3,
-      "show_count": 3,
+      "venue_count": 4,
+      "show_count": 4,
       "venues": [
         {
           "name": "Kamani Auditorium",
@@ -161,6 +161,22 @@
           ],
           "shows": 1,
           "next_date": "2026-11-01"
+        },
+        {
+          "name": "Saket SOCIAL",
+          "city": "Delhi",
+          "area": "Saket",
+          "gigs": [
+            {
+              "name": "SOCIAL X ALLIANCE FRANÇAISE Presents MAYA KAMATY | Saket SOCIAL",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/social-x-alliance-francaise-presents-maya-kamaty-saket-social-sbukvvzh",
+              "price": "",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
         }
       ]
     },
@@ -279,7 +295,7 @@
               "name": "Gatecrash presents CKRAFT and ManeatingOrchid",
               "date": null,
               "url": "https://www.skillboxes.com/events/gatecrash-presents-ckraft-and-maneatingorchid-sbckoczj",
-              "price": "from ₹499",
+              "price": "₹499–₹800",
               "source": "skillboxes"
             }
           ],
@@ -295,7 +311,7 @@
               "name": "The Humming Tree presents Bawari Basanti",
               "date": null,
               "url": "https://www.skillboxes.com/events/tht-presents-bawari-basanti-sbcvmplq",
-              "price": "from ₹2,000",
+              "price": "from ₹499",
               "source": "skillboxes"
             }
           ],
@@ -306,31 +322,14 @@
     },
     "hyderabad": {
       "name": "Hyderabad",
-      "venue_count": 1,
-      "show_count": 1,
-      "venues": [
-        {
-          "name": "Gachibowli Stadium",
-          "city": "Hyderabad",
-          "area": "Gachibowli",
-          "gigs": [
-            {
-              "name": "THE SPRING EDIT 2.0",
-              "date": "2026-10-09",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-09"
-        }
-      ]
+      "venue_count": 0,
+      "show_count": 0,
+      "venues": []
     },
     "pune": {
       "name": "Pune",
-      "venue_count": 19,
-      "show_count": 23,
+      "venue_count": 17,
+      "show_count": 21,
       "venues": [
         {
           "name": "Phoenix Avenue Of Stars",
@@ -391,38 +390,6 @@
           ],
           "shows": 3,
           "next_date": "2026-10-10"
-        },
-        {
-          "name": "Jawaharlal Nehru Memorial Hall",
-          "city": "Pune",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Carvaan Live: Sing with Kishore at Nehru Hall",
-              "date": "2026-10-09",
-              "url": "https://in.bookmyshow.com/events/carvaan-live-sing-with-kishore-at-nehru-hall/ET00516626",
-              "price": "from ₹999",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-09"
-        },
-        {
-          "name": "Mahalunge, Balewadi",
-          "city": "Pune",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Sets on the Beats by Powerup Fitness",
-              "date": "2026-10-09",
-              "url": "https://in.bookmyshow.com/events/sets-on-the-beats-by-powerup-fitness/ET00520230",
-              "price": "from ₹249",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-09"
         },
         {
           "name": "Club Mexo",
@@ -668,8 +635,8 @@
     },
     "goa": {
       "name": "Goa",
-      "venue_count": 10,
-      "show_count": 19,
+      "venue_count": 9,
+      "show_count": 17,
       "venues": [
         {
           "name": "HOUSE OF CHAPORA",
@@ -765,13 +732,6 @@
           "area": "",
           "gigs": [
             {
-              "name": "Ashish Kapoor Live at Savara - Bollywood Pop Night",
-              "date": "2026-10-09",
-              "url": "https://in.bookmyshow.com/events/ashish-kapoor-live-at-savara-bollywood-pop-night/ET00520764",
-              "price": "from ₹2,000",
-              "source": "bookmyshow"
-            },
-            {
               "name": "Glam Night with Akanksha Choudhary - Savara Goa",
               "date": "2026-10-10",
               "url": "https://in.bookmyshow.com/events/glam-night-with-akanksha-choudhary-savara-goa/ET00520770",
@@ -779,24 +739,8 @@
               "source": "bookmyshow"
             }
           ],
-          "shows": 2,
-          "next_date": "2026-10-09"
-        },
-        {
-          "name": "The Westin Goa",
-          "city": "Goa",
-          "area": "",
-          "gigs": [
-            {
-              "name": "India Beach Fashion Week | Season 12 - Goa",
-              "date": "2026-10-09",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
           "shows": 1,
-          "next_date": "2026-10-09"
+          "next_date": "2026-10-10"
         },
         {
           "name": "Hammerzz Makarena",

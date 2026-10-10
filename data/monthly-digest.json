@@ -866,13 +866,13 @@
   },
   "2026-10": {
     "month": "2026-10",
-    "snapshots": 9,
-    "last_snapshot_at": "2026-10-09T07:16:58.774842+00:00",
+    "snapshots": 10,
+    "last_snapshot_at": "2026-10-10T06:53:20.923512+00:00",
     "total_videos": 225,
-    "total_artists": 267,
-    "new_artists_seen": 239,
-    "median_score": 60,
-    "median_views": 3265,
+    "total_artists": 278,
+    "new_artists_seen": 251,
+    "median_score": 62,
+    "median_views": 3181,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -947,34 +947,34 @@
     ],
     "fastest_growing": [
       {
-        "name": "Anushka Gautam",
-        "views_gained": 674759,
-        "genre": "Rock / Alt",
-        "language": "Punjabi"
-      },
-      {
-        "name": "Aksomaniac",
-        "views_gained": 455073,
-        "genre": "Indie",
-        "language": "Malayalam"
-      },
-      {
         "name": "Inayat Kaur Bajaj",
-        "views_gained": 381098,
+        "views_gained": 430221,
         "genre": "Classical/Fusion",
         "language": "English"
       },
       {
         "name": "Kalpana haridas",
-        "views_gained": 251056,
+        "views_gained": 299777,
         "genre": "Hip Hop / Rap",
         "language": "Telugu"
       },
       {
         "name": "Shamil koppam",
-        "views_gained": 225179,
+        "views_gained": 286163,
         "genre": "Indie",
         "language": "Malayalam"
+      },
+      {
+        "name": "Sai Creator ",
+        "views_gained": 122704,
+        "genre": "Electronic",
+        "language": "Tamil"
+      },
+      {
+        "name": "Obydullah Tarek",
+        "views_gained": 78688,
+        "genre": "Indie",
+        "language": "Bengali"
       }
     ],
     "genre_breakdown": [
@@ -984,7 +984,7 @@
       ],
       [
         "Folk / Acoustic",
-        47
+        48
       ],
       [
         "Hip Hop / Rap",
@@ -992,11 +992,15 @@
       ],
       [
         "Electronic",
-        26
+        24
       ],
       [
         "Lo-Fi",
-        20
+        18
+      ],
+      [
+        "Classical/Fusion",
+        14
       ],
       [
         "R&B / Soul",
@@ -1004,15 +1008,11 @@
       ],
       [
         "Rock / Alt",
-        13
-      ],
-      [
-        "Classical/Fusion",
         12
       ],
       [
         "Indie Pop",
-        4
+        6
       ],
       [
         "Jazz / Blues",
@@ -1022,6 +1022,10 @@
     "language_breakdown": [
       [
         "Tamil",
+        25
+      ],
+      [
+        "Telugu",
         25
       ],
       [
@@ -1037,19 +1041,15 @@
         25
       ],
       [
-        "Marathi",
-        25
-      ],
-      [
         "Hindi",
         25
       ],
       [
-        "Telugu",
+        "English",
         25
       ],
       [
-        "English",
+        "Marathi",
         25
       ],
       [
@@ -1058,26 +1058,29 @@
       ]
     ],
     "city_shows": {
-      "Kolkata": 28,
-      "Delhi": 9,
-      "Mumbai": 15,
-      "Chandigarh": 1,
-      "Bangalore": 44,
-      "Pune": 5,
-      "Hyderabad": 5,
-      "Goa": 2,
+      "Goa": 19,
+      "Pune": 25,
+      "Pune.": 1,
+      "Delhi": 10,
+      "Bangalore": 47,
+      "Guwahati": 1,
+      "Ahmedabad": 2,
+      "Mumbai": 18,
+      "Lucknow": 1,
+      "Britona": 1,
+      "Hyderabad": 3,
+      "Kolkata": 1,
       "India": 1,
       "Chennai": 4,
       "Siliguri": 1,
       "Hoshiarpur": 1,
-      "Jaipur": 1,
+      "Jaipur": 2,
       "Mohali": 1,
       "Mandawa": 1,
       "Kochi": 1,
-      "Dehradun": 1,
-      "Ranchi": 1
+      "Dehradun": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 122
+    "total_shows": 142
   }
 }

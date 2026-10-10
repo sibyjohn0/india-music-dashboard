@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-09T07:27:06.524203+00:00",
+  "generated_at": "2026-10-10T07:04:05.948201+00:00",
   "counts": {
-    "festivals": 23,
+    "festivals": 24,
     "tours": 16,
     "marquee": 14,
     "international": 7,
-    "indian": 32,
-    "new_this_run": 6
+    "indian": 33,
+    "new_this_run": 1
   },
   "festivals": [
     {
@@ -436,6 +436,33 @@
         }
       ],
       "soonest": "2026-11-01",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Sunfire Festival",
+      "type": "festival",
+      "key": "sunfire festival",
+      "cities": [
+        "Jaipur"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-28",
+          "date_obj": "2026-11-28",
+          "city": "Jaipur",
+          "venue": "",
+          "time": "06:00 PM",
+          "price": "from ₹3,999",
+          "url": "https://www.skillboxes.com/events/sunfire-festival-sbuiqyrq",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-11-28",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1223,12 +1250,7 @@
     }
   ],
   "new_this_run": [
-    "SikTh - Live in Bengaluru",
-    "October fest : Malayalam Jamming by MakeSomeOchha",
-    "Sunburn Festival",
-    "Foo Fighters India Tour 2027",
-    "AR Rahman The Wonderment Tour Live",
-    "Weverse Con Festival India 2027"
+    "Sunfire Festival"
   ],
   "_all_keys": [
     "sajanka india tour",
@@ -1241,6 +1263,7 @@
     "cloud temple boutique music festival",
     "alpha music festival 6 0",
     "structure music festival",
+    "sunfire festival",
     "horn ok please",
     "benny dayal live in",
     "last minute india on tour",
