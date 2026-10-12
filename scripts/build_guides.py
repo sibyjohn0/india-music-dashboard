@@ -98,6 +98,8 @@ def render_body(sections):
                            '<table style="width:100%;border-collapse:collapse;font-size:14px;min-width:560px">'
                            f'<thead><tr style="text-align:left;border-bottom:2px solid var(--border)">{head}</tr></thead>'
                            f'<tbody>{body}</tbody></table></div>')
+            elif isinstance(item, dict) and "raw" in item:
+                out.append(item["raw"])
             else:
                 out.append(f"<p>{item}</p>")
     return "\n".join(out)

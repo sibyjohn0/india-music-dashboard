@@ -198,7 +198,29 @@ GUIDES = [
    {"h2":"Getting heard as a Mumbai artist","body":[
      "Playing out is half of it; the other half is release and press. Get your music to the blogs, playlists and curators who cover the Indian scene through our <a href=\"/reviewers/\">reviewer database</a>, and follow a real <a href=\"/guides/12-week-release-plan-india/\">release plan</a> rather than dropping singles into silence. If gigs are the goal, the <a href=\"/guides/book-live-gigs-independent-band-india/\">guide to booking live gigs</a> is built for exactly this city."]},
    {"h2":"Who's rising","body":[
-     "Our <a href=\"/radar.html\">Radar</a> tracks independent Indian artists gaining momentum, many of them out of Mumbai. It is a good way to see who is breaking and what is connecting right now."]}],
+     "Our <a href=\"/radar.html\">Radar</a> tracks independent Indian artists gaining momentum, many of them out of Mumbai. It is a good way to see who is breaking and what is connecting right now. We've also already featured several Mumbai artists on our <a href=\"/artists/\">Artists page</a>, picked on merit, not pay-for-play:",
+     {"raw": """<div style="display:flex;flex-wrap:wrap;gap:12px;margin:0 0 14px">
+<div style="border:2px solid #241B2E;border-radius:12px;background:#fff;box-shadow:3px 3px 0 #241B2E;padding:14px;flex:1 1 220px;min-width:200px">
+<a href="/artists/#avnish-patar" style="font-weight:800;color:#241B2E;text-decoration:none">Avnish Patar</a>
+<p style="font-size:13.5px;color:#574C63;margin:6px 0 10px">Singer-songwriter, composer and producer from Chhattisgarh, now building his sound in Mumbai.</p>
+<a href="https://open.spotify.com/artist/30K2cUDbmhwdD2ODIfU8Fu" target="_blank" rel="noopener" style="font-size:12px;font-weight:700;color:#241B2E;border:1.5px solid #241B2E;border-radius:7px;padding:4px 10px;background:#1FCF9E;text-decoration:none">Spotify</a>
+</div>
+<div style="border:2px solid #241B2E;border-radius:12px;background:#fff;box-shadow:3px 3px 0 #241B2E;padding:14px;flex:1 1 220px;min-width:200px">
+<a href="/artists/#rum-and-an" style="font-weight:800;color:#241B2E;text-decoration:none">Rum and An</a>
+<p style="font-size:13.5px;color:#574C63;margin:6px 0 10px">The independent project of Rumana Molla, out of Mumbai.</p>
+<a href="https://open.spotify.com/artist/0fkc94kySFjfOiEnFj603r" target="_blank" rel="noopener" style="font-size:12px;font-weight:700;color:#241B2E;border:1.5px solid #241B2E;border-radius:7px;padding:4px 10px;background:#1FCF9E;text-decoration:none">Spotify</a>
+</div>
+<div style="border:2px solid #241B2E;border-radius:12px;background:#fff;box-shadow:3px 3px 0 #241B2E;padding:14px;flex:1 1 220px;min-width:200px">
+<a href="/artists/#sinista" style="font-weight:800;color:#241B2E;text-decoration:none">Sinista</a><span style="display:inline-block;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#241B2E;background:#FFE1EC;border:1px solid #241B2E;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle">Drum &amp; bass</span>
+<p style="font-size:13.5px;color:#574C63;margin:6px 0 10px">Mumbai producer, part of the Dreamteam collective. Moves between trap and drum &amp; bass.</p>
+<a href="https://open.spotify.com/artist/4suFQSXYu4PMY6SInhKBPy" target="_blank" rel="noopener" style="font-size:12px;font-weight:700;color:#241B2E;border:1.5px solid #241B2E;border-radius:7px;padding:4px 10px;background:#1FCF9E;text-decoration:none">Spotify</a>
+</div>
+<div style="border:2px solid #241B2E;border-radius:12px;background:#fff;box-shadow:3px 3px 0 #241B2E;padding:14px;flex:1 1 220px;min-width:200px">
+<a href="/artists/#vedant-dukare" style="font-weight:800;color:#241B2E;text-decoration:none">Vedant Dukare</a><span style="display:inline-block;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#241B2E;background:#FFE1EC;border:1px solid #241B2E;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle">Pop</span>
+<p style="font-size:13.5px;color:#574C63;margin:6px 0 10px">Mumbai singer-songwriter and producer, self-built since 2022.</p>
+<a href="https://open.spotify.com/artist/3AiESBGeVa51WteWpiXOfD" target="_blank" rel="noopener" style="font-size:12px;font-weight:700;color:#241B2E;border:1.5px solid #241B2E;border-radius:7px;padding:4px 10px;background:#1FCF9E;text-decoration:none">Spotify</a>
+</div>
+</div>"""}]}],
  "faq":[
    ("Where can I play live music as an independent artist in Mumbai?","Start with the smaller bar and club stages that book new acts, then work up. Our Mumbai venues page ranks the rooms hosting the most live music right now, with what's on and ticket links."),
    ("How do I find gigs and concerts in Mumbai?","Use our live festivals and tours calendar, which tracks dates, venues and tickets across the city daily, from club nights to festivals like NH7 and Lollapalooza India."),
@@ -278,7 +300,19 @@ GUIDES = [
    {"h2":"Getting heard as a Bengaluru artist","body":[
      "Release with intent and pitch the right people. Our <a href=\"/reviewers/\">reviewer database</a> lists blogs, playlists and curators covering the Indian scene, and the <a href=\"/guides/12-week-release-plan-india/\">12-week release plan</a> turns scattered singles into momentum. To play more, the <a href=\"/guides/book-live-gigs-independent-band-india/\">booking live gigs guide</a> maps the process."]},
    {"h2":"Who's rising","body":[
-     "Our <a href=\"/radar.html\">Radar</a> surfaces independent Indian artists gaining traction, a useful read on who is breaking out of the Bengaluru scene and what is connecting."]}],
+     "Our <a href=\"/radar.html\">Radar</a> surfaces independent Indian artists gaining traction, a useful read on who is breaking out of the Bengaluru scene and what is connecting. We've also already featured several Bengaluru artists on our <a href=\"/artists/\">Artists page</a>, picked on merit, not pay-for-play:",
+     {"raw": """<div style="display:flex;flex-wrap:wrap;gap:12px;margin:0 0 14px">
+<div style="border:2px solid #241B2E;border-radius:12px;background:#fff;box-shadow:3px 3px 0 #241B2E;padding:14px;flex:1 1 220px;min-width:200px">
+<a href="/artists/#the-lucidwake" style="font-weight:800;color:#241B2E;text-decoration:none">THE LUCIDWAKE</a><span style="display:inline-block;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#241B2E;background:#FFE1EC;border:1px solid #241B2E;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle">Psychedelic rock</span>
+<p style="font-size:13.5px;color:#574C63;margin:6px 0 10px">Four-piece psychedelic rock act out of Bangalore: towering vocals, intricate riffs.</p>
+<a href="https://open.spotify.com/artist/1dlRoG39rKRyPce7VvT50R" target="_blank" rel="noopener" style="font-size:12px;font-weight:700;color:#241B2E;border:1.5px solid #241B2E;border-radius:7px;padding:4px 10px;background:#1FCF9E;text-decoration:none">Spotify</a>
+</div>
+<div style="border:2px solid #241B2E;border-radius:12px;background:#fff;box-shadow:3px 3px 0 #241B2E;padding:14px;flex:1 1 220px;min-width:200px">
+<a href="/artists/#ishan-mahansaria" style="font-weight:800;color:#241B2E;text-decoration:none">Ishan Mahansaria</a><span style="display:inline-block;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;text-transform:uppercase;color:#241B2E;background:#FFE1EC;border:1px solid #241B2E;border-radius:999px;padding:2px 8px;margin-left:6px;vertical-align:middle">Pop</span>
+<p style="font-size:13.5px;color:#574C63;margin:6px 0 10px">Bengaluru singer-songwriter; debut album 'Arzu'.</p>
+<a href="https://open.spotify.com/artist/0SjiIe68KBxUjxtTYrXZhN" target="_blank" rel="noopener" style="font-size:12px;font-weight:700;color:#241B2E;border:1.5px solid #241B2E;border-radius:7px;padding:4px 10px;background:#1FCF9E;text-decoration:none">Spotify</a>
+</div>
+</div>"""}]}],
  "faq":[
    ("Where can I play live music in Bengaluru as an independent artist?","Bengaluru's listening rooms and clubs regularly book new acts. Our Bengaluru venues page ranks the rooms hosting the most live music now, with what's on and ticket links."),
    ("How do I find gigs and concerts in Bengaluru?","Use our live festivals and tours calendar, updated daily with dates, venues and tickets across the city, including festivals like Echoes of Earth."),
