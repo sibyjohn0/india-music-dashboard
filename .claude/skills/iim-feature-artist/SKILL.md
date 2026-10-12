@@ -17,20 +17,18 @@ tools: Read, Bash, Edit, mcp__claude_ai_Gmail__search_threads, mcp__claude_ai_Gm
 
 For each form response worth acting on, the useful fields are: name (`0a06785b` or `13e8b51f`), Spotify link (`54892e4d`), email (`236a5cac`), Instagram (`27f16336`), YouTube (`399d51fb`). **Also pull these if present, don't skip them:** genre (`1fbc8c44`, multi-select checkboxes), city (`641c2c4e`), language (`1ddb5b8d`) — the intake form already asks for all three, but earlier features lost this into prose-only bios instead of using it as structured data. Capture it properly now (see below).
 
-## Adding the entry (chart structure, rebuilt 2026-10-12)
+## Adding the entry (city-carousel structure, final as of 2026-10-12)
 
-`artists/index.html` is **no longer a flat grid**. It's a genre-grouped countdown chart: `.chart-section` blocks (Hip-hop & Rap, Pop, Indie-pop, Rock & Alternative, Electronic, Folk & Roots, plus a "More voices on the scene" catch-all for anyone without one clean stated genre), each containing an `<ol class="chart-list">` of tap-to-expand `<li class="chart-row">` rows. All text (name, bio, links) is static HTML for SEO; the Spotify/YouTube iframe is injected by JS on first tap, not present in the markup.
+`artists/index.html` is **not a flat grid or a genre chart** (both were intermediate redesigns the same day, superseded) — it's grouped by **city/region**, the real "map of the scene" axis. `.chart-section` blocks, one per city actually stated in at least one featured artist's bio (Mumbai, Bengaluru, Kolkata, Assam, Chandigarh, Gurgaon, Rajasthan, Kerala, Himachal, Madhya Pradesh, Maharashtra as of this writing), ordered by artist count descending, plus an "Across India" catch-all last for anyone with no stated city. Each section is a horizontally-scrollable `.city-carousel` of tap-to-expand `<article class="city-card">` cards, **newest-featured artist first** within each city (not oldest). All text (name, bio, links) is static HTML for SEO; the Spotify/YouTube iframe is injected by JS on first tap, not present in the markup.
 
-**Exact markup for a new row**, inserted into the right genre's `<ol class="chart-list">` (append at the end of that section; if genre is unknown/mixed, use the "More voices on the scene" section at the bottom):
+**Exact markup for a new card**, inserted as the FIRST child inside the right city's `<div class="city-carousel">` (newest goes first, don't append at the end):
 
 ```html
-<li class="chart-row" id="SLUG">
-  <button type="button" class="chart-row-head" aria-expanded="false" aria-controls="panel-SLUG">
-    <span class="chart-num">NN</span>
+<article class="city-card" id="SLUG">
+  <button type="button" class="city-card-head" aria-expanded="false" aria-controls="panel-SLUG">
     <span class="chart-name">NAME</span>
-    <!-- only in "More voices": <span class="artist-tag">GENRE</span> -->
-    <!-- only if the artist's own bio/form answer states a city: -->
-    <span class="chart-city">CITY</span>
+    <!-- only if a clean single genre is stated: -->
+    <span class="artist-tag">GENRE</span>
     <span class="chart-chevron" aria-hidden="true">+</span>
   </button>
   <div class="chart-panel" id="panel-SLUG">
@@ -41,18 +39,18 @@ For each form response worth acting on, the useful fields are: name (`0a06785b` 
       <!-- real YouTube/Instagram links they actually gave, same pattern -->
     </div>
   </div>
-</li>
+</article>
 ```
 
 - `SLUG` = lowercase name, non-alphanumeric runs collapsed to a single `-` (e.g. "KĀYA SOUND" → `k-ya-sound`). Must be unique sitewide on this page.
-- `chart-num` is just the running position within the full page (continues across sections), not a real popularity ranking — never imply it's chart-position-by-popularity, there's no data backing that.
-- Renumber every row after the insertion point if you're inserting mid-list rather than appending at a section's end (sequential numbers must stay in order). Easiest to just append at the very end of the target section to avoid renumbering.
-- **Also add the artist to the `ItemList` schema** near the top of the file (`<script type="application/ld+json">` with `"@type":"ItemList"`): a `ListItem` with `position` (next number), `MusicGroup` name/sameAs/url (`https://indiemusicindia.com/artists/#SLUG`), and `genre` if known. This was missed for two artists on 2026-10-12 (Jaybird, Xander Dote got added to the visual page but not the schema) — don't repeat that, always do both in the same pass.
-- For the YouTube-only embed type (no Spotify), copy the `data-src`/iframe-injection pattern from an existing YouTube row (e.g. "Dhundh" or "Razdeep") — the page's JS auto-detects `youtube.com` in the src and uses the right height/allow attributes.
+- **No city stated for this artist?** Use the "Across India" section at the bottom, still as the first card in it. **New city not yet represented?** Add a new `.chart-section` (alphabetically isn't required, but keep it ordered by count-descending like the rest; a brand-new 1-artist city section is fine, that's an honest reflection of reach, don't force them into "Across India" just because the section would be small).
+- There is no running chart-position number anymore (dropped when this became a carousel) — only the per-section `<span class="chart-count">N</span>` badge in the `<h2>`, which **must be bumped by 1** when you add a card to that section (or set to `1` for a brand-new section).
+- **Also add the artist to the `ItemList` schema** near the top of the file (`<script type="application/ld+json">` with `"@type":"ItemList"`): a `ListItem` with the next sequential `position`, `MusicGroup` name/sameAs/url (`https://indiemusicindia.com/artists/#SLUG`), and `genre` if known. Positions should reflect actual document order (city sections in their displayed order, newest-first within each) — don't just append at the end of the schema array. This was missed entirely for two artists earlier on 2026-10-12 (Jaybird, Xander Dote got added to the visual page but not the schema) — always do both in the same pass.
+- For the YouTube-only embed type (no Spotify), copy the `data-src`/iframe-injection pattern from an existing YouTube card ("Dhundh" or "Razdeep", both in "Across India") — the page's JS auto-detects `youtube.com` in the src and uses the right height/allow attributes.
 
 **If they only gave a track or album link, not an artist profile:** use `/embed/track/ID` or `/embed/album/ID` exactly, don't guess at a same-named artist's profile ID — a WebSearch for "[stage name] spotify artist" can turn up several unrelated same-named artists. If the user later supplies the correct artist-profile ID directly, prefer it and swap the embed (this happened 2026-10-12 with "Jaybird").
 
-Verify after editing: zero em dashes, JSON-LD still valid, and **tag balance** — after any edit to this file specifically, sanity-check `<article>`/`<section>`/`<li>`/`<div>`/`<button>` open vs close counts match (a botched regex edit on 2026-10-12 left 37 stray leftover `<article>` elements duplicating the whole old grid underneath the new chart; only caught by counting tags, not by eyeballing the diff). See `iim-site-overview`.
+Verify after editing: zero em dashes, JSON-LD still valid, and **tag balance** — after any edit to this file specifically, sanity-check `<article>`/`<section>`/`<div>`/`<button>` open vs close counts match. Twice on 2026-10-12 a regex-based edit silently left stray/duplicated markup behind (once a whole leftover copy of the old grid, once a carousel-boundary regex that matched the wrong nested `</div>` and only partially reordered cards) — both only caught by counting tags or checking actual rendered order, not by eyeballing the diff. When reordering cards within a section specifically, verify the actual before/after order with a direct `grep`/`awk` on the city's section, don't just trust that a reverse() ran without checking its output — see `iim-site-overview`.
 
 ## The feature email
 
