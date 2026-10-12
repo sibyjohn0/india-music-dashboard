@@ -14,6 +14,18 @@ VDIR = REPO / "venues"
 
 def esc(s): return html.escape(str(s or ""), quote=True)
 
+# Real, city-specific color (matched from each city's scene guide, not generic
+# boilerplate) so the 6 venue pages read as distinct pages, not a name-swapped
+# template. Keeps the venues page and its scene guide saying the same true thing.
+FLAVOR = {
+    "mumbai": "Mumbai's live circuit runs from tiny bar stages to full festival grounds.",
+    "delhi": "The NCR circuit spans Delhi proper and Gurugram, from club stages to bigger venues.",
+    "bengaluru": "Bengaluru is known for intimate listening rooms as much as clubs, which suits songwriters and live bands.",
+    "hyderabad": "Hyderabad's live rooms run from cafes and pubs to larger club stages, and the scene has expanded noticeably in the last few years.",
+    "pune": "Pune's live scene is built on pubs, cafes and mid-size venues with a steady gig calendar, fed by a young, music-hungry student crowd.",
+    "goa": "Goa's live map is beach clubs, open-air and hilltop venues concentrated in the north, and it's strongly electronic.",
+}
+
 def fmt(iso):
     try: return datetime.date.fromisoformat(iso).strftime("%d %b")
     except Exception: return ""
@@ -73,6 +85,7 @@ NAV = '''<nav class="js-primnav">
   <a class="tab" href="/programme/">Programme</a>
   <a class="tab" href="/about/">About</a>
   <a class="tab" href="/radar.html">Radar</a>
+  <a class="tab" href="/artists/">Featured Artists</a>
   <a class="tab" href="/live/">Live</a>
   <a class="tab" href="/venues/">Venues</a>
   <a class="tab" href="/news/">News</a>
@@ -216,7 +229,7 @@ def build():
   <div class="crumb"><a href="/">Home</a> / <a href="/venues/">Venues</a> / {esc(c["name"])}</div>
   <div class="eyebrow">Live music venues · {esc(c["name"])}</div>
   <h1>Live Music Venues in {esc(c["name"])}</h1>
-  <p class="lead">The rooms hosting live music in {esc(c["name"])}, plus every upcoming concert and gig right now, ranked by what's on. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--accent);font-weight:700">festivals &amp; tours calendar</a>.{scene_link}</p>
+  <p class="lead">{FLAVOR.get(slug, "The rooms hosting live music in " + esc(c["name"]) + ".")} Every upcoming concert and gig right now, ranked by what's on. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--accent);font-weight:700">festivals &amp; tours calendar</a>.{scene_link}</p>
   <div class="stat">{c["venue_count"]} venues · {c["show_count"]} upcoming shows · updated {updated}</div>
   <h2 class="sec">Live music venues in {esc(c["name"])}, by what's on</h2>
 {cards}

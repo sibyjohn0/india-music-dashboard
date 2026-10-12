@@ -55,6 +55,7 @@ NAV = """<nav class="js-primnav">
   <a class="tab" href="/programme/">Programme</a>
   <a class="tab" href="/about/">About</a>
   <a class="tab" href="/radar.html">Radar</a>
+  <a class="tab" href="/artists/">Featured Artists</a>
   <a class="tab" href="/live/">Live</a>
   <a class="tab" href="/venues/">Venues</a>
   <a class="tab" href="/news/">News</a>

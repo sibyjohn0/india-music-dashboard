@@ -38,7 +38,8 @@
     path = path.replace(/index\.html$/, '');
     if (path === '/' || path === '') return { top: 'Home' };
     var M = [
-      ['/radar', 'Discover', 'Radar'], ['/live', 'Discover', 'Live'],
+      ['/radar', 'Discover', 'Radar'], ['/artists', 'Discover', 'Featured Artists'],
+      ['/live', 'Discover', 'Live'],
       ['/venues', 'Discover', 'Venues'], ['/news', 'Discover', 'News'],
       ['/tools/royalty-calculator', 'Tools', 'Royalty Calculator'],
       ['/answers', 'Tools', 'Guides'], ['/guides/', 'Tools', 'Guides'],
