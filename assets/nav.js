@@ -1,12 +1,12 @@
-/* nav.js — one shared primary nav for the whole site.
+/* nav.js: one shared primary nav for the whole site.
  *
  * Why this exists: the top nav had grown to ~12 tabs and drifted out of sync
- * page to page. This rebuilds the SAME five-item nav everywhere from one list,
+ * page to page. This rebuilds the SAME six-item nav everywhere from one list,
  * grouping the content pages under Discover and the free tools under Tools, so a
- * first-time visitor sees five clear choices instead of a wall of tabs.
+ * first-time visitor sees six clear choices instead of a wall of tabs.
  *
  * Desktop: Discover / Tools open on hover or click. Mobile: they live inside the
- * existing full-screen burger menu as tap-to-expand accordions. Self-contained —
+ * existing full-screen burger menu as tap-to-expand accordions. Self-contained:
  * injects its own CSS (matched to the poppy theme) and needs no markup changes
  * beyond a <script src="/assets/nav.js" defer> tag. Replaces whatever <nav
  * class="js-primnav"> is on the page, so it also fixes the page-to-page drift.
@@ -15,9 +15,9 @@
   var NAV = [
     { label: 'Home', href: '/' },
     { label: 'Programme', href: '/programme/' },
+    { label: 'Featured Artists', href: '/artists/' },
     { label: 'Discover', children: [
       { label: 'Radar', href: '/radar.html' },
-      { label: 'Featured Artists', href: '/artists/' },
       { label: 'Live', href: '/live/' },
       { label: 'Venues', href: '/venues/' },
       { label: 'News', href: '/news/' }
@@ -38,7 +38,8 @@
     path = path.replace(/index\.html$/, '');
     if (path === '/' || path === '') return { top: 'Home' };
     var M = [
-      ['/radar', 'Discover', 'Radar'], ['/artists', 'Discover', 'Featured Artists'],
+      ['/artists', 'Featured Artists', null],
+      ['/radar', 'Discover', 'Radar'],
       ['/live', 'Discover', 'Live'],
       ['/venues', 'Discover', 'Venues'], ['/news', 'Discover', 'News'],
       ['/tools/royalty-calculator', 'Tools', 'Royalty Calculator'],
