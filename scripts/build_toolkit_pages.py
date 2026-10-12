@@ -223,7 +223,7 @@ def page(doc):
   if(b)b.addEventListener('click',function(){{document.body.classList.toggle('mnav-open');}});
   document.addEventListener('click',function(e){{var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');}});
   </script>
-  <script src="/assets/nav.js?v=20261001" defer></script>
+  <script src="/assets/nav.js?v=20261012" defer></script>
   <script src="/assets/gate.js" defer></script>
 </body>
 </html>
