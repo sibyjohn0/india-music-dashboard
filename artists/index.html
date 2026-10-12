@@ -61,13 +61,12 @@ footer{display:flex;flex-direction:column;gap:12px;padding:26px 32px;border-top:
 .chart-note{font-size:14px;color:#574C63;margin:0}
 .chart-player iframe{width:100%;border:0;border-radius:12px;display:block}
 html{scroll-behavior:smooth}
-.chart-section{scroll-margin-top:70px}
-.az-scroller{position:fixed;right:6px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:center;gap:1px;z-index:50;background:rgba(255,247,238,.9);border:1.5px solid #241B2E;border-radius:999px;padding:6px 3px;backdrop-filter:blur(4px)}
-.az-letter{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;color:#241B2E;width:16px;height:14px;display:flex;align-items:center;justify-content:center;text-decoration:none;border-radius:3px}
-.az-letter:hover,.az-letter:active{background:#FF4D8D;color:#fff}
-.az-letter-off{color:#D8CFE0}
-.az-letter-more{color:#FF4D8D;font-weight:800}
-@media(max-width:480px){.az-scroller{right:3px;padding:5px 2px}.az-letter{width:13px;font-size:9px}}
+.chart-section{scroll-margin-top:62px}
+.city-jump{position:sticky;top:0;z-index:50;display:flex;gap:8px;overflow-x:auto;padding:10px 2px;margin:0 0 4px;background:#FFF7EE;scrollbar-width:none}
+.city-jump::-webkit-scrollbar{display:none}
+.city-jump-link{flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#241B2E;background:#fff;border:1.5px solid #241B2E;border-radius:999px;padding:6px 13px;text-decoration:none;white-space:nowrap;box-shadow:2px 2px 0 #241B2E;transition:transform .1s,box-shadow .1s}
+.city-jump-link:hover,.city-jump-link:active{background:#FF4D8D;color:#fff;transform:translate(-1px,-1px);box-shadow:3px 3px 0 #241B2E}
+.city-jump-link.is-more{background:#FFE1EC}
 </style>
   <style id="mnav-css">.mnav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:rgba(19,19,26,.72);border:1px solid var(--border);border-radius:11px;cursor:pointer;padding:0 11px}
 .mnav-burger span{display:block;height:2px;width:22px;background:var(--text);border-radius:2px}
@@ -107,35 +106,19 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
       <input type="text" id="artistSearch" placeholder="Search by name, genre, city or language..." autocomplete="off">
       <span id="artistCount" class="artist-count"></span>
     </div>
-
-        <nav class="az-scroller" aria-label="Jump to city">
-      <a href="#city-assam" class="az-letter">A</a>
-      <a href="#city-bengaluru" class="az-letter">B</a>
-      <a href="#city-chandigarh" class="az-letter">C</a>
-      <span class="az-letter az-letter-off">D</span>
-      <span class="az-letter az-letter-off">E</span>
-      <span class="az-letter az-letter-off">F</span>
-      <a href="#city-gurgaon" class="az-letter">G</a>
-      <a href="#city-himachal" class="az-letter">H</a>
-      <span class="az-letter az-letter-off">I</span>
-      <span class="az-letter az-letter-off">J</span>
-      <a href="#city-kerala" class="az-letter">K</a>
-      <span class="az-letter az-letter-off">L</span>
-      <a href="#city-madhya-pradesh" class="az-letter">M</a>
-      <span class="az-letter az-letter-off">N</span>
-      <span class="az-letter az-letter-off">O</span>
-      <span class="az-letter az-letter-off">P</span>
-      <span class="az-letter az-letter-off">Q</span>
-      <a href="#city-rajasthan" class="az-letter">R</a>
-      <span class="az-letter az-letter-off">S</span>
-      <span class="az-letter az-letter-off">T</span>
-      <span class="az-letter az-letter-off">U</span>
-      <span class="az-letter az-letter-off">V</span>
-      <span class="az-letter az-letter-off">W</span>
-      <span class="az-letter az-letter-off">X</span>
-      <span class="az-letter az-letter-off">Y</span>
-      <span class="az-letter az-letter-off">Z</span>
-      <a href="#city-across-india" class="az-letter az-letter-more" aria-label="Across India">#</a>
+    <nav class="city-jump" aria-label="Jump to city">
+      <a href="#city-assam" class="city-jump-link">Assam (2)</a>
+      <a href="#city-bengaluru" class="city-jump-link">Bengaluru (2)</a>
+      <a href="#city-chandigarh" class="city-jump-link">Chandigarh (1)</a>
+      <a href="#city-gurgaon" class="city-jump-link">Gurgaon (1)</a>
+      <a href="#city-himachal" class="city-jump-link">Himachal (1)</a>
+      <a href="#city-kerala" class="city-jump-link">Kerala (1)</a>
+      <a href="#city-kolkata" class="city-jump-link">Kolkata (1)</a>
+      <a href="#city-madhya-pradesh" class="city-jump-link">Madhya Pradesh (1)</a>
+      <a href="#city-maharashtra" class="city-jump-link">Maharashtra (2)</a>
+      <a href="#city-mumbai" class="city-jump-link">Mumbai (4)</a>
+      <a href="#city-rajasthan" class="city-jump-link">Rajasthan (2)</a>
+      <a href="#city-across-india" class="city-jump-link is-more">Across India (19)</a>
     </nav>
     <div class="artist-chart">
       <section class="chart-section" id="city-assam">
