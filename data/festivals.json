@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-11T07:09:06.577835+00:00",
+  "generated_at": "2026-10-12T08:20:58.636631+00:00",
   "counts": {
     "festivals": 25,
     "tours": 18,
     "marquee": 14,
     "international": 7,
     "indian": 36,
-    "new_this_run": 7
+    "new_this_run": 1
   },
   "festivals": [
     {
@@ -454,33 +454,6 @@
       "origin": "indian"
     },
     {
-      "title": "Sunfire Festival",
-      "type": "festival",
-      "key": "sunfire festival",
-      "cities": [
-        "Jaipur"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-28",
-          "date_obj": "2026-11-28",
-          "city": "Jaipur",
-          "venue": "",
-          "time": "06:00 PM",
-          "price": "from ₹3,999",
-          "url": "https://www.skillboxes.com/events/sunfire-festival-sbuiqyrq",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-11-28",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "BANGTANVERSE CARNIVAL - FAN TOUR",
       "type": "festival",
       "key": "bangtanverse carnival",
@@ -631,6 +604,33 @@
           "time": "12:00 PM",
           "price": "₹299–₹1,499",
           "url": "https://www.skillboxes.com/events/horn-ok-please-the-happiest-food-festival-17-0-sblmnevx",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": null,
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Sunfire Festival",
+      "type": "festival",
+      "key": "sunfire festival",
+      "cities": [
+        "Jaipur"
+      ],
+      "dates": [
+        {
+          "date": "28 Novembe",
+          "date_obj": null,
+          "city": "Jaipur",
+          "venue": "Accommodation + Festival Pass",
+          "time": "12:00 PM",
+          "price": "₹50,000–₹200,000",
+          "url": "https://www.skillboxes.com/events/sunfire-festival-accommodation-festival-pass-sbwjelti",
           "source": "skillboxes"
         }
       ],
@@ -1373,13 +1373,7 @@
     }
   ],
   "new_this_run": [
-    "The Festival of Lights – A Diwali Celebration",
-    "Nykaaland India's Biggest Beauty Festival In Delhi",
-    "Lakhwinder Wadali India Tour",
-    "The Band Agam Live in Hyderabad",
-    "Madhubanti Bagchi India Tour- THIS IS WHO WE ARE",
-    "Yuvan Shankar Raja Live in Concert - Salem",
-    "A R Rahman The Wonderment Tour Live"
+    "Sunfire Festival Pass"
   ],
   "_all_keys": [
     "sajanka india tour",
@@ -1393,8 +1387,9 @@
     "alpha music festival 6 0",
     "structure music festival",
     "the festival of lights",
-    "sunfire festival",
     "horn ok please",
+    "sunfire festival",
+    "sunfire festival pass",
     "benny dayal live in",
     "last minute india on tour",
     "nykaaland india s biggest beauty festival in",
