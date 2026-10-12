@@ -861,6 +861,15 @@ window.WORKBOOK = {
             {id:"g4",cells:{g:"Goethe-Institut / Max Mueller Bhavan",what:"Indo-German collaboration, mobility and residency grants."}},
             {id:"g5",cells:{g:"Your state cultural body or an embassy cultural arm",what:"Local grants, showcase slots and travel support (Alliance Française, Japan Foundation, Pro Helvetia and more)."}}
           ] },
+        { type:"table", id:"crowdfunding", title:"Funding a specific project (crowdfunding)",
+          help:"Different from a grant: you're asking your own audience to back one release or video, usually with a reward (early access, a credit, merch).",
+          gloss:"Heads up: Kickstarter requires the creator to be a resident of one of its ~26 eligible countries with a local bank account, India is not on that list, so it only works if a friend abroad co-runs it with you. Wishberry is built for India.",
+          columns:[{key:"r",label:"Route",type:"readonly"},{key:"what",label:"What it is",type:"readonly"},{key:"start",label:"Where to start",type:"readonly"}],
+          rows:[
+            {id:"cf1",cells:{r:"Wishberry",what:"India-based crowdfunding built for creative projects, has funded independent albums and music videos before",start:"wishberry.in, read 3 funded music campaigns before you draft your own"}},
+            {id:"cf2",cells:{r:"Direct fan ask",what:"A UPI link or 'support my next release' post to people who already follow you, zero platform fees, works at any audience size",start:"Pair with the [1,000 true fans approach](/guides/build-fanbase-1000-true-fans-india/), ask the 10 people who already comment on everything"}},
+            {id:"cf3",cells:{r:"Kickstarter / Indiegogo",what:"Bigger reach, but Kickstarter needs a creator resident in an eligible country (not India) with a local bank account",start:"Only realistic with a co-creator based abroad, check current eligibility before planning around it"}}
+          ] },
         { type:"checklist", id:"bodies", title:"Rights bodies & unions to join",
           gloss:"Each one pays you a different royalty. Joining is one-time and then pays you for years.",
           items:[
@@ -884,7 +893,8 @@ window.WORKBOOK = {
           {id:"sa_grants",text:"Shortlist 3 grants or open calls you're eligible for and note their deadlines"},
           {id:"sa_apply",text:"Apply to at least 1 this month, even if you think it's a long shot"},
           {id:"sa_bodies",text:"Join every rights body that applies to you (IPRS, PPL, ISAMRA)"},
-          {id:"sa_community",text:"Reach out to 2 artists at your stage and 1 who is ahead of you"}
+          {id:"sa_community",text:"Reach out to 2 artists at your stage and 1 who is ahead of you"},
+          {id:"sa_fund",text:"If a specific release or video needs money, pick one funding route from the table above and name the first step"}
         ]},
         { type:"note", id:"support_notes" }
       ]
