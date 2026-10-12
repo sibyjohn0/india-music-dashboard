@@ -154,6 +154,7 @@ def build(g):
 <header><div class="logo"><a href="/">◉ Indie Music India</a><span style="display:block;font-weight:400;font-size:11px;letter-spacing:0;color:var(--muted);margin-top:2px;">Free tools &amp; data for India's independent music scene</span></div></header>
 {NAV}
 <div class="page">
+  {f'<div class="g-hero"><img src="/assets/guide-heroes/{esc(g["hero"])}.jpg" alt="" width="1300" height="340" /></div>' if g.get('hero') else ''}
   <div class="crumb"><a href="/">Home</a> › <a href="/answers/">Answers</a> › {esc(g['title'])}</div>
   <div class="g-eyebrow">Guide · {esc(g['cat'])}</div>
   <h1>{esc(g['title'])}</h1>
