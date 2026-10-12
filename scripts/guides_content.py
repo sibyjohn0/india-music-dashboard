@@ -98,6 +98,13 @@ GUIDES = [
  "lead":"Free distribution is real, but nothing is truly free. Here is what you actually give up, and when that trade is worth it.",
  "tldr":"Several distributors let you get on Spotify, Apple Music and JioSaavn for free, they make money by taking a <b>percentage of your royalties</b> (often around 10 to 20%) instead of an upfront fee. Free is fine when your streams are low or uncertain. Once you earn steadily, a <b>flat annual fee</b> usually keeps more money in your pocket. Do the math at your real numbers, not the marketing.",
  "sections":[
+   {"h2":"Free vs flat-fee, at a glance","body":[
+     {"table":{"headers":["","Free distribution","Flat-fee distribution"],
+       "rows":[
+         ["<b>Upfront cost</b>","None","A fixed annual or per-release fee"],
+         ["<b>Ongoing cost</b>","A percentage of royalties, often 10-20%, forever","None, you keep 100% after the fee"],
+         ["<b>Best when</b>","Streams are low or unproven, zero financial risk matters most","You release often or your streams are already steady"],
+         ["<b>Where it can cost more</b>","A percentage of growing royalties can exceed a flat fee fast","Loses money if you barely release and barely stream"]]}}]},
    {"h2":"How free distribution makes money","body":[
      "A free distributor charges nothing upfront and instead keeps a cut of everything you earn, forever, or until you leave. That is not a scam, it is a revenue-split model. The question is only whether the split costs you more than a flat fee would at your streaming volume."]},
    {"h2":"When free is the right choice","body":[
@@ -333,7 +340,7 @@ GUIDES = [
    {"h2":"Marketing vs promotion","body":[
      "Promotion is the campaign around one song (covered in <a href=\"/guides/how-to-promote-music-in-india/\">how to promote your music</a>). Marketing is the ongoing work of building a brand and an audience so every release starts from a warmer place. If promotion is the sprint, marketing is the training."]},
    {"h2":"Get your positioning right first","body":[
-     "Before tactics, clarity: what do you sound like, who is it for, and what makes you you? A muddy identity markets terribly. A clear one, \"honest Hindi indie for late-night drives\", gives listeners a reason to follow and gives you a filter for every post. This is the foundation of building a music brand in India."]},
+     "Before tactics, clarity: what do you sound like, who is it for, and what makes you you? A muddy identity markets terribly. A clear one, \"honest Hindi indie for late-night drives\", gives listeners a reason to follow and gives you a filter for every post. This is the foundation of building a music brand in India, and the full detail is in <a href=\"/guides/artist-branding-and-positioning-india/\">artist branding and positioning</a>. Our <a href=\"/artists/\">Featured Artists page</a> has real, current examples of artists with a clear sound and identity."]},
    {"h2":"The channels that matter (pick one or two)","body":[
      {"ul":["<b>Short video</b> for reach and discovery (Reels, Shorts, TikTok where relevant).",
             "<b>Instagram</b> for identity and community, but don't build your whole house on rented land.",
@@ -384,14 +391,17 @@ GUIDES = [
    {"h2":"What being an independent artist really means","body":[
      "Independent means you own your career and your rights. Nobody else decides your music or takes your masters. It also means you carry the business, or build a team around you. The upside: full control and you keep what you earn. The trade: you have to learn the parts a label would otherwise handle. This guide maps them."]},
    {"h2":"Step 1: Release your first music (no label needed)","body":[
-     "Finish and master a song, prepare square artwork and clean metadata, and release it through a distributor. There's no gatekeeper, any artist can get onto Spotify, Apple Music, JioSaavn and YouTube Music. Full steps in <a href=\"/guides/how-to-release-a-song-in-india/\">how to release a song in India</a>, and distributor choice in <a href=\"/guides/best-music-distributor-india/\">the best music distributor for India</a>."]},
+     {"ol":["<b>Finish and master the song.</b> Don't release a rough mix, it's the one thing a listener can't un-hear.",
+            "<b>Prepare square artwork and clean metadata.</b> Correct artist name, title, and credits, matching exactly across every platform.",
+            "<b>Pick a distributor and release through it.</b> There's no gatekeeper, any artist can get onto Spotify, Apple Music, JioSaavn and YouTube Music this way, see <a href=\"/guides/best-music-distributor-india/\">the best music distributor for India</a>."]},
+     "Full steps in <a href=\"/guides/how-to-release-a-song-in-india/\">how to release a song in India</a>."]},
    {"h2":"Step 2: Set up your foundation (rights and profiles)","body":[
      {"ul":["Get your <a href=\"/guides/isrc-code-india/\">ISRC</a> (usually free via your distributor), it tracks your recording.",
             "Register your composition with IPRS so you collect publishing royalties: <a href=\"/guides/register-music-copyright-iprs-india/\">copyright and IPRS in India</a>.",
             "Claim Spotify for Artists and Apple Music for Artists, so releases land on a real, verified profile.",
             "Keep 100% of your rights. A distributor takes a fee or a cut, never ownership."]}]},
    {"h2":"Step 3: Get heard","body":[
-     "Releasing isn't promoting. Pitch playlists and press before each release using our <a href=\"/reviewers/\">reviewer database</a>, use short video as your discovery engine, and drive listeners to save and follow. See <a href=\"/guides/how-to-promote-music-in-india/\">how to promote your music</a>."]},
+     "Releasing isn't promoting. Pitch playlists and press before each release using our <a href=\"/reviewers/\">reviewer database</a> (1,167 curators and outlets, 381 free to pitch directly), use short video as your discovery engine, and drive listeners to save and follow. See <a href=\"/guides/how-to-promote-music-in-india/\">how to promote your music</a>."]},
    {"h2":"Step 4: Build the career, not just the release","body":[
      "One song rarely changes anything. Release on a rhythm so each builds on the last, grow an audience you own, and think in campaigns, not one-offs. Money for independent artists comes from live shows, sync and real fans more than streaming, see <a href=\"/guides/make-money-independent-artist-india/\">making money as an independent artist</a>. That long game is the whole point of the <a href=\"/programme/\">programme</a>."]}],
  "faq":[
@@ -464,7 +474,7 @@ GUIDES = [
    {"h2":"Positioning is the foundation","body":[
      "Before any visuals, get your positioning right: what you sound like, who it is for, and what makes you you. \"Honest Hindi indie for late-night drives\" is positioning; \"singer-songwriter\" is not. A sharp position gives listeners a reason to care and gives you a filter for every creative decision. This is the single most common thing missing when an artist says their music is not landing."]},
    {"h2":"Building your visual and verbal identity","body":[
-     "Once positioning is clear, everything else flows from it: your artist name treatment and cover art, your bio and captions, the way you talk to listeners, the world your visuals live in. Consistency is what makes it stick, the same identity across Spotify, Instagram, and your releases so people recognise you instantly. See how this feeds your wider <a href=\"/guides/music-marketing-independent-artists-india/\">music marketing</a>."]},
+     "Once positioning is clear, everything else flows from it: your artist name treatment and cover art, your bio and captions, the way you talk to listeners, the world your visuals live in. Consistency is what makes it stick, the same identity across Spotify, Instagram, and your releases so people recognise you instantly. See how this feeds your wider <a href=\"/guides/music-marketing-independent-artists-india/\">music marketing</a>, and browse the <a href=\"/artists/\">Featured Artists page</a> for real, current examples of artists with a sharp, specific identity rather than a generic one."]},
    {"h2":"How branding turns listeners into followers","body":[
      "Reach without a brand leaks: people hear the song, like it, and forget you. A clear brand gives a first-time listener a reason to follow and come back, which is how you turn plays into an audience. See <a href=\"/guides/how-to-get-more-listeners-india/\">how to get more listeners</a> and <a href=\"/guides/build-fanbase-1000-true-fans-india/\">building a fanbase</a>."]},
    {"h2":"Getting help with your brand","body":[
