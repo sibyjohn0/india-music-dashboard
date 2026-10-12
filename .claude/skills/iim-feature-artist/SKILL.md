@@ -19,34 +19,30 @@ For each form response worth acting on, the useful fields are: name (`0a06785b` 
 
 ## Adding the entry (city-carousel structure, final as of 2026-10-12)
 
-`artists/index.html` is **not a flat grid or a genre chart** (both were intermediate redesigns the same day, superseded) — it's grouped by **city/region**, the real "map of the scene" axis. `.chart-section` blocks, one per city actually stated in at least one featured artist's bio (Mumbai, Bengaluru, Kolkata, Assam, Chandigarh, Gurgaon, Rajasthan, Kerala, Himachal, Madhya Pradesh, Maharashtra as of this writing), ordered by artist count descending, plus an "Across India" catch-all last for anyone with no stated city. Each section is a horizontally-scrollable `.city-carousel` of tap-to-expand `<article class="city-card">` cards, **newest-featured artist first** within each city (not oldest). All text (name, bio, links) is static HTML for SEO; the Spotify/YouTube iframe is injected by JS on first tap, not present in the markup.
+`artists/index.html` is **not a flat grid, a genre chart, or a tap-to-expand chart** (all three were intermediate redesigns the same day, superseded) — final shape: grouped by **city/region** (the "map of the scene" axis), horizontally-scrollable carousels, **everything shown directly, no tap/toggle**. `.chart-section` blocks, one per city actually stated in at least one featured artist's bio (Mumbai, Bengaluru, Kolkata, Assam, Chandigarh, Gurgaon, Rajasthan, Kerala, Himachal, Madhya Pradesh, Maharashtra as of this writing), ordered by artist count descending, plus an "Across India" catch-all last for anyone with no stated city. Each section is a `.city-carousel` of `<article class="city-card">` cards, **newest-featured artist first** within each city (not oldest). All text AND the embed are directly in the static HTML (no JS-deferred content) — only the iframe's native `loading="lazy"` defers actual fetching for off-screen cards.
 
 **Exact markup for a new card**, inserted as the FIRST child inside the right city's `<div class="city-carousel">` (newest goes first, don't append at the end):
 
 ```html
 <article class="city-card" id="SLUG">
-  <button type="button" class="city-card-head" aria-expanded="false" aria-controls="panel-SLUG">
-    <span class="chart-name">NAME</span>
-    <!-- only if a clean single genre is stated: -->
-    <span class="artist-tag">GENRE</span>
-    <span class="chart-chevron" aria-hidden="true">+</span>
-  </button>
-  <div class="chart-panel" id="panel-SLUG">
-    <p class="chart-note">ONE factual sentence, using ONLY what the artist themselves stated. Never invent genre, achievements, or backstory.</p>
-    <div class="chart-player" data-src="https://open.spotify.com/embed/artist/ID?utm_source=generator" data-title="NAME on Spotify"></div>
-    <div class="artist-links">
-      <a class="sp" href="https://open.spotify.com/artist/ID" target="_blank" rel="noopener">Spotify</a>
-      <!-- real YouTube/Instagram links they actually gave, same pattern -->
-    </div>
+  <h3 class="chart-name">NAME</h3>
+  <!-- only if a clean single genre is stated: -->
+  <span class="artist-tag">GENRE</span>
+  <p class="chart-note">ONE factual sentence, using ONLY what the artist themselves stated. Never invent genre, achievements, or backstory.</p>
+  <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/ID?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="NAME on Spotify"></iframe></div>
+  <div class="artist-links">
+    <a class="sp" href="https://open.spotify.com/artist/ID" target="_blank" rel="noopener">Spotify</a>
+    <!-- real YouTube/Instagram links they actually gave, same pattern -->
   </div>
 </article>
 ```
 
+For a YouTube-only embed (no Spotify), use `height="315"` and `allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"` plus `allowfullscreen` — copy the exact pattern from an existing YouTube card ("Dhundh" or "Razdeep", both in "Across India").
+
 - `SLUG` = lowercase name, non-alphanumeric runs collapsed to a single `-` (e.g. "KĀYA SOUND" → `k-ya-sound`). Must be unique sitewide on this page.
 - **No city stated for this artist?** Use the "Across India" section at the bottom, still as the first card in it. **New city not yet represented?** Add a new `.chart-section` (alphabetically isn't required, but keep it ordered by count-descending like the rest; a brand-new 1-artist city section is fine, that's an honest reflection of reach, don't force them into "Across India" just because the section would be small).
-- There is no running chart-position number anymore (dropped when this became a carousel) — only the per-section `<span class="chart-count">N</span>` badge in the `<h2>`, which **must be bumped by 1** when you add a card to that section (or set to `1` for a brand-new section).
+- There is no running chart-position number — only the per-section `<span class="chart-count">N</span>` badge in the `<h2>`, which **must be bumped by 1** when you add a card to that section (or set to `1` for a brand-new section).
 - **Also add the artist to the `ItemList` schema** near the top of the file (`<script type="application/ld+json">` with `"@type":"ItemList"`): a `ListItem` with the next sequential `position`, `MusicGroup` name/sameAs/url (`https://indiemusicindia.com/artists/#SLUG`), and `genre` if known. Positions should reflect actual document order (city sections in their displayed order, newest-first within each) — don't just append at the end of the schema array. This was missed entirely for two artists earlier on 2026-10-12 (Jaybird, Xander Dote got added to the visual page but not the schema) — always do both in the same pass.
-- For the YouTube-only embed type (no Spotify), copy the `data-src`/iframe-injection pattern from an existing YouTube card ("Dhundh" or "Razdeep", both in "Across India") — the page's JS auto-detects `youtube.com` in the src and uses the right height/allow attributes.
 
 **If they only gave a track or album link, not an artist profile:** use `/embed/track/ID` or `/embed/album/ID` exactly, don't guess at a same-named artist's profile ID — a WebSearch for "[stage name] spotify artist" can turn up several unrelated same-named artists. If the user later supplies the correct artist-profile ID directly, prefer it and swap the embed (this happened 2026-10-12 with "Jaybird").
 
