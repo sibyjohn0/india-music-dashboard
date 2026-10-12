@@ -315,12 +315,34 @@ window.WORKBOOK = {
             {id:"ds5", cells:{name:"RouteNote", cost:"Free rev-share tier or a paid keep-all tier", cut:"Free tier takes a revenue share", best:"Testing the waters for free"}},
             {id:"ds6", cells:{name:"Believe / Madverse (India)", cost:"Varies, often per release", cut:"Varies", best:"Caller tunes plus JioSaavn and Gaana focus"}}
           ]},
+        { type:"info", id:"international", title:"Reaching listeners outside India", body:[
+          "Most international reach starts from choices you make before release, not luck. English or instrumental tracks travel further by default, since the editorial and curator ecosystem reviewing them is bigger. If your sound is settled and the song fits, tag it accordingly.",
+          "The curators and editors reviewing your Spotify pitch are not only in India. The same free Spotify for Artists pitch tool is read by genre-specific editorial teams worldwide, so a release pitched correctly can land on a non-Indian editorial playlist regardless of where you're based.",
+          "Diaspora cities are usually the easiest first international audience: they already search for Indian-language or Indian-origin artists. Look at where your existing streams and Instagram reach are coming from (Spotify for Artists and Instagram Insights both show listener cities) before spending anything on a new market.",
+          "Real case: Prateek Kuhad built his sound and songwriting in India first, self-released and touring locally for years before any international attention. His song 'cold/mess', from a 2018 EP, was named by Barack Obama as one of his favourite songs of 2019, the only Indian artist on that year's list, which led to a signing with Elektra Records (Warner), the first Indian artist to do so, and tours across North America and Europe. The break came after years of a settled, specific sound, not instead of it. Publicly reported, Wikipedia and press.",
+          "Don't chase international reach before your identity is settled at home. A confused pitch travels worse than a focused one, sort your identity sentence (see the Identity section) first."
+        ] },
+        { type:"table", id:"international_routes", title:"International routes to try",
+          help:"Start with one row, not all five. Pick whichever matches where your current listeners already are.",
+          columns:[
+            {key:"route", label:"Route", type:"readonly"},
+            {key:"what", label:"What it is", type:"readonly"},
+            {key:"start", label:"Where to start", type:"readonly"}
+          ],
+          rows:[
+            {id:"ir1", cells:{route:"International curator pitching", what:"Playlist curators and blogs outside India, most never see an Indian artist's pitch", start:"[Our Reviewers directory](/reviewers/) (900+ curators, most outside India) or SubmitHub"}},
+            {id:"ir2", cells:{route:"Spotify editorial, global reach", what:"The same pitch tool as your domestic release, read by genre-specific international editors", start:"Spotify for Artists, pitch 7+ days before release"}},
+            {id:"ir3", cells:{route:"Diaspora audience targeting", what:"Indian-origin audiences in cities like London, Toronto or Dubai who already search for Indian artists", start:"Check Spotify for Artists / Instagram Insights for listener cities, then target one with a Reel or pre-save"}},
+            {id:"ir4", cells:{route:"International festivals and showcases", what:"Performance slots and travel grants, usually the fastest route to a real international audience", start:"British Council and Goethe-Institut grants (see Support & leverage section)"}},
+            {id:"ir5", cells:{route:"YouTube international search", what:"Subtitles and correctly tagged language metadata open your video to non-Hindi/regional search", start:"Add English subtitles and a translated description in YouTube Studio"}}
+          ]},
         { type:"checklist", id:"distribution_actions", title:"Your action items", items:[
           {id:"di_epk", text:"Complete the EPK checklist and identify the single missing element"},
           {id:"di_pre", text:"Complete the pre-release checklist for your next track"},
           {id:"di_compare", text:"Pick your distributor from the table above, based on how often you release and whether you need caller tunes."},
           {id:"di_meta", text:"Audit metadata on existing releases, are composer/lyricist credits correct on all?"},
-          {id:"di_funnel", text:"Fill in your fan funnel numbers and find where you're losing listeners"}
+          {id:"di_funnel", text:"Fill in your fan funnel numbers and find where you're losing listeners"},
+          {id:"di_intl", text:"Check Spotify for Artists or Instagram Insights for your top listener cities outside India, pick one and try a single international route from the table above"}
         ]},
         { type:"note", id:"distribution_notes" }
       ]
