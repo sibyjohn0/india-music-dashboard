@@ -320,7 +320,7 @@
     // turn author-written [label](href) tokens into real links, AFTER esc (content is trusted, not user input)
     function linkify(s){ return String(s).replace(/\[([^\]]+)\]\((\/[^)]*|https?:\/\/[^)]*)\)/g,function(_,t,h){ var ext=/^https?:/.test(h); return '<a href="'+h+'"'+(ext?' target="_blank" rel="noopener"':'')+'>'+t+'</a>'; }); }
     function esl(s){ return linkify(esc(s)); }  // esc + linkify for author strings that may contain links
-    function val(k){ return S.ans[k]; }
+    function val(k){ return S&&S.ans?S.ans[k]:undefined; }
     function setVal(k,v){ if(v===""||v==null||v===false){delete S.ans[k];} else {S.ans[k]=v;} save(); }
 
     /* ---- field keys owned by a block (for progress) ---- */

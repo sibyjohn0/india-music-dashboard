@@ -80,6 +80,8 @@ window.WORKBOOK = {
             {v:"creator", label:"Creator-Artist", desc:"Your audience and content are the engine."},
             {v:"mixed", label:"Mixed", desc:"A blend, and that's fine."}
           ]},
+        { type:"chips", id:"sync_interest", title:"Even if that's not your main thing: are you also open to sync or licensing work? (your music in a film, ad or show)", single:true,
+          options:[{v:"yes",label:"Yes, interested"},{v:"no",label:"Not really"}]},
         { type:"info", title:"What to double down on, by archetype", body:[
           "Commercial Artist: Live circuit every month, 3 to 4 Reels a week, 6 to 8 singles a year, playlist pitching.",
           "Non-Commercial Artist: IPRS/PPL registration (the bodies that pay your royalties), sync catalogue, teaching roster, grant applications.",
@@ -789,12 +791,12 @@ window.WORKBOOK = {
         { type:"fill", id:"adv_q", title:"", items:[
           {id:"adv_stage", label:"Where am I now: chasing one-off gigs, a steady flow of conversations, or income that keeps coming without chasing?"}
         ]},
-        { type:"info", id:"sync_how", showIf:{f:"archetype",is:["noncommercial"]}, title:"Sync: how your music earns without you performing", body:[
+        { type:"info", id:"sync_how", showIf:{any:[{f:"archetype",is:["noncommercial"]},{f:"sync_interest",is:["yes"]}]}, title:"Sync: how your music earns without you performing", body:[
           "Sync is your music licensed into a film, ad, series, game or branded video. For a non-commercial artist it is often the biggest earner, and it rewards a clean, ready catalogue over a big audience.",
           "What a supervisor needs: a track that fits the brief, an instrumental version, clean stems, and clear ownership (a signed split sheet so there is no dispute later).",
           "Where to pitch in India: music supervisors and ad agencies directly, sync libraries, and briefs that come through IPRS and festival networks. One placement can pay more than a year of streams."
         ]},
-        { type:"table", id:"sync_catalogue", showIf:{f:"archetype",is:["noncommercial"]}, title:"Your sync catalogue",
+        { type:"table", id:"sync_catalogue", showIf:{any:[{f:"archetype",is:["noncommercial"]},{f:"sync_interest",is:["yes"]}]}, title:"Your sync catalogue",
           help:"List what is ready to pitch. The more Yes columns, the faster you can say yes to a brief.",
           columns:[
             {key:"track", label:"Track", type:"text"},
