@@ -58,6 +58,14 @@ Indie Music India
 
 **Always use clean direct links.** If replying to an existing thread, prefer `mcp__claude_ai_Gmail__reply`. If there's no inbound message to reply to (e.g. a Google Form submission with no corresponding email), use `send_message` directly with `to`/`subject`/`body` — don't use `create_draft` followed by sending the draft as-is, Gmail's draft composer auto-wraps links in `google.com/url?q=...` redirects, which looks like a scam. If a flawed draft like this already exists, send a clean `send_message` instead and just leave the bad draft inert (there is no delete-draft tool currently loaded).
 
+## Common mistakes (do / don't)
+
+- **Don't** auto-feature a form response just because it mentions wanting exposure. **Do** check the specific gating answer on question `5b80bdde` — "Working with you (the programme)" is a paid-service inquiry, not a feature request, even if the person is clearly a real artist with real music.
+- **Don't** use `create_draft` and then send the draft as-is. **Do** check the draft body first (or just use `send_message` directly) — the draft composer wraps every link in `google.com/url?q=...` redirects, which reads as a scam. This happened on 2026-10-12: a fork-created draft for Xander Dote had wrapped links and had to be replaced with a clean `send_message` instead.
+- **Don't** guess a Spotify artist-profile ID by searching the stage name — several unrelated artists often share a name. **Do** use exactly what the artist gave you (even a track/album embed if that's all you have), and only switch to an artist-profile embed if they (or the site owner) supply the correct ID directly.
+- **Don't** invent bio details, genres, or achievements to make a card read more impressively. **Do** write one sentence using only what the artist themselves stated in their email or form response.
+- **Don't** assume a missing `delete_draft` tool means you have to leave a bad situation unresolved. **Do** just send a clean replacement message — a stale, unsent draft sitting in Drafts is harmless.
+
 ## Verify live
 
 After pushing, confirm the card is actually on the deployed page — see `iim-deploy-verify`. The new card is the LAST one in the grid, easy to miss on a quick look; mention that explicitly if the user says they can't find it.

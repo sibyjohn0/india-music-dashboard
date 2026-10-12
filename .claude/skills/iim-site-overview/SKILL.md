@@ -54,6 +54,15 @@ git push origin main
 # if push is rejected: fetch + rebase again, then retry push. Never force-push.
 ```
 
+## Common mistakes (do / don't)
+
+- **Don't** grep only `--include="*.html"` to check if a page is internally linked. **Do** also grep `--include="*.js"` — `assets/nav.js` injects links client-side that never appear in any page's raw HTML source. A 2026-10-12 investigation wrongly concluded `/artists/` had zero internal links sitewide for exactly this reason; it was in the nav all along.
+- **Don't** edit a generated page's output HTML (`venues/*`, `guides/*`, `live/index.html`, `news/index.html`, `toolkit/*`) expecting the fix to last. **Do** fix the generator script and re-run it — the next pipeline run (daily for venues/live/news) silently overwrites direct HTML edits.
+- **Don't** run `git add -A` reflexively. **Do** add specific files you actually intended to touch — this repo has multiple agents/sessions working in it at once, and a blind `-A` can sweep up someone else's in-progress, uncommitted work.
+- **Don't** assume `git rebase origin/main` will just work if another agent is actively editing files in the same working directory — it will fail with "you have unstaged changes" if their edits are uncommitted at that moment. **Do** wait a few seconds and retry (`git fetch && git rebase origin/main`) rather than stashing someone else's in-progress work to force your own rebase through.
+- **Don't** force-push or skip hooks to resolve a push rejection. **Do** fetch, rebase again, and retry — this is the expected, safe pattern when several agents are pushing to `main` around the same time.
+- **Don't** use `ScheduleWakeup` expecting it to pause/block execution — it schedules a future re-invocation, it does not wait. **Do** use a backgrounded blocking Bash loop (`while kill -0 $PID ...; do sleep N; done`) when you actually need to wait for a specific process to finish.
+
 ## Related skills
 
 - `iim-feature-artist` — audit Gmail + Google Form submissions, add cards to the Featured Artists page, send the feature email

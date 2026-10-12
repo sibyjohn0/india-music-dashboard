@@ -29,6 +29,13 @@ Per this project's MCP hygiene rule: use **puppeteer** for this, not claude-in-c
 
 An automated contrast-walk (comparing computed text color against the nearest non-transparent ancestor background in the DOM) can misreport a page as unreadable when it isn't — it picked the wrong ancestor's background rule versus what's actually painted. **Always confirm any flagged contrast/legibility issue with an actual `puppeteer_screenshot`** before reporting it as a bug. This produced a false "dark-on-dark unreadable" flag on `/playbook/`'s mobile nav overlay on 2026-10-12 that a screenshot immediately disproved.
 
+## Common mistakes (do / don't)
+
+- **Don't** trust an automated contrast/legibility check on its own. **Do** confirm with a real screenshot before reporting a legibility bug — see the `/playbook/` false positive below.
+- **Don't** flag `<input type="range">` sliders as a tap-target bug just because their visual track measures a few pixels tall. **Do** check the actual interactive hit area (the thumb), which is normally much larger than the visual track.
+- **Don't** assume a minimal static fallback nav on toolkit pages is a bug. **Do** check whether `nav.js` overrides it client-side first — it's intentional there, see `iim-site-overview`.
+- **Don't** try to check every single URL on the site in one pass. **Do** sample 2-3 per template, that's enough to catch template-level bugs without the audit taking hours.
+
 ## Status as of 2026-10-12
 
 Full sweep across 20 pages found zero confirmed bugs: nav fully consistent everywhere, no overflow anywhere, `/playbook/` (previously flagged broken in an earlier session) confirmed fixed, `/roadmap/` confirmed has a working link home. Re-run this skill periodically rather than assuming that result holds forever, especially after any nav.js or generator-script change.

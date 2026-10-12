@@ -53,6 +53,14 @@ As of 2026-10-12, no guide anywhere on the site covered Instagram edit/meme-page
 2. `python3 -c "import re,json; [json.loads(s) for s in re.findall(r'<script type=\"application/ld\+json\">(.*?)</script>', open('PATH').read(), re.S)]; print('ok')"`
 3. `grep -c $'\xe2\x80\x94\|\xe2\x80\x93' PATH` must print `0`.
 
+## Common mistakes (do / don't)
+
+- **Don't** convert genuinely comparative/explanatory content ("A vs B," "which option fits you") into forced numbered steps just for consistency with the IPRS prototype. **Do** reserve the `<ol>` treatment for content that's actually a sequence.
+- **Don't** embed a YouTube video without running `mcp__youtube-data__getVideoDetails` on it first. **Do** check view count, title match, and channel credibility — a near-zero-view spam upload is worse than no video.
+- **Don't** state a number (reviewer count, royalty rate, fee amount) from memory or from an earlier guide you half-remember. **Do** re-read the live source (`data/*.json` in this repo, or a fresh WebSearch/WebFetch) every time, these numbers move.
+- **Don't** remove or shrink the FAQ/`FAQPage` schema to make room for the new walkthrough content. **Do** keep it, it has real search value, just stop treating it as the only content.
+- **Don't** write in generic marketing language. **Do** match this site's actual voice, see `iim-brand-style` before writing new copy.
+
 ## Git workflow
 
 Commit in small batches (every 3-4 pages), `git fetch origin main && git rebase origin/main` before every push, retry on rejection. See `iim-site-overview` for the full pattern — this matters more here than usual since multiple QC passes may run in parallel across different guide batches.

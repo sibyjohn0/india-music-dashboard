@@ -22,6 +22,13 @@ Run this with `run_in_background: true`. You'll get a notification when it compl
 
 Spot-check the actual content, not just presence of the marker, especially for anything that changed structure (a new card, a new section) — a string match can be a false positive if e.g. the marker exists elsewhere on the page too.
 
+## Common mistakes (do / don't)
+
+- **Don't** use `ScheduleWakeup` to wait for a deploy — it schedules a future re-invocation, it does not pause the current turn. **Do** use the backgrounded blocking `curl`-in-a-loop pattern above.
+- **Don't** manually re-run `curl` every minute yourself in the foreground. **Do** background the wait and let the notification tell you when it's done.
+- **Don't** match on a marker that could already exist elsewhere on the page (a common word, a repeated template string). **Do** pick something genuinely unique to your specific change.
+- **Don't** declare success the moment the marker string matches. **Do** spot-check the actual rendered change, a string match alone can be a false positive.
+
 ## If the user says they can't find/see something that you've confirmed is live
 
 Two likely causes, check both before assuming something is wrong:
