@@ -67,7 +67,7 @@ NAV = """<nav class="js-primnav">
 AUTHOR = ('By <a href="/about/" style="color:var(--accent);font-weight:600">Siby John</a>, '
           'thirteen years inside the platforms that decide which music gets seen: Marketing '
           'Manager at YouTube India from 2022 to 2025, working with 400+ artists and labels, '
-          'now Senior Creator Manager at LinkedIn. Reviewed October 2026.')
+          f'now Senior Creator Manager at LinkedIn. Reviewed {TODAY}.')
 
 STYLE = open(REPO/"guides/best-music-distributor-india/index.html").read()
 STYLE = STYLE[STYLE.index("<style>"):STYLE.index('<link rel="stylesheet" href="/assets/poppy.css?v=20261001">')]

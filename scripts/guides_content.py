@@ -163,7 +163,14 @@ GUIDES = [
      "Streaming royalties are not a fixed rate; they are a share of the platform's revenue in your listener's country. India has huge listenership but low average revenue per user, cheaper subscriptions and lower ad rates, so the per-stream payout for Indian streams is smaller than in the US or Europe. Ten thousand streams from Indian listeners and ten thousand from the US pay very differently."]},
    {"h2":"A realistic range","body":[
      "Treat any single number with suspicion, but as a working range, Indian streams often land somewhere around ₹0.05 to ₹0.08 each depending on the platform and listener mix. Apple Music tends to pay more per stream than Spotify; YouTube's ad-supported plays pay the least. So 100,000 streams that are mostly Indian might return a few thousand rupees, not lakhs.",
-     "Run your own scenario in the <a href=\"/tools/royalty-calculator/\">royalty calculator</a>, adjust the India-versus-international split and watch the number move. That split is the biggest lever on your income."]},
+     "What that looks like at real volumes, assuming all-India streams at ₹0.05-0.08 each:",
+     {"table":{"headers":["Streams","Estimated payout"],
+       "rows":[
+         ["10,000","₹500 to ₹800"],
+         ["1,00,000 (1 lakh)","₹5,000 to ₹8,000"],
+         ["10,00,000 (10 lakh / 1M)","₹50,000 to ₹80,000"],
+         ["50,00,000 (50 lakh / 5M)","₹2,50,000 to ₹4,00,000"]]}},
+     "A meaningful share of international listeners pushes every one of these numbers up, since non-Indian streams pay several times more per play. Run your own scenario in the <a href=\"/tools/royalty-calculator/\">royalty calculator</a>, adjust the India-versus-international split and watch the number move. That split is the biggest lever on your income."]},
    {"h2":"How to actually earn more","body":[
      {"ul":["<b>Grow international listeners.</b> Even a small share of US, UK or European streams lifts your average payout sharply.",
             "<b>Keep 100% of your rights</b> so you are not splitting the little there is. See <a href=\"/guides/best-music-distributor-india/\">choosing a distributor</a>.",
