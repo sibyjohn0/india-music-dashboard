@@ -44,7 +44,13 @@ h1{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:-1px;line-hei
 .featnote p{font-size:15px;color:#574C63;margin:0 0 8px}
 .featnote a{color:#FF4D8D;font-weight:700}
 footer{display:flex;flex-direction:column;gap:12px;padding:26px 32px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
-.footer-logo{font-weight:800;font-size:13px}.footer-links{display:flex;gap:16px;flex-wrap:wrap}</style>
+.footer-logo{font-weight:800;font-size:13px}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.artist-search-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 6px;flex-wrap:wrap}
+.artist-search-bar input{flex:1 1 280px;font-family:inherit;font-size:15px;padding:12px 16px;border:2px solid #241B2E;border-radius:10px;background:#fff;box-shadow:3px 3px 0 #241B2E}
+.artist-search-bar input:focus{outline:none;border-color:#FF4D8D}
+.artist-count{font-family:'Space Mono',monospace;font-size:12px;color:#574C63;white-space:nowrap}
+.artist-tag{display:inline-block;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#241B2E;background:#FFE1EC;border:1.5px solid #241B2E;border-radius:999px;padding:3px 9px;margin-left:8px;vertical-align:middle}
+.artist-card.is-hidden{display:none}
+</style>
   <style id="mnav-css">.mnav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:rgba(19,19,26,.72);border:1px solid var(--border);border-radius:11px;cursor:pointer;padding:0 11px}
 .mnav-burger span{display:block;height:2px;width:22px;background:var(--text);border-radius:2px}
 @media(max-width:640px){.mnav-burger{display:flex;position:fixed;top:9px;right:14px;z-index:300}
@@ -56,7 +62,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Featured Artists","description":"A spotlight of independent Indian artists picked on merit by Indie Music India.","url":"https://indiemusicindia.com/artists/","publisher":{"@type":"Organization","name":"Indie Music India","url":"https://indiemusicindia.com/"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Featured independent Indian artists","numberOfItems":35,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"MusicGroup","name":"Shivan","sameAs":"https://open.spotify.com/artist/2PZkeHjSBfzMpWJdLNNbnL"}},{"@type":"ListItem","position":2,"item":{"@type":"MusicGroup","name":"Rum and An","sameAs":"https://open.spotify.com/artist/0fkc94kySFjfOiEnFj603r"}},{"@type":"ListItem","position":3,"item":{"@type":"MusicGroup","name":"Aaryan More","sameAs":"https://open.spotify.com/artist/2LvFosNHivqziTEeANRf1a"}},{"@type":"ListItem","position":4,"item":{"@type":"MusicGroup","name":"Vedant Dukare","sameAs":"https://open.spotify.com/artist/3AiESBGeVa51WteWpiXOfD"}},{"@type":"ListItem","position":5,"item":{"@type":"MusicGroup","name":"KĀYA SOUND","sameAs":"https://open.spotify.com/track/2FISlCY6MmEqS7HXjDKA2d"}},{"@type":"ListItem","position":6,"item":{"@type":"MusicGroup","name":"Sinista","sameAs":"https://open.spotify.com/artist/4suFQSXYu4PMY6SInhKBPy"}},{"@type":"ListItem","position":7,"item":{"@type":"MusicGroup","name":"THE LUCIDWAKE","sameAs":"https://open.spotify.com/artist/1dlRoG39rKRyPce7VvT50R"}},{"@type":"ListItem","position":8,"item":{"@type":"MusicGroup","name":"Parth Bhatt","sameAs":"https://open.spotify.com/artist/7GmJhVIDRsNUG41dpCf64x"}},{"@type":"ListItem","position":9,"item":{"@type":"MusicGroup","name":"Guru Shahi","sameAs":"https://open.spotify.com/artist/1esMNf1fL0YmKxWMzxchjN"}},{"@type":"ListItem","position":10,"item":{"@type":"MusicGroup","name":"B Brijesh","sameAs":"https://open.spotify.com/artist/5zR3U7r96jli9nzyF2YnT2"}},{"@type":"ListItem","position":11,"item":{"@type":"MusicGroup","name":"Teen Nakaab","sameAs":"https://open.spotify.com/artist/6Vh8yE4JXTK487PT6Caabc"}},{"@type":"ListItem","position":12,"item":{"@type":"MusicGroup","name":"ARGHO","sameAs":"https://open.spotify.com/artist/0sCtgCf0bBiXcQiEvD5AJS"}},{"@type":"ListItem","position":13,"item":{"@type":"MusicGroup","name":"Vaibhav Santosh Naik","sameAs":"https://open.spotify.com/artist/4nJT5rtfq2jIi1Zj0LTrX6"}},{"@type":"ListItem","position":14,"item":{"@type":"MusicGroup","name":"Aadil Kamil","sameAs":"https://open.spotify.com/artist/2rGATdmJkQUOrhVw7gkKS3"}},{"@type":"ListItem","position":15,"item":{"@type":"MusicGroup","name":"Siyum","sameAs":"https://open.spotify.com/artist/5zDKlfPXznZkCWq3rwYIz9"}},{"@type":"ListItem","position":16,"item":{"@type":"MusicGroup","name":"Ishan Mahansaria","sameAs":"https://open.spotify.com/artist/0SjiIe68KBxUjxtTYrXZhN"}},{"@type":"ListItem","position":17,"item":{"@type":"MusicGroup","name":"Arjun T N","sameAs":"https://open.spotify.com/artist/2CtjIbvx2v569vDKBEeDUn"}},{"@type":"ListItem","position":18,"item":{"@type":"MusicGroup","name":"Avnish Patar","sameAs":"https://open.spotify.com/artist/30K2cUDbmhwdD2ODIfU8Fu"}},{"@type":"ListItem","position":19,"item":{"@type":"MusicGroup","name":"Abhi Sharma","sameAs":"https://open.spotify.com/artist/22Dcra2KK8MZfDBdVGSKwa"}},{"@type":"ListItem","position":20,"item":{"@type":"MusicGroup","name":"EKM","sameAs":"https://open.spotify.com/artist/1ctUL9pN6BEtSfMYB3Ugqv"}},{"@type":"ListItem","position":21,"item":{"@type":"MusicGroup","name":"LUCCI 7","sameAs":"https://open.spotify.com/artist/3nE0Y7q6DCVec6ETQs8N5v"}},{"@type":"ListItem","position":22,"item":{"@type":"MusicGroup","name":"Samaksh","sameAs":"https://open.spotify.com/artist/1JvSsV27Zvlivwd0j6AtGn"}},{"@type":"ListItem","position":23,"item":{"@type":"MusicGroup","name":"RON","sameAs":"https://open.spotify.com/artist/5m92AwV9uoMADNxNHP8ybP"}},{"@type":"ListItem","position":24,"item":{"@type":"MusicGroup","name":"KABILAA","sameAs":"https://open.spotify.com/track/6kBIG1Y2QqDqGuHJ1M3MkQ"}},{"@type":"ListItem","position":25,"item":{"@type":"MusicGroup","name":"Vyom Bharadvaj","sameAs":"https://open.spotify.com/artist/5Gw9y5dj3MWeigUQLZmjUH"}},{"@type":"ListItem","position":26,"item":{"@type":"MusicGroup","name":"Nidhish Gupta","sameAs":"https://open.spotify.com/artist/1nQhCnEV901bZCYPytBlre"}},{"@type":"ListItem","position":27,"item":{"@type":"MusicGroup","name":"Paras Alive","sameAs":"https://open.spotify.com/artist/228gfKcuSqjP82gQEAuDYe"}},{"@type":"ListItem","position":28,"item":{"@type":"MusicGroup","name":"RaavN","sameAs":"https://open.spotify.com/artist/79mlM1ClrfsLRZN2h4phGN"}},{"@type":"ListItem","position":29,"item":{"@type":"MusicGroup","name":"The Saudaagars","sameAs":"https://open.spotify.com/artist/3jL2kCZF1RH6OqXjqsvABl"}},{"@type":"ListItem","position":30,"item":{"@type":"MusicGroup","name":"HXRD","sameAs":"https://open.spotify.com/artist/5riln9Tad3Ff8tmFeIMzgx"}},{"@type":"ListItem","position":31,"item":{"@type":"MusicGroup","name":"DC Records","sameAs":"https://open.spotify.com/track/4GIMTHDyVR7wgpuHOKnsNA"}},{"@type":"ListItem","position":32,"item":{"@type":"MusicGroup","name":"Dhundh","sameAs":"https://youtube.com/watch?v=B7SnmC6r60g"}},{"@type":"ListItem","position":33,"item":{"@type":"MusicGroup","name":"Razdeep","sameAs":"https://youtube.com/watch?v=TfMPYnZvYRs"}},{"@type":"ListItem","position":34,"item":{"@type":"MusicGroup","name":"Himansh Bhardwaj","sameAs":"https://open.spotify.com/artist/4iaiOcFO8zvp5w6cRLJMxa"}},{"@type":"ListItem","position":35,"item":{"@type":"MusicGroup","name":"Siddharth Landge","sameAs":"https://open.spotify.com/artist/3UemuMthSXsGSJ4U5LVXFc"}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Featured independent Indian artists","numberOfItems":37,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"MusicGroup","name":"Shivan","sameAs":"https://open.spotify.com/artist/2PZkeHjSBfzMpWJdLNNbnL","url":"https://indiemusicindia.com/artists/#shivan","genre":"Hip-hop"}},{"@type":"ListItem","position":2,"item":{"@type":"MusicGroup","name":"Rum and An","sameAs":"https://open.spotify.com/artist/0fkc94kySFjfOiEnFj603r","url":"https://indiemusicindia.com/artists/#rum-and-an"}},{"@type":"ListItem","position":3,"item":{"@type":"MusicGroup","name":"Aaryan More","sameAs":"https://open.spotify.com/artist/2LvFosNHivqziTEeANRf1a","url":"https://indiemusicindia.com/artists/#aaryan-more"}},{"@type":"ListItem","position":4,"item":{"@type":"MusicGroup","name":"Vedant Dukare","sameAs":"https://open.spotify.com/artist/3AiESBGeVa51WteWpiXOfD","url":"https://indiemusicindia.com/artists/#vedant-dukare","genre":"Pop"}},{"@type":"ListItem","position":5,"item":{"@type":"MusicGroup","name":"KĀYA SOUND","sameAs":"https://open.spotify.com/track/2FISlCY6MmEqS7HXjDKA2d","url":"https://indiemusicindia.com/artists/#k-ya-sound","genre":"Electronic"}},{"@type":"ListItem","position":6,"item":{"@type":"MusicGroup","name":"Sinista","sameAs":"https://open.spotify.com/artist/4suFQSXYu4PMY6SInhKBPy","url":"https://indiemusicindia.com/artists/#sinista","genre":"Drum & bass"}},{"@type":"ListItem","position":7,"item":{"@type":"MusicGroup","name":"THE LUCIDWAKE","sameAs":"https://open.spotify.com/artist/1dlRoG39rKRyPce7VvT50R","url":"https://indiemusicindia.com/artists/#the-lucidwake","genre":"Psychedelic rock"}},{"@type":"ListItem","position":8,"item":{"@type":"MusicGroup","name":"Parth Bhatt","sameAs":"https://open.spotify.com/artist/7GmJhVIDRsNUG41dpCf64x","url":"https://indiemusicindia.com/artists/#parth-bhatt","genre":"Pop/Rock"}},{"@type":"ListItem","position":9,"item":{"@type":"MusicGroup","name":"Guru Shahi","sameAs":"https://open.spotify.com/artist/1esMNf1fL0YmKxWMzxchjN","url":"https://indiemusicindia.com/artists/#guru-shahi","genre":"Indie-pop"}},{"@type":"ListItem","position":10,"item":{"@type":"MusicGroup","name":"B Brijesh","sameAs":"https://open.spotify.com/artist/5zR3U7r96jli9nzyF2YnT2","url":"https://indiemusicindia.com/artists/#b-brijesh","genre":"Folk"}},{"@type":"ListItem","position":11,"item":{"@type":"MusicGroup","name":"Teen Nakaab","sameAs":"https://open.spotify.com/artist/6Vh8yE4JXTK487PT6Caabc","url":"https://indiemusicindia.com/artists/#teen-nakaab"}},{"@type":"ListItem","position":12,"item":{"@type":"MusicGroup","name":"ARGHO","sameAs":"https://open.spotify.com/artist/0sCtgCf0bBiXcQiEvD5AJS","url":"https://indiemusicindia.com/artists/#argho"}},{"@type":"ListItem","position":13,"item":{"@type":"MusicGroup","name":"Vaibhav Santosh Naik","sameAs":"https://open.spotify.com/artist/4nJT5rtfq2jIi1Zj0LTrX6","url":"https://indiemusicindia.com/artists/#vaibhav-santosh-naik"}},{"@type":"ListItem","position":14,"item":{"@type":"MusicGroup","name":"Aadil Kamil","sameAs":"https://open.spotify.com/artist/2rGATdmJkQUOrhVw7gkKS3","url":"https://indiemusicindia.com/artists/#aadil-kamil","genre":"Indie-pop"}},{"@type":"ListItem","position":15,"item":{"@type":"MusicGroup","name":"Siyum","sameAs":"https://open.spotify.com/artist/5zDKlfPXznZkCWq3rwYIz9","url":"https://indiemusicindia.com/artists/#siyum","genre":"Indie rock"}},{"@type":"ListItem","position":16,"item":{"@type":"MusicGroup","name":"Ishan Mahansaria","sameAs":"https://open.spotify.com/artist/0SjiIe68KBxUjxtTYrXZhN","url":"https://indiemusicindia.com/artists/#ishan-mahansaria","genre":"Pop"}},{"@type":"ListItem","position":17,"item":{"@type":"MusicGroup","name":"Arjun T N","sameAs":"https://open.spotify.com/artist/2CtjIbvx2v569vDKBEeDUn","url":"https://indiemusicindia.com/artists/#arjun-t-n"}},{"@type":"ListItem","position":18,"item":{"@type":"MusicGroup","name":"Avnish Patar","sameAs":"https://open.spotify.com/artist/30K2cUDbmhwdD2ODIfU8Fu","url":"https://indiemusicindia.com/artists/#avnish-patar"}},{"@type":"ListItem","position":19,"item":{"@type":"MusicGroup","name":"Abhi Sharma","sameAs":"https://open.spotify.com/artist/22Dcra2KK8MZfDBdVGSKwa","url":"https://indiemusicindia.com/artists/#abhi-sharma","genre":"Indie-pop"}},{"@type":"ListItem","position":20,"item":{"@type":"MusicGroup","name":"EKM","sameAs":"https://open.spotify.com/artist/1ctUL9pN6BEtSfMYB3Ugqv","url":"https://indiemusicindia.com/artists/#ekm","genre":"Hip-hop"}},{"@type":"ListItem","position":21,"item":{"@type":"MusicGroup","name":"LUCCI 7","sameAs":"https://open.spotify.com/artist/3nE0Y7q6DCVec6ETQs8N5v","url":"https://indiemusicindia.com/artists/#lucci-7","genre":"Indie-pop"}},{"@type":"ListItem","position":22,"item":{"@type":"MusicGroup","name":"Samaksh","sameAs":"https://open.spotify.com/artist/1JvSsV27Zvlivwd0j6AtGn","url":"https://indiemusicindia.com/artists/#samaksh"}},{"@type":"ListItem","position":23,"item":{"@type":"MusicGroup","name":"RON","sameAs":"https://open.spotify.com/artist/5m92AwV9uoMADNxNHP8ybP","url":"https://indiemusicindia.com/artists/#ron","genre":"Alt rock"}},{"@type":"ListItem","position":24,"item":{"@type":"MusicGroup","name":"KABILAA","sameAs":"https://open.spotify.com/track/6kBIG1Y2QqDqGuHJ1M3MkQ","url":"https://indiemusicindia.com/artists/#kabilaa","genre":"Hip-hop"}},{"@type":"ListItem","position":25,"item":{"@type":"MusicGroup","name":"Vyom Bharadvaj","sameAs":"https://open.spotify.com/artist/5Gw9y5dj3MWeigUQLZmjUH","url":"https://indiemusicindia.com/artists/#vyom-bharadvaj"}},{"@type":"ListItem","position":26,"item":{"@type":"MusicGroup","name":"Nidhish Gupta","sameAs":"https://open.spotify.com/artist/1nQhCnEV901bZCYPytBlre","url":"https://indiemusicindia.com/artists/#nidhish-gupta"}},{"@type":"ListItem","position":27,"item":{"@type":"MusicGroup","name":"Paras Alive","sameAs":"https://open.spotify.com/artist/228gfKcuSqjP82gQEAuDYe","url":"https://indiemusicindia.com/artists/#paras-alive","genre":"Pop"}},{"@type":"ListItem","position":28,"item":{"@type":"MusicGroup","name":"RaavN","sameAs":"https://open.spotify.com/artist/79mlM1ClrfsLRZN2h4phGN","url":"https://indiemusicindia.com/artists/#raavn","genre":"Rap"}},{"@type":"ListItem","position":29,"item":{"@type":"MusicGroup","name":"The Saudaagars","sameAs":"https://open.spotify.com/artist/3jL2kCZF1RH6OqXjqsvABl","url":"https://indiemusicindia.com/artists/#the-saudaagars","genre":"Hip-hop"}},{"@type":"ListItem","position":30,"item":{"@type":"MusicGroup","name":"HXRD","sameAs":"https://open.spotify.com/artist/5riln9Tad3Ff8tmFeIMzgx","url":"https://indiemusicindia.com/artists/#hxrd","genre":"Indie-pop"}},{"@type":"ListItem","position":31,"item":{"@type":"MusicGroup","name":"DC Records","sameAs":"https://open.spotify.com/track/4GIMTHDyVR7wgpuHOKnsNA","url":"https://indiemusicindia.com/artists/#dc-records","genre":"Hip-hop"}},{"@type":"ListItem","position":32,"item":{"@type":"MusicGroup","name":"Dhundh","sameAs":"https://youtube.com/watch?v=B7SnmC6r60g","url":"https://indiemusicindia.com/artists/#dhundh","genre":"Indie"}},{"@type":"ListItem","position":33,"item":{"@type":"MusicGroup","name":"Razdeep","sameAs":"https://youtube.com/watch?v=TfMPYnZvYRs","url":"https://indiemusicindia.com/artists/#razdeep"}},{"@type":"ListItem","position":34,"item":{"@type":"MusicGroup","name":"Himansh Bhardwaj","sameAs":"https://open.spotify.com/artist/4iaiOcFO8zvp5w6cRLJMxa","url":"https://indiemusicindia.com/artists/#himansh-bhardwaj"}},{"@type":"ListItem","position":35,"item":{"@type":"MusicGroup","name":"Siddharth Landge","sameAs":"https://open.spotify.com/artist/3UemuMthSXsGSJ4U5LVXFc","url":"https://indiemusicindia.com/artists/#siddharth-landge","genre":"Indie-pop"}},{"@type":"ListItem","position":36,"item":{"@type":"MusicGroup","name":"Jaybird","sameAs":"https://open.spotify.com/artist/3EI4jsR5lm6RPh8tOdzTd5","url":"https://indiemusicindia.com/artists/#jaybird","genre":"Indie-pop"}},{"@type":"ListItem","position":37,"item":{"@type":"MusicGroup","name":"Xander Dote","sameAs":"https://open.spotify.com/artist/572UKY3PLoFhHlFpFv6ccA","url":"https://indiemusicindia.com/artists/#xander-dote","genre":"Pop"}}]}</script>
 </head>
 <body>
   <header><div class="logo">◉ Indie Music India</div></header>
@@ -79,10 +85,16 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
     <h1>Artists we're listening to</h1>
     <p class="g-lead">A spotlight of independent Indian artists worth your time. No pay-for-play: we feature artists on merit, from the Radar and from those who reach out. Press play.</p>
 
+
+    <div class="artist-search-bar">
+      <input type="text" id="artistSearch" placeholder="Search by name, genre, city or language..." autocomplete="off">
+      <span id="artistCount" class="artist-count"></span>
+    </div>
+
     <div class="artist-grid">
 
-      <article class="artist-card">
-        <h2>Shivan</h2>
+      <article class="artist-card" id="shivan">
+        <h2>Shivan</h2><span class="artist-tag">Hip-hop</span>
         <p class="artist-note">Independent hip-hop artist and producer, building a sound aimed at a global audience.</p>
         <iframe src="https://open.spotify.com/embed/artist/2PZkeHjSBfzMpWJdLNNbnL?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Shivan on Spotify"></iframe>
         <div class="artist-links">
@@ -93,7 +105,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="rum-and-an">
         <h2>Rum and An</h2>
         <p class="artist-note">The independent project of Rumana Molla, out of Mumbai.</p>
         <iframe src="https://open.spotify.com/embed/artist/0fkc94kySFjfOiEnFj603r?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Rum and An on Spotify"></iframe>
@@ -104,7 +116,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="aaryan-more">
         <h2>Aaryan More</h2>
         <p class="artist-note">Independent artist chasing the room-full-of-people-singing-your-song feeling.</p>
         <iframe src="https://open.spotify.com/embed/artist/2LvFosNHivqziTEeANRf1a?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Aaryan More on Spotify"></iframe>
@@ -115,8 +127,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Vedant Dukare</h2>
+      <article class="artist-card" id="vedant-dukare">
+        <h2>Vedant Dukare</h2><span class="artist-tag">Pop</span>
         <p class="artist-note">Mumbai singer-songwriter and producer, self-built since 2022. Songwriting-first, blending Hindi emotion with pop instinct. Recent single "Ikshana Kadhe" picked up 20K streams in days.</p>
         <iframe src="https://open.spotify.com/embed/artist/3AiESBGeVa51WteWpiXOfD?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Vedant Dukare on Spotify"></iframe>
         <div class="artist-links">
@@ -127,8 +139,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>KĀYA SOUND</h2>
+      <article class="artist-card" id="k-ya-sound">
+        <h2>KĀYA SOUND</h2><span class="artist-tag">Electronic</span>
         <p class="artist-note">Independent Indian electronic crossover: Hindi romantic longing recast as melodic deep-house. Latest single, "MAAHI (Afterdark Mix)."</p>
         <iframe src="https://open.spotify.com/embed/track/2FISlCY6MmEqS7HXjDKA2d?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="KĀYA SOUND on Spotify"></iframe>
         <div class="artist-links">
@@ -137,8 +149,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Sinista</h2>
+      <article class="artist-card" id="sinista">
+        <h2>Sinista</h2><span class="artist-tag">Drum & bass</span>
         <p class="artist-note">Mumbai producer, part of the Dreamteam collective. Moves between trap and drum &amp; bass; his latest is the Hindi-vocal DnB single "Bas Ek Bar."</p>
         <iframe src="https://open.spotify.com/embed/artist/4suFQSXYu4PMY6SInhKBPy?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Sinista on Spotify"></iframe>
         <div class="artist-links">
@@ -148,8 +160,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>THE LUCIDWAKE</h2>
+      <article class="artist-card" id="the-lucidwake">
+        <h2>THE LUCIDWAKE</h2><span class="artist-tag">Psychedelic rock</span>
         <p class="artist-note">Four-piece psychedelic rock act out of Bangalore: towering vocals, intricate riffs and theatrical intensity.</p>
         <iframe src="https://open.spotify.com/embed/artist/1dlRoG39rKRyPce7VvT50R?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="THE LUCIDWAKE on Spotify"></iframe>
         <div class="artist-links">
@@ -159,8 +171,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Parth Bhatt</h2>
+      <article class="artist-card" id="parth-bhatt">
+        <h2>Parth Bhatt</h2><span class="artist-tag">Pop/Rock</span>
         <p class="artist-note">Madhya Pradesh singer-songwriter and producer, blending the poetic soul of Urdu with contemporary pop and rock.</p>
         <iframe src="https://open.spotify.com/embed/artist/7GmJhVIDRsNUG41dpCf64x?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Parth Bhatt on Spotify"></iframe>
         <div class="artist-links">
@@ -170,8 +182,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Guru Shahi</h2>
+      <article class="artist-card" id="guru-shahi">
+        <h2>Guru Shahi</h2><span class="artist-tag">Indie-pop</span>
         <p class="artist-note">Punjabi indie-pop singer, years of vocal training behind recent releases &#x27;Back Then&#x27; and &#x27;Kasoor&#x27;.</p>
         <iframe src="https://open.spotify.com/embed/artist/1esMNf1fL0YmKxWMzxchjN?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Guru Shahi on Spotify"></iframe>
         <div class="artist-links">
@@ -181,8 +193,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>B Brijesh</h2>
+      <article class="artist-card" id="b-brijesh">
+        <h2>B Brijesh</h2><span class="artist-tag">Folk</span>
         <p class="artist-note">Hindi folk storytelling rooted in Rajasthan, as Folks of Rajasthan.</p>
         <iframe src="https://open.spotify.com/embed/artist/5zR3U7r96jli9nzyF2YnT2?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="B Brijesh on Spotify"></iframe>
         <div class="artist-links">
@@ -192,7 +204,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="teen-nakaab">
         <h2>Teen Nakaab</h2>
         <p class="artist-note">A three-member project that refuses a single genre, making whatever feels right to all three.</p>
         <iframe src="https://open.spotify.com/embed/artist/6Vh8yE4JXTK487PT6Caabc?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Teen Nakaab on Spotify"></iframe>
@@ -203,7 +215,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="argho">
         <h2>ARGHO</h2>
         <p class="artist-note">Kolkata singer-songwriter, producer and composer, always experimenting, always chasing the next feeling.</p>
         <iframe src="https://open.spotify.com/embed/artist/0sCtgCf0bBiXcQiEvD5AJS?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="ARGHO on Spotify"></iframe>
@@ -214,7 +226,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="vaibhav-santosh-naik">
         <h2>Vaibhav Santosh Naik</h2>
         <p class="artist-note">Maharashtra singer-songwriter across Marathi, Hindi, Bhojpuri and Telugu, romantic to devotional.</p>
         <iframe src="https://open.spotify.com/embed/artist/4nJT5rtfq2jIi1Zj0LTrX6?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Vaibhav Santosh Naik on Spotify"></iframe>
@@ -225,8 +237,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Aadil Kamil</h2>
+      <article class="artist-card" id="aadil-kamil">
+        <h2>Aadil Kamil</h2><span class="artist-tag">Indie-pop</span>
         <p class="artist-note">Punjabi indie-pop with an easy, melodic feel, latest single &#x27;Kahiye&#x27;.</p>
         <iframe src="https://open.spotify.com/embed/artist/2rGATdmJkQUOrhVw7gkKS3?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Aadil Kamil on Spotify"></iframe>
         <div class="artist-links">
@@ -236,8 +248,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Siyum</h2>
+      <article class="artist-card" id="siyum">
+        <h2>Siyum</h2><span class="artist-tag">Indie rock</span>
         <p class="artist-note">The one-man project of multi-instrumentalist Shivam Nayar, out of Himachal: experimental indie rock, prog and shoegaze in Hindi and Chambyali.</p>
         <iframe src="https://open.spotify.com/embed/artist/5zDKlfPXznZkCWq3rwYIz9?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Siyum on Spotify"></iframe>
         <div class="artist-links">
@@ -247,8 +259,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Ishan Mahansaria</h2>
+      <article class="artist-card" id="ishan-mahansaria">
+        <h2>Ishan Mahansaria</h2><span class="artist-tag">Pop</span>
         <p class="artist-note">Bengaluru singer-songwriter; debut album &#x27;Arzu&#x27;, with &#x27;Mohabbat, maybe&#x27; moving toward contemporary pop.</p>
         <iframe src="https://open.spotify.com/embed/artist/0SjiIe68KBxUjxtTYrXZhN?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Ishan Mahansaria on Spotify"></iframe>
         <div class="artist-links">
@@ -258,7 +270,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="arjun-t-n">
         <h2>Arjun T N</h2>
         <p class="artist-note">Kerala singer-songwriter, guitarist and producer; Malayalam indie with a Tamil hook on &#x27;Veruthe Nanayum&#x27;.</p>
         <iframe src="https://open.spotify.com/embed/artist/2CtjIbvx2v569vDKBEeDUn?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Arjun T N on Spotify"></iframe>
@@ -269,7 +281,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="avnish-patar">
         <h2>Avnish Patar</h2>
         <p class="artist-note">Singer-songwriter, composer and producer from Chhattisgarh, now building his sound in Mumbai.</p>
         <iframe src="https://open.spotify.com/embed/artist/30K2cUDbmhwdD2ODIfU8Fu?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Avnish Patar on Spotify"></iframe>
@@ -280,8 +292,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Abhi Sharma</h2>
+      <article class="artist-card" id="abhi-sharma">
+        <h2>Abhi Sharma</h2><span class="artist-tag">Indie-pop</span>
         <p class="artist-note">Independent singer-songwriter-producer moving between acoustic, indie-pop and Punjabi, honest and personal.</p>
         <iframe src="https://open.spotify.com/embed/artist/22Dcra2KK8MZfDBdVGSKwa?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Abhi Sharma on Spotify"></iframe>
         <div class="artist-links">
@@ -291,8 +303,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>EKM</h2>
+      <article class="artist-card" id="ekm">
+        <h2>EKM</h2><span class="artist-tag">Hip-hop</span>
         <p class="artist-note">Hindi hip-hop, but not the usual kind, an underground artist who treats music as experiment.</p>
         <iframe src="https://open.spotify.com/embed/artist/1ctUL9pN6BEtSfMYB3Ugqv?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="EKM on Spotify"></iframe>
         <div class="artist-links">
@@ -302,8 +314,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>LUCCI 7</h2>
+      <article class="artist-card" id="lucci-7">
+        <h2>LUCCI 7</h2><span class="artist-tag">Indie-pop</span>
         <p class="artist-note">Hindi indie-pop.</p>
         <iframe src="https://open.spotify.com/embed/artist/3nE0Y7q6DCVec6ETQs8N5v?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="LUCCI 7 on Spotify"></iframe>
         <div class="artist-links">
@@ -313,7 +325,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="samaksh">
         <h2>Samaksh</h2>
         <p class="artist-note">Singer-songwriter, composer and lyricist.</p>
         <iframe src="https://open.spotify.com/embed/artist/1JvSsV27Zvlivwd0j6AtGn?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Samaksh on Spotify"></iframe>
@@ -324,8 +336,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>RON</h2>
+      <article class="artist-card" id="ron">
+        <h2>RON</h2><span class="artist-tag">Alt rock</span>
         <p class="artist-note">Assam artist blending alternative rock and electronic with Hindi-English vocals and a dark, energetic sound.</p>
         <iframe src="https://open.spotify.com/embed/artist/5m92AwV9uoMADNxNHP8ybP?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="RON on Spotify"></iframe>
         <div class="artist-links">
@@ -335,8 +347,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>KABILAA</h2>
+      <article class="artist-card" id="kabilaa">
+        <h2>KABILAA</h2><span class="artist-tag">Hip-hop</span>
         <p class="artist-note">Rajasthan songwriter blending Marwadi folk with modern hip-hop and R&amp;B; track &#x27;Chhori Sanwali&#x27;.</p>
         <iframe src="https://open.spotify.com/embed/track/6kBIG1Y2QqDqGuHJ1M3MkQ?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="KABILAA on Spotify"></iframe>
         <div class="artist-links">
@@ -346,7 +358,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="vyom-bharadvaj">
         <h2>Vyom Bharadvaj</h2>
         <p class="artist-note">Chandigarh singer-songwriter (and Punjab civil servant); three originals out, &#x27;Sapera&#x27; on the way.</p>
         <iframe src="https://open.spotify.com/embed/artist/5Gw9y5dj3MWeigUQLZmjUH?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Vyom Bharadvaj on Spotify"></iframe>
@@ -357,7 +369,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="nidhish-gupta">
         <h2>Nidhish Gupta</h2>
         <p class="artist-note">Songwriter-first, bedroom-produced, between Assam and Mumbai, one song at a time.</p>
         <iframe src="https://open.spotify.com/embed/artist/1nQhCnEV901bZCYPytBlre?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Nidhish Gupta on Spotify"></iframe>
@@ -368,8 +380,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Paras Alive</h2>
+      <article class="artist-card" id="paras-alive">
+        <h2>Paras Alive</h2><span class="artist-tag">Pop</span>
         <p class="artist-note">Hindi and Punjabi pop built on relatable stories and melody; latest single &#x27;Love Accepted&#x27;.</p>
         <iframe src="https://open.spotify.com/embed/artist/228gfKcuSqjP82gQEAuDYe?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Paras Alive on Spotify"></iframe>
         <div class="artist-links">
@@ -379,8 +391,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>RaavN</h2>
+      <article class="artist-card" id="raavn">
+        <h2>RaavN</h2><span class="artist-tag">Rap</span>
         <p class="artist-note">Gurgaon rapper crossing genres and experimenting with his sound.</p>
         <iframe src="https://open.spotify.com/embed/artist/79mlM1ClrfsLRZN2h4phGN?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="RaavN on Spotify"></iframe>
         <div class="artist-links">
@@ -390,8 +402,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>The Saudaagars</h2>
+      <article class="artist-card" id="the-saudaagars">
+        <h2>The Saudaagars</h2><span class="artist-tag">Hip-hop</span>
         <p class="artist-note">Hindi hip-hop.</p>
         <iframe src="https://open.spotify.com/embed/artist/3jL2kCZF1RH6OqXjqsvABl?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="The Saudaagars on Spotify"></iframe>
         <div class="artist-links">
@@ -401,8 +413,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>HXRD</h2>
+      <article class="artist-card" id="hxrd">
+        <h2>HXRD</h2><span class="artist-tag">Indie-pop</span>
         <p class="artist-note">Punjabi indie-pop.</p>
         <iframe src="https://open.spotify.com/embed/artist/5riln9Tad3Ff8tmFeIMzgx?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="HXRD on Spotify"></iframe>
         <div class="artist-links">
@@ -411,8 +423,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>DC Records</h2>
+      <article class="artist-card" id="dc-records">
+        <h2>DC Records</h2><span class="artist-tag">Hip-hop</span>
         <p class="artist-note">Maharashtra hip-hop collective (Dheet Clan). Track "Angatla Keeda" by Adi 5 One ft. X3 Abhi.</p>
         <iframe src="https://open.spotify.com/embed/track/4GIMTHDyVR7wgpuHOKnsNA?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="DC Records on Spotify"></iframe>
         <div class="artist-links">
@@ -422,8 +434,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Dhundh</h2>
+      <article class="artist-card" id="dhundh">
+        <h2>Dhundh</h2><span class="artist-tag">Indie</span>
         <p class="artist-note">Hindi indie. Debut single "Woh Raat", quiet emotion over noise.</p>
         <iframe src="https://www.youtube.com/embed/B7SnmC6r60g" width="100%" height="315" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Dhundh on YouTube"></iframe>
         <div class="artist-links">
@@ -431,7 +443,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="razdeep">
         <h2>Razdeep</h2>
         <p class="artist-note">Punjabi artist. Latest single "2 Kudiyan".</p>
         <iframe src="https://www.youtube.com/embed/TfMPYnZvYRs" width="100%" height="315" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Razdeep on YouTube"></iframe>
@@ -440,7 +452,7 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
+      <article class="artist-card" id="himansh-bhardwaj">
         <h2>Himansh Bhardwaj</h2>
         <p class="artist-note">Independent Haryanvi and Hindi artist. Emotional tracks about memory and what stays after someone leaves, including "Aadat" and "Without You".</p>
         <iframe src="https://open.spotify.com/embed/artist/4iaiOcFO8zvp5w6cRLJMxa?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Himansh Bhardwaj on Spotify"></iframe>
@@ -451,8 +463,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Siddharth Landge</h2>
+      <article class="artist-card" id="siddharth-landge">
+        <h2>Siddharth Landge</h2><span class="artist-tag">Indie-pop</span>
         <p class="artist-note">Marathi indie-pop. Composer, producer, arranger, mixing and mastering engineer, all in one.</p>
         <iframe src="https://open.spotify.com/embed/artist/3UemuMthSXsGSJ4U5LVXFc?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Siddharth Landge on Spotify"></iframe>
         <div class="artist-links">
@@ -461,8 +473,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Jaybird</h2>
+      <article class="artist-card" id="jaybird">
+        <h2>Jaybird</h2><span class="artist-tag">Indie-pop</span>
         <p class="artist-note">Singer-songwriter and producer. "Rehne Do," an indie-pop single about the ache of separating from someone you love, released under Eros Now Music.</p>
         <iframe src="https://open.spotify.com/embed/artist/3EI4jsR5lm6RPh8tOdzTd5?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Jaybird on Spotify"></iframe>
         <div class="artist-links">
@@ -471,8 +483,8 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
         </div>
       </article>
 
-      <article class="artist-card">
-        <h2>Xander Dote</h2>
+      <article class="artist-card" id="xander-dote">
+        <h2>Xander Dote</h2><span class="artist-tag">Pop</span>
         <p class="artist-note">Hindi pop singer-songwriter working on his debut concept album, "Queency." First single, "Tum Bin Kahi," is about loving someone who's already taken.</p>
         <iframe src="https://open.spotify.com/embed/artist/572UKY3PLoFhHlFpFv6ccA?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Xander Dote on Spotify"></iframe>
         <div class="artist-links">
@@ -501,6 +513,26 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
     <div class="footer-logo">◉ Indie Music India</div>
     <div class="footer-links"><a href="/">Home</a><a href="/radar.html">Radar</a><a href="/resources/">Resources</a><a href="/reviewers/">Reviewers</a><a href="/featured/">Badge</a><a href="/about/">About</a></div>
   </footer>
+  <script>
+  (function(){
+    var input = document.getElementById('artistSearch');
+    var count = document.getElementById('artistCount');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.artist-card'));
+    var total = cards.length;
+    function update(){
+      var q = input.value.trim().toLowerCase();
+      var shown = 0;
+      cards.forEach(function(c){
+        var match = !q || c.textContent.toLowerCase().indexOf(q) !== -1;
+        c.classList.toggle('is-hidden', !match);
+        if (match) shown++;
+      });
+      count.textContent = q ? ('Showing ' + shown + ' of ' + total) : (total + ' artists');
+    }
+    input.addEventListener('input', update);
+    update();
+  })();
+  </script>
   <script>
   var b=document.querySelector('.mnav-burger');
   if(b)b.addEventListener('click',function(){var o=document.body.classList.toggle('mnav-open');b.setAttribute('aria-expanded',o);});
