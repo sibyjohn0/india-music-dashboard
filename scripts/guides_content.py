@@ -55,7 +55,12 @@ GUIDES = [
             "<b>Play live.</b> Melas, college shows and diaspora events build a real fanbase and pay well, more below.",
             "<b>Consistency over one big swing.</b> Regular releases keep you in the feed; one video rarely does it."]}]},
    {"h2":"Where the money actually is","body":[
-     "Streaming is the smallest part. For Punjabi artists the real income is, roughly in order: <b>live shows, weddings and melas</b> (Punjabi live demand is enormous, at home and in the diaspora), <b>YouTube</b> (ad revenue plus Content ID, which is significant given the view counts), <b>sync</b> (film, ads, series), and then streaming. Set up Content ID and IPRS/PPL so you actually collect all of it, most independent artists leave YouTube and royalty money on the table. See <a href=\"/guides/make-money-independent-artist-india/\">how independent artists make money in India</a>."]},
+     "Streaming is the smallest part. For Punjabi artists the real income is, roughly in order: <b>live shows, weddings and melas</b> (Punjabi live demand is enormous, at home and in the diaspora), <b>YouTube</b> (ad revenue plus Content ID, which is significant given the view counts), <b>sync</b> (film, ads, series), and then streaming. Set up Content ID and IPRS/PPL so you actually collect all of it, most independent artists leave YouTube and royalty money on the table. See <a href=\"/guides/make-money-independent-artist-india/\">how independent artists make money in India</a>.",
+     "Setting up Content ID, specifically:",
+     {"ol":["<b>Check your distributor offers it.</b> You can't apply to YouTube directly, it only comes through a distributor, most major ones (DistroKid, TuneCore, CD Baby, Amuse and others) offer it as a feature or paid add-on.",
+            "<b>Confirm your track is 100% original.</b> Samples from royalty-free packs, DAW stock loops, or anything you don't exclusively own will get it rejected.",
+            "<b>Opt in per release</b> in your distributor's dashboard, look for a \"YouTube Content ID\" or \"YouTube Monetization\" toggle, some distributors turn it on by default, others don't.",
+            "<b>Wait two to four weeks</b> while your distributor submits the audio to YouTube's reference database. After that, any upload using your song (covers, reels, reuploads) gets caught and monetised automatically."]}]},
    {"h2":"The reality check","body":[
      "The wave is real, but so is the survivorship bias. For every AP Dhillon there are thousands doing everything right and still grinding. Do not benchmark your month-two numbers against artists with labels, budgets and years behind them. Build the machine, a distinct sound, YouTube-first, consistent output, real collaborations, and let it compound. That is a career, not a lottery ticket."]}],
  "faq":[
@@ -76,7 +81,7 @@ GUIDES = [
    {"h2":"The easy way: let your distributor assign it (free)","body":[
      "For almost every independent artist this is the answer. When you upload a track, your distributor issues an ISRC at no extra cost. You do not need to apply anywhere. Check your release dashboard, the ISRC appears there, and note it down for your records."]},
    {"h2":"The direct way: become your own ISRC manager","body":[
-     "If you release at scale or want to control your own codes, you can register as an ISRC manager and be issued a registrant prefix, then generate your own ISRCs for every recording. In India this goes through IFPI's appointed national agency. This makes sense for labels and prolific artists, not for a first single.",
+     "If you release at scale or want to control your own codes, you can register as an ISRC manager and be issued a registrant prefix, then generate your own ISRCs for every recording. Start at <a href=\"https://isrc.ifpi.org/get-isrc/isrc-managers\" target=\"_blank\" rel=\"noopener nofollow\">IFPI's ISRC Managers page</a>, which lists the agency contacts by territory. This makes sense for labels and prolific artists, not for a first single.",
      "Whatever route you take, keep a simple spreadsheet of every track and its ISRC. It is the backbone of getting paid correctly."]},
    {"h2":"Do not pay a reseller","body":[
      "Some sites sell ISRCs individually at inflated prices. You rarely need this: your distributor's free codes are valid and permanent. Paying per code only makes sense in specific label workflows.",
@@ -116,14 +121,17 @@ GUIDES = [
  "title":"How to submit music to Spotify playlists in India",
  "desc":"How to pitch Spotify editorial playlists through Spotify for Artists, how to reach independent and curator playlists in India, and how to avoid the pay-for-play playlist scams.",
  "lead":"There are two real doors to Spotify playlists, and one trap. Here is how to work all three.",
- "tldr":"To get on Spotify playlists in India: first, pitch <b>Spotify editorial</b> through Spotify for Artists at least a week before release (this also helps Release Radar and Discover Weekly). Second, pitch <b>independent and curator playlists</b> directly, our <a href=\"/reviewers/\">reviewer and curator database</a> lists real ones. Avoid anyone guaranteeing placements for a fee, bot playlists get your track flagged, not heard.",
+ "tldr":"To get on Spotify playlists in India: first, pitch <b>Spotify editorial</b> through Spotify for Artists at least a week before release (this also helps Release Radar and Discover Weekly). Second, pitch <b>independent and curator playlists</b> directly, our <a href=\"/reviewers/\">live database of 1,167 reviewers and curators</a> lists real ones, 381 free to pitch directly, no fee. Avoid anyone guaranteeing placements for a fee, bot playlists get your track flagged, not heard.",
  "sections":[
    {"h2":"Door 1: Spotify editorial (free, the big one)","body":[
      "In Spotify for Artists, use the pitch tool on any unreleased track. You can pitch one song at a time, ideally seven or more days before release. Even if you do not land an editorial playlist, pitching signals the release to Spotify's algorithm and feeds Release Radar and Discover Weekly for your existing listeners.",
      "Write the pitch like a human: genre, mood, instruments, the story, and any momentum you have. Specific beats generic."]},
    {"h2":"Door 2: independent and curator playlists","body":[
-     "Beyond Spotify's own editors, thousands of independent curators run playlists. Reaching the right ones is a numbers-and-fit game. Our <a href=\"/reviewers/\">database of 1,100+ reviewers, curators and playlists</a> is filterable by genre, cost and whether they focus on South Asian music, so you pitch fit, not spray.",
-     "Personalise every pitch. Name the playlist, say why your song fits it, keep it short, and include the Spotify link and a one-line bio."]},
+     "Beyond Spotify's own editors, thousands of independent curators run playlists. Reaching the right ones is a numbers-and-fit game, not a spray-and-pray one. Our <a href=\"/reviewers/\">live reviewer and curator database</a> currently tracks 1,167 of them: 16 editorial outlets, 48 podcasts, 240 YouTube channels, and 863 on SubmitHub, 77 of those free, the rest reachable with SubmitHub credits. 17 are tagged specifically for South Asian music.",
+     {"ol":["<b>Filter before you pitch.</b> On the <a href=\"/reviewers/\">database</a>, filter by your genre and, if it applies, South Asian focus. Sort by free-to-submit first, you'll exhaust that list before it's worth spending SubmitHub credits.",
+            "<b>Open with their playlist, not your song.</b> Name the specific playlist, say why your track fits its sound, in one line.",
+            "<b>Keep the pitch to four lines.</b> Genre, mood, one line of story or momentum, the Spotify link.",
+            "<b>Send ten to fifteen a week, not fifty in one day.</b> Curators notice copy-paste blasts and ignore them."]}]},
    {"h2":"The trap: pay-for-play playlists","body":[
      "Anyone guaranteeing a fixed number of streams or a placement for cash is selling bot or fake-engagement playlists. Spotify detects artificial streams and can remove your track or withhold royalties. It never converts to real fans. Do not do it."]},
    {"h2":"What actually makes playlists say yes","body":[
@@ -296,7 +304,11 @@ GUIDES = [
      {"ul":["<b>Short video (Reels and YouTube Shorts).</b> This is your discovery engine. A clip of the song with a strong first three seconds reaches people who don't follow you. Wordless, hook-first, let the music carry it.",
             "<b>Get featured, don't just post.</b> Being tagged or reshared by another artist, a blog, or a page sends their audience to you. Pitch to be featured; it beats shouting into your own small following.",
             "<b>WhatsApp and community.</b> In India, WhatsApp is underrated. Share the link directly, ask close fans to save the track. A hundred real saves on day one signals the platforms more than a thousand passive plays.",
-            "<b>Playlists and press, pitched early.</b> Use our <a href=\"/reviewers/\">database of 1,100+ curators and blogs</a> and Spotify for Artists, before release."]}]},
+            "<b>Playlists and press, pitched early.</b> Use our <a href=\"/reviewers/\">live database of 1,167 curators and blogs</a> and Spotify for Artists, before release."]}]},
+   {"h2":"Edit and meme pages: borrowing someone else's reach","body":[
+     "Edit pages, accounts that cut artist footage, films or pop-culture clips to a track, are a real channel most guides skip. When one uses your song behind a trending format, their followers hear it in a context they already engage with, which is a different kind of reach than posting it yourself.",
+     "Be honest with yourself about how this works: some edit pages will use a song for free if they genuinely like it, the same way a blog might cover you for free. Many others run it as a paid placement, priced like any influencer rate card, roughly by their follower count and engagement, not a fixed number. Treat a DM offering \"guaranteed reach\" with the same suspicion as a pay-for-play playlist: ask who else they've posted, check the engagement on those posts is real, and never pay before seeing their actual audience.",
+     "How to actually do this: find 10 to 15 pages in your genre or scene (search the audio/sound usage on existing Reels in your genre to see who's already editing to similar music), follow and engage with them for a week before asking anything, then send the track directly with a one-line pitch, the same personalised-not-mass-blasted approach that works for playlist curators."]},
    {"h2":"How to get more streams organically","body":[
      "Saves and playlist adds tell Spotify your song has legs, which earns you Release Radar and Discover Weekly placement. So optimise for saves, not vanity plays. Ask for saves explicitly. Pitch every unreleased track to <a href=\"/guides/submit-music-spotify-playlists-india/\">Spotify playlists</a>. Keep releasing on a rhythm so each song lifts the last."]},
    {"h2":"Paid vs organic: when to spend","body":[
@@ -397,7 +409,11 @@ GUIDES = [
    {"h2":"What caller tunes are and why they matter in India","body":[
      "A caller tune (Jio calls it JioTunes, Airtel calls it Hello Tunes) plays your song to anyone who calls a subscriber who has set it. In India, where millions still discover music this way, it's both a revenue stream and a discovery channel that reaches people who never open Spotify. Ignoring it leaves money and ears on the table."]},
    {"h2":"How to make your song a caller tune","body":[
-     "You can't upload a caller tune directly yourself, it goes through the telcos, and you reach them via a distributor or aggregator that has telco deals. So the steps are: release your song through a distributor that offers caller-tune delivery, opt into the caller-tune channel, and the distributor pushes it to Jio, Airtel and others. Then you (and your fans) can set it and promote it."]},
+     "You can't upload a caller tune directly yourself, it goes through the telcos, and you reach them via a distributor or aggregator that has telco deals.",
+     {"ol":["<b>Pick a distributor that offers caller-tune delivery.</b> Not all do, see <a href=\"/guides/best-music-distributor-india/\">our distributor guide</a>, India-focused aggregators tend to be the strongest here, the big international flat-fee services (DistroKid, Amuse) generally don't offer it.",
+            "<b>Opt into the caller-tune channel</b> when you submit your release, usually a checkbox or add-on in the distributor's upload flow, ask support directly if it isn't obvious.",
+            "<b>Confirm delivery to Jio and Airtel specifically</b>, the two that matter most by user base, some aggregators only reach one of them.",
+            "<b>Ask your fans to set it.</b> A plain \"set my song as your caller tune\" post works, since most listeners don't think to look for new songs there themselves."]}]},
    {"h2":"Which distributors offer caller tunes","body":[
      "Not every distributor delivers caller tunes, it needs direct telco relationships. Before you pick a distributor, ask specifically whether they offer Jio and Airtel caller-tune delivery if this channel matters to you. Some India-focused distributors and aggregators specialise in it. Our <a href=\"/guides/best-music-distributor-india/\">distributor guide</a> covers how to choose, and caller tunes are one of the India-specific things to check for."]},
    {"h2":"How caller tune royalties work","body":[

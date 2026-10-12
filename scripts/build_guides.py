@@ -8,7 +8,7 @@ for the long-tail keyword batch. Re-runnable; overwrites its own pages only.
 import json, html, os
 from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
-TODAY = "2026-10-01"
+TODAY = "2026-10-12"
 PUBDATE = "2026-08-01"   # stable original publish date; only dateModified tracks the build
 
 def esc(s): return html.escape(str(s), quote=True)
@@ -79,6 +79,15 @@ def render_body(sections):
         for item in s["body"]:
             if isinstance(item, dict) and "ul" in item:
                 out.append("<ul>" + "".join(f"<li>{li}</li>" for li in item["ul"]) + "</ul>")
+            elif isinstance(item, dict) and "ol" in item:
+                ol_style = 'margin:0 0 14px 20px;color:#574C63;font-size:16px;display:flex;flex-direction:column;gap:8px'
+                out.append(f'<ol style="{ol_style}">' + "".join(f"<li>{li}</li>" for li in item["ol"]) + "</ol>")
+            elif isinstance(item, dict) and "video" in item:
+                v = item["video"]
+                out.append('<div style="position:relative;padding-bottom:56.25%;height:0;border-radius:12px;overflow:hidden;margin:0 0 14px">'
+                           f'<iframe src="https://www.youtube-nocookie.com/embed/{esc(v["id"])}" title="{esc(v["title"])}" loading="lazy" '
+                           'style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" '
+                           'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>')
             elif isinstance(item, dict) and "table" in item:
                 t = item["table"]
                 th = 'padding:9px 12px;font-weight:800'
