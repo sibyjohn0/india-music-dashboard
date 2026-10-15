@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-14T06:10:27.824960+00:00",
+  "generated_at": "2026-10-15T05:55:37.316177+00:00",
   "counts": {
     "festivals": 27,
     "tours": 18,
     "marquee": 14,
     "international": 9,
     "indian": 36,
-    "new_this_run": 0
+    "new_this_run": 1
   },
   "festivals": [
     {
@@ -797,6 +797,33 @@
       "origin": "indian"
     },
     {
+      "title": "MARI FERRARI live in DELHI",
+      "type": "tour",
+      "key": "mari ferrari live in",
+      "cities": [
+        "Delhi"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-23",
+          "date_obj": "2026-10-23",
+          "city": "Delhi",
+          "venue": "",
+          "time": "11:30 PM",
+          "price": "₹699–₹1,999",
+          "url": "https://www.skillboxes.com/events/mari-ferrari-live-in-delhi-sbepqgpk",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-10-23",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "One Girl Shy - We Should Probably Tell You Tour",
       "type": "tour",
       "key": "one girl shy",
@@ -804,16 +831,6 @@
         "Chennai"
       ],
       "dates": [
-        {
-          "date": "2026-10-23",
-          "date_obj": "2026-10-23",
-          "city": "Chennai",
-          "venue": "",
-          "time": "09:00 PM",
-          "price": "from ₹249",
-          "url": "https://www.skillboxes.com/events/one-girl-shy-we-should-probably-tell-you-tour-sbtbqrhu",
-          "source": "skillboxes"
-        },
         {
           "date": "2026-10-23",
           "date_obj": "2026-10-23",
@@ -1046,33 +1063,6 @@
       "origin": "indian"
     },
     {
-      "title": "Haloween Special Yara Live in Mumbai",
-      "type": "tour",
-      "key": "haloween special yara live in",
-      "cities": [
-        "Mumbai"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-30",
-          "date_obj": "2026-10-30",
-          "city": "Mumbai",
-          "venue": "",
-          "time": "05:00 PM",
-          "price": "from ₹999",
-          "url": "https://www.skillboxes.com/events/haloween-special-yara-live-in-mumbai-sbyfiefs",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-10-30",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "SikTh - Live in Bengaluru",
       "type": "tour",
       "key": "sikth",
@@ -1087,7 +1077,7 @@
           "city": "Bangalore",
           "venue": "",
           "time": "08:00 PM",
-          "price": "from ₹1,999",
+          "price": "₹1,999–₹8,199",
           "url": "https://www.skillboxes.com/events/sikth-live-in-bengaluru-sbcjzpcg",
           "source": "skillboxes"
         },
@@ -1097,7 +1087,7 @@
           "city": "Mumbai",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹1,999–₹2,499",
+          "price": "₹1,999–₹8,199",
           "url": "https://www.skillboxes.com/events/sikth-live-in-mumbai-sbcmemjx",
           "source": "skillboxes"
         }
@@ -1415,15 +1405,17 @@
       "origin": "international"
     }
   ],
-  "new_this_run": [],
+  "new_this_run": [
+    "MARI FERRARI live in DELHI"
+  ],
   "_all_keys": [
     "sajanka india tour",
-    "one girl shy",
     "psylab presents sajanka",
     "sikth",
     "domi jd beck who asked tour",
     "khalid live in",
     "gaia 3 day festival pass",
+    "mari ferrari live in",
     "cloud temple boutique music festival",
     "alpha music festival 6 0",
     "structure music festival",
@@ -1431,10 +1423,10 @@
     "the festival of lights",
     "horn ok please",
     "benny dayal live in",
-    "haloween special yara live in",
     "last minute india on tour",
     "dandiya navratri utsav",
     "whitefield biggest open air dandiya utsav",
+    "one girl shy",
     "nykaaland india s biggest beauty festival in",
     "sajanka live at sunburn union",
     "thaikkudam bridge live in",
