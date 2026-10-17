@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-16T05:51:04.151734+00:00",
+  "generated_at": "2026-10-17T05:38:42.742838+00:00",
   "counts": {
-    "festivals": 24,
-    "tours": 17,
+    "festivals": 26,
+    "tours": 14,
     "marquee": 14,
-    "international": 7,
+    "international": 6,
     "indian": 34,
-    "new_this_run": 1
+    "new_this_run": 4
   },
   "festivals": [
     {
@@ -73,37 +73,6 @@
       "origin": "international"
     },
     {
-      "title": "Lollapalooza India",
-      "type": "festival",
-      "key": "lollapalooza india",
-      "cities": [
-        "Mumbai"
-      ],
-      "dates": [
-        {
-          "date": "2027-01-23",
-          "date_obj": "2027-01-23",
-          "city": "Mumbai",
-          "venue": "Mahalaxmi Race Course",
-          "time": "",
-          "price": "from ₹24,999",
-          "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027-rupay-amplified-access/ET00514942",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2027-01-23",
-      "marquee": true,
-      "official_url": "https://www.lollapaloozaindia.com/",
-      "ig": "lollapaloozaind",
-      "season": "Jan – Mar",
-      "tags": [
-        "international",
-        "multi-genre"
-      ],
-      "home_city": "Mumbai",
-      "origin": "international"
-    },
-    {
       "title": "Control ALT Delete",
       "type": "festival",
       "key": "control alt delete",
@@ -146,6 +115,27 @@
       ],
       "home_city": "Kisama, Nagaland",
       "origin": "indian"
+    },
+    {
+      "title": "Lollapalooza India",
+      "type": "festival",
+      "key": "lollapalooza india",
+      "cities": [
+        "Mumbai"
+      ],
+      "dates": [],
+      "soonest": null,
+      "marquee": true,
+      "status": "dates TBA",
+      "official_url": "https://www.lollapaloozaindia.com/",
+      "ig": "lollapaloozaind",
+      "season": "Jan – Mar",
+      "tags": [
+        "international",
+        "multi-genre"
+      ],
+      "home_city": "Mumbai",
+      "origin": "international"
     },
     {
       "title": "Magnetic Fields Festival",
@@ -444,31 +434,85 @@
       "origin": "indian"
     },
     {
-      "title": "Sunburn Arena ft. DJ Snake",
+      "title": "Halloween Carnival 2026",
       "type": "festival",
-      "key": "sunburn arena ft dj snake",
+      "key": "halloween carnival",
       "cities": [
-        "Bangalore"
+        "New Delhi."
       ],
       "dates": [
         {
-          "date": "2026-12-18",
-          "date_obj": "2026-12-18",
-          "city": "Bangalore",
-          "venue": "NICE Grounds",
+          "date": "2026-10-30",
+          "date_obj": "2026-10-30",
+          "city": "New Delhi.",
+          "venue": "ShellBeacon Cafe",
           "time": "",
-          "price": "from ₹1,500",
-          "url": "https://in.bookmyshow.com/events/sunburn-arena-ft-dj-snake/ET00514999",
+          "price": "from ₹749",
+          "url": "https://in.bookmyshow.com/events/halloween-carnival-2026/ET00520909",
           "source": "bookmyshow"
         }
       ],
-      "soonest": "2026-12-18",
+      "soonest": "2026-10-30",
       "marquee": false,
       "official_url": "",
       "ig": "",
       "season": "",
       "tags": [],
-      "origin": "international"
+      "origin": "indian"
+    },
+    {
+      "title": "The Location Fest - Dynamo, Goa",
+      "type": "festival",
+      "key": "the location fest",
+      "cities": [
+        "Goa"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-30",
+          "date_obj": "2026-10-30",
+          "city": "Goa",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "₹1,999–₹14,999",
+          "url": "https://www.skillboxes.com/events/the-lovation-fest-goa-sbjtcxoh",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-10-30",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "BANGTANVERSE CARNIVAL - FAN TOUR",
+      "type": "festival",
+      "key": "bangtanverse carnival",
+      "cities": [
+        "Delhi (NCR)"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-21",
+          "date_obj": "2026-11-21",
+          "city": "Delhi (NCR)",
+          "venue": "Venue To Be Announced",
+          "time": "",
+          "price": "from ₹499",
+          "url": "https://in.bookmyshow.com/events/bangtan-carnival-fan-tour/ET00449698",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-11-21",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
     },
     {
       "title": "Structure Music Festival",
@@ -612,20 +656,9 @@
       "type": "tour",
       "key": "sajanka india tour",
       "cities": [
-        "Mumbai",
-        "Siliguri"
+        "Mumbai"
       ],
       "dates": [
-        {
-          "date": "2026-10-16",
-          "date_obj": "2026-10-16",
-          "city": "Siliguri",
-          "venue": "Siliguri",
-          "time": "08:00 PM",
-          "price": "₹1,000–₹4,500",
-          "url": "https://www.skillboxes.com/events/sajanka-india-tour-2026-siliguri-sbuqvzzd",
-          "source": "skillboxes"
-        },
         {
           "date": "2026-10-17",
           "date_obj": "2026-10-17",
@@ -637,7 +670,7 @@
           "source": "skillboxes"
         }
       ],
-      "soonest": "2026-10-16",
+      "soonest": "2026-10-17",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -722,33 +755,6 @@
           "price": "₹699–₹1,999",
           "url": "https://www.skillboxes.com/events/mari-ferrari-live-in-delhi-sbepqgpk",
           "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-10-23",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "One Girl Shy - We Should Probably Tell You Tour",
-      "type": "tour",
-      "key": "one girl shy",
-      "cities": [
-        "Chennai"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-23",
-          "date_obj": "2026-10-23",
-          "city": "Chennai",
-          "venue": "Hard Rock Cafe, Nungabakkam",
-          "time": "",
-          "price": "from ₹249",
-          "url": "https://in.bookmyshow.com/events/one-girl-shy-we-should-probably-tell-you-tour/ET00519632",
-          "source": "bookmyshow"
         }
       ],
       "soonest": "2026-10-23",
@@ -863,33 +869,6 @@
       "origin": "indian"
     },
     {
-      "title": "Sukoon Bharat Tour",
-      "type": "tour",
-      "key": "sukoon bharat tour",
-      "cities": [
-        "Chennai"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-07",
-          "date_obj": "2026-11-07",
-          "city": "Chennai",
-          "venue": "Venue To Be Announced",
-          "time": "",
-          "price": "from ₹349",
-          "url": "https://in.bookmyshow.com/events/sukoon-bharat-tour-chennai/ET00508718",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-11-07",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Papon Live In Concert",
       "type": "tour",
       "key": "papon live in concert",
@@ -954,8 +933,6 @@
       "type": "tour",
       "key": "diljit dosanjh",
       "cities": [
-        "Bangalore",
-        "Chandigarh",
         "Indore",
         "Lucknow",
         "Mumbai"
@@ -979,26 +956,6 @@
           "time": "",
           "price": "from ₹4,499",
           "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-mumbai/et977163q4",
-          "source": "bookmyshow"
-        },
-        {
-          "date": "2026-11-29",
-          "date_obj": "2026-11-29",
-          "city": "Bangalore",
-          "venue": "NICE Grounds",
-          "time": "",
-          "price": "from ₹4,099",
-          "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-bengaluru/etc71lx3ak",
-          "source": "bookmyshow"
-        },
-        {
-          "date": "2026-12-01",
-          "date_obj": "2026-12-01",
-          "city": "Chandigarh",
-          "venue": "Venue To Be Announced",
-          "time": "",
-          "price": "from ₹1,000",
-          "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-chandigarh/et78u3755k",
           "source": "bookmyshow"
         },
         {
@@ -1068,6 +1025,66 @@
       "season": "",
       "tags": [],
       "origin": "international"
+    },
+    {
+      "title": "Rainburn: Adrift in India Tour",
+      "type": "tour",
+      "key": "rainburn adrift in india tour",
+      "cities": [
+        "Chennai",
+        "Goa",
+        "Guwahati",
+        "Pune"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-22",
+          "date_obj": "2026-11-22",
+          "city": "Pune",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "from ₹499",
+          "url": "https://www.skillboxes.com/events/thirty-seven-adrift-in-india-pune-sbgltzbu",
+          "source": "skillboxes"
+        },
+        {
+          "date": "2026-11-28",
+          "date_obj": "2026-11-28",
+          "city": "Guwahati",
+          "venue": "Guwahati",
+          "time": "08:00 PM",
+          "price": "",
+          "url": "https://www.skillboxes.com/events/thirty-seven-adrift-in-india-guwahati-sbgqdtrc",
+          "source": "skillboxes"
+        },
+        {
+          "date": "2026-12-04",
+          "date_obj": "2026-12-04",
+          "city": "Chennai",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "from ₹499",
+          "url": "https://www.skillboxes.com/events/thirty-seven-adrift-in-india-chennai-sbgsiqyt",
+          "source": "skillboxes"
+        },
+        {
+          "date": "2026-12-11",
+          "date_obj": "2026-12-11",
+          "city": "Goa",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "from ₹499",
+          "url": "https://www.skillboxes.com/events/thirty-seven-adrift-in-india-goa-sbgunogk",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-11-22",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
     },
     {
       "title": "BENNY DAYAL Live in BENGALURU",
@@ -1146,33 +1163,6 @@
       "origin": "international"
     },
     {
-      "title": "Yuvan Shankar Raja Live in Concert - Salem",
-      "type": "tour",
-      "key": "yuvan shankar raja live in concert",
-      "cities": [
-        "Salem"
-      ],
-      "dates": [
-        {
-          "date": "2026-12-19",
-          "date_obj": "2026-12-19",
-          "city": "Salem",
-          "venue": "Sona Valliappa Campus, Gajjalnaickenpatti",
-          "time": "",
-          "price": "from ₹899",
-          "url": "https://in.bookmyshow.com/events/yuvan-shankar-raja-live-in-concert-salem/ET00507765",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-12-19",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Gorillaz The Mountain Tour 2027",
       "type": "tour",
       "key": "gorillaz the mountain tour",
@@ -1211,33 +1201,6 @@
       "origin": "international"
     },
     {
-      "title": "Foo Fighters India Tour 2027",
-      "type": "tour",
-      "key": "foo fighters india tour",
-      "cities": [
-        "Mumbai"
-      ],
-      "dates": [
-        {
-          "date": "2027-01-31",
-          "date_obj": "2027-01-31",
-          "city": "Mumbai",
-          "venue": "Mahalaxmi Race Course",
-          "time": "",
-          "price": "from ₹4,000",
-          "url": "https://in.bookmyshow.com/events/foo-fighters-india-tour-2027-mumbai/ET00502947",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2027-01-31",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Last Minute India on Tour",
       "type": "tour",
       "key": "last minute india on tour",
@@ -1266,13 +1229,17 @@
     }
   ],
   "new_this_run": [
-    "Partung Carnival"
+    "Rainburn: Adrift in India Tour",
+    "The Location Fest - Dynamo, Goa",
+    "Halloween Carnival 2026",
+    "BANGTANVERSE CARNIVAL - FAN TOUR"
   ],
   "_all_keys": [
     "sajanka india tour",
     "psylab presents sajanka",
     "sikth",
     "domi jd beck who asked tour",
+    "rainburn adrift in india tour",
     "khalid live in",
     "gaia 3 day festival pass",
     "mari ferrari live in",
@@ -1284,15 +1251,12 @@
     "horn ok please",
     "benny dayal live in",
     "partung carnival",
+    "the location fest",
     "last minute india on tour",
-    "one girl shy",
-    "sukoon bharat tour",
+    "halloween carnival",
     "diljit dosanjh",
-    "sunburn arena ft dj snake",
+    "bangtanverse carnival",
     "sunburn festival",
-    "yuvan shankar raja live in concert",
-    "lollapalooza india",
-    "foo fighters india tour",
     "weverse con festival india",
     "krishna das india tour",
     "sonu nigam",
@@ -1300,6 +1264,7 @@
     "echoes of earth",
     "gorillaz the mountain tour",
     "nh7 weekender",
+    "lollapalooza india",
     "magnetic fields festival",
     "ziro festival of music",
     "mahindra blues festival",
