@@ -908,12 +908,13 @@ window.WORKBOOK = {
       deepen:{ read:[{label:"12-week release plan",href:"/guides/12-week-release-plan-india/"}], news:true },
       blocks: [
         { type:"checklist", id:"m1_identity", title:"Month 1 · Foundation · Weeks 1–2: Identity", items:[
-          {id:"m1a", text:"Complete the identity sentence, share with 3 people outside music for feedback"},
-          {id:"m1b", text:"Answer the 3 territory questions, a paragraph each"},
-          {id:"m1c", text:"Audit your last 9 Instagram posts, do they look like one artist?"},
-          {id:"m1d", text:"Listen to 3 tracks back-to-back, sonic identity test"},
-          {id:"m1e", text:"Define your specific listener in one sentence"},
-          {id:"m1f", text:"Write a new bio using the identity sentence as the opening line"}
+          {id:"m1a", text:"Complete the identity sentence, share with 3 people outside music for feedback", showIf:{f:"ladder_now",not:["4","5"]}},
+          {id:"m1b", text:"Answer the 3 territory questions, a paragraph each", showIf:{f:"ladder_now",not:["4","5"]}},
+          {id:"m1c", text:"Audit your last 9 Instagram posts, do they look like one artist?", showIf:{f:"ladder_now",not:["4","5"]}},
+          {id:"m1d", text:"Listen to 3 tracks back-to-back, sonic identity test", showIf:{f:"ladder_now",not:["4","5"]}},
+          {id:"m1e", text:"Define your specific listener in one sentence", showIf:{f:"ladder_now",not:["4","5"]}},
+          {id:"m1f", text:"Write a new bio using the identity sentence as the opening line", showIf:{f:"ladder_now",not:["4","5"]}},
+          {id:"m1adv", text:"You're further along the ladder: review your identity sentence and bio against what's actually working live and on socials right now. Still sharp? Move straight to weeks 3-4. If not, revisit the Identity section properly rather than rebuilding from scratch here.", showIf:{f:"ladder_now",is:["4","5"]}}
         ]},
         { type:"checklist", id:"m1_setup", title:"Month 1 · Weeks 3–4: Production setup + Rights", items:[
           {id:"m1g", text:"Audit your recording setup: mic, interface, headphones, room. List what's missing."},
