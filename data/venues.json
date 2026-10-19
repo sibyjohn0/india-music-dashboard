@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T05:47:13.829252+00:00",
+  "generated_at": "2026-10-19T06:07:56.341676+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
@@ -182,8 +182,8 @@
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 6,
-      "show_count": 7,
+      "venue_count": 8,
+      "show_count": 9,
       "venues": [
         {
           "name": "District Arena @ Terraform",
@@ -287,6 +287,38 @@
           ],
           "shows": 1,
           "next_date": null
+        },
+        {
+          "name": "Halloween Disco Night",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "7Mattik + DJ Mohomo | Halloween Disco Night",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/7mattik-dj-mohomo-halloween-disco-night-sbnrzaka",
+              "price": "from ₹500",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
+        },
+        {
+          "name": "Fastrack",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Fastrack presents After Hours ft. Techpanda Kenzani B2B  Rusha Blizza, Donn Bhat, Santana",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/fastrack-presents-after-hours-sbxlqcov",
+              "price": "from ₹499",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
         }
       ]
     },
@@ -301,7 +333,7 @@
           "area": "",
           "gigs": [
             {
-              "name": "MAANU PANU LIVE AT KINGDOME",
+              "name": "MAAN PANU LIVE AT KINGDOME",
               "date": "2026-11-21",
               "url": "https://www.skillboxes.com/events/maanu-panu-live-at-kingdome-sblnbsta",
               "price": "from ₹1,000",
