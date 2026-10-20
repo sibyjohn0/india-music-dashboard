@@ -4563,7 +4563,7 @@
   },
   {
     "week": "2026-W43",
-    "date": "2026-10-19",
+    "date": "2026-10-20",
     "cities": {
       "Pune": {
         "Bal Gandharva Rang Mandir": {
@@ -4706,12 +4706,6 @@
           "price_max": 1,
           "next_date": "2027-03-27"
         },
-        "Kamani Auditorium": {
-          "shows": 1,
-          "price_min": 5400,
-          "price_max": 5400,
-          "next_date": "2026-10-19"
-        },
         "Brahmkamal Hall - Auditorium": {
           "shows": 1,
           "price_min": 2999,
@@ -4831,9 +4825,9 @@
           "next_date": "2026-11-14"
         },
         "Venue TBC": {
-          "shows": 52,
+          "shows": 53,
           "price_min": 149,
-          "price_max": 12000,
+          "price_max": 500000,
           "next_date": "2026-10-22"
         },
         "Privilege": {
@@ -4859,6 +4853,18 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "29 Oct Thu"
+        },
+        "Halloween Disco Night": {
+          "shows": 1,
+          "price_min": 500,
+          "price_max": 500,
+          "next_date": "30 Oct Fri"
+        },
+        "Fastrack": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "31 Oct Sat"
         }
       },
       "Hyderabad": {
@@ -4901,6 +4907,12 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "2027-01-23"
+        },
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 199,
+          "price_max": 199,
+          "next_date": "22 Oct Thu"
         }
       },
       "India": {
@@ -4921,10 +4933,10 @@
       },
       "Chennai": {
         "Venue TBC": {
-          "shows": 1,
+          "shows": 2,
           "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-12-04"
+          "price_max": 1000,
+          "next_date": "2026-10-31"
         }
       },
       "Hoshiarpur": {
@@ -4973,14 +4985,6 @@
           "price_min": 5999,
           "price_max": 15000,
           "next_date": "25 Dec Fri"
-        }
-      },
-      "Pasighat": {
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 1200,
-          "price_max": 2999,
-          "next_date": "30 Jan Sat"
         }
       },
       "Kochi": {

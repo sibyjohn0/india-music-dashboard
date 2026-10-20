@@ -866,13 +866,13 @@
   },
   "2026-10": {
     "month": "2026-10",
-    "snapshots": 19,
-    "last_snapshot_at": "2026-10-19T05:57:07.419312+00:00",
+    "snapshots": 20,
+    "last_snapshot_at": "2026-10-20T05:48:59.904273+00:00",
     "total_videos": 225,
-    "total_artists": 349,
-    "new_artists_seen": 330,
-    "median_score": 66,
-    "median_views": 4814,
+    "total_artists": 352,
+    "new_artists_seen": 333,
+    "median_score": 60,
+    "median_views": 5208,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -947,32 +947,32 @@
     ],
     "fastest_growing": [
       {
+        "name": "THAKITA SHOW",
+        "views_gained": 2162690,
+        "genre": "Hip Hop / Rap",
+        "language": "Telugu"
+      },
+      {
+        "name": "Kalamkaar",
+        "views_gained": 1381221,
+        "genre": "Hip Hop / Rap",
+        "language": "Marathi"
+      },
+      {
         "name": "Sounds of Isha",
-        "views_gained": 950977,
+        "views_gained": 1070810,
+        "genre": "Folk / Acoustic",
+        "language": "Marathi"
+      },
+      {
+        "name": "NS Production - Swapnil",
+        "views_gained": 446201,
         "genre": "Folk / Acoustic",
         "language": "Marathi"
       },
       {
         "name": "Omkar Dahibavkar",
-        "views_gained": 289974,
-        "genre": "Electronic",
-        "language": "Marathi"
-      },
-      {
-        "name": "TribalNeed",
-        "views_gained": 239841,
-        "genre": "Hip Hop / Rap",
-        "language": "English"
-      },
-      {
-        "name": "NS Production - Swapnil",
-        "views_gained": 175289,
-        "genre": "Folk / Acoustic",
-        "language": "Marathi"
-      },
-      {
-        "name": "VijayaAnandMusic",
-        "views_gained": 130109,
+        "views_gained": 307399,
         "genre": "Electronic",
         "language": "Marathi"
       }
@@ -984,19 +984,19 @@
       ],
       [
         "Folk / Acoustic",
-        48
+        46
       ],
       [
         "Hip Hop / Rap",
-        37
-      ],
-      [
-        "R&B / Soul",
-        24
+        38
       ],
       [
         "Electronic",
-        23
+        26
+      ],
+      [
+        "R&B / Soul",
+        19
       ],
       [
         "Classical/Fusion",
@@ -1004,14 +1004,14 @@
       ],
       [
         "Lo-Fi",
-        12
+        16
       ],
       [
         "Rock / Alt",
-        8
+        7
       ],
       [
-        "Indie Pop",
+        "Jazz / Blues",
         1
       ]
     ],
@@ -1025,11 +1025,15 @@
         25
       ],
       [
-        "Punjabi",
+        "Kannada",
         25
       ],
       [
-        "Marathi",
+        "Bengali",
+        25
+      ],
+      [
+        "Punjabi",
         25
       ],
       [
@@ -1041,11 +1045,7 @@
         25
       ],
       [
-        "Bengali",
-        25
-      ],
-      [
-        "Kannada",
+        "Marathi",
         25
       ],
       [
@@ -1055,28 +1055,27 @@
     ],
     "city_shows": {
       "Pune": 28,
-      "Delhi": 16,
+      "Delhi": 15,
       "Indore": 1,
       "Guwahati": 3,
       "Ahmedabad": 1,
       "Mumbai": 17,
-      "Bangalore": 62,
+      "Bangalore": 65,
       "Hyderabad": 3,
       "Goa": 6,
-      "Kolkata": 1,
+      "Kolkata": 2,
       "India": 1,
       "Lucknow City": 1,
-      "Chennai": 1,
+      "Chennai": 2,
       "Hoshiarpur": 1,
       "Bhubaneshwar": 1,
       "Chandigarh": 1,
       "Jaipur": 1,
       "Mohali": 1,
       "Mandawa": 1,
-      "Pasighat": 1,
       "Kochi": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 149
+    "total_shows": 152
   }
 }

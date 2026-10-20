@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-19T06:07:56.295606+00:00",
+  "generated_at": "2026-10-20T05:59:08.398528+00:00",
   "counts": {
     "festivals": 25,
     "tours": 17,
     "marquee": 14,
     "international": 6,
     "indian": 36,
-    "new_this_run": 0
+    "new_this_run": 2
   },
   "festivals": [
     {
@@ -326,6 +326,33 @@
       "origin": "indian"
     },
     {
+      "title": "Sky247 Sports Festival 2026 – Experience the Excitement of Sports and Digital Entertainment",
+      "type": "festival",
+      "key": "sky247 sports festival",
+      "cities": [
+        "Puna"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-22",
+          "date_obj": "2026-10-22",
+          "city": "Puna",
+          "venue": "",
+          "time": "02:00 PM",
+          "price": "",
+          "url": "https://www.skillboxes.com/events/sky247-sports-festival-2026-experience-the-excitement-of-sports-and-digital-entertainment-sbqbgcqi",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-10-22",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "ALPHA MUSIC FESTIVAL 6.0",
       "type": "festival",
       "key": "alpha music festival 6 0",
@@ -594,33 +621,6 @@
       "season": "",
       "tags": [],
       "origin": "indian"
-    },
-    {
-      "title": "Horn OK Please - The Happiest Food Festival 17.0",
-      "type": "festival",
-      "key": "horn ok please",
-      "cities": [
-        "Delhi"
-      ],
-      "dates": [
-        {
-          "date": "28 Novembe",
-          "date_obj": null,
-          "city": "Delhi",
-          "venue": "",
-          "time": "12:00 PM",
-          "price": "₹299–₹1,499",
-          "url": "https://www.skillboxes.com/events/horn-ok-please-the-happiest-food-festival-17-0-sblmnevx",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": null,
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
     }
   ],
   "tours": [
@@ -698,7 +698,7 @@
           "city": "Pune",
           "venue": "PSYLAB",
           "time": "08:00 PM",
-          "price": "₹999–₹2,499",
+          "price": "₹999–₹4,000",
           "url": "https://www.skillboxes.com/events/sajanka-india-tour-2026-pune-sbdmqbwu",
           "source": "skillboxes"
         }
@@ -1082,6 +1082,33 @@
       "origin": "indian"
     },
     {
+      "title": "MIxtape presents The Gundaraaj Tour",
+      "type": "tour",
+      "key": "mixtape presents the gundaraaj tour",
+      "cities": [
+        "Bangalore"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-26",
+          "date_obj": "2026-11-26",
+          "city": "Bangalore",
+          "venue": "MIxtape",
+          "time": "08:00 PM",
+          "price": "from ₹600",
+          "url": "https://www.skillboxes.com/events/mixtape-bangalore-sbxyeylq",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-11-26",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "Jasmine Sandlas Live in Concert",
       "type": "tour",
       "key": "jasmine sandlas live in concert",
@@ -1275,36 +1302,12 @@
       "season": "",
       "tags": [],
       "origin": "international"
-    },
-    {
-      "title": "Last Minute India on Tour",
-      "type": "tour",
-      "key": "last minute india on tour",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "TBA",
-          "date_obj": null,
-          "city": "Bangalore",
-          "venue": "",
-          "time": "08:00 PM",
-          "price": "from ₹499",
-          "url": "https://www.skillboxes.com/events/last-minute-india-on-tour-bangalore-sbfrsfmv",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": null,
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
     }
   ],
-  "new_this_run": [],
+  "new_this_run": [
+    "Sky247 Sports Festival 2026 – Experience the Excitement of Sports and Digital Entertainment",
+    "MIxtape presents The Gundaraaj Tour"
+  ],
   "_all_keys": [
     "psylab presents sajanka",
     "sikth",
@@ -1312,10 +1315,12 @@
     "rainburn adrift in india tour",
     "khalid live in",
     "gaia 3 day festival pass",
+    "sky247 sports festival",
     "cloud temple boutique music festival",
     "alpha music festival 6 0",
     "structure music festival",
     "indie fest",
+    "mixtape presents the gundaraaj tour",
     "the festival of lights",
     "horn ok please",
     "benny dayal live in",
