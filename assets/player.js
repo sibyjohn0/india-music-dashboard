@@ -1,0 +1,121 @@
+/* player.js: site-wide sticky radio bar: "Indie Music India Radio".
+ *
+ * One Spotify playlist, one lead track per featured artist, playing from a
+ * fixed bar on every page. Self-contained like nav.js: injects its own CSS,
+ * needs no markup beyond <script src="/assets/player.js" defer>.
+ *
+ * STATUS: PLAYLIST_ID is empty until the Indie Music India Spotify account
+ * and playlist exist. Until then this renders a "launching soon" bar so the
+ * placement/design can be reviewed live. Once the playlist is live, set
+ * PLAYLIST_ID below to switch the bar over to the real Spotify embed:
+ * nothing else needs to change.
+ */
+(function () {
+  var PLAYLIST_ID = ''; // e.g. '37i9dQZF1DXcBWIGoYBM5M', set once the IIM playlist exists
+
+  function injectCSS() {
+    if (document.getElementById('iim-player-css')) return;
+    var css = [
+      '#iim-player{position:fixed;left:0;right:0;bottom:0;z-index:250;background:#241B2E;border-top:3px solid #FF4D8D;display:flex;align-items:center;gap:12px;padding:0 14px;height:68px;box-shadow:0 -2px 0 rgba(0,0,0,.08)}',
+      '#iim-player.is-collapsed{display:none}',
+      '#iim-player .pdot{width:8px;height:8px;border-radius:50%;background:#FF4D8D;flex:0 0 auto;animation:iim-pulse 1.8s ease-in-out infinite}',
+      '@media(prefers-reduced-motion:reduce){#iim-player .pdot{animation:none}}',
+      '@keyframes iim-pulse{0%,100%{opacity:1}50%{opacity:.35}}',
+      '#iim-player .plabel{font-family:\'Space Mono\',ui-monospace,monospace;font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;white-space:nowrap;flex:0 0 auto}',
+      '#iim-player .pmsg{font-family:\'Inter\',system-ui,sans-serif;font-size:13px;color:#C9C2D6;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1 1 auto}',
+      '#iim-player .pframe-wrap{flex:1 1 auto;min-width:0;height:48px;overflow:hidden;border-radius:8px}',
+      '#iim-player .pframe-wrap iframe{display:block;width:100%;height:80px;margin-top:-16px;border:0}',
+      '#iim-player .pclose{flex:0 0 auto;width:28px;height:28px;border-radius:50%;background:none;border:1.5px solid #574C63;color:#C9C2D6;font-size:14px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}',
+      '#iim-player .pclose:hover{border-color:#FF4D8D;color:#fff}',
+      '#iim-player-reopen{position:fixed;right:16px;bottom:16px;z-index:250;width:44px;height:44px;border-radius:50%;background:#241B2E;border:2px solid #FF4D8D;color:#fff;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:3px 3px 0 #FF4D8D}',
+      '#iim-player-reopen.is-visible{display:flex}',
+      '@media(max-width:640px){#iim-player{height:60px;padding:0 10px;gap:8px}#iim-player .plabel{display:none}#iim-player .pmsg{font-size:12px}}'
+    ].join('');
+    var s = document.createElement('style');
+    s.id = 'iim-player-css';
+    s.textContent = css;
+    document.head.appendChild(s);
+  }
+
+  function setBodySpace(px) {
+    document.body.style.paddingBottom = px + 'px';
+  }
+
+  function build() {
+    var bar = document.createElement('div');
+    bar.id = 'iim-player';
+
+    var dot = document.createElement('span');
+    dot.className = 'pdot';
+    bar.appendChild(dot);
+
+    var label = document.createElement('span');
+    label.className = 'plabel';
+    label.textContent = 'IIM Radio';
+    bar.appendChild(label);
+
+    if (PLAYLIST_ID) {
+      var wrap = document.createElement('div');
+      wrap.className = 'pframe-wrap';
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://open.spotify.com/embed/playlist/' + PLAYLIST_ID + '?utm_source=generator&theme=0';
+      iframe.loading = 'lazy';
+      iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      iframe.title = 'Indie Music India Radio on Spotify';
+      wrap.appendChild(iframe);
+      bar.appendChild(wrap);
+    } else {
+      var msg = document.createElement('span');
+      msg.className = 'pmsg';
+      msg.textContent = 'Launching soon: one track per featured artist, playing on every page.';
+      bar.appendChild(msg);
+    }
+
+    var close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'pclose';
+    close.setAttribute('aria-label', 'Hide radio bar');
+    close.textContent = '×';
+    bar.appendChild(close);
+
+    var reopen = document.createElement('button');
+    reopen.type = 'button';
+    reopen.id = 'iim-player-reopen';
+    reopen.setAttribute('aria-label', 'Show radio bar');
+    reopen.textContent = '▶';
+
+    document.body.appendChild(bar);
+    document.body.appendChild(reopen);
+
+    var barHeight = window.innerWidth <= 640 ? 60 : 68;
+    setBodySpace(barHeight);
+
+    function collapse() {
+      bar.classList.add('is-collapsed');
+      reopen.classList.add('is-visible');
+      setBodySpace(0);
+      try { sessionStorage.setItem('iim_player_collapsed', '1'); } catch (e) {}
+    }
+    function expand() {
+      bar.classList.remove('is-collapsed');
+      reopen.classList.remove('is-visible');
+      setBodySpace(window.innerWidth <= 640 ? 60 : 68);
+      try { sessionStorage.removeItem('iim_player_collapsed'); } catch (e) {}
+    }
+    close.addEventListener('click', collapse);
+    reopen.addEventListener('click', expand);
+
+    try {
+      if (sessionStorage.getItem('iim_player_collapsed') === '1') collapse();
+    } catch (e) {}
+  }
+
+  function init() {
+    if (document.getElementById('iim-player')) return;
+    injectCSS();
+    build();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
