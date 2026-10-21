@@ -4,14 +4,11 @@
  * fixed bar on every page. Self-contained like nav.js: injects its own CSS,
  * needs no markup beyond <script src="/assets/player.js" defer>.
  *
- * STATUS: PLAYLIST_ID is empty until the Indie Music India Spotify account
- * and playlist exist. Until then this renders a "launching soon" bar so the
- * placement/design can be reviewed live. Once the playlist is live, set
- * PLAYLIST_ID below to switch the bar over to the real Spotify embed:
- * nothing else needs to change.
+ * STATUS: live, playing the "Indie Music India Radio" playlist. Clearing
+ * PLAYLIST_ID below reverts to a "launching soon" placeholder bar.
  */
 (function () {
-  var PLAYLIST_ID = ''; // e.g. '37i9dQZF1DXcBWIGoYBM5M', set once the IIM playlist exists
+  var PLAYLIST_ID = '6O93d2mQY8MpPOK6hJlMru'; // "Indie Music India Radio"
 
   function injectCSS() {
     if (document.getElementById('iim-player-css')) return;
