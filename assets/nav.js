@@ -28,7 +28,8 @@
       { label: 'Industry', href: '/industry/' },
       { label: 'Royalty Calculator', href: '/tools/royalty-calculator/' }
     ] },
-    { label: 'About', href: '/about/' }
+    { label: 'About', href: '/about/' },
+    { label: 'Instagram ↗', href: 'https://www.instagram.com/indiemusicindia.co/', external: true }
   ];
 
   // Map the current path to the nav item that should read as active. Prefixes,
@@ -83,9 +84,10 @@
         nav.appendChild(grp);
       } else {
         var link = document.createElement('a');
-        link.className = 'tab' + (act.top === item.label ? ' active' : '');
+        link.className = 'tab' + (item.external ? ' tab-ext' : (act.top === item.label ? ' active' : ''));
         link.href = item.href;
         link.textContent = item.label;
+        if (item.external) { link.target = '_blank'; link.rel = 'noopener'; }
         nav.appendChild(link);
       }
     });
@@ -135,6 +137,8 @@
       '.js-primnav .navgrp-btn[aria-expanded="true"]+.navgrp-menu{display:flex}',
       '.js-primnav .navgrp-menu a.tab{margin:0;border-radius:9px;padding:9px 13px;white-space:nowrap;display:flex;align-items:center;justify-content:flex-start}',
       '.js-primnav .navgrp-menu a.tab:hover{background:var(--yellow-s,#FFF3CE);border-color:transparent}',
+      '.js-primnav .tab-ext{opacity:.75}',
+      '.js-primnav .tab-ext:hover{opacity:1}',
       /* 5 items fit without scrolling, so let the dropdown escape the bar; lift
          the nav above sibling sections (poppy gives every body child z-index:1) */
       '@media(min-width:641px){nav.js-primnav{overflow:visible!important;position:relative;z-index:200}}',
