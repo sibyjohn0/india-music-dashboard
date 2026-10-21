@@ -1,34 +1,11 @@
 {
-  "generated_at": "2026-10-20T05:59:08.456631+00:00",
+  "generated_at": "2026-10-21T06:04:19.965078+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
       "venue_count": 5,
-      "show_count": 6,
+      "show_count": 5,
       "venues": [
-        {
-          "name": "Mahalaxmi Race Course",
-          "city": "Mumbai",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Diljit Dosanjh - RuPay Aura India Tour, Mumbai",
-              "date": "2026-11-27",
-              "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-mumbai/et977163q4",
-              "price": "from ₹4,499",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Lollapalooza India 2027 - RuPay Amplified Access",
-              "date": "2027-01-23",
-              "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027-rupay-amplified-access/ET00514942",
-              "price": "from ₹24,999",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 2,
-          "next_date": "2026-11-27"
-        },
         {
           "name": "Dome SVP Stadium",
           "city": "Mumbai",
@@ -62,6 +39,22 @@
           "next_date": "2026-11-06"
         },
         {
+          "name": "Mahalaxmi Race Course",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Diljit Dosanjh - RuPay Aura India Tour, Mumbai",
+              "date": "2026-11-27",
+              "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-mumbai/et977163q4",
+              "price": "from ₹4,499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-27"
+        },
+        {
           "name": "Jio World Garden",
           "city": "Mumbai",
           "area": "",
@@ -83,7 +76,7 @@
           "area": "",
           "gigs": [
             {
-              "name": "29th Nov | Jawani4eva | antiSOCIAL, Mumbai",
+              "name": "29th Nov | Jawani 4eva | antiSOCIAL, Mumbai",
               "date": null,
               "url": "https://www.skillboxes.com/events/29th-nov-jawani4eva-antisocial-mumbai-sbojmetg",
               "price": "₹499–₹999",
@@ -101,6 +94,22 @@
       "show_count": 3,
       "venues": [
         {
+          "name": "NSIC Exhibition Ground, Okhla",
+          "city": "Delhi",
+          "area": "Okhla",
+          "gigs": [
+            {
+              "name": "Nykaaland India's Biggest Beauty Festival In Delhi",
+              "date": "2026-10-23",
+              "url": "https://in.bookmyshow.com/events/nykaaland-india-s-biggest-beauty-festival/ET00515765",
+              "price": "from ₹1,299",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-23"
+        },
+        {
           "name": "Brahmkamal Hall - Auditorium",
           "city": "Delhi",
           "area": "",
@@ -115,22 +124,6 @@
           ],
           "shows": 1,
           "next_date": "2026-10-23"
-        },
-        {
-          "name": "Jawaharlal Nehru Stadium",
-          "city": "Delhi",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Diljit Dosanjh - RuPay Aura India Tour, Delhi",
-              "date": "2026-10-30",
-              "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-delhi/et5j39w09n",
-              "price": "from ₹1,999",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-30"
         },
         {
           "name": "BIRA 91 TAPROOM",
@@ -195,20 +188,20 @@
           "next_date": "2026-11-01"
         },
         {
-          "name": "NICE Grounds",
+          "name": "2 Pints Brewing",
           "city": "Bengaluru",
           "area": "",
           "gigs": [
             {
-              "name": "Diljit Dosanjh - RuPay Aura India Tour, Bengaluru",
-              "date": "2026-11-29",
-              "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-bengaluru/etc71lx3ak",
-              "price": "from ₹4,099",
-              "source": "bookmyshow"
+              "name": "A Night of Latin Music at 2 Pints Brewing",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/come-together-at-2-pints-sbtefgnn",
+              "price": "",
+              "source": "skillboxes"
             }
           ],
           "shows": 1,
-          "next_date": "2026-11-29"
+          "next_date": null
         },
         {
           "name": "VARDHANxDATABASS",
@@ -232,7 +225,7 @@
           "area": "",
           "gigs": [
             {
-              "name": "Gatecrash presents CKRAFT and ManeatingOrchid",
+              "name": "Gatecrash presents CKRAFT and Maneating Orchid",
               "date": null,
               "url": "https://www.skillboxes.com/events/gatecrash-presents-ckraft-and-maneatingorchid-sbckoczj",
               "price": "₹499–₹800",
@@ -300,9 +293,46 @@
     },
     "pune": {
       "name": "Pune",
-      "venue_count": 18,
-      "show_count": 24,
+      "venue_count": 22,
+      "show_count": 30,
       "venues": [
+        {
+          "name": "Yashwantrao Chavan Natyagruha",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Ranga Rang Diwali Pahat",
+              "date": "2026-11-05",
+              "url": "https://in.bookmyshow.com/events/ranga-rang-diwali-pahat/et6ymn1p1h",
+              "price": "from ₹500",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Sagun Nirgun",
+              "date": "2026-11-07",
+              "url": "https://in.bookmyshow.com/events/sagun-nirgun/et1svl4x1d",
+              "price": "from ₹300",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "AKSHAR AKSHAR TUZECH AHE Diwali PUNE & PCMC",
+              "date": "2026-11-09",
+              "url": "https://in.bookmyshow.com/events/akshar-akshar-tujhech-ahe/ET00472361",
+              "price": "from ₹299",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Aarohi Prastut, Diwali Padwa Pahat",
+              "date": "2026-11-10",
+              "url": "https://in.bookmyshow.com/events/aarohi-prastut-diwali-padwa-pahat/etfjduu6h0",
+              "price": "from ₹400",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 4,
+          "next_date": "2026-11-05"
+        },
         {
           "name": "Phoenix Avenue Of Stars",
           "city": "Pune",
@@ -316,17 +346,17 @@
               "source": "bookmyshow"
             },
             {
-              "name": "SWAR PARAMPARA",
-              "date": "2026-11-06",
-              "url": "https://in.bookmyshow.com/events/swar-parampara/ET00522026",
-              "price": "from ₹499",
-              "source": "bookmyshow"
-            },
-            {
               "name": "INDIAN OCEAN AT PHOENIX AVENUE OF STARS - PUNE",
               "date": "2026-11-21",
               "url": "https://in.bookmyshow.com/events/indian-ocean-live-at-phoenix-marketcity/ET00146444",
               "price": "from ₹799",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Lakhwinder Wadali India Tour - Pune",
+              "date": "2027-01-31",
+              "url": "https://in.bookmyshow.com/events/lakhwinder-wadali-india-tour-pune/ET00514012",
+              "price": "from ₹499",
               "source": "bookmyshow"
             }
           ],
@@ -334,17 +364,33 @@
           "next_date": "2026-10-24"
         },
         {
-          "name": "Pandit Farms",
+          "name": "Hyatt",
           "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Suresh Wadkar -Surel Diwali Pahat",
-              "date": "2026-11-07",
-              "url": "https://in.bookmyshow.com/events/suresh-wadkar-surel-diwali-pahat/ET00514119",
-              "price": "from ₹500",
+              "name": "Carvaan Live: Rock with RD Burman at Hyatt Pune",
+              "date": "2026-10-25",
+              "url": "https://in.bookmyshow.com/events/carvaan-live-rock-with-rd-burman-at-hyatt-pune/ET00519805",
+              "price": "from ₹1,099",
               "source": "bookmyshow"
             },
+            {
+              "name": "Carvaan Live: Swagger of Bachchan at Hyatt Pune",
+              "date": "2026-10-25",
+              "url": "https://in.bookmyshow.com/events/carvaan-live-swagger-of-bachchan-at-hyatt-pune/ET00519799",
+              "price": "from ₹1,099",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-10-25"
+        },
+        {
+          "name": "Pandit Farms",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
             {
               "name": "Nakshtranche Dene Pu La Deshpande Diwali Sandhya",
               "date": "2026-11-09",
@@ -353,61 +399,38 @@
               "source": "bookmyshow"
             },
             {
-              "name": "Mitra Mahotsav",
+              "name": "Rekha Bhardwaj Live in Pune",
+              "date": "2027-02-20",
+              "url": "https://in.bookmyshow.com/events/rekha-bhardwaj-live-in-pune/ET00523175",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-11-09"
+        },
+        {
+          "name": "Mahalakshmi Lawns, Kharadi",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Gajendra Singh & Suneel Lodhi Live - By OneLife",
               "date": "2026-11-29",
-              "url": "https://in.bookmyshow.com/events/mitra-mahotsav/ET00520528",
-              "price": "from ₹100",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 3,
-          "next_date": "2026-11-07"
-        },
-        {
-          "name": "Aufside Sports Bar, Wakad",
-          "city": "Pune",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Sufi Night by Voice of Jerry at Aufside",
-              "date": "2026-10-24",
-              "url": "https://in.bookmyshow.com/events/sufi-night-by-voice-of-jerry-at-aufside/ET00521182",
-              "price": "from ₹200",
+              "url": "https://in.bookmyshow.com/events/gajendra-singh-suneel-lodhi-live-by-onelife/ET00521580",
+              "price": "from ₹1,099",
               "source": "bookmyshow"
             },
             {
-              "name": "MH43 India Live at AUFTOBER Fest",
-              "date": "2026-10-31",
-              "url": "https://in.bookmyshow.com/events/mh43-india-live-at-auftober-fest/ET00522536",
-              "price": "from ₹500",
+              "name": "Karma Burn (A Sacred Symphony) - Ameya Dabli",
+              "date": "2026-12-19",
+              "url": "https://in.bookmyshow.com/events/karma-burn-a-sacred-symphony-ameya-dabli/ET00513538",
+              "price": "from ₹1,250",
               "source": "bookmyshow"
             }
           ],
           "shows": 2,
-          "next_date": "2026-10-24"
-        },
-        {
-          "name": "Ram Krishna More Auditorium",
-          "city": "Pune",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Diwali Pahat Maifil",
-              "date": "2026-11-08",
-              "url": "https://in.bookmyshow.com/events/diwali-pahat-maifil/et5pouqv29",
-              "price": "from ₹300",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Ayushyavar Bolu Kahi Diwali Pahat",
-              "date": "2026-11-09",
-              "url": "https://in.bookmyshow.com/events/ayushyavar-bolu-kahi-diwali-pahat/etrg6x9x86",
-              "price": "from ₹199",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 2,
-          "next_date": "2026-11-08"
+          "next_date": "2026-11-29"
         },
         {
           "name": "Bal Gandharva Rang Mandir",
@@ -426,22 +449,6 @@
           "next_date": "2026-10-21"
         },
         {
-          "name": "Shisha Cafe",
-          "city": "Pune",
-          "area": "",
-          "gigs": [
-            {
-              "name": "World Music by Maya Kamaty",
-              "date": "2026-10-22",
-              "url": "https://in.bookmyshow.com/events/world-music-by-maya-kamaty/ET00520845",
-              "price": "from ₹280",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-10-22"
-        },
-        {
           "name": "PSYLAB",
           "city": "Pune",
           "area": "",
@@ -458,6 +465,54 @@
           "next_date": "2026-10-23"
         },
         {
+          "name": "Club Mexo",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "KRATEX PERFORMING LIVE AT MEXO",
+              "date": "2026-10-24",
+              "url": "https://in.bookmyshow.com/events/kratex-performing-live-at-mexo/ET00522945",
+              "price": "from ₹499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-24"
+        },
+        {
+          "name": "The Bierhaus",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "October fest : Malayalam Jamming by MakeSomeOchha",
+              "date": "2026-10-24",
+              "url": "https://in.bookmyshow.com/events/october-fest-malayalam-jamming-by-makesomeochha/ET00520047",
+              "price": "from ₹399",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-24"
+        },
+        {
+          "name": "FC Road Social",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Jamming Night",
+              "date": "2026-10-24",
+              "url": "https://in.bookmyshow.com/events/pookie-jams-the-premium-jamming-experience/ET00461172",
+              "price": "from ₹299",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-24"
+        },
+        {
           "name": "Liberty Square, Phoenix Avenue of Stars",
           "city": "Pune",
           "area": "",
@@ -467,6 +522,22 @@
               "date": "2026-10-25",
               "url": "https://in.bookmyshow.com/events/quick-style-india-tour-pune/ET00495695",
               "price": "from ₹999",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-25"
+        },
+        {
+          "name": "Muktangan Bal-Ranjan Kendra",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Kojagiri Unplugged",
+              "date": "2026-10-25",
+              "url": "https://in.bookmyshow.com/events/kojagiri-unplugged/ET00522639",
+              "price": "from ₹501",
               "source": "bookmyshow"
             }
           ],
@@ -490,15 +561,31 @@
           "next_date": "2026-10-30"
         },
         {
-          "name": "Yashwantrao Chavan Natyagruha",
+          "name": "S. M. Joshi Sabhagruha",
           "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Trendsetters - A Bollywood Musical",
+              "name": "Classic Rafi and Romantic Kishore",
+              "date": "2026-10-31",
+              "url": "https://in.bookmyshow.com/events/classic-rafi-and-romantic-kishore/ET00520634",
+              "price": "from ₹100",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-10-31"
+        },
+        {
+          "name": "Mayfield Estate",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Bismil ki Mehfil - Pune",
               "date": "2026-11-01",
-              "url": "https://in.bookmyshow.com/events/trendsetters-a-bollywood-musical/ET00516339",
-              "price": "from ₹200",
+              "url": "https://in.bookmyshow.com/events/bismil-ki-mehfil-pune/et9s8nr054",
+              "price": "from ₹999",
               "source": "bookmyshow"
             }
           ],
@@ -506,20 +593,52 @@
           "next_date": "2026-11-01"
         },
         {
-          "name": "Tilak Smarak Mandir",
+          "name": "Ganesh Hall",
           "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Diwali Pahat",
+              "name": "Diwali Pahat by Rohit Marathe",
+              "date": "2026-11-07",
+              "url": "https://in.bookmyshow.com/events/diwali-pahat-by-rohit-marathe/etz1574d86",
+              "price": "from ₹200",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-07"
+        },
+        {
+          "name": "Ram Krishna More Auditorium",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Diwali Pahat Maifil",
               "date": "2026-11-08",
-              "url": "https://in.bookmyshow.com/events/diwali-pahat/ET00516066",
-              "price": "from ₹500",
+              "url": "https://in.bookmyshow.com/events/diwali-pahat-maifil/et5pouqv29",
+              "price": "from ₹300",
               "source": "bookmyshow"
             }
           ],
           "shows": 1,
           "next_date": "2026-11-08"
+        },
+        {
+          "name": "Shubharambh Lawns",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Tujhe Nakshatranche Dene",
+              "date": "2026-11-10",
+              "url": "https://in.bookmyshow.com/events/tujhe-nakshatranche-dene/ET00519777",
+              "price": "from ₹600",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-10"
         },
         {
           "name": "Amanora Mall",
@@ -538,47 +657,15 @@
           "next_date": "2026-11-21"
         },
         {
-          "name": "Buntara Bhavana",
+          "name": "Shisha Cafe",
           "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Raageet by Priyani Vani Pandit - Pune",
-              "date": "2026-11-27",
-              "url": "https://in.bookmyshow.com/events/raageet-by-priyani-vani-pandit/etuhmo8804",
-              "price": "from ₹499",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-27"
-        },
-        {
-          "name": "Suryakant Kakade Farms, Kothrud",
-          "city": "Pune",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Jasmine Sandlas Live in Concert - Pune",
+              "name": "MLTR by Abji & The Groovers",
               "date": "2026-11-28",
-              "url": "https://in.bookmyshow.com/events/jasmine-sandlas-live-in-concert/ET00517820",
-              "price": "from ₹1,499",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-28"
-        },
-        {
-          "name": "Liberty Square Phoenix Mall, Viman Nagar",
-          "city": "Pune",
-          "area": "Viman Nagar",
-          "gigs": [
-            {
-              "name": "Madhubanti Bagchi India Tour- THIS IS WHO WE ARE",
-              "date": "2026-11-28",
-              "url": "https://in.bookmyshow.com/events/madhubanti-bagchi-india-tour-this-is-who-we-are/ET00515137",
-              "price": "from ₹499",
+              "url": "https://in.bookmyshow.com/events/mltr-by-abji-the-grooves/ET00519650",
+              "price": "from ₹385",
               "source": "bookmyshow"
             }
           ],
@@ -602,36 +689,20 @@
           "next_date": "2026-12-18"
         },
         {
-          "name": "L7 Club and Lounge",
+          "name": "MIT - WPU Campus",
           "city": "Pune",
           "area": "",
           "gigs": [
             {
-              "name": "Taylor Swift's: The Eras Night 3.0",
-              "date": "2026-12-19",
-              "url": "https://in.bookmyshow.com/events/taylor-swift-s-the-eras-night-birth-tay-speical/ET00421246",
-              "price": "from ₹399",
+              "name": "Swarazankar Music Festival",
+              "date": "2027-01-07",
+              "url": "https://in.bookmyshow.com/events/swarazankar-music-festival/ET00516365",
+              "price": "from ₹500",
               "source": "bookmyshow"
             }
           ],
           "shows": 1,
-          "next_date": "2026-12-19"
-        },
-        {
-          "name": "Balgandharva Natyagruh",
-          "city": "Pune",
-          "area": "",
-          "gigs": [
-            {
-              "name": "THE VOICE INDIA",
-              "date": "2027-03-13",
-              "url": "https://in.bookmyshow.com/events/the-voice-india/ET00522432",
-              "price": "from ₹200",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2027-03-13"
+          "next_date": "2027-01-07"
         }
       ]
     },

@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-20T05:50:05.630087+00:00",
-  "snapshot_date": "2026-10-20",
+  "generated_at": "2026-10-21T05:54:51.490538+00:00",
+  "snapshot_date": "2026-10-21",
   "cities": {
     "Pune": {
-      "total_shows": 28,
+      "total_shows": 30,
       "venues": [
         {
           "name": "Phoenix Avenue Of Stars",
@@ -161,32 +161,16 @@
           "name": "PSYLAB",
           "shows": 1,
           "price_min": 999,
-          "price_max": 2499,
+          "price_max": 4000,
           "next_date": "2026-10-23",
           "growth": 0
         }
       ],
-      "unlisted_shows": 1
+      "unlisted_shows": 3
     },
     "Delhi": {
-      "total_shows": 15,
+      "total_shows": 11,
       "venues": [
-        {
-          "name": "SOCIAL",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "30 Oct Fri",
-          "growth": 0
-        },
-        {
-          "name": "TECHNOTAKEOVERINDIA",
-          "shows": 2,
-          "price_min": 499,
-          "price_max": 999,
-          "next_date": "30 Oct Fri",
-          "growth": 0
-        },
         {
           "name": "Jawaharlal Nehru Stadium",
           "shows": 1,
@@ -210,9 +194,17 @@
           "price_max": 2999,
           "next_date": "2026-10-23",
           "growth": 0
+        },
+        {
+          "name": "BIRA 91 TAPROOM",
+          "shows": 1,
+          "price_min": 399,
+          "price_max": 799,
+          "next_date": "21 Nov Sat",
+          "growth": null
         }
       ],
-      "unlisted_shows": 8
+      "unlisted_shows": 7
     },
     "Indore": {
       "total_shows": 1,
@@ -229,7 +221,7 @@
       "unlisted_shows": 0
     },
     "Guwahati": {
-      "total_shows": 3,
+      "total_shows": 2,
       "venues": [
         {
           "name": "Khanapara Veterinary Ground",
@@ -237,14 +229,6 @@
           "price_min": 5000,
           "price_max": 5000,
           "next_date": "2026-11-17",
-          "growth": 0
-        },
-        {
-          "name": "Back to 2000s",
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 899,
-          "next_date": "25 Oct Sun",
           "growth": 0
         },
         {
@@ -273,7 +257,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 17,
+      "total_shows": 13,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -314,12 +298,20 @@
           "price_max": 1799,
           "next_date": "2026-11-06",
           "growth": 0
+        },
+        {
+          "name": "antiSOCIAL,",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 999,
+          "next_date": "29 Nov Sun",
+          "growth": null
         }
       ],
-      "unlisted_shows": 10
+      "unlisted_shows": 5
     },
     "Bangalore": {
-      "total_shows": 65,
+      "total_shows": 66,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -370,6 +362,14 @@
           "growth": 0
         },
         {
+          "name": "MIxtape",
+          "shows": 1,
+          "price_min": 600,
+          "price_max": 600,
+          "next_date": "26 Nov Thu",
+          "growth": null
+        },
+        {
           "name": "The Humming Tree",
           "shows": 1,
           "price_min": 499,
@@ -378,26 +378,18 @@
           "growth": 0
         },
         {
-          "name": "Halloween Disco Night",
-          "shows": 1,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "30 Oct Fri",
-          "growth": null
-        },
-        {
           "name": "Fastrack",
           "shows": 1,
           "price_min": 499,
           "price_max": 499,
           "next_date": "31 Oct Sat",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 53
+      "unlisted_shows": 54
     },
     "Hyderabad": {
-      "total_shows": 3,
+      "total_shows": 1,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -406,20 +398,12 @@
           "price_max": 999,
           "next_date": "2026-11-28",
           "growth": 0
-        },
-        {
-          "name": "KINGDOME",
-          "shows": 1,
-          "price_min": 1000,
-          "price_max": 1000,
-          "next_date": "2026-11-21",
-          "growth": 0
         }
       ],
-      "unlisted_shows": 1
+      "unlisted_shows": 0
     },
     "Goa": {
-      "total_shows": 6,
+      "total_shows": 8,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -430,7 +414,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 5
+      "unlisted_shows": 7
     },
     "Kolkata": {
       "total_shows": 2,
@@ -466,33 +450,29 @@
       "unlisted_shows": 1
     },
     "Chennai": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [],
-      "unlisted_shows": 2
+      "unlisted_shows": 1
+    },
+    "Jaisalmer": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
     },
     "Hoshiarpur": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
     },
-    "Bhubaneshwar": {
+    "Puna": {
+      "total_shows": 2,
+      "venues": [],
+      "unlisted_shows": 2
+    },
+    "Dehradun": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
-    },
-    "Chandigarh": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "SOCIAL",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "23 Oct Fri",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 0
     },
     "Jaipur": {
       "total_shows": 1,
@@ -504,7 +484,17 @@
       "venues": [],
       "unlisted_shows": 1
     },
+    "Shillong": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
+    },
     "Mandawa": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
+    },
+    "Chandigarh": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1

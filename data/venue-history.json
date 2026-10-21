@@ -4563,7 +4563,7 @@
   },
   {
     "week": "2026-W43",
-    "date": "2026-10-20",
+    "date": "2026-10-21",
     "cities": {
       "Pune": {
         "Bal Gandharva Rang Mandir": {
@@ -4683,12 +4683,12 @@
         "PSYLAB": {
           "shows": 1,
           "price_min": 999,
-          "price_max": 2499,
+          "price_max": 4000,
           "next_date": "2026-10-23"
         },
         "Venue TBC": {
-          "shows": 1,
-          "price_min": 499,
+          "shows": 3,
+          "price_min": 375,
           "price_max": 499,
           "next_date": "2026-11-22"
         }
@@ -4713,22 +4713,16 @@
           "next_date": "2026-10-23"
         },
         "Venue TBC": {
-          "shows": 8,
-          "price_min": 299,
+          "shows": 7,
+          "price_min": 199,
           "price_max": 13999,
           "next_date": "2026-11-21"
         },
-        "SOCIAL": {
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "30 Oct Fri"
-        },
-        "TECHNOTAKEOVERINDIA": {
-          "shows": 2,
-          "price_min": 499,
-          "price_max": 999,
-          "next_date": "30 Oct Fri"
+        "BIRA 91 TAPROOM": {
+          "shows": 1,
+          "price_min": 399,
+          "price_max": 799,
+          "next_date": "21 Nov Sat"
         }
       },
       "Indore": {
@@ -4745,12 +4739,6 @@
           "price_min": 5000,
           "price_max": 5000,
           "next_date": "2026-11-17"
-        },
-        "Back to 2000s": {
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 899,
-          "next_date": "25 Oct Sun"
         },
         "Guwahati": {
           "shows": 1,
@@ -4793,7 +4781,7 @@
           "next_date": "2027-01-27"
         },
         "Venue TBC": {
-          "shows": 10,
+          "shows": 5,
           "price_min": 499,
           "price_max": 8199,
           "next_date": "2026-10-22"
@@ -4803,6 +4791,12 @@
           "price_min": 799,
           "price_max": 1799,
           "next_date": "2026-11-06"
+        },
+        "antiSOCIAL,": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 999,
+          "next_date": "29 Nov Sun"
         }
       },
       "Bangalore": {
@@ -4825,7 +4819,7 @@
           "next_date": "2026-11-14"
         },
         "Venue TBC": {
-          "shows": 53,
+          "shows": 54,
           "price_min": 149,
           "price_max": 500000,
           "next_date": "2026-10-22"
@@ -4848,17 +4842,17 @@
           "price_max": 800,
           "next_date": "24 Oct Sat"
         },
+        "MIxtape": {
+          "shows": 1,
+          "price_min": 600,
+          "price_max": 600,
+          "next_date": "26 Nov Thu"
+        },
         "The Humming Tree": {
           "shows": 1,
           "price_min": 499,
           "price_max": 499,
           "next_date": "29 Oct Thu"
-        },
-        "Halloween Disco Night": {
-          "shows": 1,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "30 Oct Fri"
         },
         "Fastrack": {
           "shows": 1,
@@ -4873,18 +4867,6 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "2026-11-28"
-        },
-        "KINGDOME": {
-          "shows": 1,
-          "price_min": 1000,
-          "price_max": 1000,
-          "next_date": "2026-11-21"
-        },
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 750,
-          "next_date": "28 Nov Sat"
         }
       },
       "Goa": {
@@ -4895,8 +4877,8 @@
           "next_date": "2027-01-16"
         },
         "Venue TBC": {
-          "shows": 5,
-          "price_min": 499,
+          "shows": 7,
+          "price_min": 300,
           "price_max": 28990,
           "next_date": "2026-12-11"
         }
@@ -4933,10 +4915,18 @@
       },
       "Chennai": {
         "Venue TBC": {
-          "shows": 2,
+          "shows": 1,
           "price_min": 499,
-          "price_max": 1000,
-          "next_date": "2026-10-31"
+          "price_max": 499,
+          "next_date": "2026-12-04"
+        }
+      },
+      "Jaisalmer": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 4000,
+          "price_max": 15000,
+          "next_date": "21 Dec Mon"
         }
       },
       "Hoshiarpur": {
@@ -4947,19 +4937,19 @@
           "next_date": "22 January"
         }
       },
-      "Bhubaneshwar": {
+      "Puna": {
         "Venue TBC": {
-          "shows": 1,
+          "shows": 2,
           "price_min": null,
           "price_max": null,
-          "next_date": "23 Oct Fri"
+          "next_date": "22 Oct Thu"
         }
       },
-      "Chandigarh": {
-        "SOCIAL": {
+      "Dehradun": {
+        "Venue TBC": {
           "shows": 1,
-          "price_min": null,
-          "price_max": null,
+          "price_min": 1000,
+          "price_max": 2000,
           "next_date": "23 Oct Fri"
         }
       },
@@ -4979,12 +4969,28 @@
           "next_date": "24 Oct Sat"
         }
       },
+      "Shillong": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 420,
+          "price_max": 420,
+          "next_date": "24 Oct Sat"
+        }
+      },
       "Mandawa": {
         "Venue TBC": {
           "shows": 1,
           "price_min": 5999,
           "price_max": 15000,
           "next_date": "25 Dec Fri"
+        }
+      },
+      "Chandigarh": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 599,
+          "price_max": 20000,
+          "next_date": "29 Oct Thu"
         }
       },
       "Kochi": {
