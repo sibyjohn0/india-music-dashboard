@@ -27,7 +27,7 @@
       '#iim-player .pclose:hover{border-color:#FF4D8D;color:#fff}',
       '#iim-player-reopen{position:fixed;right:16px;bottom:16px;z-index:250;width:44px;height:44px;border-radius:50%;background:#241B2E;border:2px solid #FF4D8D;color:#fff;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:3px 3px 0 #FF4D8D}',
       '#iim-player-reopen.is-visible{display:flex}',
-      '@media(max-width:640px){#iim-player{height:72px;padding:0 10px;gap:8px}#iim-player .plabel{display:none}#iim-player .pmsg{font-size:12px}#iim-player .pframe-wrap,#iim-player .pframe-wrap iframe{height:68px}}'
+      '@media(max-width:640px){#iim-player{height:88px;padding:0 10px;gap:8px}#iim-player .plabel{display:none}#iim-player .pmsg{font-size:12px}}'
     ].join('');
     var s = document.createElement('style');
     s.id = 'iim-player-css';
