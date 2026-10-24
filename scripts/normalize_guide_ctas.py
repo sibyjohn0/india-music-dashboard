@@ -27,7 +27,7 @@ REFERENCE = {
     "isrc-code-india", "register-music-copyright-iprs-india",
     "caller-tune-hello-tune-india",
     "how-much-indian-artists-earn-spotify", "best-music-distributor-india",
-    "free-music-distribution-india", "publish-music-in-india",
+    "free-music-distribution-india",
     "music-platforms-independent-artists-india",
     "independent-music-scene-mumbai", "independent-music-scene-bengaluru",
     "independent-music-scene-delhi",
