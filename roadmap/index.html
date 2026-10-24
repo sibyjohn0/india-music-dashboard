@@ -320,7 +320,13 @@
     // turn author-written [label](href) tokens into real links, AFTER esc (content is trusted, not user input)
     function linkify(s){ return String(s).replace(/\[([^\]]+)\]\((\/[^)]*|https?:\/\/[^)]*)\)/g,function(_,t,h){ var ext=/^https?:/.test(h); return '<a href="'+h+'"'+(ext?' target="_blank" rel="noopener"':'')+'>'+t+'</a>'; }); }
     function esl(s){ return linkify(esc(s)); }  // esc + linkify for author strings that may contain links
-    function val(k){ return S&&S.ans?S.ans[k]:undefined; }
+    function val(k){
+      if(!S||!S.ans) return undefined;
+      if(k==="ladder_now"&&S.ans[k]===undefined){
+        for(var i=5;i>=1;i--){ if(S.ans["ladder.r"+i+".here"]) return String(i); }
+      }
+      return S.ans[k];
+    }
     function setVal(k,v){ if(v===""||v==null||v===false){delete S.ans[k];} else {S.ans[k]=v;} save(); }
 
     /* ---- field keys owned by a block (for progress) ---- */
@@ -392,6 +398,17 @@
       var list=lang?all.filter(function(a){return a.language===lang;}):all;
       if(list.length<(n||3)) list=all;
       if(!list.length) return '<div class="fc-empty">No artists to show right now.</div>';
+      // Rank by listener count so "artists to compare to" means artists ahead
+      // of you, not whichever happened to come first in the data file.
+      list=list.slice().sort(function(a,b){
+        var la=a.latest_global_listeners||a.latest_india_listeners||0, lb=b.latest_global_listeners||b.latest_india_listeners||0;
+        return lb-la;
+      });
+      var rung=+val("ladder_now")||0;
+      if(rung>=4){
+        var bigger=list.filter(function(a){ return (a.latest_global_listeners||a.latest_india_listeners||0)>=5000; });
+        if(bigger.length>=(n||3)) list=bigger;
+      }
       return list.slice(0,n||3).map(function(a){
         var l=a.latest_global_listeners||a.latest_india_listeners||0;
         return '<a class="feedcard" href="https://www.youtube.com/channel/'+esc(a.channel_id||"")+'" target="_blank" rel="noopener"><div class="fc-t">'+esc(a.name||"")+'</div>'+
@@ -511,7 +528,7 @@
     };
     function actType(){ return val("act_type")||""; }
     var ACT_NUDGE={
-      band:{ rights:"You're a band, so split sheets are not optional. Agree who owns what and the % before anything is released.", revenue:"Decide how band money is split and who tracks it, before the first rupee comes in.", team:"Bands need clear roles: who books, who posts, who handles money. Write it down.", identity:"A band still needs one clear identity. Agree the sound and story together so you don't pull in five directions.", live:"Bands live or die on the live show. Tighten the set and agree fees and splits per gig.", support:"Many grants, like Serendipity, are open to bands. Apply as the band, not as five solo acts." },
+      band:{ rights:"You're a band, so split sheets are not optional. Agree who owns what and the % before anything is released.", revenue:"Decide how band money is split and who tracks it, before the first rupee comes in.", team:"Bands need clear roles: who books, who posts, who handles money. Write it down.", identity:"A band still needs one clear identity. Agree the sound and story together so you don't pull in different directions.", live:"Bands live or die on the live show. Tighten the set and agree fees and splits per gig.", support:"Many grants, like Serendipity, are open to bands. Apply as the band, not as separate solo acts." },
       collective:{ identity:"A collective needs a shared identity and a clear way to make decisions. Agree both early.", rights:"With a collective, every release needs clear splits and a written agreement on who owns the master, whether one named owner, the collective as an entity, or defined shares. Sort governance now.", revenue:"Decide how the collective's money is shared and reinvested before it arrives.", team:"A collective is a mini-organisation. Name who owns each function so nothing falls through.", support:"Collectives are ideal for collaboration grants like IFA Arts Platforms. Apply as the collective." },
       solo:{ team:"You're solo, so you wear every hat. The win here is deciding what to hand off first.", support:"Solo grants exist too (Serendipity is open to solo artists). Apply, don't wait for a band." }
     };

@@ -31,7 +31,7 @@ window.WORKBOOK = {
         ]},
         { type:"fill", id:"you", title:"First, what do we call you?", items:[{id:"name", label:"Your name or artist name", ph:"e.g. Rohit"}] },
         { type:"chips", id:"artist_lang", single:true, title:"What language do you mostly make music in?", help:"This tunes the videos, artists and news we show you across the workbook.", options:[{v:"Punjabi",label:"Punjabi"},{v:"Hindi",label:"Hindi"},{v:"English",label:"English"},{v:"Tamil",label:"Tamil"},{v:"Telugu",label:"Telugu"},{v:"Malayalam",label:"Malayalam"},{v:"Kannada",label:"Kannada"},{v:"Bengali",label:"Bengali"},{v:"Marathi",label:"Marathi"},{v:"Instrumental",label:"Instrumental / no words"},{v:"Other",label:"Other"}] },
-        { type:"chips", id:"artist_city", single:true, title:"Which city are you closest to?", help:"So we can point you to the right venues, shows and local scene.", options:[{v:"mumbai",label:"Mumbai"},{v:"delhi",label:"Delhi"},{v:"bengaluru",label:"Bengaluru"},{v:"hyderabad",label:"Hyderabad"},{v:"pune",label:"Pune"},{v:"goa",label:"Goa"},{v:"other",label:"Somewhere else"}] },
+        { type:"chips", id:"artist_city", single:true, title:"Which city are you closest to?", help:"So we can point you to the right venues, shows and local scene.", options:[{v:"mumbai",label:"Mumbai"},{v:"delhi",label:"Delhi"},{v:"bengaluru",label:"Bengaluru"},{v:"hyderabad",label:"Hyderabad"},{v:"chennai",label:"Chennai"},{v:"kochi",label:"Kochi"},{v:"pune",label:"Pune"},{v:"goa",label:"Goa"},{v:"other",label:"Somewhere else"}] },
         { type:"chips", id:"act_type", single:true, title:"Are you solo, a band, or a collective?", help:"This changes the advice on splits, decisions and money.", options:[{v:"solo",label:"Solo artist"},{v:"band",label:"A band"},{v:"collective",label:"A collective or crew"}] },
         { type:"chips", id:"release_stage", single:true, title:"Where are you with releasing music?", help:"So we start you in the right place.", options:[{v:"nothing",label:"Nothing out yet"},{v:"few",label:"A few songs out"},{v:"lots",label:"Lots out, leveling up"},{v:"burnt",label:"Spent money before, it didn't work"}] },
         { type:"chips", id:"budget", single:true, title:"What's your budget for promotion?", help:"Be honest, it changes the whole plan.", options:[{v:"none",label:"No budget for promotion"},{v:"small",label:"A small budget"},{v:"real",label:"A real promo budget"}] },
@@ -639,6 +639,11 @@ window.WORKBOOK = {
           "Paid promotion is for amplifying proof. First you find a song that earns saves and shares on its own, then you spend to put it in front of more of the right people.",
           "The one rule that saves the most money: never scale a loser. If a small test spends badly, stop and change the song or the creative. Do not spend more into it."
         ]},
+        { type:"info", id:"burnt_recover", showIf:{f:"release_stage",is:["burnt"]}, title:"If you already paid for something that didn't work", body:[
+          "The clearest red flag, before you pay anyone again: a guaranteed playlist placement, follower count or stream count. No legitimate curator or platform guarantees acceptance, because real curators say no to most pitches. Guaranteed numbers are either bots, which can get your release taken down for violating Spotify's own rules, or fake engagement that does nothing for your real career.",
+          "If a card or UPI payment went to a service that never delivered what it promised in writing, most banks allow a dispute or chargeback within a window after the transaction, commonly around 120 days, confirm your exact window with your bank. Keep the original payment proof and whatever promise they made in writing: an email, a DM, a landing page screenshot.",
+          "Before paying anyone again: search their name plus 'scam' or 'reviews' first, ask if they'll name a real artist you can message directly, and never pay for guaranteed streams, followers or playlist adds. Pitching real curators yourself, for free, through our reviewer database, is still the better route, and it is exactly what the free tools on this site are for."
+        ]},
         { type:"table", id:"spend_options", title:"Where to spend, and what to expect",
           help:"Start with a tiny test on each before committing. Watch cost per save or per new follower, not raw reach.",
           columns:[
@@ -670,7 +675,7 @@ window.WORKBOOK = {
     {
       id: "live", name: "Live & networking", tag: "Perform strategically. Build relationships that compound.",
       plain: "One good show and one real relationship can move your career more than 50 posts. Plan both deliberately.",
-      lesson:{ idea:"One great show and one real relationship can move your career more than fifty posts.", points:["Play strategically. Which past show actually opened doors, and why? Do more of that, not just any gig.","Relationships compound: follow up within 48 hours, referencing the real conversation, or the moment is wasted.","Before any collaboration, agree credits, splits, promo and who owns the master. In writing, up front.","Warm rooms convert: give a live audience one clear next step, follow, save, or join the mailing list."] },
+      lesson:{ idea:"One great show and one real relationship can move your career more than fifty posts.", points:["Play strategically. Which past show actually opened doors, and why? Do more of that, not just any gig.","Relationships compound: follow up within 48 hours, referencing the real conversation, or the moment is wasted.","Before any collaboration, agree credits, splits, promo and who owns the master. In writing, up front.","Warm rooms convert: give a live audience one clear next step, follow, save, or join the mailing list."], example:{ k:"Real case: When Chai Met Toast", lead:"When Chai Met Toast formed in Kochi in 2015-16, an independent English-language indie-folk band with no label behind them. They built their audience the hard way, one live show at a time.", rows:[["Formed","2015-16, Kochi, Kerala, independent"],["Touring","300+ live shows in their first 4 years"],["Breakthrough show","Sold out The Garage, London"],["Recognition","Spotify RADAR India feature; track in VH1 India's Top 50; song in the trailer for Farhan Akhtar's film Jee Le Zaraa (2021)"]], take:"No label, just a relentless live calendar and real relationships built one show at a time. The touring built the audience that made everything after possible.", src:"Publicly reported (Rolling Stone India, Forbes India and Wikipedia)." } },
       deepen:{ cityLinks:true, compare:true, read:[{label:"Upcoming shows & festivals",href:"/live/"},{label:"Book live gigs (guide)",href:"/guides/book-live-gigs-independent-band-india/"},{label:"Show-booking email template",href:"/toolkit/show-booking-email-template/"}] },
       blocks: [
         { type:"fill", id:"live_review", title:"Your live strategy: last 12 months", gloss:"No shows yet? Put 0 and skip to the plan below. Everyone starts at zero.", items:[
@@ -816,7 +821,8 @@ window.WORKBOOK = {
         { type:"info", id:"sync_how", showIf:{any:[{f:"archetype",is:["noncommercial"]},{f:"sync_interest",is:["yes"]}]}, title:"Sync: how your music earns without you performing", body:[
           "Sync is your music licensed into a film, ad, series, game or branded video. For a non-commercial artist it is often the biggest earner, and it rewards a clean, ready catalogue over a big audience.",
           "What a supervisor needs: a track that fits the brief, an instrumental version, clean stems, and clear ownership (a signed split sheet so there is no dispute later).",
-          "Where to pitch in India: music supervisors and ad agencies directly, sync libraries, and briefs that come through IPRS and festival networks. One placement can pay more than a year of streams."
+          "Where to pitch in India: music supervisors and ad agencies directly, sync libraries, and briefs that come through IPRS and festival networks. One placement can pay more than a year of streams.",
+          "This isn't only a Hindi-film thing: Tamil, Telugu, Malayalam and Kannada cinema all license outside music regularly, often through the same composer's team or a regional music supervisor. If you work in a regional language, pitch regional-industry music directors and production houses directly, not just pan-India agencies."
         ]},
         { type:"table", id:"sync_catalogue", showIf:{any:[{f:"archetype",is:["noncommercial"]},{f:"sync_interest",is:["yes"]}]}, title:"Your sync catalogue",
           help:"List what is ready to pitch. The more Yes columns, the faster you can say yes to a brief.",
@@ -928,7 +934,8 @@ window.WORKBOOK = {
           {id:"m1k", text:"iprs.org, start membership and gather documents (the ~₹1,200 author fee is money you earn back).", showIf:{f:"release_stage",not:["nothing"]}},
           {id:"m1l", text:"pplindia.org, start master rights registration (no joining fee).", showIf:{f:"release_stage",not:["nothing"]}},
           {id:"m1m", text:"Distributor dashboard, confirm Content ID active", showIf:{f:"release_stage",not:["nothing"]}},
-          {id:"m1n", text:"Verify composer/lyricist credits on all existing releases", showIf:{f:"release_stage",not:["nothing"]}}
+          {id:"m1n", text:"Verify composer/lyricist credits on all existing releases", showIf:{f:"release_stage",not:["nothing"]}},
+          {id:"m1band", text:"Write and sign a split sheet with your bandmates now, before anything else releases, who owns what and the % of each", showIf:{f:"act_type",is:["band","collective"]}}
         ]},
         { type:"checklist", id:"m2", title:"Month 2 · Build · Release, distribution, social", items:[
           {id:"m2a", text:"Choose your distributor: {distributor}."},
@@ -945,10 +952,10 @@ window.WORKBOOK = {
           {id:"m2l", text:"Milestone: IPRS application submitted (reference number received)", showIf:{f:"release_stage",not:["nothing"]}}
         ]},
         { type:"checklist", id:"m3", title:"Month 3 · Revenue · First income streams", items:[
-          {id:"m3a", text:"Research 10 venues in your city that book indie artists"},
+          {id:"m3a", text:"Research 10 venues in your city that book indie artists", showIf:{f:"archetype",not:["noncommercial","creator"]}},
           {id:"m3b", text:"Build an artist pitch pack: EPK with bio, photos, links, 2–3 demos"},
-          {id:"m3c", text:"Send 5 booking enquiries this month"},
-          {id:"m3d", text:"Apply to 2 college cultural committee mailing lists for fest season"},
+          {id:"m3c", text:"Send 5 booking enquiries this month", showIf:{f:"archetype",not:["noncommercial","creator"]}},
+          {id:"m3d", text:"Apply to 2 college cultural committee mailing lists for fest season", showIf:{f:"archetype",not:["noncommercial","creator"]}},
           {id:"m3e", text:"Build a media kit: 1 page with audience numbers, engagement and a rate card", showIf:{f:"archetype",is:["commercial","creator","mixed"]}},
           {id:"m3f", text:"Identify 3 brands whose audience overlaps yours and find their marketing leads", showIf:{f:"archetype",is:["commercial","creator","mixed"]}},
           {id:"m3g", text:"Offer one product-for-content collaboration to a brand in your niche", showIf:{f:"archetype",is:["commercial","creator","mixed"]}},
@@ -956,10 +963,12 @@ window.WORKBOOK = {
           {id:"m3nc2", text:"Prepare instrumental versions and clean stems of your 3 most placeable songs", showIf:{f:"archetype",is:["noncommercial"]}},
           {id:"m3nc3", text:"Set a teaching or session rate and post one 'taking students / open for sessions' note", showIf:{f:"archetype",is:["noncommercial"]}},
           {id:"m3h", text:"Post one 'available for lessons' Story, test demand", showIf:{f:"archetype",not:["noncommercial"]}},
-          {id:"m3i", text:"Target: 1 live booking, even unpaid (prove you can deliver a set)"},
+          {id:"m3i", text:"Target: 1 live booking, even unpaid (prove you can deliver a set)", showIf:{f:"archetype",not:["noncommercial","creator"]}},
+          {id:"m3cr1", text:"Target: 1 piece of content that outperforms your usual average, double down on what it did right", showIf:{f:"archetype",is:["creator"]}},
           {id:"m3j", text:"Target: 1 real pitch sent to a decision-maker (a brand, or a sync or music supervisor) with your kit"},
           {id:"m3k", text:"Target: 50 email or WhatsApp Channel subscribers"},
-          {id:"m3l", text:"Target: 1 release live with correct metadata, Content ID active, IPRS confirmed", showIf:{f:"release_stage",not:["nothing"]}}
+          {id:"m3l", text:"Target: 1 release live with correct metadata, Content ID active, IPRS confirmed", showIf:{f:"release_stage",not:["nothing"]}},
+          {id:"m3band", text:"Agree the gig-fee split and who collects/holds the money before your next show, in writing", showIf:{f:"act_type",is:["band","collective"]}}
         ]},
         { type:"pillars", id:"review", title:"Baseline vs now: where you've moved", mode:"review",
           help:"Re-rate each pillar. Seeing the movement is the whole point." },
