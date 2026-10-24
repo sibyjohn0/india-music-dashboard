@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-23T05:55:55.937543+00:00",
-  "snapshot_date": "2026-10-23",
+  "generated_at": "2026-10-24T05:37:03.549254+00:00",
+  "snapshot_date": "2026-10-24",
   "cities": {
     "Pune": {
-      "total_shows": 34,
+      "total_shows": 30,
       "venues": [
         {
           "name": "Yashwantrao Chavan Natyagruha",
@@ -43,14 +43,6 @@
           "price_min": 1099,
           "price_max": 1250,
           "next_date": "2026-11-29",
-          "growth": 0
-        },
-        {
-          "name": "NSIC Exhibition Ground, Okhla",
-          "shows": 1,
-          "price_min": 1299,
-          "price_max": 1299,
-          "next_date": "2026-10-23",
           "growth": 0
         },
         {
@@ -180,17 +172,9 @@
           "price_max": 1499,
           "next_date": "2026-10-31",
           "growth": 0
-        },
-        {
-          "name": "PSYLAB",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 4000,
-          "next_date": "2026-10-23",
-          "growth": 0
         }
       ],
-      "unlisted_shows": 3
+      "unlisted_shows": 1
     },
     "Pune.": {
       "total_shows": 1,
@@ -221,7 +205,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 15,
+      "total_shows": 13,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -264,24 +248,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 9
-    },
-    "Delhi": {
-      "total_shows": 13,
-      "venues": [
-        {
-          "name": "Brahmkamal Hall - Auditorium",
-          "shows": 1,
-          "price_min": 2999,
-          "price_max": 2999,
-          "next_date": "2026-10-23",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 12
+      "unlisted_shows": 7
     },
     "Bangalore": {
-      "total_shows": 63,
+      "total_shows": 64,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -356,10 +326,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 51
+      "unlisted_shows": 52
     },
     "Hyderabad": {
-      "total_shows": 1,
+      "total_shows": 4,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -370,10 +340,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 0
+      "unlisted_shows": 3
     },
     "Goa": {
-      "total_shows": 9,
+      "total_shows": 7,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -384,7 +354,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 8
+      "unlisted_shows": 6
     },
     "Kolkata": {
       "total_shows": 1,
@@ -414,22 +384,22 @@
       ],
       "unlisted_shows": 0
     },
-    "Chennai": {
-      "total_shows": 3,
-      "venues": [],
-      "unlisted_shows": 3
-    },
     "Lucknow City": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
+    },
+    "Delhi": {
+      "total_shows": 12,
+      "venues": [],
+      "unlisted_shows": 12
     },
     "Dispur": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
     },
-    "Jaisalmer": {
+    "Chennai": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
@@ -439,13 +409,8 @@
       "venues": [],
       "unlisted_shows": 1
     },
-    "Delag": {
-      "total_shows": 1,
-      "venues": [],
-      "unlisted_shows": 1
-    },
     "Ahmedabad": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [
         {
           "name": "LIVE IN AHMEDABAD- STUDENT DISCOUNT",
@@ -453,28 +418,25 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "23 Oct Fri",
-          "growth": null
-        },
-        {
-          "name": "Sabarmati Riverfront Event Centre",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-10-23",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 0
     },
-    "Dehradun": {
+    "Chandigarh": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
     },
     "Jaipur": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [],
-      "unlisted_shows": 2
+      "unlisted_shows": 1
+    },
+    "Meerut City": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
     },
     "Mohali": {
       "total_shows": 1,
@@ -482,11 +444,16 @@
       "unlisted_shows": 1
     },
     "Shillong": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [],
-      "unlisted_shows": 2
+      "unlisted_shows": 1
     },
     "Mandawa": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
+    },
+    "Uniara": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
@@ -505,10 +472,24 @@
       ],
       "unlisted_shows": 0
     },
-    "Mandrem": {
+    "Anjuna": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
+    },
+    "Dima Hasao": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "Dima Hasao",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "31 Dec Thu",
+          "growth": null
+        }
+      ],
+      "unlisted_shows": 0
     },
     "Kochi": {
       "total_shows": 1,
