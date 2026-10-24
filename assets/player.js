@@ -6,11 +6,18 @@
  * <script src="/assets/player.js" defer>.
  *
  * Uses position:fixed, not sticky: every page's <body> has overflow-x:hidden,
- * which silently breaks position:sticky for descendants in most browsers
- * (confirmed: the site's own <header>, also sticky, scrolls away once you
- * scroll, it just looks stuck at scroll position zero). Fixed is immune to
- * that. A dedicated spacer div (not body padding) reserves the layout space
- * right after <header>, so the header itself never gets pushed down.
+ * which silently breaks position:sticky for descendants in most browsers.
+ * The site's own <header>, declared sticky in each page's CSS, is affected
+ * too: it looks pinned at scroll position zero but actually scrolls away
+ * normally once you scroll. That used to go unnoticed (a non-sticky header
+ * just looks like a normal header), but once the player bar sits fixed
+ * right below where the header was AT LOAD, scrolling the (actually-not-
+ * sticky) header away leaves the fixed player floating over whatever page
+ * content scrolls into that screen slot. Fix: this script also force-pins
+ * the header itself via inline position:fixed (overriding its broken
+ * sticky), so header and player move together, and reserves a single
+ * spacer sized to header-height + bar-height so the rest of the page still
+ * starts in the right place.
  *
  * STATUS: live, playing the "Indie Music India Radio" playlist. Clearing
  * PLAYLIST_ID below reverts to a "launching soon" placeholder bar.
@@ -21,10 +28,10 @@
   function injectCSS() {
     if (document.getElementById('iim-player-css')) return;
     var css = [
-      '#iim-player{position:fixed;left:0;right:0;z-index:150;background:#241B2E;border-top:3px solid #FF4D8D;border-bottom:3px solid #FF4D8D;display:flex;align-items:center;gap:12px;padding:0 14px;height:84px;box-shadow:0 2px 0 rgba(0,0,0,.08)}',
+      '#iim-player{position:fixed;left:0;right:0;top:var(--iim-header-h,52px);z-index:150;background:#241B2E;border-top:3px solid #FF4D8D;border-bottom:3px solid #FF4D8D;display:flex;align-items:center;gap:12px;padding:0 14px;height:84px;box-shadow:0 2px 0 rgba(0,0,0,.08)}',
       '#iim-player.is-collapsed{display:none}',
-      '#iim-player-space{height:84px}',
-      '#iim-player-space.is-collapsed{height:0}',
+      '#iim-player-space{height:calc(var(--iim-header-h,52px) + 84px)}',
+      '#iim-player-space.is-collapsed{height:var(--iim-header-h,52px)}',
       '#iim-player .pdot{width:8px;height:8px;border-radius:50%;background:#FF4D8D;flex:0 0 auto;animation:iim-pulse 1.8s ease-in-out infinite}',
       '@media(prefers-reduced-motion:reduce){#iim-player .pdot{animation:none}}',
       '@keyframes iim-pulse{0%,100%{opacity:1}50%{opacity:.35}}',
@@ -36,7 +43,7 @@
       '#iim-player .pclose:hover{border-color:#FF4D8D;color:#fff}',
       '#iim-player-reopen{position:fixed;right:16px;bottom:16px;z-index:250;width:44px;height:44px;border-radius:50%;background:#241B2E;border:2px solid #FF4D8D;color:#fff;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:3px 3px 0 #FF4D8D}',
       '#iim-player-reopen.is-visible{display:flex}',
-      '@media(max-width:640px){#iim-player,#iim-player-space{height:88px}#iim-player{padding:0 10px;gap:8px}#iim-player .plabel{display:none}#iim-player .pmsg{font-size:12px}}'
+      '@media(max-width:640px){#iim-player{height:88px;padding:0 10px;gap:8px}#iim-player-space{height:calc(var(--iim-header-h,52px) + 88px)}#iim-player-space.is-collapsed{height:var(--iim-header-h,52px)}#iim-player .plabel{display:none}#iim-player .pmsg{font-size:12px}}'
     ].join('');
     var s = document.createElement('style');
     s.id = 'iim-player-css';
@@ -47,10 +54,16 @@
   function build() {
     var header = document.querySelector('header');
     var headerHeight = header ? header.getBoundingClientRect().height : 0;
+    document.documentElement.style.setProperty('--iim-header-h', headerHeight + 'px');
+    if (header) {
+      header.style.position = 'fixed';
+      header.style.top = '0';
+      header.style.left = '0';
+      header.style.right = '0';
+    }
 
     var bar = document.createElement('div');
     bar.id = 'iim-player';
-    bar.style.top = headerHeight + 'px';
 
     var space = document.createElement('div');
     space.id = 'iim-player-space';
