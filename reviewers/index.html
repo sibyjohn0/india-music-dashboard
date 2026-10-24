@@ -578,6 +578,16 @@
       .reveal, .card { opacity: 1 !important; animation: none !important; transform: none !important; }
       .card:hover, .feat-card:hover, .pill:hover, .submit-btn:hover { transform: none; }
     }
+
+    .notify-block { margin: 36px 0 8px; padding: 18px 0; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .notify-text { color: var(--muted); font-size: 13px; max-width: 420px; }
+    .notify-form { display: flex; gap: 8px; flex: 1; min-width: 240px; }
+    .notify-input { flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 13px; padding: 9px 12px; font-family: 'Inter', sans-serif; }
+    .notify-input:focus { outline: none; border-color: var(--accent); }
+    .notify-btn { background: var(--accent); color: #fff; border: none; border-radius: 8px; font-size: 13px; font-weight: 700; padding: 9px 16px; cursor: pointer; font-family: 'Inter', sans-serif; white-space: nowrap; }
+    .notify-btn:hover { opacity: 0.9; }
+    .notify-msg { font-size: 12px; color: var(--accent2); width: 100%; }
+    @media (max-width: 640px) { .notify-block { flex-direction: column; align-items: stretch; } }
   </style>
   <link rel="canonical" href="https://indiemusicindia.com/reviewers/" />
   <meta property="og:image" content="https://indiemusicindia.com/og-image.png" />
@@ -1185,6 +1195,40 @@ function toggleFilters() {
 <h3 style="font-size:17px;font-weight:800;margin:20px 0 6px">Paid vs free music promotion in India: what is worth it?</h3><p>Free routes, direct pitching, the curators here, and organic short video, should come first. Pay only for legitimate services that reach real curators, never for guaranteed streams or followers.</p>
 <h3 style="font-size:17px;font-weight:800;margin:20px 0 6px">How do I submit music to Spotify playlists in India?</h3><p>Pitch through Spotify for Artists at least a week before release for editorial consideration, then approach independent playlist curators directly. Filter this database for playlist curators who cover your genre, and see our <a href="../guides/submit-music-spotify-playlists-india/">guide to Spotify playlist submission in India</a>.</p>
   </section>
+  <div class="notify-block">
+    <div class="notify-text">We add new reviewers to this list every week. Want to know when we add ones that fit your genre?</div>
+    <form class="notify-form" id="notify-form" onsubmit="return iimNotifySubmit(event)">
+      <input class="notify-input" id="notify-email" type="email" placeholder="you@email.com" required />
+      <button class="notify-btn" type="submit">Notify me</button>
+    </form>
+    <div class="notify-msg" id="notify-msg" aria-live="polite"></div>
+  </div>
+  <div style="margin:20px 0 8px;padding:22px 26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px">
+    <div style="max-width:560px">
+      <div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px">Pitching takes you only so far on your own.</div>
+      <div style="font-size:13.5px;color:var(--muted);line-height:1.6">For a few artists at a time: work directly with Siby and Karishma, plus a network of specialists for release strategy, PR, social, video, design, legal and IPRS. One month to start, no commitment beyond that, and no cut of your music.</div>
+    </div>
+    <a href="/programme/" style="flex-shrink:0;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 22px;border-radius:9px;white-space:nowrap">Get a real team behind your music →</a>
+  </div>
+  <script>
+  function iimNotifySubmit(e) {
+    e.preventDefault();
+    var email = document.getElementById('notify-email').value;
+    var btn = e.target.querySelector('.notify-btn');
+    var msg = document.getElementById('notify-msg');
+    btn.textContent = 'Saving…'; btn.disabled = true;
+    var fd = new FormData();
+    fd.append('entry.1498781996', email);
+    fd.append('entry.1437911265', 'reviewers_page');
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSfogAK1A1ZZwclHPjPBH7jGDjP0VAf_dZFGfa3_O3R7Qae5SQ/formResponse', {
+      method: 'POST', mode: 'no-cors', body: fd
+    }).finally(function () {
+      msg.textContent = "You're in. We'll email you when new reviewers that fit are added.";
+      document.getElementById('notify-form').style.display = 'none';
+    });
+    return false;
+  }
+  </script>
 <footer style="border-top:1px solid var(--border);padding:24px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:12px;font-family:'Inter',sans-serif">
   <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
     <span style="font-weight:700;color:var(--text);font-size:13px">Siby John &amp; Karishma Changroth</span>
