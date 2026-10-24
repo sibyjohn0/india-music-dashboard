@@ -1,9 +1,16 @@
-/* player.js: site-wide sticky radio bar: "Indie Music India Radio".
+/* player.js: site-wide radio bar: "Indie Music India Radio".
  *
  * One Spotify playlist, one lead track per featured artist, playing from a
  * bar docked right below the site header. Self-contained like nav.js:
  * injects its own CSS, needs no markup beyond
  * <script src="/assets/player.js" defer>.
+ *
+ * Uses position:fixed, not sticky: every page's <body> has overflow-x:hidden,
+ * which silently breaks position:sticky for descendants in most browsers
+ * (confirmed: the site's own <header>, also sticky, scrolls away once you
+ * scroll, it just looks stuck at scroll position zero). Fixed is immune to
+ * that. A dedicated spacer div (not body padding) reserves the layout space
+ * right after <header>, so the header itself never gets pushed down.
  *
  * STATUS: live, playing the "Indie Music India Radio" playlist. Clearing
  * PLAYLIST_ID below reverts to a "launching soon" placeholder bar.
@@ -14,8 +21,10 @@
   function injectCSS() {
     if (document.getElementById('iim-player-css')) return;
     var css = [
-      '#iim-player{position:sticky;z-index:150;background:#241B2E;border-top:3px solid #FF4D8D;display:flex;align-items:center;gap:12px;padding:0 14px;height:84px;box-shadow:0 2px 0 rgba(0,0,0,.08)}',
+      '#iim-player{position:fixed;left:0;right:0;z-index:150;background:#241B2E;border-top:3px solid #FF4D8D;border-bottom:3px solid #FF4D8D;display:flex;align-items:center;gap:12px;padding:0 14px;height:84px;box-shadow:0 2px 0 rgba(0,0,0,.08)}',
       '#iim-player.is-collapsed{display:none}',
+      '#iim-player-space{height:84px}',
+      '#iim-player-space.is-collapsed{height:0}',
       '#iim-player .pdot{width:8px;height:8px;border-radius:50%;background:#FF4D8D;flex:0 0 auto;animation:iim-pulse 1.8s ease-in-out infinite}',
       '@media(prefers-reduced-motion:reduce){#iim-player .pdot{animation:none}}',
       '@keyframes iim-pulse{0%,100%{opacity:1}50%{opacity:.35}}',
@@ -27,7 +36,7 @@
       '#iim-player .pclose:hover{border-color:#FF4D8D;color:#fff}',
       '#iim-player-reopen{position:fixed;right:16px;bottom:16px;z-index:250;width:44px;height:44px;border-radius:50%;background:#241B2E;border:2px solid #FF4D8D;color:#fff;font-size:16px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:3px 3px 0 #FF4D8D}',
       '#iim-player-reopen.is-visible{display:flex}',
-      '@media(max-width:640px){#iim-player{height:88px;padding:0 10px;gap:8px}#iim-player .plabel{display:none}#iim-player .pmsg{font-size:12px}}'
+      '@media(max-width:640px){#iim-player,#iim-player-space{height:88px}#iim-player{padding:0 10px;gap:8px}#iim-player .plabel{display:none}#iim-player .pmsg{font-size:12px}}'
     ].join('');
     var s = document.createElement('style');
     s.id = 'iim-player-css';
@@ -37,11 +46,14 @@
 
   function build() {
     var header = document.querySelector('header');
-    var anchor = header || document.body.firstElementChild;
+    var headerHeight = header ? header.getBoundingClientRect().height : 0;
 
     var bar = document.createElement('div');
     bar.id = 'iim-player';
-    bar.style.top = (header ? header.getBoundingClientRect().height : 0) + 'px';
+    bar.style.top = headerHeight + 'px';
+
+    var space = document.createElement('div');
+    space.id = 'iim-player-space';
 
     var dot = document.createElement('span');
     dot.className = 'pdot';
@@ -82,20 +94,23 @@
     reopen.setAttribute('aria-label', 'Show radio bar');
     reopen.textContent = '▶';
 
-    if (anchor && anchor.parentNode) {
-      anchor.insertAdjacentElement('afterend', bar);
+    if (header && header.parentNode) {
+      header.insertAdjacentElement('afterend', space);
     } else {
-      document.body.insertBefore(bar, document.body.firstChild);
+      document.body.insertBefore(space, document.body.firstChild);
     }
+    document.body.appendChild(bar);
     document.body.appendChild(reopen);
 
     function collapse() {
       bar.classList.add('is-collapsed');
+      space.classList.add('is-collapsed');
       reopen.classList.add('is-visible');
       try { sessionStorage.setItem('iim_player_collapsed', '1'); } catch (e) {}
     }
     function expand() {
       bar.classList.remove('is-collapsed');
+      space.classList.remove('is-collapsed');
       reopen.classList.remove('is-visible');
       try { sessionStorage.removeItem('iim_player_collapsed'); } catch (e) {}
     }
