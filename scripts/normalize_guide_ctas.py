@@ -25,7 +25,7 @@ GUIDES = REPO / "guides"
 # Reference = answer a fact; stay quiet. Everything else is a decision page.
 REFERENCE = {
     "isrc-code-india", "register-music-copyright-iprs-india",
-    "caller-tune-hello-tune-india", "spotify-pay-per-stream-india",
+    "caller-tune-hello-tune-india",
     "how-much-indian-artists-earn-spotify", "best-music-distributor-india",
     "free-music-distribution-india", "publish-music-in-india",
     "music-platforms-independent-artists-india",

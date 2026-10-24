@@ -22,10 +22,10 @@ def esc(s): return html.escape(str(s), quote=True)
 # at a time, founder-led, one month to start, no cut. Consistent, not scattered.
 REFERENCE = {
     "isrc-code-india", "register-music-copyright-iprs-india",
-    "caller-tune-hello-tune-india", "spotify-pay-per-stream-india",
+    "caller-tune-hello-tune-india",
     "how-much-indian-artists-earn-spotify", "best-music-distributor-india",
     "free-music-distribution-india", "publish-music-in-india",
-    "music-platforms-independent-artists-india", "how-spotify-royalties-work-india",
+    "music-platforms-independent-artists-india",
     "independent-music-scene-mumbai", "independent-music-scene-bengaluru",
     "independent-music-scene-delhi",
 }

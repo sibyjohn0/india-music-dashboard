@@ -63,14 +63,6 @@ DEEPEN = {
   ("How do I collect international royalties from India?",
    "Register your compositions with IPRS, which has reciprocal deals with foreign societies, and use publishing administration to collect global publishing royalties; your distributor collects the recording royalties worldwide."),
  ],
- "guides/spotify-pay-per-stream-india/index.html": [
-  ("How are music royalties in India explained simply?",
-   "Streaming pays two kinds: recording royalties, to whoever owns the master (usually you, via your distributor), and publishing royalties, to the songwriter, collected via IPRS. Both are per-stream and tiny individually."),
-  ("How much is 1 million streams worth in India, and what do 1000 streams pay?",
-   'At rough Indian per-stream rates, 1,000 streams pays only a few hundred rupees and a million streams lands in the low lakhs, and it depends heavily on listener geography. Use our <a href="/tools/royalty-calculator/">royalty calculator</a> for your own mix.'),
-  ("What are mechanical, performance, and neighbouring rights royalties in India?",
-   "Mechanical royalties are for reproducing a composition (streams, downloads); performance royalties are for public performance and broadcast; neighbouring rights are for public use of the recording. IPRS and PPL India administer these."),
- ],
  "guides/pitch-music-blogs-press-india/index.html": [
   ("How do I submit music to blogs in India?",
    'Find blogs that cover your genre, use their submission form or a direct editorial email, and send a short pitch with a private link two to three weeks before release. Our <a href="/reviewers/">reviewer database</a> lists Indian blogs and their submission routes.'),
