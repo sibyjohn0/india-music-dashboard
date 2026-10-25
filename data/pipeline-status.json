@@ -1,143 +1,179 @@
 {
-  "last_run": "2026-10-24T05:32:29.951674+00:00",
-  "overall": "ok",
+  "last_run": "2026-10-25T05:49:18.176246+00:00",
+  "overall": "partial",
   "sources": {
     "youtube": {
       "status": "ok",
       "records": 225,
-      "ms": 208645,
+      "ms": 226915,
       "error": null
     },
     "lastfm": {
       "status": "ok",
       "records": 141,
-      "ms": 64525,
+      "ms": 67729,
       "error": null
     },
     "radar": {
       "status": "ok",
-      "records": 136,
-      "ms": 23,
+      "records": 135,
+      "ms": 18,
       "error": null
     },
     "insights": {
       "status": "ok",
       "records": null,
-      "ms": 378,
+      "ms": 322,
       "error": null
     },
     "venue_analysis": {
       "status": "ok",
       "records": null,
-      "ms": 31,
+      "ms": 28,
       "error": null
     },
     "monthly_digest": {
       "status": "ok",
       "records": null,
-      "ms": 97,
+      "ms": 152,
       "error": null
     },
     "spotify": {
       "status": "ok",
-      "records": 68,
-      "ms": 65087,
+      "records": 66,
+      "ms": 69731,
       "error": null
     },
     "radar_social": {
       "status": "ok",
       "records": null,
-      "ms": 120,
+      "ms": 144,
       "error": null
     },
     "social": {
       "status": "ok",
-      "records": 415,
-      "ms": 22688,
+      "records": 405,
+      "ms": 23622,
       "error": null
     },
     "playboard": {
       "status": "ok",
       "records": null,
-      "ms": 50464,
+      "ms": 52951,
       "error": null
     },
     "jiosaavn": {
       "status": "ok",
       "records": null,
-      "ms": 1060,
+      "ms": 1260,
       "error": null
     },
     "events_paytm": {
       "status": "ok",
       "records": null,
-      "ms": 42,
+      "ms": 38,
       "error": null
     },
     "news_rss": {
       "status": "ok",
       "records": null,
-      "ms": 7741,
+      "ms": 13582,
       "error": null
     },
     "news_page": {
       "status": "ok",
       "records": null,
-      "ms": 23,
+      "ms": 22,
       "error": null
     },
     "events_district": {
       "status": "ok",
       "records": 92,
-      "ms": 105343,
+      "ms": 105300,
       "error": null
     },
     "spotify_playwright": {
       "status": "ok",
       "records": 0,
-      "ms": 197219,
+      "ms": 195433,
       "error": null
     },
     "bookmyshow": {
       "status": "ok",
-      "records": 32,
-      "ms": 42009,
+      "records": 87,
+      "ms": 43553,
       "error": null
     },
     "skillboxes": {
       "status": "ok",
-      "records": 95,
-      "ms": 38851,
+      "records": 89,
+      "ms": 43510,
       "error": null
     },
     "events_thumpn": {
       "status": "ok",
       "records": 0,
-      "ms": 4216,
+      "ms": 5357,
       "error": null
     },
     "festivals_build": {
       "status": "ok",
       "records": null,
-      "ms": 29,
+      "ms": 24,
       "error": null
     },
     "festivals_page": {
       "status": "ok",
       "records": null,
-      "ms": 24,
+      "ms": 20,
       "error": null
     },
     "venues_build": {
       "status": "ok",
       "records": null,
-      "ms": 30,
+      "ms": 29,
       "error": null
     },
     "venues_pages": {
       "status": "ok",
       "records": null,
-      "ms": 27,
+      "ms": 22,
+      "error": null
+    },
+    "industry": {
+      "status": "failed",
+      "records": null,
+      "ms": 19,
+      "error": "ERROR: pip install requests"
+    },
+    "reviewers_editorial": {
+      "status": "ok",
+      "records": null,
+      "ms": 16922,
+      "error": null
+    },
+    "reviewers_podcasts": {
+      "status": "ok",
+      "records": null,
+      "ms": 11596,
+      "error": null
+    },
+    "reviewers_spotify": {
+      "status": "failed",
+      "records": null,
+      "ms": 600002,
+      "error": "timeout"
+    },
+    "reviewers_youtube": {
+      "status": "ok",
+      "records": null,
+      "ms": 163007,
+      "error": null
+    },
+    "reviewers_merge": {
+      "status": "ok",
+      "records": 1108,
+      "ms": 58,
       "error": null
     }
   }

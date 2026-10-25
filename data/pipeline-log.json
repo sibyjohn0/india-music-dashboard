@@ -18280,5 +18280,185 @@
         "error": null
       }
     }
+  },
+  {
+    "run_at": "2026-10-25T05:49:18.176246+00:00",
+    "overall": "partial",
+    "sources": {
+      "youtube": {
+        "status": "ok",
+        "records": 225,
+        "ms": 226915,
+        "error": null
+      },
+      "lastfm": {
+        "status": "ok",
+        "records": 141,
+        "ms": 67729,
+        "error": null
+      },
+      "radar": {
+        "status": "ok",
+        "records": 135,
+        "ms": 18,
+        "error": null
+      },
+      "insights": {
+        "status": "ok",
+        "records": null,
+        "ms": 322,
+        "error": null
+      },
+      "venue_analysis": {
+        "status": "ok",
+        "records": null,
+        "ms": 28,
+        "error": null
+      },
+      "monthly_digest": {
+        "status": "ok",
+        "records": null,
+        "ms": 152,
+        "error": null
+      },
+      "spotify": {
+        "status": "ok",
+        "records": 66,
+        "ms": 69731,
+        "error": null
+      },
+      "radar_social": {
+        "status": "ok",
+        "records": null,
+        "ms": 144,
+        "error": null
+      },
+      "social": {
+        "status": "ok",
+        "records": 405,
+        "ms": 23622,
+        "error": null
+      },
+      "playboard": {
+        "status": "ok",
+        "records": null,
+        "ms": 52951,
+        "error": null
+      },
+      "jiosaavn": {
+        "status": "ok",
+        "records": null,
+        "ms": 1260,
+        "error": null
+      },
+      "events_paytm": {
+        "status": "ok",
+        "records": null,
+        "ms": 38,
+        "error": null
+      },
+      "news_rss": {
+        "status": "ok",
+        "records": null,
+        "ms": 13582,
+        "error": null
+      },
+      "news_page": {
+        "status": "ok",
+        "records": null,
+        "ms": 22,
+        "error": null
+      },
+      "events_district": {
+        "status": "ok",
+        "records": 92,
+        "ms": 105300,
+        "error": null
+      },
+      "spotify_playwright": {
+        "status": "ok",
+        "records": 0,
+        "ms": 195433,
+        "error": null
+      },
+      "bookmyshow": {
+        "status": "ok",
+        "records": 87,
+        "ms": 43553,
+        "error": null
+      },
+      "skillboxes": {
+        "status": "ok",
+        "records": 89,
+        "ms": 43510,
+        "error": null
+      },
+      "events_thumpn": {
+        "status": "ok",
+        "records": 0,
+        "ms": 5357,
+        "error": null
+      },
+      "festivals_build": {
+        "status": "ok",
+        "records": null,
+        "ms": 24,
+        "error": null
+      },
+      "festivals_page": {
+        "status": "ok",
+        "records": null,
+        "ms": 20,
+        "error": null
+      },
+      "venues_build": {
+        "status": "ok",
+        "records": null,
+        "ms": 29,
+        "error": null
+      },
+      "venues_pages": {
+        "status": "ok",
+        "records": null,
+        "ms": 22,
+        "error": null
+      },
+      "industry": {
+        "status": "failed",
+        "records": null,
+        "ms": 19,
+        "error": "ERROR: pip install requests"
+      },
+      "reviewers_editorial": {
+        "status": "ok",
+        "records": null,
+        "ms": 16922,
+        "error": null
+      },
+      "reviewers_podcasts": {
+        "status": "ok",
+        "records": null,
+        "ms": 11596,
+        "error": null
+      },
+      "reviewers_spotify": {
+        "status": "failed",
+        "records": null,
+        "ms": 600002,
+        "error": "timeout"
+      },
+      "reviewers_youtube": {
+        "status": "ok",
+        "records": null,
+        "ms": 163007,
+        "error": null
+      },
+      "reviewers_merge": {
+        "status": "ok",
+        "records": 1108,
+        "ms": 58,
+        "error": null
+      }
+    }
   }
 ]
