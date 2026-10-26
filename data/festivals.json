@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-25T06:03:27.880110+00:00",
+  "generated_at": "2026-10-26T06:07:04.271816+00:00",
   "counts": {
-    "festivals": 23,
+    "festivals": 25,
     "tours": 18,
     "marquee": 14,
     "international": 7,
-    "indian": 34,
-    "new_this_run": 7
+    "indian": 36,
+    "new_this_run": 3
   },
   "festivals": [
     {
@@ -346,33 +346,6 @@
       "origin": "indian"
     },
     {
-      "title": "Indie Fest - COHOP",
-      "type": "festival",
-      "key": "indie fest",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-25",
-          "date_obj": "2026-10-25",
-          "city": "Bangalore",
-          "venue": "",
-          "time": "03:00 PM",
-          "price": "from ₹499",
-          "url": "https://www.skillboxes.com/events/indie-fest-cohop-sbzjysiw",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-10-25",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "The Festival of Lights – A Diwali Celebration",
       "type": "festival",
       "key": "the festival of lights",
@@ -392,6 +365,83 @@
         }
       ],
       "soonest": "2026-10-26",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Jagran Film Festival",
+      "type": "festival",
+      "key": "jagran film festival",
+      "cities": [
+        "Andheri"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-28",
+          "date_obj": "2026-10-28",
+          "city": "Andheri",
+          "venue": "Cinepolis (Fun Republic)",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-10-28",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Dharamshala International Film Festival",
+      "type": "festival",
+      "key": "dharamshala international film festival",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-10-29",
+          "date_obj": "2026-10-29",
+          "city": "",
+          "venue": "Tibetan Children’s Village (TCV), Upper Dharamshala",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-10-29",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Karwa Carnival",
+      "type": "festival",
+      "key": "karwa carnival",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-10-29",
+          "date_obj": "2026-10-29",
+          "city": "",
+          "venue": "Hotel Waterlily",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-10-29",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -591,55 +641,6 @@
   ],
   "tours": [
     {
-      "title": "Krishna Das India Tour 2026",
-      "type": "tour",
-      "key": "krishna das india tour",
-      "cities": [
-        "Bangalore",
-        "Mumbai",
-        "Pune"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-25",
-          "date_obj": "2026-10-25",
-          "city": "Mumbai",
-          "venue": "Dome SVP Stadium",
-          "time": "13:30",
-          "price": "from ₹2,999",
-          "url": "https://www.district.in/events/krishna-das-india-tour-2026-mumbai",
-          "source": "district"
-        },
-        {
-          "date": "2026-10-30",
-          "date_obj": "2026-10-30",
-          "city": "Pune",
-          "venue": "Mayfield Yash Garden",
-          "time": "13:30",
-          "price": "from ₹1,999",
-          "url": "https://www.district.in/events/krishna-das-india-tour-2026-pune",
-          "source": "district"
-        },
-        {
-          "date": "2026-11-04",
-          "date_obj": "2026-11-04",
-          "city": "Bangalore",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹1,999",
-          "url": "https://www.district.in/events/krishna-das-india-tour-2026-bengaluru",
-          "source": "district"
-        }
-      ],
-      "soonest": "2026-10-25",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Diljit Dosanjh - RuPay Aura India Tour, Delhi",
       "type": "tour",
       "key": "diljit dosanjh",
@@ -722,6 +723,44 @@
           "price": "from ₹2,499",
           "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-lucknow/et69avfrrm",
           "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2026-10-30",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Krishna Das India Tour 2026",
+      "type": "tour",
+      "key": "krishna das india tour",
+      "cities": [
+        "Bangalore",
+        "Pune"
+      ],
+      "dates": [
+        {
+          "date": "2026-10-30",
+          "date_obj": "2026-10-30",
+          "city": "Pune",
+          "venue": "Mayfield Yash Garden",
+          "time": "13:30",
+          "price": "from ₹1,999",
+          "url": "https://www.district.in/events/krishna-das-india-tour-2026-pune",
+          "source": "district"
+        },
+        {
+          "date": "2026-11-04",
+          "date_obj": "2026-11-04",
+          "city": "Bangalore",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹1,999",
+          "url": "https://www.district.in/events/krishna-das-india-tour-2026-bengaluru",
+          "source": "district"
         }
       ],
       "soonest": "2026-10-30",
@@ -1309,22 +1348,20 @@
     }
   ],
   "new_this_run": [
-    "MIxtape presents The Gundaraaj Tour",
-    "Marga Music Festival 2026",
-    "Aditya Rikhari's Meri Paro India Tour",
-    "Kumar Sanu Live In Concert",
-    "Madhubanti Bagchi  india Tour - This Is Who We Are",
-    "Lakhwinder Wadali India Tour",
-    "Weverse Con Festival India 2027"
+    "Jagran Film Festival",
+    "Dharamshala International Film Festival",
+    "Karwa Carnival"
   ],
   "_all_keys": [
+    "jagran film festival",
+    "dharamshala international film festival",
+    "karwa carnival",
     "sikth",
     "domi jd beck who asked tour",
     "rainburn adrift in india tour",
     "khalid live in",
     "gaia 3 day festival pass",
     "structure music festival",
-    "indie fest",
     "mixtape presents the gundaraaj tour",
     "the festival of lights",
     "horn ok please",
