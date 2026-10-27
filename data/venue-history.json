@@ -3853,7 +3853,7 @@
   },
   {
     "week": "2026-W44",
-    "date": "2026-10-26",
+    "date": "2026-10-27",
     "cities": {
       "Goa": {
         "HOUSE OF CHAPORA": {
@@ -3929,10 +3929,10 @@
           "next_date": "2027-01-29"
         },
         "Venue TBC": {
-          "shows": 5,
+          "shows": 7,
           "price_min": 499,
           "price_max": 28990,
-          "next_date": "2026-12-11"
+          "next_date": "2026-10-31"
         },
         "F.t Haemogoblin, Shanta": {
           "shows": 1,
@@ -4051,7 +4051,7 @@
           "next_date": "2027-01-30"
         },
         "Venue TBC": {
-          "shows": 9,
+          "shows": 8,
           "price_min": 250,
           "price_max": 13999,
           "next_date": "2026-10-31"
@@ -4061,6 +4061,18 @@
           "price_min": 1299,
           "price_max": 1299,
           "next_date": "28 Nov Sat"
+        },
+        "Mestizo": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 1499,
+          "next_date": "31 Oct Sat"
+        },
+        "The Tivoli": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-10-29"
         }
       },
       "Kolkata": {
@@ -4175,7 +4187,7 @@
           "next_date": "2026-11-14"
         },
         "Venue TBC": {
-          "shows": 46,
+          "shows": 39,
           "price_min": 1,
           "price_max": 500000,
           "next_date": "2026-10-29"
@@ -4185,6 +4197,12 @@
           "price_min": 999,
           "price_max": 5000,
           "next_date": "2026-11-01"
+        },
+        "Nightvibe": {
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "21 Nov Sat"
         },
         "MIxtape": {
           "shows": 1,
@@ -4265,6 +4283,12 @@
           "price_min": 799,
           "price_max": 1799,
           "next_date": "2026-11-06"
+        },
+        "Cinepolis (Fun Republic)": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-10-28"
         }
       },
       "Chandigarh": {
@@ -4287,6 +4311,12 @@
           "price_min": 2499,
           "price_max": 2499,
           "next_date": "2026-12-05"
+        },
+        "UP Darshan Park": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-10-29"
         }
       },
       "Britona": {
@@ -4311,8 +4341,8 @@
           "next_date": "2026-10-31"
         },
         "Venue TBC": {
-          "shows": 1,
-          "price_min": 499,
+          "shows": 2,
+          "price_min": 375,
           "price_max": 499,
           "next_date": "2026-11-22"
         }
@@ -4325,9 +4355,9 @@
           "next_date": "2026-11-28"
         },
         "Venue TBC": {
-          "shows": 3,
+          "shows": 1,
           "price_min": 500,
-          "price_max": 2359,
+          "price_max": 500,
           "next_date": "2026-11-01"
         }
       },
@@ -4341,10 +4371,10 @@
       },
       "Chennai": {
         "Venue TBC": {
-          "shows": 1,
+          "shows": 2,
           "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-12-04"
+          "price_max": 1000,
+          "next_date": "2026-10-31"
         }
       },
       "Hoshiarpur": {
@@ -4361,36 +4391,6 @@
           "price_min": 5999,
           "price_max": 15000,
           "next_date": "25 Dec Fri"
-        }
-      },
-      "Varanasi": {
-        "A Film Analysis Quiz": {
-          "shows": 1,
-          "price_min": 100,
-          "price_max": 2250,
-          "next_date": "25 Oct Sun"
-        },
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "31 Oct Sat"
-        }
-      },
-      "Uniara": {
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "27 Oct Tue"
-        }
-      },
-      "Anjuna": {
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 3999,
-          "price_max": 3999,
-          "next_date": "31 Dec Thu"
         }
       },
       "Dima Hasao": {
@@ -4414,6 +4414,14 @@
           "shows": 1,
           "price_min": 699,
           "price_max": 699,
+          "next_date": "31 Oct Sat"
+        }
+      },
+      "Varanasi": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
           "next_date": "31 Oct Sat"
         }
       }

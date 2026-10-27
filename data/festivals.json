@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-26T06:07:04.271816+00:00",
+  "generated_at": "2026-10-27T06:19:53.162537+00:00",
   "counts": {
     "festivals": 25,
-    "tours": 18,
+    "tours": 17,
     "marquee": 14,
     "international": 7,
-    "indian": 36,
-    "new_this_run": 3
+    "indian": 35,
+    "new_this_run": 2
   },
   "festivals": [
     {
@@ -346,33 +346,6 @@
       "origin": "indian"
     },
     {
-      "title": "The Festival of Lights – A Diwali Celebration",
-      "type": "festival",
-      "key": "the festival of lights",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-26",
-          "date_obj": "2026-10-26",
-          "city": "Bangalore",
-          "venue": "",
-          "time": "07:00 PM",
-          "price": "from ₹3,540",
-          "url": "https://www.skillboxes.com/events/the-festival-of-lights-a-diwali-celebration-sbvpmkcl",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-10-26",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Jagran Film Festival",
       "type": "festival",
       "key": "jagran film festival",
@@ -385,6 +358,31 @@
           "date_obj": "2026-10-28",
           "city": "Andheri",
           "venue": "Cinepolis (Fun Republic)",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-10-28",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Utsav shringar ka",
+      "type": "festival",
+      "key": "utsav shringar ka",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-10-28",
+          "date_obj": "2026-10-28",
+          "city": "",
+          "venue": "Sheraton Grand Palace Indore",
           "time": "",
           "price": "",
           "url": "",
@@ -425,20 +423,22 @@
       "origin": "indian"
     },
     {
-      "title": "Karwa Carnival",
+      "title": "HELLBOUND FESTIVAL",
       "type": "festival",
-      "key": "karwa carnival",
-      "cities": [],
+      "key": "hellbound festival",
+      "cities": [
+        "Delhi"
+      ],
       "dates": [
         {
           "date": "2026-10-29",
           "date_obj": "2026-10-29",
-          "city": "",
-          "venue": "Hotel Waterlily",
-          "time": "",
-          "price": "",
-          "url": "",
-          "source": "thumpn"
+          "city": "Delhi",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "₹999–₹3,399",
+          "url": "https://www.skillboxes.com/events/hellbound-festival-sbiqwcrv",
+          "source": "skillboxes"
         }
       ],
       "soonest": "2026-10-29",
@@ -813,7 +813,7 @@
           "city": "Bangalore",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹1,999–₹6,969",
+          "price": "₹1,999–₹8,199",
           "url": "https://www.skillboxes.com/events/sikth-live-in-bengaluru-sbcjzpcg",
           "source": "skillboxes"
         },
@@ -823,7 +823,7 @@
           "city": "Mumbai",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹1,999–₹6,969",
+          "price": "₹1,999–₹8,199",
           "url": "https://www.skillboxes.com/events/sikth-live-in-mumbai-sbcmemjx",
           "source": "skillboxes"
         }
@@ -912,7 +912,7 @@
           "city": "Bangalore",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹2,499–₹3,149",
+          "price": "₹2,499–₹3,499",
           "url": "https://www.skillboxes.com/events/domi-jd-beck-who-asked-tour-bengaluru-sbtxwbxp",
           "source": "skillboxes"
         },
@@ -922,7 +922,7 @@
           "city": "Mumbai",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹2,499–₹3,149",
+          "price": "₹2,499–₹3,499",
           "url": "https://www.skillboxes.com/events/domi-jd-beck-who-asked-tour-mumbai-sbucfwmx",
           "source": "skillboxes"
         },
@@ -932,7 +932,7 @@
           "city": "Delhi",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹2,499–₹2,699",
+          "price": "₹2,499–₹2,999",
           "url": "https://www.skillboxes.com/events/domi-jd-beck-who-asked-tour-new-delhi-sbtvrepy",
           "source": "skillboxes"
         }
@@ -1075,7 +1075,7 @@
           "city": "Delhi",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,294–₹6,299",
+          "price": "₹2,549–₹6,999",
           "url": "https://www.skillboxes.com/events/khalid-live-in-delhi-ncr-sbnorbid",
           "source": "skillboxes"
         },
@@ -1085,7 +1085,7 @@
           "city": "Bangalore",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,549–₹6,299",
+          "price": "₹2,549–₹6,999",
           "url": "https://www.skillboxes.com/events/khalid-live-in-bengaluru-sbntavxl",
           "source": "skillboxes"
         },
@@ -1095,7 +1095,7 @@
           "city": "Mumbai",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,294–₹6,299",
+          "price": "₹2,549–₹6,999",
           "url": "https://www.skillboxes.com/events/khalid-live-in-mumbai-sbnvftfc",
           "source": "skillboxes"
         }
@@ -1128,33 +1128,6 @@
         }
       ],
       "soonest": "2026-12-25",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Bhal Hobo Tour 2026",
-      "type": "tour",
-      "key": "bhal hobo tour",
-      "cities": [
-        "Dima Hasao"
-      ],
-      "dates": [
-        {
-          "date": "2026-12-31",
-          "date_obj": "2026-12-31",
-          "city": "Dima Hasao",
-          "venue": "Dima Hasao",
-          "time": "06:00 PM",
-          "price": "",
-          "url": "https://www.skillboxes.com/events/bhal-hobo-tour-2026-dima-hasao-sbzfttsp",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-12-31",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1348,14 +1321,13 @@
     }
   ],
   "new_this_run": [
-    "Jagran Film Festival",
-    "Dharamshala International Film Festival",
-    "Karwa Carnival"
+    "Utsav shringar ka",
+    "HELLBOUND FESTIVAL"
   ],
   "_all_keys": [
     "jagran film festival",
+    "utsav shringar ka",
     "dharamshala international film festival",
-    "karwa carnival",
     "sikth",
     "domi jd beck who asked tour",
     "rainburn adrift in india tour",
@@ -1363,11 +1335,10 @@
     "gaia 3 day festival pass",
     "structure music festival",
     "mixtape presents the gundaraaj tour",
-    "the festival of lights",
     "horn ok please",
     "benny dayal live in",
+    "hellbound festival",
     "the location fest",
-    "bhal hobo tour",
     "last minute india on tour",
     "diljit dosanjh",
     "marga music festival",
