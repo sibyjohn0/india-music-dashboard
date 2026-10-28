@@ -3853,14 +3853,14 @@
   },
   {
     "week": "2026-W44",
-    "date": "2026-10-27",
+    "date": "2026-10-28",
     "cities": {
       "Goa": {
         "HOUSE OF CHAPORA": {
-          "shows": 5,
+          "shows": 4,
           "price_min": 1000,
           "price_max": 1200,
-          "next_date": "2026-10-27"
+          "next_date": "2026-10-28"
         },
         "UNVRS Club, Vagator": {
           "shows": 3,
@@ -3929,7 +3929,7 @@
           "next_date": "2027-01-29"
         },
         "Venue TBC": {
-          "shows": 7,
+          "shows": 5,
           "price_min": 499,
           "price_max": 28990,
           "next_date": "2026-10-31"
@@ -4051,8 +4051,8 @@
           "next_date": "2027-01-30"
         },
         "Venue TBC": {
-          "shows": 8,
-          "price_min": 250,
+          "shows": 10,
+          "price_min": 299,
           "price_max": 13999,
           "next_date": "2026-10-31"
         },
@@ -4061,6 +4061,12 @@
           "price_min": 1299,
           "price_max": 1299,
           "next_date": "28 Nov Sat"
+        },
+        "SVANAH, GURGAON": {
+          "shows": 1,
+          "price_min": 699,
+          "price_max": 1499,
+          "next_date": "31 Oct Sat"
         },
         "Mestizo": {
           "shows": 1,
@@ -4165,6 +4171,12 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "2027-01-23"
+        },
+        "Venue TBC": {
+          "shows": 2,
+          "price_min": 299,
+          "price_max": 6300,
+          "next_date": "31 Dec Thu"
         }
       },
       "Bangalore": {
@@ -4187,16 +4199,10 @@
           "next_date": "2026-11-14"
         },
         "Venue TBC": {
-          "shows": 39,
-          "price_min": 1,
+          "shows": 40,
+          "price_min": 149,
           "price_max": 500000,
           "next_date": "2026-10-29"
-        },
-        "Privilege": {
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 5000,
-          "next_date": "2026-11-01"
         },
         "Nightvibe": {
           "shows": 1,
@@ -4210,11 +4216,29 @@
           "price_max": 600,
           "next_date": "26 Nov Thu"
         },
+        "HOD": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "27 Oct Tue"
+        },
+        "HOD CLUB": {
+          "shows": 4,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "28 Oct Wed"
+        },
         "The Humming Tree": {
           "shows": 1,
           "price_min": 499,
           "price_max": 499,
           "next_date": "29 Oct Thu"
+        },
+        "2 Pints": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "31 Oct Sat"
         },
         "Fastrack": {
           "shows": 1,
@@ -4273,9 +4297,9 @@
           "next_date": "2027-01-27"
         },
         "Venue TBC": {
-          "shows": 4,
+          "shows": 6,
           "price_min": 699,
-          "price_max": 6969,
+          "price_max": 8199,
           "next_date": "2026-11-04"
         },
         "Waves- Sonic Diwali": {
@@ -4297,12 +4321,6 @@
           "price_min": 1000,
           "price_max": 1000,
           "next_date": "2026-12-01"
-        },
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "23 October"
         }
       },
       "Lucknow": {
@@ -4353,12 +4371,6 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "2026-11-28"
-        },
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "2026-11-01"
         }
       },
       "India": {
@@ -4369,12 +4381,20 @@
           "next_date": null
         }
       },
+      "Dehradun": {
+        "SOCIAL": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-10-30"
+        }
+      },
       "Chennai": {
         "Venue TBC": {
-          "shows": 2,
+          "shows": 1,
           "price_min": 499,
-          "price_max": 1000,
-          "next_date": "2026-10-31"
+          "price_max": 499,
+          "next_date": "2026-12-04"
         }
       },
       "Hoshiarpur": {
@@ -4393,35 +4413,35 @@
           "next_date": "25 Dec Fri"
         }
       },
-      "Dima Hasao": {
-        "Dima Hasao": {
+      "Kochi": {
+        "Venue TBC": {
+          "shows": 2,
+          "price_min": 399,
+          "price_max": 2999,
+          "next_date": "30 Jan Sat"
+        }
+      },
+      "Thagaon": {
+        "Venue TBC": {
           "shows": 1,
           "price_min": null,
           "price_max": null,
-          "next_date": "31 Dec Thu"
+          "next_date": "30 Oct Fri"
         }
       },
-      "Kochi": {
+      "Bir": {
         "Venue TBC": {
           "shows": 1,
-          "price_min": 399,
-          "price_max": 999,
+          "price_min": 100,
+          "price_max": 1000,
           "next_date": "31 Oct Sat"
         }
       },
-      "Shillong": {
+      "Thachumi": {
         "Venue TBC": {
           "shows": 1,
-          "price_min": 699,
-          "price_max": 699,
-          "next_date": "31 Oct Sat"
-        }
-      },
-      "Varanasi": {
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
+          "price_min": null,
+          "price_max": null,
           "next_date": "31 Oct Sat"
         }
       }

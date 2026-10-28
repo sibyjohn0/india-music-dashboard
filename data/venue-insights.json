@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-27T06:10:28.757511+00:00",
-  "snapshot_date": "2026-10-27",
+  "generated_at": "2026-10-28T06:48:41.887944+00:00",
+  "snapshot_date": "2026-10-28",
   "cities": {
     "Goa": {
-      "total_shows": 27,
+      "total_shows": 24,
       "venues": [
         {
           "name": "HOUSE OF CHAPORA",
-          "shows": 5,
+          "shows": 4,
           "price_min": 1000,
           "price_max": 1200,
-          "next_date": "2026-10-27",
-          "growth": 0
+          "next_date": "2026-10-28",
+          "growth": -1
         },
         {
           "name": "UNVRS Club, Vagator",
@@ -110,10 +110,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 7
+      "unlisted_shows": 5
     },
     "Delhi": {
-      "total_shows": 34,
+      "total_shows": 37,
       "venues": [
         {
           "name": "Venue To Be Announced",
@@ -268,12 +268,20 @@
           "growth": 0
         },
         {
+          "name": "SVANAH, GURGAON",
+          "shows": 1,
+          "price_min": 699,
+          "price_max": 1499,
+          "next_date": "31 Oct Sat",
+          "growth": null
+        },
+        {
           "name": "Mestizo",
           "shows": 1,
           "price_min": 499,
           "price_max": 1499,
           "next_date": "31 Oct Sat",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "The Tivoli",
@@ -281,13 +289,13 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-10-29",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 8
+      "unlisted_shows": 10
     },
     "Kolkata": {
-      "total_shows": 27,
+      "total_shows": 29,
       "venues": [
         {
           "name": "Kala Mandir Auditorium",
@@ -410,11 +418,19 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 0
+      "unlisted_shows": 2
     },
     "Bangalore": {
-      "total_shows": 51,
+      "total_shows": 57,
       "venues": [
+        {
+          "name": "HOD CLUB",
+          "shows": 4,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "28 Oct Wed",
+          "growth": null
+        },
         {
           "name": "NICE Grounds",
           "shows": 3,
@@ -440,20 +456,12 @@
           "growth": 0
         },
         {
-          "name": "Privilege",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 5000,
-          "next_date": "2026-11-01",
-          "growth": 0
-        },
-        {
           "name": "Nightvibe",
           "shows": 1,
           "price_min": 799,
           "price_max": 799,
           "next_date": "21 Nov Sat",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "MIxtape",
@@ -464,12 +472,28 @@
           "growth": 0
         },
         {
+          "name": "HOD",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "27 Oct Tue",
+          "growth": null
+        },
+        {
           "name": "The Humming Tree",
           "shows": 1,
           "price_min": 499,
           "price_max": 499,
           "next_date": "29 Oct Thu",
           "growth": 0
+        },
+        {
+          "name": "2 Pints",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "31 Oct Sat",
+          "growth": null
         },
         {
           "name": "Fastrack",
@@ -480,7 +504,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 39
+      "unlisted_shows": 40
     },
     "Indore": {
       "total_shows": 1,
@@ -533,7 +557,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 15,
+      "total_shows": 17,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -573,13 +597,13 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-10-28",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 4
+      "unlisted_shows": 6
     },
     "Chandigarh": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [
         {
           "name": "Venue To Be Announced",
@@ -590,7 +614,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 1
+      "unlisted_shows": 0
     },
     "Lucknow": {
       "total_shows": 2,
@@ -609,7 +633,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-10-29",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 0
@@ -651,7 +675,7 @@
       "unlisted_shows": 2
     },
     "Hyderabad": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -662,7 +686,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 1
+      "unlisted_shows": 0
     },
     "India": {
       "total_shows": 1,
@@ -678,10 +702,24 @@
       ],
       "unlisted_shows": 0
     },
+    "Dehradun": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "SOCIAL",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-10-30",
+          "growth": null
+        }
+      ],
+      "unlisted_shows": 0
+    },
     "Chennai": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [],
-      "unlisted_shows": 2
+      "unlisted_shows": 1
     },
     "Hoshiarpur": {
       "total_shows": 1,
@@ -693,31 +731,22 @@
       "venues": [],
       "unlisted_shows": 1
     },
-    "Dima Hasao": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "Dima Hasao",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "31 Dec Thu",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 0
-    },
     "Kochi": {
+      "total_shows": 2,
+      "venues": [],
+      "unlisted_shows": 2
+    },
+    "Thagaon": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
     },
-    "Shillong": {
+    "Bir": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
     },
-    "Varanasi": {
+    "Thachumi": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
