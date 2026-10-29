@@ -330,7 +330,7 @@ window.WORKBOOK = {
             {key:"start", label:"Where to start", type:"readonly"}
           ],
           rows:[
-            {id:"ir1", cells:{route:"International curator pitching", what:"Playlist curators and blogs outside India, most never see an Indian artist's pitch", start:"[Our Reviewers directory](/reviewers/) (900+ curators, most outside India) or SubmitHub"}},
+            {id:"ir1", cells:{route:"International curator pitching", what:"Playlist curators and blogs outside India, most never see an Indian artist's pitch", start:"[Our Reviewers directory](/reviewers/) (1,100+ curators, most outside India) or SubmitHub"}},
             {id:"ir2", cells:{route:"Spotify editorial, global reach", what:"The same pitch tool as your domestic release, read by genre-specific international editors", start:"Spotify for Artists, pitch 7+ days before release"}},
             {id:"ir3", cells:{route:"Diaspora audience targeting", what:"Indian-origin audiences in cities like London, Toronto or Dubai who already search for Indian artists", start:"Check Spotify for Artists / Instagram Insights for listener cities, then target one with a Reel or pre-save"}},
             {id:"ir4", cells:{route:"International festivals and showcases", what:"Performance slots and travel grants, usually the fastest route to a real international audience", start:"British Council and Goethe-Institut grants (see Support & leverage section)"}},
@@ -1009,12 +1009,12 @@ window.WORKBOOK = {
             {id:"to6", cells:{tool:"Mailchimp / ConvertKit", purpose:"Email list, your owned audience"}},
             {id:"to7", cells:{tool:"songsplits.com", purpose:"Free split-sheet template for collaborations"}},
             {id:"to8", cells:{tool:"SoundBetter / AirGigs", purpose:"Find remote session musicians and engineers"}},
-            {id:"to9", cells:{tool:"India Indie Music Radar", purpose:"[900+ curators & reviewers](/reviewers/) and [the artist radar](/radar.html)"}},
+            {id:"to9", cells:{tool:"India Indie Music Radar", purpose:"[1,100+ curators & reviewers](/reviewers/) and [the artist radar](/radar.html)"}},
             {id:"to10", cells:{tool:"Venues & live shows", purpose:"[Venues by city](/venues/) and [upcoming shows](/live/)"}},
             {id:"to11", cells:{tool:"The toolkit & royalty calculator", purpose:"[Guides & templates](/toolkit/) and the [royalty calculator](/tools/royalty-calculator/)"}}
           ]},
         { type:"table", id:"press", title:"Media and press contacts",
-          help:"Tip: our [reviewer list](/reviewers/) already has 900+ curators with submission info.",
+          help:"Tip: our [reviewer list](/reviewers/) already has 1,100+ curators with submission info.",
           columns:[
             {key:"pub", label:"Publication", type:"readonly"},
             {key:"link", label:"Submission link / email", type:"text"},
