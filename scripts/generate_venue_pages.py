@@ -184,7 +184,8 @@ def build():
     tot_v = sum(c["venue_count"] for c in cities.values())
     tot_s = sum(c["show_count"] for c in cities.values())
     hub_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Live music venues in India","url":"https://indiemusicindia.com/venues/","isPartOf":{{"@type":"WebSite","name":"Indie Music India","url":"https://indiemusicindia.com/"}}}}</script>
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}}]}}</script>'''
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}}]}}</script>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"What counts as a live music venue here?","acceptedAnswer":{{"@type":"Answer","text":"A room, bar, club or outdoor space with an actual independent or live show booked on its calendar right now. Venues with no upcoming date are not listed."}}}},{{"@type":"Question","name":"Which Indian cities have the most live music venues?","acceptedAnswer":{{"@type":"Answer","text":"Based on what is currently on the calendar, Delhi and Goa have the most active rooms, followed by Bengaluru. This shifts week to week as tours route differently."}}}},{{"@type":"Question","name":"How do I book a live music venue for my own show?","acceptedAnswer":{{"@type":"Answer","text":"Most venues on this list book directly, not through a platform, so the ticketing page's organiser contact is the fastest route in."}}}}]}}</script>'''
     hub = head("Live Music Venues in India: Gig Venues by City, Shows & Tickets, Indie Music India",
                "Live music venues across India by city: the rooms hosting gigs in Mumbai, Delhi, Bengaluru, Hyderabad, Pune and Goa, with shows and tickets.",
                "https://indiemusicindia.com/venues/", hub_ld)
@@ -194,14 +195,29 @@ def build():
   <div class="eyebrow">Live music venues</div>
   <h1>Live Music Venues in India</h1>
   <p class="lead">Every upcoming concert, gig and live show across India, city by city: the rooms hosting live music in each metro, ranked by what's on, with ticket links. Built from the ticketing feeds and updated daily.</p>
+  <p style="font-size:14px;color:var(--muted);max-width:640px;margin:14px 0 24px;line-height:1.7">A live music venue here means a real room with a show actually on its calendar right now, not a listing that might book music someday. We pull from public ticketing platforms daily and group by city, so you can see what's actually playing in Delhi, Mumbai, Bengaluru, Goa, Pune and Hyderabad without digging through six different apps.</p>
   <div class="stat">{tot_v} venues · {tot_s} upcoming shows · updated {updated}</div>
   <div class="cities">
 {cards}
   </div>
+  <section id="venues-faq" style="margin:36px 0">
+    <h2 style="font-size:18px;font-weight:800;margin-bottom:14px">About live music venues in India</h2>
+    <h3 style="font-size:15px;font-weight:800;margin:16px 0 4px">What counts as a live music venue here?</h3>
+    <p style="font-size:14px;color:var(--muted);line-height:1.7">A room, bar, club or outdoor space with an actual independent or live show booked on its calendar right now. We don't list venues with no upcoming date, since a venue that isn't currently booking a show isn't useful to an artist or a fan searching today.</p>
+    <h3 style="font-size:15px;font-weight:800;margin:16px 0 4px">Which Indian cities have the most live music venues?</h3>
+    <p style="font-size:14px;color:var(--muted);line-height:1.7">Based on what's actually on the calendar right now, Delhi and Goa have the most active rooms, followed by Bengaluru. That shifts week to week as tours route differently, so the numbers above are live, not fixed.</p>
+    <h3 style="font-size:15px;font-weight:800;margin:16px 0 4px">How do I book a live music venue for my own show?</h3>
+    <p style="font-size:14px;color:var(--muted);line-height:1.7">Most venues on this list book directly, not through a platform, so the ticketing page's organiser contact is your fastest route in. See which rooms keep showing up on <a href="/venues/bengaluru/">Bengaluru</a>, <a href="/venues/mumbai/">Mumbai</a> or <a href="/venues/delhi/">Delhi</a>'s pages, those are the ones actively booking live acts.</p>
+  </section>
   <div class="cta">
     <h3>Looking for what's on, not where?</h3>
     <p>The Live page has every festival and tour across India, by date.</p>
     <a class="btn" href="/live/">See festivals &amp; tours →</a>
+  </div>
+  <div class="cta" style="margin-top:20px">
+    <h3>Want help landing a slot in one of these rooms?</h3>
+    <p>For a few artists at a time: work directly with Siby and Karishma, plus a network of specialists for release strategy, PR, social, video, design, legal and IPRS. One month to start, no commitment beyond that, and no cut of your music.</p>
+    <a class="btn" href="/programme/">Get a real team behind your music &rarr;</a>
   </div>
 </div>
 {FOOT}'''

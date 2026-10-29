@@ -215,6 +215,13 @@ SOURCES = [
         "outputs": ["data/reviewers.json"],
         "reviewers_only": True,
     },
+    {
+        "name": "reviewers_genre_summary",
+        "script": "gen_reviewer_genre_summary.py",
+        "env_required": [],
+        "outputs": ["reviewers/index.html"],
+        "reviewers_only": True,
+    },
 ]
 
 
