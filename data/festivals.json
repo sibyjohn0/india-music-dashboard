@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-28T06:57:56.727855+00:00",
+  "generated_at": "2026-10-29T07:04:29.787854+00:00",
   "counts": {
-    "festivals": 24,
+    "festivals": 23,
     "tours": 17,
     "marquee": 14,
     "international": 7,
-    "indian": 34,
-    "new_this_run": 0
+    "indian": 33,
+    "new_this_run": 1
   },
   "festivals": [
     {
@@ -346,58 +346,6 @@
       "origin": "indian"
     },
     {
-      "title": "Jagran Film Festival",
-      "type": "festival",
-      "key": "jagran film festival",
-      "cities": [
-        "Andheri"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-28",
-          "date_obj": "2026-10-28",
-          "city": "Andheri",
-          "venue": "Cinepolis (Fun Republic)",
-          "time": "",
-          "price": "",
-          "url": "",
-          "source": "thumpn"
-        }
-      ],
-      "soonest": "2026-10-28",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Utsav shringar ka",
-      "type": "festival",
-      "key": "utsav shringar ka",
-      "cities": [],
-      "dates": [
-        {
-          "date": "2026-10-28",
-          "date_obj": "2026-10-28",
-          "city": "",
-          "venue": "Sheraton Grand Palace Indore",
-          "time": "",
-          "price": "",
-          "url": "",
-          "source": "thumpn"
-        }
-      ],
-      "soonest": "2026-10-28",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Dharamshala International Film Festival",
       "type": "festival",
       "key": "dharamshala international film festival",
@@ -408,6 +356,31 @@
           "date_obj": "2026-10-29",
           "city": "",
           "venue": "Tibetan Children’s Village (TCV), Upper Dharamshala",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-10-29",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Karwa Carnival",
+      "type": "festival",
+      "key": "karwa carnival",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-10-29",
+          "date_obj": "2026-10-29",
+          "city": "",
+          "venue": "Hotel Waterlily",
           "time": "",
           "price": "",
           "url": "",
@@ -1293,11 +1266,10 @@
       "origin": "indian"
     }
   ],
-  "new_this_run": [],
+  "new_this_run": [
+    "Karwa Carnival"
+  ],
   "_all_keys": [
-    "jagran film festival",
-    "utsav shringar ka",
-    "dharamshala international film festival",
     "sikth",
     "domi jd beck who asked tour",
     "rainburn adrift in india tour",
@@ -1325,6 +1297,8 @@
     "papon live in concert",
     "echoes of earth",
     "gorillaz the mountain tour",
+    "dharamshala international film festival",
+    "karwa carnival",
     "nh7 weekender",
     "magnetic fields festival",
     "ziro festival of music",

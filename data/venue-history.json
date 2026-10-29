@@ -3853,94 +3853,8 @@
   },
   {
     "week": "2026-W44",
-    "date": "2026-10-28",
+    "date": "2026-10-29",
     "cities": {
-      "Goa": {
-        "HOUSE OF CHAPORA": {
-          "shows": 4,
-          "price_min": 1000,
-          "price_max": 1200,
-          "next_date": "2026-10-28"
-        },
-        "UNVRS Club, Vagator": {
-          "shows": 3,
-          "price_min": 1000,
-          "price_max": 2000,
-          "next_date": "2026-10-29"
-        },
-        "Hammerzz Makarena": {
-          "shows": 2,
-          "price_min": 1000,
-          "price_max": 1000,
-          "next_date": "2026-10-30"
-        },
-        "9Bar": {
-          "shows": 1,
-          "price_min": 699,
-          "price_max": 699,
-          "next_date": "2026-10-30"
-        },
-        "Orion Beach Club": {
-          "shows": 1,
-          "price_min": 1100,
-          "price_max": 1100,
-          "next_date": "2026-10-30"
-        },
-        "Rehab Social": {
-          "shows": 1,
-          "price_min": 600,
-          "price_max": 600,
-          "next_date": "2026-10-31"
-        },
-        "D-Dropp Hammerzz Vagaator": {
-          "shows": 1,
-          "price_min": 1000,
-          "price_max": 1000,
-          "next_date": "2026-10-31"
-        },
-        "Saltamontes - Garden Cafe and Bar": {
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-11-21"
-        },
-        "RROV": {
-          "shows": 1,
-          "price_min": 3000,
-          "price_max": 3000,
-          "next_date": "2026-12-27"
-        },
-        "Dynamo": {
-          "shows": 1,
-          "price_min": 1500,
-          "price_max": 1500,
-          "next_date": "2026-12-28"
-        },
-        "Thalassa Beach Boutique Resort": {
-          "shows": 1,
-          "price_min": 4999,
-          "price_max": 4999,
-          "next_date": "2027-01-16"
-        },
-        "Bengaluru LIVE,": {
-          "shows": 1,
-          "price_min": 4000,
-          "price_max": 4000,
-          "next_date": "2027-01-29"
-        },
-        "Venue TBC": {
-          "shows": 5,
-          "price_min": 499,
-          "price_max": 28990,
-          "next_date": "2026-10-31"
-        },
-        "F.t Haemogoblin, Shanta": {
-          "shows": 1,
-          "price_min": 1499,
-          "price_max": 1499,
-          "next_date": "30 Oct Fri"
-        }
-      },
       "Delhi": {
         "Zorba The Buddha": {
           "shows": 1,
@@ -4051,26 +3965,14 @@
           "next_date": "2027-01-30"
         },
         "Venue TBC": {
-          "shows": 10,
-          "price_min": 299,
+          "shows": 9,
+          "price_min": 2,
           "price_max": 13999,
           "next_date": "2026-10-31"
-        },
-        "Room xo": {
-          "shows": 1,
-          "price_min": 1299,
-          "price_max": 1299,
-          "next_date": "28 Nov Sat"
         },
         "SVANAH, GURGAON": {
           "shows": 1,
           "price_min": 699,
-          "price_max": 1499,
-          "next_date": "31 Oct Sat"
-        },
-        "Mestizo": {
-          "shows": 1,
-          "price_min": 499,
           "price_max": 1499,
           "next_date": "31 Oct Sat"
         },
@@ -4079,6 +3981,86 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-10-29"
+        }
+      },
+      "Goa": {
+        "UNVRS Club, Vagator": {
+          "shows": 3,
+          "price_min": 1000,
+          "price_max": 2000,
+          "next_date": "2026-10-29"
+        },
+        "Hammerzz Makarena": {
+          "shows": 2,
+          "price_min": 1000,
+          "price_max": 1000,
+          "next_date": "2026-10-30"
+        },
+        "9Bar": {
+          "shows": 1,
+          "price_min": 699,
+          "price_max": 699,
+          "next_date": "2026-10-30"
+        },
+        "Orion Beach Club": {
+          "shows": 1,
+          "price_min": 1100,
+          "price_max": 1100,
+          "next_date": "2026-10-30"
+        },
+        "HOUSE OF CHAPORA": {
+          "shows": 3,
+          "price_min": 1100,
+          "price_max": 1200,
+          "next_date": "2026-10-30"
+        },
+        "Rehab Social": {
+          "shows": 1,
+          "price_min": 600,
+          "price_max": 600,
+          "next_date": "2026-10-31"
+        },
+        "D-Dropp Hammerzz Vagaator": {
+          "shows": 1,
+          "price_min": 1000,
+          "price_max": 1000,
+          "next_date": "2026-10-31"
+        },
+        "Saltamontes - Garden Cafe and Bar": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-11-21"
+        },
+        "RROV": {
+          "shows": 1,
+          "price_min": 3000,
+          "price_max": 3000,
+          "next_date": "2026-12-27"
+        },
+        "Dynamo": {
+          "shows": 1,
+          "price_min": 1500,
+          "price_max": 1500,
+          "next_date": "2026-12-28"
+        },
+        "Thalassa Beach Boutique Resort": {
+          "shows": 1,
+          "price_min": 4999,
+          "price_max": 4999,
+          "next_date": "2027-01-16"
+        },
+        "Bengaluru LIVE,": {
+          "shows": 1,
+          "price_min": 4000,
+          "price_max": 4000,
+          "next_date": "2027-01-29"
+        },
+        "Venue TBC": {
+          "shows": 3,
+          "price_min": 499,
+          "price_max": 28990,
+          "next_date": "2026-12-11"
         }
       },
       "Kolkata": {
@@ -4199,7 +4181,7 @@
           "next_date": "2026-11-14"
         },
         "Venue TBC": {
-          "shows": 40,
+          "shows": 42,
           "price_min": 149,
           "price_max": 500000,
           "next_date": "2026-10-29"
@@ -4215,12 +4197,6 @@
           "price_min": 600,
           "price_max": 600,
           "next_date": "26 Nov Thu"
-        },
-        "HOD": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "27 Oct Tue"
         },
         "HOD CLUB": {
           "shows": 4,
@@ -4262,6 +4238,12 @@
           "price_max": 5000,
           "next_date": "2026-11-17"
         },
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 1199,
+          "price_max": 1999,
+          "next_date": "27 Nov Fri"
+        },
         "Guwahati": {
           "shows": 1,
           "price_min": null,
@@ -4297,7 +4279,7 @@
           "next_date": "2027-01-27"
         },
         "Venue TBC": {
-          "shows": 6,
+          "shows": 7,
           "price_min": 699,
           "price_max": 8199,
           "next_date": "2026-11-04"
@@ -4307,12 +4289,6 @@
           "price_min": 799,
           "price_max": 1799,
           "next_date": "2026-11-06"
-        },
-        "Cinepolis (Fun Republic)": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-10-28"
         }
       },
       "Chandigarh": {
@@ -4359,8 +4335,8 @@
           "next_date": "2026-10-31"
         },
         "Venue TBC": {
-          "shows": 2,
-          "price_min": 375,
+          "shows": 1,
+          "price_min": 499,
           "price_max": 499,
           "next_date": "2026-11-22"
         }
@@ -4379,14 +4355,6 @@
           "price_min": null,
           "price_max": null,
           "next_date": null
-        }
-      },
-      "Dehradun": {
-        "SOCIAL": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-10-30"
         }
       },
       "Chennai": {
@@ -4413,6 +4381,14 @@
           "next_date": "25 Dec Fri"
         }
       },
+      "Angadippuram": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "28 Oct Wed"
+        }
+      },
       "Kochi": {
         "Venue TBC": {
           "shows": 2,
@@ -4429,11 +4405,11 @@
           "next_date": "30 Oct Fri"
         }
       },
-      "Bir": {
+      "Dharmanagar": {
         "Venue TBC": {
           "shows": 1,
-          "price_min": 100,
-          "price_max": 1000,
+          "price_min": 50,
+          "price_max": 50,
           "next_date": "31 Oct Sat"
         }
       },
