@@ -25,6 +25,7 @@
     { label: 'Tools', children: [
       { label: 'Guides', href: '/answers/' },
       { label: 'Reviewers', href: '/reviewers/' },
+      { label: 'Playlists', href: '/playlists/' },
       { label: 'Industry', href: '/industry/' },
       { label: 'Royalty Calculator', href: '/tools/royalty-calculator/' }
     ] },
@@ -45,7 +46,8 @@
       ['/venues', 'Discover', 'Venues'], ['/news', 'Discover', 'News'],
       ['/tools/royalty-calculator', 'Tools', 'Royalty Calculator'],
       ['/answers', 'Tools', 'Guides'], ['/guides/', 'Tools', 'Guides'],
-      ['/reviewers', 'Tools', 'Reviewers'], ['/industry', 'Tools', 'Industry'],
+      ['/reviewers', 'Tools', 'Reviewers'], ['/playlists', 'Tools', 'Playlists'],
+      ['/industry', 'Tools', 'Industry'],
       ['/resources', 'Tools', null],
       ['/programme', 'Programme', null], ['/about', 'About', null]
     ];

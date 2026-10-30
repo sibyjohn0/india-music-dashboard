@@ -204,7 +204,7 @@ FOOT = '''<footer>
 </footer>
 ''' + SCRIPTJS + '''
 <script src="/assets/analytics.js" defer></script>
-<script src="/assets/nav.js?v=20261021" defer></script>
+<script src="/assets/nav.js?v=20261030" defer></script>
 <script src="/assets/player.js?v=20261026" defer></script>
 </body>
 </html>'''
