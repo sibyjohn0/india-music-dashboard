@@ -71,6 +71,15 @@ SOURCES = [
         "outputs": ["data/spotify_enrichment.json"],
     },
     {
+        # Discovers India-focused indie playlists via Spotify search (track-level
+        # data is blocked for our API tier, so this tracks playlist-level
+        # snapshot_id changes as a "being actively maintained" signal instead).
+        "name": "playlist_insights",
+        "script": "fetch_playlist_insights.py",
+        "env_required": ["SPOTIFY_CLIENT_ID", "SPOTIFY_CLIENT_SECRET"],
+        "outputs": ["data/playlist_insights.json"],
+    },
+    {
         # Generates the weekly "The Radar" social carousel from tracked_artists.json
         # + spotify_enrichment.json. Depends on the radar and spotify steps above.
         "name": "radar_social",
