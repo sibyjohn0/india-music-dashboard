@@ -80,6 +80,14 @@ SOURCES = [
         "outputs": ["data/playlist_insights.json"],
     },
     {
+        # Server-renders /playlists/ (hub) + /playlists/<language>/ from the
+        # data the step above produces. Must run right after it.
+        "name": "playlist_insights_pages",
+        "script": "generate_playlist_pages.py",
+        "env_required": [],
+        "outputs": ["playlists/index.html"],
+    },
+    {
         # Generates the weekly "The Radar" social carousel from tracked_artists.json
         # + spotify_enrichment.json. Depends on the radar and spotify steps above.
         "name": "radar_social",

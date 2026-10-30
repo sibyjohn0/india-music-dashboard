@@ -44,15 +44,26 @@ REPO = Path(__file__).resolve().parent.parent
 DATA_DIR = REPO / "data"
 OUT_PATH = DATA_DIR / "playlist_insights.json"
 HISTORY_PATH = DATA_DIR / "playlist_insights_history.json"
+LOG_PATH = DATA_DIR / "playlist_insights_log.json"
+MAX_LOG_ENTRIES = 365  # one compact entry/day -- this caps the file at roughly a year, not unbounded growth
 
 LANGUAGES = [
     "Hindi", "Punjabi", "Tamil", "Telugu", "Kannada", "Malayalam",
-    "Bengali", "Marathi", "Gujarati",
+    "Bengali", "Marathi", "Gujarati", "Urdu", "Assamese", "Odia", "Konkani",
 ]
-LANG_MODIFIERS = ["indie", "indie music", "indie songs", "underground"]
+LANG_MODIFIERS = [
+    "indie", "indie music", "indie songs", "indie 2026", "underground",
+    "indie pop", "indie folk", "indie rock", "bedroom pop",
+    "singer songwriter", "lo-fi", "indie hip hop", "alternative",
+]
 EXTRA_QUERIES = [
     "indie india", "india indie music", "desi indie", "indie english india",
-    "indian indie artists", "independent music india",
+    "indian indie artists", "independent music india", "indie india 2026",
+    "mumbai indie", "bangalore indie", "delhi indie", "chennai indie",
+    "kolkata indie", "pune indie", "hyderabad indie", "goa indie",
+    "india indie rock", "india indie folk", "india indie pop",
+    "india bedroom pop", "india singer songwriter", "india lo-fi",
+    "desi hip hop indie", "india alternative music",
 ]
 
 def build_queries():
@@ -95,7 +106,19 @@ def get_token():
     return _token
 
 
+# Confirmed by hand: a 429 can come back with Retry-After in the TENS OF
+# THOUSANDS of seconds (one case: 75,996s, ~21 hours) -- not a transient
+# throttle, a real "you've been cut off" response. Blindly sleeping for
+# whatever the header says turns one bad response into an invisible
+# multi-hour hang (this happened once, looked exactly like a stuck process
+# until the unbuffered log line revealed it). Cap it: short waits still
+# retry automatically, anything longer aborts loudly instead of blocking.
+MAX_RATE_LIMIT_WAIT = 30
+
+_severe_rate_limit_hit = False
+
 def api_get(path, params=None, _retries=3):
+    global _severe_rate_limit_hit
     url = f"https://api.spotify.com/v1{path}"
     if params:
         url += "?" + urlencode(params)
@@ -104,11 +127,17 @@ def api_get(path, params=None, _retries=3):
         with urlopen(req, timeout=10) as r:
             return json.loads(r.read())
     except HTTPError as e:
-        if e.code == 429 and _retries > 0:
+        if e.code == 429:
             retry = int(e.headers.get("Retry-After", 3))
-            print(f"  rate limit, sleeping {retry}s")
-            time.sleep(retry)
-            return api_get(path, params, _retries - 1)
+            if retry > MAX_RATE_LIMIT_WAIT:
+                print(f"  SEVERE rate limit (Retry-After {retry}s) -- aborting this call, not waiting it out")
+                _severe_rate_limit_hit = True
+                return None
+            if _retries > 0:
+                print(f"  rate limit, sleeping {retry}s")
+                time.sleep(retry)
+                return api_get(path, params, _retries - 1)
+            return None
         if e.code == 403:
             return None  # expected for some private/restricted playlists
         print(f"  HTTP {e.code} on {path}")
@@ -151,10 +180,14 @@ def discover():
     """Sweep all search queries, return deduped playlist records keyed by id."""
     found = {}
     for qi, query in enumerate(SEARCH_QUERIES):
+        if _severe_rate_limit_hit:
+            print(f"  Stopping early at query {qi+1}/{len(SEARCH_QUERIES)}: severe rate limit hit, "
+                  f"continuing would just rack up more failed calls against an active ban.")
+            break
         print(f"  [{qi+1}/{len(SEARCH_QUERIES)}] {query!r}...")
         items = []
         total = None
-        for offset in range(0, 50, SEARCH_LIMIT):  # up to 5 pages = 50 results/query
+        for offset in range(0, 100, SEARCH_LIMIT):  # up to 10 pages = 100 results/query
             page, total = search_playlists(query, offset=offset)
             if not page:
                 break
@@ -201,6 +234,22 @@ def discover():
     return found
 
 
+def enrich_followers(found):
+    """One GET per discovered playlist for follower count (not available from
+    /search). The /tracks sub-resource is blocked for our tier, but this
+    top-level GET works fine -- same call proven by hand before this was written."""
+    n = len(found)
+    for i, (pid, rec) in enumerate(found.items()):
+        if _severe_rate_limit_hit:
+            print(f"    Stopping follower enrichment early at {i+1}/{n}: severe rate limit hit.")
+            break
+        if (i + 1) % 25 == 0:
+            print(f"    followers: {i+1}/{n}")
+        data = api_get(f"/playlists/{pid}", {"fields": "followers.total"})
+        rec["followers"] = (data or {}).get("followers", {}).get("total")
+        time.sleep(0.08)
+
+
 def infer_languages(rec):
     langs = set()
     for q in rec["matched_queries"]:
@@ -229,12 +278,17 @@ def main():
     found = discover()
     print(f"  {len(found)} unique playlists after owner/quality filtering")
 
+    print("Fetching follower counts...")
+    enrich_followers(found)
+
     history = load_history()
     now_iso = datetime.now(timezone.utc).isoformat()
     new_history = {}
     recently_changed = 0
 
     playlists = []
+    new_today = []
+    gainers = []
     for pid, rec in found.items():
         rec["languages"] = infer_languages(rec)
         prev = history.get(pid)
@@ -246,10 +300,19 @@ def main():
                 recently_changed += 1
         rec["last_changed_at"] = last_changed_at
         rec["first_seen_at"] = (prev or {}).get("first_seen_at", now_iso)
+        if not prev:
+            new_today.append(rec["name"])
+        prev_followers = (prev or {}).get("followers")
+        cur_followers = rec.get("followers")
+        if prev and prev_followers is not None and cur_followers is not None:
+            delta = cur_followers - prev_followers
+            if delta > 0:
+                gainers.append({"name": rec["name"], "owner": rec["owner_name"], "delta": delta, "followers": cur_followers})
         new_history[pid] = {
             "snapshot_id": rec["snapshot_id"],
             "last_changed_at": last_changed_at,
             "first_seen_at": rec["first_seen_at"],
+            "followers": cur_followers,
         }
         del rec["matched_queries"][3:]  # keep it to a few representative queries
         playlists.append(rec)
@@ -271,9 +334,11 @@ def main():
             "playlist_ids": [],
             "languages": set(),
             "contact": None,
+            "total_followers": 0,
         })
         c["playlist_ids"].append(rec["id"])
         c["languages"].update(rec["languages"])
+        c["total_followers"] += rec.get("followers") or 0
         if not c["contact"] and rec["contact"]:
             c["contact"] = rec["contact"]
     curator_list = []
@@ -281,7 +346,13 @@ def main():
         c["languages"] = sorted(c["languages"])
         c["playlist_count"] = len(c["playlist_ids"])
         curator_list.append(c)
-    curator_list.sort(key=lambda c: -c["playlist_count"])
+    curator_list.sort(key=lambda c: (-c["playlist_count"], -c["total_followers"]))
+
+    lang_counts = {}
+    for p in playlists:
+        for l in p["languages"]:
+            lang_counts[l] = lang_counts.get(l, 0) + 1
+    gainers.sort(key=lambda g: -g["delta"])
 
     output = {
         "generated_at": now_iso,
@@ -295,7 +366,32 @@ def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(output, indent=2, ensure_ascii=False))
     HISTORY_PATH.write_text(json.dumps(new_history, indent=2, ensure_ascii=False))
+
+    # Daily pattern log: one small entry per day, not a full dump, so this
+    # stays readable and git-diffable even after months of runs. This is
+    # what "watch for patterns over time" actually means: growth, new
+    # discoveries and actual follower movers, logged daily, not just today's
+    # snapshot overwriting yesterday's with no trail.
+    today = now_iso[:10]
+    log = json.loads(LOG_PATH.read_text()) if LOG_PATH.exists() else []
+    log = [entry for entry in log if entry.get("date") != today]  # idempotent same-day reruns
+    log.append({
+        "date": today,
+        "generated_at": now_iso,
+        "playlist_count": len(playlists),
+        "curator_count": len(curator_list),
+        "new_playlists_today": len(new_today),
+        "new_playlist_names": new_today[:10],
+        "recently_changed": recently_changed,
+        "language_counts": lang_counts,
+        "top_followers_gainers": gainers[:5],
+    })
+    log.sort(key=lambda e: e["date"])
+    log = log[-MAX_LOG_ENTRIES:]
+    LOG_PATH.write_text(json.dumps(log, indent=2, ensure_ascii=False))
+
     print(f"Written -> {OUT_PATH} ({len(playlists)} playlists, {len(curator_list)} curators, {recently_changed} changed since last run)")
+    print(f"Logged -> {LOG_PATH} ({len(log)} days of history, {len(new_today)} new playlists today)")
 
 
 if __name__ == "__main__":
