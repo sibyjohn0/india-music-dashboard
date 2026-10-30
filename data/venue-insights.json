@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-29T06:55:25.529245+00:00",
-  "snapshot_date": "2026-10-29",
+  "generated_at": "2026-10-30T06:59:34.837752+00:00",
+  "snapshot_date": "2026-10-30",
   "cities": {
     "Delhi": {
-      "total_shows": 34,
+      "total_shows": 31,
       "venues": [
         {
           "name": "Venue To Be Announced",
@@ -27,14 +27,6 @@
           "price_min": 349,
           "price_max": 1999,
           "next_date": "2026-11-28",
-          "growth": 0
-        },
-        {
-          "name": "Zorba The Buddha",
-          "shows": 1,
-          "price_min": 1985,
-          "price_max": 1985,
-          "next_date": "2026-10-29",
           "growth": 0
         },
         {
@@ -148,44 +140,20 @@
           "price_max": 999,
           "next_date": "2027-01-30",
           "growth": 0
-        },
-        {
-          "name": "SVANAH, GURGAON",
-          "shows": 1,
-          "price_min": 699,
-          "price_max": 1499,
-          "next_date": "31 Oct Sat",
-          "growth": 0
-        },
-        {
-          "name": "The Tivoli",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-10-29",
-          "growth": 0
         }
       ],
       "unlisted_shows": 9
     },
     "Goa": {
-      "total_shows": 20,
+      "total_shows": 19,
       "venues": [
-        {
-          "name": "UNVRS Club, Vagator",
-          "shows": 3,
-          "price_min": 1000,
-          "price_max": 2000,
-          "next_date": "2026-10-29",
-          "growth": 0
-        },
         {
           "name": "HOUSE OF CHAPORA",
           "shows": 3,
           "price_min": 1100,
           "price_max": 1200,
           "next_date": "2026-10-30",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "Hammerzz Makarena",
@@ -194,6 +162,14 @@
           "price_max": 1000,
           "next_date": "2026-10-30",
           "growth": 0
+        },
+        {
+          "name": "UNVRS Club, Vagator",
+          "shows": 2,
+          "price_min": 2000,
+          "price_max": 2000,
+          "next_date": "2026-10-31",
+          "growth": -1
         },
         {
           "name": "9Bar",
@@ -271,7 +247,7 @@
       "unlisted_shows": 3
     },
     "Kolkata": {
-      "total_shows": 29,
+      "total_shows": 28,
       "venues": [
         {
           "name": "Kala Mandir Auditorium",
@@ -394,19 +370,11 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 2
+      "unlisted_shows": 1
     },
     "Bangalore": {
-      "total_shows": 58,
+      "total_shows": 57,
       "venues": [
-        {
-          "name": "HOD CLUB",
-          "shows": 4,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "28 Oct Wed",
-          "growth": 0
-        },
         {
           "name": "NICE Grounds",
           "shows": 3,
@@ -414,6 +382,14 @@
           "price_max": 4899,
           "next_date": "2026-11-14",
           "growth": 0
+        },
+        {
+          "name": "HOD CLUB",
+          "shows": 3,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "29 Oct Thu",
+          "growth": -1
         },
         {
           "name": "Venue to be announced",
@@ -430,6 +406,14 @@
           "price_max": 5000,
           "next_date": "2026-11-14",
           "growth": 0
+        },
+        {
+          "name": "HAMILTON",
+          "shows": 2,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "21 Nov Sat",
+          "growth": null
         },
         {
           "name": "Nightvibe",
@@ -472,7 +456,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 42
+      "unlisted_shows": 40
     },
     "Indore": {
       "total_shows": 1,
@@ -525,7 +509,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 17,
+      "total_shows": 15,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -560,10 +544,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 7
+      "unlisted_shows": 5
     },
     "Chandigarh": {
-      "total_shows": 1,
+      "total_shows": 2,
       "venues": [
         {
           "name": "Venue To Be Announced",
@@ -572,12 +556,20 @@
           "price_max": 1000,
           "next_date": "2026-12-01",
           "growth": 0
+        },
+        {
+          "name": "KomoHouse",
+          "shows": 1,
+          "price_min": 2000,
+          "price_max": 4000,
+          "next_date": "30 Oct Fri",
+          "growth": null
         }
       ],
       "unlisted_shows": 0
     },
     "Lucknow": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [
         {
           "name": "19th National Jamboree Ground",
@@ -585,14 +577,6 @@
           "price_min": 2499,
           "price_max": 2499,
           "next_date": "2026-12-05",
-          "growth": 0
-        },
-        {
-          "name": "UP Darshan Park",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-10-29",
           "growth": 0
         }
       ],
@@ -677,7 +661,12 @@
       "venues": [],
       "unlisted_shows": 1
     },
-    "Angadippuram": {
+    "Jaipur": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
+    },
+    "Delang": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
@@ -686,21 +675,6 @@
       "total_shows": 2,
       "venues": [],
       "unlisted_shows": 2
-    },
-    "Thagaon": {
-      "total_shows": 1,
-      "venues": [],
-      "unlisted_shows": 1
-    },
-    "Dharmanagar": {
-      "total_shows": 1,
-      "venues": [],
-      "unlisted_shows": 1
-    },
-    "Thachumi": {
-      "total_shows": 1,
-      "venues": [],
-      "unlisted_shows": 1
     }
   }
 }
