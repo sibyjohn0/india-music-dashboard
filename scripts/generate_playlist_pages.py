@@ -59,7 +59,9 @@ LANG_COLOR = {
     "Tamil": ("--blue", "--blue-s"), "Telugu": ("--mint", "--mint-s"),
     "Kannada": ("--violet", "--violet-s"), "Malayalam": ("--yellow", "--yellow-s"),
     "Bengali": ("--pink", "--pink-s"), "Marathi": ("--orange", "--orange-s"),
-    "Gujarati": ("--blue", "--blue-s"),
+    "Gujarati": ("--blue", "--blue-s"), "Urdu": ("--mint", "--mint-s"),
+    "Assamese": ("--violet", "--violet-s"), "Odia": ("--yellow", "--yellow-s"),
+    "Konkani": ("--pink", "--pink-s"),
 }
 
 def fmt_date(iso):
@@ -253,16 +255,48 @@ def playlist_row(p, recent_cutoff=None):
   </div>'''
 
 
+MIN_FOLLOWERS = 1000  # below this isn't a real enough audience to be worth an artist's pitch
+
 def build():
     data = json.loads(SRC.read_text())
-    playlists = data["playlists"]
-    curators = data["curators"]
+    all_playlists = data["playlists"]
     updated = fmt_date(data.get("generated_at", ""))
+
+    # Quality floor: a playlist with a handful of followers isn't a
+    # meaningful pitch target. Filtered here (not in the scraper) so the
+    # threshold stays adjustable without re-scraping, and recomputed from
+    # scratch below rather than trusting the scraper's own curator rollup,
+    # since that was built from the full unfiltered set.
+    playlists = [p for p in all_playlists if (p.get("followers") or 0) >= MIN_FOLLOWERS]
+    playlists.sort(key=lambda p: (p.get("followers") or 0), reverse=True)
+    dropped = len(all_playlists) - len(playlists)
+    print(f"  Follower filter: kept {len(playlists)}/{len(all_playlists)} playlists (dropped {dropped} under {MIN_FOLLOWERS} followers)")
 
     for p in playlists:
         p["mg_tags"] = tag_mood_genre(p.get("name"), p.get("description"))
 
-    # top-N most-recently-changed snapshot_id = our honest "active now" signal
+    curators = {}
+    for p in playlists:
+        oid = p.get("owner_id")
+        if not oid:
+            continue
+        c = curators.setdefault(oid, {
+            "owner_id": oid, "owner_name": p["owner_name"], "owner_url": p["owner_url"],
+            "playlist_ids": [], "languages": set(), "contact": None, "total_followers": 0,
+        })
+        c["playlist_ids"].append(p["id"])
+        c["languages"].update(p["languages"])
+        c["total_followers"] += p.get("followers") or 0
+        if not c["contact"] and p.get("contact"):
+            c["contact"] = p["contact"]
+    curators = list(curators.values())
+    for c in curators:
+        c["languages"] = sorted(c["languages"])
+        c["playlist_count"] = len(c["playlist_ids"])
+    curators.sort(key=lambda c: (-c["playlist_count"], -c["total_followers"]))
+
+    # top-N most-recently-changed snapshot_id = our honest "active now" signal,
+    # drawn only from playlists that already cleared the follower floor
     by_recent = sorted(playlists, key=lambda p: p["last_changed_at"], reverse=True)
     recent_cutoff = by_recent[min(24, len(by_recent) - 1)]["last_changed_at"] if by_recent else None
 
@@ -270,6 +304,16 @@ def build():
     for p in playlists:
         for l in p["languages"]:
             lang_counts[l] = lang_counts.get(l, 0) + 1
+
+    # Separately, how many were ever discovered for this language before the
+    # follower filter -- used to tell "we found some, none cleared the bar
+    # yet" apart from "we've genuinely found nothing here", and to keep
+    # already-indexed language pages alive with an honest explanation rather
+    # than silently 404ing a URL we already submitted to search engines.
+    lang_counts_all = {}
+    for p in all_playlists:
+        for l in p["languages"]:
+            lang_counts_all[l] = lang_counts_all.get(l, 0) + 1
 
     mood_counts = {}
     for p in playlists:
@@ -308,7 +352,7 @@ def build():
 
     hub = head(
         "India Indie Playlist Insights: Real Curators, Updated Daily",
-        f"{data['playlist_count']} independently run Spotify playlists for Indian indie music across {len([l for l in LANGUAGES if lang_counts.get(l,0)>0])} languages, with real curators and activity tracked daily. Free to browse.",
+        f"{len(playlists)} independently run Spotify playlists for Indian indie music across {len([l for l in LANGUAGES if lang_counts.get(l,0)>0])} languages, with real curators and activity tracked daily. Free to browse.",
         "https://indiemusicindia.com/playlists/", hub_ld,
     )
     hub += f'''
@@ -316,10 +360,10 @@ def build():
   <div class="pcrumb"><a href="/">Home</a> / Playlists</div>
   <div class="peyebrow">Playlist Insights</div>
   <h1 class="ptitle">Spotify playlists built by real people, not aggregators</h1>
-  <p class="plead">{data['playlist_count']} independently run playlists for Indian indie music, discovered by searching Spotify directly, not bought from a submission service. Updated daily, so "Recently active" actually means something.</p>
+  <p class="plead">{len(playlists)} independently run playlists for Indian indie music, discovered by searching Spotify directly, not bought from a submission service. Updated daily, so "Recently active" actually means something.</p>
   <div class="pstats">
-    <div class="pstat"><b>{data['playlist_count']}</b><span>Playlists</span></div>
-    <div class="pstat"><b>{data['curator_count']}</b><span>Curators</span></div>
+    <div class="pstat"><b>{len(playlists)}</b><span>Playlists</span></div>
+    <div class="pstat"><b>{len(curators)}</b><span>Curators</span></div>
     <div class="pstat"><b>{len([l for l in LANGUAGES if lang_counts.get(l,0)>0])}</b><span>Languages</span></div>
     <div class="pstat"><b>{len(multi_curators)}</b><span>Running 2+ playlists</span></div>
   </div>
@@ -430,16 +474,21 @@ def build():
 
     # ---------------- PER-LANGUAGE: /playlists/<lang>/ ----------------
     for lang in LANGUAGES:
+        if lang_counts_all.get(lang, 0) == 0:
+            continue  # never found anything here at all, nothing to say
         lang_playlists = [p for p in playlists if lang in p["languages"]]
-        if not lang_playlists:
-            continue
         lang_playlists.sort(key=lambda p: (p.get("followers") or 0), reverse=True)
         slug = slugify(lang)
         nav_chips = "\n".join(
             f'<a href="/playlists/{slugify(l)}/" class="{"cur" if l==lang else ""}">{esc(l)} ({lang_counts.get(l,0)})</a>'
-            for l in LANGUAGES if lang_counts.get(l, 0) > 0
+            for l in LANGUAGES if lang_counts_all.get(l, 0) > 0
         )
-        rows = "\n".join(playlist_row(p, recent_cutoff) for p in lang_playlists)
+        rows = "\n".join(playlist_row(p, recent_cutoff) for p in lang_playlists) if lang_playlists else (
+            f'<div class="psearch-empty" style="font-size:14px;line-height:1.7">'
+            f'We\'ve found {lang_counts_all.get(lang,0)} {esc(lang)} playlists on Spotify so far, but none have '
+            f'cleared our {MIN_FOLLOWERS:,}-follower bar yet, so there is nothing honest to recommend here right now. '
+            f'This list is rebuilt daily, so check back, or try the <a href="/playlists/" style="color:var(--pink);font-weight:700">full playlist list</a>.</div>'
+        )
         with_contact = sum(1 for p in lang_playlists if p.get("contact"))
 
         page_ld = (
@@ -452,17 +501,22 @@ def build():
             f'{{"@type":"ListItem","position":3,"name":"{esc(lang)}","item":"https://indiemusicindia.com/playlists/{slug}/"}}]}}</script>'
         )
 
-        page = head(
-            f"{lang} Indie Spotify Playlists: {len(lang_playlists)} Real Curators to Pitch",
-            f"{len(lang_playlists)} independently run {lang} indie Spotify playlists, with curator names and contact info where available. Updated daily, free to browse.",
-            f"https://indiemusicindia.com/playlists/{slug}/", page_ld,
-        )
+        if lang_playlists:
+            title = f"{lang} Indie Spotify Playlists: {len(lang_playlists)} Real Curators to Pitch"
+            meta_desc = f"{len(lang_playlists)} independently run {lang} indie Spotify playlists with 1,000+ followers, curator names and contact info where available. Updated daily, free to browse."
+            lead = f"{len(lang_playlists)} independently run {esc(lang)} playlists with 1,000+ followers, sorted by followers. {with_contact} have a contact we could find directly in the playlist's own description."
+        else:
+            title = f"{lang} Indie Spotify Playlists: None Yet Over 1,000 Followers"
+            meta_desc = f"We're tracking {lang_counts_all.get(lang,0)} {lang} indie Spotify playlists, but none have cleared our 1,000-follower quality bar yet. Updated daily."
+            lead = f"We've found {lang_counts_all.get(lang,0)} {esc(lang)} playlists on Spotify, but none have cleared our 1,000-follower bar yet, so there's nothing honest to list here right now."
+
+        page = head(title, meta_desc, f"https://indiemusicindia.com/playlists/{slug}/", page_ld)
         page += f'''
 <div class="ppage">
   <div class="pcrumb"><a href="/">Home</a> / <a href="/playlists/">Playlists</a> / {esc(lang)}</div>
   <div class="peyebrow">Playlist Insights &middot; {esc(lang)}</div>
   <h1 class="ptitle">{esc(lang)} indie playlists you can actually pitch</h1>
-  <p class="plead">{len(lang_playlists)} independently run {esc(lang)} playlists found on Spotify, sorted by followers. {with_contact} have a contact we could find directly in the playlist's own description.</p>
+  <p class="plead">{lead}</p>
   <div class="plangnav">
 {nav_chips}
   </div>
