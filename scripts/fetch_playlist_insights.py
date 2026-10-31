@@ -246,7 +246,13 @@ def enrich_followers(found):
         if (i + 1) % 25 == 0:
             print(f"    followers: {i+1}/{n}")
         data = api_get(f"/playlists/{pid}", {"fields": "followers.total"})
-        rec["followers"] = (data or {}).get("followers", {}).get("total")
+        if data is not None:
+            # Only overwrite on a successful call -- a 403/5xx/timeout here is
+            # transient (or the playlist briefly went private), not proof the
+            # playlist lost its followers. Carried-forward entries would
+            # otherwise get silently zeroed and drop out of the 1,000-follower
+            # cut on a bad API day even though nothing about them changed.
+            rec["followers"] = (data.get("followers") or {}).get("total")
         time.sleep(0.08)
 
 
@@ -265,6 +271,22 @@ def load_history():
     return {}
 
 
+def load_registry():
+    """Every playlist ever discovered, keyed by id. Search is a fresh sweep
+    each run (Spotify's own result ordering varies day to day), so without
+    this the known set never grows past whatever one day's queries happen to
+    surface. Carrying forward past finds -- same organic-growth pattern as
+    data/channels.json elsewhere in this pipeline -- is what actually gets
+    the total toward 1,000+ over time."""
+    if OUT_PATH.exists():
+        try:
+            data = json.loads(OUT_PATH.read_text())
+            return {p["id"]: p for p in data.get("playlists", []) if p.get("id")}
+        except Exception:
+            return {}
+    return {}
+
+
 def main():
     if not CLIENT_ID or not CLIENT_SECRET:
         print("ERROR: SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET must be set", file=sys.stderr)
@@ -276,7 +298,19 @@ def main():
 
     print(f"Searching {len(SEARCH_QUERIES)} queries for India-indie playlists...")
     found = discover()
-    print(f"  {len(found)} unique playlists after owner/quality filtering")
+    print(f"  {len(found)} unique playlists found in today's sweep")
+
+    registry = load_registry()
+    carried_forward = len(registry) - len(set(registry) & set(found))
+    for pid, rec in found.items():
+        prior = registry.get(pid)
+        if prior:
+            rec["matched_queries"] = sorted(set(prior.get("matched_queries", []) + rec["matched_queries"]))
+            if not rec.get("contact"):
+                rec["contact"] = prior.get("contact")
+        registry[pid] = rec
+    found = registry
+    print(f"  {len(found)} total known playlists ({carried_forward} carried forward from prior runs)")
 
     print("Fetching follower counts...")
     enrich_followers(found)
