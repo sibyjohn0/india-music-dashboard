@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-31T06:53:13.322691+00:00",
-  "snapshot_date": "2026-10-31",
+  "generated_at": "2026-11-01T07:18:58.503867+00:00",
+  "snapshot_date": "2026-11-01",
   "cities": {
     "Bangalore": {
-      "total_shows": 76,
+      "total_shows": 58,
       "venues": [
         {
           "name": "BudBee Restobar 104",
-          "shows": 5,
+          "shows": 4,
           "price_min": 49,
           "price_max": 49,
-          "next_date": "2026-10-31",
-          "growth": null
+          "next_date": "2026-11-01",
+          "growth": -1
         },
         {
           "name": "NICE Grounds",
@@ -46,100 +46,12 @@
           "growth": 0
         },
         {
-          "name": "HOD CLUB",
-          "shows": 2,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "30 Oct Fri",
-          "growth": -1
-        },
-        {
-          "name": "Prestige Centre for Performing Arts",
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 399,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Sunburn Union",
-          "shows": 1,
-          "price_min": 199,
-          "price_max": 199,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Courtyard, Phoenix Market City",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "The Bay at Ecoworld",
-          "shows": 1,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Finn The Luxury Club",
-          "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Tropika Brewing Co",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Mirage",
-          "shows": 1,
-          "price_min": 100,
-          "price_max": 100,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Silaa The Garden Cafe, HSR Layout",
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 399,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Silaa The Garden Cafe, Malleshwaram",
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 399,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
-          "name": "Hard Rock Cafe",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-10-31",
-          "growth": null
-        },
-        {
           "name": "Drava",
           "shows": 1,
           "price_min": 100,
           "price_max": 100,
           "next_date": "2026-11-01",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Thelagram",
@@ -147,7 +59,7 @@
           "price_min": 299,
           "price_max": 299,
           "next_date": "2026-11-01",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Nolimmits Lounge and Club",
@@ -155,7 +67,7 @@
           "price_min": 150,
           "price_max": 150,
           "next_date": "2026-11-01",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Don`t Tell Mama",
@@ -163,7 +75,7 @@
           "price_min": 349,
           "price_max": 349,
           "next_date": "2026-11-01",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "ICB Indian Craft Brewery",
@@ -171,7 +83,7 @@
           "price_min": 199,
           "price_max": 199,
           "next_date": "2026-11-07",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Phoenix Marketcity, Whitefield",
@@ -179,7 +91,7 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "2026-11-21",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Nightvibe",
@@ -212,9 +124,25 @@
           "price_max": 1699,
           "next_date": "31 Oct Sat",
           "growth": 0
+        },
+        {
+          "name": "SUUZxMYPARTYMOBxTequiro",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "31 Oct Sat",
+          "growth": null
+        },
+        {
+          "name": "HOD CLUB",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "31 Oct Sat",
+          "growth": -1
         }
       ],
-      "unlisted_shows": 40
+      "unlisted_shows": 33
     },
     "Indore": {
       "total_shows": 1,
@@ -243,20 +171,6 @@
         }
       ],
       "unlisted_shows": 0
-    },
-    "Pune": {
-      "total_shows": 2,
-      "venues": [
-        {
-          "name": "Venue to be announced",
-          "shows": 1,
-          "price_min": 1499,
-          "price_max": 1499,
-          "next_date": "2026-10-31",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 1
     },
     "Mumbai": {
       "total_shows": 8,
@@ -345,9 +259,14 @@
       "unlisted_shows": 0
     },
     "Delhi": {
-      "total_shows": 10,
+      "total_shows": 7,
       "venues": [],
-      "unlisted_shows": 10
+      "unlisted_shows": 7
+    },
+    "Pune": {
+      "total_shows": 1,
+      "venues": [],
+      "unlisted_shows": 1
     },
     "Chennai": {
       "total_shows": 1,
@@ -365,7 +284,7 @@
       "unlisted_shows": 1
     },
     "Guwahati": {
-      "total_shows": 3,
+      "total_shows": 2,
       "venues": [
         {
           "name": "Guwahati",
@@ -376,26 +295,17 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 2
+      "unlisted_shows": 1
     },
     "Kochi": {
       "total_shows": 2,
       "venues": [],
       "unlisted_shows": 2
     },
-    "Chandigarh": {
+    "New Cantonment": {
       "total_shows": 1,
-      "venues": [
-        {
-          "name": "KomoHouse",
-          "shows": 1,
-          "price_min": 2000,
-          "price_max": 4000,
-          "next_date": "30 Oct Fri",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 0
+      "venues": [],
+      "unlisted_shows": 1
     }
   }
 }

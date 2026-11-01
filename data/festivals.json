@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-10-31T07:16:12.365946+00:00",
+  "generated_at": "2026-11-01T07:35:39.980895+00:00",
   "counts": {
-    "festivals": 17,
-    "tours": 16,
+    "festivals": 19,
+    "tours": 14,
     "marquee": 14,
     "international": 6,
     "indian": 27,
-    "new_this_run": 0
+    "new_this_run": 2
   },
   "festivals": [
     {
@@ -370,6 +370,60 @@
       "origin": "indian"
     },
     {
+      "title": "The Festival of Lights – A Diwali Celebration",
+      "type": "festival",
+      "key": "the festival of lights",
+      "cities": [
+        "Bangalore"
+      ],
+      "dates": [
+        {
+          "date": "2027-10-26",
+          "date_obj": "2027-10-26",
+          "city": "Bangalore",
+          "venue": "",
+          "time": "07:00 PM",
+          "price": "from ₹3,540",
+          "url": "https://www.skillboxes.com/events/the-festival-of-lights-a-diwali-celebration-sbvpmkcl",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2027-10-26",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "The Location Fest - Dynamo, Goa # Halloween Edition",
+      "type": "festival",
+      "key": "the location fest",
+      "cities": [
+        "Goa"
+      ],
+      "dates": [
+        {
+          "date": "2027-10-30",
+          "date_obj": "2027-10-30",
+          "city": "Goa",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "₹1,999–₹9,999",
+          "url": "https://www.skillboxes.com/events/the-lovation-fest-goa-sbjtcxoh",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2027-10-30",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "Horn OK Please - The Happiest Food Festival 17.0",
       "type": "festival",
       "key": "horn ok please",
@@ -398,60 +452,6 @@
     }
   ],
   "tours": [
-    {
-      "title": "Quick Style India Tour",
-      "type": "tour",
-      "key": "quick style india tour",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-31",
-          "date_obj": "2026-10-31",
-          "city": "Bangalore",
-          "venue": "Courtyard, Phoenix Market City",
-          "time": "",
-          "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/quick-style-india-tour-bangalore/ET00495697",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2026-10-31",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "Sonu Nigam - The Revolution India Tour",
-      "type": "tour",
-      "key": "sonu nigam",
-      "cities": [
-        "Pune"
-      ],
-      "dates": [
-        {
-          "date": "2026-10-31",
-          "date_obj": "2026-10-31",
-          "city": "Pune",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹1,499",
-          "url": "https://www.district.in/events/the-revolution-india-tour-pune-2026",
-          "source": "district"
-        }
-      ],
-      "soonest": "2026-10-31",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
     {
       "title": "SikTh - Live in Bengaluru",
       "type": "tour",
@@ -776,7 +776,7 @@
           "city": "Bangalore",
           "venue": "MIxtape",
           "time": "08:00 PM",
-          "price": "from ₹600",
+          "price": "₹600–₹800",
           "url": "https://www.skillboxes.com/events/mixtape-bangalore-sbxyeylq",
           "source": "skillboxes"
         }
@@ -996,7 +996,10 @@
       "origin": "indian"
     }
   ],
-  "new_this_run": [],
+  "new_this_run": [
+    "The Festival of Lights – A Diwali Celebration",
+    "The Location Fest - Dynamo, Goa # Halloween Edition"
+  ],
   "_all_keys": [
     "sikth",
     "domi jd beck who asked tour",
@@ -1006,14 +1009,14 @@
     "gaia 3 day festival pass",
     "structure music festival",
     "mixtape presents the gundaraaj tour",
+    "the festival of lights",
     "horn ok please",
     "benny dayal live in",
+    "the location fest",
     "last minute india on tour",
-    "quick style india tour",
     "diljit dosanjh",
     "madhubanti bagchi india tour",
     "yuvan shankar raja live in concert",
-    "sonu nigam",
     "krishna das india tour",
     "papon live in concert",
     "echoes of earth",
