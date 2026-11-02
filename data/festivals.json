@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-01T07:35:39.980895+00:00",
+  "generated_at": "2026-11-02T07:53:07.989195+00:00",
   "counts": {
-    "festivals": 19,
+    "festivals": 21,
     "tours": 14,
     "marquee": 14,
     "international": 6,
-    "indian": 27,
-    "new_this_run": 2
+    "indian": 29,
+    "new_this_run": 3
   },
   "festivals": [
     {
@@ -316,6 +316,85 @@
       "origin": "indian"
     },
     {
+      "title": "Bandra Film Festival",
+      "type": "festival",
+      "key": "bandra film festival",
+      "cities": [
+        "Mumbai"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-02",
+          "date_obj": "2026-11-02",
+          "city": "Mumbai",
+          "venue": "Houdini Lower Parel",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-11-02",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Apna Pahadi utsav",
+      "type": "festival",
+      "key": "apna pahadi utsav",
+      "cities": [
+        "Gurugram"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-04",
+          "date_obj": "2026-11-04",
+          "city": "Gurugram",
+          "venue": "Kasha Farms",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-11-04",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Bangalore Documentary Film Festival - NOV 5-8",
+      "type": "festival",
+      "key": "documentary film festival",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-11-05",
+          "date_obj": "2026-11-05",
+          "city": "",
+          "venue": "Goethe-Institut / Max Mueller Bhavan Bangalore",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-11-05",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "Structure Music Festival",
       "type": "festival",
       "key": "structure music festival",
@@ -356,7 +435,7 @@
           "city": "Hoshiarpur",
           "venue": "",
           "time": "11:00 AM",
-          "price": "from ₹7,999",
+          "price": "from ₹5,919",
           "url": "https://www.skillboxes.com/events/gaia-festival-2027-pass",
           "source": "skillboxes"
         }
@@ -389,33 +468,6 @@
         }
       ],
       "soonest": "2027-10-26",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "The Location Fest - Dynamo, Goa # Halloween Edition",
-      "type": "festival",
-      "key": "the location fest",
-      "cities": [
-        "Goa"
-      ],
-      "dates": [
-        {
-          "date": "2027-10-30",
-          "date_obj": "2027-10-30",
-          "city": "Goa",
-          "venue": "",
-          "time": "08:00 PM",
-          "price": "₹1,999–₹9,999",
-          "url": "https://www.skillboxes.com/events/the-lovation-fest-goa-sbjtcxoh",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2027-10-30",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -467,7 +519,7 @@
           "city": "Bangalore",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹1,999–₹8,199",
+          "price": "₹1,849–₹6,067",
           "url": "https://www.skillboxes.com/events/sikth-live-in-bengaluru-sbcjzpcg",
           "source": "skillboxes"
         },
@@ -477,7 +529,7 @@
           "city": "Mumbai",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹1,999–₹8,199",
+          "price": "₹1,849–₹6,067",
           "url": "https://www.skillboxes.com/events/sikth-live-in-mumbai-sbcmemjx",
           "source": "skillboxes"
         }
@@ -642,7 +694,7 @@
           "city": "Bangalore",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹2,499–₹3,499",
+          "price": "₹2,499–₹2,999",
           "url": "https://www.skillboxes.com/events/domi-jd-beck-who-asked-tour-bengaluru-sbtxwbxp",
           "source": "skillboxes"
         },
@@ -652,7 +704,7 @@
           "city": "Mumbai",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹2,499–₹3,499",
+          "price": "₹2,499–₹2,999",
           "url": "https://www.skillboxes.com/events/domi-jd-beck-who-asked-tour-mumbai-sbucfwmx",
           "source": "skillboxes"
         },
@@ -662,7 +714,7 @@
           "city": "Delhi",
           "venue": "",
           "time": "08:00 PM",
-          "price": "₹2,499–₹2,999",
+          "price": "₹2,219–₹2,499",
           "url": "https://www.skillboxes.com/events/domi-jd-beck-who-asked-tour-new-delhi-sbtvrepy",
           "source": "skillboxes"
         }
@@ -859,7 +911,7 @@
           "city": "Delhi",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,549–₹6,999",
+          "price": "₹1,886–₹5,179",
           "url": "https://www.skillboxes.com/events/khalid-live-in-delhi-ncr-sbnorbid",
           "source": "skillboxes"
         },
@@ -869,7 +921,7 @@
           "city": "Bangalore",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,549–₹6,999",
+          "price": "₹2,219–₹5,179",
           "url": "https://www.skillboxes.com/events/khalid-live-in-bengaluru-sbntavxl",
           "source": "skillboxes"
         },
@@ -879,7 +931,7 @@
           "city": "Mumbai",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,549–₹6,999",
+          "price": "₹2,219–₹5,179",
           "url": "https://www.skillboxes.com/events/khalid-live-in-mumbai-sbnvftfc",
           "source": "skillboxes"
         }
@@ -997,8 +1049,9 @@
     }
   ],
   "new_this_run": [
-    "The Festival of Lights – A Diwali Celebration",
-    "The Location Fest - Dynamo, Goa # Halloween Edition"
+    "Bandra Film Festival",
+    "Apna Pahadi utsav",
+    "Bangalore Documentary Film Festival - NOV 5-8"
   ],
   "_all_keys": [
     "sikth",
@@ -1012,7 +1065,6 @@
     "the festival of lights",
     "horn ok please",
     "benny dayal live in",
-    "the location fest",
     "last minute india on tour",
     "diljit dosanjh",
     "madhubanti bagchi india tour",
@@ -1021,6 +1073,9 @@
     "papon live in concert",
     "echoes of earth",
     "gorillaz the mountain tour",
+    "bandra film festival",
+    "apna pahadi utsav",
+    "documentary film festival",
     "nh7 weekender",
     "lollapalooza india",
     "sunburn festival",
