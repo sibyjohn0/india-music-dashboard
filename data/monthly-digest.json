@@ -1080,13 +1080,13 @@
   },
   "2026-11": {
     "month": "2026-11",
-    "snapshots": 2,
-    "last_snapshot_at": "2026-11-02T07:32:39.987056+00:00",
+    "snapshots": 3,
+    "last_snapshot_at": "2026-11-03T07:47:34.573927+00:00",
     "total_videos": 225,
-    "total_artists": 165,
-    "new_artists_seen": 97,
-    "median_score": 58,
-    "median_views": 3594,
+    "total_artists": 183,
+    "new_artists_seen": 123,
+    "median_score": 61,
+    "median_views": 3355,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -1162,33 +1162,33 @@
     "fastest_growing": [
       {
         "name": "ANP MUSIC",
-        "views_gained": 270507,
+        "views_gained": 270641,
         "genre": "Electronic",
         "language": "Telugu"
       },
       {
         "name": "Beatboy Music",
-        "views_gained": 216863,
+        "views_gained": 218506,
         "genre": "Hip Hop / Rap",
-        "language": "English"
-      },
-      {
-        "name": "Mashuq Haque",
-        "views_gained": 84043,
-        "genre": "R&B / Soul",
         "language": "English"
       },
       {
         "name": "TELANGANA FOLK HOUSE 2.0",
-        "views_gained": 78979,
+        "views_gained": 148627,
         "genre": "Electronic",
         "language": "Telugu"
       },
       {
-        "name": "MRSU MUSIC",
-        "views_gained": 70153,
+        "name": "KARMA",
+        "views_gained": 123491,
         "genre": "Hip Hop / Rap",
-        "language": "Kannada"
+        "language": "Hindi"
+      },
+      {
+        "name": "Mashuq Haque",
+        "views_gained": 105491,
+        "genre": "R&B / Soul",
+        "language": "English"
       }
     ],
     "genre_breakdown": [
@@ -1198,35 +1198,35 @@
       ],
       [
         "Folk / Acoustic",
-        41
+        42
       ],
       [
         "Hip Hop / Rap",
-        38
+        37
       ],
       [
         "R&B / Soul",
-        29
+        26
       ],
       [
         "Electronic",
-        24
+        25
       ],
       [
         "Classical/Fusion",
-        17
+        18
       ],
       [
         "Lo-Fi",
-        11
+        12
       ],
       [
         "Rock / Alt",
-        6
+        7
       ],
       [
         "Indie Pop",
-        4
+        3
       ],
       [
         "Jazz / Blues",
@@ -1244,10 +1244,6 @@
       ],
       [
         "Kannada",
-        25
-      ],
-      [
-        "Malayalam",
         25
       ],
       [
@@ -1269,15 +1265,19 @@
       [
         "English",
         25
+      ],
+      [
+        "Malayalam",
+        25
       ]
     ],
     "city_shows": {
       "Bangalore": 39,
       "Indore": 1,
       "Ahmedabad": 1,
-      "Mumbai": 9,
-      "Hyderabad": 1,
-      "Goa": 8,
+      "Mumbai": 8,
+      "Hyderabad": 6,
+      "Goa": 7,
       "Kolkata": 2,
       "India": 1,
       "Delhi": 6,
@@ -1289,6 +1289,6 @@
       "Kochi": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 76
+    "total_shows": 79
   }
 }

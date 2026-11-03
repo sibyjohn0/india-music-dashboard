@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-02T07:34:03.120468+00:00",
-  "snapshot_date": "2026-11-02",
+  "generated_at": "2026-11-03T07:48:56.706862+00:00",
+  "snapshot_date": "2026-11-03",
   "cities": {
     "Bangalore": {
       "total_shows": 39,
@@ -11,7 +11,7 @@
           "price_min": 49,
           "price_max": 49,
           "next_date": "2026-11-06",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "NICE Grounds",
@@ -83,7 +83,7 @@
           "price_min": 600,
           "price_max": 10000,
           "next_date": "27 Nov Fri",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 22
@@ -117,7 +117,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 9,
+      "total_shows": 8,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -144,10 +144,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 5
+      "unlisted_shows": 4
     },
     "Hyderabad": {
-      "total_shows": 1,
+      "total_shows": 6,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -156,12 +156,20 @@
           "price_max": 999,
           "next_date": "2026-11-28",
           "growth": 0
+        },
+        {
+          "name": "KINGDOME",
+          "shows": 1,
+          "price_min": 399,
+          "price_max": 799,
+          "next_date": "2026-11-21",
+          "growth": null
         }
       ],
-      "unlisted_shows": 0
+      "unlisted_shows": 4
     },
     "Goa": {
-      "total_shows": 8,
+      "total_shows": 7,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -174,13 +182,13 @@
         {
           "name": "The Decade Ritual",
           "shows": 1,
-          "price_min": 1999,
+          "price_min": 3500,
           "price_max": 3500,
           "next_date": "31 Decembe",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 6
+      "unlisted_shows": 5
     },
     "Kolkata": {
       "total_shows": 2,
@@ -212,8 +220,17 @@
     },
     "Delhi": {
       "total_shows": 6,
-      "venues": [],
-      "unlisted_shows": 6
+      "venues": [
+        {
+          "name": "Kasha Farms",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-04",
+          "growth": null
+        }
+      ],
+      "unlisted_shows": 5
     },
     "Pune": {
       "total_shows": 1,
