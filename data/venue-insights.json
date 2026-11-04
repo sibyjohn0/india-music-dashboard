@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-03T07:48:56.706862+00:00",
-  "snapshot_date": "2026-11-03",
+  "generated_at": "2026-11-04T07:26:25.334805+00:00",
+  "snapshot_date": "2026-11-04",
   "cities": {
     "Bangalore": {
       "total_shows": 39,
@@ -117,7 +117,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 8,
+      "total_shows": 10,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -139,15 +139,23 @@
           "name": "Waves- Sonic Diwali",
           "shows": 1,
           "price_min": 799,
-          "price_max": 1799,
+          "price_max": 2000,
           "next_date": "2026-11-06",
           "growth": 0
+        },
+        {
+          "name": "Venue To Be Announced",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-06",
+          "growth": null
         }
       ],
-      "unlisted_shows": 4
+      "unlisted_shows": 5
     },
     "Hyderabad": {
-      "total_shows": 6,
+      "total_shows": 1,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -156,17 +164,9 @@
           "price_max": 999,
           "next_date": "2026-11-28",
           "growth": 0
-        },
-        {
-          "name": "KINGDOME",
-          "shows": 1,
-          "price_min": 399,
-          "price_max": 799,
-          "next_date": "2026-11-21",
-          "growth": null
         }
       ],
-      "unlisted_shows": 4
+      "unlisted_shows": 0
     },
     "Goa": {
       "total_shows": 7,
@@ -191,7 +191,7 @@
       "unlisted_shows": 5
     },
     "Kolkata": {
-      "total_shows": 2,
+      "total_shows": 1,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -202,7 +202,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 1
+      "unlisted_shows": 0
     },
     "India": {
       "total_shows": 1,
@@ -227,15 +227,15 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-11-04",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 5
     },
     "Pune": {
-      "total_shows": 1,
+      "total_shows": 2,
       "venues": [],
-      "unlisted_shows": 1
+      "unlisted_shows": 2
     },
     "Chennai": {
       "total_shows": 1,
@@ -253,7 +253,7 @@
       "unlisted_shows": 1
     },
     "Guwahati": {
-      "total_shows": 3,
+      "total_shows": 1,
       "venues": [
         {
           "name": "Guwahati",
@@ -264,7 +264,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 2
+      "unlisted_shows": 0
     },
     "Kochi": {
       "total_shows": 1,

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-03T08:07:13.469474+00:00",
+  "generated_at": "2026-11-04T07:44:26.770448+00:00",
   "counts": {
     "festivals": 21,
     "tours": 14,
     "marquee": 14,
     "international": 6,
     "indian": 29,
-    "new_this_run": 1
+    "new_this_run": 0
   },
   "festivals": [
     {
@@ -505,44 +505,6 @@
   ],
   "tours": [
     {
-      "title": "SikTh - Live in Bengaluru",
-      "type": "tour",
-      "key": "sikth",
-      "cities": [
-        "Bangalore",
-        "Mumbai"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-03",
-          "date_obj": "2026-11-03",
-          "city": "Bangalore",
-          "venue": "",
-          "time": "08:00 PM",
-          "price": "₹1,849–₹6,067",
-          "url": "https://www.skillboxes.com/events/sikth-live-in-bengaluru-sbcjzpcg",
-          "source": "skillboxes"
-        },
-        {
-          "date": "2026-11-04",
-          "date_obj": "2026-11-04",
-          "city": "Mumbai",
-          "venue": "",
-          "time": "08:00 PM",
-          "price": "₹1,849–₹6,067",
-          "url": "https://www.skillboxes.com/events/sikth-live-in-mumbai-sbcmemjx",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-11-03",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Krishna Das India Tour 2026",
       "type": "tour",
       "key": "krishna das india tour",
@@ -559,6 +521,33 @@
           "price": "from ₹1,999",
           "url": "https://www.district.in/events/krishna-das-india-tour-2026-bengaluru",
           "source": "district"
+        }
+      ],
+      "soonest": "2026-11-04",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "SikTh - Live in Mumbai",
+      "type": "tour",
+      "key": "sikth",
+      "cities": [
+        "Mumbai"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-04",
+          "date_obj": "2026-11-04",
+          "city": "Mumbai",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "₹1,849–₹6,067",
+          "url": "https://www.skillboxes.com/events/sikth-live-in-mumbai-sbcmemjx",
+          "source": "skillboxes"
         }
       ],
       "soonest": "2026-11-04",
@@ -1048,9 +1037,7 @@
       "origin": "indian"
     }
   ],
-  "new_this_run": [
-    "BANGTANVERSE CARNIVAL - FAN TOUR"
-  ],
+  "new_this_run": [],
   "_all_keys": [
     "sikth",
     "domi jd beck who asked tour",
