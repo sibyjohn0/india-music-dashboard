@@ -25,6 +25,31 @@ SRC_LABEL = {"district": "District", "bookmyshow": "BookMyShow",
              "skillboxes": "Skillboxes", "paytm": "Paytm Insider",
              "highape": "HighApe", "songkick": "Songkick"}
 
+# One-off editorial features (press invites, dedicated event pages) that aren't
+# in the scraped ticketing feeds. Hardcoded here (not in festivals.json) so a
+# daily data refresh never drops them -- remove the entry once the event has
+# passed.
+MANUAL_FEATURED = [
+    {
+        "title": "DGTL India 2026",
+        "image": "/assets/live-heroes/dgtl-india-2026.jpg",
+        "sub": "Nov 13–15 · Bengaluru & Goa",
+        "desc": "The international electronic festival's sixth Indian edition: Nina Kraviz and Colyn headline, alongside a strong homegrown lineup across two cities.",
+        "url": "/live/dgtl-india-2026/",
+    },
+]
+
+def featured_card(e):
+    return f'''  <a class="feat-card" href="{esc(e["url"])}">
+    <img src="{esc(e["image"])}" alt="{esc(e["title"])}" width="1300" height="520" loading="lazy" />
+    <div class="feat-body">
+      <h3>{esc(e["title"])}</h3>
+      <div class="feat-sub">{esc(e["sub"])}</div>
+      <p class="feat-desc">{esc(e["desc"])}</p>
+      <span class="feat-link">Full lineup, dates &amp; tickets &rarr;</span>
+    </div>
+  </a>'''
+
 def date_rows(e):
     rows = []
     for d in e.get("dates", []):
@@ -102,6 +127,7 @@ def build():
 
     fest_html = "\n".join(card(e) for e in festivals) or '<p style="color:var(--muted)">Festival dates land here as they are announced.</p>'
     tour_html = "\n".join(card(e) for e in tours) or '<p style="color:var(--muted)">Tour dates land here as they are announced.</p>'
+    featured_html = "\n".join(featured_card(e) for e in MANUAL_FEATURED)
     schema, n_events = schema_events(festivals + tours)
 
     page = f'''<!DOCTYPE html>
@@ -137,6 +163,13 @@ h1{{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:-1px;line-he
 .stat{{font-size:12px;color:var(--muted);margin-top:12px}}
 h2.sec{{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);margin:40px 0 4px}}
 .seclead{{font-size:14px;color:var(--muted);margin-bottom:14px}}
+.feat-card{{display:block;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);margin-bottom:12px}}
+.feat-card img{{width:100%;height:auto;aspect-ratio:1300/520;object-fit:cover;display:block}}
+.feat-body{{padding:16px 20px 18px}}
+.feat-body h3{{font-size:19px;font-weight:800;letter-spacing:-.3px}}
+.feat-sub{{font-size:12.5px;font-weight:700;color:var(--accent);margin-top:2px}}
+.feat-desc{{font-size:14px;color:#c6c6d8;margin-top:6px}}
+.feat-link{{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;color:var(--accent)}}
 .card{{border:1px solid var(--border);border-radius:14px;padding:18px 20px;background:var(--surface);margin-bottom:12px}}
 .ctop{{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}}
 .card h3{{font-size:19px;font-weight:800;letter-spacing:-.3px;line-height:1.25}}
@@ -194,6 +227,8 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
   <h1>Concerts, festivals and tours across India</h1>
   <p class="lead">Every upcoming concert, festival and tour worth knowing about, in one place: dates, cities, venues and ticket links, from India's marquee festivals to the international acts touring here. Deduped from the ticketing platforms and updated daily.</p>
   <div class="stat">{c.get("festivals",0)} festivals · {c.get("tours",0)} tours · {c.get("international",0)} international acts · updated {updated}</div>
+
+  {f'<h2 class="sec">Featured</h2>{featured_html}' if featured_html else ''}
 
   <h2 class="sec">Festivals</h2>
   <div class="seclead">India's marquee festivals plus every festival with confirmed dates.</div>

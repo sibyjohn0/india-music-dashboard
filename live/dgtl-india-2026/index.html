@@ -43,6 +43,11 @@ article ul li::before{content:"";position:absolute;left:0;top:13px;width:6px;hei
 .ev-venue{font-size:14px;color:#574C63;margin-bottom:14px}
 .ev-btn{display:inline-block;background:#FF4D8D;color:#fff;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:8px}
 @media(max-width:560px){.ev-grid{grid-template-columns:1fr}}
+.lineup-group{margin:18px 0 6px}
+.lineup-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.lineup-grid{display:flex;flex-wrap:wrap;gap:8px}
+.lineup-pill{display:inline-flex;align-items:center;font-size:14px;font-weight:700;color:#241B2E;background:#fff;border:2px solid #241B2E;border-radius:999px;padding:7px 15px;box-shadow:3px 3px 0 #241B2E}
+.lineup-pill.hg{background:#FFE1EC;border-color:#FF4D8D;box-shadow:3px 3px 0 #FF4D8D}
 .g-cta{margin-top:40px;border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--surface)}
 .g-cta h3{font-size:18px;font-weight:800;margin-bottom:6px}
 .g-cta p{font-size:14px;color:var(--muted);margin-bottom:14px}
@@ -95,10 +100,18 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
 
       <h2>The lineup</h2>
       <p>The bill pairs international headliners with a strong homegrown roster, which is the part worth watching if you care about where India's electronic scene is heading.</p>
-      <p><b>International:</b></p>
-      <ul><li>Nina Kraviz</li><li>Colyn</li><li>Vladimir Dubyshkin</li><li>Phil Berg</li><li>Nicky Elisabeth</li><li>Supergloss</li></ul>
-      <p><b>Homegrown:</b></p>
-      <ul><li>Shaun Moses</li><li>Praveen Achary</li><li>Parallel Voices</li><li>Nida</li><li>Tasnneem</li><li>Kandy Kuri</li></ul>
+      <div class="lineup-group">
+        <div class="lineup-label">International</div>
+        <div class="lineup-grid">
+          <span class="lineup-pill">Nina Kraviz</span><span class="lineup-pill">Colyn</span><span class="lineup-pill">Vladimir Dubyshkin</span><span class="lineup-pill">Phil Berg</span><span class="lineup-pill">Nicky Elisabeth</span><span class="lineup-pill">Supergloss</span>
+        </div>
+      </div>
+      <div class="lineup-group">
+        <div class="lineup-label">Homegrown</div>
+        <div class="lineup-grid">
+          <span class="lineup-pill hg">Shaun Moses</span><span class="lineup-pill hg">Praveen Achary</span><span class="lineup-pill hg">Parallel Voices</span><span class="lineup-pill hg">Nida</span><span class="lineup-pill hg">Tasnneem</span><span class="lineup-pill hg">Kandy Kuri</span>
+        </div>
+      </div>
       <p>More acts are being added to both editions, with the full stage-by-stage splits on the ticketing pages above.</p>
 
       <h2>The stages</h2>
