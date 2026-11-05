@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-04T07:26:25.334805+00:00",
-  "snapshot_date": "2026-11-04",
+  "generated_at": "2026-11-05T07:51:57.663863+00:00",
+  "snapshot_date": "2026-11-05",
   "cities": {
     "Bangalore": {
-      "total_shows": 39,
+      "total_shows": 40,
       "venues": [
         {
           "name": "BudBee Restobar 104",
@@ -19,14 +19,6 @@
           "price_min": 999,
           "price_max": 4899,
           "next_date": "2026-11-14",
-          "growth": 0
-        },
-        {
-          "name": "Venue to be announced",
-          "shows": 2,
-          "price_min": 1999,
-          "price_max": 6999,
-          "next_date": "2026-11-04",
           "growth": 0
         },
         {
@@ -62,10 +54,26 @@
           "growth": 0
         },
         {
+          "name": "Venue to be announced",
+          "shows": 1,
+          "price_min": 6999,
+          "price_max": 6999,
+          "next_date": "2026-12-05",
+          "growth": -1
+        },
+        {
+          "name": "Space Session",
+          "shows": 1,
+          "price_min": 1000,
+          "price_max": 1000,
+          "next_date": "21 Nov Sat",
+          "growth": null
+        },
+        {
           "name": "Nightvibe",
           "shows": 1,
           "price_min": 799,
-          "price_max": 799,
+          "price_max": 999,
           "next_date": "21 Nov Sat",
           "growth": 0
         },
@@ -86,7 +94,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 22
+      "unlisted_shows": 23
     },
     "Indore": {
       "total_shows": 1,
@@ -117,7 +125,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 10,
+      "total_shows": 9,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -144,15 +152,23 @@
           "growth": 0
         },
         {
+          "name": "Rule34",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "26 Nov Thu",
+          "growth": null
+        },
+        {
           "name": "Venue To Be Announced",
           "shows": 1,
           "price_min": null,
           "price_max": null,
           "next_date": "2026-11-06",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 5
+      "unlisted_shows": 3
     },
     "Hyderabad": {
       "total_shows": 1,
@@ -169,7 +185,7 @@
       "unlisted_shows": 0
     },
     "Goa": {
-      "total_shows": 7,
+      "total_shows": 3,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -178,17 +194,9 @@
           "price_max": 4999,
           "next_date": "2027-01-16",
           "growth": 0
-        },
-        {
-          "name": "The Decade Ritual",
-          "shows": 1,
-          "price_min": 3500,
-          "price_max": 3500,
-          "next_date": "31 Decembe",
-          "growth": 0
         }
       ],
-      "unlisted_shows": 5
+      "unlisted_shows": 2
     },
     "Kolkata": {
       "total_shows": 1,
@@ -220,17 +228,8 @@
     },
     "Delhi": {
       "total_shows": 6,
-      "venues": [
-        {
-          "name": "Kasha Farms",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-04",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 5
+      "venues": [],
+      "unlisted_shows": 6
     },
     "Pune": {
       "total_shows": 2,
@@ -241,6 +240,20 @@
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
+    },
+    "Shillong": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "Shillong",
+          "shows": 1,
+          "price_min": 750,
+          "price_max": 750,
+          "next_date": "2026-12-18",
+          "growth": null
+        }
+      ],
+      "unlisted_shows": 0
     },
     "Hoshiarpur": {
       "total_shows": 1,

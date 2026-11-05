@@ -3177,7 +3177,7 @@
   },
   {
     "week": "2026-W45",
-    "date": "2026-11-04",
+    "date": "2026-11-05",
     "cities": {
       "Bangalore": {
         "BudBee Restobar 104": {
@@ -3204,23 +3204,29 @@
           "price_max": 499,
           "next_date": "2026-11-21"
         },
-        "Venue to be announced": {
-          "shows": 2,
-          "price_min": 1999,
-          "price_max": 6999,
-          "next_date": "2026-11-04"
-        },
         "District Arena @ Terraform": {
           "shows": 2,
           "price_min": 999,
           "price_max": 5000,
           "next_date": "2026-11-14"
         },
+        "Venue to be announced": {
+          "shows": 1,
+          "price_min": 6999,
+          "price_max": 6999,
+          "next_date": "2026-12-05"
+        },
         "Venue TBC": {
-          "shows": 22,
+          "shows": 23,
           "price_min": 349,
           "price_max": 13500,
-          "next_date": "2026-11-04"
+          "next_date": "2026-11-06"
+        },
+        "Space Session": {
+          "shows": 1,
+          "price_min": 1000,
+          "price_max": 1000,
+          "next_date": "21 Nov Sat"
         },
         "HAMILTON": {
           "shows": 2,
@@ -3231,7 +3237,7 @@
         "Nightvibe": {
           "shows": 1,
           "price_min": 799,
-          "price_max": 799,
+          "price_max": 999,
           "next_date": "21 Nov Sat"
         },
         "MIxtape": {
@@ -3276,17 +3282,23 @@
           "price_max": 5000,
           "next_date": "2027-01-27"
         },
-        "Venue TBC": {
-          "shows": 5,
-          "price_min": 699,
-          "price_max": 6067,
-          "next_date": "2026-11-04"
-        },
         "Waves- Sonic Diwali": {
           "shows": 1,
           "price_min": 799,
           "price_max": 2000,
           "next_date": "2026-11-06"
+        },
+        "Venue TBC": {
+          "shows": 3,
+          "price_min": 699,
+          "price_max": 5179,
+          "next_date": "2026-11-19"
+        },
+        "Rule34": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "26 Nov Thu"
         },
         "Venue To Be Announced": {
           "shows": 1,
@@ -3311,16 +3323,10 @@
           "next_date": "2027-01-16"
         },
         "Venue TBC": {
-          "shows": 5,
+          "shows": 2,
           "price_min": 499,
           "price_max": 28990,
-          "next_date": "2026-11-21"
-        },
-        "The Decade Ritual": {
-          "shows": 1,
-          "price_min": 3500,
-          "price_max": 3500,
-          "next_date": "31 Decembe"
+          "next_date": "2026-12-11"
         }
       },
       "Kolkata": {
@@ -3341,23 +3347,17 @@
       },
       "Delhi": {
         "Venue TBC": {
-          "shows": 5,
+          "shows": 6,
           "price_min": 299,
           "price_max": 5179,
           "next_date": "2026-11-21"
-        },
-        "Kasha Farms": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-04"
         }
       },
       "Pune": {
         "Venue TBC": {
           "shows": 2,
-          "price_min": 199,
-          "price_max": 499,
+          "price_min": 499,
+          "price_max": 999,
           "next_date": "2026-11-22"
         }
       },
@@ -3367,6 +3367,14 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "2026-12-04"
+        }
+      },
+      "Shillong": {
+        "Shillong": {
+          "shows": 1,
+          "price_min": 750,
+          "price_max": 750,
+          "next_date": "2026-12-18"
         }
       },
       "Hoshiarpur": {

@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-04T07:44:26.770448+00:00",
+  "generated_at": "2026-11-05T08:04:42.382827+00:00",
   "counts": {
     "festivals": 21,
-    "tours": 14,
+    "tours": 12,
     "marquee": 14,
     "international": 6,
-    "indian": 29,
-    "new_this_run": 0
+    "indian": 27,
+    "new_this_run": 1
   },
   "festivals": [
     {
@@ -316,33 +316,6 @@
       "origin": "indian"
     },
     {
-      "title": "Apna Pahadi utsav",
-      "type": "festival",
-      "key": "apna pahadi utsav",
-      "cities": [
-        "Gurugram"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-04",
-          "date_obj": "2026-11-04",
-          "city": "Gurugram",
-          "venue": "Kasha Farms",
-          "time": "",
-          "price": "",
-          "url": "",
-          "source": "thumpn"
-        }
-      ],
-      "soonest": "2026-11-04",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Bangalore Documentary Film Festival - NOV 5-8",
       "type": "festival",
       "key": "documentary film festival",
@@ -380,6 +353,31 @@
           "date_obj": "2026-11-06",
           "city": "Mumbai",
           "venue": "Venue To Be Announced",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-11-06",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Raas Utsav Mulund 2026 with The Dandhiya King Naitik Nagda",
+      "type": "festival",
+      "key": "raas utsav mulund with the dandhiya king naitik nagda",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-11-06",
+          "date_obj": "2026-11-06",
+          "city": "",
+          "venue": "Richardson And Cruddas Jumbo Facility Centre",
           "time": "",
           "price": "",
           "url": "",
@@ -504,60 +502,6 @@
     }
   ],
   "tours": [
-    {
-      "title": "Krishna Das India Tour 2026",
-      "type": "tour",
-      "key": "krishna das india tour",
-      "cities": [
-        "Bangalore"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-04",
-          "date_obj": "2026-11-04",
-          "city": "Bangalore",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹1,999",
-          "url": "https://www.district.in/events/krishna-das-india-tour-2026-bengaluru",
-          "source": "district"
-        }
-      ],
-      "soonest": "2026-11-04",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "SikTh - Live in Mumbai",
-      "type": "tour",
-      "key": "sikth",
-      "cities": [
-        "Mumbai"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-04",
-          "date_obj": "2026-11-04",
-          "city": "Mumbai",
-          "venue": "",
-          "time": "08:00 PM",
-          "price": "₹1,849–₹6,067",
-          "url": "https://www.skillboxes.com/events/sikth-live-in-mumbai-sbcmemjx",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-11-04",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
     {
       "title": "Papon Live In Concert",
       "type": "tour",
@@ -1037,9 +981,10 @@
       "origin": "indian"
     }
   ],
-  "new_this_run": [],
+  "new_this_run": [
+    "Raas Utsav Mulund 2026 with The Dandhiya King Naitik Nagda"
+  ],
   "_all_keys": [
-    "sikth",
     "domi jd beck who asked tour",
     "rainburn adrift in india tour",
     "khalid live in",
@@ -1054,13 +999,12 @@
     "diljit dosanjh",
     "madhubanti bagchi india tour",
     "yuvan shankar raja live in concert",
-    "krishna das india tour",
     "papon live in concert",
     "echoes of earth",
     "gorillaz the mountain tour",
-    "apna pahadi utsav",
     "documentary film festival",
     "bangtanverse carnival",
+    "raas utsav mulund with the dandhiya king naitik nagda",
     "nh7 weekender",
     "lollapalooza india",
     "sunburn festival",
