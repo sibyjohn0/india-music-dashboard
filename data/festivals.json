@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-05T11:38:21.838841+00:00",
+  "generated_at": "2026-11-06T08:04:58.989957+00:00",
   "counts": {
-    "festivals": 23,
+    "festivals": 24,
     "tours": 12,
     "marquee": 14,
     "international": 6,
-    "indian": 29,
-    "new_this_run": 1
+    "indian": 30,
+    "new_this_run": 2
   },
   "festivals": [
     {
@@ -316,31 +316,6 @@
       "origin": "indian"
     },
     {
-      "title": "Bangalore Documentary Film Festival - NOV 5-8",
-      "type": "festival",
-      "key": "documentary film festival",
-      "cities": [],
-      "dates": [
-        {
-          "date": "2026-11-05",
-          "date_obj": "2026-11-05",
-          "city": "",
-          "venue": "Goethe-Institut / Max Mueller Bhavan Bangalore",
-          "time": "",
-          "price": "",
-          "url": "",
-          "source": "thumpn"
-        }
-      ],
-      "soonest": "2026-11-05",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "BANGTANVERSE CARNIVAL - FAN TOUR",
       "type": "festival",
       "key": "bangtanverse carnival",
@@ -393,6 +368,31 @@
       "origin": "indian"
     },
     {
+      "title": "SPLASH Carnival",
+      "type": "festival",
+      "key": "splash carnival",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-11-07",
+          "date_obj": "2026-11-07",
+          "city": "",
+          "venue": "Regenta hotel",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-11-07",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
       "title": "DGTL Bengaluru 2026",
       "type": "festival",
       "key": "dgtl",
@@ -423,6 +423,33 @@
         }
       ],
       "soonest": "2026-11-13",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Heya ! Pre Festival Experience",
+      "type": "festival",
+      "key": "heya pre festival experience",
+      "cities": [
+        "Goa"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-28",
+          "date_obj": "2026-11-28",
+          "city": "Goa",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "from ₹999",
+          "url": "https://www.skillboxes.com/events/heya-pre-festival-experience-sbmhdmhz",
+          "source": "skillboxes"
+        }
+      ],
+      "soonest": "2026-11-28",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1047,15 +1074,10 @@
     }
   ],
   "new_this_run": [
-    "DGTL Bengaluru 2026"
+    "Heya ! Pre Festival Experience",
+    "SPLASH Carnival"
   ],
   "_all_keys": [
-    "documentary film festival",
-    "bangtanverse carnival",
-    "raas utsav mulund with the dandhiya king naitik nagda",
-    "papon live in concert",
-    "echoes of earth",
-    "gorillaz the mountain tour",
     "dgtl",
     "domi jd beck who asked tour",
     "rainburn adrift in india tour",
@@ -1067,11 +1089,18 @@
     "structure music festival",
     "mixtape presents the gundaraaj tour",
     "the festival of lights",
+    "heya pre festival experience",
     "benny dayal live in",
     "last minute india on tour",
     "diljit dosanjh",
     "madhubanti bagchi india tour",
     "yuvan shankar raja live in concert",
+    "papon live in concert",
+    "echoes of earth",
+    "gorillaz the mountain tour",
+    "bangtanverse carnival",
+    "raas utsav mulund with the dandhiya king naitik nagda",
+    "splash carnival",
     "nh7 weekender",
     "lollapalooza india",
     "sunburn festival",
