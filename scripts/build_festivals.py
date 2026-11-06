@@ -36,8 +36,13 @@ EXCLUDE = re.compile(
     r"halloween party|horrorcon|comic con|cosplay|pet |dog |puppy|"
     r"flea market|expo|webinar|meetup|networking)\b", re.I)
 
-# Keep as a festival.
-FESTIVAL_RE = re.compile(r"\b(festival|weekender|fest|carnival|mahotsav|utsav|fiesta)\b", re.I)
+# Keep as a festival. Named-brand festivals that don't literally say
+# "festival" in their own title (confirmed case: "DGTL Bengaluru 2026" /
+# "DGTL GOA 2026" on Skillboxes, correctly tagged "Music Festivals" in their
+# own taxonomy, but that category is lost before it reaches this classifier)
+# get listed explicitly here, same as how Sunburn/Lollapalooza are recognised
+# by name elsewhere in this file.
+FESTIVAL_RE = re.compile(r"\b(festival|weekender|fest|carnival|mahotsav|utsav|fiesta|dgtl)\b", re.I)
 # Keep as a tour / notable single-artist gig.
 TOUR_RE = re.compile(r"\b(tour|live in concert|world tour|india tour|unplugged|on tour|live in )\b", re.I)
 

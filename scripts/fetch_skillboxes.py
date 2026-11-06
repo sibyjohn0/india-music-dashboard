@@ -62,10 +62,25 @@ def is_music(item):
 
 
 def parse_date(raw):
-    """Convert '06 June 2026' to '2026-06-06'."""
+    """Convert '06 June 2026' to '2026-06-06'.
+
+    BUG FOUND BY HAND (2026-11-05): multi-day events come back as a range
+    string, e.g. "13 November - 14 November 2026" (no year on the first
+    half). The old version couldn't parse that, fell back to raw[:10]
+    ("13 Novembe"), which then sorted as if it were already in the past --
+    silently dropping every multi-day festival from the output, DGTL India
+    2026 included, with no error anywhere. Take the start date and borrow
+    the year from the end of the string when the first half omits it.
+    """
     if not raw:
         return ""
     raw = str(raw).strip()
+    if " - " in raw:
+        first = raw.split(" - ")[0].strip()
+        year_match = re.search(r'(\d{4})\s*$', raw)
+        if year_match and not re.search(r'\d{4}', first):
+            first = f"{first} {year_match.group(1)}"
+        raw = first
     for fmt in ("%d %B %Y", "%d %b %Y", "%Y-%m-%d"):
         try:
             return datetime.strptime(raw, fmt).strftime("%Y-%m-%d")
@@ -241,6 +256,19 @@ def main():
     raw_items = fetch_all()
     events    = [normalise(i) for i in raw_items if is_music(i)]
     events    = [e for e in events if e["name"]]
+
+    # Skillboxes' own pagination isn't stable between calls (confirmed by hand:
+    # the same event landed on page 4 in one run and page 15, right at our
+    # page-15 cap, in the next) -- a real festival (DGTL India 2026) was missed
+    # by the daily pipeline purely because of where it happened to land that
+    # day, not because it failed any filter. Merging with the last known set
+    # (keyed by url, same organic-growth pattern as data/channels.json and
+    # data/playlist_insights.json) means a one-day pagination miss no longer
+    # silently drops a real event -- it just needs to be re-seen once, ever.
+    existing_by_key = {(e.get("url") or e.get("name")): e for e in (last_known or {}).get("events", [])}
+    for e in events:
+        existing_by_key[e.get("url") or e.get("name")] = e
+    events = list(existing_by_key.values())
 
     # Remove past events
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")

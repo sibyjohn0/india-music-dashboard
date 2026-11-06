@@ -243,6 +243,13 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
     <p>We help independent Indian artists get heard, get paid and get on stage. The Radar tracks who's rising, and the programme is hands-on.</p>
     <a class="btn" href="/programme/">Get a real team behind your music →</a>
   </div>
+
+  <div class="cta">
+    <h3>Running a festival or tour?</h3>
+    <p>If it belongs on this page, tell us directly, we list genuine independent-music events for free.</p>
+    <a class="btn" href="mailto:sibyjohn0@gmail.com?subject=Festival%20listing%20for%20indiemusicindia.com">Pitch your festival →</a>
+    <a style="display:inline-block;margin-left:14px;font-size:13px;font-weight:700;color:var(--accent)" href="https://wa.me/919960025559" target="_blank" rel="noopener">Or WhatsApp +91 99600 25559 →</a>
+  </div>
 </div>
 <footer>
   <div class="footer-logo">◉ Indie Music India</div>
