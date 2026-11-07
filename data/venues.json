@@ -1,26 +1,33 @@
 {
-  "generated_at": "2026-11-06T08:04:59.056408+00:00",
+  "generated_at": "2026-11-07T07:17:11.515571+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
       "venue_count": 5,
-      "show_count": 5,
+      "show_count": 6,
       "venues": [
         {
-          "name": "Waves- Sonic Diwali",
+          "name": "High Note",
           "city": "Mumbai",
           "area": "",
           "gigs": [
             {
-              "name": "Damru live at Waves- Sonic Diwali",
-              "date": "2026-11-06",
-              "url": "https://www.skillboxes.com/events/damru-live-at-antisocial-sonic-diwali-sbzavlge",
-              "price": "₹799–₹1,799",
+              "name": "Bombay Rock Xchange - Live at High Note",
+              "date": "2026-12-12",
+              "url": "https://www.skillboxes.com/events/bombay-rock-xchange-live-at-high-note-sbmctrsr",
+              "price": "from ₹499",
+              "source": "skillboxes"
+            },
+            {
+              "name": "Kanchan Daniel - Live at High Note",
+              "date": "2026-12-19",
+              "url": "https://www.skillboxes.com/events/kanchan-daniel-live-at-high-note-sbnluald",
+              "price": "from ₹499",
               "source": "skillboxes"
             }
           ],
-          "shows": 1,
-          "next_date": "2026-11-06"
+          "shows": 2,
+          "next_date": "2026-12-12"
         },
         {
           "name": "Four Seasons Hotel Mumbai",
@@ -39,20 +46,20 @@
           "next_date": "2026-11-07"
         },
         {
-          "name": "High Note",
+          "name": "Nayra",
           "city": "Mumbai",
           "area": "",
           "gigs": [
             {
-              "name": "Bombay Rock Xchange - Live at High Note",
-              "date": "2026-12-12",
-              "url": "https://www.skillboxes.com/events/bombay-rock-xchange-live-at-high-note-sbmctrsr",
-              "price": "from ₹499",
-              "source": "skillboxes"
+              "name": "Aarpoo",
+              "date": "2026-11-07",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
             }
           ],
           "shows": 1,
-          "next_date": "2026-12-12"
+          "next_date": "2026-11-07"
         },
         {
           "name": "Jio World Garden",
@@ -90,45 +97,32 @@
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 0,
-      "show_count": 0,
-      "venues": []
-    },
-    "bengaluru": {
-      "name": "Bengaluru",
-      "venue_count": 11,
-      "show_count": 17,
+      "venue_count": 1,
+      "show_count": 1,
       "venues": [
         {
-          "name": "BudBee Restobar 104",
-          "city": "Bengaluru",
+          "name": "Kasha Farms",
+          "city": "Delhi",
           "area": "",
           "gigs": [
             {
-              "name": "Diwali Bollywood Takeover 2026 Bengaluru",
-              "date": "2026-11-06",
-              "url": "https://in.bookmyshow.com/events/diwali-bollywood-takeover-2026-bengaluru/ET00523495",
-              "price": "from ₹49",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "One Night One Tribute Sonu Nigam Live Jamming NYT",
-              "date": "2026-11-14",
-              "url": "https://in.bookmyshow.com/events/one-night-one-tribute-sonu-nigam-live-jamming-nyt/ET00505500",
-              "price": "from ₹49",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Tribute to Shreya Ghoshal Sunidhi ChauhanJam Night",
-              "date": "2026-11-21",
-              "url": "https://in.bookmyshow.com/events/tribute-to-shreya-ghoshal-sunidhi-chauhanjam-night/ET00520155",
-              "price": "from ₹49",
-              "source": "bookmyshow"
+              "name": "Apna Pahadi utsav",
+              "date": "2026-11-07",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
             }
           ],
-          "shows": 3,
-          "next_date": "2026-11-06"
-        },
+          "shows": 1,
+          "next_date": "2026-11-07"
+        }
+      ]
+    },
+    "bengaluru": {
+      "name": "Bengaluru",
+      "venue_count": 10,
+      "show_count": 15,
+      "venues": [
         {
           "name": "NICE Grounds",
           "city": "Bengaluru",
@@ -157,6 +151,29 @@
             }
           ],
           "shows": 3,
+          "next_date": "2026-11-14"
+        },
+        {
+          "name": "BudBee Restobar 104",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "One Night One Tribute Sonu Nigam Live Jamming NYT",
+              "date": "2026-11-14",
+              "url": "https://in.bookmyshow.com/events/one-night-one-tribute-sonu-nigam-live-jamming-nyt/ET00505500",
+              "price": "from ₹49",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Tribute to Shreya Ghoshal Sunidhi ChauhanJam Night",
+              "date": "2026-11-21",
+              "url": "https://in.bookmyshow.com/events/tribute-to-shreya-ghoshal-sunidhi-chauhanjam-night/ET00520155",
+              "price": "from ₹49",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
           "next_date": "2026-11-14"
         },
         {
@@ -204,22 +221,6 @@
           ],
           "shows": 2,
           "next_date": null
-        },
-        {
-          "name": "Skygarden Bar",
-          "city": "Bengaluru",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Friday Fashion Walk",
-              "date": "2026-11-06",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-06"
         },
         {
           "name": "ICB Indian Craft Brewery",
@@ -321,9 +322,26 @@
     },
     "hyderabad": {
       "name": "Hyderabad",
-      "venue_count": 0,
-      "show_count": 0,
-      "venues": []
+      "venue_count": 1,
+      "show_count": 1,
+      "venues": [
+        {
+          "name": "Vana Convention",
+          "city": "Hyderabad",
+          "area": "",
+          "gigs": [
+            {
+              "name": "TECHNO Diwali 2026",
+              "date": "2026-11-07",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-07"
+        }
+      ]
     },
     "pune": {
       "name": "Pune",

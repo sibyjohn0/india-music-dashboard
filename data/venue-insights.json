@@ -1,18 +1,10 @@
 {
-  "generated_at": "2026-11-06T07:51:52.076355+00:00",
-  "snapshot_date": "2026-11-06",
+  "generated_at": "2026-11-07T06:59:24.627904+00:00",
+  "snapshot_date": "2026-11-07",
   "cities": {
     "Bangalore": {
-      "total_shows": 43,
+      "total_shows": 41,
       "venues": [
-        {
-          "name": "BudBee Restobar 104",
-          "shows": 3,
-          "price_min": 49,
-          "price_max": 49,
-          "next_date": "2026-11-06",
-          "growth": 0
-        },
         {
           "name": "NICE Grounds",
           "shows": 3,
@@ -20,6 +12,14 @@
           "price_max": 4899,
           "next_date": "2026-11-14",
           "growth": 0
+        },
+        {
+          "name": "BudBee Restobar 104",
+          "shows": 2,
+          "price_min": 49,
+          "price_max": 49,
+          "next_date": "2026-11-14",
+          "growth": -1
         },
         {
           "name": "District Arena @ Terraform",
@@ -94,7 +94,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 26
+      "unlisted_shows": 25
     },
     "Indore": {
       "total_shows": 1,
@@ -125,7 +125,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 9,
+      "total_shows": 8,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -144,12 +144,12 @@
           "growth": 0
         },
         {
-          "name": "Waves- Sonic Diwali",
+          "name": "High Note",
           "shows": 1,
-          "price_min": 799,
-          "price_max": 1799,
-          "next_date": "2026-11-06",
-          "growth": 0
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-12-12",
+          "growth": null
         },
         {
           "name": "Rule34",
@@ -157,14 +157,6 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "26 Nov Thu",
-          "growth": 0
-        },
-        {
-          "name": "Venue To Be Announced",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-06",
           "growth": 0
         }
       ],
@@ -185,7 +177,7 @@
       "unlisted_shows": 0
     },
     "Goa": {
-      "total_shows": 4,
+      "total_shows": 5,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -196,7 +188,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 3
+      "unlisted_shows": 4
     },
     "Kolkata": {
       "total_shows": 2,
