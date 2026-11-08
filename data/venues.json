@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-07T07:17:11.515571+00:00",
+  "generated_at": "2026-11-08T07:19:04.615821+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
-      "venue_count": 5,
-      "show_count": 6,
+      "venue_count": 3,
+      "show_count": 4,
       "venues": [
         {
           "name": "High Note",
@@ -28,38 +28,6 @@
           ],
           "shows": 2,
           "next_date": "2026-12-12"
-        },
-        {
-          "name": "Four Seasons Hotel Mumbai",
-          "city": "Mumbai",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Crescent Moon Exhibition",
-              "date": "2026-11-07",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-07"
-        },
-        {
-          "name": "Nayra",
-          "city": "Mumbai",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Aarpoo",
-              "date": "2026-11-07",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-07"
         },
         {
           "name": "Jio World Garden",
@@ -97,31 +65,14 @@
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 1,
-      "show_count": 1,
-      "venues": [
-        {
-          "name": "Kasha Farms",
-          "city": "Delhi",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Apna Pahadi utsav",
-              "date": "2026-11-07",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-07"
-        }
-      ]
+      "venue_count": 0,
+      "show_count": 0,
+      "venues": []
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 10,
-      "show_count": 15,
+      "venue_count": 12,
+      "show_count": 17,
       "venues": [
         {
           "name": "NICE Grounds",
@@ -223,20 +174,52 @@
           "next_date": null
         },
         {
-          "name": "ICB Indian Craft Brewery",
+          "name": "Kalyani Kala Mandir",
           "city": "Bengaluru",
           "area": "",
           "gigs": [
             {
-              "name": "Sufi & Qawwali Night Ft. MEHFIL-E-NAYAB",
-              "date": "2026-11-07",
-              "url": "https://in.bookmyshow.com/events/sufi-qawwali-night-ft-mehfil-e-nayab/ET00523830",
-              "price": "from ₹199",
-              "source": "bookmyshow"
+              "name": "LIGHT OF LIFE - DIWALI EDITION",
+              "date": "2026-11-08",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
             }
           ],
           "shows": 1,
-          "next_date": "2026-11-07"
+          "next_date": "2026-11-08"
+        },
+        {
+          "name": "White Petals, Gardenia",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Salaam Souk Edition 8 - Big Fat Greek Souk",
+              "date": "2026-11-08",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-08"
+        },
+        {
+          "name": "Chowdiah Memorial Hall",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Chowdiah Utsava 2026 - 11th Nov",
+              "date": "2026-11-11",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-11"
         },
         {
           "name": "Phoenix Marketcity, Whitefield",
@@ -326,20 +309,20 @@
       "show_count": 1,
       "venues": [
         {
-          "name": "Vana Convention",
+          "name": "kingdome",
           "city": "Hyderabad",
           "area": "",
           "gigs": [
             {
-              "name": "TECHNO Diwali 2026",
-              "date": "2026-11-07",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
+              "name": "ELWAVE 2.0 live at kingdome",
+              "date": "2026-11-13",
+              "url": "https://www.skillboxes.com/events/elwave-2-0-live-at-kingdome-sbpomkum",
+              "price": "from ₹1,000",
+              "source": "skillboxes"
             }
           ],
           "shows": 1,
-          "next_date": "2026-11-07"
+          "next_date": "2026-11-13"
         }
       ]
     },

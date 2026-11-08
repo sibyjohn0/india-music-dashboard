@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-07T06:59:24.627904+00:00",
-  "snapshot_date": "2026-11-07",
+  "generated_at": "2026-11-08T07:05:53.662062+00:00",
+  "snapshot_date": "2026-11-08",
   "cities": {
     "Bangalore": {
       "total_shows": 41,
@@ -19,7 +19,7 @@
           "price_min": 49,
           "price_max": 49,
           "next_date": "2026-11-14",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "District Arena @ Terraform",
@@ -35,14 +35,6 @@
           "price_min": null,
           "price_max": null,
           "next_date": "21 Nov Sat",
-          "growth": 0
-        },
-        {
-          "name": "ICB Indian Craft Brewery",
-          "shows": 1,
-          "price_min": 199,
-          "price_max": 199,
-          "next_date": "2026-11-07",
           "growth": 0
         },
         {
@@ -94,7 +86,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 25
+      "unlisted_shows": 26
     },
     "Indore": {
       "total_shows": 1,
@@ -125,7 +117,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 8,
+      "total_shows": 10,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -136,20 +128,20 @@
           "growth": 0
         },
         {
+          "name": "High Note",
+          "shows": 2,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "2026-12-12",
+          "growth": 1
+        },
+        {
           "name": "Jio World Garden",
           "shows": 1,
           "price_min": 5000,
           "price_max": 5000,
           "next_date": "2027-01-27",
           "growth": 0
-        },
-        {
-          "name": "High Note",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-12-12",
-          "growth": null
         },
         {
           "name": "Rule34",
@@ -160,7 +152,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 3
+      "unlisted_shows": 4
     },
     "Hyderabad": {
       "total_shows": 1,
