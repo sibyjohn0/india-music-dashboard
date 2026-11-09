@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-08T07:19:04.615821+00:00",
+  "generated_at": "2026-11-09T08:04:56.555338+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
-      "venue_count": 3,
-      "show_count": 4,
+      "venue_count": 4,
+      "show_count": 5,
       "venues": [
         {
           "name": "High Note",
@@ -28,6 +28,22 @@
           ],
           "shows": 2,
           "next_date": "2026-12-12"
+        },
+        {
+          "name": "Creative Adda 191",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "7th, Mumbai Indiefilm Festival",
+              "date": "2026-11-13",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-13"
         },
         {
           "name": "Jio World Garden",
@@ -65,14 +81,31 @@
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 0,
-      "show_count": 0,
-      "venues": []
+      "venue_count": 1,
+      "show_count": 1,
+      "venues": [
+        {
+          "name": "Travancore Palace",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Kahaani - Foods of India",
+              "date": "2026-11-13",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-13"
+        }
+      ]
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 12,
-      "show_count": 17,
+      "venue_count": 10,
+      "show_count": 16,
       "venues": [
         {
           "name": "NICE Grounds",
@@ -103,6 +136,29 @@
           ],
           "shows": 3,
           "next_date": "2026-11-14"
+        },
+        {
+          "name": "Chowdiah Memorial Hall",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Chowdiah Utsava 2026 - 11th Nov",
+              "date": "2026-11-11",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            },
+            {
+              "name": "Chowdiah Utsava 2026 - 12th Nov",
+              "date": "2026-11-12",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-11-11"
         },
         {
           "name": "BudBee Restobar 104",
@@ -172,54 +228,6 @@
           ],
           "shows": 2,
           "next_date": null
-        },
-        {
-          "name": "Kalyani Kala Mandir",
-          "city": "Bengaluru",
-          "area": "",
-          "gigs": [
-            {
-              "name": "LIGHT OF LIFE - DIWALI EDITION",
-              "date": "2026-11-08",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-08"
-        },
-        {
-          "name": "White Petals, Gardenia",
-          "city": "Bengaluru",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Salaam Souk Edition 8 - Big Fat Greek Souk",
-              "date": "2026-11-08",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-08"
-        },
-        {
-          "name": "Chowdiah Memorial Hall",
-          "city": "Bengaluru",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Chowdiah Utsava 2026 - 11th Nov",
-              "date": "2026-11-11",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-11"
         },
         {
           "name": "Phoenix Marketcity, Whitefield",
@@ -305,8 +313,8 @@
     },
     "hyderabad": {
       "name": "Hyderabad",
-      "venue_count": 1,
-      "show_count": 1,
+      "venue_count": 2,
+      "show_count": 2,
       "venues": [
         {
           "name": "kingdome",
@@ -323,6 +331,22 @@
           ],
           "shows": 1,
           "next_date": "2026-11-13"
+        },
+        {
+          "name": "Ayaan & Tushara",
+          "city": "Hyderabad",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Mohammed Rafi: A Musical Tribute | Ayaan & Tushara",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/mohammed-rafi-a-musical-tribute-ayaan-tushara-sbqxmtmy",
+              "price": "from ₹699",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
         }
       ]
     },

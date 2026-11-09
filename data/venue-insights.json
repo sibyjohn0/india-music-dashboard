@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-08T07:05:53.662062+00:00",
-  "snapshot_date": "2026-11-08",
+  "generated_at": "2026-11-09T07:51:00.343296+00:00",
+  "snapshot_date": "2026-11-09",
   "cities": {
     "Bangalore": {
-      "total_shows": 41,
+      "total_shows": 43,
       "venues": [
         {
           "name": "NICE Grounds",
@@ -84,9 +84,17 @@
           "price_max": 10000,
           "next_date": "27 Nov Fri",
           "growth": 0
+        },
+        {
+          "name": "Chowdiah Memorial Hall",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-11",
+          "growth": null
         }
       ],
-      "unlisted_shows": 26
+      "unlisted_shows": 27
     },
     "Indore": {
       "total_shows": 1,
@@ -133,7 +141,7 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "2026-12-12",
-          "growth": 1
+          "growth": 0
         },
         {
           "name": "Jio World Garden",
@@ -155,7 +163,7 @@
       "unlisted_shows": 4
     },
     "Hyderabad": {
-      "total_shows": 1,
+      "total_shows": 2,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -164,12 +172,20 @@
           "price_max": 999,
           "next_date": "2026-11-28",
           "growth": 0
+        },
+        {
+          "name": "kingdome",
+          "shows": 1,
+          "price_min": 1000,
+          "price_max": 1000,
+          "next_date": "2026-11-13",
+          "growth": null
         }
       ],
       "unlisted_shows": 0
     },
     "Goa": {
-      "total_shows": 5,
+      "total_shows": 7,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -180,10 +196,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 4
+      "unlisted_shows": 6
     },
     "Kolkata": {
-      "total_shows": 2,
+      "total_shows": 3,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -194,7 +210,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 1
+      "unlisted_shows": 2
     },
     "India": {
       "total_shows": 1,
@@ -216,9 +232,9 @@
       "unlisted_shows": 7
     },
     "Pune": {
-      "total_shows": 2,
+      "total_shows": 3,
       "venues": [],
-      "unlisted_shows": 2
+      "unlisted_shows": 3
     },
     "Chennai": {
       "total_shows": 1,

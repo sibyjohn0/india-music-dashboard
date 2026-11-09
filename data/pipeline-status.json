@@ -1,131 +1,131 @@
 {
-  "last_run": "2026-11-08T07:00:51.334643+00:00",
-  "overall": "partial",
+  "last_run": "2026-11-09T07:44:53.192325+00:00",
+  "overall": "ok",
   "sources": {
     "youtube": {
       "status": "ok",
       "records": 225,
-      "ms": 220999,
+      "ms": 213749,
       "error": null
     },
     "lastfm": {
       "status": "ok",
-      "records": 138,
-      "ms": 80760,
+      "records": 136,
+      "ms": 152782,
       "error": null
     },
     "radar": {
       "status": "ok",
-      "records": 133,
-      "ms": 28,
+      "records": 131,
+      "ms": 30,
       "error": null
     },
     "insights": {
       "status": "ok",
       "records": null,
-      "ms": 507,
+      "ms": 555,
       "error": null
     },
     "venue_analysis": {
       "status": "ok",
       "records": null,
-      "ms": 37,
+      "ms": 38,
       "error": null
     },
     "monthly_digest": {
       "status": "ok",
       "records": null,
-      "ms": 85,
+      "ms": 95,
       "error": null
     },
     "spotify": {
       "status": "ok",
-      "records": 59,
-      "ms": 48395,
+      "records": 60,
+      "ms": 60348,
       "error": null
     },
     "playlist_insights": {
       "status": "ok",
       "records": null,
-      "ms": 272896,
+      "ms": 294713,
       "error": null
     },
     "playlist_insights_pages": {
       "status": "ok",
       "records": null,
-      "ms": 59,
+      "ms": 61,
       "error": null
     },
     "radar_social": {
       "status": "ok",
       "records": null,
-      "ms": 169,
+      "ms": 165,
       "error": null
     },
     "social": {
       "status": "ok",
-      "records": 228,
-      "ms": 21468,
+      "records": 225,
+      "ms": 20640,
       "error": null
     },
     "playboard": {
       "status": "ok",
       "records": null,
-      "ms": 50785,
+      "ms": 50692,
       "error": null
     },
     "jiosaavn": {
       "status": "ok",
       "records": null,
-      "ms": 1291,
+      "ms": 2112,
       "error": null
     },
     "events_paytm": {
       "status": "ok",
       "records": null,
-      "ms": 53,
+      "ms": 55,
       "error": null
     },
     "news_rss": {
       "status": "ok",
       "records": null,
-      "ms": 4765,
+      "ms": 6027,
       "error": null
     },
     "news_page": {
       "status": "ok",
       "records": null,
-      "ms": 29,
+      "ms": 30,
       "error": null
     },
     "events_district": {
       "status": "ok",
       "records": 92,
-      "ms": 105870,
+      "ms": 105546,
       "error": null
     },
     "spotify_playwright": {
       "status": "ok",
       "records": 0,
-      "ms": 199245,
+      "ms": 196354,
       "error": null
     },
     "bookmyshow": {
       "status": "ok",
       "records": 32,
-      "ms": 41609,
+      "ms": 41452,
       "error": null
     },
     "skillboxes": {
       "status": "ok",
-      "records": 67,
-      "ms": 38744,
+      "records": 69,
+      "ms": 52701,
       "error": null
     },
     "events_thumpn": {
       "status": "ok",
       "records": 10,
-      "ms": 5341,
+      "ms": 5072,
       "error": null
     },
     "festivals_build": {
@@ -137,61 +137,19 @@
     "festivals_page": {
       "status": "ok",
       "records": null,
-      "ms": 30,
+      "ms": 31,
       "error": null
     },
     "venues_build": {
       "status": "ok",
       "records": null,
-      "ms": 38,
+      "ms": 37,
       "error": null
     },
     "venues_pages": {
       "status": "ok",
       "records": null,
       "ms": 32,
-      "error": null
-    },
-    "industry": {
-      "status": "failed",
-      "records": null,
-      "ms": 26,
-      "error": "ERROR: pip install requests"
-    },
-    "reviewers_editorial": {
-      "status": "ok",
-      "records": null,
-      "ms": 15252,
-      "error": null
-    },
-    "reviewers_podcasts": {
-      "status": "ok",
-      "records": null,
-      "ms": 11725,
-      "error": null
-    },
-    "reviewers_spotify": {
-      "status": "failed",
-      "records": null,
-      "ms": 600072,
-      "error": "timeout"
-    },
-    "reviewers_youtube": {
-      "status": "ok",
-      "records": null,
-      "ms": 189120,
-      "error": null
-    },
-    "reviewers_merge": {
-      "status": "ok",
-      "records": 1139,
-      "ms": 97,
-      "error": null
-    },
-    "reviewers_genre_summary": {
-      "status": "ok",
-      "records": null,
-      "ms": 73,
       "error": null
     }
   }
