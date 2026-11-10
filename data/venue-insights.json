@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-09T07:51:00.343296+00:00",
-  "snapshot_date": "2026-11-09",
+  "generated_at": "2026-11-10T08:12:41.870732+00:00",
+  "snapshot_date": "2026-11-10",
   "cities": {
     "Bangalore": {
-      "total_shows": 43,
+      "total_shows": 45,
       "venues": [
         {
           "name": "NICE Grounds",
@@ -36,6 +36,14 @@
           "price_max": null,
           "next_date": "21 Nov Sat",
           "growth": 0
+        },
+        {
+          "name": "Chowdiah Memorial Hall",
+          "shows": 2,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-11",
+          "growth": 1
         },
         {
           "name": "Phoenix Marketcity, Whitefield",
@@ -86,11 +94,11 @@
           "growth": 0
         },
         {
-          "name": "Chowdiah Memorial Hall",
+          "name": "Venue To Be Announced",
           "shows": 1,
           "price_min": null,
           "price_max": null,
-          "next_date": "2026-11-11",
+          "next_date": "2026-11-13",
           "growth": null
         }
       ],
@@ -125,7 +133,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 10,
+      "total_shows": 11,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -158,12 +166,20 @@
           "price_max": 499,
           "next_date": "26 Nov Thu",
           "growth": 0
+        },
+        {
+          "name": "Creative Adda 191",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-13",
+          "growth": null
         }
       ],
       "unlisted_shows": 4
     },
     "Hyderabad": {
-      "total_shows": 2,
+      "total_shows": 3,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -179,13 +195,21 @@
           "price_min": 1000,
           "price_max": 1000,
           "next_date": "2026-11-13",
+          "growth": 0
+        },
+        {
+          "name": "Ayaan & Tushara",
+          "shows": 1,
+          "price_min": 699,
+          "price_max": 699,
+          "next_date": "29 Nov Sun",
           "growth": null
         }
       ],
       "unlisted_shows": 0
     },
     "Goa": {
-      "total_shows": 7,
+      "total_shows": 8,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -196,7 +220,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 6
+      "unlisted_shows": 7
     },
     "Kolkata": {
       "total_shows": 3,
@@ -227,8 +251,17 @@
       "unlisted_shows": 0
     },
     "Delhi": {
-      "total_shows": 7,
-      "venues": [],
+      "total_shows": 8,
+      "venues": [
+        {
+          "name": "Travancore Palace",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-13",
+          "growth": null
+        }
+      ],
       "unlisted_shows": 7
     },
     "Pune": {

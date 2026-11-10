@@ -1080,13 +1080,13 @@
   },
   "2026-11": {
     "month": "2026-11",
-    "snapshots": 9,
-    "last_snapshot_at": "2026-11-09T07:48:26.901805+00:00",
+    "snapshots": 10,
+    "last_snapshot_at": "2026-11-10T08:11:15.855034+00:00",
     "total_videos": 225,
-    "total_artists": 244,
-    "new_artists_seen": 206,
-    "median_score": 72,
-    "median_views": 3556,
+    "total_artists": 250,
+    "new_artists_seen": 213,
+    "median_score": 69,
+    "median_views": 3920,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -1161,34 +1161,34 @@
     ],
     "fastest_growing": [
       {
+        "name": "SAMBATA__ 00",
+        "views_gained": 434071,
+        "genre": "Indie",
+        "language": "Marathi"
+      },
+      {
         "name": "Mashuq Haque",
-        "views_gained": 333511,
+        "views_gained": 377052,
         "genre": "R&B / Soul",
         "language": "English"
       },
       {
         "name": "ANP MUSIC",
-        "views_gained": 271486,
+        "views_gained": 271597,
         "genre": "Electronic",
         "language": "Telugu"
       },
       {
         "name": "Esther Hnamte Official",
-        "views_gained": 230039,
+        "views_gained": 240932,
         "genre": "Hip Hop / Rap",
         "language": "Hindi"
       },
       {
         "name": "Mashuq Haque",
-        "views_gained": 194581,
+        "views_gained": 206781,
         "genre": "R&B / Soul",
         "language": "English"
-      },
-      {
-        "name": "SAMBATA__ 00",
-        "views_gained": 183097,
-        "genre": "Indie",
-        "language": "Marathi"
       }
     ],
     "genre_breakdown": [
@@ -1197,28 +1197,28 @@
         54
       ],
       [
-        "Folk / Acoustic",
-        40
+        "Hip Hop / Rap",
+        44
       ],
       [
-        "Hip Hop / Rap",
-        40
+        "Folk / Acoustic",
+        42
       ],
       [
         "R&B / Soul",
-        31
+        27
       ],
       [
         "Electronic",
-        22
+        21
       ],
       [
         "Classical/Fusion",
-        20
+        15
       ],
       [
         "Lo-Fi",
-        11
+        13
       ],
       [
         "Rock / Alt",
@@ -1226,7 +1226,7 @@
       ],
       [
         "Indie Pop",
-        1
+        3
       ]
     ],
     "language_breakdown": [
@@ -1240,6 +1240,10 @@
       ],
       [
         "Kannada",
+        25
+      ],
+      [
+        "Bengali",
         25
       ],
       [
@@ -1261,22 +1265,18 @@
       [
         "Malayalam",
         25
-      ],
-      [
-        "Bengali",
-        25
       ]
     ],
     "city_shows": {
-      "Bangalore": 43,
+      "Bangalore": 45,
       "Indore": 1,
       "Ahmedabad": 1,
-      "Mumbai": 10,
-      "Hyderabad": 2,
-      "Goa": 7,
+      "Mumbai": 11,
+      "Hyderabad": 3,
+      "Goa": 8,
       "Kolkata": 3,
       "India": 1,
-      "Delhi": 7,
+      "Delhi": 8,
       "Pune": 3,
       "Chennai": 1,
       "Manali": 1,
@@ -1287,6 +1287,6 @@
       "Kochi": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 86
+    "total_shows": 92
   }
 }
