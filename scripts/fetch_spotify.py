@@ -34,6 +34,14 @@ PLAYLIST_SEARCHES = [
 _token = None
 _token_expiry = 0
 
+# EDGE CASE (confirmed by hand this session, see fetch_playlist_insights.py):
+# a severe Spotify 429 can return Retry-After in the TENS OF THOUSANDS of
+# seconds (~21h seen once). Blindly sleeping that long is what was silently
+# eating the entire 10-minute pipeline budget and showing up as "timeout" in
+# pipeline-status.json, not a generic hang. Cap it: abort this call instead.
+MAX_RATE_LIMIT_WAIT = 30
+_severe_rate_limit_hit = False
+
 
 def get_token():
     global _token, _token_expiry
@@ -54,7 +62,8 @@ def get_token():
     return _token
 
 
-def api_get(path, params=None):
+def api_get(path, params=None, _retries=3):
+    global _severe_rate_limit_hit
     url = f"https://api.spotify.com/v1{path}"
     if params:
         url += "?" + urlencode(params)
@@ -65,9 +74,15 @@ def api_get(path, params=None):
     except HTTPError as e:
         if e.code == 429:
             retry = int(e.headers.get("Retry-After", 3))
-            print(f"  rate limit — sleeping {retry}s")
-            time.sleep(retry)
-            return api_get(path, params)
+            if retry > MAX_RATE_LIMIT_WAIT:
+                print(f"  SEVERE rate limit (Retry-After {retry}s) -- aborting this call, not waiting it out")
+                _severe_rate_limit_hit = True
+                return None
+            if _retries > 0:
+                print(f"  rate limit, sleeping {retry}s")
+                time.sleep(retry)
+                return api_get(path, params, _retries - 1)
+            return None
         print(f"  HTTP {e.code} on {path}")
         return None
     except Exception as e:
@@ -146,6 +161,9 @@ def enrich_youtube_artists(yt_artists):
     enriched = {}
     print(f"  Searching Spotify for {len(yt_artists)} YouTube artists...")
     for a in yt_artists:
+        if _severe_rate_limit_hit:
+            print(f"  Stopping early: severe rate limit hit, continuing would just rack up more failed calls.")
+            break
         name = a["name"]
         result = search_artist(name)
         if not result:
@@ -180,6 +198,9 @@ def fetch_playlist_artists():
     tried_playlists = set()
 
     for query in PLAYLIST_SEARCHES:
+        if _severe_rate_limit_hit:
+            print(f"  Stopping early: severe rate limit hit, continuing would just rack up more failed calls.")
+            break
         print(f"  Searching playlists: {query!r}...")
         playlists = search_playlists(query)
         for pl in playlists[:3]:
@@ -220,6 +241,9 @@ def fetch_playlist_artists():
     top = sorted(discovered.values(), key=lambda x: -x["track_count"])[:40]
     result = []
     for a in top:
+        if _severe_rate_limit_hit:
+            print(f"  Stopping early: severe rate limit hit, continuing would just rack up more failed calls.")
+            break
         details = get_artist_details(a["spotify_id"])
         if details:
             a["followers"]   = (details.get("followers") or {}).get("total", 0)
