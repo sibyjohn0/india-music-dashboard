@@ -2695,15 +2695,17 @@
   },
   {
     "week": "2026-W46",
-    "date": "2026-11-12",
+    "date": "2026-11-13",
     "cities": {
+      "Gachibowli": {
+        "Heart Cup Coffee": {
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "2026-11-13"
+        }
+      },
       "Hyderabad": {
-        "Silaa The Garden Cafe Jubilee Hills": {
-          "shows": 3,
-          "price_min": 299,
-          "price_max": 399,
-          "next_date": "2026-11-12"
-        },
         "The Rabbit Hole Lounge, Bar and Kitchen": {
           "shows": 2,
           "price_min": 499,
@@ -2732,6 +2734,12 @@
           "shows": 1,
           "price_min": 500,
           "price_max": 500,
+          "next_date": "2026-11-14"
+        },
+        "Silaa The Garden Cafe Jubilee Hills": {
+          "shows": 2,
+          "price_min": 399,
+          "price_max": 399,
           "next_date": "2026-11-14"
         },
         "Kingdome Klub and Kitchen": {
@@ -2825,8 +2833,8 @@
           "next_date": "2026-11-15"
         },
         "Venue TBC": {
-          "shows": 1,
-          "price_min": 3499,
+          "shows": 2,
+          "price_min": 349,
           "price_max": 3499,
           "next_date": "2026-12-07"
         },
@@ -2835,14 +2843,6 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "29 Nov Sun"
-        }
-      },
-      "Gachibowli": {
-        "Heart Cup Coffee": {
-          "shows": 1,
-          "price_min": 799,
-          "price_max": 799,
-          "next_date": "2026-11-13"
         }
       },
       "Kolkata": {
@@ -3053,7 +3053,7 @@
           "next_date": "2027-01-27"
         },
         "Venue TBC": {
-          "shows": 4,
+          "shows": 5,
           "price_min": 249,
           "price_max": 7999,
           "next_date": "2026-11-19"
@@ -3069,6 +3069,12 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "26 Nov Thu"
+        },
+        "Creative Adda 191": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-13"
         }
       },
       "Pune": {
@@ -3175,9 +3181,9 @@
           "next_date": "2027-01-14"
         },
         "Venue TBC": {
-          "shows": 3,
+          "shows": 4,
           "price_min": 200,
-          "price_max": 999,
+          "price_max": 2000,
           "next_date": "2026-11-22"
         }
       },
@@ -3347,10 +3353,16 @@
           "next_date": "2026-12-05"
         },
         "Venue TBC": {
-          "shows": 33,
+          "shows": 34,
           "price_min": 199,
           "price_max": 17942,
           "next_date": "2026-11-13"
+        },
+        "RESTRICTED": {
+          "shows": 1,
+          "price_min": 1499,
+          "price_max": 1999,
+          "next_date": "2026-12-13"
         },
         "Space Session": {
           "shows": 1,
@@ -3388,11 +3400,11 @@
           "price_max": 10000,
           "next_date": "27 Nov Fri"
         },
-        "Chowdiah Memorial Hall": {
+        "Venue To Be Announced": {
           "shows": 1,
           "price_min": null,
           "price_max": null,
-          "next_date": "2026-11-12"
+          "next_date": "2026-11-13"
         }
       },
       "Lucknow": {
@@ -3449,12 +3461,38 @@
           "next_date": null
         }
       },
+      "Shillong": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 699,
+          "price_max": 699,
+          "next_date": "2026-11-20"
+        },
+        "Shillong": {
+          "shows": 1,
+          "price_min": 750,
+          "price_max": 750,
+          "next_date": "2026-12-18"
+        }
+      },
       "Delhi": {
         "Venue TBC": {
-          "shows": 7,
+          "shows": 8,
           "price_min": 299,
           "price_max": 6999,
           "next_date": "2026-11-21"
+        },
+        "Paul John Luxury Blended Water": {
+          "shows": 1,
+          "price_min": 2999,
+          "price_max": 3999,
+          "next_date": "2026-12-04"
+        },
+        "Room Xo": {
+          "shows": 1,
+          "price_min": 999,
+          "price_max": 999,
+          "next_date": "27 Nov Fri"
         },
         "TUBATA": {
           "shows": 1,
@@ -3467,6 +3505,12 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "30 Dec Wed"
+        },
+        "KOCA": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "30 Nov Mon"
         },
         "Travancore Palace": {
           "shows": 1,
@@ -3491,14 +3535,6 @@
           "next_date": "2026-12-18"
         }
       },
-      "Shillong": {
-        "Shillong": {
-          "shows": 1,
-          "price_min": 750,
-          "price_max": 750,
-          "next_date": "2026-12-18"
-        }
-      },
       "Hoshiarpur": {
         "Venue TBC": {
           "shows": 1,
@@ -3515,20 +3551,20 @@
           "next_date": "21 Nov Sat"
         }
       },
+      "Kochi": {
+        "Venue TBC": {
+          "shows": 3,
+          "price_min": 349,
+          "price_max": 3499,
+          "next_date": "22 Nov Sun"
+        }
+      },
       "Chandigarh": {
         "Venue TBC": {
           "shows": 1,
           "price_min": 499,
           "price_max": 1999,
           "next_date": "28 Nov Sat"
-        }
-      },
-      "Kochi": {
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 899,
-          "price_max": 3499,
-          "next_date": "30 Jan Sat"
         }
       }
     }

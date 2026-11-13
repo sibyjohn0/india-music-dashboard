@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-12T08:22:17.905566+00:00",
+  "generated_at": "2026-11-13T07:51:54.510209+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
-      "venue_count": 20,
-      "show_count": 26,
+      "venue_count": 21,
+      "show_count": 28,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -49,6 +49,29 @@
           ],
           "shows": 5,
           "next_date": "2026-11-22"
+        },
+        {
+          "name": "St. Andrews Auditorium",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Drama Utsav 2026",
+              "date": "2026-11-13",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            },
+            {
+              "name": "YOU ME and A CHRISTMAS TREE 3.0",
+              "date": "2026-12-05",
+              "url": "https://in.bookmyshow.com/events/you-me-and-a-christmas-tree-3-0/ety7p669n5",
+              "price": "from ₹826",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-11-13"
         },
         {
           "name": "Jamshed Bhabha Theatre",
@@ -257,22 +280,6 @@
           "next_date": "2026-12-05"
         },
         {
-          "name": "St. Andrews Auditorium",
-          "city": "Mumbai",
-          "area": "",
-          "gigs": [
-            {
-              "name": "YOU ME and A CHRISTMAS TREE 3.0",
-              "date": "2026-12-05",
-              "url": "https://in.bookmyshow.com/events/you-me-and-a-christmas-tree-3-0/ety7p669n5",
-              "price": "from ₹826",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-12-05"
-        },
-        {
           "name": "Lake Shore Mall",
           "city": "Mumbai",
           "area": "",
@@ -367,13 +374,29 @@
           ],
           "shows": 1,
           "next_date": null
+        },
+        {
+          "name": "The Venom Berries and Salsette",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "The Venom Berries and Salsette present : ROCK OF AGES a tribute to Queen, Led Zeppelin, Rush, Fleetwood Mac and more!",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/the-venom-berries-and-salsette-present-rock-of-ages-a-tribute-to-queen-led-zeppelin-rush-fleetwood-mac-and-more-sbcykwpl",
+              "price": "₹449–₹699",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
         }
       ]
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 6,
-      "show_count": 6,
+      "venue_count": 5,
+      "show_count": 5,
       "venues": [
         {
           "name": "Travancore Palace",
@@ -454,29 +477,13 @@
           ],
           "shows": 1,
           "next_date": null
-        },
-        {
-          "name": "KOCA",
-          "city": "Delhi",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Farhan Sabir LIVE at KOCA - The Biggest Sufi Night in Town",
-              "date": null,
-              "url": "https://www.skillboxes.com/events/farhan-sabir-live-at-koca-the-biggest-sufi-night-in-town-sbxstiix",
-              "price": "from ₹499",
-              "source": "skillboxes"
-            }
-          ],
-          "shows": 1,
-          "next_date": null
         }
       ]
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 12,
-      "show_count": 22,
+      "venue_count": 11,
+      "show_count": 21,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -613,22 +620,6 @@
           "next_date": null
         },
         {
-          "name": "Chowdiah Memorial Hall",
-          "city": "Bengaluru",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Chowdiah Utsava 2026 - 12th Nov",
-              "date": "2026-11-12",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-12"
-        },
-        {
           "name": "Bhartiya Mall Of Bengaluru",
           "city": "Bengaluru",
           "area": "",
@@ -745,38 +736,8 @@
     "hyderabad": {
       "name": "Hyderabad",
       "venue_count": 22,
-      "show_count": 30,
+      "show_count": 29,
       "venues": [
-        {
-          "name": "Silaa The Garden Cafe Jubilee Hills",
-          "city": "Hyderabad",
-          "area": "Jubilee Hills",
-          "gigs": [
-            {
-              "name": "Silaa Thursday Telugu Jamming Hyderabad",
-              "date": "2026-11-12",
-              "url": "https://in.bookmyshow.com/events/silaa-thursday-telugu-jamming-hyderabad/ET00502603",
-              "price": "from ₹299",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Silaa Saturday Telugu Jamming Hyderabad",
-              "date": "2026-11-14",
-              "url": "https://in.bookmyshow.com/events/silaa-saturday-telugu-jamming-hyderabad/ET00500359",
-              "price": "from ₹399",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Silaa Sunday Telugu Live Jamming Hyderabad",
-              "date": "2026-11-15",
-              "url": "https://in.bookmyshow.com/events/silaa-saturday-telugu-and-hindi-jamming-hyderabad/ET00500481",
-              "price": "from ₹399",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 3,
-          "next_date": "2026-11-12"
-        },
         {
           "name": "The Rabbit Hole Lounge, Bar and Kitchen",
           "city": "Hyderabad",
@@ -822,6 +783,29 @@
           ],
           "shows": 2,
           "next_date": "2026-11-13"
+        },
+        {
+          "name": "Silaa The Garden Cafe Jubilee Hills",
+          "city": "Hyderabad",
+          "area": "Jubilee Hills",
+          "gigs": [
+            {
+              "name": "Silaa Saturday Telugu Jamming Hyderabad",
+              "date": "2026-11-14",
+              "url": "https://in.bookmyshow.com/events/silaa-saturday-telugu-jamming-hyderabad/ET00500359",
+              "price": "from ₹399",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Silaa Sunday Telugu Live Jamming Hyderabad",
+              "date": "2026-11-15",
+              "url": "https://in.bookmyshow.com/events/silaa-saturday-telugu-and-hindi-jamming-hyderabad/ET00500481",
+              "price": "from ₹399",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-11-14"
         },
         {
           "name": "Kingdome Klub and Kitchen",
