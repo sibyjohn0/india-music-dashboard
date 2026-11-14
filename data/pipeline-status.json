@@ -1,155 +1,155 @@
 {
-  "last_run": "2026-11-13T07:41:32.074930+00:00",
-  "overall": "partial",
+  "last_run": "2026-11-14T07:28:01.988358+00:00",
+  "overall": "ok",
   "sources": {
     "youtube": {
       "status": "ok",
       "records": 225,
-      "ms": 245633,
+      "ms": 246149,
       "error": null
     },
     "lastfm": {
       "status": "ok",
-      "records": 138,
-      "ms": 89180,
+      "records": 129,
+      "ms": 69242,
       "error": null
     },
     "radar": {
       "status": "ok",
-      "records": 133,
-      "ms": 27,
+      "records": 124,
+      "ms": 22,
       "error": null
     },
     "insights": {
       "status": "ok",
       "records": null,
-      "ms": 516,
+      "ms": 432,
       "error": null
     },
     "venue_analysis": {
       "status": "ok",
       "records": null,
-      "ms": 38,
+      "ms": 31,
       "error": null
     },
     "monthly_digest": {
       "status": "ok",
       "records": null,
-      "ms": 75,
+      "ms": 105,
       "error": null
     },
     "spotify": {
       "status": "ok",
-      "records": 0,
-      "ms": 613,
+      "records": 55,
+      "ms": 57226,
       "error": null
     },
     "playlist_insights": {
       "status": "ok",
       "records": null,
-      "ms": 487,
+      "ms": 307374,
       "error": null
     },
     "playlist_insights_pages": {
       "status": "ok",
       "records": null,
-      "ms": 61,
+      "ms": 51,
       "error": null
     },
     "radar_social": {
       "status": "ok",
       "records": null,
-      "ms": 161,
+      "ms": 120,
       "error": null
     },
     "social": {
       "status": "ok",
-      "records": 231,
-      "ms": 22555,
+      "records": 226,
+      "ms": 22304,
       "error": null
     },
     "playboard": {
       "status": "ok",
       "records": null,
-      "ms": 50596,
+      "ms": 50445,
       "error": null
     },
     "jiosaavn": {
       "status": "ok",
       "records": null,
-      "ms": 1354,
+      "ms": 1545,
       "error": null
     },
     "events_paytm": {
       "status": "ok",
       "records": null,
-      "ms": 52,
+      "ms": 44,
       "error": null
     },
     "news_rss": {
       "status": "ok",
       "records": null,
-      "ms": 11877,
+      "ms": 8308,
       "error": null
     },
     "news_page": {
       "status": "ok",
       "records": null,
-      "ms": 28,
+      "ms": 24,
       "error": null
     },
     "events_district": {
       "status": "ok",
       "records": 92,
-      "ms": 105697,
+      "ms": 105583,
       "error": null
     },
     "spotify_playwright": {
-      "status": "failed",
-      "records": null,
-      "ms": 133,
-      "error": "ERROR: no artists with spotify_id found in tracked_artists.json or spotify_enrichment.json"
+      "status": "ok",
+      "records": 0,
+      "ms": 198678,
+      "error": null
     },
     "bookmyshow": {
       "status": "ok",
-      "records": 144,
-      "ms": 41618,
+      "records": 32,
+      "ms": 42149,
       "error": null
     },
     "skillboxes": {
       "status": "ok",
-      "records": 109,
-      "ms": 47314,
+      "records": 118,
+      "ms": 41330,
       "error": null
     },
     "events_thumpn": {
       "status": "ok",
-      "records": 10,
-      "ms": 4249,
+      "records": 3,
+      "ms": 4859,
       "error": null
     },
     "festivals_build": {
       "status": "ok",
       "records": null,
-      "ms": 39,
+      "ms": 29,
       "error": null
     },
     "festivals_page": {
       "status": "ok",
       "records": null,
-      "ms": 30,
+      "ms": 24,
       "error": null
     },
     "venues_build": {
       "status": "ok",
       "records": null,
-      "ms": 55,
+      "ms": 32,
       "error": null
     },
     "venues_pages": {
       "status": "ok",
       "records": null,
-      "ms": 31,
+      "ms": 25,
       "error": null
     }
   }
