@@ -25,16 +25,12 @@ nav{display:flex;padding:0 24px;background:var(--surface);border-bottom:1px soli
 nav::-webkit-scrollbar{display:none}
 .tab{color:#999;font:13px/1 'Inter',sans-serif;padding:0 16px;height:44px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;font-weight:500;border-bottom:2px solid transparent}
 .page{max-width:1000px;margin:0 auto;padding:34px 32px 90px}
+.page.is-wide{max-width:1320px}
 .crumb{font-size:12px;color:var(--muted);margin-bottom:18px}.crumb a{color:var(--muted)}
 .g-eyebrow{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}
 h1{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.14;margin:12px 0 0}
 .g-lead{font-size:17px;color:#574C63;margin-top:16px;max-width:680px}
-.artist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin:30px 0 10px}
-@media(max-width:760px){.artist-grid{grid-template-columns:1fr}.page{padding:24px 16px 64px}header,nav{padding-left:16px;padding-right:16px}}
-.artist-card{border:2px solid #241B2E;border-radius:16px;background:#fff;box-shadow:5px 5px 0 #241B2E;padding:20px;display:flex;flex-direction:column;gap:12px}
-.artist-card h2{font-size:21px;font-weight:800;letter-spacing:-.3px;margin:0;color:#241B2E}
-.artist-note{font-size:14.5px;color:#574C63;margin:0}
-.artist-card iframe{border-radius:12px;border:0;width:100%;display:block}
+@media(max-width:760px){.page{padding:24px 16px 64px}header,nav{padding-left:16px;padding-right:16px}}
 .artist-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:2px}
 .artist-links a{font-size:12.5px;font-weight:700;color:#241B2E;border:2px solid #241B2E;border-radius:8px;padding:6px 12px;box-shadow:2px 2px 0 #241B2E;background:#fff;transition:transform .1s,box-shadow .1s}
 .artist-links a:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 #241B2E}
@@ -47,26 +43,29 @@ footer{display:flex;flex-direction:column;gap:12px;padding:26px 32px;border-top:
 .footer-logo{font-weight:800;font-size:13px}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.artist-search-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 6px;flex-wrap:wrap}
 .artist-search-bar input{flex:1 1 280px;font-family:inherit;font-size:15px;padding:12px 16px;border:2px solid #241B2E;border-radius:10px;background:#fff;box-shadow:3px 3px 0 #241B2E}
 .artist-search-bar input:focus{outline:none;border-color:#FF4D8D}
+.artist-filter-bar{display:flex;flex-direction:column;gap:8px;margin:16px 0 14px}
+.filter-row{display:flex;align-items:flex-start;gap:10px}
+.filter-label{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#574C63;padding:7px 0;flex:0 0 auto;width:48px}
+.filter-pills{display:flex;gap:7px;overflow-x:auto;scrollbar-width:thin;padding:2px 2px 6px;flex:1 1 auto}
+.filter-pill{flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#241B2E;background:#fff;border:1.5px solid #241B2E;border-radius:999px;padding:6px 13px;white-space:nowrap;box-shadow:2px 2px 0 #241B2E;cursor:pointer;transition:transform .1s,box-shadow .1s}
+.filter-pill:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 #241B2E}
+.filter-pill.is-active{background:#FF4D8D;color:#fff}
+.filter-pill .pill-count{opacity:.75;font-weight:500}
+@media(max-width:600px){.filter-row{flex-direction:column}.filter-label{width:auto}}
 .artist-count{font-family:'Space Mono',monospace;font-size:12px;color:#574C63;white-space:nowrap}
 .artist-tag{display:inline-block;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#241B2E;background:#FFE1EC;border:1.5px solid #241B2E;border-radius:999px;padding:3px 9px;vertical-align:middle}
 .artist-card.is-hidden{display:none}
 .artist-chart{margin:28px 0 10px}
-.chart-section{margin-bottom:30px}
-.chart-section-title{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:clamp(20px,3vw,26px);font-weight:800;letter-spacing:-.4px;color:#241B2E;margin:0 0 12px;padding-bottom:8px;border-bottom:3px solid #241B2E}
-.chart-count{display:inline-block;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;color:#574C63;background:#FFF0E2;border:1.5px solid #241B2E;border-radius:999px;padding:2px 10px;vertical-align:middle;margin-left:4px}
-.city-carousel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding:2px 2px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
-.city-card{flex:0 0 78vw;max-width:270px;scroll-snap-align:start;border:2px solid #241B2E;border-radius:12px;background:#fff;box-shadow:4px 4px 0 #241B2E;overflow:hidden;padding:16px;display:flex;flex-direction:column;gap:10px}
+.city-card{scroll-margin-top:62px;border:2px solid #241B2E;border-radius:12px;background:#fff;box-shadow:4px 4px 0 #241B2E;overflow:hidden;padding:16px;display:flex;flex-direction:column;gap:10px}
+.artist-flat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;margin:4px 0 10px}
+@media(max-width:600px){.artist-flat-grid{grid-template-columns:1fr}}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0}
+.city-tag{display:inline-block;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#241B2E;background:#E3F1FF;border:1.5px solid #241B2E;border-radius:999px;padding:3px 9px;vertical-align:middle}
 .city-card.is-hidden{display:none}
 .chart-name{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-weight:700;font-size:16px;color:#241B2E;margin:0}
 .chart-note{font-size:14px;color:#574C63;margin:0}
 .chart-player iframe{width:100%;border:0;border-radius:12px;display:block}
 html{scroll-behavior:smooth}
-.chart-section{scroll-margin-top:62px}
-.city-jump{position:sticky;top:0;z-index:50;display:flex;gap:8px;overflow-x:auto;padding:10px 2px;margin:0 0 4px;background:#FFF7EE;scrollbar-width:none}
-.city-jump::-webkit-scrollbar{display:none}
-.city-jump-link{flex:0 0 auto;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#241B2E;background:#fff;border:1.5px solid #241B2E;border-radius:999px;padding:6px 13px;text-decoration:none;white-space:nowrap;box-shadow:2px 2px 0 #241B2E;transition:transform .1s,box-shadow .1s}
-.city-jump-link:hover,.city-jump-link:active{background:#FF4D8D;color:#fff;transform:translate(-1px,-1px);box-shadow:3px 3px 0 #241B2E}
-.city-jump-link.is-more{background:#FFE1EC}
 </style>
   <style id="mnav-css">.mnav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;background:rgba(19,19,26,.72);border:1px solid var(--border);border-radius:11px;cursor:pointer;padding:0 11px}
 .mnav-burger span{display:block;height:2px;width:22px;background:var(--text);border-radius:2px}
@@ -96,87 +95,76 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
   <a class="tab" href="/answers/">Answers</a>
   <a class="tab" href="/tools/royalty-calculator/">Calculator</a>
 </nav>
-  <div class="page">
+  <div class="page is-wide">
     <div class="crumb"><a href="/">Home</a> › Featured Artists</div>
     <div class="g-eyebrow">Featured · Artists</div>
     <h1>Independent Indian artists we're listening to</h1>
-    <p class="g-lead">No pay-for-play: every artist here is picked on merit, either from our own <a href="/radar.html" style="color:#FF4D8D;font-weight:600">Radar</a> or from artists who reached out directly. We organize them by city because where an artist is based shapes the scene around them, who they play with, who's actually listening. Press play below, or jump straight to a city.</p>
-
+    <p class="g-lead">No pay-for-play: every artist here is picked on merit, either from our own <a href="/radar.html" style="color:#FF4D8D;font-weight:600">Radar</a> or from artists who reached out directly. Filter by city or genre below, or just search for a name.</p>
     <div class="artist-search-bar">
       <input type="text" id="artistSearch" placeholder="Search by name, genre, city or language..." autocomplete="off">
       <span id="artistCount" class="artist-count"></span>
     </div>
-    <nav class="city-jump" aria-label="Jump to city">
-      <a href="#city-across-india" class="city-jump-link is-more">Across India (34)</a>
-      <a href="#city-mumbai" class="city-jump-link">Mumbai (4)</a>
-      <a href="#city-assam" class="city-jump-link">Assam (3)</a>
-      <a href="#city-bengaluru" class="city-jump-link">Bengaluru (3)</a>
-      <a href="#city-maharashtra" class="city-jump-link">Maharashtra (3)</a>
-      <a href="#city-rajasthan" class="city-jump-link">Rajasthan (2)</a>
-      <a href="#city-chandigarh" class="city-jump-link">Chandigarh (1)</a>
-      <a href="#city-gurgaon" class="city-jump-link">Gurgaon (1)</a>
-      <a href="#city-himachal" class="city-jump-link">Himachal (1)</a>
-      <a href="#city-kerala" class="city-jump-link">Kerala (1)</a>
-      <a href="#city-kolkata" class="city-jump-link">Kolkata (2)</a>
-      <a href="#city-madhya-pradesh" class="city-jump-link">Madhya Pradesh (1)</a>
-    </nav>
+<div class="artist-filter-bar">
+      <div class="filter-row"><span class="filter-label">City</span><div class="filter-pills"><button type="button" class="filter-pill is-active" data-city="">All</button><button type="button" class="filter-pill" data-city="across-india">Across India <span class="pill-count">34</span></button><button type="button" class="filter-pill" data-city="mumbai">Mumbai <span class="pill-count">4</span></button><button type="button" class="filter-pill" data-city="assam">Assam <span class="pill-count">3</span></button><button type="button" class="filter-pill" data-city="bengaluru">Bengaluru <span class="pill-count">3</span></button><button type="button" class="filter-pill" data-city="maharashtra">Maharashtra <span class="pill-count">3</span></button><button type="button" class="filter-pill" data-city="kolkata">Kolkata <span class="pill-count">2</span></button><button type="button" class="filter-pill" data-city="rajasthan">Rajasthan <span class="pill-count">2</span></button><button type="button" class="filter-pill" data-city="chandigarh">Chandigarh <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-city="gurgaon">Gurgaon <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-city="himachal">Himachal <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-city="kerala">Kerala <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-city="madhya-pradesh">Madhya Pradesh <span class="pill-count">1</span></button></div></div>
+      <div class="filter-row"><span class="filter-label">Genre</span><div class="filter-pills"><button type="button" class="filter-pill is-active" data-genre="">All</button><button type="button" class="filter-pill" data-genre="indie-pop">Indie-pop <span class="pill-count">14</span></button><button type="button" class="filter-pill" data-genre="hip-hop">Hip-hop <span class="pill-count">6</span></button><button type="button" class="filter-pill" data-genre="pop">Pop <span class="pill-count">4</span></button><button type="button" class="filter-pill" data-genre="classical-fusion">Classical/Fusion <span class="pill-count">3</span></button><button type="button" class="filter-pill" data-genre="electronic">Electronic <span class="pill-count">3</span></button><button type="button" class="filter-pill" data-genre="indie">Indie <span class="pill-count">2</span></button><button type="button" class="filter-pill" data-genre="r-b-soul">R&B / Soul <span class="pill-count">2</span></button><button type="button" class="filter-pill" data-genre="alt-rock">Alt rock <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-genre="drum-bass">Drum & Bass <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-genre="electropop">Electropop <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-genre="folk">Folk <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-genre="hindi-fusion">Hindi Fusion <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-genre="indie-rock">Indie rock <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-genre="pop-rock">Pop/Rock <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-genre="psychedelic-rock">Psychedelic rock <span class="pill-count">1</span></button><button type="button" class="filter-pill" data-genre="rap">Rap <span class="pill-count">1</span></button></div></div>
+    </div>
     <div class="artist-chart">
-      <section class="chart-section" id="city-across-india">
-        <h2 class="chart-section-title">Across India <span class="chart-count">34</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="preet-bhanushali">
+      <div class="artist-flat-grid">
+        <article class="city-card" id="preet-bhanushali" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Preet Bhanushali</h3>
-            <span class="artist-tag">Indie Pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Independent Hindi music producer, composer, lyricist and vocalist. Latest single, "Jogiyaa."</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/3As0Cr80wvhusEs1QTzdTX?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Preet Bhanushali on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/3As0Cr80wvhusEs1QTzdTX" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@aayurecords" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/say__musicc" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="sourish-singh">
+        <article class="city-card" id="sourish-singh" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Sourish Singh</h3>
-            <span class="artist-tag">Indie Pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Independent Hindi artist, turning poetry into song.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/6PvfZyE7VL9PlEqb2SeQkw?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Sourish Singh on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/6PvfZyE7VL9PlEqb2SeQkw" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@sourishxsingh" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="samvro">
+        <article class="city-card" id="samvro" data-city="across-india" data-genre="r-b-soul">
             <h3 class="chart-name">SamVro</h3>
-            <span class="artist-tag">R&amp;B / Soul</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">R&B / Soul</span></div>
             <p class="chart-note">Independent Hindi music producer and artist blending lofi, trap and experimental sound.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/0AbaEgtXvMg7OrjC5vVRvg?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="SamVro on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/0AbaEgtXvMg7OrjC5vVRvg" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@samvro" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/sangami_13" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="mangesh-ghatpande">
+        <article class="city-card" id="mangesh-ghatpande" data-city="across-india" data-genre="r-b-soul">
             <h3 class="chart-name">Mangesh Ghatpande</h3>
-            <span class="artist-tag">R&amp;B / Soul</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">R&B / Soul</span></div>
             <p class="chart-note">Independent Hindi artist. Latest single, "Baarishon Ki Boondon Mein," an original romantic ballad.</p>
             <div class="chart-player"><iframe src="https://www.youtube.com/embed/fKKnTp6gkJc" width="100%" height="315" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Mangesh Ghatpande on YouTube"></iframe></div>
             <div class="artist-links"><a href="https://youtu.be/fKKnTp6gkJc" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/mangesh_rg" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="sukoonbyajit">
+        <article class="city-card" id="sukoonbyajit" data-city="across-india" data-genre="">
             <h3 class="chart-name">SUKOONBYAJIT</h3>
+            <div class="tag-row"><span class="city-tag">Across India</span></div>
             
             <p class="chart-note">Independent Hindi artist. Latest single, "Tu Dariya Hai Jiska, Koi Ant Nahi."</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/1mCFQNxf0w3wcOYYnr2EqV?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="SUKOONBYAJIT on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/1mCFQNxf0w3wcOYYnr2EqV" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@SUKOONBYAJIT" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="shubham-bharti">
+        <article class="city-card" id="shubham-bharti" data-city="across-india" data-genre="classical-fusion">
             <h3 class="chart-name">Shubham Bharti</h3>
-            <span class="artist-tag">Classical / Fusion</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Classical/Fusion</span></div>
             <p class="chart-note">Independent singer-songwriter and producer blending Indian classical melodies with electro-pop. Latest single, "RAAR".</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/6Eg7ybH9CngAoprNXJCi4s?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Shubham Bharti on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/6Eg7ybH9CngAoprNXJCi4s" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@shubhambhartiofficial" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/shubhambhartimusic" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="himansh-bhardwaj">
+        <article class="city-card" id="himansh-bhardwaj" data-city="across-india" data-genre="">
             <h3 class="chart-name">Himansh Bhardwaj</h3>
+            <div class="tag-row"><span class="city-tag">Across India</span></div>
             
             <p class="chart-note">Independent Haryanvi and Hindi artist. Emotional tracks about memory and what stays after someone leaves, including "Aadat" and "Without You".</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/4iaiOcFO8zvp5w6cRLJMxa?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Himansh Bhardwaj on Spotify"></iframe></div>
@@ -184,15 +172,17 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://youtube.com/@its_himanshbhardwaj" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/himanshere" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="razdeep">
+        <article class="city-card" id="razdeep" data-city="across-india" data-genre="">
             <h3 class="chart-name">Razdeep</h3>
+            <div class="tag-row"><span class="city-tag">Across India</span></div>
             
             <p class="chart-note">Punjabi artist. Latest single "2 Kudiyan".</p>
             <div class="chart-player"><iframe src="https://www.youtube.com/embed/TfMPYnZvYRs" width="100%" height="315" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Razdeep on YouTube"></iframe></div>
             <div class="artist-links"><a href="https://youtu.be/TfMPYnZvYRs" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="samaksh">
+        <article class="city-card" id="samaksh" data-city="across-india" data-genre="">
             <h3 class="chart-name">Samaksh</h3>
+            <div class="tag-row"><span class="city-tag">Across India</span></div>
             
             <p class="chart-note">Singer-songwriter, composer and lyricist.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/1JvSsV27Zvlivwd0j6AtGn?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Samaksh on Spotify"></iframe></div>
@@ -200,8 +190,9 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://www.youtube.com/@samakshmusic" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/samaksh.music/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="teen-nakaab">
+        <article class="city-card" id="teen-nakaab" data-city="across-india" data-genre="">
             <h3 class="chart-name">Teen Nakaab</h3>
+            <div class="tag-row"><span class="city-tag">Across India</span></div>
             
             <p class="chart-note">A three-member project that refuses a single genre, making whatever feels right to all three.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/6Vh8yE4JXTK487PT6Caabc?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Teen Nakaab on Spotify"></iframe></div>
@@ -209,8 +200,9 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://www.youtube.com/@TeenNakaab" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/teennakaab" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="aaryan-more">
+        <article class="city-card" id="aaryan-more" data-city="across-india" data-genre="">
             <h3 class="chart-name">Aaryan More</h3>
+            <div class="tag-row"><span class="city-tag">Across India</span></div>
             
             <p class="chart-note">Independent artist chasing the room-full-of-people-singing-your-song feeling.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/2LvFosNHivqziTEeANRf1a?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Aaryan More on Spotify"></iframe></div>
@@ -218,120 +210,120 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://youtu.be/Iq8Oin5yQ6k" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/musicwithaaryan" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="k-ya-sound">
+        <article class="city-card" id="k-ya-sound" data-city="across-india" data-genre="electronic">
             <h3 class="chart-name">KĀYA SOUND</h3>
-            <span class="artist-tag">Electronic</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Electronic</span></div>
             <p class="chart-note">Independent Indian electronic crossover: Hindi romantic longing recast as melodic deep-house. Latest single, "Rang," with Nripanka and P.A.R.I.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/1qm9gZk35ueliEdG2vWskm?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="KĀYA SOUND on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/1qm9gZk35ueliEdG2vWskm" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.instagram.com/kayasoundofficial" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="dhundh">
+        <article class="city-card" id="dhundh" data-city="across-india" data-genre="indie">
             <h3 class="chart-name">Dhundh</h3>
-            <span class="artist-tag">Indie</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie</span></div>
             <p class="chart-note">Hindi indie. Debut single "Woh Raat", quiet emotion over noise.</p>
             <div class="chart-player"><iframe src="https://www.youtube.com/embed/B7SnmC6r60g" width="100%" height="315" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="Dhundh on YouTube"></iframe></div>
             <div class="artist-links"><a href="https://youtu.be/B7SnmC6r60g" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="jaybird">
+        <article class="city-card" id="jaybird" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Jaybird</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Singer-songwriter and producer. "Rehne Do," an indie-pop single about the ache of separating from someone you love, released under Eros Now Music.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/3EI4jsR5lm6RPh8tOdzTd5?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Jaybird on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/3EI4jsR5lm6RPh8tOdzTd5" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.instagram.com/music_jaybird" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="siddharth-landge">
+        <article class="city-card" id="siddharth-landge" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Siddharth Landge</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Marathi indie-pop. Composer, producer, arranger, mixing and mastering engineer, all in one.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/3UemuMthSXsGSJ4U5LVXFc?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Siddharth Landge on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/3UemuMthSXsGSJ4U5LVXFc" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@siddharthlandge1999" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="hxrd">
+        <article class="city-card" id="hxrd" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">HXRD</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Punjabi indie-pop.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/5riln9Tad3Ff8tmFeIMzgx?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="HXRD on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/5riln9Tad3Ff8tmFeIMzgx" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UC89lEdZkJjk8TT1ffhpruzQ" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="lucci-7">
+        <article class="city-card" id="lucci-7" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">LUCCI 7</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Hindi indie-pop.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/3nE0Y7q6DCVec6ETQs8N5v?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="LUCCI 7 on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/3nE0Y7q6DCVec6ETQs8N5v" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtu.be/tOYOVDdbOX8" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/lucc_i7" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="abhi-sharma">
+        <article class="city-card" id="abhi-sharma" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Abhi Sharma</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Independent singer-songwriter-producer moving between acoustic, indie-pop and Punjabi, honest and personal.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/22Dcra2KK8MZfDBdVGSKwa?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Abhi Sharma on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/22Dcra2KK8MZfDBdVGSKwa" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@abhish_music_" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/abhish_music_" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="aadil-kamil">
+        <article class="city-card" id="aadil-kamil" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Aadil Kamil</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Punjabi indie-pop with an easy, melodic feel, latest single &#x27;Kahiye&#x27;.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/2rGATdmJkQUOrhVw7gkKS3?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Aadil Kamil on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/2rGATdmJkQUOrhVw7gkKS3" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@aadilkamillive" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/aadilkamillive" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="guru-shahi">
+        <article class="city-card" id="guru-shahi" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Guru Shahi</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Punjabi indie-pop singer, years of vocal training behind recent releases &#x27;Back Then&#x27; and &#x27;Kasoor&#x27;.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/1esMNf1fL0YmKxWMzxchjN?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Guru Shahi on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/1esMNf1fL0YmKxWMzxchjN" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@gurushahi" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/gurushahi_" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="xander-dote">
+        <article class="city-card" id="xander-dote" data-city="across-india" data-genre="pop">
             <h3 class="chart-name">Xander Dote</h3>
-            <span class="artist-tag">Pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Pop</span></div>
             <p class="chart-note">Hindi pop singer-songwriter working on his debut concept album, "Queency." First single, "Tum Bin Kahi," is about loving someone who's already taken.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/572UKY3PLoFhHlFpFv6ccA?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Xander Dote on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/572UKY3PLoFhHlFpFv6ccA" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@xander_dote" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/xander.dote" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="paras-alive">
+        <article class="city-card" id="paras-alive" data-city="across-india" data-genre="pop">
             <h3 class="chart-name">Paras Alive</h3>
-            <span class="artist-tag">Pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Pop</span></div>
             <p class="chart-note">Hindi and Punjabi pop built on relatable stories and melody; latest single &#x27;Love Accepted&#x27;.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/228gfKcuSqjP82gQEAuDYe?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Paras Alive on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/228gfKcuSqjP82gQEAuDYe" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@parasaliveofficials" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/parasalive" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="the-saudaagars">
+        <article class="city-card" id="the-saudaagars" data-city="across-india" data-genre="hip-hop">
             <h3 class="chart-name">The Saudaagars</h3>
-            <span class="artist-tag">Hip-hop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Hip-hop</span></div>
             <p class="chart-note">Hindi hip-hop.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/3jL2kCZF1RH6OqXjqsvABl?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="The Saudaagars on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/3jL2kCZF1RH6OqXjqsvABl" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@thesaudaagars" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/thesaudaagars" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="ekm">
+        <article class="city-card" id="ekm" data-city="across-india" data-genre="hip-hop">
             <h3 class="chart-name">EKM</h3>
-            <span class="artist-tag">Hip-hop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Hip-hop</span></div>
             <p class="chart-note">Hindi hip-hop, but not the usual kind, an underground artist who treats music as experiment.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/1ctUL9pN6BEtSfMYB3Ugqv?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="EKM on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/1ctUL9pN6BEtSfMYB3Ugqv" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@ekm4lyfe" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/ekm4lyfe/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="shivan">
+        <article class="city-card" id="shivan" data-city="across-india" data-genre="hip-hop">
             <h3 class="chart-name">Shivan</h3>
-            <span class="artist-tag">Hip-hop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Hip-hop</span></div>
             <p class="chart-note">Independent hip-hop artist and producer, building a sound aimed at a global audience.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/2PZkeHjSBfzMpWJdLNNbnL?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Shivan on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/2PZkeHjSBfzMpWJdLNNbnL" target="_blank" rel="noopener">Spotify</a>
@@ -339,85 +331,81 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://www.instagram.com/shivanworldwide/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://x.com/shivanworldwide" target="_blank" rel="noopener">X</a></div>
           </article>
-<article class="city-card" id="samruddha">
+        <article class="city-card" id="samruddha" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">samruddha</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Hindi indie-pop. Personal songs about breakups, moving on, and overthinking in love, built for the evening drive home.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/1M4VeVHpf6iOlqtiWqx56W?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="samruddha on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/1M4VeVHpf6iOlqtiWqx56W" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UClyBCg0q9nV3I_SgfRit02A" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-<article class="city-card" id="shair">
+        <article class="city-card" id="shair" data-city="across-india" data-genre="hindi-fusion">
             <h3 class="chart-name">SHA&Iuml;R</h3>
-            <span class="artist-tag">Hindi fusion</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Hindi Fusion</span></div>
             <p class="chart-note">Netherlands-based, rooted in Suriname and Indian heritage. Hindi vocals over R&amp;B, Afrobeat and alt-Bollywood production, from his debut album UDAY.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/31OC7rAX26mqjDOBZhb7yj?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="SHA&Iuml;R on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/31OC7rAX26mqjDOBZhb7yj" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UCkqoQedbsCSpnwrwZJ0b2-w" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-<article class="city-card" id="hexiv">
+        <article class="city-card" id="hexiv" data-city="across-india" data-genre="electronic">
             <h3 class="chart-name">HEXIV</h3>
-            <span class="artist-tag">Electronic</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Electronic</span></div>
             <p class="chart-note">A fast-paced, cinematic Telugu banger with Bollywood-inspired production. "Dharma Kakatiya" is the latest from a run of releases going back to 2023.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/46afQ1I539el2kV1Aarp8y?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="HEXIV on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/46afQ1I539el2kV1Aarp8y" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UCxdiUz5org6ugHmogILnt0w" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-<article class="city-card" id="ajnabikalakaar-studios">
+        <article class="city-card" id="ajnabikalakaar-studios" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">AjnabiKalakaar Studios</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Hindi songs about the things we find hard to say. In their first release, "Thodi Der Aur," someone keeps ordering chai so a conversation can last a little longer.</p>
             <div class="chart-player"><iframe src="https://www.youtube.com/embed/eJdVV5Q4_1Q" width="100%" height="315" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="AjnabiKalakaar Studios on YouTube"></iframe></div>
             <div class="artist-links"><a href="https://youtu.be/eJdVV5Q4_1Q" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/ajnabikalakaar/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="kanoo-sahajwala">
+        <article class="city-card" id="kanoo-sahajwala" data-city="across-india" data-genre="classical-fusion">
             <h3 class="chart-name">Kanoo Sahajwala</h3>
-            <span class="artist-tag">Classical/Fusion</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Classical/Fusion</span></div>
             <p class="chart-note">Music producer, lyricist and composer bridging Hindustani foundations with modern sound. "Sach Tere Andar," his first classical and spiritual composition, is about pausing and looking within.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/4mVWZiHgvAawH7iyl4TPcm?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Kanoo Sahajwala on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/4mVWZiHgvAawH7iyl4TPcm" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UCuCU7D0FhnscTRvTLFrsSmw" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="misfit-unknowns">
+        <article class="city-card" id="misfit-unknowns" data-city="across-india" data-genre="indie">
             <h3 class="chart-name">Misfit Unknowns &amp; Naina Flux</h3>
-            <span class="artist-tag">Indie</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie</span></div>
             <p class="chart-note">Hindi indie duo. "Chasing Neon Dreams (Edit)," written and composed by Vipul Sharma, one of seven releases across the last year.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/0QPImvRmSNya3NPNpWpboy?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Misfit Unknowns &amp; Naina Flux on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/0QPImvRmSNya3NPNpWpboy" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/watch?v=BOajW-mG5dM" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="jay-kadthala">
+        <article class="city-card" id="jay-kadthala" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Jay Kadthala</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Hindi, Telugu and English originals, crafted heartfelt. "Shaayad Ruk Gayi Tho" is the latest of 20 releases built since August, including the 13-track album "Naina."</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/album/2BK3MbvUGwmQp0AIuaVbu5?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Jay Kadthala on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/album/2BK3MbvUGwmQp0AIuaVbu5" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UCSzk3LIB4nMC6HSaU1n6yEA" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-                    <article class="city-card" id="komunidad">
+        <article class="city-card" id="komunidad" data-city="across-india" data-genre="classical-fusion">
             <h3 class="chart-name">Komunidad</h3>
-            <span class="artist-tag">Classical/Fusion</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Classical/Fusion</span></div>
             <p class="chart-note">Ian Kano's project blending Hindi, Punjabi and international fusion with AI-assisted production, emotional storytelling across cultures and languages.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/4C20BTcEg5EWLktpwbttaL?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Komunidad on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/4C20BTcEg5EWLktpwbttaL" target="_blank" rel="noopener">Spotify</a></div>
           </article>
-                    <article class="city-card" id="lehar-e-swar">
+        <article class="city-card" id="lehar-e-swar" data-city="across-india" data-genre="indie-pop">
             <h3 class="chart-name">Lehar-e-Swar</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Across India</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Modern Hindi indie pop for late nights and long drives. "Pari," poetic lyrics over soft melodies, AI-generated vocals on human-written words.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/0gFTCJlwlsQYwatEik8rT6?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Lehar-e-Swar on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/0gFTCJlwlsQYwatEik8rT6" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@Lehar-e-swar" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/lehareswar" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-mumbai">
-        <h2 class="chart-section-title">Mumbai <span class="chart-count">4</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="avnish-patar">
+        <article class="city-card" id="avnish-patar" data-city="mumbai" data-genre="">
             <h3 class="chart-name">Avnish Patar</h3>
+            <div class="tag-row"><span class="city-tag">Mumbai</span></div>
             
             <p class="chart-note">Singer-songwriter, composer and producer from Chhattisgarh, now building his sound in Mumbai.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/30K2cUDbmhwdD2ODIfU8Fu?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Avnish Patar on Spotify"></iframe></div>
@@ -425,8 +413,9 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://www.youtube.com/@AvnishPatar" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/avnish.patar/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="rum-and-an">
+        <article class="city-card" id="rum-and-an" data-city="mumbai" data-genre="">
             <h3 class="chart-name">Rum and An</h3>
+            <div class="tag-row"><span class="city-tag">Mumbai</span></div>
             
             <p class="chart-note">The independent project of Rumana Molla, out of Mumbai.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/0fkc94kySFjfOiEnFj603r?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Rum and An on Spotify"></iframe></div>
@@ -434,18 +423,18 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://www.youtube.com/@RumandAn" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/rumanamolla/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="sinista">
+        <article class="city-card" id="sinista" data-city="mumbai" data-genre="drum-bass">
             <h3 class="chart-name">Sinista</h3>
-            <span class="artist-tag">Drum &amp; bass</span>
+            <div class="tag-row"><span class="city-tag">Mumbai</span><span class="artist-tag">Drum & Bass</span></div>
             <p class="chart-note">Mumbai producer, part of the Dreamteam collective. Moves between trap and drum &amp; bass; his latest is the Hindi-vocal DnB single "Bas Ek Bar."</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/4suFQSXYu4PMY6SInhKBPy?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Sinista on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/4suFQSXYu4PMY6SInhKBPy" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtu.be/qPxSC1mQ9Yw" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/sinista.wav/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="vedant-dukare">
+        <article class="city-card" id="vedant-dukare" data-city="mumbai" data-genre="pop">
             <h3 class="chart-name">Vedant Dukare</h3>
-            <span class="artist-tag">Pop</span>
+            <div class="tag-row"><span class="city-tag">Mumbai</span><span class="artist-tag">Pop</span></div>
             <p class="chart-note">Mumbai singer-songwriter and producer, self-built since 2022. Songwriting-first, blending Hindi emotion with pop instinct. Recent single "Ikshana Kadhe" picked up 20K streams in days.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/3AiESBGeVa51WteWpiXOfD?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Vedant Dukare on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/3AiESBGeVa51WteWpiXOfD" target="_blank" rel="noopener">Spotify</a>
@@ -453,13 +442,9 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://www.instagram.com/vedantdukkare/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://vedantdukaremusicepk.netlify.app/" target="_blank" rel="noopener">EPK</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-assam">
-        <h2 class="chart-section-title">Assam <span class="chart-count">3</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="nidhish-gupta">
+        <article class="city-card" id="nidhish-gupta" data-city="assam" data-genre="">
             <h3 class="chart-name">Nidhish Gupta</h3>
+            <div class="tag-row"><span class="city-tag">Assam</span></div>
             
             <p class="chart-note">Songwriter-first, bedroom-produced, between Assam and Mumbai, one song at a time.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/1nQhCnEV901bZCYPytBlre?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Nidhish Gupta on Spotify"></iframe></div>
@@ -467,62 +452,53 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://www.youtube.com/@NidhishGupta" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/nidhishgupta_" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="ron">
+        <article class="city-card" id="ron" data-city="assam" data-genre="alt-rock">
             <h3 class="chart-name">RON</h3>
-            <span class="artist-tag">Alt rock</span>
+            <div class="tag-row"><span class="city-tag">Assam</span><span class="artist-tag">Alt rock</span></div>
             <p class="chart-note">Assam artist blending alternative rock and electronic with Hindi-English vocals and a dark, energetic sound.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/5m92AwV9uoMADNxNHP8ybP?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="RON on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/5m92AwV9uoMADNxNHP8ybP" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@RonOnDrugs" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/ron.saik_" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-<article class="city-card" id="love-you-please-die">
+        <article class="city-card" id="love-you-please-die" data-city="assam" data-genre="electropop">
             <h3 class="chart-name">love you, please die</h3>
-            <span class="artist-tag">Electropop</span>
+            <div class="tag-row"><span class="city-tag">Assam</span><span class="artist-tag">Electropop</span></div>
             <p class="chart-note">Guwahati, Assam-born, gothic electropop project from Priyanuj Mazumdar. Debut single "my baby's a murderer" is a sardonic, seductive take on the macabre.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/3OhBVIhQF4SZXDNodIHHgk?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="love you, please die on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/3OhBVIhQF4SZXDNodIHHgk" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UCL3-p0_lGVFeXPv4msMkxzA" target="_blank" rel="noopener">YouTube</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-bengaluru">
-        <h2 class="chart-section-title">Bengaluru <span class="chart-count">3</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="as-we-observe-lifeforms">
+        <article class="city-card" id="as-we-observe-lifeforms" data-city="bengaluru" data-genre="electronic">
             <h3 class="chart-name">As We Observe Lifeforms</h3>
-            <span class="artist-tag">Electronic</span>
+            <div class="tag-row"><span class="city-tag">Bengaluru</span><span class="artist-tag">Electronic</span></div>
             <p class="chart-note">Bengaluru singer-songwriter-producer, a rock background fused with hypnotic electronic grooves. Latest single, "Something Else About Me."</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/6YBKSFKm9L5JK5EzliRlmd?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="As We Observe Lifeforms on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/6YBKSFKm9L5JK5EzliRlmd" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@AsWeObserveLifeforms" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/asweobservelifeforms" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="the-lucidwake">
+        <article class="city-card" id="the-lucidwake" data-city="bengaluru" data-genre="psychedelic-rock">
             <h3 class="chart-name">THE LUCIDWAKE</h3>
-            <span class="artist-tag">Psychedelic rock</span>
+            <div class="tag-row"><span class="city-tag">Bengaluru</span><span class="artist-tag">Psychedelic rock</span></div>
             <p class="chart-note">Four-piece psychedelic rock act out of Bangalore: towering vocals, intricate riffs and theatrical intensity.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/1dlRoG39rKRyPce7VvT50R?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="THE LUCIDWAKE on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/1dlRoG39rKRyPce7VvT50R" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@thelucidwake" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/thelucidwake" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="ishan-mahansaria">
+        <article class="city-card" id="ishan-mahansaria" data-city="bengaluru" data-genre="pop">
             <h3 class="chart-name">Ishan Mahansaria</h3>
-            <span class="artist-tag">Pop</span>
+            <div class="tag-row"><span class="city-tag">Bengaluru</span><span class="artist-tag">Pop</span></div>
             <p class="chart-note">Bengaluru singer-songwriter; debut album &#x27;Arzu&#x27;, with &#x27;Mohabbat, maybe&#x27; moving toward contemporary pop.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/0SjiIe68KBxUjxtTYrXZhN?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Ishan Mahansaria on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/0SjiIe68KBxUjxtTYrXZhN" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@ishanmahansaria" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/ishanmahansaria" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-maharashtra">
-        <h2 class="chart-section-title">Maharashtra <span class="chart-count">3</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="vaibhav-santosh-naik">
+        <article class="city-card" id="vaibhav-santosh-naik" data-city="maharashtra" data-genre="">
             <h3 class="chart-name">Vaibhav Santosh Naik</h3>
+            <div class="tag-row"><span class="city-tag">Maharashtra</span></div>
             
             <p class="chart-note">Maharashtra singer-songwriter across Marathi, Hindi, Bhojpuri and Telugu, romantic to devotional.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/4nJT5rtfq2jIi1Zj0LTrX6?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Vaibhav Santosh Naik on Spotify"></iframe></div>
@@ -530,54 +506,45 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://youtube.com/@vaibhavsantoshnaik" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/realvaibhavsantoshnaik/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="dc-records">
+        <article class="city-card" id="dc-records" data-city="maharashtra" data-genre="hip-hop">
             <h3 class="chart-name">DC Records</h3>
-            <span class="artist-tag">Hip-hop</span>
+            <div class="tag-row"><span class="city-tag">Maharashtra</span><span class="artist-tag">Hip-hop</span></div>
             <p class="chart-note">Maharashtra hip-hop collective (Dheet Clan). Track "Angatla Keeda" by Adi 5 One ft. X3 Abhi.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/4GIMTHDyVR7wgpuHOKnsNA?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="DC Records on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/4GIMTHDyVR7wgpuHOKnsNA" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@dcrecords09" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/dheet_clan" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="jd-aka-chaitanya-d">
+        <article class="city-card" id="jd-aka-chaitanya-d" data-city="maharashtra" data-genre="indie-pop">
             <h3 class="chart-name">JD aka Chaitanya D</h3>
-            <span class="artist-tag">Indie-pop</span>
+            <div class="tag-row"><span class="city-tag">Maharashtra</span><span class="artist-tag">Indie-pop</span></div>
             <p class="chart-note">Pune-based independent artist. "Savalii Si Raat" is a love-happy-sad song about missing someone and the distance that grows between two people.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/60tL0S7jikcmhmdJhgZTbV?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="JD aka Chaitanya D on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/60tL0S7jikcmhmdJhgZTbV" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UCpdflgcxlOORcwQzpzNzahQ" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/jdmusicandco" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-rajasthan">
-        <h2 class="chart-section-title">Rajasthan <span class="chart-count">2</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="b-brijesh">
+        <article class="city-card" id="b-brijesh" data-city="rajasthan" data-genre="folk">
             <h3 class="chart-name">B Brijesh</h3>
-            <span class="artist-tag">Folk</span>
+            <div class="tag-row"><span class="city-tag">Rajasthan</span><span class="artist-tag">Folk</span></div>
             <p class="chart-note">Hindi folk storytelling rooted in Rajasthan, as Folks of Rajasthan.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/5zR3U7r96jli9nzyF2YnT2?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="B Brijesh on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/5zR3U7r96jli9nzyF2YnT2" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@FolksofRajasthan" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/folksofrajasthan" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="kabilaa">
+        <article class="city-card" id="kabilaa" data-city="rajasthan" data-genre="hip-hop">
             <h3 class="chart-name">KABILAA</h3>
-            <span class="artist-tag">Hip-hop</span>
+            <div class="tag-row"><span class="city-tag">Rajasthan</span><span class="artist-tag">Hip-hop</span></div>
             <p class="chart-note">Rajasthan songwriter blending Marwadi folk with modern hip-hop and R&amp;B; track &#x27;Chhori Sanwali&#x27;.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/track/6kBIG1Y2QqDqGuHJ1M3MkQ?utm_source=generator" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="KABILAA on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/track/6kBIG1Y2QqDqGuHJ1M3MkQ" target="_blank" rel="noopener">Spotify</a>
           <a href="http://www.youtube.com/@KABILAAmusic" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/kabilaa.anvr" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-chandigarh">
-        <h2 class="chart-section-title">Chandigarh <span class="chart-count">1</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="vyom-bharadvaj">
+        <article class="city-card" id="vyom-bharadvaj" data-city="chandigarh" data-genre="">
             <h3 class="chart-name">Vyom Bharadvaj</h3>
+            <div class="tag-row"><span class="city-tag">Chandigarh</span></div>
             
             <p class="chart-note">Chandigarh singer-songwriter (and Punjab civil servant); three originals out, &#x27;Sapera&#x27; on the way.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/5Gw9y5dj3MWeigUQLZmjUH?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Vyom Bharadvaj on Spotify"></iframe></div>
@@ -585,41 +552,27 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://youtube.com/@vyombharadvaj" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/vyom.bharadvaj" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-gurgaon">
-        <h2 class="chart-section-title">Gurgaon <span class="chart-count">1</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="raavn">
+        <article class="city-card" id="raavn" data-city="gurgaon" data-genre="rap">
             <h3 class="chart-name">RaavN</h3>
-            <span class="artist-tag">Rap</span>
+            <div class="tag-row"><span class="city-tag">Gurgaon</span><span class="artist-tag">Rap</span></div>
             <p class="chart-note">Gurgaon rapper crossing genres and experimenting with his sound.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/79mlM1ClrfsLRZN2h4phGN?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="RaavN on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/79mlM1ClrfsLRZN2h4phGN" target="_blank" rel="noopener">Spotify</a>
           <a href="https://youtube.com/@realraavn" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/raavn.mp3" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-himachal">
-        <h2 class="chart-section-title">Himachal <span class="chart-count">1</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="siyum">
+        <article class="city-card" id="siyum" data-city="himachal" data-genre="indie-rock">
             <h3 class="chart-name">Siyum</h3>
-            <span class="artist-tag">Indie rock</span>
+            <div class="tag-row"><span class="city-tag">Himachal</span><span class="artist-tag">Indie rock</span></div>
             <p class="chart-note">The one-man project of multi-instrumentalist Shivam Nayar, out of Himachal: experimental indie rock, prog and shoegaze in Hindi and Chambyali.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/5zDKlfPXznZkCWq3rwYIz9?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Siyum on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/5zDKlfPXznZkCWq3rwYIz9" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@Siyummusic" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/siyum.music/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-kerala">
-        <h2 class="chart-section-title">Kerala <span class="chart-count">1</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="arjun-t-n">
+        <article class="city-card" id="arjun-t-n" data-city="kerala" data-genre="">
             <h3 class="chart-name">Arjun T N</h3>
+            <div class="tag-row"><span class="city-tag">Kerala</span></div>
             
             <p class="chart-note">Kerala singer-songwriter, guitarist and producer; Malayalam indie with a Tamil hook on &#x27;Veruthe Nanayum&#x27;.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/2CtjIbvx2v569vDKBEeDUn?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Arjun T N on Spotify"></iframe></div>
@@ -627,13 +580,9 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://www.youtube.com/@ArjunMusic26" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/ar_ju_n_tn/" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-kolkata">
-        <h2 class="chart-section-title">Kolkata <span class="chart-count">2</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="argho">
+        <article class="city-card" id="argho" data-city="kolkata" data-genre="">
             <h3 class="chart-name">ARGHO</h3>
+            <div class="tag-row"><span class="city-tag">Kolkata</span></div>
             
             <p class="chart-note">Kolkata singer-songwriter, producer and composer, always experimenting, always chasing the next feeling.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/0sCtgCf0bBiXcQiEvD5AJS?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="ARGHO on Spotify"></iframe></div>
@@ -641,31 +590,25 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
           <a href="https://youtube.com/@itsmeargho" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/itsmeargho" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-                    <article class="city-card" id="zack-muxic">
+        <article class="city-card" id="zack-muxic" data-city="kolkata" data-genre="hip-hop">
             <h3 class="chart-name">Zack Muxic</h3>
-            <span class="artist-tag">Hip-hop</span>
+            <div class="tag-row"><span class="city-tag">Kolkata</span><span class="artist-tag">Hip-hop</span></div>
             <p class="chart-note">Kolkata-based, cinematic Hindi-English melodic rap. "Rehnuma," his latest, is emotional, atmospheric storytelling, part of a catalogue going back to 2024.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/6Kfo2ebX3kHm9fzLBIwHcA?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Zack Muxic on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/6Kfo2ebX3kHm9fzLBIwHcA" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/channel/UCVi8XqsuEwfVgR6iRj5yMug" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/withzackmuxic" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
-      <section class="chart-section" id="city-madhya-pradesh">
-        <h2 class="chart-section-title">Madhya Pradesh <span class="chart-count">1</span></h2>
-        <div class="city-carousel">
-                    <article class="city-card" id="parth-bhatt">
+        <article class="city-card" id="parth-bhatt" data-city="madhya-pradesh" data-genre="pop-rock">
             <h3 class="chart-name">Parth Bhatt</h3>
-            <span class="artist-tag">Pop/Rock</span>
+            <div class="tag-row"><span class="city-tag">Madhya Pradesh</span><span class="artist-tag">Pop/Rock</span></div>
             <p class="chart-note">Madhya Pradesh singer-songwriter and producer, blending the poetic soul of Urdu with contemporary pop and rock.</p>
             <div class="chart-player"><iframe src="https://open.spotify.com/embed/artist/7GmJhVIDRsNUG41dpCf64x?utm_source=generator" width="100%" height="152" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" title="Parth Bhatt on Spotify"></iframe></div>
             <div class="artist-links"><a class="sp" href="https://open.spotify.com/artist/7GmJhVIDRsNUG41dpCf64x" target="_blank" rel="noopener">Spotify</a>
           <a href="https://www.youtube.com/@parth_seeker" target="_blank" rel="noopener">YouTube</a>
           <a href="https://www.instagram.com/parth_seeker" target="_blank" rel="noopener">Instagram</a></div>
           </article>
-        </div>
-      </section>
+      </div>
     </div>
 
     <div class="featnote">
@@ -690,23 +633,47 @@ nav.js-primnav a{font-size:22px!important;font-weight:700!important;padding:14px
     var input = document.getElementById('artistSearch');
     var count = document.getElementById('artistCount');
     var cards = Array.prototype.slice.call(document.querySelectorAll('.city-card'));
-    var sections = Array.prototype.slice.call(document.querySelectorAll('.chart-section'));
+    var cityPills = Array.prototype.slice.call(document.querySelectorAll('.filter-pill[data-city]'));
+    var genrePills = Array.prototype.slice.call(document.querySelectorAll('.filter-pill[data-genre]'));
     var total = cards.length;
+    var activeCity = '';
+    var activeGenre = '';
+
+    function setActive(pills, attr, value){
+      pills.forEach(function(p){
+        p.classList.toggle('is-active', p.dataset[attr] === value);
+      });
+    }
+
     function update(){
       var q = input.value.trim().toLowerCase();
       var shown = 0;
       cards.forEach(function(c){
-        var match = !q || c.textContent.toLowerCase().indexOf(q) !== -1;
+        var textMatch = !q || c.textContent.toLowerCase().indexOf(q) !== -1;
+        var cityMatch = !activeCity || c.dataset.city === activeCity;
+        var genreMatch = !activeGenre || c.dataset.genre === activeGenre;
+        var match = textMatch && cityMatch && genreMatch;
         c.classList.toggle('is-hidden', !match);
         if (match) shown++;
       });
-      sections.forEach(function(s){
-        var anyVisible = s.querySelector('.city-card:not(.is-hidden)');
-        s.style.display = anyVisible ? '' : 'none';
-      });
-      count.textContent = q ? ('Showing ' + shown + ' of ' + total) : (total + ' artists');
+      count.textContent = (q || activeCity || activeGenre) ? ('Showing ' + shown + ' of ' + total) : (total + ' artists');
     }
+
     input.addEventListener('input', update);
+    cityPills.forEach(function(p){
+      p.addEventListener('click', function(){
+        activeCity = p.dataset.city;
+        setActive(cityPills, 'city', activeCity);
+        update();
+      });
+    });
+    genrePills.forEach(function(p){
+      p.addEventListener('click', function(){
+        activeGenre = p.dataset.genre;
+        setActive(genrePills, 'genre', activeGenre);
+        update();
+      });
+    });
     update();
   })();
   (function(){
