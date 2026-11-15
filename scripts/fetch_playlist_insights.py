@@ -313,7 +313,22 @@ def main():
     print(f"  {len(found)} total known playlists ({carried_forward} carried forward from prior runs)")
 
     print("Fetching follower counts...")
-    enrich_followers(found)
+    # BUG FOUND BY HAND (2026-11-15): enrich_followers() always walked the
+    # registry in insertion order (oldest-discovered first). The rate-limit
+    # circuit breaker trips partway through on most runs (confirmed: ~300s
+    # runtime, consistent with hitting it every day for 10+ days straight),
+    # so it was ALWAYS re-confirming the same ~150-250 oldest playlists and
+    # NEVER reaching the 1,000+ newer ones appended later -- qualifying count
+    # (>=1000 followers) sat flat at 7-8 for over a week while total discovery
+    # climbed past 1,400, since new playlists never got their first follower
+    # check at all. Fix: enrich never-before-seen playlists FIRST, so a
+    # rate-limited run still makes forward progress instead of looping the
+    # same known prefix forever.
+    never_enriched = [pid for pid, rec in found.items() if "followers" not in rec]
+    already_checked = [pid for pid, rec in found.items() if "followers" in rec]
+    ordered = {pid: found[pid] for pid in never_enriched + already_checked}
+    print(f"  Prioritizing {len(never_enriched)} never-enriched playlists before {len(already_checked)} known ones")
+    enrich_followers(ordered)
 
     history = load_history()
     now_iso = datetime.now(timezone.utc).isoformat()
