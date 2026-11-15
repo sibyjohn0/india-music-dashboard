@@ -339,7 +339,16 @@ def main():
     new_today = []
     gainers = []
     for pid, rec in found.items():
-        rec["languages"] = infer_languages(rec)
+        # BUG FOUND BY HAND (2026-11-15): this used to be a flat reassignment
+        # (`rec["languages"] = infer_languages(rec)`), recomputed fresh every
+        # run from matched_queries -- which gets truncated to 3 representative
+        # entries a few lines down. On a day discovery stops early (the same
+        # rate-limit issue above), a carried-forward playlist's languages get
+        # recomputed from its STALE, already-truncated matched_queries from a
+        # prior day, silently dropping real language tags it was previously
+        # known to match. Union with whatever's already stored instead of
+        # overwriting, so a thin day never erases a prior day's finding.
+        rec["languages"] = sorted(set(rec.get("languages") or []) | set(infer_languages(rec)))
         prev = history.get(pid)
         if prev and prev.get("snapshot_id") == rec["snapshot_id"]:
             last_changed_at = prev.get("last_changed_at")
