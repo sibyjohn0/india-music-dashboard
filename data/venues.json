@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T07:47:18.131929+00:00",
+  "generated_at": "2026-11-15T07:57:18.384722+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
@@ -191,8 +191,8 @@
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 10,
-      "show_count": 19,
+      "venue_count": 9,
+      "show_count": 17,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -260,29 +260,6 @@
           "next_date": null
         },
         {
-          "name": "District Arena @ Terraform",
-          "city": "Bengaluru",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Papon Live In Concert | Bengaluru",
-              "date": "2026-11-14",
-              "url": "https://www.district.in/events/papon-live-in-concert-bengaluru-2026",
-              "price": "from ₹999",
-              "source": "district"
-            },
-            {
-              "name": "Gorillaz The Mountain Tour 2027 | Bengaluru",
-              "date": "2027-01-23",
-              "url": "https://www.district.in/events/gorillaz-the-mountain-tour-bengaluru-2027",
-              "price": "from ₹5,000",
-              "source": "district"
-            }
-          ],
-          "shows": 2,
-          "next_date": "2026-11-14"
-        },
-        {
           "name": "HAMILTON",
           "city": "Bengaluru",
           "area": "",
@@ -304,22 +281,6 @@
           ],
           "shows": 2,
           "next_date": null
-        },
-        {
-          "name": "TBA - Bengaluru",
-          "city": "Bengaluru",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Anime Multiverse 2026 : Cosplay Edition Season 2 | Bengaluru",
-              "date": "2026-11-14",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-14"
         },
         {
           "name": "NICE Grounds",
@@ -352,6 +313,22 @@
           ],
           "shows": 1,
           "next_date": "2026-12-13"
+        },
+        {
+          "name": "District Arena @ Terraform",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Gorillaz The Mountain Tour 2027 | Bengaluru",
+              "date": "2027-01-23",
+              "url": "https://www.district.in/events/gorillaz-the-mountain-tour-bengaluru-2027",
+              "price": "from ₹5,000",
+              "source": "district"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2027-01-23"
         },
         {
           "name": "Space Session",
@@ -421,55 +398,9 @@
     },
     "hyderabad": {
       "name": "Hyderabad",
-      "venue_count": 23,
-      "show_count": 28,
+      "venue_count": 20,
+      "show_count": 23,
       "venues": [
-        {
-          "name": "Heart Cup Coffee",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Hemachandra Live",
-              "date": "2026-11-14",
-              "url": "https://in.bookmyshow.com/events/hemachandra-live/ET00525260",
-              "price": "from ₹499",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Iham kavyam Experience By Kavya Ajit",
-              "date": "2026-12-18",
-              "url": "https://in.bookmyshow.com/events/iham-kavyam-experience-by-kavya-ajit/ET00525972",
-              "price": "from ₹999",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 2,
-          "next_date": "2026-11-14"
-        },
-        {
-          "name": "The Tree Stories Cafe and Restaurant",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Band Vaibhavam Live Jamming - Tree Stories",
-              "date": "2026-11-14",
-              "url": "https://in.bookmyshow.com/events/band-vaibhavam-live-jamming/ET00519348",
-              "price": "from ₹249",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Tolly Bolly Jamming Ft.Band Some Where South Hyd",
-              "date": "2026-11-22",
-              "url": "https://in.bookmyshow.com/events/tolly-bolly-jamming-ft-band-some-where-south-hyd/ET00525294",
-              "price": "from ₹249",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 2,
-          "next_date": "2026-11-14"
-        },
         {
           "name": "Silaa The Garden Cafe Jubilee Hills",
           "city": "Hyderabad",
@@ -538,54 +469,6 @@
           ],
           "shows": 2,
           "next_date": "2026-11-28"
-        },
-        {
-          "name": "Tavaro Resorts and Events",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Religious India",
-              "date": "2026-11-14",
-              "url": "https://in.bookmyshow.com/events/religious-india/ET00518858",
-              "price": "from ₹1,499",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-14"
-        },
-        {
-          "name": "Trailing Ivy Cafe",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Tollywood Musical jamming Ft.Gireesh",
-              "date": "2026-11-14",
-              "url": "https://in.bookmyshow.com/events/tollywood-musical-jamming-ft-gireesh/ET00525902",
-              "price": "from ₹99",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-14"
-        },
-        {
-          "name": "HOLA - Taproom Bar and Kitchen",
-          "city": "Hyderabad",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Achyuth Live Concert Tolly X Bollywood Jamming",
-              "date": "2026-11-14",
-              "url": "https://in.bookmyshow.com/events/achyuth-live-concert/ET00525680",
-              "price": "from ₹99",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-14"
         },
         {
           "name": "Hard Rock Cafe",
@@ -732,6 +615,22 @@
           "next_date": "2026-11-21"
         },
         {
+          "name": "The Tree Stories Cafe and Restaurant",
+          "city": "Hyderabad",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Tolly Bolly Jamming Ft.Band Some Where South Hyd",
+              "date": "2026-11-22",
+              "url": "https://in.bookmyshow.com/events/tolly-bolly-jamming-ft-band-some-where-south-hyd/ET00525294",
+              "price": "from ₹249",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-22"
+        },
+        {
           "name": "Rumor - Sky Lounge",
           "city": "Hyderabad",
           "area": "",
@@ -762,6 +661,22 @@
           ],
           "shows": 1,
           "next_date": "2026-12-12"
+        },
+        {
+          "name": "Heart Cup Coffee",
+          "city": "Hyderabad",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Iham kavyam Experience By Kavya Ajit",
+              "date": "2026-12-18",
+              "url": "https://in.bookmyshow.com/events/iham-kavyam-experience-by-kavya-ajit/ET00525972",
+              "price": "from ₹999",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-12-18"
         },
         {
           "name": "Kingdome Klub and Kitchen",

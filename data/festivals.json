@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-14T07:47:18.074037+00:00",
+  "generated_at": "2026-11-15T07:57:18.319766+00:00",
   "counts": {
-    "festivals": 27,
+    "festivals": 25,
     "tours": 12,
     "marquee": 14,
     "international": 6,
-    "indian": 33,
-    "new_this_run": 4
+    "indian": 31,
+    "new_this_run": 0
   },
   "festivals": [
     {
@@ -336,58 +336,6 @@
       "origin": "indian"
     },
     {
-      "title": "DGTL GOA 2026",
-      "type": "festival",
-      "key": "dgtl",
-      "cities": [
-        "Goa"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-14",
-          "date_obj": "2026-11-14",
-          "city": "Goa",
-          "venue": "",
-          "time": "02:00 PM",
-          "price": "₹944–₹17,942",
-          "url": "https://www.skillboxes.com/events/dgtl-mumbai-2026-sbpjwnzi",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2026-11-14",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
-      "title": "LITTLE BEATS FESTIVAL - 14TH NOVEMBER 2026",
-      "type": "festival",
-      "key": "little beats festival",
-      "cities": [],
-      "dates": [
-        {
-          "date": "2026-11-14",
-          "date_obj": "2026-11-14",
-          "city": "",
-          "venue": "Kalyani Kala Mandira",
-          "time": "",
-          "price": "",
-          "url": "",
-          "source": "thumpn"
-        }
-      ],
-      "soonest": "2026-11-14",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "The Silent Show // Aerocity Canvas @ Utsav Gallery",
       "type": "festival",
       "key": "the silent show aerocity canvas utsav gallery",
@@ -687,66 +635,6 @@
   ],
   "tours": [
     {
-      "title": "Papon Live In Concert",
-      "type": "tour",
-      "key": "papon live in concert",
-      "cities": [
-        "Bangalore",
-        "Hyderabad",
-        "Kolkata",
-        "Mumbai"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-14",
-          "date_obj": "2026-11-14",
-          "city": "Bangalore",
-          "venue": "District Arena @ Terraform",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-bengaluru-2026",
-          "source": "district"
-        },
-        {
-          "date": "2026-11-28",
-          "date_obj": "2026-11-28",
-          "city": "Hyderabad",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-hyderabad-2026",
-          "source": "district"
-        },
-        {
-          "date": "2026-12-12",
-          "date_obj": "2026-12-12",
-          "city": "Mumbai",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-mumbai-2026",
-          "source": "district"
-        },
-        {
-          "date": "2027-01-23",
-          "date_obj": "2027-01-23",
-          "city": "Kolkata",
-          "venue": "Venue to be announced",
-          "time": "13:30",
-          "price": "from ₹999",
-          "url": "https://www.district.in/events/papon-live-in-concert-kolkata-2027",
-          "source": "district"
-        }
-      ],
-      "soonest": "2026-11-14",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
-    },
-    {
       "title": "Diljit Dosanjh - RuPay Aura India Tour, Indore",
       "type": "tour",
       "key": "diljit dosanjh",
@@ -935,6 +823,55 @@
         }
       ],
       "soonest": "2026-11-26",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Papon Live In Concert",
+      "type": "tour",
+      "key": "papon live in concert",
+      "cities": [
+        "Hyderabad",
+        "Kolkata",
+        "Mumbai"
+      ],
+      "dates": [
+        {
+          "date": "2026-11-28",
+          "date_obj": "2026-11-28",
+          "city": "Hyderabad",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-hyderabad-2026",
+          "source": "district"
+        },
+        {
+          "date": "2026-12-12",
+          "date_obj": "2026-12-12",
+          "city": "Mumbai",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-mumbai-2026",
+          "source": "district"
+        },
+        {
+          "date": "2027-01-23",
+          "date_obj": "2027-01-23",
+          "city": "Kolkata",
+          "venue": "Venue to be announced",
+          "time": "13:30",
+          "price": "from ₹999",
+          "url": "https://www.district.in/events/papon-live-in-concert-kolkata-2027",
+          "source": "district"
+        }
+      ],
+      "soonest": "2026-11-28",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1176,19 +1113,13 @@
       "origin": "indian"
     }
   ],
-  "new_this_run": [
-    "Francis Mercier  - Live in Hyderabad",
-    "The Silent Show // Aerocity Canvas @ Utsav Gallery",
-    "HEYA FESTIVAL GOA",
-    "LITTLE BEATS FESTIVAL - 14TH NOVEMBER 2026"
-  ],
+  "new_this_run": [],
   "_all_keys": [
     "diljit dosanjh",
     "sunburn festival",
     "francis mercier",
     "lollapalooza india",
     "a r rahman the wonderment tour live",
-    "dgtl",
     "domi jd beck who asked tour",
     "rainburn adrift in india tour",
     "horn ok please",
@@ -1210,7 +1141,6 @@
     "papon live in concert",
     "echoes of earth",
     "gorillaz the mountain tour",
-    "little beats festival",
     "nh7 weekender",
     "magnetic fields festival",
     "ziro festival of music",
