@@ -361,10 +361,16 @@ html,body{overflow-x:hidden!important;max-width:100%}
 .pg-cta,.pg-terms,.programme-callout{background:var(--surface)!important}
 .pg-cta{background:var(--yellow-s)!important}
 
-/* ---- app / directory pages (industry, resources, reviewers, radar) ---- */
+/* ---- app / directory pages (industry, resources, reviewers, radar) ----
+   .page-hero used to be a full-bleed flat band while .res-hero (same
+   gradient, same family of pages) was a floating card with a border and
+   hard shadow -- same color system, two different shapes. Matched
+   .page-hero to .res-hero's card treatment so every app-page hero reads
+   the same way. */
 .page-hero{
   background:linear-gradient(180deg,rgba(16,10,28,.30),rgba(16,10,28,.30)),linear-gradient(120deg,#7A46E0,#2E7FD6)!important;
-  border-bottom:2px solid var(--ink)!important;overflow:hidden;
+  border:2px solid var(--ink)!important;border-radius:20px!important;box-shadow:6px 6px 0 var(--ink)!important;
+  max-width:1100px!important;margin:12px auto 28px!important;padding-bottom:28px!important;overflow:hidden;
 }
 .page-hero::after{display:none!important}
 .page-title{color:#fff!important;font-family:var(--font-d)!important;text-shadow:0 1px 3px rgba(0,0,0,.32)}
