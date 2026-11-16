@@ -28,6 +28,7 @@ const fmt    = n => n>=1e9?(n/1e9).toFixed(1)+"B":n>=1e6?(n/1e6).toFixed(1)+"M":
 const fmtInr = n => n>=1e7?"₹"+(n/1e7).toFixed(1)+"Cr":n>=1e5?"₹"+(n/1e5).toFixed(1)+"L":n>=1e3?"₹"+(n/1e3).toFixed(1)+"K":"₹"+n;
 const daysAgo= iso=>{const d=(Date.now()-new Date(iso))/864e5;return d<1?"Today":d<2?"Yesterday":d<30?Math.floor(d)+"d ago":d<365?Math.floor(d/30)+"mo ago":Math.floor(d/365)+"y ago";};
 const esc    = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const showsLabel = n => `${n} show${n === 1 ? "" : "s"}`;
 
 const PAL = ["#a78bfa","#60a5fa","#34d399","#fbbf24","#f87171","#fb923c","#e879f9","#38bdf8","#4ade80","#c084fc"];
 const LANG_COLORS = {
@@ -620,8 +621,8 @@ function renderDiscoverShowsStrip(data) {
       const { count, venues } = cityData[c];
       const topV = Object.entries(venues).sort((a, b) => b[1] - a[1])[0];
       const venueLine = topV
-        ? `<div class="tv-venue-hero">${esc(topV[0])}</div><div class="tv-card-footer">${topV[1]} shows · ${count} in city</div>`
-        : `<div class="tv-venue-hero" style="color:var(--muted);font-size:12px">No named venue yet</div><div class="tv-card-footer">${count} shows</div>`;
+        ? `<div class="tv-venue-hero">${esc(topV[0])}</div><div class="tv-card-footer">${showsLabel(topV[1])} · ${count} in city</div>`
+        : `<div class="tv-venue-hero" style="color:var(--muted);font-size:12px">No named venue yet</div><div class="tv-card-footer">${showsLabel(count)}</div>`;
       return `<div class="tv-card" onclick="goToVenueCity('${esc(c)}')">
         <div class="tv-city-label" style="color:${col}">${esc(c)}</div>
         ${venueLine}
@@ -794,7 +795,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
       const barSegs = cityEntries.map(([city, s]) => {
         const pct = totalShows ? (s.events.length / totalShows * 100).toFixed(1) : 0;
         const col = CITY_COLORS[city] || "#888";
-        return `<div style="flex:${pct};background:${col}" title="${city}: ${s.events.length} shows (${pct}%)"></div>`;
+        return `<div style="flex:${pct};background:${col}" title="${city}: ${showsLabel(s.events.length)} (${pct}%)"></div>`;
       }).join("");
       const compBar = `<div class="composition-bar">${barSegs}</div>`;
 
@@ -804,7 +805,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
           const col = CITY_COLORS[city] || "#888";
           const topV = Object.entries(s.venues).sort((a, b) => b[1] - a[1])[0];
           const topVenueHtml = topV
-            ? `<div class="city-row-top-venue">${esc(topV[0])} <span class="city-row-top-count">${topV[1]} shows</span></div>`
+            ? `<div class="city-row-top-venue">${esc(topV[0])} <span class="city-row-top-count">${showsLabel(topV[1])}</span></div>`
             : "";
           return `<div class="city-row" onclick="selectCity('${esc(city)}')">
             <span class="city-row-dot" style="background:${col}"></span>
@@ -812,7 +813,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
               <div class="city-row-main">
                 <div class="city-row-name">${esc(city)}</div>
                 <div class="city-row-meta">
-                  <span class="city-row-count">${s.events.length} shows</span>
+                  <span class="city-row-count">${showsLabel(s.events.length)}</span>
                   <span class="city-row-sep">·</span>
                   <span class="city-row-ticketed">${s.ticketed} ticketed</span>
                   <span class="city-row-sep">·</span>
@@ -839,7 +840,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
             return `<div class="tv-card" onclick="selectCity('${esc(city)}')">
               <div class="tv-city-label" style="color:${col}">${esc(city)}</div>
               <div class="tv-venue-hero">${esc(vname)}</div>
-              <div class="tv-card-footer">${vcnt} shows · ${s.events.length} in city</div>
+              <div class="tv-card-footer">${showsLabel(vcnt)} · ${s.events.length} in city</div>
             </div>`;
           }).filter(Boolean).join("");
           spotlightEl.innerHTML = `<div class="tv-section-hd">Top venue by city</div><div class="tv-grid">${cards}</div>`;

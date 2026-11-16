@@ -176,12 +176,19 @@ def build():
 
     # ---- city hub /venues/ ----
     order = sorted(cities.items(), key=lambda kv: -kv[1]["venue_count"])
+    # A city with 0 venues currently booked shouldn't promise "See venues ->"
+    # -- that reads as a broken link even though the destination page itself
+    # has an honest empty-state. Say so plainly on the card instead.
     cards = "\n".join(
-        f'''  <a class="citycard" href="/venues/{esc(slug)}/">
+        (f'''  <a class="citycard" href="/venues/{esc(slug)}/">
     <h3>{esc(c["name"])}</h3>
     <p>{c["venue_count"]} live music venues · {c["show_count"]} upcoming shows</p>
     <span class="go">See venues →</span>
-  </a>''' for slug, c in order)
+  </a>''' if c["venue_count"] else f'''  <a class="citycard" href="/venues/{esc(slug)}/">
+    <h3>{esc(c["name"])}</h3>
+    <p>No venues with shows booked right now</p>
+    <span class="go">Check back soon</span>
+  </a>''') for slug, c in order)
     tot_v = sum(c["venue_count"] for c in cities.values())
     tot_s = sum(c["show_count"] for c in cities.values())
     hub_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Live music venues in India","url":"https://indiemusicindia.com/venues/","isPartOf":{{"@type":"WebSite","name":"Indie Music India","url":"https://indiemusicindia.com/"}}}}</script>
