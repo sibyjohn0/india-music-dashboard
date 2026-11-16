@@ -1,18 +1,10 @@
 {
-  "generated_at": "2026-11-15T07:44:35.107046+00:00",
-  "snapshot_date": "2026-11-15",
+  "generated_at": "2026-11-16T07:49:58.358092+00:00",
+  "snapshot_date": "2026-11-16",
   "cities": {
     "Hyderabad": {
-      "total_shows": 25,
+      "total_shows": 18,
       "venues": [
-        {
-          "name": "Silaa The Garden Cafe Jubilee Hills",
-          "shows": 2,
-          "price_min": 299,
-          "price_max": 399,
-          "next_date": "2026-11-15",
-          "growth": 0
-        },
         {
           "name": "Bharatiya Vidya Bhavan`s Auditorium",
           "shows": 2,
@@ -27,47 +19,15 @@
           "price_min": 1299,
           "price_max": 1500,
           "next_date": "2026-11-28",
-          "growth": null
-        },
-        {
-          "name": "Hard Rock Cafe",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-11-15",
-          "growth": -1
-        },
-        {
-          "name": "Red Rhino-Craft Brewery and Kitchen",
-          "shows": 1,
-          "price_min": 299,
-          "price_max": 299,
-          "next_date": "2026-11-15",
-          "growth": null
-        },
-        {
-          "name": "Marquee Club and Kitchen",
-          "shows": 1,
-          "price_min": 500,
-          "price_max": 500,
-          "next_date": "2026-11-15",
-          "growth": null
-        },
-        {
-          "name": "Akan",
-          "shows": 1,
-          "price_min": 199,
-          "price_max": 199,
-          "next_date": "2026-11-15",
           "growth": 0
         },
         {
-          "name": "Big Bull Club",
+          "name": "Silaa The Garden Cafe Jubilee Hills",
           "shows": 1,
-          "price_min": 999,
-          "price_max": 999,
-          "next_date": "2026-11-15",
-          "growth": null
+          "price_min": 299,
+          "price_max": 299,
+          "next_date": "2026-11-19",
+          "growth": -1
         },
         {
           "name": "Illuzion Club & Kitchen",
@@ -91,7 +51,7 @@
           "price_min": 199,
           "price_max": 199,
           "next_date": "2026-11-21",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "The Tree Stories Cafe and Restaurant",
@@ -99,7 +59,7 @@
           "price_min": 249,
           "price_max": 249,
           "next_date": "2026-11-22",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "Rumor - Sky Lounge",
@@ -107,7 +67,7 @@
           "price_min": 399,
           "price_max": 399,
           "next_date": "2026-12-12",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Sardar Patel Auditorium",
@@ -123,7 +83,7 @@
           "price_min": 799,
           "price_max": 799,
           "next_date": "2026-12-19",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "Boulder Hills",
@@ -150,14 +110,6 @@
           "growth": 0
         },
         {
-          "name": "GARAGE",
-          "shows": 1,
-          "price_min": 499,
-          "price_max": 499,
-          "next_date": "2026-11-15",
-          "growth": 0
-        },
-        {
           "name": "Ayaan & Tushara",
           "shows": 1,
           "price_min": 499,
@@ -167,20 +119,6 @@
         }
       ],
       "unlisted_shows": 2
-    },
-    "Indore": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "C21 ESTATE",
-          "shows": 1,
-          "price_min": 3499,
-          "price_max": 3499,
-          "next_date": "2026-11-15",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 0
     },
     "Ahmedabad": {
       "total_shows": 1,
@@ -197,7 +135,7 @@
       "unlisted_shows": 0
     },
     "Bangalore": {
-      "total_shows": 55,
+      "total_shows": 54,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -221,7 +159,7 @@
           "price_min": 4899,
           "price_max": 4899,
           "next_date": "2026-11-29",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "Venue to be announced",
@@ -237,7 +175,7 @@
           "price_min": 5000,
           "price_max": 5000,
           "next_date": "2027-01-23",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "RESTRICTED",
@@ -280,7 +218,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 37
+      "unlisted_shows": 36
     },
     "Gachibowli": {
       "total_shows": 1,
@@ -291,13 +229,13 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "2026-12-18",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 14,
+      "total_shows": 15,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -305,7 +243,7 @@
           "price_min": 2500,
           "price_max": 4499,
           "next_date": "2026-12-18",
-          "growth": -3
+          "growth": 0
         },
         {
           "name": "Venue to be announced",
@@ -348,7 +286,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 5
+      "unlisted_shows": 6
     },
     "Kolkata": {
       "total_shows": 6,
@@ -381,7 +319,7 @@
       "unlisted_shows": 3
     },
     "Goa": {
-      "total_shows": 10,
+      "total_shows": 13,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -392,7 +330,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 9
+      "unlisted_shows": 12
     },
     "India": {
       "total_shows": 1,
@@ -423,7 +361,7 @@
       "unlisted_shows": 1
     },
     "Delhi": {
-      "total_shows": 15,
+      "total_shows": 16,
       "venues": [
         {
           "name": "Paul John Luxury Blended Water",
@@ -447,7 +385,7 @@
           "price_min": 799,
           "price_max": 1999,
           "next_date": "28 Nov Sat",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "TUBATA",
@@ -466,7 +404,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 10
+      "unlisted_shows": 11
     },
     "Pune": {
       "total_shows": 4,
@@ -504,9 +442,9 @@
       "unlisted_shows": 1
     },
     "Kochi": {
-      "total_shows": 3,
+      "total_shows": 4,
       "venues": [],
-      "unlisted_shows": 3
+      "unlisted_shows": 4
     },
     "Mysuru": {
       "total_shows": 1,
