@@ -561,7 +561,8 @@
     .tab.active { color: var(--text); border-bottom-color: var(--accent); font-weight: 700; }
 
     @media (max-width: 600px) {
-      header, .filters, .filter-top, .stats-bar, .grid { padding-left: 16px; padding-right: 16px; }
+      header, .filters, .filter-top, .stats-bar, .grid, #related, .notify-block { padding-left: 16px; padding-right: 16px; }
+      #dev-cta { margin-left: 16px !important; margin-right: 16px !important; }
       .page-hero { padding: 24px 16px 0; }
       .feat-track { margin: 0 -16px; padding: 4px 16px 16px; }
       .feat-card { flex: 0 0 175px; }
@@ -589,7 +590,8 @@
       .card:hover, .feat-card:hover, .pill:hover, .submit-btn:hover { transform: none; }
     }
 
-    .notify-block { margin: 36px 0 8px; padding: 18px 0; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    #related { margin-top: 36px; padding-left: 32px; padding-right: 32px; }
+    .notify-block { margin: 36px 0 8px; padding: 18px 32px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
     .notify-text { color: var(--muted); font-size: 13px; max-width: 420px; }
     .notify-form { display: flex; gap: 8px; flex: 1; min-width: 240px; }
     .notify-input { flex: 1; min-width: 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 13px; padding: 9px 12px; font-family: 'Inter', sans-serif; }
@@ -1232,7 +1234,7 @@ function toggleFilters() {
     </form>
     <div class="notify-msg" id="notify-msg" aria-live="polite"></div>
   </div>
-  <div style="margin:20px 0 8px;padding:22px 26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px">
+  <div id="dev-cta" style="margin:20px 32px 8px;padding:22px 26px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:12px">
     <div style="max-width:560px">
       <div style="font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px">Pitching takes you only so far on your own.</div>
       <div style="font-size:13.5px;color:var(--muted);line-height:1.6">A few artists at a time, that's all. Our <a href="/programme/" style="color:var(--accent);font-weight:700">artist development programme</a> puts Siby and Karishma directly in your corner, release strategy, PR, social, video, design, legal, IPRS, the full network behind you. One month to start, no commitment after that, and we never take a cut of your music.</div>
