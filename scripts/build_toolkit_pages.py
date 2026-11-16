@@ -57,6 +57,17 @@ def kind(title):
         return "template"
     return "guide"
 
+#   BUG FOUND BY HAND (2026-11-16): source docs list fields one per line with
+#   no blank line between them -- "Website:" / "Pricing model:" / "Royalty
+#   split:" under DISTROKID, for instance. Since fp() only flushed the
+#   paragraph buffer on a blank line (or a heading/bullet), every consecutive
+#   field line got glued into ONE run-on paragraph via " ".join(para) before
+#   any per-line formatting ever ran -- that's the actual source of the
+#   "dense wall of text" toolkit pages the cosmetic audit flagged, not a
+#   missing bold rule. Detect a short "Label: ..." line and emit it as its
+#   own block immediately, so it can never merge with its neighbors.
+FIELD_RE = re.compile(r"^([A-Z][\w /&'()-]{1,45}):\s*(.*)$")
+
 def parse(txt, title):
     lines = txt.replace("﻿","").split("\n")
     blocks=[]; para=[]; ul=[]
@@ -72,6 +83,20 @@ def parse(txt, title):
             fp(); fu(); continue
         if "Artist Management Toolkit" in ln and "|" in ln:  # doc boilerplate subtitle
             continue
+        # Field-detection runs BEFORE the heading check: an all-caps blank-fill
+        # line like "SONG TITLE: ___" or "ISRC: ___" is >85% uppercase and
+        # under 70 chars, so the heading heuristic below would otherwise
+        # claim it first -- then the template-page path drops any heading
+        # containing "_" as a misdetected table-footer row, taking the whole
+        # field (not just its blank) down with it.
+        # A real section heading can also end in a bare colon ("INSTRUMENTATION:")
+        # with nothing else on that line -- the actual content follows on later
+        # lines. Only treat a colon-match as a field when there's something
+        # (even just a blank-fill run of underscores) after it on the SAME line;
+        # an empty remainder means it's a heading, not a field.
+        fm = FIELD_RE.match(ln)
+        if fm and "." not in fm.group(1) and fm.group(2).strip():
+            fp(); fu(); blocks.append(("field", (fm.group(1), fm.group(2)))); continue
         letters=[c for c in ln if c.isalpha()]
         is_head = letters and sum(c.isupper() for c in letters)/len(letters) > 0.85 and len(ln) < 70
         if is_head:
@@ -103,6 +128,10 @@ def render_blocks(blocks, as_checklist):
                 out.append(f'      <p><b>{esc(val)}</b></p>')
             else:
                 out.append(f'      <p>{esc(val)}</p>')
+        elif typ=="field":
+            label, rest = val
+            rest = rest.strip().strip("_").strip()   # drop fill-in blanks, keep real values
+            out.append(f'      <p><b>{esc(label)}:</b>{" " + esc(rest) if rest else ""}</p>')
         elif typ=="ul":
             val=[x for x in val if not _noise(x)]
             if not val: continue
@@ -129,7 +158,7 @@ def page(doc):
         # Unpack the doc's explanatory content (headings, real paragraphs, lists) for SEO and
         # for the reader, but skip the fill-in noise: pipe-table rows, "Label:" fields, blank-line
         # placeholders. The editable copy + branded download carry the actual fill-in form.
-        parts=[]
+        parts=[]; field_labels=[]
         for typ,val in blocks:
             if typ=="h2":
                 if "|" in val or "_" in val: continue  # table-footer rows misdetected as headings
@@ -141,11 +170,31 @@ def page(doc):
                     continue
                 if not first_para: first_para=val
                 parts.append(f'      <p>{esc(val)}</p>')
+            elif typ=="field":
+                # BUG FOUND BY HAND (2026-11-16): a bare "SONG TITLE: ______"
+                # fill-in line used to be dropped entirely (its "_" blank
+                # tripped the noise filter above) -- fine for the blank
+                # itself (the download carries the real fill-in form), but
+                # it silently took the LABEL down with it, so a template
+                # page could render with headings that have nothing under
+                # them. A field with a real value (rare for templates, but
+                # happens) still renders inline; a pure blank keeps just
+                # its label, collected into a "what's inside" list instead
+                # of vanishing.
+                label, rest = val
+                rest = rest.strip().strip("_").strip()
+                if rest and "|" not in rest:
+                    parts.append(f'      <p><b>{esc(label)}:</b> {esc(rest)}</p>')
+                else:
+                    field_labels.append(label)
             elif typ=="ul":
                 clean=[x for x in val if "|" not in x and "_" not in x and len(x.strip())>2]
                 if clean:
                     items="".join(f'<li>{esc(x)}</li>' for x in clean)
                     parts.append(f'      <ul>{items}</ul>')
+        if field_labels:
+            items="".join(f'<li>{esc(l)}</li>' for l in field_labels)
+            parts.append(f'      <h2>What\'s inside this template</h2>\n      <ul>{items}</ul>')
         body="\n".join(parts)
     else:
         for typ,val in blocks:
