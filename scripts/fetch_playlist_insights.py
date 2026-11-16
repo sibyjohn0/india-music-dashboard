@@ -296,11 +296,38 @@ def main():
     get_token()
     print("  OK")
 
+    # BUG FOUND BY HAND (2026-11-16): discover() used to run BEFORE
+    # enrichment every day. Checked the real GitHub Actions logs for two
+    # consecutive days and found discover()'s own request volume (192
+    # queries, each up to 10 paginated /search calls, with only 0.1-0.15s
+    # sleeps) trips Spotify's SEVERE rate limit by itself, every single
+    # day, at almost the exact same point (query 59 on 11-15, query 60 on
+    # 11-16, both with Retry-After ~86,110s -- just under 24h). Since that
+    # ban lasts almost exactly as long as the gap between daily runs, it's
+    # a self-perpetuating cycle: discovery bans the app fresh each day
+    # before enrichment ever gets a turn, no matter how enrichment itself
+    # is ordered. Confirmed fetch_spotify.py (which runs earlier in the
+    # pipeline, same app credentials) is NOT the cause -- its own log is
+    # clean both days, fast and error-free.
+    #
+    # Fix: enrich FIRST, using only the existing registry (no discovery
+    # calls yet), so enrichment gets first claim on a clean rate-limit
+    # budget every day. Run discover() afterward -- if IT trips the ban,
+    # that only costs today's new finds, which simply get enriched on
+    # tomorrow's run instead (already-registered playlists are never
+    # blocked waiting on discovery).
+    registry = load_registry()
+    print(f"Fetching follower counts for {len(registry)} known playlists...")
+    never_enriched = [pid for pid, rec in registry.items() if "followers" not in rec]
+    already_checked = [pid for pid, rec in registry.items() if "followers" in rec]
+    ordered = {pid: registry[pid] for pid in never_enriched + already_checked}
+    print(f"  Prioritizing {len(never_enriched)} never-enriched playlists before {len(already_checked)} known ones")
+    enrich_followers(ordered)
+
     print(f"Searching {len(SEARCH_QUERIES)} queries for India-indie playlists...")
     found = discover()
     print(f"  {len(found)} unique playlists found in today's sweep")
 
-    registry = load_registry()
     carried_forward = len(registry) - len(set(registry) & set(found))
     for pid, rec in found.items():
         prior = registry.get(pid)
@@ -311,24 +338,6 @@ def main():
         registry[pid] = rec
     found = registry
     print(f"  {len(found)} total known playlists ({carried_forward} carried forward from prior runs)")
-
-    print("Fetching follower counts...")
-    # BUG FOUND BY HAND (2026-11-15): enrich_followers() always walked the
-    # registry in insertion order (oldest-discovered first). The rate-limit
-    # circuit breaker trips partway through on most runs (confirmed: ~300s
-    # runtime, consistent with hitting it every day for 10+ days straight),
-    # so it was ALWAYS re-confirming the same ~150-250 oldest playlists and
-    # NEVER reaching the 1,000+ newer ones appended later -- qualifying count
-    # (>=1000 followers) sat flat at 7-8 for over a week while total discovery
-    # climbed past 1,400, since new playlists never got their first follower
-    # check at all. Fix: enrich never-before-seen playlists FIRST, so a
-    # rate-limited run still makes forward progress instead of looping the
-    # same known prefix forever.
-    never_enriched = [pid for pid, rec in found.items() if "followers" not in rec]
-    already_checked = [pid for pid, rec in found.items() if "followers" in rec]
-    ordered = {pid: found[pid] for pid in never_enriched + already_checked}
-    print(f"  Prioritizing {len(never_enriched)} never-enriched playlists before {len(already_checked)} known ones")
-    enrich_followers(ordered)
 
     history = load_history()
     now_iso = datetime.now(timezone.utc).isoformat()
