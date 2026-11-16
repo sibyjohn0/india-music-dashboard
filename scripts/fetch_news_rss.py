@@ -16,7 +16,7 @@ Output: data/news-rss.json  (already filtered — the display page trusts it)
 Requires: feedparser (pip install feedparser)
 """
 
-import os, json, sys, re
+import html, os, json, sys, re
 from datetime import datetime, timezone
 
 OUT = os.path.join(os.path.dirname(__file__), "..", "data", "news-rss.json")
@@ -90,12 +90,15 @@ def strip_html(text):
     if not text:
         return ""
     text = re.sub(r"<[^>]+>", " ", text)
-    text = re.sub(r"&amp;", "&", text)
-    text = re.sub(r"&lt;", "<", text)
-    text = re.sub(r"&gt;", ">", text)
-    text = re.sub(r"&quot;", '"', text)
-    text = re.sub(r"&#039;", "'", text)
-    text = re.sub(r"&nbsp;", " ", text)
+    # BUG FOUND BY HAND (2026-11-16): the hand-rolled entity list above only
+    # covered 6 named entities and missed numeric ones (e.g. &#8230; for an
+    # ellipsis, &#8217; for a right single quote) -- those survived as
+    # literal text into data/news-rss.json, then generate_news.py's esc()
+    # re-escaped the leftover "&" into "&amp;#8230;", showing up broken in
+    # the rendered page. html.unescape() decodes every named AND numeric
+    # entity in one pass, so this can't recur for any entity, not just the
+    # ones that happened to get added to a list by hand.
+    text = html.unescape(text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
 
