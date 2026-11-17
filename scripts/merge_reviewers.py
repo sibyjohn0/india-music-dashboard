@@ -17,7 +17,7 @@ Ranking within merged file:
   - Final merged list: editorial > podcast > youtube > spotify (interleaved by quality tier)
 """
 
-import json, os
+import json, os, re
 from datetime import datetime, timezone
 
 DATA_DIR    = os.path.join(os.path.dirname(__file__), "..", "data")
@@ -79,6 +79,26 @@ def quality_score(entry):
     return base
 
 
+# Curators' own description text (pulled from their YouTube "About" section)
+# sometimes includes a business-inquiry email -- a real, intentionally
+# self-published contact, meant to be found and used by exactly the people
+# pitching music here. The problem isn't that any ONE of these is public
+# (it already is, on that curator's own channel); it's that aggregating
+# 1,100+ of them into one downloadable JSON turns a "visit each channel"
+# cost into a single `grep -oE '[...]+@[...]'` command -- confirmed by hand
+# via GSC: real search traffic landing on /reviewers/ is dominated by
+# queries built around exactly that pattern ("@gmail.com" OR "@yahoo.com").
+# Obfuscate rather than strip: a real visitor in a real browser should
+# still see and be able to use the address; a plain-text scrape of either
+# the rendered page or this raw JSON file should not turn up a harvestable
+# one. reviewers/index.html de-obfuscates for display.
+EMAIL_RE = re.compile(r'([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+)\.([A-Za-z]{2,})')
+
+def obfuscate_emails(text):
+    if not text or "@" not in text:
+        return text
+    return EMAIL_RE.sub(lambda m: f"{m.group(1)} [at] {m.group(2)} [dot] {m.group(3)}", text)
+
 def main():
     all_reviewers = []
     counts = {}
@@ -95,6 +115,10 @@ def main():
     # Re-rank globally
     for i, r in enumerate(all_reviewers, 1):
         r["global_rank"] = i
+
+    for r in all_reviewers:
+        if r.get("description"):
+            r["description"] = obfuscate_emails(r["description"])
 
     output = {
         "generated_at":  datetime.now(timezone.utc).isoformat(),

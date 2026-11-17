@@ -1016,6 +1016,19 @@ function toggleFilters() {
   }
 
   // Badge label
+  // merge_reviewers.py obfuscates any email in a curator's own description
+  // ("name [at] domain [dot] tld") so the raw data file and a non-JS page
+  // scrape can't be regex-harvested in bulk. Rebuild it into a real,
+  // clickable mailto link for an actual visitor.
+  const EMAIL_OBF_RE = /([\w.+-]+)\s\[at\]\s([\w.-]+)\s\[dot\]\s(\w{2,})/g;
+  function deobfuscateEmail(text) {
+    if (!text || !text.includes('[at]')) return text;
+    return text.replace(EMAIL_OBF_RE, (_, user, domain, tld) => {
+      const addr = `${user}@${domain}.${tld}`;
+      return `<a href="mailto:${addr}">${addr}</a>`;
+    });
+  }
+
   function catBadge(r) {
     const cc = cardCat(r);
     const labels = {
@@ -1116,7 +1129,7 @@ function toggleFilters() {
           ${saTag}
         </div>
       </div>
-      ${r.description ? `<div class="card-desc">${r.description}</div>` : ''}
+      ${r.description ? `<div class="card-desc">${deobfuscateEmail(r.description)}</div>` : ''}
       <div class="card-meta">
         ${langs ? `<span class="meta-tag">${langs}</span>` : ''}
         ${r.country ? `<span class="meta-tag">${r.country}</span>` : ''}
