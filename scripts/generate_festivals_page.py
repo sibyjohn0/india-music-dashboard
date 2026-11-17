@@ -30,13 +30,9 @@ SRC_LABEL = {"district": "District", "bookmyshow": "BookMyShow",
 # daily data refresh never drops them -- remove the entry once the event has
 # passed.
 MANUAL_FEATURED = [
-    {
-        "title": "DGTL India 2026",
-        "image": "/assets/live-heroes/dgtl-india-2026.jpg",
-        "sub": "Nov 13–15 · Bengaluru & Goa",
-        "desc": "The international electronic festival's sixth Indian edition: Nina Kraviz and Colyn headline, alongside a strong homegrown lineup across two cities.",
-        "url": "/live/dgtl-india-2026/",
-    },
+    # DGTL India 2026 (Nov 13-15) removed 2026-11-17 -- event has passed.
+    # The event page itself stays live at /live/dgtl-india-2026/ as a
+    # historical record; only the "upcoming" featured card is pulled.
 ]
 
 def featured_card(e):
@@ -59,7 +55,10 @@ def date_rows(e):
         price = esc(d.get("price", ""))
         src = SRC_LABEL.get(d.get("source", ""), d.get("source", "").title())
         url = esc(d.get("url", ""))
-        loc = " · ".join([x for x in [f"<b>{city}</b>" if city else "", venue] if x])
+        # Some feed entries have no real venue name and fall back to the city
+        # itself, rendering as a literal "Guwahati · Guwahati". Don't repeat it.
+        venue_part = venue if venue and venue.lower() != city.lower() else ""
+        loc = " · ".join([x for x in [f"<b>{city}</b>" if city else "", venue_part] if x])
         tix = f'<a class="tix" href="{url}" target="_blank" rel="noopener">Tickets · {esc(src)} ↗</a>' if url else ""
         meta = " · ".join([x for x in [price] if x])
         rows.append(f'''<div class="drow">
@@ -75,8 +74,16 @@ def card(e):
     marquee = '<span class="tag mq">Marquee festival</span>' if e.get("marquee") else ""
     sub = []
     if e.get("season"): sub.append(esc(e["season"]))
-    # Marquee festivals show their canonical home city; others list matched cities.
-    city_txt = e.get("home_city") if e.get("marquee") else ", ".join([c for c in e.get("cities", []) if c])
+    # BUG FOUND BY HAND (2026-11-17): marquee festivals always showed their
+    # registry "home city" (e.g. Sunburn -> Goa), even when the actual
+    # scraped date for this edition is a real touring stop elsewhere (a
+    # Sunburn date in Mumbai still headlined "Goa") -- the card's own date
+    # rows showed the real city/venue, directly contradicting its own
+    # heading. Prefer the real scraped city when one exists; only fall back
+    # to the registry's home city for the "dates TBA" anchor case, where
+    # there's nothing else to show yet.
+    real_cities = ", ".join([c for c in e.get("cities", []) if c])
+    city_txt = real_cities or e.get("home_city") if e.get("marquee") else real_cities
     if city_txt: sub.append(esc(city_txt))
     subline = " · ".join(sub)
     official = ""

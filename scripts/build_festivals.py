@@ -27,6 +27,16 @@ REGISTRY = os.path.join(DATA, "festivals_registry.json")
 
 TODAY = date.today()
 
+# Raw ticketing feeds use whatever city spelling their own source happens to
+# use ("Bangalore" vs "Bengaluru"), so the same metro shows up under two
+# names across different cards/dates. Normalize to one spelling each.
+CITY_ALIASES = {"bangalore": "Bengaluru", "bengaluru": "Bengaluru",
+                 "gurgaon": "Gurugram", "gurugram": "Gurugram"}
+
+def norm_city(c):
+    c = (c or "").strip()
+    return CITY_ALIASES.get(c.lower(), c)
+
 # --- classification ----------------------------------------------------------
 # Drop these outright even if they contain "festival"/"tour".
 EXCLUDE = re.compile(
@@ -120,7 +130,7 @@ def load_events():
             out.append({
                 "name": name,
                 "venue": (e.get("venue") or "").strip(),
-                "city": (e.get("city") or "").strip(),
+                "city": norm_city(e.get("city")),
                 "raw_date": e.get("date") or "",
                 "time": e.get("time") or "",
                 "price_min": e.get("price_min"),
