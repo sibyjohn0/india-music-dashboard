@@ -572,14 +572,14 @@ function renderTodayEvents(data) {
 
 // ── Discover: Shows strip ──────────────────────────────────────────────────────
 const DSS_CITY_ALIAS = {
-  "bengaluru":"Bangalore","bangalore city":"Bangalore","new delhi":"Delhi",
+  "bengaluru":"Bengaluru","bangalore":"Bengaluru","bangalore city":"Bengaluru","new delhi":"Delhi",
   "gurugram":"Delhi","gurgaon":"Delhi","noida":"Delhi","delhi/ncr":"Delhi",
   "navi mumbai":"Mumbai","andheri":"Mumbai","bandra":"Mumbai","thane":"Mumbai",
   "lb nagar":"Hyderabad","madhapur":"Hyderabad",
 };
-const DSS_TOP6 = ["Bangalore","Mumbai","Delhi","Hyderabad","Pune","Chennai"];
+const DSS_TOP6 = ["Bengaluru","Mumbai","Delhi","Hyderabad","Pune","Chennai"];
 const DSS_COLORS = {
-  "Bangalore":"#a78bfa","Mumbai":"#60a5fa","Delhi":"#34d399",
+  "Bengaluru":"#a78bfa","Mumbai":"#60a5fa","Delhi":"#34d399",
   "Hyderabad":"#fbbf24","Pune":"#fb923c","Chennai":"#f87171",
 };
 const dssNorm = c => DSS_CITY_ALIAS[(c||"").toLowerCase()] || c;
@@ -671,7 +671,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
 
   const CITIES = new Set(["bangalore","bengaluru","mumbai","delhi","hyderabad","chennai","pune","kolkata","goa","kochi","cochin","india"]);
   const CITY_ALIAS = {
-    "bengaluru":"Bangalore","bangalore city":"Bangalore",
+    "bengaluru":"Bengaluru","bangalore":"Bengaluru","bangalore city":"Bengaluru",
     "new delhi":"Delhi","gurugram":"Delhi","gurgaon":"Delhi",
     "delhi/ncr":"Delhi","delhi ncr":"Delhi","delhi (ncr)":"Delhi",
     "noida":"Delhi","ghaziabad":"Delhi","dlf cyberhub, gurugram":"Delhi",
@@ -735,7 +735,7 @@ function renderTrendsEvents(data, venueInsights, sourceData) {
   };
 
   const CITY_COLORS = {
-    "Bangalore":"#a78bfa","Mumbai":"#60a5fa","Delhi":"#34d399",
+    "Bengaluru":"#a78bfa","Mumbai":"#60a5fa","Delhi":"#34d399",
     "Hyderabad":"#fbbf24","Chennai":"#f87171","Pune":"#fb923c",
     "Goa":"#e879f9","Kolkata":"#38bdf8","Kochi":"#4ade80",
   };

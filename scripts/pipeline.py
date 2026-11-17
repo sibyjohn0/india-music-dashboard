@@ -187,6 +187,15 @@ SOURCES = [
         "env_required": [],
         "outputs": ["venues/index.html"],
     },
+    # Keeps radar.html's pre-JS static summary (the text a non-JS fetch, e.g.
+    # many AI assistants, actually sees) carrying real current counts instead
+    # of going stale -- runs after venues_pages so data/venues.json is fresh.
+    {
+        "name": "radar_static",
+        "script": "inject_radar_static.py",
+        "env_required": [],
+        "outputs": ["radar.html"],
+    },
     # Weekly: industry database — rebuild from music-industry-db CSV on Sundays.
     {
         "name": "industry",
