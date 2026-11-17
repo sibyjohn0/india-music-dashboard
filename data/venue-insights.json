@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-16T07:49:58.358092+00:00",
-  "snapshot_date": "2026-11-16",
+  "generated_at": "2026-11-17T08:59:40.760926+00:00",
+  "snapshot_date": "2026-11-17",
   "cities": {
     "Hyderabad": {
-      "total_shows": 18,
+      "total_shows": 19,
       "venues": [
         {
           "name": "Bharatiya Vidya Bhavan`s Auditorium",
@@ -27,7 +27,7 @@
           "price_min": 299,
           "price_max": 299,
           "next_date": "2026-11-19",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "Illuzion Club & Kitchen",
@@ -118,7 +118,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 2
+      "unlisted_shows": 3
     },
     "Ahmedabad": {
       "total_shows": 1,
@@ -135,7 +135,7 @@
       "unlisted_shows": 0
     },
     "Bangalore": {
-      "total_shows": 54,
+      "total_shows": 59,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -202,6 +202,14 @@
           "growth": 0
         },
         {
+          "name": "House of Hearts",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "21 Nov Sat",
+          "growth": null
+        },
+        {
           "name": "MIxtape",
           "shows": 1,
           "price_min": 600,
@@ -218,7 +226,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 36
+      "unlisted_shows": 40
     },
     "Gachibowli": {
       "total_shows": 1,
@@ -289,7 +297,7 @@
       "unlisted_shows": 6
     },
     "Kolkata": {
-      "total_shows": 6,
+      "total_shows": 7,
       "venues": [
         {
           "name": "Vivekananda Yuba Bharati Krirangan",
@@ -316,10 +324,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 3
+      "unlisted_shows": 4
     },
     "Goa": {
-      "total_shows": 13,
+      "total_shows": 16,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -328,9 +336,17 @@
           "price_max": 4999,
           "next_date": "2027-01-16",
           "growth": 0
+        },
+        {
+          "name": "INOX - Old GMC",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-20",
+          "growth": null
         }
       ],
-      "unlisted_shows": 12
+      "unlisted_shows": 14
     },
     "India": {
       "total_shows": 1,
@@ -361,7 +377,7 @@
       "unlisted_shows": 1
     },
     "Delhi": {
-      "total_shows": 16,
+      "total_shows": 18,
       "venues": [
         {
           "name": "Paul John Luxury Blended Water",
@@ -404,12 +420,12 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 11
+      "unlisted_shows": 13
     },
     "Pune": {
-      "total_shows": 4,
+      "total_shows": 6,
       "venues": [],
-      "unlisted_shows": 4
+      "unlisted_shows": 6
     },
     "Dehradun": {
       "total_shows": 2,
@@ -470,10 +486,52 @@
       ],
       "unlisted_shows": 0
     },
+    "Meghalaya": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "OPEN AIR",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 1999,
+          "next_date": "28 Nov Sat",
+          "growth": null
+        }
+      ],
+      "unlisted_shows": 0
+    },
     "Kasol": {
       "total_shows": 2,
       "venues": [],
       "unlisted_shows": 2
+    },
+    "Malleswaram": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "Seva Sadan",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-20",
+          "growth": null
+        }
+      ],
+      "unlisted_shows": 0
+    },
+    "NCPA.": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "Jamshed Bhabha Theatre",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-20",
+          "growth": null
+        }
+      ],
+      "unlisted_shows": 0
     }
   }
 }
