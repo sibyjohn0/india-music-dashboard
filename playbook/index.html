@@ -31,8 +31,12 @@
   --sidebar-w: 280px; --topbar-h: 52px; --nav-h: 44px;
 }
 
+/* ── TOP HEADER ── */
+header{display:flex;align-items:center;padding:0 24px;height:var(--topbar-h);background:#0f0f0f;border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:103}
+.logo{font-size:15px;font-weight:700;color:var(--text)}
+
 /* ── SITE NAV ── */
-.site-nav{display:flex;gap:0;padding:0 24px;background:#13131a;border-bottom:1px solid #2a2a38;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:102;align-items:stretch}
+.site-nav{display:flex;gap:0;padding:0 24px;background:#13131a;border-bottom:1px solid #2a2a38;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:fixed;top:var(--topbar-h);left:0;right:0;height:var(--nav-h);z-index:102;align-items:stretch}
 .site-nav::-webkit-scrollbar{display:none}
 .site-nav a{background:none;border:none;border-bottom:2px solid transparent;color:#999;font:13px/1 'Inter',-apple-system,sans-serif;padding:0 16px;height:44px;display:flex;align-items:center;cursor:pointer;transition:color .15s,border-color .15s;white-space:nowrap;text-decoration:none;flex-shrink:0;font-weight:500}
 .site-nav a:hover{color:#e8e8f0}
@@ -42,7 +46,7 @@ html{font-size:15px}
 body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;overflow-x:hidden}
 
 /* ── PHASE NAV ── */
-#phase-nav{position:fixed;top:var(--nav-h);left:0;right:0;z-index:101;background:var(--sidebar-bg)}
+#phase-nav{position:fixed;top:calc(var(--topbar-h) + var(--nav-h));left:0;right:0;z-index:101;background:var(--sidebar-bg)}
 .phase-tabs{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 24px;-webkit-overflow-scrolling:touch;border-bottom:1px solid var(--border);-webkit-mask-image:linear-gradient(to right,black calc(100% - 32px),transparent 100%);mask-image:linear-gradient(to right,black calc(100% - 32px),transparent 100%)}
 .phase-tabs::-webkit-scrollbar{display:none}
 .phase-tab{background:none;border:none;border-bottom:2px solid transparent;color:#999;font:13px/1 'Inter',-apple-system,sans-serif;padding:0 14px;height:44px;display:flex;align-items:center;cursor:pointer;white-space:nowrap;flex-shrink:0;font-weight:500;transition:color .15s,border-color .15s}
@@ -51,7 +55,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,Bl
 #phase-context{padding:9px 32px 9px 28px;background:var(--sidebar-bg);border-left:3px solid var(--accent);border-bottom:1px solid var(--border);font-size:12px;color:#aaa;line-height:1.4}
 
 /* ── MAIN ── */
-#playbook-main{padding-top:calc(var(--nav-h) + 44px + 38px);min-height:100vh}
+#playbook-main{padding-top:calc(var(--topbar-h) + var(--nav-h) + 44px + 38px);min-height:100vh}
 #phase-view .pb-inner,#section-view .pb-inner{max-width:800px;margin:0 auto;padding:40px 32px 80px}
 
 /* ── PHASE CARD VIEW ── */
@@ -322,6 +326,7 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
+<header><div class="logo"><a href="/" style="color:inherit;text-decoration:none">◉ Indie Music India</a><span style="display:block;font-weight:400;font-size:11px;letter-spacing:0;color:var(--muted);margin-top:2px;">Free tools &amp; data for India's independent music scene</span></div></header>
 <button class="mnav-burger" aria-label="Menu" aria-expanded="false" onclick="var o=document.body.classList.toggle('mnav-open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
 
 <nav class="site-nav js-primnav">
@@ -2377,6 +2382,22 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
   </div>
 
 </div>
+
+<footer style="padding:28px 24px 48px;max-width:900px;margin:0 auto">
+  <div class="footer-logo" style="font-weight:800;font-size:13px;color:var(--text)">◉ Indie Music India</div>
+  <div class="footer-links" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:13px">
+    <a href="/" style="color:var(--muted);text-decoration:none">Home</a>
+    <a href="../programme/" style="color:var(--muted);text-decoration:none">Programme</a>
+    <a href="../about/" style="color:var(--muted);text-decoration:none">About</a>
+    <a href="/radar.html" style="color:var(--muted);text-decoration:none">Radar</a>
+    <a href="../reviewers/" style="color:var(--muted);text-decoration:none">Reviewers</a>
+    <a href="../industry/" style="color:var(--muted);text-decoration:none">Industry</a>
+    <a href="../resources/" style="color:var(--muted);text-decoration:none">Resources</a>
+    <a href="/answers/" style="color:var(--muted);text-decoration:none">Answers</a>
+    <a href="https://instagram.com/indiemusicindia.co" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none">Instagram</a>
+  </div>
+  <div style="margin-top:12px;font-size:12px;color:var(--muted)">Built by Siby John and Karishma Changroth &middot; Free to use</div>
+</footer>
 
 <script>
 // ─── DATA ───────────────────────────────────────────────
