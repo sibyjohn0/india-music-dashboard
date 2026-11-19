@@ -4,7 +4,10 @@
    <style> so it overrides the old dark editorial look.
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap');
+/* Inter dropped from this import: every page that loads poppy.css already
+   requests its own Inter (400-800, a superset of 400-700), so this was a
+   second Google Fonts request for overlapping weights. */
 
 :root{
   color-scheme:light; /* keep the UA canvas/overscroll/scrollbars light in dark mode: fixes the black bar at the top on overscroll */
