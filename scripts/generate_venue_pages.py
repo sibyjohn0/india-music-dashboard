@@ -194,7 +194,7 @@ def build():
     hub_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Live music venues in India","url":"https://indiemusicindia.com/venues/","isPartOf":{{"@type":"WebSite","name":"Indie Music India","url":"https://indiemusicindia.com/"}}}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}}]}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{{"@type":"Question","name":"What counts as a live music venue here?","acceptedAnswer":{{"@type":"Answer","text":"A room, bar, club or outdoor space with an actual independent or live show booked on its calendar right now. Venues with no upcoming date are not listed."}}}},{{"@type":"Question","name":"Which Indian cities have the most live music venues?","acceptedAnswer":{{"@type":"Answer","text":"Based on what is currently on the calendar, Delhi and Goa have the most active rooms, followed by Bengaluru. This shifts week to week as tours route differently."}}}},{{"@type":"Question","name":"How do I book a live music venue for my own show?","acceptedAnswer":{{"@type":"Answer","text":"Most venues on this list book directly, not through a platform, so the ticketing page's organiser contact is the fastest route in."}}}}]}}</script>'''
-    hub = head("Live Music Venues in India: Gig Venues by City, Shows & Tickets, Indie Music India",
+    hub = head("Live Music Venues in India: Gig Venues by City, Shows & Tickets",
                "Live music venues across India by city: the rooms hosting gigs in Mumbai, Delhi, Bengaluru, Hyderabad, Pune and Goa, with shows and tickets.",
                "https://indiemusicindia.com/venues/", hub_ld)
     hub += f'''
@@ -241,7 +241,7 @@ def build():
         city_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Concerts and live music in {esc(c["name"])}","url":"https://indiemusicindia.com/venues/{esc(slug)}/"}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ItemList","name":"Live music venues in {esc(c["name"])}","numberOfItems":{len(venues)},"itemListElement":[{items}]}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}},{{"@type":"ListItem","position":3,"name":"{esc(c["name"])}","item":"https://indiemusicindia.com/venues/{esc(slug)}/"}}]}}</script>'''
-        page = head(f"Live Music Venues in {c['name']}: Gigs, Concerts & Tickets, Indie Music India",
+        page = head(f"Live Music Venues in {c['name']}: Gigs, Concerts & Tickets",
                     f"Live music venues in {c['name']}: the rooms hosting gigs and concerts, who's playing, and where to get tickets. {c['show_count']} shows across {c['venue_count']} venues, updated daily.",
                     f"https://indiemusicindia.com/venues/{slug}/", city_ld)
         # All six metros now have a scene guide to link back to.

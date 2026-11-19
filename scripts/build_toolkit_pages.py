@@ -81,7 +81,12 @@ def parse(txt, title):
             fp(); fu(); continue
         if len(ln)>3 and set(ln) <= set("━—–-=_·. "):   # divider line
             fp(); fu(); continue
-        if "Artist Management Toolkit" in ln and "|" in ln:  # doc boilerplate subtitle
+        # BUG FOUND BY HAND (2026-11-17): this only caught the pipe-separated
+        # subtitle variant ("Toolkit | Recording Kit"). 14 "Money Kit" docs
+        # use an em dash instead ("Toolkit — Money Kit"), which slipped past
+        # this filter, got treated as real content, and became both the meta
+        # description AND visible body text -- identically, on all 14 pages.
+        if "Artist Management Toolkit" in ln and re.search(r"[|—–]", ln):
             continue
         # Field-detection runs BEFORE the heading check: an all-caps blank-fill
         # line like "SONG TITLE: ___" or "ISRC: ___" is >85% uppercase and

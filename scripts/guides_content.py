@@ -5,7 +5,7 @@ GUIDES = [
 {
  "slug":"how-to-release-a-song-in-india","cat":"Releasing","hero":"green-room",
  "title":"How to release a song in India: a step-by-step guide",
- "desc":"A plain, step-by-step guide to releasing your first single in India, from mastering and artwork to distribution, ISRC, release date, and what to do on drop day. No label needed.",
+ "desc":"A plain, step-by-step guide to releasing your first single in India: mastering, artwork, distribution, ISRC, release date, and drop day. No label needed.",
  "lead":"You do not need a label or a manager to put a song on Spotify, Apple Music and JioSaavn. You need a clear checklist. Here it is.",
  "tldr":"To release a song in India: finish and master the track, prepare square artwork and metadata, pick a <a href=\"/guides/best-music-distributor-india/\">distributor</a>, set a release date at least two to four weeks out so you can pitch, get your <a href=\"/guides/isrc-code-india/\">ISRC</a> and register your composition with IPRS, then plan a simple drop-day. The whole thing costs less than a dinner out if you choose the right distributor.",
  "sections":[
@@ -36,7 +36,7 @@ GUIDES = [
 {
  "slug":"how-to-release-and-promote-punjabi-music-india","cat":"Promotion","hero":"pool-chair",
  "title":"How to release and promote Punjabi music independently",
- "desc":"A guide for independent Punjabi artists: how to release, distribute and grow your music the way the new wave actually did it, YouTube-first, no film and no major label. Honest and India-first.",
+ "desc":"A guide for independent Punjabi artists: how to release, distribute and grow your music the way the new wave actually did it, YouTube-first, no major label.",
  "lead":"Punjabi went from a regional genre to the biggest independent sound on the planet, and most of the new wave did it without a Bollywood film or a major label. Here is how the lane actually works.",
  "tldr":"To build as an independent Punjabi artist: get a sound that is unmistakably yours instead of a copy of whoever is hot, go <b>YouTube-first</b> (Punjabi music lives on YouTube more than any other Indian genre), release consistently, and let the diaspora and collaborations carry it. Register your composition with <a href=\"/guides/register-music-copyright-iprs-india/\">IPRS</a> and set up YouTube Content ID so you actually get paid, and remember the money is in shows, weddings, sync and YouTube, not Spotify streams. You do not need a label; the biggest names built their own.",
  "sections":[
@@ -72,7 +72,7 @@ GUIDES = [
 {
  "slug":"isrc-code-india","cat":"Rights","hero":"guitar-case",
  "title":"How to get an ISRC code in India (free, step by step)",
- "desc":"What an ISRC code is, why every Indian artist needs one, and how to get an ISRC in India for free through your distributor, or directly from IFPI, without paying a middleman.",
+ "desc":"What an ISRC code is, why every Indian artist needs one, and how to get one in India for free through your distributor or directly from IFPI.",
  "lead":"An ISRC is the barcode of your recording. Here is what it does and how to get one in India without overpaying.",
  "tldr":"An <b>ISRC</b> (International Standard Recording Code) uniquely identifies your specific recording so every stream, sale and radio play is counted and paid to you. In India, the easiest way to get one is free: your <a href=\"/guides/best-music-distributor-india/\">distributor</a> assigns an ISRC automatically when you upload. If you want to issue your own, you register as a manager with IFPI's local agency. Never pay a reseller a per-code fee you do not need to.",
  "sections":[
@@ -94,7 +94,7 @@ GUIDES = [
 {
  "slug":"free-music-distribution-india","cat":"Distribution","hero":"pool-chair",
  "title":"Free music distribution in India: is it actually worth it?",
- "desc":"Free and cheap music distribution options in India compared honestly, what free distributors take in return, when free is fine, and when a flat fee keeps more money in your pocket.",
+ "desc":"Free and cheap distribution options in India compared honestly: what free distributors take in return, and when a flat fee keeps more money in your pocket.",
  "lead":"Free distribution is real, but nothing is truly free. Here is what you actually give up, and when that trade is worth it.",
  "tldr":"Several distributors let you get on Spotify, Apple Music and JioSaavn for free, they make money by taking a <b>percentage of your royalties</b> (often around 10 to 20%) instead of an upfront fee. Free is fine when your streams are low or uncertain. Once you earn steadily, a <b>flat annual fee</b> usually keeps more money in your pocket. Do the math at your real numbers, not the marketing.",
  "sections":[
@@ -126,7 +126,7 @@ GUIDES = [
 {
  "slug":"submit-music-spotify-playlists-india","cat":"Playlists","hero":"green-room",
  "title":"How to submit music to Spotify playlists in India",
- "desc":"How to pitch Spotify editorial playlists through Spotify for Artists, how to reach independent and curator playlists in India, and how to avoid the pay-for-play playlist scams.",
+ "desc":"How to pitch Spotify editorial playlists through Spotify for Artists, reach independent curators in India, and avoid pay-for-play playlist scams.",
  "lead":"There are two real doors to Spotify playlists, and one trap. Here is how to work all three.",
  "tldr":"To get on Spotify playlists in India: first, pitch <b>Spotify editorial</b> through Spotify for Artists at least a week before release (this also helps Release Radar and Discover Weekly). Second, pitch <b>independent and curator playlists</b> directly, our <a href=\"/reviewers/\">live database of 1,167 reviewers and curators</a> lists real ones, 381 free to pitch directly, no fee. Avoid anyone guaranteeing placements for a fee, bot playlists get your track flagged, not heard.",
  "sections":[
@@ -155,7 +155,7 @@ GUIDES = [
 {
  "slug":"how-much-indian-artists-earn-spotify","cat":"Money","hero":"desert-chair",
  "title":"How much do Indian artists earn from Spotify?",
- "desc":"A realistic look at how much Indian artists earn from Spotify and streaming, per-stream rates in India versus internationally, why India pays less, and how to estimate your own income.",
+ "desc":"A realistic look at how much Indian artists earn from Spotify: per-stream rates in India vs internationally, why India pays less, and how to estimate yours.",
  "lead":"The honest numbers on streaming income in India, and why the per-stream rate here is lower than the figures you read online.",
  "tldr":"There is no fixed per-stream rate, but in India streaming typically pays roughly <b>around five to eight paise per stream</b>, so about ₹50 to ₹80 for 1,000 streams, lower than the often-quoted international figures because Indian ad and subscription revenue per user is lower. International streams of your music pay far more. Estimate your own with our <a href=\"/tools/royalty-calculator/\">streaming royalty calculator</a>.",
  "sections":[
@@ -187,7 +187,7 @@ GUIDES = [
 {
  "slug":"independent-music-scene-mumbai","cat":"Scene · Mumbai","hero":"pool-chair","cta_h":"Building something in Mumbai?",
  "title":"The independent music scene in Mumbai: venues, gigs and artists",
- "desc":"A guide to Mumbai's independent music scene, the live venues that matter, where to find gigs, the rising artists, and how to get heard as an independent musician in the city.",
+ "desc":"A guide to Mumbai's independent music scene: the live venues that matter, where to find gigs, the rising artists, and how to get heard in the city.",
  "lead":"Mumbai has the deepest live circuit in the country. Here is how the independent scene actually works, and how to plug into it.",
  "tldr":"Mumbai is India's busiest independent music city, with the most live rooms and the most gigs on any given week. If you make music here, the fastest way in is to play the small rooms, get on our <a href=\"/venues/mumbai/\">Mumbai venues list</a>, track what's on through the <a href=\"/live/\">festivals and tours calendar</a>, and get your releases in front of the <a href=\"/reviewers/\">curators and blogs</a> who cover the city.",
  "sections":[
@@ -269,7 +269,7 @@ GUIDES = [
 {
  "slug":"independent-music-scene-goa","cat":"Scene · Goa","hero":"green-room","cta_h":"Building something in Goa?",
  "title":"The independent music scene in Goa: venues, gigs and artists",
- "desc":"A guide to Goa's independent music scene, the clubs and beach venues, the electronic and festival culture, and how to get heard as an independent musician in the state.",
+ "desc":"A guide to Goa's independent music scene: the clubs and beach venues, the electronic and festival culture, and how to get heard in the state.",
  "lead":"Goa's scene is unlike anywhere else in India: electronic-first, festival-driven, international, and highly seasonal. Here's how it actually works.",
  "tldr":"Goa is India's electronic and festival capital, built on beach clubs, psytrance roots and a season (roughly November to March) that draws international DJs and big crowds. If you make electronic music especially, it's a real market. See the <a href=\"/venues/goa/\">Goa venues list</a>, track shows on the <a href=\"/live/\">festivals and tours calendar</a>, and get releases to the <a href=\"/reviewers/\">curators</a> who cover the scene.",
  "sections":[
@@ -289,7 +289,7 @@ GUIDES = [
 {
  "slug":"independent-music-scene-bengaluru","cat":"Scene · Bengaluru","hero":"wall","cta_h":"Building something in Bengaluru?",
  "title":"The independent music scene in Bengaluru: venues, gigs and artists",
- "desc":"A guide to Bengaluru's independent music scene, the live venues and listening rooms, where to find gigs, the rising artists, and how to get heard as an independent musician in the city.",
+ "desc":"A guide to Bengaluru's independent music scene: the live venues and listening rooms, where to find gigs, the rising artists, and how to get heard.",
  "lead":"Bengaluru has arguably the most genre-diverse independent scene in India. Here is how to find it and plug in.",
  "tldr":"Bengaluru's independent scene is deep in indie, electronic, metal and experimental music, built on a strong circuit of listening rooms and clubs. Get on our <a href=\"/venues/bengaluru/\">Bengaluru venues list</a>, track gigs through the <a href=\"/live/\">festivals and tours calendar</a>, and reach the <a href=\"/reviewers/\">curators and blogs</a> that cover the city to get heard.",
  "sections":[
@@ -321,7 +321,7 @@ GUIDES = [
 {
  "slug":"independent-music-scene-delhi","cat":"Scene · Delhi","hero":"desert-chair","cta_h":"Building something in Delhi?",
  "title":"The independent music scene in Delhi: venues, gigs and artists",
- "desc":"A guide to Delhi NCR's independent music scene, the live venues, where to find gigs, the rising artists, and how to get heard as an independent musician in the capital region.",
+ "desc":"A guide to Delhi NCR's independent music scene: the live venues, where to find gigs, the rising artists, and how to get heard in the capital region.",
  "lead":"Delhi NCR blends hip-hop, indie and a strong club circuit. Here is how the independent scene works and how to get in.",
  "tldr":"Delhi and the wider NCR have a fast-growing independent scene, strong in hip-hop and indie, with a busy club and gig circuit across the capital and Gurugram. Get on our <a href=\"/venues/delhi/\">Delhi venues list</a>, track shows through the <a href=\"/live/\">festivals and tours calendar</a>, and reach the <a href=\"/reviewers/\">curators and blogs</a> covering the scene.",
  "sections":[
@@ -341,7 +341,7 @@ GUIDES = [
 {
  "slug":"how-to-promote-music-in-india","cat":"Promotion","hero":"wall","cta_h":"Want us to run your promotion?",
  "title":"How to promote your music in India (without a budget)",
- "desc":"A practical guide to music promotion in India: how to promote your songs on Instagram, YouTube and WhatsApp, get more streams organically, and grow listeners without spending money.",
+ "desc":"A practical guide to music promotion in India: promote your songs on Instagram, YouTube and WhatsApp, and grow listeners organically, without spending money.",
  "lead":"You don't need a marketing budget to promote music. You need the right channels and a plan. Here's what actually works in India.",
  "tldr":"Most music promotion advice is noise. What moves streams for an independent Indian artist: pitch playlists and press <a href=\"/guides/how-to-release-a-song-in-india/\">before you release</a>, use short video (Reels, Shorts) as your discovery engine, get featured by others rather than only posting yourself, and drive everyone to save and follow. Paid ads help only once the organic version is working. Free promotion done consistently beats expensive promotion done once.",
  "sections":[
@@ -374,7 +374,7 @@ GUIDES = [
 {
  "slug":"music-marketing-independent-artists-india","cat":"Marketing","hero":"desert-chair","cta_h":"Want a real marketing plan?",
  "title":"Music marketing for independent artists in India",
- "desc":"How to market your music as an independent artist in India: building a brand, a social media strategy for musicians, owning your audience with an email list, and turning listeners into fans.",
+ "desc":"How to market your music as an independent artist in India: building a brand, a social media strategy, owning your audience, and turning listeners into fans.",
  "lead":"Promotion is pushing a release. Marketing is building something people come back to. Here's how to market yourself as an independent Indian artist.",
  "tldr":"Music marketing is not posting more; it's building a clear identity people recognise and an audience you own. Get your <b>positioning</b> right (what you sound like and stand for), pick one or two channels and be consistent, and always drive people to something you control, an email list or a follow, not just a stream. A small, engaged audience that shows up beats a big passive one.",
  "sections":[
@@ -400,7 +400,7 @@ GUIDES = [
 {
  "slug":"artist-management-india","cat":"Management","hero":"wall","cta_h":"Not sure what you need?",
  "title":"Artist management in India: what a manager does and when you need one",
- "desc":"What an artist manager actually does, whether you need one as an independent Indian artist, when to get one, and how to find or approach artist management in India.",
+ "desc":"What an artist manager actually does, whether you need one as an independent Indian artist, and how to find or approach one.",
  "lead":"Every artist thinks they need a manager. Most don't yet. Here's what a manager really does, and when it's actually worth it.",
  "tldr":"An artist manager runs the business side of your career, strategy, deals, opportunities, and the day-to-day, so you can focus on music. But a manager only makes sense once there's something to manage: real momentum, income, or opportunities you can't handle alone. Early on, you often need <a href=\"/guides/artist-development-vs-artist-management-india/\">development</a> (building the thing) more than management (running it). Don't give away a cut of nothing.",
  "sections":[
@@ -425,7 +425,7 @@ GUIDES = [
 {
  "slug":"how-to-become-an-independent-artist-india","cat":"Getting started","hero":"guitar-case","cta_h":"Starting out? We can help.",
  "title":"How to become an independent artist in India: the complete starter guide",
- "desc":"A step-by-step guide to becoming an independent artist or musician in India: releasing your first music, setting up rights and distribution, getting heard, and building a real career from scratch.",
+ "desc":"A step-by-step guide to becoming an independent artist in India: releasing your first music, setting up rights and distribution, and building a real career.",
  "lead":"You don't need a label, a manager, or money to start. You need to release, protect and promote your music the right way. Here's the whole path.",
  "tldr":"Becoming an independent artist in India means owning your career: you make the music, you keep the rights, and you build the audience. The path: finish and <a href=\"/guides/how-to-release-a-song-in-india/\">release music</a> through a <a href=\"/guides/best-music-distributor-india/\">distributor</a> (no label needed), handle your <a href=\"/guides/isrc-code-india/\">ISRC</a> and <a href=\"/guides/register-music-copyright-iprs-india/\">copyright and IPRS</a>, then <a href=\"/guides/how-to-promote-music-in-india/\">promote</a> and build a fanbase. Treat it as a business you own, not a lottery you enter.",
  "sections":[
@@ -453,7 +453,7 @@ GUIDES = [
 {
  "slug":"caller-tune-hello-tune-india","cat":"Monetisation","hero":"cassette","cta_h":"Want help monetising your music?",
  "title":"Caller tunes and hello tunes for artists in India: how to set them up and earn",
- "desc":"How to make your song a caller tune or hello tune in India, which distributors offer Jio and Airtel caller tune delivery, how caller tune royalties work, and whether it's worth it for independent artists.",
+ "desc":"How to make your song a caller tune or hello tune in India: which distributors offer Jio and Airtel delivery, how royalties work, and whether it's worth it.",
  "lead":"Caller tunes are a real revenue and reach channel in India that most independent artists ignore. Here's how to get your song set up and paid.",
  "tldr":"Caller tunes (also called hello tunes) let phone callers hear your song, and you earn a share when listeners set it. It's a genuinely India-specific income and discovery channel. To offer it you need a distributor or aggregator with telco deals (Jio, Airtel and others), not every distributor has this, so ask before you distribute. Royalties are modest per set but add up, and it puts your music in front of people who aren't on streaming.",
  "sections":[
@@ -479,7 +479,7 @@ GUIDES = [
 {
  "slug":"artist-development-india","cat":"Artist development","hero":"lamp-pool","cta_h":"Want a team on your development?",
  "title":"Artist development in India: what it is and how it works for independent musicians",
- "desc":"What artist development means for independent musicians in India, what a development programme actually does, when you need it, and how to find the right team to build your career.",
+ "desc":"What artist development means for independent musicians in India, what a programme actually does, and how to find the right team to build your career.",
  "lead":"Artist development is the work of building you, your sound, your positioning, your audience, into a career. Here is what it involves, and when it is worth getting a team on it.",
  "tldr":"Artist development is the long game most independent Indian artists skip: shaping your identity and sound, planning releases as a body of work instead of one-offs, and building an audience that lasts. It is different from a <a href=\"/guides/artist-management-india/\">manager</a> (who runs the business) and a distributor (who ships the files). Talent is rarely the thing that stalls a career, strategy is, and that is exactly what development addresses.",
  "sections":[
@@ -506,7 +506,7 @@ GUIDES = [
 {
  "slug":"artist-branding-and-positioning-india","cat":"Branding","hero":"desert-chair","cta_h":"Want help building your artist brand?",
  "title":"Artist branding and positioning in India: how to build a brand as an independent musician",
- "desc":"How to build your brand and positioning as an independent artist in India: finding your identity and sound, standing out, and creating a brand that makes people follow and remember you.",
+ "desc":"How to build your brand and positioning as an independent artist in India: finding your identity and sound, and creating a brand people remember.",
  "lead":"Your brand is not a logo. It is what people recognise and remember about you. Here is how to build a clear artist identity and positioning that actually pulls listeners in.",
  "tldr":"Artist branding is positioning: what you sound like, who it is for, and what you stand for, made consistent across everything you release. A muddy identity markets terribly; a clear one gives listeners a reason to follow and remember you. Start with positioning, then let your visuals, copy, and content flow from it, not the other way around.",
  "sections":[
@@ -528,7 +528,7 @@ GUIDES = [
 {
  "slug":"how-to-get-more-listeners-india","cat":"Audience","hero":"lamp-pool","cta_h":"Want more listeners on your releases?",
  "title":"How to get more listeners for your music in India",
- "desc":"How to get more listeners and grow your audience as an independent artist in India: turning releases into reach, promoting already-released songs, and converting listeners into followers and fans.",
+ "desc":"How to get more listeners and grow your audience as an independent artist in India: promoting already-released songs and converting listeners into fans.",
  "lead":"More listeners do not come from posting more. They come from getting your music in front of the right people and giving them a reason to stay. Here is how, including for music you have already released.",
  "tldr":"Getting more listeners is really two jobs: reach (playlists, short video, press, features) and retention (turning a one-time listener into a follower, then a fan). Chase saves and follows, not vanity plays, and build so each release lifts the next. And you do not need a new release to grow, your already-released catalogue can keep finding listeners.",
  "sections":[
