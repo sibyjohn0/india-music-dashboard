@@ -1080,13 +1080,13 @@
   },
   "2026-11": {
     "month": "2026-11",
-    "snapshots": 18,
-    "last_snapshot_at": "2026-11-18T08:23:03.380320+00:00",
+    "snapshots": 19,
+    "last_snapshot_at": "2026-11-19T08:35:10.981538+00:00",
     "total_videos": 225,
-    "total_artists": 315,
-    "new_artists_seen": 291,
-    "median_score": 65,
-    "median_views": 4358,
+    "total_artists": 322,
+    "new_artists_seen": 299,
+    "median_score": 67,
+    "median_views": 3595,
     "top_artists": [
       {
         "name": "BeatZ of Lanka Remix",
@@ -1162,31 +1162,31 @@
     "fastest_growing": [
       {
         "name": "Shamil koppam",
-        "views_gained": 414804,
+        "views_gained": 431141,
         "genre": "R&B / Soul",
         "language": "Malayalam"
       },
       {
-        "name": "Esther Hnamte Official",
-        "views_gained": 302165,
-        "genre": "Hip Hop / Rap",
-        "language": "Hindi"
-      },
-      {
         "name": "Rare.78",
-        "views_gained": 290407,
+        "views_gained": 365270,
         "genre": "Hip Hop / Rap",
         "language": "English"
       },
       {
         "name": "ANP MUSIC",
-        "views_gained": 272608,
+        "views_gained": 272738,
         "genre": "Electronic",
         "language": "Telugu"
       },
       {
         "name": "AJ MUSIC ",
-        "views_gained": 179997,
+        "views_gained": 195887,
+        "genre": "Hip Hop / Rap",
+        "language": "Kannada"
+      },
+      {
+        "name": "MRSU MUSIC",
+        "views_gained": 164427,
         "genre": "Hip Hop / Rap",
         "language": "Kannada"
       }
@@ -1197,16 +1197,16 @@
         54
       ],
       [
-        "Hip Hop / Rap",
-        48
+        "Folk / Acoustic",
+        47
       ],
       [
-        "Folk / Acoustic",
-        46
+        "Hip Hop / Rap",
+        43
       ],
       [
         "R&B / Soul",
-        24
+        26
       ],
       [
         "Electronic",
@@ -1214,22 +1214,22 @@
       ],
       [
         "Classical/Fusion",
-        14
+        15
       ],
       [
         "Lo-Fi",
-        11
+        10
       ],
       [
         "Rock / Alt",
-        4
-      ],
-      [
-        "Indie Pop",
-        1
+        5
       ],
       [
         "Jazz / Blues",
+        2
+      ],
+      [
+        "Indie Pop",
         1
       ]
     ],
@@ -1251,10 +1251,6 @@
         25
       ],
       [
-        "Bengali",
-        25
-      ],
-      [
         "Punjabi",
         25
       ],
@@ -1269,20 +1265,28 @@
       [
         "Marathi",
         25
+      ],
+      [
+        "Bengali",
+        25
       ]
     ],
     "city_shows": {
+      "Mumbai": 39,
+      "Andheri West, Mumbai": 1,
+      "Lower Parel, Mumbai": 1,
+      "Malad, Mumbai": 1,
+      "Panvel": 1,
+      "NCPA.": 3,
+      "Bangalore": 61,
       "Ahmedabad": 2,
-      "Pune": 34,
-      "Mumbai": 18,
-      "Bangalore": 60,
-      "New Chandigarh": 1,
       "Hyderabad": 7,
-      "Goa": 18,
+      "Goa": 19,
       "Kolkata": 6,
       "India": 1,
       "Shillong": 2,
-      "Delhi": 19,
+      "Delhi": 25,
+      "Pune": 9,
       "Dehradun": 3,
       "Chennai": 2,
       "Manali": 1,
@@ -1295,10 +1299,9 @@
       "Guwahati": 1,
       "Meghalaya": 1,
       "Kasol": 2,
-      "Malleswaram": 1,
-      "NCPA.": 1
+      "Malleswaram": 1
     },
     "top_city": "Bangalore",
-    "total_shows": 191
+    "total_shows": 200
   }
 }
