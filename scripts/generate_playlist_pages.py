@@ -337,6 +337,7 @@ def build():
     hub_ld = (
         '<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage",'
         '"name":"India indie playlist insights","url":"https://indiemusicindia.com/playlists/",'
+        f'"dateModified":"{esc(data.get("generated_at",""))}",'
         '"isPartOf":{"@type":"WebSite","name":"Indie Music India","url":"https://indiemusicindia.com/"}}</script>\n'
         '  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":'
         '[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"},'
@@ -494,6 +495,7 @@ def build():
         page_ld = (
             '<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"'
             f'{esc(lang)} indie Spotify playlists","url":"https://indiemusicindia.com/playlists/{slug}/",'
+            f'"dateModified":"{esc(data.get("generated_at",""))}",'
             '"isPartOf":{"@type":"WebSite","name":"Indie Music India","url":"https://indiemusicindia.com/"}}</script>\n'
             '  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":'
             '[{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"},'
@@ -517,6 +519,7 @@ def build():
   <div class="peyebrow">Playlist Insights &middot; {esc(lang)}</div>
   <h1 class="ptitle">{esc(lang)} indie playlists you can actually pitch</h1>
   <p class="plead">{lead}</p>
+  <p class="psec-sub" style="margin-top:-6px">Data last refreshed {esc(updated)}.</p>
   <div class="plangnav">
 {nav_chips}
   </div>
