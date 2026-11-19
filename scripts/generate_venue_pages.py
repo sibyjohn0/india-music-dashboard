@@ -257,6 +257,14 @@ def build():
   <div class="stat">{c["venue_count"]} venues · {c["show_count"]} upcoming shows · updated {updated}</div>
   <h2 class="sec">Live music venues in {esc(c["name"])}, by what's on</h2>
 {cards}
+  <section style="margin:36px 0">
+    <h2 style="font-size:18px;font-weight:800;margin-bottom:14px">About live music in {esc(c["name"])}</h2>
+    <h3 style="font-size:15px;font-weight:800;margin:16px 0 4px">What counts as a venue on this list?</h3>
+    <p style="font-size:14px;color:var(--muted);line-height:1.7">A room, bar, club or outdoor space in {esc(c["name"])} with an actual show booked on its calendar right now, pulled from public ticketing platforms daily. We don't list venues with no upcoming date.</p>
+    <h3 style="font-size:15px;font-weight:800;margin:16px 0 4px">How do I book one of these venues?</h3>
+    <p style="font-size:14px;color:var(--muted);line-height:1.7">Most venues here book directly rather than through a platform, so the ticketing page's organiser contact is usually the fastest route in.</p>
+    {f'<h3 style="font-size:15px;font-weight:800;margin:16px 0 4px">New to the {esc(c["name"])} scene?</h3><p style="font-size:14px;color:var(--muted);line-height:1.7">Our <a href="/guides/independent-music-scene-{slug}/" style="color:var(--accent);font-weight:700">{esc(c["name"])} scene guide</a> covers how the circuit works here, from first gigs to the rooms worth chasing.</p>' if slug in ("mumbai","bengaluru","delhi","hyderabad","pune","goa") else ''}
+  </section>
   <div class="cta">
     <h3>Run a venue, or play one?</h3>
     <p>We help independent Indian artists get heard, get paid and get on stage.</p>
