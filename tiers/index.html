@@ -19,22 +19,22 @@
   --blue:#3AA0FF; --mint:#1FCF9E; --ink:#241B2E; --cream:#FFF7EE;
   --bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478;
   --border:rgba(36,27,46,.14); --hairline:rgba(36,27,46,.09);
-  --accent:#FF4D8D; --shadow:6px 6px 0 #241B2E;
+  --accent:#FF4D8D; --pink-text:#C2185B; --shadow:6px 6px 0 #241B2E;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4;
+  :root{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4; --pink-text:#FF4D8D;
     --border:rgba(255,247,238,.16); --hairline:rgba(255,247,238,.10); --shadow:6px 6px 0 #000;}
 }
-:root[data-theme="light"]{--bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478;
+:root[data-theme="light"]{--bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478; --pink-text:#C2185B;
   --border:rgba(36,27,46,.14); --hairline:rgba(36,27,46,.09); --shadow:6px 6px 0 #241B2E;}
-:root[data-theme="dark"]{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4;
+:root[data-theme="dark"]{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4; --pink-text:#FF4D8D;
   --border:rgba(255,247,238,.16); --hairline:rgba(255,247,238,.10); --shadow:6px 6px 0 #000;}
 *{box-sizing:border-box} body{margin:0}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; line-height:1.6}
 h1,h2,h3,.disp{font-family:'Bricolage Grotesque','Inter',sans-serif; font-weight:800; letter-spacing:-.02em; text-wrap:balance; line-height:1.04}
 .mono{font-family:'Space Mono',ui-monospace,monospace}
-.eyebrow{font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--accent)}
-a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent} a:hover{border-bottom-color:currentColor}
+.eyebrow{font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--pink-text)}
+a{color:var(--pink-text); text-decoration:none; border-bottom:1px solid transparent} a:hover{border-bottom-color:currentColor}
 :focus-visible{outline:3px solid var(--violet); outline-offset:2px; border-radius:3px}
 .container{max-width:1000px; margin:0 auto; padding:0 24px}
 section{padding:56px 0; border-top:1px solid var(--hairline)}
@@ -59,7 +59,7 @@ ul.clean{margin:0; padding-left:18px} ul.clean li{margin-bottom:7px}
 .hero .container{position:relative} .hero .container > *:not(.blob){position:relative; z-index:1}
 .callout{border-left:4px solid var(--accent); background:var(--surface); border-radius:0 14px 14px 0; padding:18px 20px}
 .person .nm{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px}
-.person .rl{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--pink);margin:3px 0 10px}
+.person .rl{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--pink-text);margin:3px 0 10px}
 .pill{display:inline-block;font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;background:var(--yellow);color:var(--ink);border:2px solid var(--ink);border-radius:999px;padding:5px 12px}
 /* tiers */
 .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -160,7 +160,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
         <li>Self-serve: at your own pace, no team or ad spend needed</li>
         <li><b>Credited</b> toward month one if you go further</li>
       </ul>
-      <div style="margin-top:14px;padding-top:12px;border-top:1px solid #eee0f0;font-size:12.5px;line-height:1.6;color:#6b6076"><b style="color:#241B2E">Not included:</b> any 1:1 or done-for-you work, freelancers, or ad spend. This is the plan; you run it.</div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid #eee0f0;font-size:12.5px;line-height:1.6;color:var(--muted)"><b style="color:var(--text)">Not included:</b> any 1:1 or done-for-you work, freelancers, or ad spend. This is the plan; you run it.</div>
     </div>
     <div class="tier b">
       <div class="topbar-accent"></div>
@@ -176,7 +176,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
         <li>Your questions answered between calls</li>
         <li>4 hours of guidance a month, you do the doing</li>
       </ul>
-      <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e0eaf5;font-size:12.5px;line-height:1.6;color:#6b6076"><b style="color:#241B2E">Not included:</b> we guide, we don't execute. Freelancers and ad spend are on you.</div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid #e0eaf5;font-size:12.5px;line-height:1.6;color:var(--muted)"><b style="color:var(--text)">Not included:</b> we guide, we don't execute. Freelancers and ad spend are on you.</div>
     </div>
     <div class="tier c">
       <div class="topbar-accent"></div>

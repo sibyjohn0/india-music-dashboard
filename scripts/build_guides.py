@@ -64,7 +64,7 @@ NAV = """<nav class="js-primnav">
   <a class="tab" href="/answers/">Answers</a>
 </nav>"""
 
-AUTHOR = ('By <a href="/about/" style="color:var(--accent);font-weight:600">Siby John</a>, '
+AUTHOR = ('By <a href="/about/" style="color:var(--pink-text);font-weight:600">Siby John</a>, '
           'thirteen years inside the platforms that decide which music gets seen: Marketing '
           'Manager at YouTube India from 2022 to 2025, working with 400+ artists and labels, '
           f'now Senior Creator Manager at LinkedIn. Reviewed {TODAY}.')
@@ -171,7 +171,7 @@ def build(g):
 {render_faq_html(g['faq'])}
   </section>
 {cta_block(g)}
-  <div class="g-updated">Last updated {TODAY}. Free to read. Part of <a href="/answers/" style="color:var(--accent)">Answers</a> by Indie Music India.</div>
+  <div class="g-updated">Last updated {TODAY}. Free to read. Part of <a href="/answers/" style="color:var(--pink-text)">Answers</a> by Indie Music India.</div>
 </div>
 <footer>
   <div class="footer-logo">◉ Indie Music India</div>

@@ -89,13 +89,13 @@ nav::-webkit-scrollbar{{display:none}}
 .tab{{color:#999;font:13px/1 'Inter',sans-serif;padding:0 16px;height:44px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;font-weight:500}}
 .page{{max-width:720px;margin:0 auto;padding:34px 32px 90px}}
 .crumb{{font-size:12px;color:var(--muted);margin-bottom:16px}}
-.eyebrow{{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}}
+.eyebrow{{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--pink-text)}}
 h1{{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;line-height:1.14;margin:12px 0 0}}
 .lead{{font-size:16px;color:#574C63;margin-top:14px;max-width:600px}}
 .updated{{font-size:12px;color:var(--muted);margin-top:10px}}
 .wire{{margin-top:26px;display:flex;flex-direction:column;gap:2px}}
 .news-item{{display:block;padding:16px 0;border-bottom:1px solid var(--border)}}
-.news-item:hover .news-title{{color:var(--accent)}}
+.news-item:hover .news-title{{color:var(--pink-text)}}
 .news-meta{{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}}
 .news-title{{font-size:18px;font-weight:800;letter-spacing:-.2px;margin:5px 0 4px;line-height:1.3;transition:color .15s}}
 .news-sum{{font-size:14px;color:#574C63}}

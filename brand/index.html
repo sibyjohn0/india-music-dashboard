@@ -19,23 +19,23 @@
   --blue:#3AA0FF; --mint:#1FCF9E; --ink:#241B2E; --cream:#FFF7EE;
   --bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478;
   --border:rgba(36,27,46,.14); --hairline:rgba(36,27,46,.09);
-  --accent:#FF4D8D; --code-bg:#241B2E; --code-fg:#FFF7EE; --shadow:6px 6px 0 #241B2E;
+  --accent:#FF4D8D; --pink-text:#C2185B; --code-bg:#241B2E; --code-fg:#FFF7EE; --shadow:6px 6px 0 #241B2E;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4;
+  :root{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4; --pink-text:#FF4D8D;
     --border:rgba(255,247,238,.16); --hairline:rgba(255,247,238,.10);
     --code-bg:#0F0A18; --code-fg:#FCEFE6; --shadow:6px 6px 0 #000;}
 }
-:root[data-theme="light"]{--bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478;
+:root[data-theme="light"]{--bg:#FFF7EE; --surface:#FFFFFF; --text:#241B2E; --muted:#6E6478; --pink-text:#C2185B;
   --border:rgba(36,27,46,.14); --hairline:rgba(36,27,46,.09); --code-bg:#241B2E; --code-fg:#FFF7EE; --shadow:6px 6px 0 #241B2E;}
-:root[data-theme="dark"]{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4;
+:root[data-theme="dark"]{--bg:#191122; --surface:#221830; --text:#FCEFE6; --muted:#A79FB4; --pink-text:#FF4D8D;
   --border:rgba(255,247,238,.16); --hairline:rgba(255,247,238,.10); --code-bg:#0F0A18; --code-fg:#FCEFE6; --shadow:6px 6px 0 #000;}
 *{box-sizing:border-box} body{margin:0}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; line-height:1.6}
 h1,h2,h3,.disp{font-family:'Bricolage Grotesque','Inter',sans-serif; font-weight:800; letter-spacing:-.02em; text-wrap:balance; line-height:1.03}
 .mono{font-family:'Space Mono',ui-monospace,monospace}
-.eyebrow{font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--accent)}
-a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent} a:hover{border-bottom-color:currentColor}
+.eyebrow{font-family:'Space Mono',monospace; font-weight:700; text-transform:uppercase; letter-spacing:.18em; font-size:12px; color:var(--pink-text)}
+a{color:var(--pink-text); text-decoration:none; border-bottom:1px solid transparent} a:hover{border-bottom-color:currentColor}
 :focus-visible{outline:3px solid var(--violet); outline-offset:2px; border-radius:3px}
 .container{max-width:1000px; margin:0 auto; padding:0 24px}
 section{padding:60px 0; border-top:1px solid var(--hairline)} section:first-of-type{border-top:none}
@@ -88,7 +88,7 @@ ul.clean{margin:0; padding-left:18px} ul.clean li{margin-bottom:7px}
 .reelcard .rc-body{padding:14px}
 .reelcard h4{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;margin:0 0 9px}
 .reelcard .rc-l{font-size:12.5px;color:var(--muted);margin:0 0 6px;line-height:1.45}
-.reelcard .rc-l b{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;display:block;margin-bottom:1px}
+.reelcard .rc-l b{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--pink-text);font-weight:700;display:block;margin-bottom:1px}
 .sz{position:relative; aspect-ratio:3/4; max-width:280px; border-radius:12px; background:linear-gradient(135deg,#FF9130,#FF4D8D,#8B5CF6); overflow:hidden}
 .sz .safe{position:absolute; inset:0 15.3% 0 15.3%; border:2px dashed rgba(255,255,255,.9); border-radius:4px; display:flex; align-items:center; justify-content:center}
 .sz .safe span{font-family:'Space Mono',monospace; font-size:10px; color:#fff; text-align:center; text-transform:uppercase; letter-spacing:.1em; line-height:1.5}
@@ -281,7 +281,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
       <li><b>"SWIPE →"</b> on carousel covers; <b>"link in bio ↓"</b> only on promo, never educational.</li>
     </ul></div>
     <div class="grid g3" style="align-content:start">
-      <div class="mock cream"><span class="m-cc" style="background:var(--yellow)"></span><span class="m-eye" style="color:var(--pink)">Free tool</span><div class="m-h">What a million streams pays in India</div><div class="m-sub muted">Estimate yours.</div><div class="m-foot"><span class="dot" style="width:12px;height:12px;border-width:2px"></span>@indiemusicindia.co</div></div>
+      <div class="mock cream"><span class="m-cc" style="background:var(--yellow)"></span><span class="m-eye" style="color:var(--pink-text)">Free tool</span><div class="m-h">What a million streams pays in India</div><div class="m-sub muted">Estimate yours.</div><div class="m-foot"><span class="dot" style="width:12px;height:12px;border-width:2px"></span>@indiemusicindia.co</div></div>
       <div class="mock dark"><span class="m-cc" style="background:var(--violet)"></span><span class="m-eye" style="color:var(--yellow)">Free guide</span><div class="m-h" style="margin-top:26px">How Spotify pay really works</div><div class="m-sub" style="opacity:.8">Inside: 3 things</div><div class="m-foot" style="color:#fff"><span class="dot" style="width:12px;height:12px;border-width:2px;border-color:#fff"></span>swipe →</div></div>
       <div class="mock grad"><span class="m-eye" style="color:var(--yellow)">Free · no sign-up</span><div class="m-h">Streaming royalty calculator</div><div class="m-sub" style="opacity:.9">By platform &amp; geography.</div><div class="m-foot"><span class="dot" style="width:12px;height:12px;border-width:2px;border-color:#fff"></span>link in bio ↓</div></div>
     </div>
@@ -361,7 +361,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
     <div class="card"><h3>Discovery, not a hard sell</h3><p class="muted" style="margin:0">90% playground, in the scene, useful. Never pointed straight at the programme; a few passes to the goal is fine. But never a dead end: bio, a pinned post, and the tools are always one tap away.</p></div>
   </div>
   <div class="grid g3" style="margin-top:16px">
-    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--pink)">EXAMPLE · RECEIPTS</h3><p class="muted" style="margin:0;font-size:13.5px">"How much does Spotify pay per stream in India? Not a fixed rate, a share of a local revenue pool. Roughly ₹0.05-0.08 (about ₹50-80 per 1,000). Save this."</p></div>
+    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--pink-text)">EXAMPLE · RECEIPTS</h3><p class="muted" style="margin:0;font-size:13.5px">"How much does Spotify pay per stream in India? Not a fixed rate, a share of a local revenue pool. Roughly ₹0.05-0.08 (about ₹50-80 per 1,000). Save this."</p></div>
     <div class="card"><h3 class="mono" style="font-size:13px;color:var(--orange)">EXAMPLE · REAL TALK</h3><p class="muted" style="margin:0;font-size:13.5px">"POV: you released the song, then remembered you never pitched a single playlist. The pitch happens 4 weeks before."</p></div>
     <div class="card"><h3 class="mono" style="font-size:13px;color:var(--blue)">EXAMPLE · SIGNAL</h3><p class="muted" style="margin:0;font-size:13.5px">"[This week's India music news] and what it actually means for independent artists. The considered take, with sources."</p></div>
   </div>
@@ -387,7 +387,7 @@ footer{padding:44px 0 70px; border-top:1px solid var(--hairline); color:var(--mu
     <b>Locked fact, Spotify India payout (verified Sept 2026).</b> ~<b>₹0.05-0.08 per stream</b> → 1,000 India streams ≈ <b>₹50-80</b>, a million ≈ <b>₹50,000-80,000</b>. Other India platforms: Apple ₹0.55-0.85, YouTube Music ₹0.40-0.60, JioSaavn ₹0.05-0.10 per stream. International (Spotify) ≈ ₹0.25-0.42. Sources: Ditto, Chartlex, Grootin, TuneCore. <span class="muted">Use this everywhere. Never quote a per-stream number that contradicts it.</span>
   </div>
   <div class="grid g3" style="margin-top:18px">
-    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--pink)">HASHTAGS · CORE</h3><p class="mono" style="margin:0;font-size:12.5px;color:var(--text)">#independentartist #indianmusic #musicbusiness #indieindia #musicianlife</p></div>
+    <div class="card"><h3 class="mono" style="font-size:13px;color:var(--pink-text)">HASHTAGS · CORE</h3><p class="mono" style="margin:0;font-size:12.5px;color:var(--text)">#independentartist #indianmusic #musicbusiness #indieindia #musicianlife</p></div>
     <div class="card"><h3 class="mono" style="font-size:13px;color:var(--violet)">HASHTAGS · MONEY</h3><p class="mono" style="margin:0;font-size:12.5px;color:var(--text)">#spotifyforartists #musicroyalties #spotifyindia #iprs #musicdistribution</p></div>
     <div class="card"><h3 class="mono" style="font-size:13px;color:var(--blue)">HASHTAGS · PROMO</h3><p class="mono" style="margin:0;font-size:12.5px;color:var(--text)">#playlistpitching #musicpr #epk #synclicensing #livemusic</p></div>
   </div>

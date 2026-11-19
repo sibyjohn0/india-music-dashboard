@@ -220,7 +220,7 @@ def page(doc):
     copybtn=(f'''    <div class="g-cta dl-gate" data-slug="{slug}" data-file="/toolkit/{slug}/{slug}.{_ext}" data-type="{_dtype}" data-copy="https://docs.google.com/document/d/{did}/copy" data-title="{esc(title)}">
       <h3>Download this template</h3>
       <p>Free, as a neat branded {_dtype}. <a class="g-btn" href="/toolkit/{slug}/{slug}.{_ext}" download>Download the {_dtype} →</a></p>
-      <p style="font-size:13px;color:var(--muted);margin-top:8px">Prefer to fill it in online? <a href="https://docs.google.com/document/d/{did}/copy" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Open an editable copy →</a></p></div>'''
+      <p style="font-size:13px;color:var(--muted);margin-top:8px">Prefer to fill it in online? <a href="https://docs.google.com/document/d/{did}/copy" target="_blank" rel="noopener" style="color:var(--pink-text);font-weight:700">Open an editable copy →</a></p></div>'''
       if k=="template" else
       '''    <div class="g-cta"><h3>Want a second pair of hands?</h3>
       <p>We work with a few independent Indian artists at a time, hands-on, one month to start, no cut of your music.</p>

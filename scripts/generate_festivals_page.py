@@ -164,26 +164,26 @@ nav::-webkit-scrollbar{{display:none}}
 .tab{{color:#999;font:13px/1 'Inter',sans-serif;padding:0 16px;height:44px;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;font-weight:500}}
 .page{{max-width:820px;margin:0 auto;padding:34px 32px 90px}}
 .crumb{{font-size:12px;color:var(--muted);margin-bottom:16px}}
-.eyebrow{{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}}
+.eyebrow{{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--pink-text)}}
 h1{{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:-1px;line-height:1.12;margin:12px 0 0}}
 .lead{{font-size:16px;color:#574C63;margin-top:14px;max-width:640px}}
 .stat{{font-size:12px;color:var(--muted);margin-top:12px}}
-h2.sec{{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent);margin:40px 0 4px}}
+h2.sec{{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--pink-text);margin:40px 0 4px}}
 .seclead{{font-size:14px;color:var(--muted);margin-bottom:14px}}
 .feat-card{{display:block;border:1px solid var(--border);border-radius:14px;overflow:hidden;background:var(--surface);margin-bottom:12px}}
 .feat-card img{{width:100%;height:auto;aspect-ratio:1300/520;object-fit:cover;display:block}}
 .feat-body{{padding:16px 20px 18px}}
 .feat-body h3{{font-size:19px;font-weight:800;letter-spacing:-.3px}}
-.feat-sub{{font-size:12.5px;font-weight:700;color:var(--accent);margin-top:2px}}
+.feat-sub{{font-size:12.5px;font-weight:700;color:var(--pink-text);margin-top:2px}}
 .feat-desc{{font-size:14px;color:#574C63;margin-top:6px}}
-.feat-link{{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;color:var(--accent)}}
+.feat-link{{display:inline-block;margin-top:10px;font-size:12.5px;font-weight:700;color:var(--pink-text)}}
 .card{{border:1px solid var(--border);border-radius:14px;padding:18px 20px;background:var(--surface);margin-bottom:12px}}
 .ctop{{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}}
 .card h3{{font-size:19px;font-weight:800;letter-spacing:-.3px;line-height:1.25}}
 .tags{{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap}}
 .tag{{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;padding:4px 8px;border-radius:20px;white-space:nowrap}}
 .tag.intl{{background:rgba(80,140,255,.14);color:#2563EB}}
-.tag.ind{{background:rgba(233,69,96,.14);color:var(--accent)}}
+.tag.ind{{background:rgba(233,69,96,.14);color:var(--pink-text)}}
 .tag.mq{{background:rgba(255,190,60,.16);color:#f0b74a}}
 .csub{{font-size:13px;color:var(--muted);margin-top:4px;font-weight:600}}
 .links{{display:flex;gap:14px;margin:8px 0 2px;flex-wrap:wrap}}
@@ -192,7 +192,7 @@ h2.sec{{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1
 .dwhen{{font-size:14px;font-weight:800}}
 .dloc{{font-size:13px;color:#574C63;margin-top:1px}}
 .dprice{{color:var(--muted);font-weight:600}}
-.tix{{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);margin-top:6px}}
+.tix{{display:inline-block;font-size:12px;font-weight:700;color:var(--pink-text);margin-top:6px}}
 .tba{{font-size:13px;color:var(--muted);border-top:1px solid var(--border);padding-top:10px;margin-top:10px;font-style:italic}}
 .cta{{margin-top:40px;border:1px solid var(--border);border-radius:14px;padding:24px;background:var(--surface)}}
 .cta h3{{font-size:18px;font-weight:800;margin-bottom:6px}}.cta p{{font-size:14px;color:var(--muted);margin-bottom:14px}}
@@ -255,7 +255,7 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
     <h3>Running a festival or tour?</h3>
     <p>If it belongs on this page, tell us directly, we list genuine independent-music events for free.</p>
     <a class="btn" href="mailto:sibyjohn0@gmail.com?subject=Festival%20listing%20for%20indiemusicindia.com">Pitch your festival →</a>
-    <a style="display:inline-block;margin-left:14px;font-size:13px;font-weight:700;color:var(--accent)" href="https://wa.me/919960025559" target="_blank" rel="noopener">Or WhatsApp +91 99600 25559 →</a>
+    <a style="display:inline-block;margin-left:14px;font-size:13px;font-weight:700;color:var(--pink-text)" href="https://wa.me/919960025559" target="_blank" rel="noopener">Or WhatsApp +91 99600 25559 →</a>
   </div>
 </div>
 <footer>

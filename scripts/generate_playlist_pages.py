@@ -79,7 +79,7 @@ def fmt_followers(n):
 
 STYLE = '''
 .ppage{max-width:980px;margin:0 auto;padding:40px 24px 90px;position:relative;z-index:1}
-.peyebrow{font-family:var(--font-m);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pink)}
+.peyebrow{font-family:var(--font-m);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pink-text)}
 .ptitle{font-family:var(--font-d);font-size:clamp(28px,5vw,46px);font-weight:800;letter-spacing:-1px;line-height:1.08;margin:10px 0 0;color:var(--ink)}
 .plead{font-size:16px;color:var(--muted);max-width:620px;margin-top:14px;line-height:1.7}
 .pstats{display:flex;gap:28px;flex-wrap:wrap;margin:22px 0 6px}
@@ -93,12 +93,12 @@ STYLE = '''
 .pcard-top{height:5px;border-radius:3px;margin:-16px -16px 12px}
 .pcard h3{font-family:var(--font-d);font-size:17px;font-weight:800;color:var(--ink);line-height:1.25}
 .pcard p{font-size:12.5px;color:var(--muted);margin-top:4px}
-.pcard .go{font-size:12px;font-weight:700;color:var(--pink);margin-top:10px;display:inline-block}
+.pcard .go{font-size:12px;font-weight:700;color:var(--pink-text);margin-top:10px;display:inline-block}
 .plist{display:flex;flex-direction:column;gap:10px}
 .prow{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:16px 18px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;box-shadow:3px 3px 0 var(--ink)}
 .prow h3{font-family:var(--font-d);font-size:16px;font-weight:800;color:var(--ink);line-height:1.3}
 .prow .by{font-size:12.5px;color:var(--muted);margin-top:3px}
-.prow .by a{color:var(--pink);font-weight:700;text-decoration:none}
+.prow .by a{color:var(--pink-text);font-weight:700;text-decoration:none}
 .prow .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
 .ptag{font-family:var(--font-m);font-size:10px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;padding:3px 8px;border-radius:20px;background:var(--cream);border:1px solid var(--ink)}
 .ptag.active{background:var(--mint-s);color:#0a5c48}
@@ -488,7 +488,7 @@ def build():
             f'<div class="psearch-empty" style="font-size:14px;line-height:1.7">'
             f'We\'ve found {lang_counts_all.get(lang,0)} {esc(lang)} playlists on Spotify so far, but none have '
             f'cleared our {MIN_FOLLOWERS:,}-follower bar yet, so there is nothing honest to recommend here right now. '
-            f'This list is rebuilt daily, so check back, or try the <a href="/playlists/" style="color:var(--pink);font-weight:700">full playlist list</a>.</div>'
+            f'This list is rebuilt daily, so check back, or try the <a href="/playlists/" style="color:var(--pink-text);font-weight:700">full playlist list</a>.</div>'
         )
         with_contact = sum(1 for p in lang_playlists if p.get("contact"))
 

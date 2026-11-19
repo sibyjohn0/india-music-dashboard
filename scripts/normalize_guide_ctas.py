@@ -44,10 +44,11 @@ SOFTCTA = ('  <div class="g-softcta">Free to read, no sign-up. When you want a t
 
 SOFT_STYLE = ('<style>.g-softcta{margin-top:38px;font-size:14px;color:var(--muted);'
               'line-height:1.65;border-left:3px solid var(--accent);padding:2px 0 2px 15px}'
-              '.g-softcta a{color:var(--accent);font-weight:600}</style>')
+              '.g-softcta a{color:var(--pink-text);font-weight:600}</style>')
 
 BOX_RE = re.compile(r'[ \t]*<div class="g-cta">.*?</div>', re.S)
 BODY_RE = re.compile(r'(<div class="g-cta">\s*<h3>.*?</h3>\s*)<p>.*?</p>', re.S)
+STYLE_RE = re.compile(r'<style>\.g-softcta\{.*?</style>', re.S)
 
 def process(path):
     slug = path.parent.name
@@ -60,12 +61,18 @@ def process(path):
         if has_box:                                   # swap the box for one line
             html = BOX_RE.sub(SOFTCTA, html, count=1)
             has_soft = True
-        if has_soft and '.g-softcta{' not in html:    # ensure the style exists
-            html = html.replace('<link rel="stylesheet" href="/assets/poppy.css">',
-                                 SOFT_STYLE + '\n  <link rel="stylesheet" href="/assets/poppy.css">', 1)
     else:
         if has_box:                                   # keep box, canonical promise
             html = BODY_RE.sub(r'\g<1><p>' + CTA_BODY + '</p>', html, count=1)
+
+    # Style resync runs regardless of reference/decision: any guide carrying a
+    # g-softcta line (reference pages, plus decision pages that still have one
+    # from before they got a box) should use the current token, not a stale one.
+    if has_soft and '.g-softcta{' not in html:        # ensure the style exists
+        html = html.replace('<link rel="stylesheet" href="/assets/poppy.css">',
+                             SOFT_STYLE + '\n  <link rel="stylesheet" href="/assets/poppy.css">', 1)
+    elif has_soft and STYLE_RE.search(html) and STYLE_RE.search(html).group(0) != SOFT_STYLE:
+        html = STYLE_RE.sub(SOFT_STYLE, html, count=1)  # stale color token etc -- resync
 
     if html != orig:
         path.write_text(html)

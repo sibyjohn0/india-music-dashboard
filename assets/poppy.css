@@ -24,6 +24,7 @@
   --ink:#241B2E;
   --cream:#FFF7EE;
   --pink:#FF4D8D;  --pink-s:#FFE1EC;
+  --pink-text:#C2185B; /* darker pink for small text/links on cream or white: #FF4D8D fails WCAG AA under 24px (2.95:1); this hits 5.5:1+ */
   --orange:#FF9130;--orange-s:#FFE7D0;
   --yellow:#FFD23F;--yellow-s:#FFF3CE;
   --violet:#8B5CF6;--violet-s:#EDE4FF;
