@@ -48,6 +48,10 @@
 
 /* ---- base ---- */
 html,body{background:var(--cream)!important;color:var(--ink)!important}
+/* form controls don't inherit font-family by default, so any <input>/<button>
+   injected without its own font (e.g. the toolkit download-gate form in
+   gate.js) silently falls back to the browser's default (Arial) */
+button,input,select,textarea{font:inherit}
 body{
   font-family:var(--font-b)!important;
   background:var(--cream)!important;
