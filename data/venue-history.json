@@ -2605,21 +2605,25 @@
   },
   {
     "week": "2026-W47",
-    "date": "2026-11-19",
+    "date": "2026-11-20",
     "cities": {
-      "Mumbai": {
-        "Shree Shivaji Mandir": {
+      "Andheri West, Mumbai": {
+        "Butterfly High": {
           "shows": 1,
           "price_min": 299,
           "price_max": 299,
-          "next_date": "2026-11-19"
-        },
-        "The Studio Theatre, NMACC": {
+          "next_date": "2026-11-21"
+        }
+      },
+      "Lower Parel, Mumbai": {
+        "Koishii": {
           "shows": 1,
-          "price_min": 750,
-          "price_max": 750,
-          "next_date": "2026-11-19"
-        },
+          "price_min": 2500,
+          "price_max": 2500,
+          "next_date": "2026-11-22"
+        }
+      },
+      "Mumbai": {
         "Mahalaxmi Race Course": {
           "shows": 4,
           "price_min": 2500,
@@ -2719,8 +2723,8 @@
         "Venue TBC": {
           "shows": 9,
           "price_min": 199,
-          "price_max": 180000,
-          "next_date": "2026-11-19"
+          "price_max": 200000,
+          "next_date": "2026-12-05"
         },
         "High Note": {
           "shows": 2,
@@ -2739,22 +2743,6 @@
           "price_min": 449,
           "price_max": 699,
           "next_date": "27 Dec Sun"
-        }
-      },
-      "Andheri West, Mumbai": {
-        "Butterfly High": {
-          "shows": 1,
-          "price_min": 299,
-          "price_max": 299,
-          "next_date": "2026-11-21"
-        }
-      },
-      "Lower Parel, Mumbai": {
-        "Koishii": {
-          "shows": 1,
-          "price_min": 2500,
-          "price_max": 2500,
-          "next_date": "2026-11-22"
         }
       },
       "Malad, Mumbai": {
@@ -2801,15 +2789,15 @@
           "next_date": "2027-01-23"
         },
         "Venue TBC": {
-          "shows": 40,
+          "shows": 43,
           "price_min": 99,
-          "price_max": 180000,
-          "next_date": "2026-11-19"
+          "price_max": 200000,
+          "next_date": "2026-11-20"
         },
         "RESTRICTED": {
           "shows": 1,
           "price_min": 1499,
-          "price_max": 1999,
+          "price_max": 2499,
           "next_date": "2026-12-13"
         },
         "Space Session": {
@@ -2859,12 +2847,6 @@
           "price_min": 600,
           "price_max": 10000,
           "next_date": "27 Nov Fri"
-        },
-        "Oakridge International School": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-21"
         }
       },
       "Ahmedabad": {
@@ -2876,8 +2858,8 @@
         },
         "AHMEDABAD": {
           "shows": 1,
-          "price_min": 300,
-          "price_max": 300,
+          "price_min": 349,
+          "price_max": 349,
           "next_date": "25 Dec Fri"
         }
       },
@@ -2915,7 +2897,7 @@
           "next_date": "2027-01-16"
         },
         "Venue TBC": {
-          "shows": 17,
+          "shows": 21,
           "price_min": 300,
           "price_max": 28990,
           "next_date": "2026-11-21"
@@ -2945,6 +2927,12 @@
           "price_min": null,
           "price_max": null,
           "next_date": "22 Nov Sun"
+        },
+        "The Calcutta Listening Club": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "29 Nov Sun"
         }
       },
       "India": {
@@ -2959,7 +2947,7 @@
         "Venue TBC": {
           "shows": 1,
           "price_min": 699,
-          "price_max": 699,
+          "price_max": 1599,
           "next_date": "2026-11-20"
         },
         "Shillong": {
@@ -2971,9 +2959,9 @@
       },
       "Delhi": {
         "Venue TBC": {
-          "shows": 17,
+          "shows": 16,
           "price_min": 250,
-          "price_max": 180000,
+          "price_max": 200000,
           "next_date": "2026-11-21"
         },
         "Paul John Luxury Blended Water": {
@@ -3042,8 +3030,8 @@
         },
         "DEHARADUN": {
           "shows": 1,
-          "price_min": 300,
-          "price_max": 300,
+          "price_min": 349,
+          "price_max": 349,
           "next_date": "29 Nov Sun"
         }
       },
@@ -3069,6 +3057,14 @@
           "next_date": "2026-12-11"
         }
       },
+      "Jaipur": {
+        "Venue TBC": {
+          "shows": 2,
+          "price_min": 149,
+          "price_max": 149,
+          "next_date": "2026-12-13"
+        }
+      },
       "Mandawa": {
         "Venue TBC": {
           "shows": 2,
@@ -3083,14 +3079,6 @@
           "price_min": 7999,
           "price_max": 7999,
           "next_date": "2027-01-22"
-        }
-      },
-      "Jaipur": {
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 149,
-          "price_max": 149,
-          "next_date": "21 Nov Sat"
         }
       },
       "Kochi": {

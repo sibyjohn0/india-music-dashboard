@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-19T08:49:36.835611+00:00",
+  "generated_at": "2026-11-20T08:26:45.565456+00:00",
   "counts": {
     "festivals": 30,
     "tours": 15,
     "marquee": 14,
     "international": 9,
     "indian": 36,
-    "new_this_run": 2
+    "new_this_run": 1
   },
   "festivals": [
     {
@@ -780,20 +780,9 @@
       "type": "tour",
       "key": "domi jd beck who asked tour",
       "cities": [
-        "Delhi",
-        "Mumbai"
+        "Delhi"
       ],
       "dates": [
-        {
-          "date": "2026-11-19",
-          "date_obj": "2026-11-19",
-          "city": "Mumbai",
-          "venue": "",
-          "time": "08:00 PM",
-          "price": "₹2,499–₹7,999",
-          "url": "https://www.skillboxes.com/events/domi-jd-beck-who-asked-tour-mumbai-sbucfwmx",
-          "source": "skillboxes"
-        },
         {
           "date": "2026-11-21",
           "date_obj": "2026-11-21",
@@ -805,7 +794,7 @@
           "source": "skillboxes"
         }
       ],
-      "soonest": "2026-11-19",
+      "soonest": "2026-11-21",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -1215,13 +1204,14 @@
       "key": "jeremy zucker live in",
       "cities": [
         "Bengaluru",
-        "Delhi NCR"
+        "Delhi",
+        "Mumbai"
       ],
       "dates": [
         {
           "date": "2026-12-18",
           "date_obj": "2026-12-18",
-          "city": "Delhi NCR",
+          "city": "Delhi",
           "venue": "",
           "time": "06:00 PM",
           "price": "₹2,499–₹2,999",
@@ -1236,6 +1226,16 @@
           "time": "06:00 PM",
           "price": "₹2,499–₹2,999",
           "url": "https://www.skillboxes.com/events/jeremy-zucker-live-in-bengaluru-debut-india-tour-2026-sbkkuxwo",
+          "source": "skillboxes"
+        },
+        {
+          "date": "2026-12-21",
+          "date_obj": "2026-12-21",
+          "city": "Mumbai",
+          "venue": "",
+          "time": "08:00 PM",
+          "price": "₹1,999–₹2,499",
+          "url": "https://www.skillboxes.com/events/jeremy-zucker-live-in-mumbai-debut-india-tour-2026-sbxsyehy",
           "source": "skillboxes"
         }
       ],
@@ -1314,8 +1314,7 @@
     }
   ],
   "new_this_run": [
-    "ART CONNECT FEST",
-    "Raas Utsav Mulund 2026 with The Dandhiya King Naitik Nagda"
+    "FlyHigh Band - Live In Concert"
   ],
   "_all_keys": [
     "diljit dosanjh",
@@ -1342,6 +1341,7 @@
     "the milf tour",
     "heya festival",
     "structure music festival",
+    "flyhigh band",
     "mixtape presents the gundaraaj tour",
     "the festival of lights",
     "heya pre festival experience",
