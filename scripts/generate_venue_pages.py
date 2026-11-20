@@ -241,8 +241,10 @@ def build():
         city_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Concerts and live music in {esc(c["name"])}","url":"https://indiemusicindia.com/venues/{esc(slug)}/"}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ItemList","name":"Live music venues in {esc(c["name"])}","numberOfItems":{len(venues)},"itemListElement":[{items}]}}</script>
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}},{{"@type":"ListItem","position":3,"name":"{esc(c["name"])}","item":"https://indiemusicindia.com/venues/{esc(slug)}/"}}]}}</script>'''
+        count_line = (f"{c['show_count']} shows across {c['venue_count']} venues, updated daily."
+                      if c["show_count"] else "Updated daily as new dates are announced.")
         page = head(f"Live Music Venues in {c['name']}: Gigs, Concerts & Tickets",
-                    f"Live music venues in {c['name']}: the rooms hosting gigs and concerts, who's playing, and where to get tickets. {c['show_count']} shows across {c['venue_count']} venues, updated daily.",
+                    f"Live music venues in {c['name']}: the rooms hosting gigs and concerts, who's playing, and where to get tickets. {count_line}",
                     f"https://indiemusicindia.com/venues/{slug}/", city_ld)
         # All six metros now have a scene guide to link back to.
         scene_link = (f' New here? Read the <a href="/guides/independent-music-scene-{slug}/" '
