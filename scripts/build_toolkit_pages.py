@@ -49,6 +49,19 @@ SHEET_KW = ("budget","profit","loss","p-l","cashflow","cash-flow","expense","rev
             "forecast","tracker","matrix","net-worth","finances","bookkeeping","inventory","cost-")
 def is_sheet(slug): return any(k in slug for k in SHEET_KW)
 
+# GSC showed these two ranking page-1 (pos 5-6) with ~500 combined impressions
+# and literally zero clicks -- well below the typical CTR curve for that
+# position, so the generic "<Topic> Guide" title wasn't pulling its weight.
+# Hand-tuned, evidence-based overrides; everything else keeps the auto title.
+TITLE_OVERRIDE = {
+    "stage-plots-input-list-guide": "Stage Plot: What Venues Actually Want",
+    "playlist-curators-101-guide-india": "How to Pitch Playlist Curators in India",
+}
+DESC_OVERRIDE = {
+    "stage-plots-input-list-guide": "What to put on a stage plot and input list for Indian venues, and why sending one in advance changes how a venue treats your band on load-in day.",
+    "playlist-curators-101-guide-india": "How independent Indian playlist curators actually work, what makes them add a track, and how to pitch without sounding like a form email.",
+}
+
 def kind(title):
     t = title.lower()
     if "checklist" in t: return "checklist"
@@ -215,6 +228,8 @@ def page(doc):
         desc=(d[:150].rsplit(" ",1)[0]+".") if len(d)>155 else d
     else:
         desc=f"{title}. A free {k} for independent Indian musicians, part of the Indie Music India toolkit."
+    if slug in TITLE_OVERRIDE: title=TITLE_OVERRIDE[slug]
+    if slug in DESC_OVERRIDE: desc=DESC_OVERRIDE[slug]
     _ext = "xlsx" if is_sheet(slug) else "pdf"
     _dtype = "spreadsheet" if is_sheet(slug) else "PDF"
     copybtn=(f'''    <div class="g-cta dl-gate" data-slug="{slug}" data-file="/toolkit/{slug}/{slug}.{_ext}" data-type="{_dtype}" data-copy="https://docs.google.com/document/d/{did}/copy" data-title="{esc(title)}">
