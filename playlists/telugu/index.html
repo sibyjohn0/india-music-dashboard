@@ -169,7 +169,12 @@ nav.js-primnav a{color:#fff!important;font-size:22px!important;font-weight:700!i
   </div>
   <div>Playlist data discovered via Spotify search, updated daily. Follower counts and activity are what Spotify reports publicly; we do not run or guarantee placement on any playlist.</div>
 </footer>
-<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});</script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});
+document.querySelectorAll('.pcontact').forEach(function(el){
+  el.innerHTML = el.innerHTML.replace(/([\w.+-]+)\s\[at\]\s([\w.-]+)\s\[dot\]\s(\w{2,})/g,function(_,u,d,t){var a=u+'@'+d+'.'+t;return '<a href="mailto:'+a+'">'+a+'</a>';});
+  el.innerHTML = el.innerHTML.replace(/WhatsApp (\d{5}) (\d{5})/g,function(_,a,b){var n=a+b;return '<a href="https://wa.me/91'+n+'" target="_blank" rel="noopener">WhatsApp '+a+' '+b+'</a>';});
+});
+</script>
 <script src="/assets/analytics.js" defer></script>
 <script src="/assets/nav.js?v=20261030" defer></script>
 <script src="/assets/player.js?v=20261026" defer></script>

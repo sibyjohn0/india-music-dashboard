@@ -227,7 +227,7 @@ nav.js-primnav a{color:#fff!important;font-size:22px!important;font-weight:700!i
       <h3><a href="https://open.spotify.com/playlist/78oqSgmG7ALavyyi78Q5BL" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Tamil Latest Hits 2026</a></h3>
       <div class="by">Run by <a href="https://open.spotify.com/user/iormzbdr3ppsly60ahnycnvrx" target="_blank" rel="noopener">theChennaiCurator</a></div>
       <div class="tags"><span class="ptag active">Recently active</span><span class="ptag">Tamil</span></div>
-      <div class="pcontact">Contact in description: thechennaicurator@gmail.com</div>
+      <div class="pcontact">Contact in description: thechennaicurator [at] gmail [dot] com</div>
     </div>
     <div class="pright"><div class="pfollow">12.6k<span>Followers</span></div></div>
   </div>
@@ -353,7 +353,7 @@ nav.js-primnav a{color:#fff!important;font-size:22px!important;font-weight:700!i
       <h3><a href="https://open.spotify.com/playlist/4G6wOWQsOOB75gRyMjtAWE" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">  Tamil Independent Music 🎧</a></h3>
       <div class="by">Run by <a href="https://open.spotify.com/user/h89uaq6m6ldq02d9i908fb5q2" target="_blank" rel="noopener">mixtapesbyvc</a></div>
       <div class="tags"><span class="ptag">Tamil</span></div>
-      <div class="pcontact">Contact in description: mixtapesbyvc@gmail.com</div>
+      <div class="pcontact">Contact in description: mixtapesbyvc [at] gmail [dot] com</div>
     </div>
     <div class="pright"><div class="pfollow">1.9k<span>Followers</span></div></div>
   </div>
@@ -439,7 +439,12 @@ nav.js-primnav a{color:#fff!important;font-size:22px!important;font-weight:700!i
   </div>
   <div>Playlist data discovered via Spotify search, updated daily. Follower counts and activity are what Spotify reports publicly; we do not run or guarantee placement on any playlist.</div>
 </footer>
-<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});</script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});
+document.querySelectorAll('.pcontact').forEach(function(el){
+  el.innerHTML = el.innerHTML.replace(/([\w.+-]+)\s\[at\]\s([\w.-]+)\s\[dot\]\s(\w{2,})/g,function(_,u,d,t){var a=u+'@'+d+'.'+t;return '<a href="mailto:'+a+'">'+a+'</a>';});
+  el.innerHTML = el.innerHTML.replace(/WhatsApp (\d{5}) (\d{5})/g,function(_,a,b){var n=a+b;return '<a href="https://wa.me/91'+n+'" target="_blank" rel="noopener">WhatsApp '+a+' '+b+'</a>';});
+});
+</script>
 <script src="/assets/analytics.js" defer></script>
 <script src="/assets/nav.js?v=20261030" defer></script>
 <script src="/assets/player.js?v=20261026" defer></script>

@@ -21,6 +21,19 @@ def esc(s): return html.escape(str(s or ""), quote=True)
 def slugify(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
 
+# These are curators' own contact details, pulled from their public Spotify
+# playlist descriptions -- we show them because that's the whole point of the
+# page (a real way to pitch). But printed as plain digits/an @address, they're
+# a harvestable list once aggregated here, same issue fixed earlier for
+# reviewers.json. Obfuscate at build time; the inline script in SCRIPTJS
+# reconstructs real mailto:/wa.me links for an actual visitor.
+EMAIL_RE = re.compile(r'([A-Za-z0-9._%+-]+)@([A-Za-z0-9.-]+)\.([A-Za-z]{2,})')
+def obfuscate_email(s):
+    return EMAIL_RE.sub(lambda m: f"{m.group(1)} [at] {m.group(2)} [dot] {m.group(3)}", s)
+def obfuscate_phone(s):
+    digits = re.sub(r"\D", "", s)
+    return f"{digits[:5]} {digits[5:]}" if len(digits) >= 8 else s
+
 LANGUAGES = ["Hindi", "Punjabi", "Tamil", "Telugu", "Kannada", "Malayalam",
              "Bengali", "Marathi", "Gujarati", "Urdu", "Assamese", "Odia", "Konkani"]
 
@@ -168,7 +181,12 @@ nav.js-primnav{position:fixed!important;inset:0!important;height:100dvh!importan
 body.mnav-open nav.js-primnav{transform:translateX(0)!important}
 nav.js-primnav a{color:#fff!important;font-size:22px!important;font-weight:700!important;padding:14px 30px!important;height:auto!important;border:0!important}}'''
 
-SCRIPTJS = '''<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});</script>'''
+SCRIPTJS = '''<script>document.addEventListener('click',function(e){var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');});document.addEventListener('keydown',function(e){if(e.key==='Escape')document.body.classList.remove('mnav-open');});
+document.querySelectorAll('.pcontact').forEach(function(el){
+  el.innerHTML = el.innerHTML.replace(/([\\w.+-]+)\\s\\[at\\]\\s([\\w.-]+)\\s\\[dot\\]\\s(\\w{2,})/g,function(_,u,d,t){var a=u+'@'+d+'.'+t;return '<a href="mailto:'+a+'">'+a+'</a>';});
+  el.innerHTML = el.innerHTML.replace(/WhatsApp (\\d{5}) (\\d{5})/g,function(_,a,b){var n=a+b;return '<a href="https://wa.me/91'+n+'" target="_blank" rel="noopener">WhatsApp '+a+' '+b+'</a>';});
+});
+</script>'''
 
 def head(title, desc, canonical, extra_ld=""):
     return f'''<!DOCTYPE html>
@@ -238,9 +256,9 @@ def playlist_row(p, recent_cutoff=None):
         c = p["contact"]
         bits = []
         if c.get("email"):
-            bits.append(c["email"])
+            bits.append(obfuscate_email(c["email"]))
         if c.get("phone"):
-            bits.append(("WhatsApp " if c.get("whatsapp_mentioned") else "") + c["phone"])
+            bits.append(("WhatsApp " if c.get("whatsapp_mentioned") else "") + obfuscate_phone(c["phone"]))
         if bits:
             contact_html = f'<div class="pcontact">Contact in description: {esc(" / ".join(bits))}</div>'
     owner = f'<a href="{esc(p["owner_url"])}" target="_blank" rel="noopener">{esc(p["owner_name"] or "Unknown")}</a>' if p.get("owner_url") else esc(p.get("owner_name") or "Unknown")
