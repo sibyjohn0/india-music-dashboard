@@ -62,7 +62,7 @@ h1{font-size:clamp(26px,4.5vw,40px);font-weight:800;letter-spacing:-1px;line-hei
 .grow{border-top:1px solid var(--border);padding:9px 0 2px;margin-top:9px;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
 .gwhen{font-size:13px;font-weight:800;font-variant-numeric:tabular-nums;min-width:52px}
 .gname{font-size:14px;color:#574C63;flex:1;min-width:0}
-.gtix{font-size:12px;font-weight:700;color:var(--pink-text)}
+.gtix{font-size:12px;font-weight:700;color:var(--pink-text);display:inline-flex;align-items:center;padding:5px 0}
 .gprice{font-size:12px;color:var(--muted)}
 .more{font-size:12px;color:var(--muted);margin-top:8px}
 h2.sec{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--pink-text);margin:34px 0 4px}
