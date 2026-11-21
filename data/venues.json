@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-20T08:26:45.638871+00:00",
+  "generated_at": "2026-11-21T08:24:34.174941+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
-      "venue_count": 19,
+      "venue_count": 20,
       "show_count": 28,
       "venues": [
         {
@@ -42,36 +42,6 @@
           ],
           "shows": 4,
           "next_date": "2026-11-22"
-        },
-        {
-          "name": "Jamshed Bhabha Theatre",
-          "city": "Mumbai",
-          "area": "",
-          "gigs": [
-            {
-              "name": "NCPA International Jazz Festival 2026 - Day 1",
-              "date": "2026-11-20",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            },
-            {
-              "name": "Tis the Season - SOI Chamber Orchestra",
-              "date": "2026-12-13",
-              "url": "https://in.bookmyshow.com/events/tis-the-season-soi-chamber-orchestra/et9wuq55cc",
-              "price": "from ₹500",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Citi NCPA Aadi Anant: Baithak to Bollywood",
-              "date": "2027-01-22",
-              "url": "https://in.bookmyshow.com/events/citi-ncpa-aadi-anant-baithak-to-bollywood/etce638c97",
-              "price": "from ₹800",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 3,
-          "next_date": "2026-11-20"
         },
         {
           "name": "DOME, SVP Stadium",
@@ -118,6 +88,29 @@
           ],
           "shows": 2,
           "next_date": "2026-12-12"
+        },
+        {
+          "name": "Jamshed Bhabha Theatre",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Tis the Season - SOI Chamber Orchestra",
+              "date": "2026-12-13",
+              "url": "https://in.bookmyshow.com/events/tis-the-season-soi-chamber-orchestra/et9wuq55cc",
+              "price": "from ₹500",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Citi NCPA Aadi Anant: Baithak to Bollywood",
+              "date": "2027-01-22",
+              "url": "https://in.bookmyshow.com/events/citi-ncpa-aadi-anant-baithak-to-bollywood/etce638c97",
+              "price": "from ₹800",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-12-13"
         },
         {
           "name": "MMRDA Grounds",
@@ -372,14 +365,46 @@
           ],
           "shows": 1,
           "next_date": null
+        },
+        {
+          "name": "Privilege",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Privilege presents Sandy Kletz in Mumbai",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/privilege-presents-sandy-kletz-in-mumbai-sbbtzeli",
+              "price": "from ₹1,000",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
         }
       ]
     },
     "delhi": {
       "name": "Delhi",
-      "venue_count": 9,
-      "show_count": 9,
+      "venue_count": 10,
+      "show_count": 10,
       "venues": [
+        {
+          "name": "Kalagram",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "KalaGram kala kaushal utsav",
+              "date": "2026-11-21",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-21"
+        },
         {
           "name": "Paul John Luxury Blended Water",
           "city": "Delhi",
@@ -528,8 +553,8 @@
     },
     "bengaluru": {
       "name": "Bengaluru",
-      "venue_count": 11,
-      "show_count": 19,
+      "venue_count": 12,
+      "show_count": 20,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -618,6 +643,22 @@
           ],
           "shows": 2,
           "next_date": null
+        },
+        {
+          "name": "Oakridge International School",
+          "city": "Bengaluru",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Kukdukoo Fest Bengaluru",
+              "date": "2026-11-21",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-21"
         },
         {
           "name": "NICE Grounds",
@@ -767,9 +808,25 @@
     },
     "hyderabad": {
       "name": "Hyderabad",
-      "venue_count": 2,
-      "show_count": 2,
+      "venue_count": 3,
+      "show_count": 3,
       "venues": [
+        {
+          "name": "Novotel Hyderabad Convention Centre & HICC",
+          "city": "Hyderabad",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Pet Fed Hyderabad 2026",
+              "date": "2026-11-21",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-21"
+        },
         {
           "name": "KING’DOME",
           "city": "Hyderabad",
@@ -812,25 +869,9 @@
     },
     "goa": {
       "name": "Goa",
-      "venue_count": 2,
-      "show_count": 2,
+      "venue_count": 1,
+      "show_count": 1,
       "venues": [
-        {
-          "name": "INOX - Old GMC",
-          "city": "Goa",
-          "area": "",
-          "gigs": [
-            {
-              "name": "57th International Film Festival of India",
-              "date": "2026-11-20",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-20"
-        },
         {
           "name": "Thalassa Beach Boutique Resort",
           "city": "Goa",

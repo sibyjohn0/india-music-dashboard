@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-20T08:17:46.451610+00:00",
-  "snapshot_date": "2026-11-20",
+  "generated_at": "2026-11-21T08:10:44.855787+00:00",
+  "snapshot_date": "2026-11-21",
   "cities": {
     "Andheri West, Mumbai": {
       "total_shows": 1,
@@ -31,7 +31,7 @@
       "unlisted_shows": 0
     },
     "Mumbai": {
-      "total_shows": 37,
+      "total_shows": 41,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -186,7 +186,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 9
+      "unlisted_shows": 13
     },
     "Malad, Mumbai": {
       "total_shows": 1,
@@ -217,21 +217,21 @@
       "unlisted_shows": 0
     },
     "NCPA.": {
-      "total_shows": 3,
+      "total_shows": 2,
       "venues": [
         {
           "name": "Jamshed Bhabha Theatre",
-          "shows": 3,
+          "shows": 2,
           "price_min": 500,
           "price_max": 800,
-          "next_date": "2026-11-20",
-          "growth": 0
+          "next_date": "2026-12-13",
+          "growth": -1
         }
       ],
       "unlisted_shows": 0
     },
     "Bangalore": {
-      "total_shows": 63,
+      "total_shows": 62,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -271,14 +271,6 @@
           "price_min": 5000,
           "price_max": 5000,
           "next_date": "2027-01-23",
-          "growth": 0
-        },
-        {
-          "name": "RESTRICTED",
-          "shows": 1,
-          "price_min": 1499,
-          "price_max": 2499,
-          "next_date": "2026-12-13",
           "growth": 0
         },
         {
@@ -328,9 +320,17 @@
           "price_max": 10000,
           "next_date": "27 Nov Fri",
           "growth": 0
+        },
+        {
+          "name": "ORCHID EYES",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "28 Nov Sat",
+          "growth": null
         }
       ],
-      "unlisted_shows": 43
+      "unlisted_shows": 42
     },
     "Ahmedabad": {
       "total_shows": 2,
@@ -385,7 +385,7 @@
       "unlisted_shows": 4
     },
     "Goa": {
-      "total_shows": 23,
+      "total_shows": 22,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -394,20 +394,12 @@
           "price_max": 4999,
           "next_date": "2027-01-16",
           "growth": 0
-        },
-        {
-          "name": "INOX - Old GMC",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-20",
-          "growth": 0
         }
       ],
       "unlisted_shows": 21
     },
     "Kolkata": {
-      "total_shows": 7,
+      "total_shows": 8,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -431,10 +423,10 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "29 Nov Sun",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 4
+      "unlisted_shows": 5
     },
     "India": {
       "total_shows": 1,
@@ -450,22 +442,8 @@
       ],
       "unlisted_shows": 0
     },
-    "Shillong": {
-      "total_shows": 2,
-      "venues": [
-        {
-          "name": "Shillong",
-          "shows": 1,
-          "price_min": 750,
-          "price_max": 750,
-          "next_date": "2026-12-18",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 1
-    },
     "Delhi": {
-      "total_shows": 24,
+      "total_shows": 27,
       "venues": [
         {
           "name": "Paul John Luxury Blended Water",
@@ -508,6 +486,14 @@
           "growth": 0
         },
         {
+          "name": "Beerlin",
+          "shows": 1,
+          "price_min": 1500,
+          "price_max": 1500,
+          "next_date": "27 Nov Fri",
+          "growth": null
+        },
+        {
           "name": "KAI ROOM, GURGAON",
           "shows": 1,
           "price_min": 799,
@@ -532,7 +518,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 16
+      "unlisted_shows": 18
     },
     "Pune": {
       "total_shows": 9,
@@ -581,6 +567,20 @@
       "total_shows": 2,
       "venues": [],
       "unlisted_shows": 2
+    },
+    "Shillong": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "Shillong",
+          "shows": 1,
+          "price_min": 750,
+          "price_max": 750,
+          "next_date": "2026-12-18",
+          "growth": 0
+        }
+      ],
+      "unlisted_shows": 0
     },
     "Hoshiarpur": {
       "total_shows": 1,
@@ -634,20 +634,6 @@
       "total_shows": 2,
       "venues": [],
       "unlisted_shows": 2
-    },
-    "Malleswaram": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "Seva Sadan",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-20",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 0
     }
   }
 }

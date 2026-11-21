@@ -2605,7 +2605,7 @@
   },
   {
     "week": "2026-W47",
-    "date": "2026-11-20",
+    "date": "2026-11-21",
     "cities": {
       "Andheri West, Mumbai": {
         "Butterfly High": {
@@ -2721,7 +2721,7 @@
           "next_date": "2027-01-27"
         },
         "Venue TBC": {
-          "shows": 9,
+          "shows": 13,
           "price_min": 199,
           "price_max": 200000,
           "next_date": "2026-12-05"
@@ -2763,10 +2763,10 @@
       },
       "NCPA.": {
         "Jamshed Bhabha Theatre": {
-          "shows": 3,
+          "shows": 2,
           "price_min": 500,
           "price_max": 800,
-          "next_date": "2026-11-20"
+          "next_date": "2026-12-13"
         }
       },
       "Bangalore": {
@@ -2789,16 +2789,10 @@
           "next_date": "2027-01-23"
         },
         "Venue TBC": {
-          "shows": 43,
+          "shows": 42,
           "price_min": 99,
           "price_max": 200000,
-          "next_date": "2026-11-20"
-        },
-        "RESTRICTED": {
-          "shows": 1,
-          "price_min": 1499,
-          "price_max": 2499,
-          "next_date": "2026-12-13"
+          "next_date": "2026-11-27"
         },
         "Space Session": {
           "shows": 1,
@@ -2847,6 +2841,12 @@
           "price_min": 600,
           "price_max": 10000,
           "next_date": "27 Nov Fri"
+        },
+        "ORCHID EYES": {
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 499,
+          "next_date": "28 Nov Sat"
         }
       },
       "Ahmedabad": {
@@ -2901,12 +2901,6 @@
           "price_min": 300,
           "price_max": 28990,
           "next_date": "2026-11-21"
-        },
-        "INOX - Old GMC": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-20"
         }
       },
       "Kolkata": {
@@ -2917,7 +2911,7 @@
           "next_date": "2027-01-23"
         },
         "Venue TBC": {
-          "shows": 4,
+          "shows": 5,
           "price_min": 499,
           "price_max": 250000,
           "next_date": "2026-12-19"
@@ -2943,23 +2937,9 @@
           "next_date": null
         }
       },
-      "Shillong": {
-        "Venue TBC": {
-          "shows": 1,
-          "price_min": 699,
-          "price_max": 1599,
-          "next_date": "2026-11-20"
-        },
-        "Shillong": {
-          "shows": 1,
-          "price_min": 750,
-          "price_max": 750,
-          "next_date": "2026-12-18"
-        }
-      },
       "Delhi": {
         "Venue TBC": {
-          "shows": 16,
+          "shows": 18,
           "price_min": 250,
           "price_max": 200000,
           "next_date": "2026-11-21"
@@ -2992,6 +2972,12 @@
           "shows": 1,
           "price_min": 499,
           "price_max": 1999,
+          "next_date": "27 Nov Fri"
+        },
+        "Beerlin": {
+          "shows": 1,
+          "price_min": 1500,
+          "price_max": 1500,
           "next_date": "27 Nov Fri"
         },
         "KAI ROOM, GURGAON": {
@@ -3073,6 +3059,14 @@
           "next_date": "2026-12-18"
         }
       },
+      "Shillong": {
+        "Shillong": {
+          "shows": 1,
+          "price_min": 750,
+          "price_max": 750,
+          "next_date": "2026-12-18"
+        }
+      },
       "Hoshiarpur": {
         "Venue TBC": {
           "shows": 1,
@@ -3127,14 +3121,6 @@
           "price_min": 1499,
           "price_max": 1499,
           "next_date": "31 Dec Thu"
-        }
-      },
-      "Malleswaram": {
-        "Seva Sadan": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-20"
         }
       }
     }
