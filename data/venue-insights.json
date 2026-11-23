@@ -1,31 +1,17 @@
 {
-  "generated_at": "2026-11-22T07:56:36.500471+00:00",
-  "snapshot_date": "2026-11-22",
+  "generated_at": "2026-11-23T08:48:49.772106+00:00",
+  "snapshot_date": "2026-11-23",
   "cities": {
-    "Lower Parel, Mumbai": {
-      "total_shows": 1,
-      "venues": [
-        {
-          "name": "Koishii",
-          "shows": 1,
-          "price_min": 2500,
-          "price_max": 2500,
-          "next_date": "2026-11-22",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 0
-    },
     "Mumbai": {
-      "total_shows": 42,
+      "total_shows": 40,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
-          "shows": 4,
+          "shows": 3,
           "price_min": 2500,
-          "price_max": 5000,
-          "next_date": "2026-11-22",
-          "growth": 0
+          "price_max": 4999,
+          "next_date": "2026-11-27",
+          "growth": -1
         },
         {
           "name": "DOME, SVP Stadium",
@@ -65,14 +51,6 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "2026-12-12",
-          "growth": 0
-        },
-        {
-          "name": "Aditya Birla Theatre",
-          "shows": 1,
-          "price_min": 750,
-          "price_max": 750,
-          "next_date": "2026-11-22",
           "growth": 0
         },
         {
@@ -145,7 +123,7 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "2026-12-12",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "Jio World Garden",
@@ -177,7 +155,7 @@
           "price_min": 1000,
           "price_max": 1000,
           "next_date": "29 Nov Sun",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 14
@@ -225,7 +203,7 @@
       "unlisted_shows": 0
     },
     "Bangalore": {
-      "total_shows": 62,
+      "total_shows": 63,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -316,6 +294,14 @@
           "growth": 0
         },
         {
+          "name": "Koramangala SOCIAL",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "27 Nov Fri",
+          "growth": null
+        },
+        {
           "name": "ORCHID EYES",
           "shows": 1,
           "price_min": 499,
@@ -349,7 +335,7 @@
       "unlisted_shows": 0
     },
     "Hyderabad": {
-      "total_shows": 9,
+      "total_shows": 10,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -376,7 +362,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 6
+      "unlisted_shows": 7
     },
     "Goa": {
       "total_shows": 21,
@@ -436,13 +422,8 @@
       ],
       "unlisted_shows": 0
     },
-    "Pune": {
-      "total_shows": 8,
-      "venues": [],
-      "unlisted_shows": 8
-    },
     "Delhi": {
-      "total_shows": 27,
+      "total_shows": 29,
       "venues": [
         {
           "name": "Paul John Luxury Blended Water",
@@ -501,6 +482,14 @@
           "growth": 0
         },
         {
+          "name": "PER SE ROOFTOP",
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 1499,
+          "next_date": "28 Nov Sat",
+          "growth": null
+        },
+        {
           "name": "TUBATA",
           "shows": 1,
           "price_min": null,
@@ -517,7 +506,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 18
+      "unlisted_shows": 19
     },
     "Dehradun": {
       "total_shows": 3,
@@ -585,6 +574,11 @@
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
+    },
+    "Pune": {
+      "total_shows": 7,
+      "venues": [],
+      "unlisted_shows": 7
     },
     "Kochi": {
       "total_shows": 4,
