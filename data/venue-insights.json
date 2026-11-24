@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-23T08:48:49.772106+00:00",
-  "snapshot_date": "2026-11-23",
+  "generated_at": "2026-11-24T10:49:44.288538+00:00",
+  "snapshot_date": "2026-11-24",
   "cities": {
     "Mumbai": {
-      "total_shows": 40,
+      "total_shows": 41,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -11,7 +11,7 @@
           "price_min": 2500,
           "price_max": 4999,
           "next_date": "2026-11-27",
-          "growth": -1
+          "growth": 0
         },
         {
           "name": "DOME, SVP Stadium",
@@ -158,7 +158,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 14
+      "unlisted_shows": 15
     },
     "Malad, Mumbai": {
       "total_shows": 1,
@@ -203,7 +203,7 @@
       "unlisted_shows": 0
     },
     "Bangalore": {
-      "total_shows": 63,
+      "total_shows": 64,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -299,7 +299,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "27 Nov Fri",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "ORCHID EYES",
@@ -310,7 +310,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 42
+      "unlisted_shows": 43
     },
     "Ahmedabad": {
       "total_shows": 2,
@@ -379,7 +379,7 @@
       "unlisted_shows": 20
     },
     "Kolkata": {
-      "total_shows": 8,
+      "total_shows": 9,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -406,7 +406,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 5
+      "unlisted_shows": 6
     },
     "India": {
       "total_shows": 1,
@@ -423,7 +423,7 @@
       "unlisted_shows": 0
     },
     "Delhi": {
-      "total_shows": 29,
+      "total_shows": 31,
       "venues": [
         {
           "name": "Paul John Luxury Blended Water",
@@ -487,7 +487,7 @@
           "price_min": 799,
           "price_max": 1499,
           "next_date": "28 Nov Sat",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "TUBATA",
@@ -506,7 +506,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 19
+      "unlisted_shows": 21
     },
     "Dehradun": {
       "total_shows": 3,
@@ -523,7 +523,7 @@
       "unlisted_shows": 2
     },
     "Chennai": {
-      "total_shows": 2,
+      "total_shows": 3,
       "venues": [
         {
           "name": "Watson\u2019s Chennai.",
@@ -532,6 +532,14 @@
           "price_max": 300,
           "next_date": "22 Nov Sun",
           "growth": 0
+        },
+        {
+          "name": "Edition 54",
+          "shows": 1,
+          "price_min": 379,
+          "price_max": 379,
+          "next_date": "29 Nov Sun",
+          "growth": null
         }
       ],
       "unlisted_shows": 1
