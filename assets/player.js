@@ -25,6 +25,12 @@
  * of where the header visually is, which is what caused it to end up
  * floating over random page content before.
  *
+ * Starts collapsed by default (tap the corner button to expand): on first
+ * load, header + bar together ran 140px/17% of a phone screen before a
+ * visitor had scrolled at all. A session that expands it once stays
+ * expanded across page navigations (sessionStorage), so returning to the
+ * default on every single page isn't required to get back to listening.
+ *
  * STATUS: live, playing the "Indie Music India Radio" playlist. Clearing
  * PLAYLIST_ID below reverts to a "launching soon" placeholder bar.
  */
@@ -119,20 +125,22 @@
       bar.classList.add('is-collapsed');
       space.classList.add('is-collapsed');
       reopen.classList.add('is-visible');
-      try { sessionStorage.setItem('iim_player_collapsed', '1'); } catch (e) {}
+      try { sessionStorage.setItem('iim_player_state', 'collapsed'); } catch (e) {}
     }
     function expand() {
       bar.classList.remove('is-collapsed');
       space.classList.remove('is-collapsed');
       reopen.classList.remove('is-visible');
-      try { sessionStorage.removeItem('iim_player_collapsed'); } catch (e) {}
+      try { sessionStorage.setItem('iim_player_state', 'expanded'); } catch (e) {}
     }
     close.addEventListener('click', collapse);
     reopen.addEventListener('click', expand);
 
+    // Default collapsed. Once a visitor expands it, that choice persists
+    // for the rest of the session (not just until the next dismiss).
     try {
-      if (sessionStorage.getItem('iim_player_collapsed') === '1') collapse();
-    } catch (e) {}
+      if (sessionStorage.getItem('iim_player_state') !== 'expanded') collapse();
+    } catch (e) { collapse(); }
 
     // Glide the bar's top from headerHeight down to 0 as the (non-sticky)
     // header scrolls out of view, so the player always sits exactly where

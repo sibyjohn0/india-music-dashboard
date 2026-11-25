@@ -293,6 +293,7 @@ def page(doc):
   document.addEventListener('click',function(e){{var a=e.target.closest('nav.js-primnav a');if(a)document.body.classList.remove('mnav-open');}});
   </script>
   <script src="/assets/nav.js?v=20261030" defer></script>
+  <script src="/assets/player.js?v=20261026" defer></script>
   <script src="/assets/gate.js" defer></script>
 </body>
 </html>
