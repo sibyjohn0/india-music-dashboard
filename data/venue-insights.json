@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-24T10:49:44.288538+00:00",
-  "snapshot_date": "2026-11-24",
+  "generated_at": "2026-11-25T09:44:54.709667+00:00",
+  "snapshot_date": "2026-11-25",
   "cities": {
     "Mumbai": {
-      "total_shows": 41,
+      "total_shows": 45,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -51,14 +51,6 @@
           "price_min": 499,
           "price_max": 499,
           "next_date": "2026-12-12",
-          "growth": 0
-        },
-        {
-          "name": "Shanmukhananda Hall",
-          "shows": 1,
-          "price_min": 900,
-          "price_max": 900,
-          "next_date": "2026-11-24",
           "growth": 0
         },
         {
@@ -158,7 +150,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 15
+      "unlisted_shows": 20
     },
     "Malad, Mumbai": {
       "total_shows": 1,
@@ -203,7 +195,7 @@
       "unlisted_shows": 0
     },
     "Bangalore": {
-      "total_shows": 64,
+      "total_shows": 69,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -308,9 +300,17 @@
           "price_max": 499,
           "next_date": "28 Nov Sat",
           "growth": 0
+        },
+        {
+          "name": "Watsons.pub Indiranagar, Bangalore.",
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "29 Nov Sun",
+          "growth": null
         }
       ],
-      "unlisted_shows": 43
+      "unlisted_shows": 47
     },
     "Ahmedabad": {
       "total_shows": 2,
@@ -365,7 +365,7 @@
       "unlisted_shows": 7
     },
     "Goa": {
-      "total_shows": 21,
+      "total_shows": 23,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -376,7 +376,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 20
+      "unlisted_shows": 22
     },
     "Kolkata": {
       "total_shows": 9,
@@ -423,7 +423,7 @@
       "unlisted_shows": 0
     },
     "Delhi": {
-      "total_shows": 31,
+      "total_shows": 33,
       "venues": [
         {
           "name": "Paul John Luxury Blended Water",
@@ -506,10 +506,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 21
+      "unlisted_shows": 23
     },
     "Dehradun": {
-      "total_shows": 3,
+      "total_shows": 4,
       "venues": [
         {
           "name": "DEHARADUN",
@@ -520,10 +520,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 2
+      "unlisted_shows": 3
     },
     "Chennai": {
-      "total_shows": 3,
+      "total_shows": 4,
       "venues": [
         {
           "name": "Watson\u2019s Chennai.",
@@ -538,6 +538,14 @@
           "shows": 1,
           "price_min": 379,
           "price_max": 379,
+          "next_date": "29 Nov Sun",
+          "growth": 0
+        },
+        {
+          "name": "Watsons.pub Chennai.",
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
           "next_date": "29 Nov Sun",
           "growth": null
         }
@@ -589,8 +597,17 @@
       "unlisted_shows": 7
     },
     "Kochi": {
-      "total_shows": 4,
-      "venues": [],
+      "total_shows": 5,
+      "venues": [
+        {
+          "name": "Watson\u2019s",
+          "shows": 1,
+          "price_min": 300,
+          "price_max": 300,
+          "next_date": "29 Nov Sun",
+          "growth": null
+        }
+      ],
       "unlisted_shows": 4
     },
     "Mysuru": {
@@ -599,8 +616,17 @@
       "unlisted_shows": 1
     },
     "Chandigarh": {
-      "total_shows": 2,
-      "venues": [],
+      "total_shows": 3,
+      "venues": [
+        {
+          "name": "SOCIAL",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "27 Nov Fri",
+          "growth": null
+        }
+      ],
       "unlisted_shows": 2
     },
     "Guwahati": {
@@ -627,6 +653,20 @@
           "price_max": 1999,
           "next_date": "28 Nov Sat",
           "growth": 0
+        }
+      ],
+      "unlisted_shows": 0
+    },
+    "Mohali": {
+      "total_shows": 1,
+      "venues": [
+        {
+          "name": "SOCIAL",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "28 Nov Sat",
+          "growth": null
         }
       ],
       "unlisted_shows": 0

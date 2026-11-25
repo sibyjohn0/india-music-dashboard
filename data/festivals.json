@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-24T11:03:47.448365+00:00",
+  "generated_at": "2026-11-25T09:53:38.139471+00:00",
   "counts": {
-    "festivals": 29,
-    "tours": 15,
+    "festivals": 30,
+    "tours": 14,
     "marquee": 14,
     "international": 8,
     "indian": 36,
-    "new_this_run": 0
+    "new_this_run": 3
   },
   "festivals": [
     {
@@ -336,23 +336,75 @@
       "origin": "indian"
     },
     {
-      "title": "Dev Deepawali Deep Utsav Family Series-Limited",
+      "title": "Christmas Carnival 2026",
       "type": "festival",
-      "key": "dev deepawali deep utsav family series",
-      "cities": [],
+      "key": "christmas carnival",
+      "cities": [
+        "Kolkata"
+      ],
       "dates": [
         {
-          "date": "2026-11-24",
-          "date_obj": "2026-11-24",
-          "city": "",
-          "venue": "Shivala Ghat, Varanasi",
+          "date": "2026-11-25",
+          "date_obj": "2026-11-25",
+          "city": "Kolkata",
+          "venue": "Princeton Club(Tollygunge)",
           "time": "",
           "price": "",
           "url": "",
           "source": "thumpn"
         }
       ],
-      "soonest": "2026-11-24",
+      "soonest": "2026-11-25",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "MAD Fest",
+      "type": "festival",
+      "key": "mad fest",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-11-26",
+          "date_obj": "2026-11-26",
+          "city": "",
+          "venue": "Anjuna",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-11-26",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
+    },
+    {
+      "title": "Dehradun Literature Festival",
+      "type": "festival",
+      "key": "dehradun literature festival",
+      "cities": [],
+      "dates": [
+        {
+          "date": "2026-11-27",
+          "date_obj": "2026-11-27",
+          "city": "",
+          "venue": "Doon International School Riverside Campus",
+          "time": "",
+          "price": "",
+          "url": "",
+          "source": "thumpn"
+        }
+      ],
+      "soonest": "2026-11-27",
       "marquee": false,
       "official_url": "",
       "ig": "",
@@ -710,33 +762,6 @@
       "season": "",
       "tags": [],
       "origin": "international"
-    },
-    {
-      "title": "The Festival of Lights – A Diwali Celebration",
-      "type": "festival",
-      "key": "the festival of lights",
-      "cities": [
-        "Bengaluru"
-      ],
-      "dates": [
-        {
-          "date": "2027-10-26",
-          "date_obj": "2027-10-26",
-          "city": "Bengaluru",
-          "venue": "",
-          "time": "07:00 PM",
-          "price": "from ₹3,540",
-          "url": "https://www.skillboxes.com/events/the-festival-of-lights-a-diwali-celebration-sbvpmkcl",
-          "source": "skillboxes"
-        }
-      ],
-      "soonest": "2027-10-26",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
     }
   ],
   "tours": [
@@ -1065,7 +1090,7 @@
           "city": "Delhi",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,549–₹200,000",
+          "price": "₹2,399–₹200,000",
           "url": "https://www.skillboxes.com/events/khalid-live-in-delhi-ncr-sbnorbid",
           "source": "skillboxes"
         },
@@ -1075,7 +1100,7 @@
           "city": "Bengaluru",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,549–₹200,000",
+          "price": "₹2,399–₹200,000",
           "url": "https://www.skillboxes.com/events/khalid-live-in-bengaluru-sbntavxl",
           "source": "skillboxes"
         },
@@ -1085,7 +1110,7 @@
           "city": "Mumbai",
           "venue": "",
           "time": "06:00 PM",
-          "price": "₹2,549–₹200,000",
+          "price": "₹2,399–₹200,000",
           "url": "https://www.skillboxes.com/events/khalid-live-in-mumbai-sbnvftfc",
           "source": "skillboxes"
         }
@@ -1238,38 +1263,17 @@
       "season": "",
       "tags": [],
       "origin": "international"
-    },
-    {
-      "title": "AR Rahman The Wonderment Tour Live",
-      "type": "tour",
-      "key": "ar rahman the wonderment tour live",
-      "cities": [
-        "Ahmedabad"
-      ],
-      "dates": [
-        {
-          "date": "2027-03-27",
-          "date_obj": "2027-03-27",
-          "city": "Ahmedabad",
-          "venue": "Gift City",
-          "time": "",
-          "price": "from ₹999",
-          "url": "https://in.bookmyshow.com/events/ar-rahman-the-wonderment-tour-live-ahmedabad/ET00515069",
-          "source": "bookmyshow"
-        }
-      ],
-      "soonest": "2027-03-27",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
-      "origin": "indian"
     }
   ],
-  "new_this_run": [],
+  "new_this_run": [
+    "Christmas Carnival 2026",
+    "MAD Fest",
+    "Dehradun Literature Festival"
+  ],
   "_all_keys": [
-    "dev deepawali deep utsav family series",
+    "christmas carnival",
+    "mad fest",
+    "dehradun literature festival",
     "horn ok please",
     "karan kanchan s kitty party",
     "rainburn adrift in india tour",
