@@ -5,7 +5,7 @@
 MusicVenue + ItemList JSON-LD per venue and Breadcrumb schema, and a two-way
 internal-linking loop with /live/. Runs daily in the pipeline.
 """
-import json, html, datetime
+import json, html, datetime, re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -168,6 +168,40 @@ def venue_schema(v, city_name):
     return ('{"@type":"MusicVenue","name":%s,"address":{"@type":"PostalAddress","addressLocality":%s,"addressRegion":%s,"addressCountry":"IN"}}'
             % (json.dumps(v["name"]), json.dumps(v.get("area") or city_name), json.dumps(city_name)))
 
+def parse_price(s):
+    """'from ₹6,999' -> '6999', or None. Same convention as /live/'s schema:
+    Google's Event rich-result guidance wants a plain number, not a
+    formatted string with the currency symbol baked in."""
+    if not s:
+        return None
+    m = re.search(r"[\d,]+", s)
+    if not m:
+        return None
+    try:
+        return str(int(m.group(0).replace(",", "")))
+    except ValueError:
+        return None
+
+def gig_event_schema(g, venue_name, city_name):
+    """MusicEvent per upcoming show, mirroring /live/'s schema -- this page's
+    GSC data shows 'venue'-framed queries ranking fine but 'concerts in
+    <city>'-framed queries ranking 40-70 places worse on the same page,
+    even though the content already answers that intent. Real Event
+    schema is the structured-data signal that was missing."""
+    price = parse_price(g.get("price"))
+    price_fields = (',"price":%s,"priceCurrency":"INR"' % json.dumps(price)) if price else ""
+    offers = ""
+    if g.get("url"):
+        offers = (',"offers":{"@type":"Offer","url":%s,"availability":"https://schema.org/InStock"%s}'
+                  % (json.dumps(g["url"]), price_fields))
+    return ('{"@type":"MusicEvent","name":%s,"startDate":%s,'
+            '"eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",'
+            '"eventStatus":"https://schema.org/EventScheduled",'
+            '"image":"https://indiemusicindia.com/og-image.png",'
+            '"location":{"@type":"Place","name":%s,"address":{"@type":"PostalAddress","addressLocality":%s,"addressCountry":"IN"}}%s}'
+            % (json.dumps(g["name"]), json.dumps(g["date"]), json.dumps(venue_name),
+               json.dumps(city_name), offers))
+
 
 def build():
     data = json.load(open(SRC))
@@ -238,8 +272,16 @@ def build():
         cards = "\n".join(venue_card(v) for v in venues) or '<p style="color:var(--muted)">Venue listings for this city land here as shows are announced.</p>'
         items = ",".join('{"@type":"ListItem","position":%d,"item":%s}' % (i + 1, venue_schema(v, c["name"]))
                          for i, v in enumerate(venues))
+        event_items, epos = [], 0
+        for v in venues:
+            for g in v["gigs"]:
+                epos += 1
+                event_items.append('{"@type":"ListItem","position":%d,"item":%s}' % (epos, gig_event_schema(g, v["name"], c["name"])))
+        events_ld = (('\n  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList",'
+                      '"name":"Upcoming concerts in %s","numberOfItems":%d,"itemListElement":[%s]}</script>')
+                     % (esc(c["name"]), epos, ",".join(event_items))) if epos else ""
         city_ld = f'''<script type="application/ld+json">{{"@context":"https://schema.org","@type":"CollectionPage","name":"Concerts and live music in {esc(c["name"])}","url":"https://indiemusicindia.com/venues/{esc(slug)}/"}}</script>
-  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ItemList","name":"Live music venues in {esc(c["name"])}","numberOfItems":{len(venues)},"itemListElement":[{items}]}}</script>
+  <script type="application/ld+json">{{"@context":"https://schema.org","@type":"ItemList","name":"Live music venues in {esc(c["name"])}","numberOfItems":{len(venues)},"itemListElement":[{items}]}}</script>{events_ld}
   <script type="application/ld+json">{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{{"@type":"ListItem","position":1,"name":"Home","item":"https://indiemusicindia.com/"}},{{"@type":"ListItem","position":2,"name":"Venues","item":"https://indiemusicindia.com/venues/"}},{{"@type":"ListItem","position":3,"name":"{esc(c["name"])}","item":"https://indiemusicindia.com/venues/{esc(slug)}/"}}]}}</script>'''
         count_line = (f"{c['show_count']} shows across {c['venue_count']} venues, updated daily."
                       if c["show_count"] else "Updated daily as new dates are announced.")
@@ -255,7 +297,7 @@ def build():
   <div class="crumb"><a href="/">Home</a> / <a href="/venues/">Venues</a> / {esc(c["name"])}</div>
   <div class="eyebrow">Live music venues · {esc(c["name"])}</div>
   <h1>Live Music Venues in {esc(c["name"])}</h1>
-  <p class="lead">{FLAVOR.get(slug, "The rooms hosting live music in " + esc(c["name"]) + ".")} Every upcoming concert and gig right now, ranked by what's on. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--pink-text);font-weight:700">festivals &amp; tours calendar</a>.{scene_link}</p>
+  <p class="lead">{FLAVOR.get(slug, "The rooms hosting live music in " + esc(c["name"]) + ".")} Every upcoming concert in {esc(c["name"])} right now, ranked by what's on, not a stale list from last month. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--pink-text);font-weight:700">festivals &amp; tours calendar</a>.{scene_link}</p>
   <div class="stat">{c["venue_count"]} venues · {c["show_count"]} upcoming shows · updated {updated}</div>
   <h2 class="sec">Live music venues in {esc(c["name"])}, by what's on</h2>
 {cards}

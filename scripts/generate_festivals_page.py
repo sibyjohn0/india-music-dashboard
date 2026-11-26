@@ -262,6 +262,17 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
   <div class="seclead">Artist tours and one-off concerts, soonest first. Multi-city tours are grouped.</div>
 {tour_html}
 
+  <h2 class="sec">Concerts by city</h2>
+  <div class="seclead">Every upcoming show at the venues hosting them, city by city.</div>
+  <div class="links" style="flex-wrap:wrap">
+    <a class="official" href="/venues/mumbai/">Concerts in Mumbai →</a>
+    <a class="official" href="/venues/delhi/">Concerts in Delhi →</a>
+    <a class="official" href="/venues/bengaluru/">Concerts in Bengaluru →</a>
+    <a class="official" href="/venues/hyderabad/">Concerts in Hyderabad →</a>
+    <a class="official" href="/venues/pune/">Concerts in Pune →</a>
+    <a class="official" href="/venues/goa/">Concerts in Goa →</a>
+  </div>
+
   <div class="cta">
     <h3>Playing one of these? Or want to be?</h3>
     <p>We help independent Indian artists get heard, get paid and get on stage. The Radar tracks who's rising, and the programme is hands-on.</p>
