@@ -105,6 +105,20 @@ def card(e):
     {status}
   </div>'''
 
+def parse_price(s):
+    """'from ₹6,999' or '₹1,499–₹13,999' -> lowest numeric price, cleanly, or None.
+    Google's Event rich-result guidance wants offers.price as a plain number,
+    not a formatted string with the currency symbol baked in."""
+    if not s:
+        return None
+    m = re.search(r"[\d,]+", s)
+    if not m:
+        return None
+    try:
+        return str(int(m.group(0).replace(",", "")))
+    except ValueError:
+        return None
+
 def schema_events(entries):
     items, pos = [], 0
     for e in entries:
@@ -115,11 +129,14 @@ def schema_events(entries):
             loc_name = d.get("venue") or d.get("city") or "India"
             offers = ""
             if d.get("url"):
-                offers = f',"offers":{{"@type":"Offer","url":{json.dumps(d["url"])},"availability":"https://schema.org/InStock"}}'
+                price = parse_price(d.get("price"))
+                price_fields = (',"price":%s,"priceCurrency":"INR"' % json.dumps(price)) if price else ""
+                offers = (',"offers":{"@type":"Offer","url":%s,"availability":"https://schema.org/InStock"%s}'
+                          % (json.dumps(d["url"]), price_fields))
             items.append(
                 '{"@type":"ListItem","position":%d,"item":{"@type":"MusicEvent","name":%s,'
                 '"startDate":"%s","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",'
-                '"eventStatus":"https://schema.org/EventScheduled",'
+                '"eventStatus":"https://schema.org/EventScheduled","image":"https://indiemusicindia.com/og-image.png",'
                 '"location":{"@type":"Place","name":%s,"address":{"@type":"PostalAddress","addressLocality":%s,"addressCountry":"IN"}}%s}}'
                 % (pos, json.dumps(e["title"]), d["date_obj"], json.dumps(loc_name),
                    json.dumps(d.get("city") or "India"), offers))
@@ -143,11 +160,11 @@ def build():
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-R7EYMGZEJZ"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-R7EYMGZEJZ');</script>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upcoming concerts, festivals &amp; tours in India 2026–27: dates, venues, tickets — Indie Music India</title>
-  <meta name="description" content="Upcoming concerts, festivals and tours across India: dates, venues, lineups and ticket links for the independent music scene, updated daily." />
+  <title>Concerts, Festivals &amp; Tours in India {datetime.date.today().year}: Dates &amp; Tickets</title>
+  <meta name="description" content="Every upcoming concert, festival and tour in India right now: dates, venues, lineups and ticket links, updated daily. Not a static list -- the real calendar." />
   <link rel="canonical" href="https://indiemusicindia.com/live/" />
-  <meta property="og:title" content="Upcoming concerts, festivals & tours in India: dates, venues, tickets" />
-  <meta property="og:description" content="Upcoming concert, festival and tour dates across India, updated daily. Tickets, venues and official links in one place." />
+  <meta property="og:title" content="Concerts, Festivals & Tours in India: Dates & Tickets" />
+  <meta property="og:description" content="Every upcoming concert, festival and tour in India right now, updated daily. Tickets, venues and official links in one place." />
   <meta property="og:url" content="https://indiemusicindia.com/live/" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://indiemusicindia.com/og-image.png" />
