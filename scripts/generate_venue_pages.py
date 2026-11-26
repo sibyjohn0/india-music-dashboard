@@ -239,6 +239,14 @@ def build():
   <p class="lead">Every upcoming concert, gig and live show across India, city by city: the rooms hosting live music in each metro, ranked by what's on, with ticket links. Built from the ticketing feeds and updated daily.</p>
   <p style="font-size:14px;color:var(--muted);max-width:640px;margin:14px 0 24px;line-height:1.7">A live music venue here means a real room with a show actually on its calendar right now, not a listing that might book music someday. We pull from public ticketing platforms daily and group by city, so you can see what's actually playing in Delhi, Mumbai, Bengaluru, Goa, Pune and Hyderabad without digging through six different apps.</p>
   <div class="stat">{tot_v} venues · {tot_s} upcoming shows · updated {updated}</div>
+
+  <div class="cta" style="margin-top:24px">
+    <h3>Run one of these venues?</h3>
+    <p>If you book live shows, you're probably already here, pulled automatically from public ticketing listings. Want to stand out instead? A featured placement puts your venue in its own spot at the top of its city page.</p>
+    <a class="btn" href="mailto:sibyjohn0@gmail.com?subject=Venue%20listing%20for%20indiemusicindia.com">Check your listing &rarr;</a>
+    <a style="display:inline-block;margin-left:14px;font-size:13px;font-weight:700;color:var(--pink-text)" href="mailto:sibyjohn0@gmail.com?subject=Featured%20venue%20placement%20on%20indiemusicindia.com">Ask about featured placement &rarr;</a>
+  </div>
+
   <div class="cities">
 {cards}
   </div>
@@ -299,6 +307,14 @@ def build():
   <h1>Live Music Venues in {esc(c["name"])}</h1>
   <p class="lead">{FLAVOR.get(slug, "The rooms hosting live music in " + esc(c["name"]) + ".")} Every upcoming concert in {esc(c["name"])} right now, ranked by what's on, not a stale list from last month. Tap a show for tickets, or see the full <a href="/live/" style="color:var(--pink-text);font-weight:700">festivals &amp; tours calendar</a>.{scene_link}</p>
   <div class="stat">{c["venue_count"]} venues · {c["show_count"]} upcoming shows · updated {updated}</div>
+
+  <div class="cta" style="margin-top:24px">
+    <h3>Run one of these venues?</h3>
+    <p>If you book live shows, you're probably already listed below, pulled automatically from public ticketing listings. Want to stand out instead? A featured placement puts you in your own spot at the top of this page.</p>
+    <a class="btn" href="mailto:sibyjohn0@gmail.com?subject=Venue%20listing%20for%20indiemusicindia.com">Check your listing &rarr;</a>
+    <a style="display:inline-block;margin-left:14px;font-size:13px;font-weight:700;color:var(--pink-text)" href="mailto:sibyjohn0@gmail.com?subject=Featured%20venue%20placement%20on%20indiemusicindia.com">Ask about featured placement &rarr;</a>
+  </div>
+
   <h2 class="sec">Live music venues in {esc(c["name"])}, by what's on</h2>
 {cards}
   <section style="margin:36px 0">
@@ -310,7 +326,7 @@ def build():
     {f'<h3 style="font-size:15px;font-weight:800;margin:16px 0 4px">New to the {esc(c["name"])} scene?</h3><p style="font-size:14px;color:var(--muted);line-height:1.7">Our <a href="/guides/independent-music-scene-{slug}/" style="color:var(--pink-text);font-weight:700">{esc(c["name"])} scene guide</a> covers how the circuit works here, from first gigs to the rooms worth chasing.</p>' if slug in ("mumbai","bengaluru","delhi","hyderabad","pune","goa") else ''}
   </section>
   <div class="cta">
-    <h3>Run a venue, or play one?</h3>
+    <h3>Play one of these rooms?</h3>
     <p>We help independent Indian artists get heard, get paid and get on stage.</p>
     <a class="btn" href="/programme/">The programme →</a>
     <a class="btn ghost" href="/live/">Festivals &amp; tours →</a>
