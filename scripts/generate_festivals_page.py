@@ -252,6 +252,14 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
   <p class="lead">Every upcoming concert, festival and tour worth knowing about, in one place: dates, cities, venues and ticket links, from India's marquee festivals to the international acts touring here. Deduped from the ticketing platforms and updated daily.</p>
   <div class="stat">{c.get("festivals",0)} festivals · {c.get("tours",0)} tours · {c.get("international",0)} international acts · updated {updated}</div>
 
+  <div class="cta" style="margin-top:24px">
+    <h3>Running a festival or tour?</h3>
+    <p>Free listing for any genuine independent-music event: tell us and it goes straight into this calendar. Want it to stand out instead? A featured placement puts your festival in its own card at the top of this page, the same spot DGTL India got.</p>
+    <a class="btn" href="mailto:sibyjohn0@gmail.com?subject=Festival%20listing%20for%20indiemusicindia.com">List it free &rarr;</a>
+    <a style="display:inline-block;margin-left:14px;font-size:13px;font-weight:700;color:var(--pink-text)" href="mailto:sibyjohn0@gmail.com?subject=Featured%20placement%20on%20indiemusicindia.com">Ask about featured placement &rarr;</a>
+    <div style="margin-top:10px;font-size:13px"><a style="color:var(--pink-text);font-weight:700" href="https://wa.me/919960025559" target="_blank" rel="noopener">Or WhatsApp +91 99600 25559 &rarr;</a></div>
+  </div>
+
   {f'<h2 class="sec">Featured</h2>{featured_html}' if featured_html else ''}
 
   <h2 class="sec">Festivals</h2>
@@ -277,13 +285,6 @@ nav.js-primnav a{{font-size:22px!important;font-weight:700!important;padding:14p
     <h3>Playing one of these? Or want to be?</h3>
     <p>We help independent Indian artists get heard, get paid and get on stage. The Radar tracks who's rising, and the programme is hands-on.</p>
     <a class="btn" href="/programme/">Get a real team behind your music →</a>
-  </div>
-
-  <div class="cta">
-    <h3>Running a festival or tour?</h3>
-    <p>If it belongs on this page, tell us directly, we list genuine independent-music events for free.</p>
-    <a class="btn" href="mailto:sibyjohn0@gmail.com?subject=Festival%20listing%20for%20indiemusicindia.com">Pitch your festival →</a>
-    <a style="display:inline-block;margin-left:14px;font-size:13px;font-weight:700;color:var(--pink-text)" href="https://wa.me/919960025559" target="_blank" rel="noopener">Or WhatsApp +91 99600 25559 →</a>
   </div>
 </div>
 <footer>
