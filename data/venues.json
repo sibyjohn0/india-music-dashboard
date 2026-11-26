@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-25T09:53:38.213983+00:00",
+  "generated_at": "2026-11-26T09:33:23.241224+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
-      "venue_count": 16,
-      "show_count": 23,
+      "venue_count": 17,
+      "show_count": 24,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -264,6 +264,22 @@
           "next_date": "2027-03-20"
         },
         {
+          "name": "antiSOCIAL,",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "X'Mas Special | DJ Hyperdrive x Human Safari | antiSOCIAL, Mumbai",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/x-mas-special-dj-hyperdrive-x-human-safari-antisocial-mumbai-sbpkmidg",
+              "price": "from ₹799",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
+        },
+        {
           "name": "Rule34",
           "city": "Mumbai",
           "area": "",
@@ -382,7 +398,7 @@
               "name": "Paul John Luxury Blended Water Presents Kaarigari",
               "date": "2026-12-04",
               "url": "https://www.skillboxes.com/events/paul-john-s-whisky-x-kommune-kaarigari-sbyygwal",
-              "price": "₹2,999–₹3,999",
+              "price": "from ₹2,999",
               "source": "skillboxes"
             }
           ],
@@ -863,15 +879,48 @@
     },
     "pune": {
       "name": "Pune",
-      "venue_count": 0,
-      "show_count": 0,
-      "venues": []
+      "venue_count": 1,
+      "show_count": 1,
+      "venues": [
+        {
+          "name": "antisocial",
+          "city": "Pune",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Damru Live at antisocial Pune",
+              "date": "2026-12-12",
+              "url": "https://www.skillboxes.com/events/damru-live-at-antisocial-pune-sbnzhcdd",
+              "price": "from ₹799",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-12-12"
+        }
+      ]
     },
     "goa": {
       "name": "Goa",
-      "venue_count": 2,
-      "show_count": 2,
+      "venue_count": 3,
+      "show_count": 3,
       "venues": [
+        {
+          "name": "Hilltop, Vagator",
+          "city": "Goa",
+          "area": "Vagator",
+          "gigs": [
+            {
+              "name": "Royal Enfield Motoverse 2026",
+              "date": "2026-11-27",
+              "url": "",
+              "price": "",
+              "source": "thumpn"
+            }
+          ],
+          "shows": 1,
+          "next_date": "2026-11-27"
+        },
         {
           "name": "Thalassa Beach Boutique Resort",
           "city": "Goa",

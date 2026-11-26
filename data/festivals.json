@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-11-25T09:53:38.139471+00:00",
+  "generated_at": "2026-11-26T09:33:23.167055+00:00",
   "counts": {
-    "festivals": 30,
-    "tours": 14,
+    "festivals": 29,
+    "tours": 15,
     "marquee": 14,
     "international": 8,
     "indian": 36,
-    "new_this_run": 3
+    "new_this_run": 0
   },
   "festivals": [
     {
@@ -333,33 +333,6 @@
         "outdoor"
       ],
       "home_city": "Ziro, Arunachal Pradesh",
-      "origin": "indian"
-    },
-    {
-      "title": "Christmas Carnival 2026",
-      "type": "festival",
-      "key": "christmas carnival",
-      "cities": [
-        "Kolkata"
-      ],
-      "dates": [
-        {
-          "date": "2026-11-25",
-          "date_obj": "2026-11-25",
-          "city": "Kolkata",
-          "venue": "Princeton Club(Tollygunge)",
-          "time": "",
-          "price": "",
-          "url": "",
-          "source": "thumpn"
-        }
-      ],
-      "soonest": "2026-11-25",
-      "marquee": false,
-      "official_url": "",
-      "ig": "",
-      "season": "",
-      "tags": [],
       "origin": "indian"
     },
     {
@@ -1263,15 +1236,37 @@
       "season": "",
       "tags": [],
       "origin": "international"
+    },
+    {
+      "title": "AR Rahman The Wonderment Tour Live",
+      "type": "tour",
+      "key": "ar rahman the wonderment tour live",
+      "cities": [
+        "Ahmedabad"
+      ],
+      "dates": [
+        {
+          "date": "2027-03-27",
+          "date_obj": "2027-03-27",
+          "city": "Ahmedabad",
+          "venue": "Gift City",
+          "time": "",
+          "price": "from ₹999",
+          "url": "https://in.bookmyshow.com/events/ar-rahman-the-wonderment-tour-live-ahmedabad/ET00515069",
+          "source": "bookmyshow"
+        }
+      ],
+      "soonest": "2027-03-27",
+      "marquee": false,
+      "official_url": "",
+      "ig": "",
+      "season": "",
+      "tags": [],
+      "origin": "indian"
     }
   ],
-  "new_this_run": [
-    "Christmas Carnival 2026",
-    "MAD Fest",
-    "Dehradun Literature Festival"
-  ],
+  "new_this_run": [],
   "_all_keys": [
-    "christmas carnival",
     "mad fest",
     "dehradun literature festival",
     "horn ok please",

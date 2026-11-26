@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-25T09:44:54.709667+00:00",
-  "snapshot_date": "2026-11-25",
+  "generated_at": "2026-11-26T09:20:36.048369+00:00",
+  "snapshot_date": "2026-11-26",
   "cities": {
     "Mumbai": {
       "total_shows": 45,
@@ -195,7 +195,7 @@
       "unlisted_shows": 0
     },
     "Bangalore": {
-      "total_shows": 69,
+      "total_shows": 70,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -307,10 +307,10 @@
           "price_min": 300,
           "price_max": 300,
           "next_date": "29 Nov Sun",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 47
+      "unlisted_shows": 48
     },
     "Ahmedabad": {
       "total_shows": 2,
@@ -335,7 +335,7 @@
       "unlisted_shows": 0
     },
     "Hyderabad": {
-      "total_shows": 10,
+      "total_shows": 11,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -362,10 +362,10 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 7
+      "unlisted_shows": 8
     },
     "Goa": {
-      "total_shows": 23,
+      "total_shows": 27,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -374,12 +374,20 @@
           "price_max": 4999,
           "next_date": "2027-01-16",
           "growth": 0
+        },
+        {
+          "name": "PSY 30.0",
+          "shows": 1,
+          "price_min": 1000,
+          "price_max": 8000,
+          "next_date": "26 Dec Sat",
+          "growth": null
         }
       ],
-      "unlisted_shows": 22
+      "unlisted_shows": 25
     },
     "Kolkata": {
-      "total_shows": 9,
+      "total_shows": 10,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -406,7 +414,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 6
+      "unlisted_shows": 7
     },
     "India": {
       "total_shows": 1,
@@ -423,8 +431,16 @@
       "unlisted_shows": 0
     },
     "Delhi": {
-      "total_shows": 33,
+      "total_shows": 40,
       "venues": [
+        {
+          "name": "PER SE ROOFTOP",
+          "shows": 2,
+          "price_min": 799,
+          "price_max": 1499,
+          "next_date": "27 Nov Fri",
+          "growth": 1
+        },
         {
           "name": "Paul John Luxury Blended Water",
           "shows": 1,
@@ -448,6 +464,14 @@
           "price_max": 600,
           "next_date": "21 Nov Sat",
           "growth": 0
+        },
+        {
+          "name": "Bad Bard",
+          "shows": 1,
+          "price_min": 299,
+          "price_max": 799,
+          "next_date": "26 Dec Sat",
+          "growth": null
         },
         {
           "name": "Room Xo",
@@ -474,18 +498,18 @@
           "growth": 0
         },
         {
+          "name": "Koca",
+          "shows": 1,
+          "price_min": 499,
+          "price_max": 30000,
+          "next_date": "27 Nov Fri",
+          "growth": null
+        },
+        {
           "name": "KAI ROOM, GURGAON",
           "shows": 1,
           "price_min": 799,
           "price_max": 1999,
-          "next_date": "28 Nov Sat",
-          "growth": 0
-        },
-        {
-          "name": "PER SE ROOFTOP",
-          "shows": 1,
-          "price_min": 799,
-          "price_max": 1499,
           "next_date": "28 Nov Sat",
           "growth": 0
         },
@@ -504,9 +528,25 @@
           "price_max": 999,
           "next_date": "30 Dec Wed",
           "growth": 0
+        },
+        {
+          "name": "JLN Stadium, Gate No. 1",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-27",
+          "growth": null
+        },
+        {
+          "name": "Major Dhyanchand National Stadium",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "2026-11-27",
+          "growth": null
         }
       ],
-      "unlisted_shows": 23
+      "unlisted_shows": 25
     },
     "Dehradun": {
       "total_shows": 4,
@@ -547,7 +587,7 @@
           "price_min": 300,
           "price_max": 300,
           "next_date": "29 Nov Sun",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 1
@@ -563,9 +603,9 @@
       "unlisted_shows": 1
     },
     "Jaipur": {
-      "total_shows": 3,
+      "total_shows": 4,
       "venues": [],
-      "unlisted_shows": 3
+      "unlisted_shows": 4
     },
     "Mandawa": {
       "total_shows": 2,
@@ -605,7 +645,7 @@
           "price_min": 300,
           "price_max": 300,
           "next_date": "29 Nov Sun",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 4
@@ -624,7 +664,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "27 Nov Fri",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 2
@@ -666,7 +706,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "28 Nov Sat",
-          "growth": null
+          "growth": 0
         }
       ],
       "unlisted_shows": 0
