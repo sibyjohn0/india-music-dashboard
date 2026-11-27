@@ -2715,7 +2715,7 @@
   },
   {
     "week": "2026-W48",
-    "date": "2026-11-26",
+    "date": "2026-11-27",
     "cities": {
       "Mumbai": {
         "Mahalaxmi Race Course": {
@@ -2814,6 +2814,12 @@
           "price_max": 499,
           "next_date": "2026-12-12"
         },
+        "antiSOCIAL,": {
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "24 Dec Thu"
+        },
         "Rule34": {
           "shows": 1,
           "price_min": 499,
@@ -2877,8 +2883,8 @@
           "next_date": "2027-01-23"
         },
         "Venue TBC": {
-          "shows": 48,
-          "price_min": 99,
+          "shows": 51,
+          "price_min": 80,
           "price_max": 200000,
           "next_date": "2026-11-27"
         },
@@ -2997,7 +3003,7 @@
           "next_date": "2027-01-16"
         },
         "Venue TBC": {
-          "shows": 25,
+          "shows": 26,
           "price_min": 300,
           "price_max": 28990,
           "next_date": "2026-12-11"
@@ -3028,6 +3034,12 @@
           "price_max": null,
           "next_date": "22 Nov Sun"
         },
+        "Park Street": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "25 Dec Fri"
+        },
         "The Calcutta Listening Club": {
           "shows": 1,
           "price_min": 499,
@@ -3045,7 +3057,7 @@
       },
       "Delhi": {
         "Venue TBC": {
-          "shows": 25,
+          "shows": 26,
           "price_min": 250,
           "price_max": 200000,
           "next_date": "2026-11-28"
@@ -3053,7 +3065,7 @@
         "Paul John Luxury Blended Water": {
           "shows": 1,
           "price_min": 2999,
-          "price_max": 3999,
+          "price_max": 2999,
           "next_date": "2026-12-04"
         },
         "Cosy Box,": {
@@ -3139,7 +3151,7 @@
         "Venue TBC": {
           "shows": 3,
           "price_min": 399,
-          "price_max": 1199,
+          "price_max": 2499,
           "next_date": "2026-11-29"
         },
         "DEHARADUN": {
@@ -3191,6 +3203,20 @@
           "next_date": "2026-12-12"
         }
       },
+      "Pune": {
+        "antisocial": {
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "2026-12-12"
+        },
+        "Venue TBC": {
+          "shows": 8,
+          "price_min": 200,
+          "price_max": 2000,
+          "next_date": "21 Nov Sat"
+        }
+      },
       "Jaipur": {
         "Venue TBC": {
           "shows": 4,
@@ -3215,20 +3241,26 @@
           "next_date": "2026-12-18"
         }
       },
+      "Chandigarh": {
+        "Venue TBC": {
+          "shows": 3,
+          "price_min": 349,
+          "price_max": 1999,
+          "next_date": "2026-12-20"
+        },
+        "SOCIAL": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "27 Nov Fri"
+        }
+      },
       "Hoshiarpur": {
         "Venue TBC": {
           "shows": 1,
           "price_min": 7999,
           "price_max": 7999,
           "next_date": "2027-01-22"
-        }
-      },
-      "Pune": {
-        "Venue TBC": {
-          "shows": 7,
-          "price_min": 200,
-          "price_max": 2000,
-          "next_date": "21 Nov Sat"
         }
       },
       "Kochi": {
@@ -3251,20 +3283,6 @@
           "price_min": 3199,
           "price_max": 3199,
           "next_date": "23 Jan Sat"
-        }
-      },
-      "Chandigarh": {
-        "SOCIAL": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "27 Nov Fri"
-        },
-        "Venue TBC": {
-          "shows": 2,
-          "price_min": 349,
-          "price_max": 1999,
-          "next_date": "28 Nov Sat"
         }
       },
       "Guwahati": {

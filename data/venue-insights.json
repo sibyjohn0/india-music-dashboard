@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-11-26T09:20:36.048369+00:00",
-  "snapshot_date": "2026-11-26",
+  "generated_at": "2026-11-27T09:35:58.871862+00:00",
+  "snapshot_date": "2026-11-27",
   "cities": {
     "Mumbai": {
-      "total_shows": 45,
+      "total_shows": 46,
       "venues": [
         {
           "name": "Mahalaxmi Race Course",
@@ -126,6 +126,14 @@
           "growth": 0
         },
         {
+          "name": "antiSOCIAL,",
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "24 Dec Thu",
+          "growth": null
+        },
+        {
           "name": "Rule34",
           "shows": 1,
           "price_min": 499,
@@ -195,7 +203,7 @@
       "unlisted_shows": 0
     },
     "Bangalore": {
-      "total_shows": 70,
+      "total_shows": 73,
       "venues": [
         {
           "name": "HOD CLUB",
@@ -310,7 +318,7 @@
           "growth": 0
         }
       ],
-      "unlisted_shows": 48
+      "unlisted_shows": 51
     },
     "Ahmedabad": {
       "total_shows": 2,
@@ -365,7 +373,7 @@
       "unlisted_shows": 8
     },
     "Goa": {
-      "total_shows": 27,
+      "total_shows": 28,
       "venues": [
         {
           "name": "Thalassa Beach Boutique Resort",
@@ -381,13 +389,13 @@
           "price_min": 1000,
           "price_max": 8000,
           "next_date": "26 Dec Sat",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 25
+      "unlisted_shows": 26
     },
     "Kolkata": {
-      "total_shows": 10,
+      "total_shows": 11,
       "venues": [
         {
           "name": "Venue to be announced",
@@ -404,6 +412,14 @@
           "price_max": null,
           "next_date": "22 Nov Sun",
           "growth": 0
+        },
+        {
+          "name": "Park Street",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "25 Dec Fri",
+          "growth": null
         },
         {
           "name": "The Calcutta Listening Club",
@@ -431,7 +447,7 @@
       "unlisted_shows": 0
     },
     "Delhi": {
-      "total_shows": 40,
+      "total_shows": 41,
       "venues": [
         {
           "name": "PER SE ROOFTOP",
@@ -439,13 +455,13 @@
           "price_min": 799,
           "price_max": 1499,
           "next_date": "27 Nov Fri",
-          "growth": 1
+          "growth": 0
         },
         {
           "name": "Paul John Luxury Blended Water",
           "shows": 1,
           "price_min": 2999,
-          "price_max": 3999,
+          "price_max": 2999,
           "next_date": "2026-12-04",
           "growth": 0
         },
@@ -471,7 +487,7 @@
           "price_min": 299,
           "price_max": 799,
           "next_date": "26 Dec Sat",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Room Xo",
@@ -503,7 +519,7 @@
           "price_min": 499,
           "price_max": 30000,
           "next_date": "27 Nov Fri",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "KAI ROOM, GURGAON",
@@ -535,7 +551,7 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-11-27",
-          "growth": null
+          "growth": 0
         },
         {
           "name": "Major Dhyanchand National Stadium",
@@ -543,10 +559,10 @@
           "price_min": null,
           "price_max": null,
           "next_date": "2026-11-27",
-          "growth": null
+          "growth": 0
         }
       ],
-      "unlisted_shows": 25
+      "unlisted_shows": 26
     },
     "Dehradun": {
       "total_shows": 4,
@@ -602,6 +618,20 @@
       "venues": [],
       "unlisted_shows": 1
     },
+    "Pune": {
+      "total_shows": 9,
+      "venues": [
+        {
+          "name": "antisocial",
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "2026-12-12",
+          "growth": null
+        }
+      ],
+      "unlisted_shows": 8
+    },
     "Jaipur": {
       "total_shows": 4,
       "venues": [],
@@ -626,15 +656,24 @@
       ],
       "unlisted_shows": 0
     },
+    "Chandigarh": {
+      "total_shows": 4,
+      "venues": [
+        {
+          "name": "SOCIAL",
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "27 Nov Fri",
+          "growth": 0
+        }
+      ],
+      "unlisted_shows": 3
+    },
     "Hoshiarpur": {
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
-    },
-    "Pune": {
-      "total_shows": 7,
-      "venues": [],
-      "unlisted_shows": 7
     },
     "Kochi": {
       "total_shows": 5,
@@ -654,20 +693,6 @@
       "total_shows": 1,
       "venues": [],
       "unlisted_shows": 1
-    },
-    "Chandigarh": {
-      "total_shows": 3,
-      "venues": [
-        {
-          "name": "SOCIAL",
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "27 Nov Fri",
-          "growth": 0
-        }
-      ],
-      "unlisted_shows": 2
     },
     "Guwahati": {
       "total_shows": 1,
