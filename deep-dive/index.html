@@ -376,6 +376,8 @@ body.mnav-open .mnav-burger span:nth-child(3){transform:translateY(-7px) rotate(
         for (const [city, list] of Object.entries(data.cities)) {
           if (Array.isArray(list)) list.forEach(e => events.push({...e, _city: city}));
         }
+      } else if (data && Array.isArray(data.events)) {
+        events.push(...data.events);
       } else if (Array.isArray(data)) {
         events.push(...data);
       }
