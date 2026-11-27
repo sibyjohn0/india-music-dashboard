@@ -30,7 +30,7 @@ GUIDES = [
      "On release day: share the link everywhere, add it to your Instagram bio and pinned story, and ask your close network to save the track (saves matter more than a one-time play). Then keep going, one release rarely moves the needle. Sequencing releases so each builds on the last is the difference between growth and disappearing, which is the heart of the <a href=\"/guides/12-week-release-plan-india/\">12-week release plan</a>."]}],
  "faq":[
    ("How much does it cost to release a song in India?","With a flat-fee distributor you can release for roughly the price of a small annual subscription, often under a couple of thousand rupees a year for unlimited songs. Mixing and mastering are the bigger variable cost."),
-   ("Do I need a label to release music in India?","No. Any independent artist can release directly through a distributor. A label is one option, not a requirement, and most take rights in exchange."),
+   ("Do I need a label to release music in India?","No. Any independent artist can release directly through a distributor. A <a href=\"/guides/independent-record-labels-india/\">label is one option</a>, not a requirement, and most take rights in exchange."),
    ("How long before release should I upload?","Upload and schedule at least two to four weeks ahead so you can pitch Spotify editorial and reach curators while the song is still unreleased."),
    ("Is publishing music the same as releasing it?","Not quite. Releasing is getting your track onto Spotify, Apple Music and JioSaavn through a distributor, which is what this guide covers. Publishing specifically means registering your composition, the lyrics and melody, with IPRS so you collect royalties when it is played or covered, a separate step covered in Step 5 below. Most searches for how to publish music in India are really asking about this whole release process.")]
 },
@@ -448,7 +448,7 @@ GUIDES = [
      "One song rarely changes anything. Release on a rhythm so each builds on the last, grow an audience you own, and think in campaigns, not one-offs. Money for independent artists comes from live shows, sync and real fans more than streaming, see <a href=\"/guides/make-money-independent-artist-india/\">making money as an independent artist</a>. That long game is the whole point of the <a href=\"/programme/\">programme</a>."]}],
  "faq":[
    ("How do I become an independent artist in India?","Release your music through a distributor (no label needed), set up your rights (ISRC and IPRS) and verified artist profiles, keep 100% of your rights, then promote each release and build an audience you own. Treat it as a business you control."),
-   ("Do I need a label to release music in India?","No. Any independent artist can release directly through a distributor onto Spotify, Apple Music, JioSaavn and YouTube Music. A label is one option, not a requirement, and most take your rights in exchange."),
+   ("Do I need a label to release music in India?","No. Any independent artist can release directly through a distributor onto Spotify, Apple Music, JioSaavn and YouTube Music. A <a href=\"/guides/independent-record-labels-india/\">label is one option</a>, not a requirement, and most take your rights in exchange."),
    ("How do independent artists make money in India?","Mostly from live shows, sync licensing and direct fan support, more than streaming, which pays little in India. Keeping your rights and collecting your publishing royalties matters too.")]
 },
 {
@@ -494,7 +494,7 @@ GUIDES = [
             "<b>Promotion and press.</b> Playlists, press, and short video working together around each release.",
             "<b>The business foundation.</b> Rights, distribution, and royalties set up correctly so you keep what you earn."]}]},
    {"h2":"Development vs management vs a label","body":[
-     "These get confused. Artist development builds the thing: your sound, audience, and strategy. A manager runs the business day to day once there is a business to run, see <a href=\"/guides/artist-development-vs-artist-management-india/\">development vs management</a>. A label funds and distributes in exchange for rights or a cut. Early in a career, development is almost always what you actually need, not management or a deal."]},
+     "These get confused. Artist development builds the thing: your sound, audience, and strategy. A manager runs the business day to day once there is a business to run, see <a href=\"/guides/artist-development-vs-artist-management-india/\">development vs management</a>. A <a href=\"/guides/independent-record-labels-india/\">label</a> funds and distributes in exchange for rights or a cut. Early in a career, development is almost always what you actually need, not management or a deal."]},
    {"h2":"When do you need artist development?","body":[
      "If you are releasing music but it is not building on itself, if you have talent but no plan, or if you are about to invest a year into a catalogue and want it to land, that is the moment for development. It matters most before and across a run of releases, not after one has already underperformed."]},
    {"h2":"How to find the right team in India","body":[
@@ -550,5 +550,33 @@ GUIDES = [
    ("How do I get more listeners on Spotify in India?","Work both reach and retention: pitch editorial and independent playlists, use short video to reach non-followers, and drive saves and follows rather than passive plays. Saves and follows signal the platform and build the audience that lifts your next release."),
    ("How do I promote songs I have already released?","You do not need a new release to grow. Pitch older tracks to playlists, cut fresh Reels and Shorts from existing songs, refresh your profile and Spotify Canvas, and keep driving saves. Released work keeps finding listeners if you keep working it."),
    ("How do I turn listeners into fans?","Give first-time listeners a reason to follow and come back: a clear brand and identity, consistent presence, and a direct ask to follow and save. Then move engaged listeners toward something you own, like an email list or WhatsApp, so you can reach them for every release.")]
+},
+{
+ "slug":"independent-record-labels-india","cat":"Distribution","hero":"cassette",
+ "title":"Independent Record Labels in India: Who's Active and What They Do",
+ "desc":"The independent Indian labels actually signing artists right now, by genre, what a label does versus a distributor, and whether you need one.",
+ "lead":"You do not need a label to release music in India, a distributor does that job. But labels still exist, fund records, and shape careers. Here is who is actually active, and what signing one really means.",
+ "tldr":"A record label funds and pushes a record in exchange for a share of rights or royalties; a <a href=\"/guides/best-music-distributor-india/\">distributor</a> just delivers your track to platforms for a flat fee or small cut and takes nothing else. In hip-hop, the names to know are <b>Kalamkaar</b> (Raftaar's label, signed Krsna and Karma), <b>Azadi Records</b> (Prabh Deep, formerly Seedhe Maut), <b>DL91</b> (Seedhe Maut's own label since 2024), <b>Mass Appeal India</b> and <b>IncInk Records</b>. In electronic, <b>Qilla Records</b> and <b>Milkman Records</b>. In indie and alternative, <b>Pagal Haina</b> (Peter Cat Recording Co.), <b>ennui.BOMB</b> and <b>Amarrass Records</b> (folk). Most working independent artists in India still <a href=\"/guides/how-to-release-a-song-in-india/\">self-release through a distributor</a> rather than sign away rights.",
+ "sections":[
+   {"h2":"What a label actually does, versus a distributor","body":[
+     "A distributor is a pipe: it gets your finished track onto Spotify, Apple Music and JioSaavn for a flat annual fee or a small percentage, and you keep your rights. A label is an investor: it funds recording, marketing or touring, and in exchange takes a share of your masters, your royalties, or both, usually for a fixed number of releases or years.",
+     "Neither is automatically better. A label can mean real budget and a team behind a release; it can also mean years of recoupment before you see meaningful money, and reduced control over when and how you release. Read any deal for ownership-transfer language before signing anything."]},
+   {"h2":"Hip-hop and rap labels","body":[
+     "<b>Kalamkaar</b>, founded in 2017 by Raftaar and Ankit Khanna, is one of India's first independently-run hip-hop labels. It has signed Krsna, Rashmeet Kaur, Deep Kalsi, Karma, Yunan and Harjas Harjaai.",
+     "<b>Azadi Records</b>, founded in Delhi in 2017 by Uday Kapur and Mo Joshi, built its name on Prabh Deep and, until 2023, Seedhe Maut. Seedhe Maut released Bayaan, Nayaab and the Lunch Break mixtape with Azadi before starting their own label.",
+     "<b>DL91</b> is that label, Seedhe Maut's own imprint, founded in 2024 after they left Azadi.",
+     "<b>Mass Appeal India</b> is the Indian arm of the US hip-hop label Mass Appeal Records. <b>IncInk Records</b>, co-founded by actor Ranveer Singh and Navraz Eranee, also focuses on hip-hop and rap."]},
+   {"h2":"Electronic and EDM labels","body":[
+     "<b>Qilla Records</b> and <b>Milkman Records</b> are the two names most associated with India's independent electronic scene, releasing and pushing homegrown electronic producers rather than importing international EDM."]},
+   {"h2":"Indie and alternative labels","body":[
+     "<b>Pagal Haina</b> is an indie rock and pop label, home to Peter Cat Recording Co. <b>ennui.BOMB</b>, running since 2004 under Rishu Singh, is one of the longest-standing DIY indie labels in the country. <b>Amarrass Records</b> focuses specifically on folk."]},
+   {"h2":"Should you sign to a label, or self-release?","body":[
+     "For a first release, almost nobody needs a label: a flat-fee distributor gets you onto every platform for the price of a small subscription, and you keep everything. A label starts to make sense once you have momentum, releases, a live following, and need real budget behind a bigger moment, and even then, read the deal for exactly what rights you are trading for that budget.",
+     "If you are earlier in that process, start with <a href=\"/guides/how-to-release-a-song-in-india/\">how to release a song in India</a> and <a href=\"/guides/best-music-distributor-india/\">choosing a distributor</a>, both of which get you releasing without giving anything up."]}],
+ "faq":[
+   ("What label is Seedhe Maut signed to?","Seedhe Maut were signed to Azadi Records from 2017 to 2023, releasing Bayaan, Nayaab and the Lunch Break mixtape. In 2024 they left to start their own label, DL91."),
+   ("What genre does Kalamkaar focus on?","Hip-hop and rap primarily, with some pop and EDM. Artists on the label include Krsna, Rashmeet Kaur, Deep Kalsi, Karma, Yunan and Harjas Harjaai."),
+   ("Do I need a record label to release music in India?","No. Any independent artist can release directly through a distributor onto Spotify, Apple Music, JioSaavn and YouTube Music, keeping 100% of their rights. A label is one option for a later stage, not a requirement to start."),
+   ("What is the difference between a record label and a distributor?","A distributor delivers your music to streaming platforms for a flat fee or small cut and takes nothing else. A label funds and pushes a record in exchange for a share of your rights or royalties, usually across a fixed number of releases.")]
 },
 ]
