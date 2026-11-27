@@ -56,10 +56,15 @@ def is_sheet(slug): return any(k in slug for k in SHEET_KW)
 TITLE_OVERRIDE = {
     "stage-plots-input-list-guide": "Stage Plot: What Venues Actually Want",
     "playlist-curators-101-guide-india": "How to Pitch Playlist Curators in India",
+    # GSC showed "day sheet template tour manager" (19 impressions, position
+    # 42.6) landing on this page, but the title never says "day sheet" --
+    # only "run sheet", a near-synonym in touring. Added the alt term.
+    "run-sheet-template": "Day Sheet / Run Sheet Template for Tour Managers (India)",
 }
 DESC_OVERRIDE = {
     "stage-plots-input-list-guide": "What to put on a stage plot and input list for Indian venues, and why sending one in advance changes how a venue treats your band on load-in day.",
     "playlist-curators-101-guide-india": "How independent Indian playlist curators actually work, what makes them add a track, and how to pitch without sounding like a form email.",
+    "run-sheet-template": "A free day sheet and run sheet template for touring in India: load-in, soundcheck, doors and set times in one sheet your tour manager and the venue can both follow.",
 }
 
 def kind(title):

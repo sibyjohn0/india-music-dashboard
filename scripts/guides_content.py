@@ -31,7 +31,8 @@ GUIDES = [
  "faq":[
    ("How much does it cost to release a song in India?","With a flat-fee distributor you can release for roughly the price of a small annual subscription, often under a couple of thousand rupees a year for unlimited songs. Mixing and mastering are the bigger variable cost."),
    ("Do I need a label to release music in India?","No. Any independent artist can release directly through a distributor. A label is one option, not a requirement, and most take rights in exchange."),
-   ("How long before release should I upload?","Upload and schedule at least two to four weeks ahead so you can pitch Spotify editorial and reach curators while the song is still unreleased.")]
+   ("How long before release should I upload?","Upload and schedule at least two to four weeks ahead so you can pitch Spotify editorial and reach curators while the song is still unreleased."),
+   ("Is publishing music the same as releasing it?","Not quite. Releasing is getting your track onto Spotify, Apple Music and JioSaavn through a distributor, which is what this guide covers. Publishing specifically means registering your composition, the lyrics and melody, with IPRS so you collect royalties when it is played or covered, a separate step covered in Step 5 below. Most searches for how to publish music in India are really asking about this whole release process.")]
 },
 {
  "slug":"how-to-release-and-promote-punjabi-music-india","cat":"Promotion","hero":"pool-chair",
