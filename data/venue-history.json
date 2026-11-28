@@ -2715,21 +2715,9 @@
   },
   {
     "week": "2026-W48",
-    "date": "2026-11-27",
+    "date": "2026-11-28",
     "cities": {
       "Mumbai": {
-        "Mahalaxmi Race Course": {
-          "shows": 3,
-          "price_min": 2500,
-          "price_max": 4999,
-          "next_date": "2026-11-27"
-        },
-        "East Indian Hall": {
-          "shows": 1,
-          "price_min": 1500,
-          "price_max": 1500,
-          "next_date": "2026-11-27"
-        },
         "DOME, SVP Stadium": {
           "shows": 2,
           "price_min": 799,
@@ -2759,6 +2747,12 @@
           "price_min": 350,
           "price_max": 350,
           "next_date": "2026-12-13"
+        },
+        "Mahalaxmi Race Course": {
+          "shows": 2,
+          "price_min": 2500,
+          "price_max": 4499,
+          "next_date": "2026-12-18"
         },
         "Lake Shore Mall": {
           "shows": 1,
@@ -2883,10 +2877,10 @@
           "next_date": "2027-01-23"
         },
         "Venue TBC": {
-          "shows": 51,
+          "shows": 52,
           "price_min": 80,
           "price_max": 200000,
-          "next_date": "2026-11-27"
+          "next_date": "2026-11-28"
         },
         "Space Session": {
           "shows": 1,
@@ -3003,7 +2997,7 @@
           "next_date": "2027-01-16"
         },
         "Venue TBC": {
-          "shows": 26,
+          "shows": 27,
           "price_min": 300,
           "price_max": 28990,
           "next_date": "2026-12-11"
@@ -3065,7 +3059,7 @@
         "Paul John Luxury Blended Water": {
           "shows": 1,
           "price_min": 2999,
-          "price_max": 2999,
+          "price_max": 4999,
           "next_date": "2026-12-04"
         },
         "Cosy Box,": {
@@ -3133,18 +3127,6 @@
           "price_min": 999,
           "price_max": 999,
           "next_date": "30 Dec Wed"
-        },
-        "JLN Stadium, Gate No. 1": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-27"
-        },
-        "Major Dhyanchand National Stadium": {
-          "shows": 1,
-          "price_min": null,
-          "price_max": null,
-          "next_date": "2026-11-27"
         }
       },
       "Dehradun": {
@@ -3187,10 +3169,24 @@
           "next_date": "29 Nov Sun"
         }
       },
+      "Pune": {
+        "Venue TBC": {
+          "shows": 10,
+          "price_min": 199,
+          "price_max": 2000,
+          "next_date": "2026-12-06"
+        },
+        "antisocial": {
+          "shows": 1,
+          "price_min": 799,
+          "price_max": 799,
+          "next_date": "2026-12-12"
+        }
+      },
       "Manali": {
         "Venue TBC": {
           "shows": 1,
-          "price_min": 3499,
+          "price_min": 1500,
           "price_max": 3499,
           "next_date": "2026-12-11"
         }
@@ -3201,20 +3197,6 @@
           "price_min": 1500,
           "price_max": 1500,
           "next_date": "2026-12-12"
-        }
-      },
-      "Pune": {
-        "antisocial": {
-          "shows": 1,
-          "price_min": 799,
-          "price_max": 799,
-          "next_date": "2026-12-12"
-        },
-        "Venue TBC": {
-          "shows": 8,
-          "price_min": 200,
-          "price_max": 2000,
-          "next_date": "21 Nov Sat"
         }
       },
       "Jaipur": {
@@ -3229,7 +3211,7 @@
         "Venue TBC": {
           "shows": 2,
           "price_min": 3999,
-          "price_max": 15000,
+          "price_max": 17600,
           "next_date": "2026-12-18"
         }
       },
@@ -3285,6 +3267,14 @@
           "next_date": "23 Jan Sat"
         }
       },
+      "Delag": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": null,
+          "price_max": null,
+          "next_date": "27 Nov Fri"
+        }
+      },
       "Guwahati": {
         "Guwahati": {
           "shows": 1,
@@ -3306,6 +3296,14 @@
           "shows": 1,
           "price_min": null,
           "price_max": null,
+          "next_date": "28 Nov Sat"
+        }
+      },
+      "Varanasi": {
+        "Venue TBC": {
+          "shows": 1,
+          "price_min": 699,
+          "price_max": 699,
           "next_date": "28 Nov Sat"
         }
       },

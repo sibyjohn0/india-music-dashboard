@@ -1,41 +1,11 @@
 {
-  "generated_at": "2026-11-27T09:50:23.333781+00:00",
+  "generated_at": "2026-11-28T08:58:43.540306+00:00",
   "cities": {
     "mumbai": {
       "name": "Mumbai",
-      "venue_count": 17,
-      "show_count": 24,
+      "venue_count": 16,
+      "show_count": 22,
       "venues": [
-        {
-          "name": "Mahalaxmi Race Course",
-          "city": "Mumbai",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Diljit Dosanjh - RuPay Aura India Tour, Mumbai",
-              "date": "2026-11-27",
-              "url": "https://in.bookmyshow.com/events/diljit-dosanjh-rupay-aura-india-tour-mumbai/et977163q4",
-              "price": "from ₹4,999",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Sunburn Festival 2026",
-              "date": "2026-12-18",
-              "url": "https://in.bookmyshow.com/events/sunburn-festival-2026/ET00498558",
-              "price": "from ₹2,500",
-              "source": "bookmyshow"
-            },
-            {
-              "name": "Lollapalooza India 2027",
-              "date": "2027-01-23",
-              "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
-              "price": "from ₹4,499",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 3,
-          "next_date": "2026-11-27"
-        },
         {
           "name": "DOME, SVP Stadium",
           "city": "Mumbai",
@@ -106,6 +76,29 @@
           "next_date": "2026-12-13"
         },
         {
+          "name": "Mahalaxmi Race Course",
+          "city": "Mumbai",
+          "area": "",
+          "gigs": [
+            {
+              "name": "Sunburn Festival 2026",
+              "date": "2026-12-18",
+              "url": "https://in.bookmyshow.com/events/sunburn-festival-2026/ET00498558",
+              "price": "from ₹2,500",
+              "source": "bookmyshow"
+            },
+            {
+              "name": "Lollapalooza India 2027",
+              "date": "2027-01-23",
+              "url": "https://in.bookmyshow.com/events/lollapalooza-india-2027/ET00513740",
+              "price": "from ₹4,499",
+              "source": "bookmyshow"
+            }
+          ],
+          "shows": 2,
+          "next_date": "2026-12-18"
+        },
+        {
           "name": "MMRDA Grounds",
           "city": "Mumbai",
           "area": "",
@@ -150,22 +143,6 @@
           ],
           "shows": 2,
           "next_date": "2027-01-16"
-        },
-        {
-          "name": "East Indian Hall",
-          "city": "Mumbai",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Olly Fest After Hours",
-              "date": "2026-11-27",
-              "url": "https://in.bookmyshow.com/events/olly-fest-after-hours/ET00522993",
-              "price": "from ₹1,500",
-              "source": "bookmyshow"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-27"
         },
         {
           "name": "Infiniti Mall",
@@ -358,38 +335,6 @@
           "next_date": null
         },
         {
-          "name": "JLN Stadium, Gate No. 1",
-          "city": "Delhi",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Karigar Bazaar Delhi 2nd Edition",
-              "date": "2026-11-27",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-27"
-        },
-        {
-          "name": "Major Dhyanchand National Stadium",
-          "city": "Delhi",
-          "area": "",
-          "gigs": [
-            {
-              "name": "Sahitya Aajtak 2026 - Delhi",
-              "date": "2026-11-27",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-27"
-        },
-        {
           "name": "Paul John Luxury Blended Water",
           "city": "Delhi",
           "area": "",
@@ -454,6 +399,22 @@
           "next_date": null
         },
         {
+          "name": "India Music Collective",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "India Music Collective presents 90s Bollywood Baithak",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/india-music-collective-presents-90-bollywood-baithak-sbvofspz",
+              "price": "from ₹499",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
+        },
+        {
           "name": "Room Xo",
           "city": "Delhi",
           "area": "",
@@ -511,6 +472,22 @@
               "date": null,
               "url": "https://www.skillboxes.com/events/nizami-brothers-live-qawwali-at-koca-sbjixuye",
               "price": "₹499–₹30,000",
+              "source": "skillboxes"
+            }
+          ],
+          "shows": 1,
+          "next_date": null
+        },
+        {
+          "name": "Agave Room",
+          "city": "Delhi",
+          "area": "",
+          "gigs": [
+            {
+              "name": "REVENTÓN: TEXTURE × ASHIM DAS at Agave Room",
+              "date": null,
+              "url": "https://www.skillboxes.com/events/reventon-texture-ashim-das-sbuffjxn",
+              "price": "",
               "source": "skillboxes"
             }
           ],
@@ -902,25 +879,9 @@
     },
     "goa": {
       "name": "Goa",
-      "venue_count": 3,
-      "show_count": 3,
+      "venue_count": 2,
+      "show_count": 2,
       "venues": [
-        {
-          "name": "Hilltop, Vagator",
-          "city": "Goa",
-          "area": "Vagator",
-          "gigs": [
-            {
-              "name": "Royal Enfield Motoverse 2026",
-              "date": "2026-11-27",
-              "url": "",
-              "price": "",
-              "source": "thumpn"
-            }
-          ],
-          "shows": 1,
-          "next_date": "2026-11-27"
-        },
         {
           "name": "Thalassa Beach Boutique Resort",
           "city": "Goa",
